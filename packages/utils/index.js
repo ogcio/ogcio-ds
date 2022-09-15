@@ -1,4 +1,4 @@
-import { ThemeProvider } from './ThemeProvider/ThemeProvider';
+import { ThemeProvider } from './ThemeProvider';
 import { transformVariables } from './transformVariables';
 import { transformClassNames } from './transformClassNames';
 
