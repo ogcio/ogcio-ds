@@ -3,24 +3,15 @@ module.exports = {
     builder: 'webpack5',
   },
   stories: [
-    '../components/**/*.stories.mdx',
-    '../components/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/components/**/*.stories.mdx',
+    '../packages/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-addon-themes',
-    {
-      name: '@storybook/preset-scss',
-      options: {
-        cssLoaderOptions: {
-          modules: {
-            exportLocalsConvention: 'camelCase'
-          }
-        }
-      }
-    },
+    '@storybook/preset-scss',
+    'storybook-addon-themes'
   ],
   framework: '@storybook/react',
 };

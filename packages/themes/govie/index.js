@@ -1,5 +1,5 @@
-import ButtonTheme from './button';
-import { transformVariables } from '../../utils/transformVariables';
+import ButtonTheme from './button.js';
+import { transformVariables } from '../../utils/transformVariables.js';
 
 // TODO: transform these using a build script
 const theme = {

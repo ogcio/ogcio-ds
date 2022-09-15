@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test --workspaces --if-present",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.0",
     "@babel/preset-env": "^7.19.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -52,5 +53,8 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "style-dictionary": "^3.7.1"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

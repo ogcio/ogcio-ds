@@ -1,10 +1,8 @@
-import { addDecorator } from '@storybook/react'; // <- or your storybook framework
-import { withThemes } from 'storybook-addon-themes/react';
-import govie from '../themes/govie';
-import garda from '../themes/garda';
-import { ThemeProvider } from '../utils/ThemeProvider/ThemeProvider'; // <- or your storybook framework
+import { addDecorator } from '@storybook/react';
 
-const themes = { govie, garda }
+import { withThemes } from 'storybook-addon-themes/react';
+import * as themes from '@ogcio-ds/themes';
+import { ThemeProvider } from '@ogcio-ds/utils';
 
 addDecorator(withThemes);
 

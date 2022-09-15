@@ -1,0 +1,26 @@
+{
+  "name": "@ogcio-ds/themes",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build:tokens": "node -r esm build.js",
+    "build:theme": "parcel build ./*/index.scss",
+    "build": "npm run build:tokens && npm run build:theme",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogcio/ogcio-ds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogcio/ogcio-ds/issues"
+  },
+  "homepage": "https://github.com/ogcio/ogcio-ds#readme",
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "parcel": "^2.7.0"
+  }
+}

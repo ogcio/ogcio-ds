@@ -1,4 +1,4 @@
-import tokens from '../../tokens/garda';
+import tokens from '@ogcio-ds/tokens/garda';
 
 const secondary = {
   backgroundColor: tokens.color.white,

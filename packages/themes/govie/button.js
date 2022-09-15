@@ -1,4 +1,4 @@
-import tokens from '../../tokens/govie';
+import tokens from '@ogcio-ds/tokens/govie';
 
 const secondary = {
   backgroundColor: tokens.color.white,
