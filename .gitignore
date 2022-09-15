@@ -3,4 +3,6 @@ node_modules
 .parcel-cache
 
 packages/themes/*/build
-packages/themes/dist
+packages/*/dist
+
+examples/*/dist
