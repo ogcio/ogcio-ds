@@ -1,17 +1,19 @@
 {
-  "name": "@ogcio-ds/components",
+  "name": "@ogcio-ds/built",
   "version": "0.0.1",
   "description": "",
   "private": true,
   "scripts": {
-    "build": "babel src --out-dir dist --copy-files"
+    "build": "npm run build:core && npm run build:tokens && npm run build:theme",
+    "build:core": "parcel build src/index.js",
+    "build:tokens": "node -r esm buildThemes.js",
+    "build:theme": "parcel build ./tmp/*.scss"
   },
   "browserslist": [
     "> 0.5%",
     "last 2 versions",
     "not dead"
   ],
-  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ogcio/ogcio-ds.git"
@@ -23,14 +25,7 @@
   },
   "homepage": "https://github.com/ogcio/ogcio-ds#readme",
   "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.19.1",
-    "@babel/plugin-transform-react-jsx": "^7.19.0"
-  },
-  "peerDependencies": {
-    "classnames": "^2.3.2",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "esm": "^3.2.25",
+    "parcel": "^2.7.0"
   }
 }

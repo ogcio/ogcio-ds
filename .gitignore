@@ -2,7 +2,7 @@ node_modules
 .idea
 .parcel-cache
 
-packages/themes/*/build
+packages/built/tmp
 packages/*/dist
 
 examples/*/dist

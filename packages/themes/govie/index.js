@@ -1,9 +1,14 @@
-import ButtonTheme from './button.js';
-import { transformVariables } from '../../utils/transformVariables.js';
+import ButtonTheme from './button';
+import {
+  transformComponentVariables,
+  transformGlobalVariables,
+} from '@ogcio-ds/utils';
+import tokens from '@ogcio-ds/tokens/govie';
 
 // TODO: transform these using a build script
 const theme = {
-  ...transformVariables('button', ButtonTheme),
+  ...transformGlobalVariables(tokens),
+  ...transformComponentVariables('button', ButtonTheme),
 };
 
 export default theme;

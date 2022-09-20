@@ -2,7 +2,7 @@ import { addDecorator } from '@storybook/react';
 
 import { withThemes } from 'storybook-addon-themes/react';
 import * as themes from '@ogcio-ds/themes';
-import { ThemeProvider } from '@ogcio-ds/utils';
+import { ThemeProvider } from '@ogcio-ds/components';
 
 addDecorator(withThemes);
 
