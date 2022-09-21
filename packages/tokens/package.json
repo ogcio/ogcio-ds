@@ -1,0 +1,19 @@
+{
+  "name": "@ogcio-ds/tokens",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogcio/ogcio-ds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogcio/ogcio-ds/issues"
+  },
+  "homepage": "https://github.com/ogcio/ogcio-ds#readme"
+}

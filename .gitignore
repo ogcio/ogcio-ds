@@ -1,0 +1,8 @@
+node_modules
+.idea
+.parcel-cache
+
+packages/built/tmp
+packages/*/dist
+
+examples/*/dist
