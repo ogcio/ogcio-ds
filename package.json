@@ -7,7 +7,7 @@
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook:build": "build-storybook --output-dir build",
     "example:html": "npm run start -w examples/html",
     "example:cra": "npm run start -w examples/create-react-app"
   },
