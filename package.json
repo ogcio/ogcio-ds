@@ -10,7 +10,9 @@
     "storybook:build": "build-storybook --output-dir build",
     "example:html": "npm run start -w examples/html",
     "example:cra": "npm run start -w examples/create-react-app",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "prettier --write \"(packages|examples)/**/*.{css,scss,md}\"",
+    "lint:fix": "eslint --fix \"packages/**/*.{js,jsx,json}\""
   },
   "repository": {
     "type": "git",
@@ -65,10 +67,10 @@
     "examples/*"
   ],
   "lint-staged": {
-    "(packages|examples)/**/*.+(js|jsx|json)": [
+    "packages/**/*.{js,jsx,json}": [
       "eslint --fix"
     ],
-    "(packages|examples)/**/*.{css,scss,md}": [
+    "packages/**/*.{css,scss,md}": [
       "prettier --write"
     ]
   }
