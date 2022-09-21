@@ -1,6 +1,7 @@
 node_modules
 .idea
 .parcel-cache
+.DS_Store
 
 packages/built/tmp
 packages/*/dist
