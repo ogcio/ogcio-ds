@@ -6,3 +6,5 @@ packages/built/tmp
 packages/*/dist
 
 examples/*/dist
+
+build
