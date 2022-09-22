@@ -4,10 +4,14 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "npm run build:core && npm run build:tokens && npm run build:theme",
+    "build": "npm run build:core && npm run build:tokens && npm run build:themes",
+    "watch": "concurrently npm:watch:core npm:watch:tokens npm:watch:themes",
     "build:core": "parcel build src/index.js",
+    "watch:core": "parcel watch src/index.js",
     "build:tokens": "node -r esm buildThemes.js",
-    "build:theme": "parcel build ./tmp/*.scss"
+    "watch:tokens": "nodemon -w ../themes -w ../tokens -r esm buildThemes.js",
+    "build:themes": "parcel build ./tmp/*.scss",
+    "watch:themes": "parcel watch ./tmp/*.scss"
   },
   "browserslist": [
     "> 0.5%",
@@ -25,7 +29,9 @@
   },
   "homepage": "https://github.com/ogcio/ogcio-ds#readme",
   "devDependencies": {
+    "concurrently": "^7.4.0",
     "esm": "^3.2.25",
+    "nodemon": "^2.0.20",
     "parcel": "^2.7.0"
   }
 }

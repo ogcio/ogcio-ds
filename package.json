@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build --workspaces --if-present",
+    "watch": "concurrently --names packages/built,packages/components \"npm run watch -w packages/built\" \"npm run watch -w packages/components\"",
     "test": "npm run test --workspaces --if-present",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook --output-dir build",
