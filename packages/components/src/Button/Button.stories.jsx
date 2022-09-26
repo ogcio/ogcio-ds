@@ -5,5 +5,10 @@ export default {
   component: Button,
 };
 
-export const Default = () => <Button>test</Button>;
-export const Primary = () => <Button variant="primary">test</Button>;
+export const Default = (args) => <Button {...args}>test</Button>;
+Default.args = {};
+
+export const Primary = (args) => <Button {...args}>test</Button>;
+Primary.args = {
+  variant: 'primary',
+};
