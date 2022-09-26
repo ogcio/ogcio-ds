@@ -3,8 +3,11 @@ import { addDecorator } from '@storybook/react';
 import { withThemes } from 'storybook-addon-themes/react';
 import * as themes from '@ogcio-ds/themes';
 import { ThemeProvider } from '@ogcio-ds/components';
+import withHtmlSource from './withHtmlSource';
+
 
 addDecorator(withThemes);
+addDecorator(withHtmlSource)
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -16,10 +19,12 @@ export const parameters = {
   },
   themes: {
     default: 'govie',
-    Decorator: ({theme, children}) => <ThemeProvider theme={themes[theme.name]}>{children}</ThemeProvider>,
+    Decorator: ({theme, children}) => <ThemeProvider theme={themes[theme.name]}>
+      {children}
+    </ThemeProvider>,
     list: [
       { name: 'govie', class: 'theme-govie', color: '#004D44' },
       { name: 'garda', class: 'theme-garda', color: '#bfdbff' }
     ],
-  },
+  }
 }
