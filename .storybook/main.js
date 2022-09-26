@@ -10,8 +10,20 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/preset-scss',
-    'storybook-addon-themes'
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            mode: 'local',
+            // outputs the actual classname - necessary for the HTML snippets to output as expected
+            localIdentName: '[local]',
+          },
+        },
+      },
+    },
+    'storybook-addon-themes',
+    'storybook-source-code-addon',
   ],
   framework: '@storybook/react',
 };
