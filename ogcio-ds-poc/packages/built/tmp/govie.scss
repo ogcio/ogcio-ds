@@ -1,0 +1,27 @@
+:root {
+  --ogcio-color--gold: #83764E;
+  --ogcio-color--green: #004D44;
+  --ogcio-color--white: #FFFFFF;
+  --ogcio-spacing--md: 10px;
+  --ogcio-spacing--lg: 16px;
+  --ogcio-font-size--md: 16px;
+  --ogcio-button--default__background-color: #FFFFFF;
+  --ogcio-button--default__text-color: #004D44;
+  --ogcio-button--default__font-size: 16px;
+  --ogcio-button--default__padding-top: 10px;
+  --ogcio-button--default__padding-bottom: 10px;
+  --ogcio-button--default__padding-left: 16px;
+  --ogcio-button--default__padding-right: 16px;
+  --ogcio-button--secondary__background-color: #FFFFFF;
+  --ogcio-button--secondary__text-color: #004D44;
+  --ogcio-button--secondary__font-size: 16px;
+  --ogcio-button--secondary__padding-top: 10px;
+  --ogcio-button--secondary__padding-bottom: 10px;
+  --ogcio-button--secondary__padding-left: 16px;
+  --ogcio-button--secondary__padding-right: 16px;
+  --ogcio-button--primary__background-color: #83764E;
+  --ogcio-button--primary__text-color: #FFFFFF;
+  --ogcio-button--primary__padding-top: 10px;
+  --ogcio-button--primary__padding-bottom: 10px;
+}
+@import "../src/theme";
