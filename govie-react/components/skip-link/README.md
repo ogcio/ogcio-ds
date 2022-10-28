@@ -3,7 +3,7 @@ SkipLink
 
 ### Import
 ```js
-  import SkipLink from '@govuk-react/skip-link';
+  import SkipLink from '@govie-react/skip-link';
 ```
 <!-- STORY -->
 

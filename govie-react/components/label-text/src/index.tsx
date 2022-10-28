@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { spacing, typography } from '@govuk-react/lib';
+import { spacing, typography } from '@govie-react/lib';
 
 /**
  * Styled text to use as a label for a form input.

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { spacing, typography } from '@govuk-react/lib';
+import { spacing, typography } from '@govie-react/lib';
 
 /**
  * A lead paragraph is an introductory paragraph that you can use at the top of a page to summarise the content.

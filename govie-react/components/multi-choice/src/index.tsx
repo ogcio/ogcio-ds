@@ -9,17 +9,17 @@
 
 // Only one is valid, but at least one must be selected.
 // Therefore validation around the set of radios is required.
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { ERROR_COLOUR } from 'govuk-colours';
-import LabelText from '@govuk-react/label-text';
-import ErrorText from '@govuk-react/error-text';
-import HintText from '@govuk-react/hint-text';
+import LabelText from '@govie-react/label-text';
+import ErrorText from '@govie-react/error-text';
+import HintText from '@govie-react/hint-text';
 
-import { BORDER_WIDTH_MOBILE, SPACING } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { BORDER_WIDTH_MOBILE, SPACING } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 const StyledFieldset = styled('div')<{ error: boolean } & WithWhiteSpaceProps>(
   {

@@ -1,8 +1,8 @@
 {
-  "name": "@govuk-react/label-text",
+  "name": "@govie-react/label-text",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/lib": "^0.10.4"
+    "@govie-react/lib": "^0.10.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -12,8 +12,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-label-text.cjs.js",
-  "module": "dist/govuk-react-label-text.esm.js",
+  "main": "dist/govie-react-label-text.cjs.js",
+  "module": "dist/govie-react-label-text.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

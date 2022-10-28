@@ -145,9 +145,9 @@ export const TYPOGRAPHY_SCALE = {
 
 // NB Spacing values set above relate to headings
 // body classes use different responsive margins
-// captions use govuk-spacing(1) for xl and l sizes only
+// captions use govie-spacing(1) for xl and l sizes only
 
-// heading sizes supported in govuk-frontend
+// heading sizes supported in govie-frontend
 export const HEADING_SIZES = {
   XLARGE: 48,
   XL: 48,
@@ -159,7 +159,7 @@ export const HEADING_SIZES = {
   S: 19,
 };
 
-// caption sizes supported in govuk-frontend
+// caption sizes supported in govie-frontend
 export const CAPTION_SIZES = {
   XLARGE: 27,
   XL: 27,
@@ -169,7 +169,7 @@ export const CAPTION_SIZES = {
   M: 19,
 };
 
-// body text sizes supported in govuk-frontend
+// body text sizes supported in govie-frontend
 export const BODY_SIZES = {
   LARGE: 24,
   L: 24,

@@ -3,9 +3,9 @@ import type { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { MEDIA_QUERIES, GUTTER } from '@govuk-react/constants';
+import { MEDIA_QUERIES, GUTTER } from '@govie-react/constants';
 
-import crest from './govuk-crest.png';
+import crest from './govie-crest.png';
 
 import { Footer } from '.';
 

@@ -26,11 +26,11 @@ describe('Components', () => {
   });
 
   componentsWithPackageFile.map((component) =>
-    describe(`@govuk-react/${component}`, () => {
+    describe(`@govie-react/${component}`, () => {
       const pascal = kebabCaseToPascalCase(component);
 
       it(`is in dependencies`, () => {
-        expect(!!pkg.dependencies[`@govuk-react/${component}`]).toBe(true);
+        expect(!!pkg.dependencies[`@govie-react/${component}`]).toBe(true);
       });
 
       it(`is exported as ${pascal}`, () => {

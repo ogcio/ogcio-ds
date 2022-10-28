@@ -3,18 +3,18 @@
  *
  * - https://github.com/alphagov/govuk-frontend/tree/main/src/govuk/components/select
  */
-import type { LabelProps } from '@govuk-react/label';
+import type { LabelProps } from '@govie-react/label';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { BLACK, ERROR_COLOUR, YELLOW } from 'govuk-colours';
-import { MEDIA_QUERIES } from '@govuk-react/constants';
-import { typography } from '@govuk-react/lib';
+import { MEDIA_QUERIES } from '@govie-react/constants';
+import { typography } from '@govie-react/lib';
 
-import Label from '@govuk-react/label';
-import LabelText from '@govuk-react/label-text';
-import ErrorText from '@govuk-react/error-text';
-import HintText from '@govuk-react/hint-text';
+import Label from '@govie-react/label';
+import LabelText from '@govie-react/label-text';
+import ErrorText from '@govie-react/error-text';
+import HintText from '@govie-react/hint-text';
 
 const StyledSelect = styled('select')<{ error?: boolean }>(
   typography.font({ size: 19 }),

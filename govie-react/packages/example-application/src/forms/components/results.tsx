@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { Link } from 'react-router-dom';
 
 const Results: React.FC<ResultsProps> = ({
@@ -27,27 +27,27 @@ const Results: React.FC<ResultsProps> = ({
 
   return (
     <>
-      <GovUK.BackLink as={Link} to={backLink} onClick={onBackClick}>
+      <GovIE.BackLink as={Link} to={backLink} onClick={onBackClick}>
         Back
-      </GovUK.BackLink>
-      <GovUK.Panel title="Application complete">Reference: XBR1N21R3</GovUK.Panel>
-      <GovUK.LeadParagraph>
+      </GovIE.BackLink>
+      <GovIE.Panel title="Application complete">Reference: XBR1N21R3</GovIE.Panel>
+      <GovIE.LeadParagraph>
         Enim pariatur pariatur commodo incididunt ad nulla ex eu sunt ut ex id veniam veniam.
-      </GovUK.LeadParagraph>
-      <GovUK.Paragraph>
+      </GovIE.LeadParagraph>
+      <GovIE.Paragraph>
         Consequat adipisicing aliquip eiusmod nostrud et proident non id consequat aliquip eiusmod aliquip.
-      </GovUK.Paragraph>
-      <GovUK.UnorderedList>
-        <GovUK.ListItem>Name: {firstName}</GovUK.ListItem>
-        <GovUK.ListItem>Description: {description}</GovUK.ListItem>
-        <GovUK.ListItem>Nationality: {nationality?.join(', ')}</GovUK.ListItem>
-        <GovUK.ListItem>
+      </GovIE.Paragraph>
+      <GovIE.UnorderedList>
+        <GovIE.ListItem>Name: {firstName}</GovIE.ListItem>
+        <GovIE.ListItem>Description: {description}</GovIE.ListItem>
+        <GovIE.ListItem>Nationality: {nationality?.join(', ')}</GovIE.ListItem>
+        <GovIE.ListItem>
           Date of birth: {dob?.day}/{dob?.month}/{dob?.year}
-        </GovUK.ListItem>
-        <GovUK.ListItem>Animal: {animal}</GovUK.ListItem>
-        <GovUK.ListItem>Multiple pets: {hasMultiplePets}</GovUK.ListItem>
-        <GovUK.ListItem>Pet photo: {photoString && <img alt="Your pet" src={photoString} />}</GovUK.ListItem>
-      </GovUK.UnorderedList>
+        </GovIE.ListItem>
+        <GovIE.ListItem>Animal: {animal}</GovIE.ListItem>
+        <GovIE.ListItem>Multiple pets: {hasMultiplePets}</GovIE.ListItem>
+        <GovIE.ListItem>Pet photo: {photoString && <img alt="Your pet" src={photoString} />}</GovIE.ListItem>
+      </GovIE.UnorderedList>
     </>
   );
 };

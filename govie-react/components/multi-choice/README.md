@@ -3,7 +3,7 @@ MultiChoice
 
 ### Import
 ```js
-  import MultiChoice from '@govuk-react/multi-choice';
+  import MultiChoice from '@govie-react/multi-choice';
 ```
 <!-- STORY -->
 

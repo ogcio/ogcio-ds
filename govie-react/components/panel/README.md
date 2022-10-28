@@ -3,7 +3,7 @@ Panel
 
 ### Import
 ```js
-  import Panel from '@govuk-react/panel';
+  import Panel from '@govie-react/panel';
 ```
 <!-- STORY -->
 

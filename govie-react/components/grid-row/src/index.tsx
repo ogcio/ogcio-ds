@@ -5,8 +5,8 @@
  * - https://github.com/alphagov/govuk_elements/blob/master/assets/sass/elements/_layout.scss
  */
 import styled from 'styled-components';
-import { GUTTER_HALF, MEDIA_QUERIES } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { GUTTER_HALF, MEDIA_QUERIES } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 /**
  * Grid Row, to be used as a parent component for GridCol.

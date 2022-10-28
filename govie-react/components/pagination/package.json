@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/pagination",
+  "name": "@govie-react/pagination",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/icons": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/icons": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-pagination.cjs.js",
-  "module": "dist/govuk-react-pagination.esm.js",
+  "main": "dist/govie-react-pagination.cjs.js",
+  "module": "dist/govie-react-pagination.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

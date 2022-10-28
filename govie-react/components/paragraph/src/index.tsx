@@ -3,15 +3,15 @@
  *
  * - https://govuk-elements.herokuapp.com/typography/#typography-body-copy
  */
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import type { ReactMarkdownProps } from 'react-markdown';
 
 import ReactMarkdown from 'react-markdown';
-import { spacing, typography } from '@govuk-react/lib';
-import Link from '@govuk-react/link';
+import { spacing, typography } from '@govie-react/lib';
+import Link from '@govie-react/link';
 
 const StyledParagraph = styled(ReactMarkdown)<ParagraphProps>(
   {

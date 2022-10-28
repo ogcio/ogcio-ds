@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { GUTTER, MEDIA_QUERIES } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { GUTTER, MEDIA_QUERIES } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 const UnorderedList = styled('ul')<UnorderedListProps>(
   ({ inline }) =>

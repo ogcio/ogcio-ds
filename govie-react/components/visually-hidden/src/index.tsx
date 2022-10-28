@@ -6,7 +6,7 @@
  */
 import * as React from 'react';
 import styled from 'styled-components';
-import { visuallyHidden } from '@govuk-react/lib';
+import { visuallyHidden } from '@govie-react/lib';
 
 /**
  * Hide an element visually, but have it available for screen readers.

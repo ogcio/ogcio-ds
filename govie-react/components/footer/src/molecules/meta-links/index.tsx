@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { H2 } from '@govuk-react/heading';
-import VisuallyHidden from '@govuk-react/visually-hidden';
+import { H2 } from '@govie-react/heading';
+import VisuallyHidden from '@govie-react/visually-hidden';
 
 import UnorderedList from '../../atoms/unordered-list';
 import { ListItem } from '../../atoms/list-item';

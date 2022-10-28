@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import Paragraph from '@govuk-react/paragraph';
+import Paragraph from '@govie-react/paragraph';
 
 import { InsetText } from '.';
 

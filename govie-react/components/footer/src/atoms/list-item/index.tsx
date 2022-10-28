@@ -1,7 +1,7 @@
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
-import { spacing } from '@govuk-react/lib';
+import { spacing } from '@govie-react/lib';
 
 export const ListItem = styled('li')<ListItemProps>(
   ({ inline }) =>

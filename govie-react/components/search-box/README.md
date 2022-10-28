@@ -3,7 +3,7 @@ SearchBox
 
 ### Import
 ```js
-  import SearchBox from '@govuk-react/search-box';
+  import SearchBox from '@govie-react/search-box';
 ```
 <!-- STORY -->
 

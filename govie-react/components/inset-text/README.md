@@ -3,7 +3,7 @@ InsetText
 
 ### Import
 ```js
-  import InsetText from '@govuk-react/inset-text';
+  import InsetText from '@govie-react/inset-text';
 ```
 <!-- STORY -->
 

@@ -1,13 +1,13 @@
 {
-  "name": "@govuk-react/footer",
+  "name": "@govie-react/footer",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/heading": "^0.10.4",
-    "@govuk-react/icons": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
-    "@govuk-react/link": "^0.10.4",
-    "@govuk-react/visually-hidden": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/heading": "^0.10.4",
+    "@govie-react/icons": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
+    "@govie-react/link": "^0.10.4",
+    "@govie-react/visually-hidden": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -18,8 +18,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-footer.cjs.js",
-  "module": "dist/govuk-react-footer.esm.js",
+  "main": "dist/govie-react-footer.cjs.js",
+  "module": "dist/govie-react-footer.esm.js",
   "source": "src/index.tsx",
   "author": "John Robertson",
   "license": "MIT",

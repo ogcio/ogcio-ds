@@ -3,15 +3,15 @@
  *
  * - https://github.com/alphagov/govuk-frontend/tree/main/src/govuk/components/file-upload
  */
-import type { LabelProps } from '@govuk-react/label';
+import type { LabelProps } from '@govie-react/label';
 
 import * as React from 'react';
 import styled from 'styled-components';
-import Label from '@govuk-react/label';
-import LabelText from '@govuk-react/label-text';
-import ErrorText from '@govuk-react/error-text';
-import HintText from '@govuk-react/hint-text';
-import { FONT_SIZE, LINE_HEIGHT, NTA_LIGHT, MEDIA_QUERIES } from '@govuk-react/constants';
+import Label from '@govie-react/label';
+import LabelText from '@govie-react/label-text';
+import ErrorText from '@govie-react/error-text';
+import HintText from '@govie-react/hint-text';
+import { FONT_SIZE, LINE_HEIGHT, NTA_LIGHT, MEDIA_QUERIES } from '@govie-react/constants';
 
 const StyledInput = styled('input')({
   boxSizing: 'border-box',

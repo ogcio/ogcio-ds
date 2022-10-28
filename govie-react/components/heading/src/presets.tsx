@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LEVEL_SIZE } from '@govuk-react/constants';
+import { LEVEL_SIZE } from '@govie-react/constants';
 import { Heading } from './heading';
 
 export const H1: React.FC<React.ComponentProps<typeof Heading>> = (props) => (

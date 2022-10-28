@@ -3,7 +3,7 @@ ErrorText
 
 ### Import
 ```js
-  import ErrorText from '@govuk-react/error-text';
+  import ErrorText from '@govie-react/error-text';
 ```
 <!-- STORY -->
 

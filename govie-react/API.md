@@ -3,7 +3,7 @@ BackLink
 
 ### Import
 ```js
-  import BackLink from '@govuk-react/back-link';
+  import BackLink from '@govie-react/back-link';
 ```
 <!-- STORY -->
 
@@ -293,7 +293,7 @@ Breadcrumbs
 
 ### Import
 ```js
-  import Breadcrumbs from '@govuk-react/breadcrumbs';
+  import Breadcrumbs from '@govie-react/breadcrumbs';
 ```
 <!-- STORY -->
 
@@ -567,7 +567,7 @@ Button
 
 ### Import
 ```js
-  import Button from '@govuk-react/button';
+  import Button from '@govie-react/button';
 ```
 <!-- STORY -->
 
@@ -637,7 +637,7 @@ Prop | Required | Default | Type | Description
  `buttonColour` |  | ```undefined``` | string | Override for default button colour
  `buttonHoverColour` |  | ```undefined``` | string | Override for default button hover colour,<br/>which defaults to `buttonColour` darkened by 5%
  `buttonShadowColour` |  | ```undefined``` | string | Override for default button shadow colour,<br/>which defaults to `buttonColour` darkened by 15%
- `buttonTextColour` |  | ```undefined``` | string | Override for default button text colour,<br/>which defaults to govuk white
+ `buttonTextColour` |  | ```undefined``` | string | Override for default button text colour,<br/>which defaults to govie white
  `children` |  |  | ReactNode | Button text
  `className` |  |  | string | 
  `color` |  |  | string | 
@@ -866,7 +866,7 @@ Caption
 
 ### Import
 ```js
-  import Caption from '@govuk-react/caption';
+  import Caption from '@govie-react/caption';
 ```
 <!-- STORY -->
 
@@ -1148,7 +1148,7 @@ Checkbox
 
 ### Import
 ```js
-  import Checkbox from '@govuk-react/checkbox';
+  import Checkbox from '@govie-react/checkbox';
 ```
 <!-- STORY -->
 
@@ -1456,7 +1456,7 @@ DateField
 
 ### Import
 ```js
-  import DateField from '@govuk-react/date-field';
+  import DateField from '@govie-react/date-field';
 ```
 <!-- STORY -->
 
@@ -1738,7 +1738,7 @@ Details
 
 ### Import
 ```js
-  import Details from '@govuk-react/details';
+  import Details from '@govie-react/details';
 ```
 <!-- STORY -->
 
@@ -1761,7 +1761,7 @@ DocumentFooterMetadata
 
 ### Import
 ```js
-  import DocumentFooterMetadata from '@govuk-react/document-footer-metadata';
+  import DocumentFooterMetadata from '@govie-react/document-footer-metadata';
 ```
 <!-- STORY -->
 
@@ -1784,7 +1784,7 @@ ErrorSummary
 
 ### Import
 ```js
-  import ErrorSummary from '@govuk-react/error-summary';
+  import ErrorSummary from '@govie-react/error-summary';
 ```
 <!-- STORY -->
 
@@ -1808,7 +1808,7 @@ ErrorText
 
 ### Import
 ```js
-  import ErrorText from '@govuk-react/error-text';
+  import ErrorText from '@govie-react/error-text';
 ```
 <!-- STORY -->
 
@@ -2089,7 +2089,7 @@ Fieldset
 
 ### Import
 ```js
-  import Fieldset from '@govuk-react/fieldset';
+  import Fieldset from '@govie-react/fieldset';
 ```
 <!-- STORY -->
 
@@ -2114,7 +2114,7 @@ FileUpload
 
 ### Import
 ```js
-  import FileUpload from '@govuk-react/file-upload';
+  import FileUpload from '@govie-react/file-upload';
 ```
 <!-- STORY -->
 
@@ -2145,7 +2145,7 @@ Footer
 
 ### Import
 ```js
-  import Footer from '@govuk-react/footer';
+  import Footer from '@govie-react/footer';
 ```
 <!-- STORY -->
 
@@ -2170,7 +2170,7 @@ FormGroup
 
 ### Import
 ```js
-  import FormGroup from '@govuk-react/form-group';
+  import FormGroup from '@govie-react/form-group';
 ```
 <!-- STORY -->
 
@@ -2453,11 +2453,11 @@ GlobalStyle
 
 ### Import
 ```js
-  import GlobalStyle from '@govuk-react/global-style';
+  import GlobalStyle from '@govie-react/global-style';
 ```
 <!-- STORY -->
 
-A Styled Component to apply global style for use with govuk-react.
+A Styled Component to apply global style for use with govie-react.
 
 - https://govuk-react.github.io/govuk-react/?path=/docs/global-style
 
@@ -2474,7 +2474,7 @@ GridCol
 
 ### Import
 ```js
-  import GridCol from '@govuk-react/grid-col';
+  import GridCol from '@govie-react/grid-col';
 ```
 <!-- STORY -->
 
@@ -2483,7 +2483,7 @@ Grid Column.
 Should always be wrapped by `GridRow`. Will always render a column at full width if
 the browser width is below the `TABLET` breakpoint.
 
-NB our grid is based on flex-box, which differs from govuk-frontend, which instead uses
+NB our grid is based on flex-box, which differs from govie-frontend, which instead uses
 floats, however it is otherwise similar to use.
 
 - https://govuk-react.github.io/govuk-react/?path=/docs/grid-col
@@ -2766,7 +2766,7 @@ GridRow
 
 ### Import
 ```js
-  import GridRow from '@govuk-react/grid-row';
+  import GridRow from '@govie-react/grid-row';
 ```
 <!-- STORY -->
 
@@ -3047,7 +3047,7 @@ HintText
 
 ### Import
 ```js
-  import HintText from '@govuk-react/hint-text';
+  import HintText from '@govie-react/hint-text';
 ```
 <!-- STORY -->
 
@@ -3328,7 +3328,7 @@ InputField
 
 ### Import
 ```js
-  import InputField from '@govuk-react/input-field';
+  import InputField from '@govie-react/input-field';
 ```
 <!-- STORY -->
 
@@ -3355,7 +3355,7 @@ Input
 
 ### Import
 ```js
-  import Input from '@govuk-react/input';
+  import Input from '@govie-react/input';
 ```
 <!-- STORY -->
 
@@ -3669,7 +3669,7 @@ InsetText
 
 ### Import
 ```js
-  import InsetText from '@govuk-react/inset-text';
+  import InsetText from '@govie-react/inset-text';
 ```
 <!-- STORY -->
 
@@ -3950,7 +3950,7 @@ LabelText
 
 ### Import
 ```js
-  import LabelText from '@govuk-react/label-text';
+  import LabelText from '@govie-react/label-text';
 ```
 <!-- STORY -->
 
@@ -4232,7 +4232,7 @@ Label
 
 ### Import
 ```js
-  import Label from '@govuk-react/label';
+  import Label from '@govie-react/label';
 ```
 <!-- STORY -->
 
@@ -4515,7 +4515,7 @@ LeadParagraph
 
 ### Import
 ```js
-  import LeadParagraph from '@govuk-react/lead-paragraph';
+  import LeadParagraph from '@govie-react/lead-paragraph';
 ```
 <!-- STORY -->
 
@@ -4796,7 +4796,7 @@ Link
 
 ### Import
 ```js
-  import Link from '@govuk-react/link';
+  import Link from '@govie-react/link';
 ```
 <!-- STORY -->
 
@@ -5087,7 +5087,7 @@ ListItem
 
 ### Import
 ```js
-  import ListItem from '@govuk-react/list-item';
+  import ListItem from '@govie-react/list-item';
 ```
 <!-- STORY -->
 
@@ -5369,7 +5369,7 @@ LoadingBox
 
 ### Import
 ```js
-  import LoadingBox from '@govuk-react/loading-box';
+  import LoadingBox from '@govie-react/loading-box';
 ```
 <!-- STORY -->
 
@@ -5398,13 +5398,13 @@ Main
 
 ### Import
 ```js
-  import Main from '@govuk-react/main';
+  import Main from '@govie-react/main';
 ```
 <!-- STORY -->
 
 Provides a container which aligns to the TopNav component, is centered, and provides top padding.
 
-Note, this equivalent to 'width-container' from govuk-frontend.
+Note, this equivalent to 'width-container' from govie-frontend.
 
 - https://govuk-react.github.io/govuk-react/?path=/docs/main
 - https://design-system.service.gov.uk/styles/layout/#page-wrappers
@@ -5421,7 +5421,7 @@ MultiChoice
 
 ### Import
 ```js
-  import MultiChoice from '@govuk-react/multi-choice';
+  import MultiChoice from '@govie-react/multi-choice';
 ```
 <!-- STORY -->
 
@@ -5447,7 +5447,7 @@ OrderedList
 
 ### Import
 ```js
-  import OrderedList from '@govuk-react/ordered-list';
+  import OrderedList from '@govie-react/ordered-list';
 ```
 <!-- STORY -->
 
@@ -5732,7 +5732,7 @@ Page
 
 ### Import
 ```js
-  import Page from '@govuk-react/page';
+  import Page from '@govie-react/page';
 ```
 <!-- STORY -->
 
@@ -5760,7 +5760,7 @@ Pagination
 
 ### Import
 ```js
-  import Pagination from '@govuk-react/pagination';
+  import Pagination from '@govie-react/pagination';
 ```
 <!-- STORY -->
 
@@ -5781,7 +5781,7 @@ Panel
 
 ### Import
 ```js
-  import Panel from '@govuk-react/panel';
+  import Panel from '@govie-react/panel';
 ```
 <!-- STORY -->
 
@@ -5803,7 +5803,7 @@ Paragraph
 
 ### Import
 ```js
-  import Paragraph from '@govuk-react/paragraph';
+  import Paragraph from '@govie-react/paragraph';
 ```
 <!-- STORY -->
 
@@ -6107,7 +6107,7 @@ PhaseBanner
 
 ### Import
 ```js
-  import PhaseBanner from '@govuk-react/phase-banner';
+  import PhaseBanner from '@govie-react/phase-banner';
 ```
 <!-- STORY -->
 
@@ -6132,7 +6132,7 @@ Radio
 
 ### Import
 ```js
-  import Radio from '@govuk-react/radio';
+  import Radio from '@govie-react/radio';
 ```
 <!-- STORY -->
 
@@ -6440,7 +6440,7 @@ RelatedItems
 
 ### Import
 ```js
-  import RelatedItems from '@govuk-react/related-items';
+  import RelatedItems from '@govie-react/related-items';
 ```
 <!-- STORY -->
 
@@ -6721,7 +6721,7 @@ SearchBox
 
 ### Import
 ```js
-  import SearchBox from '@govuk-react/search-box';
+  import SearchBox from '@govie-react/search-box';
 ```
 <!-- STORY -->
 
@@ -6999,7 +6999,7 @@ SectionBreak
 
 ### Import
 ```js
-  import SectionBreak from '@govuk-react/section-break';
+  import SectionBreak from '@govie-react/section-break';
 ```
 <!-- STORY -->
 
@@ -7282,7 +7282,7 @@ Select
 
 ### Import
 ```js
-  import Select from '@govuk-react/select';
+  import Select from '@govie-react/select';
 ```
 <!-- STORY -->
 
@@ -7311,7 +7311,7 @@ SkipLink
 
 ### Import
 ```js
-  import SkipLink from '@govuk-react/skip-link';
+  import SkipLink from '@govie-react/skip-link';
 ```
 <!-- STORY -->
 
@@ -7599,7 +7599,7 @@ Table
 
 ### Import
 ```js
-  import Table from '@govuk-react/table';
+  import Table from '@govie-react/table';
 ```
 <!-- STORY -->
 
@@ -7623,7 +7623,7 @@ Tabs
 
 ### Import
 ```js
-  import Tabs from '@govuk-react/tabs';
+  import Tabs from '@govie-react/tabs';
 ```
 <!-- STORY -->
 
@@ -7644,7 +7644,7 @@ Tag
 
 ### Import
 ```js
-  import Tag from '@govuk-react/tag';
+  import Tag from '@govie-react/tag';
 ```
 <!-- STORY -->
 
@@ -7925,7 +7925,7 @@ TextArea
 
 ### Import
 ```js
-  import TextArea from '@govuk-react/text-area';
+  import TextArea from '@govie-react/text-area';
 ```
 <!-- STORY -->
 
@@ -7952,7 +7952,7 @@ TopNav
 
 ### Import
 ```js
-  import TopNav from '@govuk-react/top-nav';
+  import TopNav from '@govie-react/top-nav';
 ```
 <!-- STORY -->
 
@@ -7979,7 +7979,7 @@ UnorderedList
 
 ### Import
 ```js
-  import UnorderedList from '@govuk-react/unordered-list';
+  import UnorderedList from '@govie-react/unordered-list';
 ```
 <!-- STORY -->
 
@@ -7992,7 +7992,7 @@ Use lists to make blocks of text easier to read, and to break information into m
 Prop | Required | Default | Type | Description
 :--- | :------- | :------ | :--- | :----------
  `children` |  |  | ReactNode | One or more ListItem components
- `listStyleType` |  | ```undefined``` | string | CSS value for `list-style-type`, or `bullet` or `number` to match govuk-frontend
+ `listStyleType` |  | ```undefined``` | string | CSS value for `list-style-type`, or `bullet` or `number` to match govie-frontend
  `margin` |  |  | Margin \| Margin[] | 
  `mb` |  |  | string \| number | 
  `padding` |  |  | Padding \| Padding[] | 
@@ -8004,7 +8004,7 @@ VisuallyHidden
 
 ### Import
 ```js
-  import VisuallyHidden from '@govuk-react/visually-hidden';
+  import VisuallyHidden from '@govie-react/visually-hidden';
 ```
 <!-- STORY -->
 
@@ -8284,7 +8284,7 @@ WarningText
 
 ### Import
 ```js
-  import WarningText from '@govuk-react/warning-text';
+  import WarningText from '@govie-react/warning-text';
 ```
 <!-- STORY -->
 

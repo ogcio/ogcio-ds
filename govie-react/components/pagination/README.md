@@ -3,7 +3,7 @@ Pagination
 
 ### Import
 ```js
-  import Pagination from '@govuk-react/pagination';
+  import Pagination from '@govie-react/pagination';
 ```
 <!-- STORY -->
 

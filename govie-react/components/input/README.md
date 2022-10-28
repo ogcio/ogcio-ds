@@ -3,7 +3,7 @@ Input
 
 ### Import
 ```js
-  import Input from '@govuk-react/input';
+  import Input from '@govie-react/input';
 ```
 <!-- STORY -->
 

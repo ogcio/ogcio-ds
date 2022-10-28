@@ -3,14 +3,14 @@
  *
  * - https://components.publishing.service.gov.uk/component-guide/document_list
  * - https://github.com/alphagov/static/blob/077649737c43d3937f745df0b3adade9df3717dc/app/views/govuk_component/docs/metadata.yml
- * - https://github.com/alphagov/static/blob/077649737c43d3937f745df0b3adade9df3717dc/app/views/govuk_component/metadata.raw.html.erb
+ * - https://github.com/alphagov/static/blob/077649737c43d3937f745df0b3adade9df3717dc/app/views/govie_component/metadata.raw.html.erb
  */
 
 import * as React from 'react';
 import styled from 'styled-components';
-import UnorderedList from '@govuk-react/unordered-list';
-import { NTA_LIGHT } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import UnorderedList from '@govie-react/unordered-list';
+import { NTA_LIGHT } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 const StyledContainer = styled('div')({ fontFamily: NTA_LIGHT }, spacing.withWhiteSpace());
 

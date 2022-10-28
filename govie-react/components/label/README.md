@@ -3,7 +3,7 @@ Label
 
 ### Import
 ```js
-  import Label from '@govuk-react/label';
+  import Label from '@govie-react/label';
 ```
 <!-- STORY -->
 

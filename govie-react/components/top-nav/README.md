@@ -3,7 +3,7 @@ TopNav
 
 ### Import
 ```js
-  import TopNav from '@govuk-react/top-nav';
+  import TopNav from '@govie-react/top-nav';
 ```
 <!-- STORY -->
 

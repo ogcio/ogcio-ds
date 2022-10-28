@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/button",
+  "name": "@govie-react/button",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/icons": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/icons": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0",
     "polished": "^4.1.2"
   },
@@ -16,8 +16,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-button.cjs.js",
-  "module": "dist/govuk-react-button.esm.js",
+  "main": "dist/govie-react-button.cjs.js",
+  "module": "dist/govie-react-button.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

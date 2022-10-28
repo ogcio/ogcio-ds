@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { MEDIA_QUERIES, SPACING, SITE_WIDTH } from '@govuk-react/constants';
+import { MEDIA_QUERIES, SPACING, SITE_WIDTH } from '@govie-react/constants';
 
 const OuterContainer = styled('div')({
   paddingTop: SPACING.SCALE_5,
   textAlign: 'center',
 });
 
-// This is currently 'width-container' and not 'main' from govuk-frontend
+// This is currently 'width-container' and not 'main' from govie-frontend
 // Maybe we should deprecate this component in favour of Page.Main and Page.WidthContainer?
 const InnerContainer = styled('div')({
   maxWidth: SITE_WIDTH,
@@ -27,7 +27,7 @@ const InnerContainer = styled('div')({
 /**
  * Provides a container which aligns to the TopNav component, is centered, and provides top padding.
  *
- * Note, this equivalent to 'width-container' from govuk-frontend.
+ * Note, this equivalent to 'width-container' from govie-frontend.
  *
  * - https://govuk-react.github.io/govuk-react/?path=/docs/main
  * - https://design-system.service.gov.uk/styles/layout/#page-wrappers

@@ -3,11 +3,11 @@ GlobalStyle
 
 ### Import
 ```js
-  import GlobalStyle from '@govuk-react/global-style';
+  import GlobalStyle from '@govie-react/global-style';
 ```
 <!-- STORY -->
 
-A Styled Component to apply global style for use with govuk-react.
+A Styled Component to apply global style for use with govie-react.
 
 - https://govuk-react.github.io/govuk-react/?path=/docs/global-style
 

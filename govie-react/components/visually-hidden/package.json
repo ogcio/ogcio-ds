@@ -1,8 +1,8 @@
 {
-  "name": "@govuk-react/visually-hidden",
+  "name": "@govie-react/visually-hidden",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -13,13 +13,13 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-visually-hidden.cjs.js",
-  "module": "dist/govuk-react-visually-hidden.esm.js",
+  "main": "dist/govie-react-visually-hidden.cjs.js",
+  "module": "dist/govie-react-visually-hidden.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",
   "homepage": "https://github.com/govuk-react/govuk-react/tree/main/components/visually-hidden",
-  "description": "govuk-react VisuallyHidden component.",
+  "description": "govie-react VisuallyHidden component.",
   "publishConfig": {
     "access": "public"
   }

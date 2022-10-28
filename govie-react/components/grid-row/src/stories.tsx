@@ -2,7 +2,7 @@ import type { Story } from '@storybook/react';
 
 import * as React from 'react';
 import styled from 'styled-components';
-import GridCol from '@govuk-react/grid-col';
+import GridCol from '@govie-react/grid-col';
 
 import { GridRow } from '.';
 

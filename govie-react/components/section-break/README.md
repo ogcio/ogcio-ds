@@ -3,7 +3,7 @@ SectionBreak
 
 ### Import
 ```js
-  import SectionBreak from '@govuk-react/section-break';
+  import SectionBreak from '@govie-react/section-break';
 ```
 <!-- STORY -->
 

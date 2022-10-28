@@ -18,7 +18,7 @@ npm-debug.log*
 /lib
 /storybook-static
 /es
-govuk-react-*.tgz
+govie-react-*.tgz
 /dist
 /components/*/es
 /components/*/lib
@@ -36,7 +36,7 @@ govuk-react-*.tgz
 /docs/GridRow.png
 /docs/Layout.png
 /packages/storybook/.cache
-/packages/govuk-react/README.md
+/packages/govie-react/README.md
 
 # IDE configs
 .idea/

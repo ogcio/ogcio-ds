@@ -3,7 +3,7 @@ Checkbox
 
 ### Import
 ```js
-  import Checkbox from '@govuk-react/checkbox';
+  import Checkbox from '@govie-react/checkbox';
 ```
 <!-- STORY -->
 

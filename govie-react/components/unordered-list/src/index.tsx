@@ -3,15 +3,15 @@
  *
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/core/_lists.scss
  */
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
-import OrderedList from '@govuk-react/ordered-list';
+import OrderedList from '@govie-react/ordered-list';
 
 export interface UnorderedListProps extends WithWhiteSpaceProps {
   /** One or more ListItem components */
   children: React.ReactNode;
-  /** CSS value for `list-style-type`, or `bullet` or `number` to match govuk-frontend */
+  /** CSS value for `list-style-type`, or `bullet` or `number` to match govie-frontend */
   listStyleType?: string;
 }
 

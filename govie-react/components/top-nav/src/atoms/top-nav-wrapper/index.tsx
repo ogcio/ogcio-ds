@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, NTA_LIGHT } from '@govuk-react/constants';
+import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, NTA_LIGHT } from '@govie-react/constants';
 
 const TopNavWrapper = styled('div')<{ bgColor: string }>(({ bgColor, color }) => ({
   display: 'flex',

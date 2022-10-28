@@ -6,7 +6,7 @@
 // https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/settings/_spacing.scss
 import type { CSSObject } from 'styled-components';
 
-import { MEDIA_QUERIES, SPACING_MAP, SPACING_POINTS, WIDTHS } from '@govuk-react/constants';
+import { MEDIA_QUERIES, SPACING_MAP, SPACING_POINTS, WIDTHS } from '@govie-react/constants';
 
 export function simple(size: number): number {
   const scale = SPACING_POINTS[Math.abs(size)];
@@ -108,7 +108,7 @@ export function responsivePadding(
 }
 
 // withWhiteSpace lib styling function
-// does not form part of govuk-frontend
+// does not form part of govie-frontend
 
 // `withWhiteSpace(config)`
 // generates a styling function, based on config, which can be used when styling a component

@@ -3,7 +3,7 @@ Footer
 
 ### Import
 ```js
-  import Footer from '@govuk-react/footer';
+  import Footer from '@govie-react/footer';
 ```
 <!-- STORY -->
 

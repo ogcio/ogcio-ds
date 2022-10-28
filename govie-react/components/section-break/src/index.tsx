@@ -4,10 +4,10 @@
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/core/_section-break.scss
  */
 
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
-import { spacing } from '@govuk-react/lib';
+import { spacing } from '@govie-react/lib';
 import { BORDER_COLOUR } from 'govuk-colours';
 
 const breakSizes = {

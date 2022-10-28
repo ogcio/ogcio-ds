@@ -4,15 +4,15 @@
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/components/input/_input.scss
  * - https://github.com/alphagov/govuk_elements/blob/master/assets/sass/elements/_forms.scss
  */
-import type { LabelProps } from '@govuk-react/label';
-import type { InputProps } from '@govuk-react/input';
+import type { LabelProps } from '@govie-react/label';
+import type { InputProps } from '@govie-react/input';
 
 import * as React from 'react';
-import Label from '@govuk-react/label';
-import LabelText from '@govuk-react/label-text';
-import ErrorText from '@govuk-react/error-text';
-import HintText from '@govuk-react/hint-text';
-import Input from '@govuk-react/input';
+import Label from '@govie-react/label';
+import LabelText from '@govie-react/label-text';
+import ErrorText from '@govie-react/error-text';
+import HintText from '@govie-react/hint-text';
+import Input from '@govie-react/input';
 
 /**
  * Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.

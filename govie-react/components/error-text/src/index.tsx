@@ -5,8 +5,8 @@
  */
 import styled from 'styled-components';
 import { ERROR_COLOUR } from 'govuk-colours';
-import { SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 
 /**
  * Follow the [validation pattern](https://design-system.service.gov.uk/patterns/validation/) and show an error message when there is a validation error. In the error message explain what went wrong and how to fix it.

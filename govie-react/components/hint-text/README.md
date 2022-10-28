@@ -3,7 +3,7 @@ HintText
 
 ### Import
 ```js
-  import HintText from '@govuk-react/hint-text';
+  import HintText from '@govie-react/hint-text';
 ```
 <!-- STORY -->
 

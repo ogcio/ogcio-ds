@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BLACK, WHITE } from 'govuk-colours';
-import { MEDIA_QUERIES } from '@govuk-react/constants';
-import { typography } from '@govuk-react/lib';
+import { MEDIA_QUERIES } from '@govie-react/constants';
+import { typography } from '@govie-react/lib';
 import CrownIcon from '@govuk-react/icon-crown';
 
 import styled from 'styled-components';
@@ -128,12 +128,12 @@ export class TopNav extends Component<TopNavProps, { navigationOpen: boolean }> 
                   </MenuButtonWrapper>
                   {/* Referenced in MenuButton */}
                   <Input
-                    id="govuk-react-menu-button"
+                    id="govie-react-menu-button"
                     type="checkbox"
                     checked={navigationOpen}
                     onChange={this.toggleNavigationOpen}
                   />
-                  <UnorderedList id="govuk-react-menu" serviceTitle={!!serviceTitle} open={navigationOpen}>
+                  <UnorderedList id="govie-react-menu" serviceTitle={!!serviceTitle} open={navigationOpen}>
                     {Array.isArray(children) ? (
                       React.Children.map(children, (child) => (child ? <ListItem>{child}</ListItem> : null))
                     ) : (

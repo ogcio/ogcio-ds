@@ -3,7 +3,7 @@ WarningText
 
 ### Import
 ```js
-  import WarningText from '@govuk-react/warning-text';
+  import WarningText from '@govie-react/warning-text';
 ```
 <!-- STORY -->
 

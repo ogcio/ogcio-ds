@@ -3,9 +3,9 @@ import type { StyledComponentProps } from 'styled-components';
 import * as React from 'react';
 import styled from 'styled-components';
 import { BLUE, GREY_4, PURPLE, YELLOW, WHITE } from 'govuk-colours';
-import { FONT_SIZE, LINE_HEIGHT, SPACING, MEDIA_QUERIES, NTA_LIGHT } from '@govuk-react/constants';
+import { FONT_SIZE, LINE_HEIGHT, SPACING, MEDIA_QUERIES, NTA_LIGHT } from '@govie-react/constants';
 
-import { ArrowRight as NextPageIcon, ArrowLeft as PrevPageIcon } from '@govuk-react/icons';
+import { ArrowRight as NextPageIcon, ArrowLeft as PrevPageIcon } from '@govie-react/icons';
 
 const PaginationWrapper = styled('li')<{ previousPage?: boolean; nextPage?: boolean }>(
   {

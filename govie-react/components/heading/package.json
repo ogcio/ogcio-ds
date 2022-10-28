@@ -1,9 +1,9 @@
 {
-  "name": "@govuk-react/heading",
+  "name": "@govie-react/heading",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4"
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -13,8 +13,8 @@
     "docs": "doc-component ./lib/heading.js ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-heading.cjs.js",
-  "module": "dist/govuk-react-heading.esm.js",
+  "main": "dist/govie-react-heading.cjs.js",
+  "module": "dist/govie-react-heading.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

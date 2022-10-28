@@ -1,11 +1,11 @@
 {
-  "name": "@govuk-react/page",
+  "name": "@govie-react/page",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
-    "@govuk-react/skip-link": "^0.10.4",
-    "@govuk-react/top-nav": "^0.10.4"
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
+    "@govie-react/skip-link": "^0.10.4",
+    "@govie-react/top-nav": "^0.10.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-page.cjs.js",
-  "module": "dist/govuk-react-page.esm.js",
+  "main": "dist/govie-react-page.cjs.js",
+  "module": "dist/govie-react-page.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

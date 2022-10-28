@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import BaseInput, { InputProps as BaseInputProps } from '@govuk-react/input';
-import LabelText from '@govuk-react/label-text';
-import Label from '@govuk-react/label';
+import BaseInput, { InputProps as BaseInputProps } from '@govie-react/input';
+import LabelText from '@govie-react/label-text';
+import Label from '@govie-react/label';
 
 import multiInputInput from 'multi-input-input';
 

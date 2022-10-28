@@ -5,8 +5,8 @@
  */
 import styled from 'styled-components';
 import { BLACK } from 'govuk-colours';
-import { SPACING_POINTS } from '@govuk-react/constants';
-import { link, shape, spacing, typography } from '@govuk-react/lib';
+import { SPACING_POINTS } from '@govie-react/constants';
+import { link, shape, spacing, typography } from '@govie-react/lib';
 
 /**
  * Use the back link component to help users go back to the previous page in a multi-page transaction.

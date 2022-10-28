@@ -3,12 +3,12 @@
  *
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/core/_lists.scss
  */
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
-import { MEDIA_QUERIES, SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
-import ListItem from '@govuk-react/list-item';
+import { MEDIA_QUERIES, SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
+import ListItem from '@govie-react/list-item';
 
 function translateType(type) {
   return { bullet: 'disc', number: 'decimal' }[type] || type;

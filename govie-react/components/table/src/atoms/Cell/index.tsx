@@ -1,9 +1,9 @@
-import type { WithWidthProps } from '@govuk-react/lib';
+import type { WithWidthProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
 import { BORDER_COLOUR } from 'govuk-colours';
-import { FONT_WEIGHTS, SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { FONT_WEIGHTS, SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 
 const Cell = styled('td')<CellProps>(
   ({ numeric, alignRight = numeric, bold }) => ({

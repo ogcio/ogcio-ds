@@ -3,7 +3,7 @@ Caption
 
 ### Import
 ```js
-  import Caption from '@govuk-react/caption';
+  import Caption from '@govie-react/caption';
 ```
 <!-- STORY -->
 

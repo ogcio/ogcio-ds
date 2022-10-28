@@ -1,8 +1,8 @@
 {
-  "name": "@govuk-react/main",
+  "name": "@govie-react/main",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4"
+    "@govie-react/constants": "^0.10.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -12,8 +12,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-main.cjs.js",
-  "module": "dist/govuk-react-main.esm.js",
+  "main": "dist/govie-react-main.cjs.js",
+  "module": "dist/govie-react-main.esm.js",
   "source": "src/index.tsx",
   "author": "Toby Brancher",
   "license": "MIT",

@@ -3,7 +3,7 @@ FormGroup
 
 ### Import
 ```js
-  import FormGroup from '@govuk-react/form-group';
+  import FormGroup from '@govie-react/form-group';
 ```
 <!-- STORY -->
 

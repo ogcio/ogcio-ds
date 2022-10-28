@@ -5,12 +5,12 @@
  * - https://design-system.service.gov.uk/styles/typography/#headings
  */
 
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
 import { SECONDARY_TEXT_COLOUR } from 'govuk-colours';
-import { spacing, typography } from '@govuk-react/lib';
-import { CAPTION_SIZES, MEDIA_QUERIES, SPACING_POINTS } from '@govuk-react/constants';
+import { spacing, typography } from '@govie-react/lib';
+import { CAPTION_SIZES, MEDIA_QUERIES, SPACING_POINTS } from '@govie-react/constants';
 
 /**
  * Sometimes you may need to make it clear that a page is part of a larger section or group. To do this, you can use a heading with a caption above it.

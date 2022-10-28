@@ -1,11 +1,11 @@
 {
-  "name": "@govuk-react/example-application",
+  "name": "@govie-react/example-application",
   "version": "0.10.4",
   "dependencies": {
     "@rjsf/core": "^3.1.0",
     "final-form": "^4.20.7",
     "formik": "^2.2.9",
-    "govuk-react": "^0.10.4",
+    "govie-react": "^0.10.4",
     "react-final-form": "^6.5.9",
     "react-hook-form": "^7.30.0",
     "react-router": "^6.3.0",
@@ -22,13 +22,13 @@
     "cypress": "cypress open-ct",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-example-application.cjs.js",
-  "module": "dist/govuk-react-example-application.esm.js",
+  "main": "dist/govie-react-example-application.cjs.js",
+  "module": "dist/govie-react-example-application.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",
   "homepage": "https://github.com/govuk-react/govuk-react#readme",
-  "description": "An example application using govuk-react",
+  "description": "An example application using govie-react",
   "publishConfig": {
     "access": "public"
   },

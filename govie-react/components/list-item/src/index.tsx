@@ -3,8 +3,8 @@
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/core/_lists.scss
  */
 import styled from 'styled-components';
-import { SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 
 /**
  * Use lists to make blocks of text easier to read, and to break information into manageable chunks.

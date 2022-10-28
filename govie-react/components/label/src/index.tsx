@@ -1,12 +1,12 @@
 // https://github.com/alphagov/govuk-frontend/tree/main/src/govuk/components/
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
 import { ERROR_COLOUR } from 'govuk-colours';
-import { SPACING } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { SPACING } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
-// Our approach to labels/fields differs to govuk-frontend.
+// Our approach to labels/fields differs to govie-frontend.
 // We have no `form-group` - this, to an extent, replaces it.
 // We wrap form inputs with a label to associate them, rather than rely on an ID.
 

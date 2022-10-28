@@ -3,7 +3,7 @@ TextArea
 
 ### Import
 ```js
-  import TextArea from '@govuk-react/text-area';
+  import TextArea from '@govie-react/text-area';
 ```
 <!-- STORY -->
 

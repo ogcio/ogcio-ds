@@ -7,7 +7,7 @@
 images
 scripts
 storybook-static
-govuk-react-*.tgz
+govie-react-*.tgz
 /src/stories
 /lib/stories
 /es/stories

@@ -7,9 +7,9 @@ import { Form, Field } from 'react-final-form';
 
 import { action } from '@storybook/addon-actions';
 
-import Button from '@govuk-react/button';
+import Button from '@govie-react/button';
 
-import MultiChoice from '@govuk-react/multi-choice';
+import MultiChoice from '@govie-react/multi-choice';
 import { Radio } from '.';
 
 export default {
