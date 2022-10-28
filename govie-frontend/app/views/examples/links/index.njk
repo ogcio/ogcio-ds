@@ -1,0 +1,96 @@
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{% extends "layout.njk" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    "href": "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+{% set variants = {
+  'Link': '',
+  'Link with no visited state': 'govuk-link--no-visited-state',
+  'Text link': 'govuk-link--text-colour',
+  'Muted link': 'govuk-link--muted',
+  'Inverse': 'govuk-link--inverse'
+} %}
+
+{% set states = {
+  'Link': ':link',
+  'Visited link': ':visited',
+  'Hovered link': ':hover',
+  'Active link': ':active',
+  'Focussed link': ':focus',
+  'Focussed visited link': ':focus :visited',
+  'Focussed hovered link': ':focus :hover',
+  'Focussed active link': ':focus :active'
+} %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Links
+      </h1>
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="#">Link with that wraps over two lines to test that the focus style works as expected</a>
+      </p>
+
+      <p class="govuk-body">
+        (<a class="govuk-link" href="#">Link with surrounding brackets</a>) test that the focus style does not overlap.
+      </p>
+
+      <p class="govuk-body">
+        <a class="govuk-link govuk-link--no-underline" href="#">Link with no underline</a>
+      </p>
+
+    {% for variant_description, variant_class in variants %}
+
+      <section class="govuk-!-margin-top-8"{% if variant_class == "govuk-link--inverse"%} style="background: #1d70b8; padding: 15px; margin: -15px;"{% endif %}>
+        <h2 class="govuk-heading-l"{% if variant_class == "govuk-link--inverse"%} style="color: #fff;"{% endif %}>{{ variant_description }}</h2>
+
+      {% for state_description, state_class in states %}
+        <p class="govuk-body">
+          <a href="/#{{ randomPageHash }}" class="govuk-link {{ variant_class }} {{ state_class }}">
+            {{ state_description}}
+          </a>
+        </p>
+      {% endfor %}
+      </section>
+    {% endfor %}
+
+      <section class="govuk-!-margin-top-8">
+        <h2 class="govuk-heading-l govuk-!-margin-top-6">Multi-line links</h2>
+
+        <p class="govuk-heading-xl">
+          <a class="govuk-link" href="#">Research your family history using the General Register Office</a>
+        </p>
+
+        <p class="govuk-heading-l">
+          <a class="govuk-link" href="#">Research your family history using the General Register Office</a>
+        </p>
+
+        <p class="govuk-heading-m">
+          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        </p>
+
+        <p class="govuk-heading-s">
+          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        </p>
+
+        <p class="govuk-body">
+          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        </p>
+
+        <p class="govuk-body-s">
+          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        </p>
+      </section>
+
+    </div>
+  </div>
+{% endblock %}

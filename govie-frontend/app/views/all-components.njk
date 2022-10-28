@@ -1,0 +1,25 @@
+{% extends "full-width.njk" %}
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "macros/showExamples.njk" import showExamples %}
+
+{% set bodyClasses %}
+  language-markup
+{% endset %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    href: "/" + legacyQuery
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <h1 class="govuk-heading-xl">
+      All components
+    </h1>
+  </div>
+  {% for componentData in componentsData %}
+    {{ showExamples(componentData, legacyQuery) }}
+  {% endfor %}
+{% endblock %}
