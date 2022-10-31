@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/warning-text",
+  "name": "@govie-react/warning-text",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/icons": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/icons": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-warning-text.cjs.js",
-  "module": "dist/govuk-react-warning-text.esm.js",
+  "main": "dist/govie-react-warning-text.cjs.js",
+  "module": "dist/govie-react-warning-text.esm.js",
   "source": "src/index.tsx",
   "author": "Gavin Orland",
   "license": "MIT",

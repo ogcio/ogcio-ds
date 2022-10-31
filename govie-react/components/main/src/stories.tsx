@@ -1,8 +1,8 @@
 import type { Story } from '@storybook/react';
 
 import * as React from 'react';
-import GridRow from '@govuk-react/grid-row';
-import GridCol from '@govuk-react/grid-col';
+import GridRow from '@govie-react/grid-row';
+import GridCol from '@govie-react/grid-col';
 
 import { Main } from '.';
 

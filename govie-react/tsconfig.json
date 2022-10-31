@@ -20,8 +20,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "paths": {
-      "@govuk-react/*": ["./components/*/src/index.tsx", "./packages/*/src/index.tsx"],
-      "govuk-react": ["./packages/govuk-react/src/index.ts"]
+      "@govie-react/*": ["./components/*/src/index.tsx", "./packages/*/src/index.tsx"],
+      "govie-react": ["./packages/govie-react/src/index.ts"]
     },
     "pretty": true,
     "resolveJsonModule": true,

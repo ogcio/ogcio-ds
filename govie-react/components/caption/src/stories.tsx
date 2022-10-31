@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import type { Story } from '@storybook/react';
 import * as React from 'react';
-import { CAPTION_SIZES, HEADING_SIZES, TYPOGRAPHY_SCALE } from '@govuk-react/constants';
-import Heading from '@govuk-react/heading';
+import { CAPTION_SIZES, HEADING_SIZES, TYPOGRAPHY_SCALE } from '@govie-react/constants';
+import Heading from '@govie-react/heading';
 
 import { Caption } from '.';
 

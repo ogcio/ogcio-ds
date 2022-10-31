@@ -2,10 +2,10 @@
 
 import type { FormProps, FieldTemplateProps, AjvError, ObjectFieldTemplateProps, FieldProps } from '@rjsf/core';
 
-// TODO: extract these reusable parts in to a published module e.g. @govuk-react/json-schema-form
+// TODO: extract these reusable parts in to a published module e.g. @govie-react/json-schema-form
 
 import React, { useCallback, useState } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import BaseForm from '@rjsf/core';
 
 const dobObjToString = ({ year, month, day }: { year?: string; month?: string; day?: string }) =>
@@ -28,7 +28,7 @@ const DateField = ({ schema, onChange, children, rawErrors }) => {
   );
 
   return (
-    <GovUK.DateField
+    <GovIE.DateField
       errorText={rawErrors?.[0]}
       input={{
         value,
@@ -36,7 +36,7 @@ const DateField = ({ schema, onChange, children, rawErrors }) => {
       }}
     >
       {schema.title}
-    </GovUK.DateField>
+    </GovIE.DateField>
   );
 };
 
@@ -48,17 +48,17 @@ const DateField = ({ schema, onChange, children, rawErrors }) => {
 //   rawErrors?: string[];
 // }
 const AnyOf: React.FC<FieldProps> = ({ name, schema, formData = [], onChange, rawErrors }) => (
-  <GovUK.FormGroup error={!!rawErrors?.length}>
-    <GovUK.Label mb={4}>
-      <GovUK.LabelText>{schema.title}</GovUK.LabelText>
-      {rawErrors?.length && <GovUK.ErrorText>{rawErrors[0]}</GovUK.ErrorText>}
+  <GovIE.FormGroup error={!!rawErrors?.length}>
+    <GovIE.Label mb={4}>
+      <GovIE.LabelText>{schema.title}</GovIE.LabelText>
+      {rawErrors?.length && <GovIE.ErrorText>{rawErrors[0]}</GovIE.ErrorText>}
       {(Array.isArray(schema?.items) ? schema.items : [schema?.items]).map(
         (items) =>
           typeof items !== 'boolean' &&
           items?.anyOf?.map(
             (item) =>
               typeof item !== 'boolean' && (
-                <GovUK.Checkbox
+                <GovIE.Checkbox
                   key={String(item.const)}
                   name={name}
                   value={String(item.const)}
@@ -68,28 +68,28 @@ const AnyOf: React.FC<FieldProps> = ({ name, schema, formData = [], onChange, ra
                   }
                 >
                   {item.title}
-                </GovUK.Checkbox>
+                </GovIE.Checkbox>
               )
           )
       )}
-    </GovUK.Label>
-  </GovUK.FormGroup>
+    </GovIE.Label>
+  </GovIE.FormGroup>
 );
 
 const OneOf = ({ schema, uiSchema, name, onChange, rawErrors }) => {
   if (uiSchema?.['ui:widget'] === 'radio') {
     return (
-      <GovUK.MultiChoice mb={4} label={schema.title} meta={{ error: rawErrors?.[0], touched: !!rawErrors?.length }}>
+      <GovIE.MultiChoice mb={4} label={schema.title} meta={{ error: rawErrors?.[0], touched: !!rawErrors?.length }}>
         {schema?.oneOf?.map((item) => (
-          <GovUK.Radio key={item.const} value={item.const} name={name} onChange={(e) => onChange(e.target.value)}>
+          <GovIE.Radio key={item.const} value={item.const} name={name} onChange={(e) => onChange(e.target.value)}>
             {item.title}
-          </GovUK.Radio>
+          </GovIE.Radio>
         ))}
-      </GovUK.MultiChoice>
+      </GovIE.MultiChoice>
     );
   }
   return (
-    <GovUK.Select
+    <GovIE.Select
       label={schema.title}
       mb={4}
       input={{ name, onChange: (e) => onChange(e.target.value) }}
@@ -101,7 +101,7 @@ const OneOf = ({ schema, uiSchema, name, onChange, rawErrors }) => {
           {item.title}
         </option>
       ))}
-    </GovUK.Select>
+    </GovIE.Select>
   );
 };
 
@@ -118,17 +118,17 @@ const handleFilesChanged =
   };
 
 const FileUpload = ({ rawErrors, schema, onChange, name }) => (
-  <GovUK.FileUpload
+  <GovIE.FileUpload
     meta={{ error: rawErrors?.[0], touched: !!rawErrors?.[0] }}
     onChange={handleFilesChanged(onChange)}
     name={name}
   >
     {schema.title}
-  </GovUK.FileUpload>
+  </GovIE.FileUpload>
 );
 
 const TextArea = ({ schema, rawErrors, onChange, name }) => (
-  <GovUK.TextArea
+  <GovIE.TextArea
     input={{
       onChange: (e) => onChange(e.target.value),
       name,
@@ -138,11 +138,11 @@ const TextArea = ({ schema, rawErrors, onChange, name }) => (
     meta={{ error: rawErrors?.[0], touched: !!rawErrors?.[0] }}
   >
     {schema.title}
-  </GovUK.TextArea>
+  </GovIE.TextArea>
 );
 
 const InputField = ({ schema, rawErrors, onChange, name }) => (
-  <GovUK.InputField
+  <GovIE.InputField
     input={{
       onChange: (e) => onChange(e.target.value),
       name,
@@ -152,7 +152,7 @@ const InputField = ({ schema, rawErrors, onChange, name }) => (
     meta={{ error: rawErrors?.[0], touched: !!rawErrors?.[0] }}
   >
     {schema.title}
-  </GovUK.InputField>
+  </GovIE.InputField>
 );
 
 // interface StringFieldProps {
@@ -180,9 +180,9 @@ const StringField: React.FC<FieldProps> = ({ uiSchema, schema, onChange, rawErro
 };
 
 const BooleanField: React.FC<FieldProps> = ({ schema, onChange }) => (
-  <GovUK.Checkbox onChange={onChange} hint={schema.description}>
+  <GovIE.Checkbox onChange={onChange} hint={schema.description}>
     {schema.title}
-  </GovUK.Checkbox>
+  </GovIE.Checkbox>
 );
 
 export const customFields = {
@@ -192,7 +192,7 @@ export const customFields = {
 };
 
 export const ErrorListTemplate: React.FC<{ errors: AjvError[] }> = ({ errors }) => (
-  <GovUK.ErrorSummary
+  <GovIE.ErrorSummary
     heading="Error summary"
     description="Please address the following issues"
     errors={errors.map((error, n) => ({
@@ -204,10 +204,10 @@ export const ErrorListTemplate: React.FC<{ errors: AjvError[] }> = ({ errors }) 
 
 export const ObjectFieldTemplate: React.FC<ObjectFieldTemplateProps> = ({ title, properties }) => {
   return (
-    <GovUK.Fieldset>
-      {title && <GovUK.Fieldset.Legend size="M">{title}</GovUK.Fieldset.Legend>}
+    <GovIE.Fieldset>
+      {title && <GovIE.Fieldset.Legend size="M">{title}</GovIE.Fieldset.Legend>}
       {properties.map((element) => element.content)}
-    </GovUK.Fieldset>
+    </GovIE.Fieldset>
   );
 };
 

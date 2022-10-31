@@ -1,9 +1,9 @@
 {
-  "name": "@govuk-react/skip-link",
+  "name": "@govie-react/skip-link",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -14,13 +14,13 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-skip-link.cjs.js",
-  "module": "dist/govuk-react-skip-link.esm.js",
+  "main": "dist/govie-react-skip-link.cjs.js",
+  "module": "dist/govie-react-skip-link.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",
   "homepage": "https://github.com/govuk-react/govuk-react/tree/main/components/skip-link",
-  "description": "govuk-react SkipLink component.",
+  "description": "govie-react SkipLink component.",
   "publishConfig": {
     "access": "public"
   }

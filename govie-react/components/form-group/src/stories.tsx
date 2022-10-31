@@ -2,7 +2,7 @@ import type { Story } from '@storybook/react';
 
 import * as React from 'react';
 
-import Checkbox from '@govuk-react/checkbox';
+import Checkbox from '@govie-react/checkbox';
 
 import { FormGroup } from '.';
 

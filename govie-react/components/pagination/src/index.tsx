@@ -6,8 +6,8 @@
  */
 import * as React from 'react';
 import styled from 'styled-components';
-import { MEDIA_QUERIES, SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { MEDIA_QUERIES, SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 import Anchor from './anchor';
 
 const StyledList = styled('ul')(

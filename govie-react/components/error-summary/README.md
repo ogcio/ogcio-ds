@@ -3,7 +3,7 @@ ErrorSummary
 
 ### Import
 ```js
-  import ErrorSummary from '@govuk-react/error-summary';
+  import ErrorSummary from '@govie-react/error-summary';
 ```
 <!-- STORY -->
 

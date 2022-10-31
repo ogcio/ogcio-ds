@@ -6,12 +6,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { SECONDARY_TEXT_COLOUR } from 'govuk-colours';
-import { SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 
 import Link from './atoms/link';
 
-// Constants for chevron sourced from govuk-frontend
+// Constants for chevron sourced from govie-frontend
 const CHEVRON_SIZE = 7;
 const CHEVRON_BORDER_WIDTH = 1;
 const CHEVRON_BORDER_COLOUR = SECONDARY_TEXT_COLOUR;

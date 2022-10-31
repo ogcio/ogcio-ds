@@ -1,13 +1,13 @@
 // https://components.publishing.service.gov.uk/component-guide/search
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { LIGHT_BLUE, GREY_2, WHITE, YELLOW } from 'govuk-colours';
-import { NTA_LIGHT } from '@govuk-react/constants';
+import { NTA_LIGHT } from '@govie-react/constants';
 
-import { Search } from '@govuk-react/icons';
-import { spacing } from '@govuk-react/lib';
+import { Search } from '@govie-react/icons';
+import { spacing } from '@govie-react/lib';
 
 // css normalize is hiding the input:search clear SearchButton
 const Input = styled('input')({

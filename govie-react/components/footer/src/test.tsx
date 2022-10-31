@@ -3,10 +3,10 @@ import { mount } from 'enzyme';
 
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import { MEDIA_QUERIES, GUTTER } from '@govuk-react/constants';
+import { MEDIA_QUERIES, GUTTER } from '@govie-react/constants';
 
 import { Footer } from '.';
-import crest from './govuk-crest.png';
+import crest from './govie-crest.png';
 
 const withRoutes = (component) => (
   <BrowserRouter>

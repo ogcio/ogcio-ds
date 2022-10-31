@@ -3,7 +3,7 @@ GridCol
 
 ### Import
 ```js
-  import GridCol from '@govuk-react/grid-col';
+  import GridCol from '@govie-react/grid-col';
 ```
 <!-- STORY -->
 
@@ -12,7 +12,7 @@ Grid Column.
 Should always be wrapped by `GridRow`. Will always render a column at full width if
 the browser width is below the `TABLET` breakpoint.
 
-NB our grid is based on flex-box, which differs from govuk-frontend, which instead uses
+NB our grid is based on flex-box, which differs from govie-frontend, which instead uses
 floats, however it is otherwise similar to use.
 
 - https://govuk-react.github.io/govuk-react/?path=/docs/grid-col

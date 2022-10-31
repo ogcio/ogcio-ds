@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BORDER_COLOUR } from 'govuk-colours';
-import { spacing } from '@govuk-react/lib';
+import { spacing } from '@govie-react/lib';
 
 const SectionBreak = styled('hr')(
   {

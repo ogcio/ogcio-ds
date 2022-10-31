@@ -6,11 +6,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { shape, spacing, typography } from '@govuk-react/lib';
+import { shape, spacing, typography } from '@govie-react/lib';
 import { stripUnit } from 'polished';
 
 import { BLACK, FOCUS_COLOUR, LINK_COLOUR, LINK_HOVER_COLOUR, BORDER_COLOUR } from 'govuk-colours';
-import { BORDER_WIDTH, FOCUS_WIDTH, SPACING_POINTS } from '@govuk-react/constants';
+import { BORDER_WIDTH, FOCUS_WIDTH, SPACING_POINTS } from '@govie-react/constants';
 
 const CUSTOM_FOCUS_WIDTH = `${Number(stripUnit(FOCUS_WIDTH)) + 1}px`;
 

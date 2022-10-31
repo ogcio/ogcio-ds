@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import * as icons from '.';
 
-describe('@govuk-react/icons', () => {
+describe('@govie-react/icons', () => {
   // filter out private exports e.g. __esModule
   const componentNames = Object.keys(icons).filter((componentName) => !componentName.startsWith('_'));
   for (let n = 0; n < componentNames.length; n += 1) {

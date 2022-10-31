@@ -1,10 +1,10 @@
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { spacing, typography } from '@govuk-react/lib';
-import { HEADING_SIZES, SPACING_POINTS } from '@govuk-react/constants';
+import { spacing, typography } from '@govie-react/lib';
+import { HEADING_SIZES, SPACING_POINTS } from '@govie-react/constants';
 
 const StyledLegend = styled('legend')<LegendProps>(
   spacing.withWhiteSpace(),

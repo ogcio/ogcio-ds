@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/monorepo",
+  "name": "@govie-react/monorepo",
   "scripts": {
-    "build:dist": "yarn build && rimraf dist && webpack --node-env=production --devtool source-map --entry ./packages/govuk-react/dist/govuk-react.esm.js",
+    "build:dist": "yarn build && rimraf dist && webpack --node-env=production --devtool source-map --entry ./packages/govie-react/dist/govie-react.esm.js",
     "build:storybook": "cd packages/storybook && yarn build",
     "build:types": "tsc --emitDeclarationOnly --declaration",
-    "build": "preconstruct build && yarn workspaces foreach --exclude @govuk-react/monorepo run build",
+    "build": "preconstruct build && yarn workspaces foreach --exclude @govie-react/monorepo run build",
     "bundlesize": "bundlesize",
     "clean:workspace": "rimraf packages/*/lib && rimraf packages/*/es && rimraf components/*/lib && rimraf components/*/es",
     "clean": "rimraf lib && rimraf es",
@@ -15,7 +15,7 @@
     "coverage:unit": "jest --watchAll=false --coverage --coverageDirectory=coverage/unit",
     "coverage:visual-regression": "jest --watchAll=false --coverage --coverageDirectory=coverage/visual-regression --roots=\"<rootDir>\" --testMatch=\"<rootDir>/storyshots/index.js\" --config=\"./jest.storyshots.config.js\"",
     "create-component": "node ./scripts/createComponent.js",
-    "docs:components": "yarn workspaces foreach --parallel --exclude @govuk-react/monorepo run docs",
+    "docs:components": "yarn workspaces foreach --parallel --exclude @govie-react/monorepo run docs",
     "docs": "yarn docs:components && concat ./components/*/README.md -o './API.md'",
     "eslint:fix": "eslint --fix \"./{components,packages}/*/src/**/*.{js,ts,tsx}\" \"./*.{js,ts,tsx}\" \"./{scripts,storyshots}/*.{js,ts,tsx}\"",
     "eslint": "eslint \"./{components,packages}/*/src/**/*.{js,ts,tsx}\" \"./*.{js,ts,tsx}\" \"./{scripts,storyshots}/*.{js,ts,tsx}\"",
@@ -27,7 +27,7 @@
     "test:types": "tsc --noEmit --declaration -p ./tsconfig.json",
     "test": "cross-env CI=true yarn test:unit && yarn eslint && yarn test:types"
   },
-  "description": "A port of the govuk-frontend components for React using styled-components.",
+  "description": "A port of the govie-frontend components for React using styled-components.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "engines": {
@@ -48,7 +48,7 @@
     "@babel/preset-env": "7.14.2",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
-    "@govuk-react/api-docs": "0.10.4",
+    "@govie-react/api-docs": "0.10.4",
     "@preconstruct/cli": "^2.1.5",
     "@storybook/addon-actions": "6.4.22",
     "@storybook/addon-controls": "6.4.22",

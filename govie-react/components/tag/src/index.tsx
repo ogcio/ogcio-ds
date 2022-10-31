@@ -6,7 +6,7 @@
 
 import styled from 'styled-components';
 import { BLUE, WHITE } from 'govuk-colours';
-import { typography } from '@govuk-react/lib';
+import { typography } from '@govie-react/lib';
 
 /**
  * Tag tints as defined by GDS

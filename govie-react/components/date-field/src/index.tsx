@@ -4,17 +4,17 @@
  * - https://github.com/alphagov/govuk-frontend/tree/main/src/govuk/components/date-field
  */
 
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { ERROR_COLOUR } from 'govuk-colours';
-import { SPACING } from '@govuk-react/constants';
-import LabelText from '@govuk-react/label-text';
-import ErrorText from '@govuk-react/error-text';
-import HintText from '@govuk-react/hint-text';
-import { spacing } from '@govuk-react/lib';
-import { InputProps as BaseInputProps } from '@govuk-react/input';
+import { SPACING } from '@govie-react/constants';
+import LabelText from '@govie-react/label-text';
+import ErrorText from '@govie-react/error-text';
+import HintText from '@govie-react/hint-text';
+import { spacing } from '@govie-react/lib';
+import { InputProps as BaseInputProps } from '@govie-react/input';
 
 import Input from './input';
 

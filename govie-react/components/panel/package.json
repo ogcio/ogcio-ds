@@ -1,9 +1,9 @@
 {
-  "name": "@govuk-react/panel",
+  "name": "@govie-react/panel",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0",
     "polished": "^4.1.2"
   },
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-panel.cjs.js",
-  "module": "dist/govuk-react-panel.esm.js",
+  "main": "dist/govie-react-panel.cjs.js",
+  "module": "dist/govie-react-panel.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

@@ -62,9 +62,9 @@ export const FONT_STACK_PRINT = 'sans-serif';
 export const FONT_SIZE = {
   SIZE_14: '14px',
   SIZE_16: '16px',
-  SIZE_18: '18px', // not directly used in govuk-frontend
+  SIZE_18: '18px', // not directly used in govie-frontend
   SIZE_19: '19px',
-  SIZE_20: '20px', // Not used in govuk-frontend
+  SIZE_20: '20px', // Not used in govie-frontend
   SIZE_24: '24px',
   SIZE_27: '27px',
 };

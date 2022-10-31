@@ -1,13 +1,13 @@
 {
-  "name": "@govuk-react/related-items",
+  "name": "@govie-react/related-items",
   "publishConfig": {
     "access": "public"
   },
   "version": "0.10.4",
   "license": "MIT",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -18,8 +18,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-related-items.cjs.js",
-  "module": "dist/govuk-react-related-items.esm.js",
+  "main": "dist/govie-react-related-items.cjs.js",
+  "module": "dist/govie-react-related-items.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "homepage": "https://github.com/govuk-react/govuk-react/tree/main/components/related-items",

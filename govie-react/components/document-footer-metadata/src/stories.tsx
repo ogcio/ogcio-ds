@@ -2,7 +2,7 @@ import type { Story } from '@storybook/react';
 
 import * as React from 'react';
 
-import Link from '@govuk-react/link';
+import Link from '@govie-react/link';
 
 import { DocumentFooterMetadata } from '.';
 

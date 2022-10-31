@@ -3,7 +3,7 @@ VisuallyHidden
 
 ### Import
 ```js
-  import VisuallyHidden from '@govuk-react/visually-hidden';
+  import VisuallyHidden from '@govie-react/visually-hidden';
 ```
 <!-- STORY -->
 

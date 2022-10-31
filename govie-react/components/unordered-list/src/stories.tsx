@@ -2,8 +2,8 @@ import type { Story } from '@storybook/react';
 
 import * as React from 'react';
 
-import ListItem from '@govuk-react/list-item';
-import OrderedList from '@govuk-react/ordered-list';
+import ListItem from '@govie-react/list-item';
+import OrderedList from '@govie-react/ordered-list';
 import { UnorderedList } from '.';
 
 export default {

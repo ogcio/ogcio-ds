@@ -2,7 +2,7 @@
 import type { FieldProps as FFFieldProps, FieldRenderProps } from 'react-final-form';
 
 import React, { useState, useCallback } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { Link } from 'react-router-dom';
 import { Form, Field as FFField } from 'react-final-form';
 
@@ -41,17 +41,17 @@ function Field<T, I>({ component: Component, name, ...props }: FieldProps<T, I>)
   );
 }
 
-const Checkbox = ({ input, ...props }) => <GovUK.Checkbox {...input} {...props} />;
+const Checkbox = ({ input, ...props }) => <GovIE.Checkbox {...input} {...props} />;
 const DateField: React.FC<
-  React.ComponentProps<typeof GovUK.DateField> & { meta: { touched: boolean; error: string } }
+  React.ComponentProps<typeof GovIE.DateField> & { meta: { touched: boolean; error: string } }
 > = ({ meta, ...props }) => (
-  <GovUK.DateField errorText={meta.touched && meta.error ? meta.error : undefined} {...props} />
+  <GovIE.DateField errorText={meta.touched && meta.error ? meta.error : undefined} {...props} />
 );
-const Radio = ({ input, ...props }) => <GovUK.Radio {...input} {...props} />;
+const Radio = ({ input, ...props }) => <GovIE.Radio {...input} {...props} />;
 const FileUpload: React.FC<
-  React.ComponentProps<typeof GovUK.FileUpload> & { input: { value: string; onChange: (any: FileList) => void } }
+  React.ComponentProps<typeof GovIE.FileUpload> & { input: { value: string; onChange: (any: FileList) => void } }
 > = ({ input: { value, onChange, ...input }, ...props }) => (
-  <GovUK.FileUpload {...input} {...props} onChange={({ target }) => onChange(target.files)} />
+  <GovIE.FileUpload {...input} {...props} onChange={({ target }) => onChange(target.files)} />
 );
 
 const FinalForm: React.FC = () => {
@@ -89,12 +89,12 @@ const FinalForm: React.FC = () => {
             };
             return (
               <form onSubmit={handleSubmit}>
-                <GovUK.LoadingBox loading={isSubmitting}>
-                  <GovUK.BackLink as={Link} to="/forms">
+                <GovIE.LoadingBox loading={isSubmitting}>
+                  <GovIE.BackLink as={Link} to="/forms">
                     Home
-                  </GovUK.BackLink>
+                  </GovIE.BackLink>
                   {!!errorsToShow?.length && (
-                    <GovUK.ErrorSummary
+                    <GovIE.ErrorSummary
                       heading="Error summary"
                       description="Please address the following issues"
                       errors={errorsToShow.map((key) => ({
@@ -103,14 +103,14 @@ const FinalForm: React.FC = () => {
                       }))}
                     />
                   )}
-                  <GovUK.Fieldset>
-                    <GovUK.Fieldset.Legend size="M">About you</GovUK.Fieldset.Legend>
+                  <GovIE.Fieldset>
+                    <GovIE.Fieldset.Legend size="M">About you</GovIE.Fieldset.Legend>
                     <Field
                       name="firstName"
                       mb={4}
                       hint="You can find this on your passport"
                       validate={validateFirstName}
-                      component={GovUK.InputField}
+                      component={GovIE.InputField}
                     >
                       First name
                     </Field>
@@ -119,16 +119,16 @@ const FinalForm: React.FC = () => {
                       name="description"
                       hint="Enter as many words as you like"
                       validate={validateDescription}
-                      component={GovUK.TextArea}
+                      component={GovIE.TextArea}
                     >
                       Description of what you saw
                     </Field>
 
-                    <GovUK.FormGroup error={touched?.nationality && !!errors?.nationality}>
-                      <GovUK.Label mb={4}>
-                        <GovUK.LabelText>Nationality</GovUK.LabelText>
+                    <GovIE.FormGroup error={touched?.nationality && !!errors?.nationality}>
+                      <GovIE.Label mb={4}>
+                        <GovIE.LabelText>Nationality</GovIE.LabelText>
                         {touched?.nationality && errors?.nationality && (
-                          <GovUK.ErrorText>{errors?.nationality}</GovUK.ErrorText>
+                          <GovIE.ErrorText>{errors?.nationality}</GovIE.ErrorText>
                         )}
                         <Field
                           type="checkbox"
@@ -146,16 +146,16 @@ const FinalForm: React.FC = () => {
                         <Field type="checkbox" name="nationality" value="other" component={Checkbox}>
                           Citizen of another country
                         </Field>
-                      </GovUK.Label>
-                    </GovUK.FormGroup>
+                      </GovIE.Label>
+                    </GovIE.FormGroup>
                     <Field name="dob" component={DateField} validate={validateDateOfBirth}>
                       Date of birth
                     </Field>
-                  </GovUK.Fieldset>
-                  <GovUK.Fieldset>
-                    <GovUK.Fieldset.Legend size="M">About your pet</GovUK.Fieldset.Legend>
+                  </GovIE.Fieldset>
+                  <GovIE.Fieldset>
+                    <GovIE.Fieldset.Legend size="M">About your pet</GovIE.Fieldset.Legend>
                     <Field
-                      component={GovUK.Select}
+                      component={GovIE.Select}
                       mb={8}
                       name="animal"
                       label="What animal is your pet"
@@ -181,7 +181,7 @@ const FinalForm: React.FC = () => {
                     >
                       Please upload a recent photograph
                     </Field>
-                    <GovUK.MultiChoice
+                    <GovIE.MultiChoice
                       mb={8}
                       label="Do you have more than one pet?"
                       meta={{ error: errors?.hasMultiplePets, touched: !!touched?.hasMultiplePets }}
@@ -199,12 +199,12 @@ const FinalForm: React.FC = () => {
                       <Field component={Radio} type="radio" name="hasMultiplePets" inline value="no">
                         No
                       </Field>
-                    </GovUK.MultiChoice>
-                  </GovUK.Fieldset>
-                  <GovUK.Button onClick={handleSubmit} disabled={isSubmitting}>
+                    </GovIE.MultiChoice>
+                  </GovIE.Fieldset>
+                  <GovIE.Button onClick={handleSubmit} disabled={isSubmitting}>
                     Submit
-                  </GovUK.Button>
-                </GovUK.LoadingBox>
+                  </GovIE.Button>
+                </GovIE.LoadingBox>
               </form>
             );
           }}

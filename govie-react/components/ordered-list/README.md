@@ -3,7 +3,7 @@ OrderedList
 
 ### Import
 ```js
-  import OrderedList from '@govuk-react/ordered-list';
+  import OrderedList from '@govie-react/ordered-list';
 ```
 <!-- STORY -->
 

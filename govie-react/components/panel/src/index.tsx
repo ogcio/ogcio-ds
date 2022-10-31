@@ -6,8 +6,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { TURQUOISE, WHITE } from 'govuk-colours';
-import { spacing, typography } from '@govuk-react/lib';
-import { BORDER_WIDTH, MEDIA_QUERIES, SPACING_POINTS } from '@govuk-react/constants';
+import { spacing, typography } from '@govie-react/lib';
+import { BORDER_WIDTH, MEDIA_QUERIES, SPACING_POINTS } from '@govie-react/constants';
 import { stripUnit } from 'polished';
 
 const RAW_BORDER_WIDTH = Number(stripUnit(BORDER_WIDTH));
@@ -18,14 +18,14 @@ const StyledPanel = styled('div')(
     boxSizing: 'border-box',
 
     marginBottom: SPACING_POINTS[3],
-    // NB govuk-frontend has this element styled tablet-first
+    // NB govie-frontend has this element styled tablet-first
     padding: SPACING_POINTS[6] - RAW_BORDER_WIDTH,
 
     border: `${BORDER_WIDTH} solid transparent`,
 
     textAlign: 'center',
 
-    // NB govuk-frontend has this media query as an `until tablet` (thus for mobile)
+    // NB govie-frontend has this media query as an `until tablet` (thus for mobile)
     [MEDIA_QUERIES.TABLET]: {
       padding: SPACING_POINTS[7] - RAW_BORDER_WIDTH,
     },
@@ -36,7 +36,7 @@ const StyledPanel = styled('div')(
   spacing.withWhiteSpace()
 );
 
-// NB govuk-frontend allows for the headingLevel to change, but defaults to h1
+// NB govie-frontend allows for the headingLevel to change, but defaults to h1
 // we're not supporting headingLevel at this time
 const StyledTitle = styled('h1')(
   {

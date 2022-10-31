@@ -4,8 +4,8 @@ import * as React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 
 import CrownIcon from '@govuk-react/icon-crown';
-import { Search as SearchIcon } from '@govuk-react/icons';
-import SearchBox from '@govuk-react/search-box';
+import { Search as SearchIcon } from '@govie-react/icons';
+import SearchBox from '@govie-react/search-box';
 
 import { TopNav } from '.';
 

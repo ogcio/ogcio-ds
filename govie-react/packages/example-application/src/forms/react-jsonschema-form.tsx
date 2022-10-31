@@ -2,7 +2,7 @@
 import type { JSONSchema7 } from 'json-schema';
 
 import React, { useCallback, useState } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { Link } from 'react-router-dom';
 
 import Results from './components/results';
@@ -152,9 +152,9 @@ const ReactJSONSchemaForm: React.FC = () => {
     <>
       {!hasSubmitted && (
         <>
-          <GovUK.BackLink as={Link} to="/forms">
+          <GovIE.BackLink as={Link} to="/forms">
             Home
-          </GovUK.BackLink>
+          </GovIE.BackLink>
           <Form
             schema={formSchema}
             uiSchema={uiSchema}
@@ -162,7 +162,7 @@ const ReactJSONSchemaForm: React.FC = () => {
             validate={validate}
             onError={() => null}
           >
-            <GovUK.Button type="submit">Submit</GovUK.Button>
+            <GovIE.Button type="submit">Submit</GovIE.Button>
           </Form>
         </>
       )}

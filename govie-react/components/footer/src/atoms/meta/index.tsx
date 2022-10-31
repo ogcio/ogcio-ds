@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { GUTTER_HALF } from '@govuk-react/constants';
-import { typography } from '@govuk-react/lib';
+import { GUTTER_HALF } from '@govie-react/constants';
+import { typography } from '@govie-react/lib';
 
 const Meta = styled('div')(
   {

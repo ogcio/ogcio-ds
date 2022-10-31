@@ -5,9 +5,9 @@
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/objects/_width-container.scss
  */
 import * as React from 'react';
-import SkipLink from '@govuk-react/skip-link';
-import TopNav from '@govuk-react/top-nav';
-// import Footer from '@govuk-react/footer';
+import SkipLink from '@govie-react/skip-link';
+import TopNav from '@govie-react/top-nav';
+// import Footer from '@govie-react/footer';
 
 import Main from './atoms/main';
 import WidthContainer from './atoms/width-container';

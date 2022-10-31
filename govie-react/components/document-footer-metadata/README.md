@@ -3,7 +3,7 @@ DocumentFooterMetadata
 
 ### Import
 ```js
-  import DocumentFooterMetadata from '@govuk-react/document-footer-metadata';
+  import DocumentFooterMetadata from '@govie-react/document-footer-metadata';
 ```
 <!-- STORY -->
 

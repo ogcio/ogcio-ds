@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/phase-banner",
+  "name": "@govie-react/phase-banner",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
-    "@govuk-react/tag": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
+    "@govie-react/tag": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-phase-banner.cjs.js",
-  "module": "dist/govuk-react-phase-banner.esm.js",
+  "main": "dist/govie-react-phase-banner.cjs.js",
+  "module": "dist/govie-react-phase-banner.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

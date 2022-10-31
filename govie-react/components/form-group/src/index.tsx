@@ -3,13 +3,13 @@
  *
  * - https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/objects/_form-group.scss
  */
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import * as React from 'react';
 import styled from 'styled-components';
 import { ERROR_COLOUR } from 'govuk-colours';
-import { spacing } from '@govuk-react/lib';
-import { BORDER_WIDTH_FORM_GROUP_ERROR, SPACING_POINTS } from '@govuk-react/constants';
+import { spacing } from '@govie-react/lib';
+import { BORDER_WIDTH_FORM_GROUP_ERROR, SPACING_POINTS } from '@govie-react/constants';
 
 /**
  * For wrapping a set of form fields such as checkboxes.

@@ -3,7 +3,7 @@ Page
 
 ### Import
 ```js
-  import Page from '@govuk-react/page';
+  import Page from '@govie-react/page';
 ```
 <!-- STORY -->
 

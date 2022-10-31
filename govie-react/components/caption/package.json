@@ -1,9 +1,9 @@
 {
-  "name": "@govuk-react/caption",
+  "name": "@govie-react/caption",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -14,8 +14,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-caption.cjs.js",
-  "module": "dist/govuk-react-caption.esm.js",
+  "main": "dist/govie-react-caption.cjs.js",
+  "module": "dist/govie-react-caption.esm.js",
   "source": "src/index.tsx",
   "author": "Steve Sims",
   "license": "MIT",

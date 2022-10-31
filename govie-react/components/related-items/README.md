@@ -3,7 +3,7 @@ RelatedItems
 
 ### Import
 ```js
-  import RelatedItems from '@govuk-react/related-items';
+  import RelatedItems from '@govie-react/related-items';
 ```
 <!-- STORY -->
 

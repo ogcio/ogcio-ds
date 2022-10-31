@@ -7,8 +7,8 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { GUTTER_HALF, MEDIA_QUERIES } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { GUTTER_HALF, MEDIA_QUERIES } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 const colValues = {
   columnOneQuarter: '25%',

@@ -3,7 +3,7 @@ Tabs
 
 ### Import
 ```js
-  import Tabs from '@govuk-react/tabs';
+  import Tabs from '@govie-react/tabs';
 ```
 <!-- STORY -->
 

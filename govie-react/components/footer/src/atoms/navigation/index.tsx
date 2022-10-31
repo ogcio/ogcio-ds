@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GUTTER_HALF } from '@govuk-react/constants';
+import { GUTTER_HALF } from '@govie-react/constants';
 
 const NavigationContainer = styled('div')({
   display: 'flex',

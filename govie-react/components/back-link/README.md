@@ -3,7 +3,7 @@ BackLink
 
 ### Import
 ```js
-  import BackLink from '@govuk-react/back-link';
+  import BackLink from '@govie-react/back-link';
 ```
 <!-- STORY -->
 

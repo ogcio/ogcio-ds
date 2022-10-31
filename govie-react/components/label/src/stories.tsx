@@ -2,7 +2,7 @@ import type { Story } from '@storybook/react';
 
 import * as React from 'react';
 
-import { LabelText, HintText, ErrorText, Input } from 'govuk-react';
+import { LabelText, HintText, ErrorText, Input } from 'govie-react';
 import { Label } from '.';
 
 export default {

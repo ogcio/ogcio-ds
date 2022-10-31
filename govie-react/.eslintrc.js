@@ -1,5 +1,5 @@
 const { devDependencies } = require('./package.json');
-const { dependencies: gukd } = require('./packages/govuk-react/package.json');
+const { dependencies: gukd } = require('./packages/govie-react/package.json');
 
 module.exports = {
   root: true,
@@ -78,9 +78,9 @@ module.exports = {
       },
       settings: {
         'import/core-modules': [
-          'govuk-react',
+          'govie-react',
           ...Object.keys(devDependencies),
-          ...Object.keys(gukd).filter((dep) => dep.startsWith('@govuk-react/')),
+          ...Object.keys(gukd).filter((dep) => dep.startsWith('@govie-react/')),
         ],
       },
     },

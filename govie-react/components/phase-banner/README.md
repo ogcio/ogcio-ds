@@ -3,7 +3,7 @@ PhaseBanner
 
 ### Import
 ```js
-  import PhaseBanner from '@govuk-react/phase-banner';
+  import PhaseBanner from '@govie-react/phase-banner';
 ```
 <!-- STORY -->
 

@@ -4,8 +4,8 @@
  * - https://github.com/alphagov/govuk-frontend/tree/main/src/govuk/components/skip-link
  */
 import styled from 'styled-components';
-import { SPACING_POINTS } from '@govuk-react/constants';
-import { link, typography, visuallyHidden } from '@govuk-react/lib';
+import { SPACING_POINTS } from '@govie-react/constants';
+import { link, typography, visuallyHidden } from '@govie-react/lib';
 
 /**
  *

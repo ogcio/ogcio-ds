@@ -1,5 +1,5 @@
 {
-  "name": "@govuk-react/api-docs",
+  "name": "@govie-react/api-docs",
   "version": "0.10.4",
   "dependencies": {
     "@babel/node": "7.14.2",
@@ -8,7 +8,7 @@
     "commander": "^2.15.0",
     "glob": "^7.1.2",
     "glob-promise": "^4.1.0",
-    "govuk-react": "^0.10.4",
+    "govie-react": "^0.10.4",
     "lodash": "^4.17.5",
     "react": "^17.0.2",
     "react-docgen-typescript": "^2.1.0",
@@ -30,13 +30,13 @@
     "start": "babel-node src",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-api-docs.cjs.js",
-  "module": "dist/govuk-react-api-docs.esm.js",
+  "main": "dist/govie-react-api-docs.cjs.js",
+  "module": "dist/govie-react-api-docs.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",
   "homepage": "https://github.com/govuk-react/govuk-react#readme",
-  "description": "govuk-react: A port of the govuk-frontend components for React using styled-components.",
+  "description": "govie-react: A port of the govie-frontend components for React using styled-components.",
   "publishConfig": {
     "access": "public"
   }

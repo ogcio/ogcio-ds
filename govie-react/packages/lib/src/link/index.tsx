@@ -2,7 +2,7 @@
 // https://github.com/alphagov/govuk-frontend/blob/main/src/govuk/helpers/_links.scss
 import type { CSSObject } from 'styled-components';
 
-import { FOCUSABLE_FILL, MEDIA_QUERY_PRINT } from '@govuk-react/constants';
+import { FOCUSABLE_FILL, MEDIA_QUERY_PRINT } from '@govie-react/constants';
 import {
   BLACK, // in lieu of a FOCUS_TEXT_COLOUR...
   LINK_COLOUR,

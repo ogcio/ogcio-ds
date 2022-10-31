@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { ButtonArrow } from '@govuk-react/icons';
+import { ButtonArrow } from '@govie-react/icons';
 
 import { Button } from '.';
 

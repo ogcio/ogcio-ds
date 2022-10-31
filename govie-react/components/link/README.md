@@ -3,7 +3,7 @@ Link
 
 ### Import
 ```js
-  import Link from '@govuk-react/link';
+  import Link from '@govie-react/link';
 ```
 <!-- STORY -->
 

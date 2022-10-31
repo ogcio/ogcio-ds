@@ -1,5 +1,5 @@
 import type { Story } from '@storybook/react';
-import { ButtonArrow } from '@govuk-react/icons';
+import { ButtonArrow } from '@govie-react/icons';
 
 import * as React from 'react';
 import { BLUE, TEXT_COLOUR, YELLOW, GREY_3, ORANGE } from 'govuk-colours';

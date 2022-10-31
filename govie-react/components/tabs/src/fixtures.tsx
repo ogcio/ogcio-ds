@@ -1,9 +1,9 @@
 /* eslint-disable max-classes-per-file */
 import React, { Component } from 'react';
-import { BREAKPOINTS } from '@govuk-react/constants';
-import { H2, H4 } from '@govuk-react/heading';
-import SectionBreak from '@govuk-react/section-break';
-import Table from '@govuk-react/table';
+import { BREAKPOINTS } from '@govie-react/constants';
+import { H2, H4 } from '@govie-react/heading';
+import SectionBreak from '@govie-react/section-break';
+import Table from '@govie-react/table';
 import { MemoryRouter, Route, Link, Routes, useParams, useLocation } from 'react-router-dom';
 
 import { Tabs } from '.';

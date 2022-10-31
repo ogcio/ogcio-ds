@@ -2,7 +2,7 @@ import type { Story } from '@storybook/react';
 
 import React, { Component } from 'react';
 
-import Paragraph from '@govuk-react/paragraph';
+import Paragraph from '@govie-react/paragraph';
 
 import { SkipLink } from '.';
 

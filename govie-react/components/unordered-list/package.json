@@ -1,8 +1,8 @@
 {
-  "name": "@govuk-react/unordered-list",
+  "name": "@govie-react/unordered-list",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/ordered-list": "^0.10.4"
+    "@govie-react/ordered-list": "^0.10.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -12,8 +12,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-unordered-list.cjs.js",
-  "module": "dist/govuk-react-unordered-list.esm.js",
+  "main": "dist/govie-react-unordered-list.cjs.js",
+  "module": "dist/govie-react-unordered-list.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

@@ -3,7 +3,7 @@ Select
 
 ### Import
 ```js
-  import Select from '@govuk-react/select';
+  import Select from '@govie-react/select';
 ```
 <!-- STORY -->
 

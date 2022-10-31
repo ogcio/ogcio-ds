@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
-import { MEDIA_QUERIES } from '@govuk-react/constants';
+import { MEDIA_QUERIES } from '@govie-react/constants';
 
 // Label to be linked to checkbox in parent component
 // in order to provide toggle function of mobile menu
@@ -35,7 +35,7 @@ const ButtonIcon = styled('div')<{ open: boolean }>(({ open }) => ({
 }));
 
 const MenuButton: React.FC<MenuButtonProps> = ({ title, open, onClick }: MenuButtonProps) => (
-  <Button onClick={onClick} htmlFor="govuk-react-menu-button">
+  <Button onClick={onClick} htmlFor="govie-react-menu-button">
     <ButtonText>{title}</ButtonText>
     <ButtonIcon open={open} />
   </Button>

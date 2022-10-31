@@ -1,14 +1,14 @@
 {
-  "name": "@govuk-react/date-field",
+  "name": "@govie-react/date-field",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/error-text": "^0.10.4",
-    "@govuk-react/hint-text": "^0.10.4",
-    "@govuk-react/input": "^0.10.4",
-    "@govuk-react/label": "^0.10.4",
-    "@govuk-react/label-text": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/error-text": "^0.10.4",
+    "@govie-react/hint-text": "^0.10.4",
+    "@govie-react/input": "^0.10.4",
+    "@govie-react/label": "^0.10.4",
+    "@govie-react/label-text": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0",
     "multi-input-input": "0.0.3"
   },
@@ -20,8 +20,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-date-field.cjs.js",
-  "module": "dist/govuk-react-date-field.esm.js",
+  "main": "dist/govie-react-date-field.cjs.js",
+  "module": "dist/govie-react-date-field.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

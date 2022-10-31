@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { BLUE } from 'govuk-colours';
 
-import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, SPACING } from '@govuk-react/constants';
-import { spacing } from '@govuk-react/lib';
+import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, SPACING } from '@govie-react/constants';
+import { spacing } from '@govie-react/lib';
 
 /**
  * Component showing related content, including topics, guidance and collections.

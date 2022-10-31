@@ -3,7 +3,7 @@ Button
 
 ### Import
 ```js
-  import Button from '@govuk-react/button';
+  import Button from '@govie-react/button';
 ```
 <!-- STORY -->
 
@@ -73,7 +73,7 @@ Prop | Required | Default | Type | Description
  `buttonColour` |  | ```undefined``` | string | Override for default button colour
  `buttonHoverColour` |  | ```undefined``` | string | Override for default button hover colour,<br/>which defaults to `buttonColour` darkened by 5%
  `buttonShadowColour` |  | ```undefined``` | string | Override for default button shadow colour,<br/>which defaults to `buttonColour` darkened by 15%
- `buttonTextColour` |  | ```undefined``` | string | Override for default button text colour,<br/>which defaults to govuk white
+ `buttonTextColour` |  | ```undefined``` | string | Override for default button text colour,<br/>which defaults to govie white
  `children` |  |  | ReactNode | Button text
  `className` |  |  | string | 
  `color` |  |  | string | 

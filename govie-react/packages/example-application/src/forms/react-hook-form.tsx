@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState, useCallback } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { Link } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
@@ -20,7 +20,7 @@ import Results from './components/results';
 const DateField = ({ input: { onChange, onBlur, ...input }, children, ...props }) => {
   const [value, setValue] = useState(input.value);
   return (
-    <GovUK.DateField
+    <GovIE.DateField
       {...props}
       input={{
         onChange: (newValue) => {
@@ -32,7 +32,7 @@ const DateField = ({ input: { onChange, onBlur, ...input }, children, ...props }
       }}
     >
       {children}
-    </GovUK.DateField>
+    </GovIE.DateField>
   );
 };
 
@@ -68,12 +68,12 @@ const ReactHookForm: React.FC = () => {
     <>
       {!hasSubmitted && (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
-          <GovUK.LoadingBox loading={isSubmitting}>
-            <GovUK.BackLink as={Link} to="/forms">
+          <GovIE.LoadingBox loading={isSubmitting}>
+            <GovIE.BackLink as={Link} to="/forms">
               Home
-            </GovUK.BackLink>
+            </GovIE.BackLink>
             {!!errorsToShow?.length && (
-              <GovUK.ErrorSummary
+              <GovIE.ErrorSummary
                 heading="Error summary"
                 description="Please address the following issues"
                 errors={errorsToShow.map((key) => ({
@@ -82,9 +82,9 @@ const ReactHookForm: React.FC = () => {
                 }))}
               />
             )}
-            <GovUK.Fieldset>
-              <GovUK.Fieldset.Legend size="M">About you</GovUK.Fieldset.Legend>
-              <GovUK.InputField
+            <GovIE.Fieldset>
+              <GovIE.Fieldset.Legend size="M">About you</GovIE.Fieldset.Legend>
+              <GovIE.InputField
                 mb={4}
                 hint="You can find this on your passport"
                 meta={{ touched: submitCount > 0, error: errors?.firstName?.message }}
@@ -93,8 +93,8 @@ const ReactHookForm: React.FC = () => {
                 })}
               >
                 First name
-              </GovUK.InputField>
-              <GovUK.TextArea
+              </GovIE.InputField>
+              <GovIE.TextArea
                 mb={8}
                 hint="Enter as many words as you like"
                 meta={{ touched: submitCount > 0, error: errors?.description?.message }}
@@ -103,14 +103,14 @@ const ReactHookForm: React.FC = () => {
                 })}
               >
                 Description of what you saw
-              </GovUK.TextArea>
-              <GovUK.FormGroup error={submitCount > 0 && !!errors?.nationality?.message}>
-                <GovUK.Label mb={4}>
-                  <GovUK.LabelText>Nationality</GovUK.LabelText>
+              </GovIE.TextArea>
+              <GovIE.FormGroup error={submitCount > 0 && !!errors?.nationality?.message}>
+                <GovIE.Label mb={4}>
+                  <GovIE.LabelText>Nationality</GovIE.LabelText>
                   {submitCount > 0 && errors?.nationality?.message && (
-                    <GovUK.ErrorText>{errors?.nationality.message}</GovUK.ErrorText>
+                    <GovIE.ErrorText>{errors?.nationality.message}</GovIE.ErrorText>
                   )}
-                  <GovUK.Checkbox
+                  <GovIE.Checkbox
                     type="checkbox"
                     value="british"
                     hint="including English, Scottish, Welsh and Northern Irish"
@@ -119,8 +119,8 @@ const ReactHookForm: React.FC = () => {
                     })}
                   >
                     British
-                  </GovUK.Checkbox>
-                  <GovUK.Checkbox
+                  </GovIE.Checkbox>
+                  <GovIE.Checkbox
                     type="checkbox"
                     value="irish"
                     {...register('nationality', {
@@ -128,8 +128,8 @@ const ReactHookForm: React.FC = () => {
                     })}
                   >
                     Irish
-                  </GovUK.Checkbox>
-                  <GovUK.Checkbox
+                  </GovIE.Checkbox>
+                  <GovIE.Checkbox
                     type="checkbox"
                     value="other"
                     {...register('nationality', {
@@ -137,9 +137,9 @@ const ReactHookForm: React.FC = () => {
                     })}
                   >
                     Citizen of another country
-                  </GovUK.Checkbox>
-                </GovUK.Label>
-              </GovUK.FormGroup>
+                  </GovIE.Checkbox>
+                </GovIE.Label>
+              </GovIE.FormGroup>
               <DateField
                 errorText={submitCount > 0 ? errors?.dob?.message : undefined}
                 input={register('dob', {
@@ -148,10 +148,10 @@ const ReactHookForm: React.FC = () => {
               >
                 Date of birth
               </DateField>
-            </GovUK.Fieldset>
-            <GovUK.Fieldset>
-              <GovUK.Fieldset.Legend size="M">About your pet</GovUK.Fieldset.Legend>
-              <GovUK.Select
+            </GovIE.Fieldset>
+            <GovIE.Fieldset>
+              <GovIE.Fieldset.Legend size="M">About your pet</GovIE.Fieldset.Legend>
+              <GovIE.Select
                 mb={8}
                 label="What animal is your pet"
                 hint="A cat for example"
@@ -164,8 +164,8 @@ const ReactHookForm: React.FC = () => {
                 <option value="cat">Cat</option>
                 <option value="other-feline">Other feline</option>
                 <option value="other-non-feline">Other non feline</option>
-              </GovUK.Select>
-              <GovUK.FileUpload
+              </GovIE.Select>
+              <GovIE.FileUpload
                 mb={8}
                 acceptedFormats=".jpg, .png"
                 hint="This can be in either JPG or PNG format"
@@ -173,34 +173,34 @@ const ReactHookForm: React.FC = () => {
                 {...register('petPhoto', { validate: validatePetPhoto })}
               >
                 Please upload a recent photograph
-              </GovUK.FileUpload>
-              <GovUK.MultiChoice
+              </GovIE.FileUpload>
+              <GovIE.MultiChoice
                 mb={8}
                 label="Do you have more than one pet?"
                 meta={{ error: errors?.hasMultiplePets?.message, touched: submitCount > 0 }}
               >
-                <GovUK.Radio
+                <GovIE.Radio
                   type="radio"
                   inline
                   value="yes"
                   {...register('hasMultiplePets', { validate: validateMultiplePets })}
                 >
                   Yes
-                </GovUK.Radio>
-                <GovUK.Radio
+                </GovIE.Radio>
+                <GovIE.Radio
                   type="radio"
                   inline
                   value="no"
                   {...register('hasMultiplePets', { validate: validateMultiplePets })}
                 >
                   No
-                </GovUK.Radio>
-              </GovUK.MultiChoice>
-            </GovUK.Fieldset>
-            <GovUK.Button type="submit" disabled={isSubmitting}>
+                </GovIE.Radio>
+              </GovIE.MultiChoice>
+            </GovIE.Fieldset>
+            <GovIE.Button type="submit" disabled={isSubmitting}>
               Submit
-            </GovUK.Button>
-          </GovUK.LoadingBox>
+            </GovIE.Button>
+          </GovIE.LoadingBox>
         </form>
       )}
       {hasSubmitted && (

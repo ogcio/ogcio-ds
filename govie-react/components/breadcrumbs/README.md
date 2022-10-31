@@ -3,7 +3,7 @@ Breadcrumbs
 
 ### Import
 ```js
-  import Breadcrumbs from '@govuk-react/breadcrumbs';
+  import Breadcrumbs from '@govie-react/breadcrumbs';
 ```
 <!-- STORY -->
 

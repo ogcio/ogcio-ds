@@ -10,7 +10,7 @@ import {
   MEDIA_QUERIES,
   MEDIA_QUERY_PRINT,
   TYPOGRAPHY_SCALE,
-} from '@govuk-react/constants';
+} from '@govie-react/constants';
 import { BLACK } from 'govuk-colours';
 
 export const textColour = {

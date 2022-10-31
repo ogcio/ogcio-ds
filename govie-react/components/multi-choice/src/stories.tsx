@@ -1,7 +1,7 @@
 import type { Story } from '@storybook/react';
 
 import * as React from 'react';
-import Radio from '@govuk-react/radio';
+import Radio from '@govie-react/radio';
 
 import { MultiChoice } from '.';
 

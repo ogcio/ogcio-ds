@@ -1,10 +1,10 @@
 {
-  "name": "@govuk-react/checkbox",
+  "name": "@govie-react/checkbox",
   "version": "0.10.4",
   "dependencies": {
-    "@govuk-react/constants": "^0.10.4",
-    "@govuk-react/hint-text": "^0.10.4",
-    "@govuk-react/lib": "^0.10.4",
+    "@govie-react/constants": "^0.10.4",
+    "@govie-react/hint-text": "^0.10.4",
+    "@govie-react/lib": "^0.10.4",
     "govuk-colours": "^1.1.0"
   },
   "peerDependencies": {
@@ -15,8 +15,8 @@
     "docs": "doc-component ./src/index.tsx ./README.md",
     "version": "yarn version"
   },
-  "main": "dist/govuk-react-checkbox.cjs.js",
-  "module": "dist/govuk-react-checkbox.esm.js",
+  "main": "dist/govie-react-checkbox.cjs.js",
+  "module": "dist/govie-react-checkbox.esm.js",
   "source": "src/index.tsx",
   "author": "Alasdair McLeay",
   "license": "MIT",

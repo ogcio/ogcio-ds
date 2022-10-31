@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp-promise');
-const { version } = require('../packages/govuk-react/package.json');
+const { version } = require('../packages/govie-react/package.json');
 
 const componentFolderName = process.argv[2];
 const componentName = `${componentFolderName.charAt(0).toUpperCase()}${componentFolderName
@@ -30,10 +30,10 @@ const packageJson = () => {
   // also I'm not sure we need the storybook addons for all components,
   // can be added manually per component perhaps.
   const contents = `{
-  "name": "@govuk-react/${componentFolderName}",
+  "name": "@govie-react/${componentFolderName}",
   "version": "${version}",
   "dependencies": {
-    "@govuk-react/lib": "^${version}"
+    "@govie-react/lib": "^${version}"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -49,7 +49,7 @@ const packageJson = () => {
   "author": "Alasdair McLeay",
   "license": "MIT",
   "homepage": "https://github.com/govuk-react/govuk-react/tree/main/components/${componentFolderName}",
-  "description": "govuk-react ${componentName} component.",
+  "description": "govie-react ${componentName} component.",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -103,7 +103,7 @@ const indexScript = () => {
   const filename = 'index.js';
   const contents = `import React from 'react';
 import styled from 'styled-components';
-import { spacing, typography } from '@govuk-react/lib';
+import { spacing, typography } from '@govie-react/lib';
 
 const ${componentName} = styled('div')(
   typography.font({ size: 16 }),
@@ -142,8 +142,8 @@ Please use a different name or delete the existing folder 🆗`);
     storiesScript();
     indexScript();
     /* eslint-disable-line no-console */ console.log(`✅  The component '${componentName}' was created successfully`);
-    /* eslint-disable-line no-console */ console.log(`⚠️  Please ensure you add it to the package.json file for both packages/govuk-react and packages/storybook
-and ensure that it is exported in packages/govuk-react/src/index.ts`);
+    /* eslint-disable-line no-console */ console.log(`⚠️  Please ensure you add it to the package.json file for both packages/govie-react and packages/storybook
+and ensure that it is exported in packages/govie-react/src/index.ts`);
   });
   return false;
 };

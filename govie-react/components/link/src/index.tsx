@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { link } from '@govuk-react/lib';
+import { link } from '@govie-react/lib';
 
 export interface LinkProps {
   /** link contents */

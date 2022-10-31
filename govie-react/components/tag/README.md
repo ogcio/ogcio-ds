@@ -3,7 +3,7 @@ Tag
 
 ### Import
 ```js
-  import Tag from '@govuk-react/tag';
+  import Tag from '@govie-react/tag';
 ```
 <!-- STORY -->
 

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -67,12 +67,12 @@ const Form: React.FC = () => {
   return (
     <>
       {!hasSubmitted && (
-        <GovUK.LoadingBox loading={isSubmitting}>
-          <GovUK.BackLink as={Link} to="/forms">
+        <GovIE.LoadingBox loading={isSubmitting}>
+          <GovIE.BackLink as={Link} to="/forms">
             Home
-          </GovUK.BackLink>
+          </GovIE.BackLink>
           {errors && !!Object.keys(errors).length && (
-            <GovUK.ErrorSummary
+            <GovIE.ErrorSummary
               heading="Error summary"
               description="Please address the following issues"
               errors={Object.keys(errors).map((key) => ({
@@ -81,20 +81,20 @@ const Form: React.FC = () => {
               }))}
             />
           )}
-          <GovUK.Fieldset>
-            <GovUK.Fieldset.Legend size="M">About you</GovUK.Fieldset.Legend>
-            <GovUK.Label mb={4} error={!!errors?.firstName}>
-              <GovUK.LabelText>First name</GovUK.LabelText>
-              <GovUK.HintText>You can find this on your passport</GovUK.HintText>
-              {errors?.firstName && <GovUK.ErrorText>{errors.firstName}</GovUK.ErrorText>}
-              <GovUK.Input
+          <GovIE.Fieldset>
+            <GovIE.Fieldset.Legend size="M">About you</GovIE.Fieldset.Legend>
+            <GovIE.Label mb={4} error={!!errors?.firstName}>
+              <GovIE.LabelText>First name</GovIE.LabelText>
+              <GovIE.HintText>You can find this on your passport</GovIE.HintText>
+              {errors?.firstName && <GovIE.ErrorText>{errors.firstName}</GovIE.ErrorText>}
+              <GovIE.Input
                 name="firstName"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
                 error={!!errors?.firstName}
               />
-            </GovUK.Label>
-            <GovUK.TextArea
+            </GovIE.Label>
+            <GovIE.TextArea
               mb={8}
               hint="Enter as many words as you like"
               meta={{ error: errors?.description, touched: !!errors?.description }}
@@ -107,46 +107,46 @@ const Form: React.FC = () => {
               }}
             >
               Description of what you saw
-            </GovUK.TextArea>
+            </GovIE.TextArea>
 
-            <GovUK.FormGroup error={!!errors?.nationality}>
-              <GovUK.Label mb={4}>
-                <GovUK.LabelText>Nationality</GovUK.LabelText>
-                {errors?.nationality && <GovUK.ErrorText>{errors?.nationality}</GovUK.ErrorText>}
-                <GovUK.Checkbox
+            <GovIE.FormGroup error={!!errors?.nationality}>
+              <GovIE.Label mb={4}>
+                <GovIE.LabelText>Nationality</GovIE.LabelText>
+                {errors?.nationality && <GovIE.ErrorText>{errors?.nationality}</GovIE.ErrorText>}
+                <GovIE.Checkbox
                   name="nationality"
                   hint="including English, Scottish, Welsh and Northern Irish"
                   checked={nationality.includes('british')}
                   onChange={() => setNationality((prev) => toggle(prev, 'british'))}
                 >
                   British
-                </GovUK.Checkbox>
-                <GovUK.Checkbox
+                </GovIE.Checkbox>
+                <GovIE.Checkbox
                   name="nationality"
                   checked={nationality.includes('irish')}
                   onChange={() => setNationality((prev) => toggle(prev, 'irish'))}
                 >
                   Irish
-                </GovUK.Checkbox>
-                <GovUK.Checkbox
+                </GovIE.Checkbox>
+                <GovIE.Checkbox
                   name="nationality"
                   checked={nationality.includes('other')}
                   onChange={() => setNationality((prev) => toggle(prev, 'other'))}
                 >
                   Citizen of another country
-                </GovUK.Checkbox>
-              </GovUK.Label>
-            </GovUK.FormGroup>
+                </GovIE.Checkbox>
+              </GovIE.Label>
+            </GovIE.FormGroup>
 
-            <GovUK.DateField.Container errorText={errors?.dob}>
-              <GovUK.LabelText>Date of birth</GovUK.LabelText>
-              {errors?.dob && <GovUK.ErrorText>{errors?.dob}</GovUK.ErrorText>}
-              <GovUK.DateField.Input name="dob" value={dob} onChange={setDob} />
-            </GovUK.DateField.Container>
-          </GovUK.Fieldset>
-          <GovUK.Fieldset>
-            <GovUK.Fieldset.Legend size="M">About your pet</GovUK.Fieldset.Legend>
-            <GovUK.Select
+            <GovIE.DateField.Container errorText={errors?.dob}>
+              <GovIE.LabelText>Date of birth</GovIE.LabelText>
+              {errors?.dob && <GovIE.ErrorText>{errors?.dob}</GovIE.ErrorText>}
+              <GovIE.DateField.Input name="dob" value={dob} onChange={setDob} />
+            </GovIE.DateField.Container>
+          </GovIE.Fieldset>
+          <GovIE.Fieldset>
+            <GovIE.Fieldset.Legend size="M">About your pet</GovIE.Fieldset.Legend>
+            <GovIE.Select
               mb={8}
               label="What animal is your pet"
               hint="A cat for example"
@@ -157,8 +157,8 @@ const Form: React.FC = () => {
               <option value="cat">Cat</option>
               <option value="other-feline">Other feline</option>
               <option value="other-non-feline">Other non feline</option>
-            </GovUK.Select>
-            <GovUK.FileUpload
+            </GovIE.Select>
+            <GovIE.FileUpload
               mb={8}
               acceptedFormats=".jpg, .png"
               hint="This can be in either JPG or PNG format"
@@ -169,34 +169,34 @@ const Form: React.FC = () => {
               }}
             >
               Please upload a recent photograph
-            </GovUK.FileUpload>
-            <GovUK.MultiChoice
+            </GovIE.FileUpload>
+            <GovIE.MultiChoice
               mb={8}
               label="Do you have more than one pet?"
               meta={{ error: errors?.hasMultiplePets, touched: !!errors?.hasMultiplePets }}
             >
-              <GovUK.Radio
+              <GovIE.Radio
                 name="hasMultiplePets"
                 inline
                 checked={hasMultiplePets === 'yes'}
                 onChange={() => setHasMultiplePets('yes')}
               >
                 Yes
-              </GovUK.Radio>
-              <GovUK.Radio
+              </GovIE.Radio>
+              <GovIE.Radio
                 name="hasMultiplePets"
                 inline
                 checked={hasMultiplePets === 'no'}
                 onChange={() => setHasMultiplePets('no')}
               >
                 No
-              </GovUK.Radio>
-            </GovUK.MultiChoice>
-          </GovUK.Fieldset>
-          <GovUK.Button onClick={handleSubmit} disabled={isSubmitting}>
+              </GovIE.Radio>
+            </GovIE.MultiChoice>
+          </GovIE.Fieldset>
+          <GovIE.Button onClick={handleSubmit} disabled={isSubmitting}>
             Submit
-          </GovUK.Button>
-        </GovUK.LoadingBox>
+          </GovIE.Button>
+        </GovIE.LoadingBox>
       )}
       {hasSubmitted && (
         <Results

@@ -6,12 +6,12 @@
 
 import type { StyledComponentProps } from 'styled-components';
 
-import type { WithWhiteSpaceProps } from '@govuk-react/lib';
+import type { WithWhiteSpaceProps } from '@govie-react/lib';
 
 import styled from 'styled-components';
 import * as React from 'react';
-import { BORDER_WIDTH_FORM_ELEMENT, FOCUSABLE, MEDIA_QUERIES, SPACING_POINTS } from '@govuk-react/constants';
-import { spacing, typography } from '@govuk-react/lib';
+import { BORDER_WIDTH_FORM_ELEMENT, FOCUSABLE, MEDIA_QUERIES, SPACING_POINTS } from '@govie-react/constants';
+import { spacing, typography } from '@govie-react/lib';
 import { BUTTON_COLOUR, BUTTON_COLOUR_DARKEN_15, WHITE } from 'govuk-colours';
 import { darken, stripUnit } from 'polished';
 
@@ -48,7 +48,7 @@ const StyledButton = styled('button').withConfig<StyledButtonOwnProps>({
     position: 'relative',
     width: '100%',
     marginTop: 0,
-    padding: isStart // differs from govuk-frontend owing to how icons displayed
+    padding: isStart // differs from govie-frontend owing to how icons displayed
       ? `${BASE_PAD}px ${SPACING_POINTS[3]}px`
       : `${BASE_PAD - HALF_SHADOW}px ${SPACING_POINTS[2]}px`,
     border: `${BORDER_WIDTH_FORM_ELEMENT} solid transparent`,
@@ -84,7 +84,7 @@ const StyledButton = styled('button').withConfig<StyledButtonOwnProps>({
       boxShadow: 'none',
     },
 
-    // NB this is from govuk-frontend
+    // NB this is from govie-frontend
     // Use a pseudo element to expand the click target area to include the
     // button's shadow as well, in case users try to click it.
     '::before': {
@@ -126,7 +126,7 @@ const StyledButton = styled('button').withConfig<StyledButtonOwnProps>({
     },
   }),
 
-  // NB we drift from govuk-frontend here in how we display icons
+  // NB we drift from govie-frontend here in how we display icons
   ({ icon }) => {
     if (icon) {
       return {
@@ -165,7 +165,7 @@ interface StyledButtonOwnProps extends WithWhiteSpaceProps {
   buttonShadowColour?: string;
   /**
    * Override for default button text colour,
-   * which defaults to govuk white
+   * which defaults to govie white
    */
   buttonTextColour?: string;
   /**
@@ -207,7 +207,7 @@ interface ButtonOwnProps extends WithWhiteSpaceProps {
   buttonShadowColour?: string;
   /**
    * Override for default button text colour,
-   * which defaults to govuk white
+   * which defaults to govie white
    */
   buttonTextColour?: string;
 }

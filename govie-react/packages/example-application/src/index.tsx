@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as GovUK from 'govuk-react';
+import * as GovIE from 'govie-react';
 import { MemoryRouter as Router, Routes, Route } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -9,36 +9,36 @@ import Forms from './forms/forms';
 const ExampleApplication: React.FC<ExampleApplicationProps> = ({ routerEntries }: ExampleApplicationProps) => (
   <React.StrictMode>
     <Router initialEntries={routerEntries}>
-      <GovUK.GlobalStyle />
-      <GovUK.TopNav
+      <GovIE.GlobalStyle />
+      <GovIE.TopNav
         serviceTitle={
-          <GovUK.TopNav.Anchor as={Link} to="/">
+          <GovIE.TopNav.Anchor as={Link} to="/">
             React
-          </GovUK.TopNav.Anchor>
+          </GovIE.TopNav.Anchor>
         }
         search={
-          <GovUK.SearchBox>
-            <GovUK.SearchBox.Input placeholder="Search GOV.UK" />
-            <GovUK.SearchBox.Button />
-          </GovUK.SearchBox>
+          <GovIE.SearchBox>
+            <GovIE.SearchBox.Input placeholder="Search GOV.UK" />
+            <GovIE.SearchBox.Button />
+          </GovIE.SearchBox>
         }
       >
-        <GovUK.TopNav.NavLink as={Link} to="/">
+        <GovIE.TopNav.NavLink as={Link} to="/">
           Home
-        </GovUK.TopNav.NavLink>
-        <GovUK.TopNav.NavLink as={Link} to="/forms">
+        </GovIE.TopNav.NavLink>
+        <GovIE.TopNav.NavLink as={Link} to="/forms">
           Forms
-        </GovUK.TopNav.NavLink>
-      </GovUK.TopNav>
-      <GovUK.Page.WidthContainer>
-        <GovUK.Page.Main>
+        </GovIE.TopNav.NavLink>
+      </GovIE.TopNav>
+      <GovIE.Page.WidthContainer>
+        <GovIE.Page.Main>
           <Routes>
             <Route path="/forms/*" element={<Forms />} />
             <Route path="/" element={<Home />} />
           </Routes>
-        </GovUK.Page.Main>
-      </GovUK.Page.WidthContainer>
-      <GovUK.Footer />
+        </GovIE.Page.Main>
+      </GovIE.Page.WidthContainer>
+      <GovIE.Footer />
     </Router>
   </React.StrictMode>
 );

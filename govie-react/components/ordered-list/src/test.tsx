@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
-import Link from '@govuk-react/link';
-import ListItem from '@govuk-react/list-item';
+import Link from '@govie-react/link';
+import ListItem from '@govie-react/list-item';
 
 import { OrderedList } from '.';
 

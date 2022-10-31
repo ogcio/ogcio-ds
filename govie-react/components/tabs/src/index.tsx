@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { spacing, typography } from '@govuk-react/lib';
+import { spacing, typography } from '@govie-react/lib';
 
 import List from './atoms/list';
 import Panel from './atoms/panel';

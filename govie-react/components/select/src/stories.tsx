@@ -3,7 +3,7 @@ import type { Story } from '@storybook/react';
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import LabelText from '@govuk-react/label-text';
+import LabelText from '@govie-react/label-text';
 
 import { Select, SelectInput } from '.';
 

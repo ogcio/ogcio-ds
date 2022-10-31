@@ -1,7 +1,7 @@
 import type { Story } from '@storybook/react';
 
 import * as React from 'react';
-import Paragraph from '@govuk-react/paragraph';
+import Paragraph from '@govie-react/paragraph';
 import { Details } from '.';
 
 export default {
