@@ -47,6 +47,11 @@ jobs:
       - run: yarn
       - run: yarn build:storybook
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: govie-react/packages/storybook/storybook-static
+
   deploy:
     # Add a dependency to the build job
     needs: build
@@ -56,6 +61,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages 
         id: deployment
         uses: actions/deploy-pages@v1
