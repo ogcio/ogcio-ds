@@ -41,9 +41,6 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v2
-
       - run: yarn
       - run: yarn build:storybook
 
