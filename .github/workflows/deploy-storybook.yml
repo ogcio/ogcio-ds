@@ -47,15 +47,21 @@ jobs:
       - run: yarn
       - run: yarn build:storybook
 
-  deploy:
-    # Add a dependency to the build job
-    needs: build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: govie-react/packages/storybook/storybook-static # The folder the action should deploy.
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+  # deploy:
+  #   # Add a dependency to the build job
+  #   needs: build
+
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v1
