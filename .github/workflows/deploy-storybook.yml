@@ -4,6 +4,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: [chore/update-gihub-action]
+    # Runs only when there is changes os govie-react folder
     paths: [govie-react]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -30,32 +31,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Install dependencies
-        run: npm ci
-      - name: Build packages
-        run: npm run build
-      - name: Build storybook
-        run: npm run storybook:build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v2
+
+      - run: yarn
+      - run: yarn build:storybook
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          path: ./build
+          folder: packages/storybook/storybook-static # The folder the action should deploy.
 
-  deploy:
-    # Add a dependency to the build job
-    needs: build
+  # deploy:
+  #   # Add a dependency to the build job
+  #   needs: build
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v1
