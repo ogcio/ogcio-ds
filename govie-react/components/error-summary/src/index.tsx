@@ -16,7 +16,7 @@ import Link from '@govie-react/link';
 import ListItem from '@govie-react/list-item';
 
 import {
-  NTA_LIGHT,
+  LATO_LIGHT,
   FONT_SIZE,
   BORDER_WIDTH,
   BORDER_WIDTH_MOBILE,
@@ -30,7 +30,7 @@ import {
 import { spacing } from '@govie-react/lib';
 
 const StyledErrorText = styled(Link)({
-  fontFamily: NTA_LIGHT,
+  fontFamily: LATO_LIGHT,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   fontWeight: 700,

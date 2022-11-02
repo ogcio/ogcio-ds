@@ -19,6 +19,13 @@ const MyComponent = ({title}) => (<div>
 
 Also see the [Example Application](packages/example-application/src) for basic usage.
 
+## Assumptions
+
+Use of these components assumes the following from the peer project:
+
+- The govie-react `GlobalStyle` component is included on all pages.
+- Other than the reset, no other styles affecting generic elements (without classes, IDs etc) are present in the CSS.
+
 ## Using Link with a Router Link
 
 We provide a Link component which creates an element styled as a GDS link. As we are using styled-components it is possible to apply that style to an existing component using the `as` prop. Other props will be passed through.

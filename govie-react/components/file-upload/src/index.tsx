@@ -11,11 +11,11 @@ import Label from '@govie-react/label';
 import LabelText from '@govie-react/label-text';
 import ErrorText from '@govie-react/error-text';
 import HintText from '@govie-react/hint-text';
-import { FONT_SIZE, LINE_HEIGHT, NTA_LIGHT, MEDIA_QUERIES } from '@govie-react/constants';
+import { FONT_SIZE, LINE_HEIGHT, LATO_LIGHT, MEDIA_QUERIES } from '@govie-react/constants';
 
 const StyledInput = styled('input')({
   boxSizing: 'border-box',
-  fontFamily: NTA_LIGHT,
+  fontFamily: LATO_LIGHT,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   fontWeight: 400,

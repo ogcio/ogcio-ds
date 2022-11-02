@@ -3,7 +3,7 @@ import type { StyledComponentProps } from 'styled-components';
 import * as React from 'react';
 import styled from 'styled-components';
 import { BLUE, GREY_4, PURPLE, YELLOW, WHITE } from 'govuk-colours';
-import { FONT_SIZE, LINE_HEIGHT, SPACING, MEDIA_QUERIES, NTA_LIGHT } from '@govie-react/constants';
+import { FONT_SIZE, LINE_HEIGHT, SPACING, MEDIA_QUERIES, LATO_LIGHT } from '@govie-react/constants';
 
 import { ArrowRight as NextPageIcon, ArrowLeft as PrevPageIcon } from '@govie-react/icons';
 
@@ -13,7 +13,7 @@ const PaginationWrapper = styled('li')<{ previousPage?: boolean; nextPage?: bool
     margin: 0,
     padding: 0,
     listStyleType: 'none',
-    fontFamily: NTA_LIGHT,
+    fontFamily: LATO_LIGHT,
     fontWeight: 400,
     textTransform: 'none',
     fontSize: FONT_SIZE.SIZE_20,

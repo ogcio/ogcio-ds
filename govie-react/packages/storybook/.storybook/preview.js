@@ -1,3 +1,6 @@
+import React from "react";
+import { GlobalStyle } from '@govie-react/global-style';
+
 export const parameters = {
   chromatic: {
     viewports: [320, 1200],
@@ -8,3 +11,12 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <>
+      <GlobalStyle />
+      {Story()}
+    </>
+  ),
+];

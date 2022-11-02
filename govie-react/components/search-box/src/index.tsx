@@ -4,7 +4,7 @@ import type { WithWhiteSpaceProps } from '@govie-react/lib';
 import * as React from 'react';
 import styled from 'styled-components';
 import { LIGHT_BLUE, GREY_2, WHITE, YELLOW } from 'govuk-colours';
-import { NTA_LIGHT } from '@govie-react/constants';
+import { LATO_LIGHT } from '@govie-react/constants';
 
 import { Search } from '@govie-react/icons';
 import { spacing } from '@govie-react/lib';
@@ -18,7 +18,7 @@ const Input = styled('input')({
   border: `solid 1px ${GREY_2}`,
   borderRight: 0,
   boxSizing: 'border-box',
-  fontFamily: NTA_LIGHT,
+  fontFamily: LATO_LIGHT,
   fontWeight: 400,
   textTransform: 'none',
   fontSize: '16px',

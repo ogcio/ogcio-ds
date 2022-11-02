@@ -8,7 +8,7 @@ import type { LabelProps } from '@govie-react/label';
 import * as React from 'react';
 import styled from 'styled-components';
 import { BLACK, YELLOW, ERROR_COLOUR } from 'govuk-colours';
-import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, NTA_LIGHT } from '@govie-react/constants';
+import { FONT_SIZE, LINE_HEIGHT, MEDIA_QUERIES, LATO_LIGHT } from '@govie-react/constants';
 
 import Label from '@govie-react/label';
 import LabelText from '@govie-react/label-text';
@@ -18,7 +18,7 @@ import HintText from '@govie-react/hint-text';
 const TextAreaField = styled('textarea')<{ error?: boolean }>(
   {
     boxSizing: 'border-box',
-    fontFamily: NTA_LIGHT,
+    fontFamily: LATO_LIGHT,
     fontWeight: 400,
     textTransform: 'none',
     fontSize: FONT_SIZE.SIZE_16,
