@@ -4,6 +4,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: [main]
+    # Runs only when there is changes os govie-react folder
+    paths: [govie-react]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,28 +21,33 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+defaults:
+  run:
+    working-directory: govie-react
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Install dependencies
-        run: npm ci
-      - name: Build packages
-        run: npm run build
-      - name: Build storybook
-        run: npm run storybook:build
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+
+      - run: yarn
+      - run: yarn build:storybook
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./build
+          path: govie-react/packages/storybook/storybook-static
 
   deploy:
     # Add a dependency to the build job
@@ -51,6 +58,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages 
         id: deployment
         uses: actions/deploy-pages@v1
