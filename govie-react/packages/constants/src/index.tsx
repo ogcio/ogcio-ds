@@ -55,9 +55,9 @@ export const MEDIA_QUERIES: {
 
 export const LATO_LIGHT = "'Lato', Arial, sans-serif";
 // TODO: change tabular fonts
-export const NTA_LIGHT_TABULAR = `"ntatabularnumbers", ${LATO_LIGHT}`;
+export const LATO_LIGHT_TABULAR = `"ntatabularnumbers", ${LATO_LIGHT}`;
 export const FONT_STACK = `${LATO_LIGHT}`;
-export const FONT_STACK_TABULAR = `${NTA_LIGHT_TABULAR}`;
+export const FONT_STACK_TABULAR = `${LATO_LIGHT_TABULAR}`;
 export const FONT_STACK_PRINT = 'sans-serif';
 
 export const FONT_SIZE = {
