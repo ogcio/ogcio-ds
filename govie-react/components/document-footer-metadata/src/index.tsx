@@ -9,10 +9,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import UnorderedList from '@govie-react/unordered-list';
-import { NTA_LIGHT } from '@govie-react/constants';
+import { LATO_LIGHT } from '@govie-react/constants';
 import { spacing } from '@govie-react/lib';
 
-const StyledContainer = styled('div')({ fontFamily: NTA_LIGHT }, spacing.withWhiteSpace());
+const StyledContainer = styled('div')({ fontFamily: LATO_LIGHT }, spacing.withWhiteSpace());
 
 const StyledDefinition = styled('li')({
   fontSize: '24px',
