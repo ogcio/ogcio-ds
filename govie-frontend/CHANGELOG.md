@@ -8,15 +8,15 @@
 
 For non-GOV.UK branded websites, you can now change the Button component background and text colour.
 
-To change the Button component background colour set the `$govuk-button-background-colour` Sass variable.
+To change the Button component background colour set the `$govie-button-background-colour` Sass variable.
 
-To change the Button component text colour set the `$govuk-button-text-colour` Sass variable.
+To change the Button component text colour set the `$govie-button-text-colour` Sass variable.
 
 ```scss
 @import "node_modules/govuk-frontend/govuk/base";
 
-$govuk-button-background-colour: govuk-colour("yellow");
-$govuk-button-text-colour: govuk-colour("black");
+$govie-button-background-colour: govie-colour("yellow");
+$govie-button-text-colour: govie-colour("black");
 @import "node_modules/govuk-frontend/govuk/components/button/index";
 ```
 
@@ -60,10 +60,10 @@ This was added in pull requests:
 
 #### Suppress deprecation warnings
 
-You can now suppress warnings from deprecations within GOV.UK Frontend by updating the `$govuk-suppressed-warnings` map in sass. Every deprecation warning will now include a warning "key" which you can use in the following code, placed at the root of your sass project:
+You can now suppress warnings from deprecations within GOV.UK Frontend by updating the `$govie-suppressed-warnings` map in sass. Every deprecation warning will now include a warning "key" which you can use in the following code, placed at the root of your sass project:
 
 ```scss
-$govuk-suppressed-warnings: (
+$govie-suppressed-warnings: (
   deprecated-feature
 );
 ```
@@ -127,20 +127,20 @@ This was added in [pull request #2677: Amend error summary markup to fix page lo
 
 In GOV.UK Frontend v5.0 we will stop supporting compatibility with legacy codebases. We are therefore deprecating the compatibility mode variables associated with legacy codebases:
 
-- `$govuk-compatibility-govukfrontendtoolkit`
-- `$govuk-compatibility-govuktemplate`
-- `$govuk-compatibility-govukelements`
+- `$govie-compatibility-goviefrontendtoolkit`
+- `$govie-compatibility-govietemplate`
+- `$govie-compatibility-govieelements`
 
 This was introduced in [pull request #2882: Deprecate compatibility mode settings](https://github.com/alphagov/govuk-frontend/pull/2882).
 
 #### Stop using settings associated with legacy codebases
 
-In GOV.UK Frontend v5.0 we will stop supporting compatibility with legacy codebases. As part of this, we are deprecating settings controlled by compatibility mode variables. This includes the `govuk-compatibility` mixin and the following settings:
+In GOV.UK Frontend v5.0 we will stop supporting compatibility with legacy codebases. As part of this, we are deprecating settings controlled by compatibility mode variables. This includes the `govie-compatibility` mixin and the following settings:
 
-- `$govuk-use-legacy-palette`
-- `$govuk-use-legacy-font`
-- `$govuk-typography-use-rem`
-- `$govuk-font-family-tabular`
+- `$govie-use-legacy-palette`
+- `$govie-use-legacy-font`
+- `$govie-typography-use-rem`
+- `$govie-font-family-tabular`
 
 This was introduced in [pull request #2844: Remove compatibility mode from govuk-frontend](https://github.com/alphagov/govuk-frontend/pull/2844).
 
@@ -158,15 +158,15 @@ We’ve made fixes to GOV.UK Frontend in the following pull requests:
 
 ### Recommended changes
 
-#### Replace deprecated `govuk-!-margin-static` and `govuk-!-padding-static` classes
+#### Replace deprecated `govie-!-margin-static` and `govie-!-padding-static` classes
 
-We've fixed an error in the naming convention of the static spacing override classes we'd introduced in v4.3.0. These classes should start with `govuk-!-static`, and we've now deprecated the incorrect classes.
+We've fixed an error in the naming convention of the static spacing override classes we'd introduced in v4.3.0. These classes should start with `govie-!-static`, and we've now deprecated the incorrect classes.
 
-If you're using the static spacing margin override classes, replace any classes starting with `govuk-!-margin-static` with `govuk-!-static-margin`. For example: `govuk-!-margin-static-2` would become `govuk-!-static-margin-2`.
+If you're using the static spacing margin override classes, replace any classes starting with `govie-!-margin-static` with `govie-!-static-margin`. For example: `govie-!-margin-static-2` would become `govie-!-static-margin-2`.
 
-If you're using the static spacing padding override classes, replace any classes starting with `govuk-!-padding-static` with `govuk-!-static-padding`. For example: `govuk-!-padding-static-2` would become `govuk-!-static-padding-2`.
+If you're using the static spacing padding override classes, replace any classes starting with `govie-!-padding-static` with `govie-!-static-padding`. For example: `govie-!-padding-static-2` would become `govie-!-static-padding-2`.
 
-We've deprecated the `govuk-!-margin-static` and `govuk-!-padding-static` classes, and will remove them in a future major release.
+We've deprecated the `govie-!-margin-static` and `govie-!-padding-static` classes, and will remove them in a future major release.
 
 This change was introduced in [pull request #2770: Fix ordering of properties in static spacing override classes](https://github.com/alphagov/govuk-frontend/pull/2770). Thanks to @garrystewart for reporting this issue.
 
@@ -214,25 +214,25 @@ This was added in [pull request #2734: Update various components to be callable]
 
 You can now use static spacing override classes to apply spacing from [the static spacing scale](https://design-system.service.gov.uk/styles/spacing/#static-spacing) to elements of your design.
 
-The new classes start with: `govuk-!-static-` followed by either `margin-` or `padding-`, and then a spacing unit number.
+The new classes start with: `govie-!-static-` followed by either `margin-` or `padding-`, and then a spacing unit number.
 
 To apply spacing in a single direction, include `left-`, `right-`, `top-`, or `bottom-` just before the spacing unit.
 
 For example:
 
--   `govuk-!-static-margin-9` will apply a 60px margin to all sides of the element at all screen sizes
--   `govuk-!-static-padding-right-5` will apply 25px of padding to the right side of the element at all screen sizes
--   `govuk-!-static-margin-0` will remove all margins at all screen sizes
+-   `govie-!-static-margin-9` will apply a 60px margin to all sides of the element at all screen sizes
+-   `govie-!-static-padding-right-5` will apply 25px of padding to the right side of the element at all screen sizes
+-   `govie-!-static-margin-0` will remove all margins at all screen sizes
 
 This was added in [pull request #2672: Add static spacing override classes](https://github.com/alphagov/govuk-frontend/pull/2672). Thanks to @patrickpatrickpatrick for this contribution.
 
 ### Deprecated features
 
-#### Remove deprecated `govuk-header__navigation--no-service-name` class in the header
+#### Remove deprecated `govie-header__navigation--no-service-name` class in the header
 
-We've deprecated the `govuk-header__navigation--no-service-name` class, and will remove it in a future major release.
+We've deprecated the `govie-header__navigation--no-service-name` class, and will remove it in a future major release.
 
-This was added in [pull request #2694: Deprecate .govuk-header__navigation--no-service-name](https://github.com/alphagov/govuk-frontend/pull/2694).
+This was added in [pull request #2694: Deprecate .govie-header__navigation--no-service-name](https://github.com/alphagov/govuk-frontend/pull/2694).
 
 ### Recommended changes
 
@@ -240,7 +240,7 @@ We've recently made some non-breaking changes to GOV.UK Frontend. Implementing t
 
 #### Add `hidden` to the mobile menu button in the header component
 
-If you're not using the Nunjucks macros, add the `hidden` attribute to the mobile menu button in the header component. The mobile menu button is `govuk-header__menu-button`.
+If you're not using the Nunjucks macros, add the `hidden` attribute to the mobile menu button in the header component. The mobile menu button is `govie-header__menu-button`.
 
 We've changed the header's mobile menu functionality to use the `hidden` attribute instead of using CSS to show/hide the mobile menu. Adding `hidden` to the mobile menu button by default will make sure that it does not display for users when javascript does not load.
 
@@ -254,7 +254,7 @@ We’ve also made fixes in the following pull requests:
 
 - [#2668: Fix Summary List action link alignment](https://github.com/alphagov/govuk-frontend/pull/2668)
 - [#2670: Define minimum width for select component](https://github.com/alphagov/govuk-frontend/pull/2670) - thanks @Nosfistis for reporting this issue
-- [#2723: Style accordion and tabs text content with govuk-body class](https://github.com/alphagov/govuk-frontend/pull/2723)
+- [#2723: Style accordion and tabs text content with govie-body class](https://github.com/alphagov/govuk-frontend/pull/2723)
 - [#2724: Remove redundant aria-hidden attribute from the content when using the Details polyfill](https://github.com/alphagov/govuk-frontend/pull/2724)
 - [#2725: Remove padding-right from last column in summary list row](https://github.com/alphagov/govuk-frontend/pull/2725) - thanks @edwardhorsford for reporting this issue and suggesting a fix
 - [#2737: Avoid unnecessary spacing-related media queries](https://github.com/alphagov/govuk-frontend/pull/2737)
@@ -302,11 +302,11 @@ This change was introduced in [pull request #2616: Allow selecting options by pa
 
 ### Recommended changes
 
-#### Replace deprecated `govuk-header__link--service-name` class in the header
+#### Replace deprecated `govie-header__link--service-name` class in the header
 
-If you're not using the Nunjucks macros in the header, replace any instances of the class `govuk-header__link--service-name` with `govuk-header__service-name`.
+If you're not using the Nunjucks macros in the header, replace any instances of the class `govie-header__link--service-name` with `govie-header__service-name`.
 
-We've deprecated the `govuk-header__link--service-name` class, and will remove it in a future major release.
+We've deprecated the `govie-header__link--service-name` class, and will remove it in a future major release.
 
 This change was introduced in [pull request #2617: Do not make the service name in the header a link if no `serviceUrl` is provided](https://github.com/alphagov/govuk-frontend/pull/2617).
 
@@ -347,9 +347,9 @@ Because we're shipping ES modules in addition to how we currently publish our co
 If you want to import using ES modules, we recommend you only use `import` to import the JavaScript for components you're using in your service. For example:
 
 ```javascript
-import { SkipLink, Radios } from 'govuk-frontend'
+import { SkipLink, Radios } from 'govie-frontend'
 
-var $skipLink = document.querySelector('[data-module="govuk-skip-link"]')
+var $skipLink = document.querySelector('[data-module="govie-skip-link"]')
 if ($skipLink) {
   new SkipLink($skipLink).init()
 }
@@ -365,7 +365,7 @@ if ($radios) {
 If you need to import all of GOV.UK Frontend's components, then use the `initAll` function to initialise them:
 
 ```javascript
-import { initAll } from 'govuk-frontend'
+import { initAll } from 'govie-frontend'
 initAll()
 ```
 
@@ -403,7 +403,7 @@ We've made the following fixes in [pull request #2577: Refactor character count 
 We’ve also made fixes in the following pull requests:
 
 - [#2549: Fix header with product name focus and hover state length](https://github.com/alphagov/govuk-frontend/pull/2549)
-- [#2573: Better handle cases where `$govuk-text-colour` is set to a non-colour value](https://github.com/alphagov/govuk-frontend/pull/2573)
+- [#2573: Better handle cases where `$govie-text-colour` is set to a non-colour value](https://github.com/alphagov/govuk-frontend/pull/2573)
 - [#2590: Remove `maxlength` attribute from `textarea` after character count JavaScript has been initialised](https://github.com/alphagov/govuk-frontend/pull/2590)
 - [#2615: Fix hints for disabled checkboxes or radios appearing darker than the associated labels](https://github.com/alphagov/govuk-frontend/pull/2615)
 
@@ -479,8 +479,8 @@ If you're not using Nunjucks macros, then you should:
 
 - move the `<button>` inside the `<nav>`, immediately before the `<ul>`
 - move the `aria-label` attribute from the `<ul>` to the `<nav>`
-- move the `govuk-header__navigation` class from the `<ul>` to the `<nav>`
-- add the `govuk-header__navigation-list` class to the `<ul>`
+- move the `govie-header__navigation` class from the `<ul>` to the `<nav>`
+- add the `govie-header__navigation-list` class to the `<ul>`
 
 [Check your changes against the header example in the Design System](https://design-system.service.gov.uk/components/header/#header-with-service-name-and-navigation) to make sure you have correctly implemented them.
 
@@ -490,7 +490,7 @@ This change was introduced in [pull request #2427: Improve the screen reader exp
 
 We've removed the default font styles from the cookie banner Sass. This change makes it more obvious when you have not added classes and styles to any custom HTML.
 
-If you're passing custom HTML into the cookie banner component (for example, using the `html` Nunjucks parameter), you must make sure you're applying the appropriate classes and styles to that HTML. This could look like, for example, adding the `govuk-body` class to any paragraph tags. You must do this to prevent your cookie banner displaying with unstyled text.
+If you're passing custom HTML into the cookie banner component (for example, using the `html` Nunjucks parameter), you must make sure you're applying the appropriate classes and styles to that HTML. This could look like, for example, adding the `govie-body` class to any paragraph tags. You must do this to prevent your cookie banner displaying with unstyled text.
 
 This change was introduced in [pull request #2432: Remove default font styles from cookie banner Sass](https://github.com/alphagov/govuk-frontend/pull/2432).
 
@@ -508,10 +508,10 @@ We've added JavaScript for the skip link component to set focus to the linked el
 
 If you're [importing JavaScript for individual components](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#select-and-initialise-an-individual-component), import the skip link JavaScript.
 
-If you're not using Nunjucks macros, add a `data-module="govuk-skip-link"` attribute to the component HTML. For example:
+If you're not using Nunjucks macros, add a `data-module="govie-skip-link"` attribute to the component HTML. For example:
 
 ```html
-<div class="govuk-skip-link" data-module="govuk-skip-link">
+<div class="govie-skip-link" data-module="govie-skip-link">
 ...
 </div>
 ```
@@ -569,7 +569,7 @@ This change was introduced in [pull request #2426: Rename exported JavaScript mo
 
 #### Import 'base' before importing Sass files from `core` or `overrides` layers
 
-If you import individual files from the `core` or `overrides` layers, you might see the error `Undefined mixin 'govuk-exports'` or `no mixin named govuk-exports` when compiling your Sass.
+If you import individual files from the `core` or `overrides` layers, you might see the error `Undefined mixin 'govie-exports'` or `no mixin named govie-exports` when compiling your Sass.
 
 To fix the error, import `node_modules/govuk-frontend/govuk/base` first. For example:
 
@@ -597,34 +597,34 @@ If you're using the Nunjucks macros, check your footer displays as expected and 
 If you're not using the Nunjucks macros, check your footer displays as expected and use the standard Design System grid classes on the `govuk-footer__section` element to set the width. For example:
 
 ```html
-<div class="govuk-footer__section govuk-grid-column-two-thirds">...</div>
+<div class="govuk-footer__section govie-grid-column-two-thirds">...</div>
 ```
 
 This change was introduced in [pull request #2462: Fix footer alignment with grid classes and add `width` macro option](https://github.com/alphagov/govuk-frontend/pull/2462).
 
-#### Remove deprecated `$govuk-border-width-form-element-error` variable
+#### Remove deprecated `$govie-border-width-form-element-error` variable
 
-In [GOV.UK Frontend v3.8.0](https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.0), we made the border width of form elements in their error state the same as for form elements in their normal state and deprecated the `$govuk-border-width-form-element-error` variable.
+In [GOV.UK Frontend v3.8.0](https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.0), we made the border width of form elements in their error state the same as for form elements in their normal state and deprecated the `$govie-border-width-form-element-error` variable.
 
 Before, an element's border got thicker to show the element was in an error state. However, elements in their focused state also have a thicker border. As a result, when users focused an element in an error state, the only visible border-change was from red to black. Not all users could perceive this change. So, we reduced the element border's width, to make sure its thickness changes when users focus.
 
-We've now removed `$govuk-border-width-form-element-error` completely.
+We've now removed `$govie-border-width-form-element-error` completely.
 
-If you’re referencing `$govuk-border-width-form-element-error` in your own Sass, you must remove it. If you're also defining your own error state, you only need to change the border colour.
+If you’re referencing `$govie-border-width-form-element-error` in your own Sass, you must remove it. If you're also defining your own error state, you only need to change the border colour.
 
-You should avoid overriding the border width. For example, replace `border: $govuk-border-width-form-element-error solid $govuk-error-colour;` with `border-color: $govuk-error-colour;`.
+You should avoid overriding the border width. For example, replace `border: $govie-border-width-form-element-error solid $govie-error-colour;` with `border-color: $govie-error-colour;`.
 
-You should also remove any override of `$govuk-border-width-form-element-error` from your Sass. This override no longer does anything.
+You should also remove any override of `$govie-border-width-form-element-error` from your Sass. This override no longer does anything.
 
-This change was introduced in [pull request #1963: Remove deprecated `$govuk-border-width-form-element-error` variable](https://github.com/alphagov/govuk-frontend/pull/1963).
+This change was introduced in [pull request #1963: Remove deprecated `$govie-border-width-form-element-error` variable](https://github.com/alphagov/govuk-frontend/pull/1963).
 
-#### Remove deprecated `govuk-main-wrapper` and `govuk-main-wrapper--l` mixins
+#### Remove deprecated `govie-main-wrapper` and `govie-main-wrapper--l` mixins
 
-We've removed the `govuk-main-wrapper` and `govuk-main-wrapper--l` mixins we deprecated in [GOV.UK Frontend v3.0.0](https://github.com/alphagov/govuk-frontend/releases/tag/v3.0.0).
+We've removed the `govie-main-wrapper` and `govie-main-wrapper--l` mixins we deprecated in [GOV.UK Frontend v3.0.0](https://github.com/alphagov/govuk-frontend/releases/tag/v3.0.0).
 
 Remove any use of these mixins in your own Sass. You can replace these mixins with direct references to the [spacing mixins](https://design-system.service.gov.uk/styles/spacing/#spacing-on-custom-components).
 
-This change was introduced in [pull request #2385: Remove deprecated `govuk-main-wrapper` and `govuk-main-wrapper--l` mixins](https://github.com/alphagov/govuk-frontend/pull/2385).
+This change was introduced in [pull request #2385: Remove deprecated `govie-main-wrapper` and `govie-main-wrapper--l` mixins](https://github.com/alphagov/govuk-frontend/pull/2385).
 
 #### Remove calls to deprecated `iff` Sass function
 
@@ -670,7 +670,7 @@ If you’re not using Nunjucks macros, change the SVG markup within the header, 
 For the header, footer and button, replace `role="presentation"` with `aria-hidden="true"`. For example:
 
 ```
-<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+<svg class="govie-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
 ```
 
 This change was introduced in [pull request #1724: Fix fallback logo so Chrome will not flag it to screen readers](https://github.com/alphagov/govuk-frontend/pull/1724).
@@ -682,7 +682,7 @@ Apply a `data-nosnippet` attribute to the cookie banner component to stop it app
 If you’re not using Nunjucks macros, add a new `data-nosnippet` attribute to the cookie banner.
 
 ```
-<div class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on your service">
+<div class="govie-cookie-banner " data-nosnippet role="region" aria-label="Cookies on your service">
 ```
 
 This change was introduced in [pull request #2192: Add `data-nosnippet` to prevent cookie banner text appearing in Google Search snippets](https://github.com/alphagov/govuk-frontend/pull/2192).
@@ -706,17 +706,17 @@ We’ve made fixes to GOV.UK Frontend in the following pull requests:
 
 #### Set text alignment with override classes
 
-You can now use the `govuk-!-text-align-left`, `govuk-!-text-align-centre` and `govuk-!-text-align-right` CSS classes to set text alignment on elements.
+You can now use the `govie-!-text-align-left`, `govie-!-text-align-centre` and `govie-!-text-align-right` CSS classes to set text alignment on elements.
 
 This was added in [pull request #2339: Add `text-align` override classes](https://github.com/alphagov/govuk-frontend/pull/2339). Thanks to [Ed Horsford](https://github.com/edwardhorsford) for reporting this issue.
 
-#### Define negative spacing using the `govuk-spacing` function
+#### Define negative spacing using the `govie-spacing` function
 
-You can now pass the negative equivalent of a point from the spacing scale to the `govuk-spacing` function to get negative spacing.
+You can now pass the negative equivalent of a point from the spacing scale to the `govie-spacing` function to get negative spacing.
 
-For example, `govuk-spacing(1)` returns `5px`, and `govuk-spacing(-1)` returns `-5px`.
+For example, `govie-spacing(1)` returns `5px`, and `govie-spacing(-1)` returns `-5px`.
 
-This was added in [pull request #2348: Allow `govuk-spacing` to output negative spacing](https://github.com/alphagov/govuk-frontend/pull/2348). Thanks to [Chris Hill-Scott](https://github.com/quis) for reporting this issue.
+This was added in [pull request #2348: Allow `govie-spacing` to output negative spacing](https://github.com/alphagov/govuk-frontend/pull/2348). Thanks to [Chris Hill-Scott](https://github.com/quis) for reporting this issue.
 
 ### Fixes
 
@@ -788,11 +788,11 @@ These changes are an opt-in feature because you may:
 - need to make changes to your service to introduce these new link styles consistently
 - want to avoid opting in if you have links within a [multiple-column layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) in your CSS - there is [a Chromium bug that affects such links](https://github.com/alphagov/govuk-frontend/issues/2204)
 
-To enable this feature, set `$govuk-new-link-styles` to `true` before you import GOV.UK Frontend in your Sass:
+To enable this feature, set `$govie-new-link-styles` to `true` before you import GOV.UK Frontend in your Sass:
 
 ```
 // application.scss
-$govuk-new-link-styles: true;
+$govie-new-link-styles: true;
 @import "govuk-frontend/all";
 ```
 
@@ -810,8 +810,8 @@ This was added in [pull request #2183: Updates to link styles and link hover sta
 #### Style links to remove underlines
 
 You can now remove underlines from links by using either the:
-- [`govuk-link-style-no-underline` mixin](http://frontend.design-system.service.gov.uk/sass-api-reference/#govuk-link-style-no-underline) in your Sass, or
-- [`govuk-link--no-underline` class](https://design-system.service.gov.uk/styles/typography/#links-without-underlines) in your HTML
+- [`govie-link-style-no-underline` mixin](http://frontend.design-system.service.gov.uk/sass-api-reference/#govie-link-style-no-underline) in your Sass, or
+- [`govie-link--no-underline` class](https://design-system.service.gov.uk/styles/typography/#links-without-underlines) in your HTML
 
 An underline still appears when the user hovers their cursor over the link.
 
@@ -820,8 +820,8 @@ This was added in [pull request #2214: Add no-underline mixin and modifier class
 #### Style links on dark backgrounds
 
 You can now style links on dark backgrounds to use white text colour by using either the:
-- [`govuk-link-style-inverse` mixin](http://frontend.design-system.service.gov.uk/sass-api-reference/#govuk-link-style-inverse) in your Sass, or
-- [`govuk-link--inverse` class](https://design-system.service.gov.uk/styles/typography/#links-on-dark-backgrounds) in your HTML
+- [`govie-link-style-inverse` mixin](http://frontend.design-system.service.gov.uk/sass-api-reference/#govie-link-style-inverse) in your Sass, or
+- [`govie-link--inverse` class](https://design-system.service.gov.uk/styles/typography/#links-on-dark-backgrounds) in your HTML
 
 This was added in [pull request #2213: Add inverse link mixin and modifier class](https://github.com/alphagov/govuk-frontend/pull/2213).
 
@@ -1019,7 +1019,7 @@ We’ve made fixes to GOV.UK Frontend in the following pull requests:
 
 #### The secondary text colour is now darker
 
-`$govuk-secondary-text-colour` and `govuk-colour("dark-grey")` are now darker so users can more clearly read hint text that uses the colour.
+`$govie-secondary-text-colour` and `govie-colour("dark-grey")` are now darker so users can more clearly read hint text that uses the colour.
 
 The colour now has a contrast ratio of 7:1 against a white background, and helps hint text meet the WCAG 2.1 (AAA) accessibility standard.
 
@@ -1057,11 +1057,11 @@ This was added in pull requests:
 
 ### Deprecated features
 
-#### $govuk-border-width-form-element-error
+#### $govie-border-width-form-element-error
 
-From GOV.UK Frontend v4.0.0, you'll no longer be able to reference the [`$govuk-border-width-form-element-error`](https://frontend.design-system.service.gov.uk/sass-api-reference/#govuk-border-width-form-element-error) Sass setting.
+From GOV.UK Frontend v4.0.0, you'll no longer be able to reference the [`$govie-border-width-form-element-error`](https://frontend.design-system.service.gov.uk/sass-api-reference/#govie-border-width-form-element-error) Sass setting.
 
-Change any references to `$govuk-border-width-form-element-error` in your Sass code so they reference `$govuk-border-width-form-element` instead.
+Change any references to `$govie-border-width-form-element-error` in your Sass code so they reference `$govie-border-width-form-element` instead.
 
 This was changed in [pull request #1870: Reduce border width of form inputs in the error state](https://github.com/alphagov/govuk-frontend/pull/1870).
 
@@ -1083,7 +1083,7 @@ We’ve made fixes to GOV.UK Frontend in the following pull requests:
 
 #### Add extra spacing between list items
 
-If a [list](https://design-system.service.gov.uk/styles/typography/#lists) is hard to read because the items run across multiple lines, you can now [add extra spacing between list items](http://design-system.service.gov.uk/styles/typography/#adding-extra-spacing-between-list-items) using the new `govuk-list--spaced` class.
+If a [list](https://design-system.service.gov.uk/styles/typography/#lists) is hard to read because the items run across multiple lines, you can now [add extra spacing between list items](http://design-system.service.gov.uk/styles/typography/#adding-extra-spacing-between-list-items) using the new `govie-list--spaced` class.
 
 This was added in [pull request #1775: Add list--spaced modifier](https://github.com/alphagov/govuk-frontend/pull/1775). Thanks to [@frankieroberto](https://github.com/frankieroberto) for raising this issue.
 
@@ -1182,7 +1182,7 @@ This also means you should replace the `.govuk-tag--inactive` class with the `.g
 
 #### Hide elements when users print a page
 
-You can now hide elements when users print a page, using the new `govuk-!-display-none-print` class.
+You can now hide elements when users print a page, using the new `govie-!-display-none-print` class.
 
 [Pull request #1723: Add display override for hiding content when printing](https://github.com/alphagov/govuk-frontend/pull/1723).
 
@@ -1216,7 +1216,7 @@ If you're using Nunjucks, you can now add classes to the character count compone
 - [Pull request #1676: Fix skip link component focus style with global styles enabled](https://github.com/alphagov/govuk-frontend/pull/1676).
 - [Pull request #1672: Ensure footer links look clickable](https://github.com/alphagov/govuk-frontend/pull/1672).
 - [Pull request #1670: Make width-container margins more targetted to avoid specificity issues](https://github.com/alphagov/govuk-frontend/pull/1670).
-- [Pull request #1655: Ensure components use public `govuk-media-query` mixin](https://github.com/alphagov/govuk-frontend/pull/1655).
+- [Pull request #1655: Ensure components use public `govie-media-query` mixin](https://github.com/alphagov/govuk-frontend/pull/1655).
 - [Pull request #1648: Update checkboxes and radio buttons to include item hint classes on item hint](https://github.com/alphagov/govuk-frontend/pull/1648).
 - [Pull request #1638: Check component item arrays are not empty before outputting markup](https://github.com/alphagov/govuk-frontend/pull/1638).
 
@@ -1232,19 +1232,19 @@ If you're using Nunjucks, you can now add classes to the page wrapper using the 
 
 #### Set a custom width for wrappers
 
-If you're using Sass, you can now use the `govuk-width-container` mixin to create a custom wrapper class with a specific width. You can then add that class to the following wrappers to override the width of the `govuk-width-container` class:
+If you're using Sass, you can now use the `govie-width-container` mixin to create a custom wrapper class with a specific width. You can then add that class to the following wrappers to override the width of the `govie-width-container` class:
 
 - [page wrapper](https://design-system.service.gov.uk/styles/layout/#page-wrappers)
 - [header container](https://design-system.service.gov.uk/components/header/)
 - [footer container](https://design-system.service.gov.uk/components/footer/)
 
-To create your custom wrapper class, include the `govuk-width-container` mixin. Pass in the width in pixels.
+To create your custom wrapper class, include the `govie-width-container` mixin. Pass in the width in pixels.
 
 For example:
 
 ```scss
 .app-width-container--wide {
-  @include govuk-width-container(1200px);
+  @include govie-width-container(1200px);
 }
 ```
 
@@ -1253,7 +1253,7 @@ If you’re using Nunjucks, you should then add your class using either the:
 - `containerClasses` variable in the [page template](https://design-system.service.gov.uk/styles/page-template/#variables)
 - `containerClasses` option in the [header](https://design-system.service.gov.uk/components/header/) or [footer](https://design-system.service.gov.uk/components/footer/)
 
-Use the `$govuk-page-width` Sass variable instead if all your pages are the same width.
+Use the `$govie-page-width` Sass variable instead if all your pages are the same width.
 
 - [Pull request #1626: Allow creating custom width containers and using them with template](https://github.com/alphagov/govuk-frontend/pull/1626).
 
@@ -1284,7 +1284,7 @@ This will help with scenarios where some of the elements, such as navigation and
 
 #### Add new override class to hide elements
 
-You can now use the `.govuk-!-display-none` override class to hide elements.
+You can now use the `.govie-!-display-none` override class to hide elements.
 
 - [Pull request #1586: Add display none override class](https://github.com/alphagov/govuk-frontend/pull/1586).
 
@@ -1324,7 +1324,7 @@ govukCharacterCount({
 ### Fixes
 
 - [Pull request #1548: Fix fieldset legend text clipping when using a custom or fallback font](https://github.com/alphagov/govuk-frontend/pull/1548).
-- [Pull request #1559: Stop IE8 from downloading GDS Transport font](https://github.com/alphagov/govuk-frontend/pull/1559).
+- [Pull request #1559: Stop IE8 from downloading Lato font](https://github.com/alphagov/govuk-frontend/pull/1559).
 - [Pull request #1564: Ensure legacy styles do not override button active state](https://github.com/alphagov/govuk-frontend/pull/1564).
 
 ## 3.1.0 (Feature release)
@@ -1403,7 +1403,7 @@ If you're importing `node_modules/govuk-frontend/all.js`, change this import pat
 If you’re importing a specific path, add `govuk/` after `govuk-frontend/`. For example, if you're importing the button component:
 
 ```nunjucks
-import Button from 'govuk-frontend/govuk/components/button/button'
+import Button from 'govie-frontend/govuk/components/button/button'
 ```
 
 ###### Update and add data-module attributes
@@ -1420,7 +1420,7 @@ If you are not using Nunjucks macros, add a `govuk-` prefix to `data-module` att
 
 The [button](https://design-system.service.gov.uk/components/button/) and [details](https://design-system.service.gov.uk/components/details/) components now also use the `data-module` attribute for initialisation. If you are not using Nunjucks macros, add:
 
-- `data-module="govuk-button"` to each `<button>` HTML tag
+- `data-module="govie-button"` to each `<button>` HTML tag
 - `data-module="govuk-details"` to each `<details>` HTML tag
 
 If you're using your own JavaScript code to initialise components, add a `govuk-` prefix to any selectors that find components using the `data-module` attribute.
@@ -1433,10 +1433,10 @@ You do not need to do anything if you're using Nunjucks.
 
 If you're using HTML or custom JavaScript, change:
 
-- `js-character-count` to `govuk-js-character-count`
-- `js-header-toggle` in the GOV.UK Frontend header component to `govuk-js-header-toggle`
+- `js-character-count` to `govie-js-character-count`
+- `js-header-toggle` in the GOV.UK Frontend header component to `govie-js-header-toggle`
 
-[Pull request #1444: Renames `js-` css prefix to `govuk-js-`](https://github.com/alphagov/govuk-frontend/pull/1444)
+[Pull request #1444: Renames `js-` css prefix to `govie-js-`](https://github.com/alphagov/govuk-frontend/pull/1444)
 
 ##### If you’re using Nunjucks
 
@@ -1486,11 +1486,11 @@ If you've extended or created components, you can no longer use the `govuk-focus
 
 If you're using `govuk-focusable`, you must remove it. There’s no direct replacement, so you must [use our Sass variables to make your components consistent](https://design-system.service.gov.uk/get-started/focus-states/#make-other-focusable-elements-accessible) with GOV.UK Frontend.
 
-If you're using `govuk-focusable-fill`, include the `govuk-focused-text` mixin inside your component's `:focus` selector. For example:
+If you're using `govuk-focusable-fill`, include the `govie-focused-text` mixin inside your component's `:focus` selector. For example:
 
 ```scss
 .app-component:focus {
-  @include govuk-focused-text;
+  @include govie-focused-text;
 }
 ```
 
@@ -1601,7 +1601,7 @@ For example:
 If you're using Nunjucks:
 
 - set the `isStartButton` option to `true`
-- remove the `.govuk-button--start` class
+- remove the `.govie-button--start` class
 
 For example:
 
@@ -1635,29 +1635,29 @@ For example, to align text in the centre:
 
 #### Replace Sass mixins in grids
 
-If you're using the `@govuk-grid-column` Sass mixin to create custom grid classes, you must remove the `$class` parameter.
+If you're using the `@govie-grid-column` Sass mixin to create custom grid classes, you must remove the `$class` parameter.
 
 If you're passing a class name, put the mixin inside your selector. For example:
 
 ```scss
 .your-class-name {
-  @include govuk-grid-column(...)
+  @include govie-grid-column(...)
 }
 ```
 
-You can no longer use the `govuk-grid-row` mixin. You can replace it with the `.govuk-grid-row` class in your HTML.
+You can no longer use the `govie-grid-row` mixin. You can replace it with the `.govie-grid-row` class in your HTML.
 
-You must also replace calls to the `grid-width` mixin with calls to the `govuk-grid-width` mixin.
+You must also replace calls to the `grid-width` mixin with calls to the `govie-grid-width` mixin.
 
 Pull requests:
 
-- [#1376: Remove $class param from @govuk-grid-column mixin](https://github.com/alphagov/govuk-frontend/pull/1376)
+- [#1376: Remove $class param from @govie-grid-column mixin](https://github.com/alphagov/govuk-frontend/pull/1376)
 - [#1342: Remove grid-width mixin](https://github.com/alphagov/govuk-frontend/pull/1342)
-- [#1343: Removes govuk-grid-row mixin](https://github.com/alphagov/govuk-frontend/pull/1343)
+- [#1343: Removes govie-grid-row mixin](https://github.com/alphagov/govuk-frontend/pull/1343)
 
 #### Rename the border width variable
 
-If you use Sass and you’ve extended or created components that use the border width variable, rename `$govuk-border-width-mobile` to `$govuk-border-width-narrow`.
+If you use Sass and you’ve extended or created components that use the border width variable, rename `$govie-border-width-mobile` to `$govie-border-width-narrow`.
 
 [Pull request #1287: Rename border-width-mobile to reflect how it's used](https://github.com/alphagov/govuk-frontend/pull/1287)
 
@@ -1672,19 +1672,19 @@ You can now add attributes like classes, rowspan and colspan to table row header
 
 #### Use page wrapper auto spacing
 
-You can now add the `.govuk-main-wrapper--auto-spacing` modifier class to your `<main>` element to add responsive padding to the top and bottom of the page.
+You can now add the `.govie-main-wrapper--auto-spacing` modifier class to your `<main>` element to add responsive padding to the top and bottom of the page.
 
-This will add the correct amount of padding depending on if there are elements above the `<main>` element inside the `govuk-width-container` wrapper. Elements above the `<main>` element could include a back link or breadcrumb component.
+This will add the correct amount of padding depending on if there are elements above the `<main>` element inside the `govie-width-container` wrapper. Elements above the `<main>` element could include a back link or breadcrumb component.
 
-If you need to control the spacing manually, use the `.govuk-main-wrapper--l` modifier instead.
+If you need to control the spacing manually, use the `.govie-main-wrapper--l` modifier instead.
 
-The `govuk-main-wrapper` and `govuk-main-wrapper--l` Sass mixins are now deprecated. [Contact us](https://design-system.service.gov.uk/get-in-touch/) if you need to continue using these mixins.
+The `govie-main-wrapper` and `govie-main-wrapper--l` Sass mixins are now deprecated. [Contact us](https://design-system.service.gov.uk/get-in-touch/) if you need to continue using these mixins.
 
 [Pull request #1493: Add automatic vertical spacing modifier for main wrapper](https://github.com/alphagov/govuk-frontend/pull/1493)
 
-#### GDS Transport now falls back to Arial in Internet Explorer 8 (IE8)
+#### Lato now falls back to Arial in Internet Explorer 8 (IE8)
 
-IE8 will now use Arial instead of GDS Transport.
+IE8 will now use Arial instead of Lato.
 
 This is because IE8 requires a very large Embedded Open Type (.eot) font file for external fonts. Arial will take less time to render for IE8 users, who are likely to be on older computers.
 
@@ -1774,7 +1774,7 @@ when they're disabled.
 
   ([PR #1207](https://github.com/alphagov/govuk-frontend/pull/1207))
 
-- Add new govuk-shade and govuk-tint functions for creating shades and tints of
+- Add new govie-shade and govie-tint functions for creating shades and tints of
   colours.
 
   ([PR #1207](https://github.com/alphagov/govuk-frontend/pull/1207))
@@ -1847,9 +1847,9 @@ when they're disabled.
 
   ([PR #1247](https://github.com/alphagov/govuk-frontend/pull/1247))
 
-- Update padding of govuk-main-wrapper
+- Update padding of govie-main-wrapper
 
-  This increases the padding of `govuk-main-wrapper` (on tablet and above) to be more inline with GOV.UK. When updating, your pages will have 10px more white space above and below the 'main' content area.
+  This increases the padding of `govie-main-wrapper` (on tablet and above) to be more inline with GOV.UK. When updating, your pages will have 10px more white space above and below the 'main' content area.
 
   ([PR #1073](https://github.com/alphagov/govuk-frontend/pull/1073))
 
@@ -1939,7 +1939,7 @@ If you're using your own components that rely on the overflow state of the docum
   HTML data attribute:
 
   ```html
-  <button class="govuk-button" data-prevent-double-click="true">
+  <button class="govie-button" data-prevent-double-click="true">
     Submit
   </button>
   ```
@@ -1962,7 +1962,7 @@ If you're using your own components that rely on the overflow state of the docum
   imported individually
 
   Unlike components, the files within these layers did not previously import
-  their dependencies (for example, most of them require the govuk-exports mixin
+  their dependencies (for example, most of them require the govie-exports mixin
   but did not import it).
 
   We've also added tests to ensure that files within these layers can be
@@ -2119,7 +2119,7 @@ If you're using your own components that rely on the overflow state of the docum
 
 - Update visually hidden class to fix ordering issue in VoiceOver OSX
 
-  We have fixed an issue in VoiceOver OSX where using the `govuk-visually-hidden` class in links would result in the text being announced out of order.
+  We have fixed an issue in VoiceOver OSX where using the `govie-visually-hidden` class in links would result in the text being announced out of order.
 
   We also now recommend to use aria-label or aria-labelledby where appropriate.
 
@@ -2199,7 +2199,7 @@ If you're using your own components that rely on the overflow state of the docum
 
 - Add important parameter to visually hidden sass mixins
 
-  Optional parameter added to `govuk-visually-hidden` and `govuk-visually-hidden-focusable` mixins (defaults to true)
+  Optional parameter added to `govie-visually-hidden` and `govie-visually-hidden-focusable` mixins (defaults to true)
 
   ([PR #1037](https://github.com/alphagov/govuk-frontend/pull/1037))
 
@@ -2354,14 +2354,14 @@ If you're using your own components that rely on the overflow state of the docum
 
   ([PR #967](https://github.com/alphagov/govuk-frontend/pull/967))
 
-- Remove deprecated `govuk-visually-hidden-focussable` class name
+- Remove deprecated `govie-visually-hidden-focussable` class name
 
   In 1.1 release we added a new, correctly spelt
-  `govuk-visually-hidden-focusable` CSS class and marked the old one as
+  `govie-visually-hidden-focusable` CSS class and marked the old one as
   deprecated.
 
-  To migrate you need to change `govuk-visually-hidden-focussable` to
-  `govuk-visually-hidden-focusable` in your codebase.
+  To migrate you need to change `govie-visually-hidden-focussable` to
+  `govie-visually-hidden-focusable` in your codebase.
 
   ([PR #968](https://github.com/alphagov/govuk-frontend/pull/968))
 
@@ -2429,9 +2429,9 @@ If you're using your own components that rely on the overflow state of the docum
 
   ```SCSS
   // application.scss
-  $govuk-compatibility-govukfrontendtoolkit: true;
-  $govuk-compatibility-govuktemplate: true;
-  $govuk-compatibility-govukelements: true;
+  $govie-compatibility-goviefrontendtoolkit: true;
+  $govie-compatibility-govietemplate: true;
+  $govie-compatibility-govieelements: true;
   @import "govuk-frontend/all";
   ```
   ([PR #981](https://github.com/alphagov/govuk-frontend/pull/981))
@@ -2444,19 +2444,19 @@ If you're using your own components that rely on the overflow state of the docum
 
   If you need to change this setting for compatibility with [GOV.UK Elements](https://github.com/alphagov/govuk_elements), [GOV.UK Template](https://github.com/alphagov/govuk_template), [GOV.UK Frontend Toolkit](https://github.com/alphagov/govuk_frontend_toolkit) consider enabling [compatibility mode](./docs/installation/installing-with-npm.md#compatibility-mode).
 
-  Otherwise, set `$govuk-typography-use-rem` to `false` before importing GOV.UK Frontend styles into your app:
+  Otherwise, set `$govie-typography-use-rem` to `false` before importing GOV.UK Frontend styles into your app:
   ```SCSS
   // application.scss
-  $govuk-typography-use-rem: false;
+  $govie-typography-use-rem: false;
   @import "govuk-frontend/all";
   ```
   ([PR #981](https://github.com/alphagov/govuk-frontend/pull/981))
 
-- Remove anchor styling in govuk-lists
+- Remove anchor styling in govie-lists
 
   This was an undocumented feature of lists.
 
-  To migrate we recommend using adding `.govuk-link` class to any anchors within a govuk-list.
+  To migrate we recommend using adding `.govie-link` class to any anchors within a govie-list.
 
   If you would like to replicate this functionality without adding a class you can also enable [global styles](https://github.com/alphagov/govuk-frontend/blob/master/docs/installation/installing-with-npm.md#global-styles) (Note: global styles are enabled by default in the GOV.UK Prototype Kit)
 
@@ -2464,7 +2464,7 @@ If you're using your own components that rely on the overflow state of the docum
 
 - Remove the width declaration from the `<select>` component
 
-  The `<select>` component’s width will now be defined by it’s content. This addresses some accessibility issues with the select being 100% wide by default. If you want to style your select to be 100% wide we have added a new override class `.govuk-!-width-full` to allow this.
+  The `<select>` component’s width will now be defined by it’s content. This addresses some accessibility issues with the select being 100% wide by default. If you want to style your select to be 100% wide we have added a new override class `.govie-!-width-full` to allow this.
 
   ([PR #960](https://github.com/alphagov/govuk-frontend/pull/960))
 
@@ -2476,7 +2476,7 @@ If you're using your own components that rely on the overflow state of the docum
 
 🆕 New features:
 
-- Add a new width override class `.govuk-!-width-full`
+- Add a new width override class `.govie-!-width-full`
 
   You can now override elements that have an undefined or smaller percentage  width to be 100% width of their container.
 
@@ -2618,9 +2618,9 @@ If you're using your own components that rely on the overflow state of the docum
 
 🆕 New features:
 
-- Add `govuk-visually-hidden-focusable` class
+- Add `govie-visually-hidden-focusable` class
 
-  Adds `.govuk-visually-hidden-focusable` and deprecates `.govuk-visually-hidden-focussable` in order to fix the typo in the class name. Please consider updating your code as the next major release will remove the deprecated class.
+  Adds `.govie-visually-hidden-focusable` and deprecates `.govie-visually-hidden-focussable` in order to fix the typo in the class name. Please consider updating your code as the next major release will remove the deprecated class.
 
   ([PR #859](https://github.com/alphagov/govuk-frontend/pull/859))
 
@@ -2644,7 +2644,7 @@ If you're using your own components that rely on the overflow state of the docum
   with pixels also being provided as a fallback for older browsers.
 
   This feature is disabled by default - in order to use it you will need to set
-  `$govuk-typography-use-rem: true` and ensure that `$govuk-root-font-size` is
+  `$govie-typography-use-rem: true` and ensure that `$govie-root-font-size` is
   set to the effective size of your root (html) element. For new projects, this
   should be the default of 16px so you don't have to do anything. For projects
   that use alphagov/govuk_template this should be 10px.
@@ -2661,7 +2661,7 @@ If you're using your own components that rely on the overflow state of the docum
   labels.
   ([PR #883](https://github.com/alphagov/govuk-frontend/pull/883))
 
-- Apply `display:block` to `.govuk-main-wrapper`
+- Apply `display:block` to `.govie-main-wrapper`
 
   In IE11 `main` element is set to `display:inline` so padding
   and margins aren't applied.
@@ -2857,21 +2857,21 @@ If you're using your own components that rely on the overflow state of the docum
 - All sass-mq settings have now been made private. We are now exposing new
   settings to allow you to customise breakpoints and responsive behaviour:
 
-  - `$govuk-breakpoints` - Map of breakpoint definitions
-  - `$govuk-show-breakpoints` - Whether to show the current breakpoint in the
+  - `$govie-breakpoints` - Map of breakpoint definitions
+  - `$govie-show-breakpoints` - Whether to show the current breakpoint in the
     top right corner
-  - `$govuk-ie8-breakpoint` - Breakpoint to rasterize to for IE8
+  - `$govie-ie8-breakpoint` - Breakpoint to rasterize to for IE8
 
   If you are overriding any settings prefixed with `$mq-` in your application
-  you will need to update to the use the new `$govuk-` prefixed settings.
+  you will need to update to the use the new `$govie-` prefixed settings.
 
   ([PR #748](https://github.com/alphagov/govuk-frontend/pull/748))
 
 - Font settings have been renamed:
 
-  - `$govuk-font-stack` has been renamed to `$govuk-font-family`
-  - `$govuk-font-stack-tabular` has been renamed to `$govuk-font-family-tabular`
-  - `$govuk-font-stack-print` has been renamed to `$govuk-font-family-print`
+  - `$govie-font-stack` has been renamed to `$govie-font-family`
+  - `$govie-font-stack-tabular` has been renamed to `$govie-font-family-tabular`
+  - `$govie-font-stack-print` has been renamed to `$govie-font-family-print`
 
   ([PR #748](https://github.com/alphagov/govuk-frontend/pull/748))
 
@@ -2879,29 +2879,29 @@ If you're using your own components that rely on the overflow state of the docum
 
   - Instead of
   ``` css
-  $govuk-spacing-scale-*
+  $govie-spacing-scale-*
   ```
   use
   ``` css
-  govuk-spacing(*)
+  govie-spacing(*)
   ```
-  where `*` is the number on the spacing scale. The scale itself has remained the same so that `$govuk-spacing-scale-3` corresponds to `govuk-spacing(3)`. This change allows us to control the error messaging when incorrect values are used and to deprecate variables. The values of spacing variables can also be overridden by consumers.
+  where `*` is the number on the spacing scale. The scale itself has remained the same so that `$govie-spacing-scale-3` corresponds to `govie-spacing(3)`. This change allows us to control the error messaging when incorrect values are used and to deprecate variables. The values of spacing variables can also be overridden by consumers.
 
   - Instead of:
   ``` css
-  @include govuk-responsive-margin($govuk-spacing-responsive-2, "bottom");
-  @include govuk-responsive-padding($govuk-spacing-responsive-2, "bottom");
+  @include govie-responsive-margin($govie-spacing-responsive-2, "bottom");
+  @include govie-responsive-padding($govie-spacing-responsive-2, "bottom");
   ```
   use
   ``` css
-  @include govuk-responsive-margin(2, "bottom");
-  @include govuk-responsive-padding(2, "bottom");
+  @include govie-responsive-margin(2, "bottom");
+  @include govie-responsive-padding(2, "bottom");
   ```
-  This change, again, allows us to control the error messaging since spacing variables are not exposed directly. Also, the spacing scale itself has not changed so that `$govuk-spacing-responsive-2` corresponds to `2` when passed to the padding and margin mixins.
+  This change, again, allows us to control the error messaging since spacing variables are not exposed directly. Also, the spacing scale itself has not changed so that `$govie-spacing-responsive-2` corresponds to `2` when passed to the padding and margin mixins.
 
   This PR also updates tests and sass-docs of spacing variables and helpers.
 
-  Additionally, this PR hardcodes the value of `$govuk-gutter`, see PR for more details.
+  Additionally, this PR hardcodes the value of `$govie-gutter`, see PR for more details.
 
   ([PR #779](https://github.com/alphagov/govuk-frontend/pull/779))
 
@@ -2909,51 +2909,51 @@ If you're using your own components that rely on the overflow state of the docum
   ([PR #765](https://github.com/alphagov/govuk-frontend/pull/765))
 
 - You should no longer call the `mq` mixin directly - you should replace any
-  calls to it from your own code with `govuk-media-query` which accepts the same
+  calls to it from your own code with `govie-media-query` which accepts the same
   arguments. All mixins and settings that start with `mq-` should be considered
   private – they could be removed in the future without notice.
   ([PR #763](https://github.com/alphagov/govuk-frontend/pull/763))
 
-- All of the shorthand 'font' mixins (e.g. `govuk-font-bold-80`,
-  `govuk-font-regular-tabular-19`), have been removed and replaced with calls to
-  a new mixin `govuk-font`. If you are using these mixins in your application
-  you will need to update your code to call `govuk-font` instead.
+- All of the shorthand 'font' mixins (e.g. `govie-font-bold-80`,
+  `govie-font-regular-tabular-19`), have been removed and replaced with calls to
+  a new mixin `govie-font`. If you are using these mixins in your application
+  you will need to update your code to call `govie-font` instead.
 
   ([PR #772](https://github.com/alphagov/govuk-frontend/pull/772))
 
-- The font maps are no longer as individual variables (e.g. `$govuk-font-80`) -
-  they are all now part of one single `$govuk-typography-scale` map. Instead of
-  passing font maps to `govuk-typography-responsive` you should now pass the
-  desktop font size (e.g. `govuk-typography-responsive(80)` or
-  `govuk-typography-responsive($size: 80)`.
+- The font maps are no longer as individual variables (e.g. `$govie-font-80`) -
+  they are all now part of one single `$govie-typography-scale` map. Instead of
+  passing font maps to `govie-typography-responsive` you should now pass the
+  desktop font size (e.g. `govie-typography-responsive(80)` or
+  `govie-typography-responsive($size: 80)`.
 
   ([PR #772](https://github.com/alphagov/govuk-frontend/pull/772))
 
-- All organisation variables (e.g. `$govuk-cabinet-office`) have been moved into
-  a single `$govuk-colours-organisations` map. If you need to use an
+- All organisation variables (e.g. `$govie-cabinet-office`) have been moved into
+  a single `$govie-colours-organisations` map. If you need to use an
   organisation colour in your own code, you should use the new
-  `govuk-organisation-colour` function:
+  `govie-organisation-colour` function:
 
   ```scss
   .element {
-    color: govuk-organisation-colour(cabinet-office);
+    color: govie-organisation-colour(cabinet-office);
   }
   ```
 
   Note that this function will return 'web-safe' colours by default. You can
   pass $websafe: false to get the non-websafe colour.
 
-- The colour palette variables (e.g. `$govuk-green`) have been moved into a
-  new single `$govuk-colours` map. If you need to reference a colour within your
-  application you should use the new `govuk-colour` function:
+- The colour palette variables (e.g. `$govie-green`) have been moved into a
+  new single `$govie-colours` map. If you need to reference a colour within your
+  application you should use the new `govie-colour` function:
 
   ```scss
   .element {
-    color: govuk-colour("green");
+    color: govie-colour("green");
   }
   ```
 
-  Tints (`$govuk-green-50`, `$govuk-green-25`) have been removed from the colour
+  Tints (`$govie-green-50`, `$govie-green-25`) have been removed from the colour
   palette.
 
 - A number of the colours have been renamed to use more neutral names:
@@ -2964,7 +2964,7 @@ If you're using your own components that rely on the overflow state of the docum
   - `mellow-red` → `bright-red`
   - `grass-green` → `light-green`
 
-- The 'circle shape' object (`.govuk-circle`) which was used by the warning text
+- The 'circle shape' object (`.govie-circle`) which was used by the warning text
   component's '!' icon has been removed and the `govuk-warning-text__icon` class
   has been updated to make it circular without the need for another class.
 
@@ -2991,14 +2991,14 @@ If you're using your own components that rely on the overflow state of the docum
 
   To migrate you will need to replace any instances of:
 
-  - `.govuk-!-f-{size}` with `.govuk-!-font-size-{size}`
-  - `.govuk-!-w-{weight}` with `.govuk-!-font-weight-{weight}`
-  - `.govuk-!-m{direction}-r{scale}` with `.govuk-!-margin-{direction}-{scale}`
-  - `.govuk-!-p{direction}-r{scale}` with `.govuk-!-padding-{direction}-{scale}`
+  - `.govie-!-f-{size}` with `.govie-!-font-size-{size}`
+  - `.govie-!-w-{weight}` with `.govie-!-font-weight-{weight}`
+  - `.govie-!-m{direction}-r{scale}` with `.govie-!-margin-{direction}-{scale}`
+  - `.govie-!-p{direction}-r{scale}` with `.govie-!-padding-{direction}-{scale}`
 
   For example if you were using:
-  - `.govuk-!-mb-r5` you would need to change this to `.govuk-!-margin-bottom-5`
-  - `.govuk-!-f-24` you would need to change this to `.govuk-!-font-size-24`
+  - `.govie-!-mb-r5` you would need to change this to `.govie-!-margin-bottom-5`
+  - `.govie-!-f-24` you would need to change this to `.govie-!-font-size-24`
 
   See the original Pull Request for the full list of classes before and after.
 
@@ -3014,7 +3014,7 @@ If you're using your own components that rely on the overflow state of the docum
   passing neither text nor html, no HTML will be outputted.
   ([PR #740](https://github.com/alphagov/govuk-frontend/pull/740))
 
-- Add `govuk-main-wrapper` to `<main>` element by default.
+- Add `govie-main-wrapper` to `<main>` element by default.
   ([PR #742](https://github.com/alphagov/govuk-frontend/pull/742))
 
 - Use relative imports whenever a component imports another component, to allow
@@ -3026,7 +3026,7 @@ If you're using your own components that rely on the overflow state of the docum
   we intend to allow users to initialize components from this namespace.
   ([PR #747](https://github.com/alphagov/govuk-frontend/pull/747))
 
-- Tabular numbers will now correctly use the `$govuk-font-family-tabular`
+- Tabular numbers will now correctly use the `$govie-font-family-tabular`
   setting rather than being hardcoded to use NTA tabular.
   ([PR #748](https://github.com/alphagov/govuk-frontend/pull/748))
 
@@ -3092,12 +3092,12 @@ You can now initialize individual components like so:
 
 💥 Breaking changes:
 
-- The `govuk-file-url` helper has been renamed to to `govuk-image-url`. If you
+- The `govuk-file-url` helper has been renamed to to `govie-image-url`. If you
   are using this function in your own styles you will need to update calls to
   it. ([PR #726](https://github.com/alphagov/govuk-frontend/pull/726))
 
-- The `$govuk-global-images` variable has been renamed to to
-  `$govuk-images-path`. If you are overriding this variable or using it in your
+- The `$govie-global-images` variable has been renamed to to
+  `$govie-images-path`. If you are overriding this variable or using it in your
   own styles you will need to update your code to use the new variable name.
   ([PR #726](https://github.com/alphagov/govuk-frontend/pull/726))
 
@@ -3136,8 +3136,8 @@ You can now initialize individual components like so:
 
 - You can now override the helpers used to generate image and font urls, for
   example if you are using sass-rails' asset-pipeline functionality.
-  You can do this by setting `$govuk-image-url-function` and
-  `$govuk-font-url-function` to the name of the function(s) you wish to use.
+  You can do this by setting `$govie-image-url-function` and
+  `$govie-font-url-function` to the name of the function(s) you wish to use.
   See `src/settings/_assets.scss` for more information and examples.
   ([PR #733](https://github.com/alphagov/govuk-frontend/pull/733))
 
@@ -3166,7 +3166,7 @@ You can now initialize individual components like so:
 
 - Add override classes to set `display` property to `block`, `inline` and `inline-block` (PR [#694](https://github.com/alphagov/govuk-frontend/pull/654))
 
-- Add option to set CSS display property for govuk-shape-arrow mixin
+- Add option to set CSS display property for govie-shape-arrow mixin
   ([PR #701](https://github.com/alphagov/govuk-frontend/pull/701))
 
 - Add header component (PR [#695](https://github.com/alphagov/govuk-frontend/pull/695))
@@ -3225,16 +3225,16 @@ You can now initialize individual components like so:
   If you're using markup, you will need to update the old markup:
 
   ```HTML
-  <label class="govuk-c-label" for="national-insurance-number">
+  <label class="govie-c-label" for="national-insurance-number">
     National Insurance number
-    <span class="govuk-c-label__hint">
+    <span class="govie-c-label__hint">
       It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
     </span>
-    <span class="govuk-c-error-message">
+    <span class="govie-c-error-message">
       Error message goes here
     </span>
   </label>
-  <input class="govuk-c-input govuk-c-input--error" id="national-insurance-number" name="national-insurance-number" type="text">
+  <input class="govie-c-input govie-c-input--error" id="national-insurance-number" name="national-insurance-number" type="text">
   ```
 
   With the new markup:
@@ -3318,7 +3318,7 @@ You can now initialize individual components like so:
 - Added new modifier classes for labels to allow you to create a label that
   visually corresponds to the equivalent heading class (for example, a
   `.govuk-label--xl` will have the same font size and weight as a
-  `.govuk-heading-xl`)
+  `.govie-heading-xl`)
 
   ([PR #684](https://github.com/alphagov/govuk-frontend/pull/684))
 
@@ -3369,7 +3369,7 @@ You can now initialize individual components like so:
 - Added new modifier classes for legends to allow you to create a legend that
   visually corresponds to the equivalent heading class (for example, a
   `.govuk-fieldset__legend--xl` will have the same font size and weight as a
-  `.govuk-heading-xl`)
+  `.govie-heading-xl`)
 
   ([PR #684](https://github.com/alphagov/govuk-frontend/pull/684))
 
@@ -3387,13 +3387,13 @@ You can now initialize individual components like so:
 
   For example, change:
   ```HTML
-  <button class="govuk-c-button">Save and continue</button>
+  <button class="govie-c-button">Save and continue</button>
   ```
 
   Into:
 
   ```HTML
-  <button class="govuk-button">Save and continue</button>
+  <button class="govie-button">Save and continue</button>
   ```
 
 - Simplify grid syntax and introduce grid-row and column mixins.
@@ -3419,11 +3419,11 @@ You can now initialize individual components like so:
   Into:
 
   ```HTML
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
       <!-- content -->
     </div>
-    <div class="govuk-grid-column-one-third">
+    <div class="govie-grid-column-one-third">
       <!-- content -->
     </div>
   </div>
@@ -3475,7 +3475,7 @@ You can now initialize individual components like so:
 
   Hovever, we do include them in the [GOV.UK Prototype Kit](https://github.com/alphagov/govuk-prototype-kit-private-beta) to speed up prototyping.
 
-  To include global styles, you can set `$govuk-global-styles` variable to `true`.
+  To include global styles, you can set `$govie-global-styles` variable to `true`.
 
 🏠 Internal:
 
@@ -3509,9 +3509,9 @@ Missing files were:
 
 💥 Breaking changes:
 
-- Removed an (undocumented) modifier `govuk-c-radio__item--inline` which made
+- Removed an (undocumented) modifier `govie-c-radio__item--inline` which made
   radio buttons inline, in favour of a new block-level modifier
-  `govuk-c-radios--inline` which will automatically make all the radio buttons
+  `govie-c-radios--inline` which will automatically make all the radio buttons
   within that block inline.
   (PR [#607](https://github.com/alphagov/govuk-frontend/pull/607))
 - Prefix `$global-images` variable
@@ -3521,11 +3521,11 @@ Missing files were:
   - Replaced IE mixins with a simpler version for targeting IE8 specifically
     without having to specify versions
   - Add a new tool mixin to easily exclude styles when targeting IE8
-  - Automatically set $mq-responsive based on the value of the $govuk-is-ie8
+  - Automatically set $mq-responsive based on the value of the $govie-is-ie8
     variable.
 
   If you are building an IE8 stylesheet for your application you'll need to
-  update it to reference the new variable $govuk-is-ie8 – see the README for
+  update it to reference the new variable $govie-is-ie8 – see the README for
   details.
   (PR [#631](https://github.com/alphagov/govuk-frontend/pull/631))
 - Rename captionSize table argument to captionClasses ([PR #643](https://github.com/alphagov/govuk-frontend/pull/643))
@@ -3540,10 +3540,10 @@ Missing files were:
   (PR [#633](https://github.com/alphagov/govuk-frontend/pull/633))
 
 🆕 New features:
-- Add `govuk-main-wrapper--l` a variant of the main page wrapper to use when a
+- Add `govie-main-wrapper--l` a variant of the main page wrapper to use when a
   design does not include back links, breadcrumbs or phase banners
   (PR [#602](https://github.com/alphagov/govuk-frontend/pull/602))
-- Added a new `.govuk-link--text-colour` modifier to make links use the same
+- Added a new `.govie-link--text-colour` modifier to make links use the same
   colour as the text.
   (PR [#609](https://github.com/alphagov/govuk-frontend/pull/609))
 - Introduce new mixins for link styles (muted links, text links) and update
@@ -3617,8 +3617,8 @@ Missing files were:
 
 💥 Breaking changes:
 
-- The colour variable `$govuk-fuschia` has been replaced with a new variable
-  with the correct spelling (`$govuk-fuchsia`) – thanks to
+- The colour variable `$govie-fuschia` has been replaced with a new variable
+  with the correct spelling (`$govie-fuchsia`) – thanks to
   [@charlesrt](https://github.com/charlesrt) for reporting.
   (PR [#571](https://github.com/alphagov/govuk-frontend/pull/571))
 
@@ -3632,7 +3632,7 @@ Missing files were:
   a transparent border which is visible when overriding colours in the browser
   (PR [#552](https://github.com/alphagov/govuk-frontend/pull/552))
 - Redundant duplication on the start button variant has been removed as it is
-  inherited from the main .govuk-c-button class
+  inherited from the main .govie-c-button class
   (PR [#552](https://github.com/alphagov/govuk-frontend/pull/552))
 - A fix to remove a black border from buttons in IE7 has been removed as we are
   not targeting IE7 for GOV.UK Frontend
@@ -3643,7 +3643,7 @@ Missing files were:
 
 🏠 Internal:
 - The logic to determine button text colour automatically has been removed and
-  replaced with a new variable $govuk-button-text-colour
+  replaced with a new variable $govie-button-text-colour
   (PR [#552](https://github.com/alphagov/govuk-frontend/pull/552))
 - The button component now uses the focusable mixin
   (PR [#552](https://github.com/alphagov/govuk-frontend/pull/552))
@@ -3668,7 +3668,7 @@ gulp tasks (PR [#545](https://github.com/alphagov/govuk-frontend/pull/545))
 
 🆕 New features:
 
-- A new variable `$govuk-input-border-colour` has been introduced to define the
+- A new variable `$govie-input-border-colour` has been introduced to define the
   border colour for inputs. The Input, Select and Textarea components have been
   updated to use it.
   (PR [#551](https://github.com/alphagov/govuk-frontend/pull/551))
@@ -3706,29 +3706,29 @@ gulp tasks (PR [#545](https://github.com/alphagov/govuk-frontend/pull/545))
   (PR [#488](https://github.com/alphagov/govuk-frontend/pull/488), PR [#523](https://github.com/alphagov/govuk-frontend/pull/523))
 - Remove unused colours from the 'applied' colour palette:
   (PR [#525](https://github.com/alphagov/govuk-frontend/pull/525))
-  - `$govuk-panel-colour`
-  - `$govuk-canvas-colour`
-  - `$govuk-highlight-colour`
-  - `$govuk-page-colour`
-  - `$govuk-discovery-colour`
-  - `$govuk-alpha-colour`
-  - `$govuk-beta-colour`
-  - `$govuk-live-colour`
-  - `$govuk-error-background`
-  - `$govuk-proposition-border`
-  - `$govuk-proposition-active-nav`
-  - `$govuk-footer-background`
-  - `$govuk-footer-border-top`
-  - `$govuk-footer-link`
-  - `$govuk-footer-link-hover`
-  - `$govuk-footer-text`
-- Rename `$govuk-button-colour-darken-15` to `$govuk-button-shadow-colour` to
+  - `$govie-panel-colour`
+  - `$govie-canvas-colour`
+  - `$govie-highlight-colour`
+  - `$govie-page-colour`
+  - `$govie-discovery-colour`
+  - `$govie-alpha-colour`
+  - `$govie-beta-colour`
+  - `$govie-live-colour`
+  - `$govie-error-background`
+  - `$govie-proposition-border`
+  - `$govie-proposition-active-nav`
+  - `$govie-footer-background`
+  - `$govie-footer-border-top`
+  - `$govie-footer-link`
+  - `$govie-footer-link-hover`
+  - `$govie-footer-text`
+- Rename `$govie-button-colour-darken-15` to `$govie-button-shadow-colour` to
   avoid tying it to a particular colour.
   (PR [#525](https://github.com/alphagov/govuk-frontend/pull/525))
 
 🆕 New features:
 
-- Button hover colour now has a semantic Sass name: $govuk-button-hover-colour
+- Button hover colour now has a semantic Sass name: $govie-button-hover-colour
   (PR [#406](https://github.com/alphagov/govuk-frontend/pull/406))
 - A new link variant has been added which removes the visited state, for cases
   where distinguishing between visited and unvisited links is not helpful
@@ -3746,9 +3746,9 @@ gulp tasks (PR [#545](https://github.com/alphagov/govuk-frontend/pull/545))
   (PR [#451](https://github.com/alphagov/govuk-frontend/pull/451))
 - Add top margin for nested lists (PR [#464](https://github.com/alphagov/govuk-frontend/pull/464))
 - Remove regular font weight from link styles (PR [#469](https://github.com/alphagov/govuk-frontend/pull/469))
-- Remove redundant 'govuk-c-border' div from the details component
+- Remove redundant 'govie-c-border' div from the details component
   (PR [#481](https://github.com/alphagov/govuk-frontend/pull/481))
-- Add `govuk-c-select--error` modifier class to the select component instead of relying on `govuk-c-input--error` (PR [#506](https://github.com/alphagov/govuk-frontend/pull/506))
+- Add `govie-c-select--error` modifier class to the select component instead of relying on `govie-c-input--error` (PR [#506](https://github.com/alphagov/govuk-frontend/pull/506))
 - Allow error message and hint text to be passed to a select component without requiring a label parameter (PR [#506](https://github.com/alphagov/govuk-frontend/pull/506))
 - Define size of inputs etc in `px` rather than `em`. (PR [#491](https://github.com/alphagov/govuk-frontend/pull/491))
 - Remove scope=row attribute from non-th elements (PR [527](https://github.com/alphagov/govuk-frontend/pull/527))
@@ -3791,7 +3791,7 @@ border for errors and a bottom margin. Add example of form errors to preview app
 💥 Breaking changes:
 
 - The link styles in the core layer no longer style `a` elements directly, but
-  instead provide a `govuk-link` class which you will need to apply to links
+  instead provide a `govie-link` class which you will need to apply to links
   individually. (PR [#427](https://github.com/alphagov/govuk-frontend/pull/427))
 - The link component has been removed from Frontend as the link styles have
   been moved to the core
@@ -3802,10 +3802,10 @@ border for errors and a bottom margin. Add example of form errors to preview app
 🆕 New features:
 
 - The prose scope has been extended to style links, which means links within the
-  scope do not need the `govuk-link` class applied.
+  scope do not need the `govie-link` class applied.
   (PR [#427](https://github.com/alphagov/govuk-frontend/pull/427))
 - The muted link variant from the link component is now available as a core
-  class (`govuk-link--muted`).
+  class (`govie-link--muted`).
   (PR [#427](https://github.com/alphagov/govuk-frontend/pull/427))
 
 🔧 Fixes:
@@ -3827,7 +3827,7 @@ border for errors and a bottom margin. Add example of form errors to preview app
 
 - Add prose scope example (PR [#429](https://github.com/alphagov/govuk-frontend/pull/429))
 - Links within the review app and the examples have been updated to use the
-  `govuk-link` class.
+  `govie-link` class.
   (PR [#427](https://github.com/alphagov/govuk-frontend/pull/427))
 - Improve documentation around publishing (PR [#430](https://github.com/alphagov/govuk-frontend/pull/430))
 - Improve documentation around contributing (PR [#433](https://github.com/alphagov/govuk-frontend/pull/433))
@@ -3838,7 +3838,7 @@ Skipped 0.0.20-alpha due to difficulties with publishing.
 
 💥 Breaking changes:
 
-- Rename ‘govuk-body-lede’ to ‘govuk-body-lead’. (PR [#405](https://github.com/alphagov/govuk-frontend/pull/405))
+- Rename ‘govie-body-lede’ to ‘govie-body-lead’. (PR [#405](https://github.com/alphagov/govuk-frontend/pull/405))
 - Pluralise radio component (PR [#388](https://github.com/alphagov/govuk-frontend/pull/388))
 - Pluralise checkbox component (PR [#384](https://github.com/alphagov/govuk-frontend/pull/384))
 

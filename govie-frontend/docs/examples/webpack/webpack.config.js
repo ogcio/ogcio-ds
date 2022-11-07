@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 // Module resolution
-const frontendPath = dirname(require.resolve('govuk-frontend'))
+const frontendPath = dirname(require.resolve('govie-frontend'))
 const html5shivPath = dirname(require.resolve('html5shiv'))
 const webpackPath = dirname(require.resolve('webpack/package.json'))
 const modulesPath = resolve(webpackPath, '../')

@@ -40,8 +40,8 @@ scenario: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
 
       <form method="post" novalidate>
           {% if errorSummary.length > 0 %}
@@ -57,7 +57,7 @@ scenario: >-
             id: "country-name",
             name: "country-name",
             type: "text",
-            classes: "govuk-input--width-20",
+            classes: "govie-input--width-20",
             label: {
               text: "Country name"
             },
@@ -73,7 +73,7 @@ scenario: >-
             legend: {
               text: "What is your nationality?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
+              classes: "govie-fieldset__legend--xl"
             }
           },
           hint: {
@@ -110,14 +110,14 @@ scenario: >-
 
         {% set helpWithNationalityHtml %}
 
-          <p class="govuk-body">
+          <p class="govie-body">
             We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
           </p>
 
           {{ govukTextarea({
             name: "details-cannot-provide-nationality",
             id: "details-cannot-provide-nationality",
-            classes: "govuk-!-margin-bottom-0",
+            classes: "govie-!-margin-bottom-0",
             label: {
               text: "Can you provide more detail on why you cannot confirm your nationality?"
             },

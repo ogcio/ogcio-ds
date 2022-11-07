@@ -12,8 +12,8 @@ module.exports = {
   public: 'public/',
   jsdoc: 'jsdoc/',
   sassdoc: 'sassdoc/',
-  src: 'src/govuk/',
-  components: 'src/govuk/components/',
+  src: 'src/govie/',
+  components: 'src/govie/components/',
   ports: {
     app: 3000,
     test: 8888

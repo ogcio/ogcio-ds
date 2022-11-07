@@ -14,8 +14,8 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+<div class="govie-grid-row">
+  <div class="govie-grid-column-two-thirds">
 
     {% set emailHtml %}
     {{ govukInput({
@@ -23,7 +23,7 @@
       name: "contact-by-email",
       type: "email",
       spellcheck: false,
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Email address"
       }
@@ -35,7 +35,7 @@
       id: "contact-by-phone",
       name: "contact-by-phone",
       type: "tel",
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Phone number"
       }
@@ -47,14 +47,14 @@
       id: "contact-by-text",
       name: "contact-by-text",
       type: "tel",
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Mobile phone number"
       }
     }) }}
     {% endset -%}
 
-    <a class="govuk-link" href="#">Focusable element</a>
+    <a class="govie-link" href="#">Focusable element</a>
 
     {{ govukCheckboxes({
       idPrefix: "contact",
@@ -63,7 +63,7 @@
         legend: {
           text: "How would you like to be contacted?",
           isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
+          classes: "govie-fieldset__legend--l"
         }
       },
       hint: {
@@ -100,7 +100,7 @@
       name: "contact-by-email",
       type: "email",
       spellcheck: false,
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Email address"
       }
@@ -112,7 +112,7 @@
       id: "radio-phone",
       name: "contact-by-phone",
       type: "tel",
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Phone number"
       }
@@ -124,14 +124,14 @@
       id: "radio-text",
       name: "contact-by-text",
       type: "tel",
-      classes: "govuk-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
         text: "Mobile phone number"
       }
     }) }}
     {% endset -%}
 
-    <a class="govuk-link" href="#">Focusable element</a>
+    <a class="govie-link" href="#">Focusable element</a>
 
     {{ govukRadios({
       idPrefix: "radio-contact",
@@ -140,7 +140,7 @@
         legend: {
           text: "How would you prefer to be contacted?",
           isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
+          classes: "govie-fieldset__legend--l"
         }
       },
       hint: {
@@ -171,16 +171,16 @@
       ]
     }) }}
 
-    <hr class="govuk-section-break govuk-section-break--l">
+    <hr class="govie-section-break govie-section-break--l">
 
     {% call govukFieldset({
       legend: {
         text: "Which colours do you like?",
-        classes: "govuk-fieldset__legend--l"
+        classes: "govie-fieldset__legend--l"
       }
     })%}
 
-      <h2 class="govuk-heading-m">Primary colours</h2>
+      <h2 class="govie-heading-m">Primary colours</h2>
 
       {{ govukCheckboxes({
         idPrefix: "colour-primary",
@@ -194,7 +194,7 @@
             value: "yellow",
             text: "Yellow",
             conditional: {
-              html: '<p class="govuk-body">Orange is much nicer than yellow!</p>'
+              html: '<p class="govie-body">Orange is much nicer than yellow!</p>'
             }
           },
           {
@@ -204,7 +204,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Secondary colours</h2>
+      <h2 class="govie-heading-m">Secondary colours</h2>
 
       {{ govukCheckboxes({
         idPrefix: "colour-secondary",
@@ -222,13 +222,13 @@
             value: "orange",
             text: "Orange",
             conditional: {
-              html: '<p class="govuk-body">I like orange too!</p>'
+              html: '<p class="govie-body">I like orange too!</p>'
             }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Other colours</h2>
+      <h2 class="govie-heading-m">Other colours</h2>
 
       {{ govukCheckboxes({
         idPrefix: "colour-other",
@@ -251,16 +251,16 @@
 
     {% endcall %}
 
-    <hr class="govuk-section-break govuk-section-break--l">
+    <hr class="govie-section-break govie-section-break--l">
 
     {% call govukFieldset({
       legend: {
         text: "Which colour is your favourite?",
-        classes: "govuk-fieldset__legend--l"
+        classes: "govie-fieldset__legend--l"
       }
     })%}
 
-      <h2 class="govuk-heading-m">Primary colours</h2>
+      <h2 class="govie-heading-m">Primary colours</h2>
 
       {{ govukRadios({
         idPrefix: "fave-primary",
@@ -274,7 +274,7 @@
             value: "yellow",
             text: "Yellow",
             conditional: {
-              html: '<p class="govuk-body">Orange is much nicer than yellow!</p>'
+              html: '<p class="govie-body">Orange is much nicer than yellow!</p>'
             }
           },
           {
@@ -284,7 +284,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Secondary colours</h2>
+      <h2 class="govie-heading-m">Secondary colours</h2>
 
       {{ govukRadios({
         idPrefix: "fave-secondary",
@@ -302,13 +302,13 @@
             value: "orange",
             text: "Orange",
             conditional: {
-              html: '<p class="govuk-body">Orange is my favourite colour!</p>'
+              html: '<p class="govie-body">Orange is my favourite colour!</p>'
             }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Other colours</h2>
+      <h2 class="govie-heading-m">Other colours</h2>
 
       {{ govukRadios({
         idPrefix: "fave-other",

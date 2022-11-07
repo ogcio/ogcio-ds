@@ -1,73 +1,73 @@
-@import "../../../../src/govuk/base";
-$govuk-new-link-styles: true;
-@import "../../../../src/govuk/core/all";
+@import "../../../../src/govie/base";
+$govie-new-link-styles: true;
+@import "../../../../src/govie/core/all";
 
 .app-header--campaign {
-  padding-bottom: govuk-spacing(2);
-  border-bottom: $govuk-border-width-wide solid #fff500;
+  padding-bottom: govie-spacing(2);
+  border-bottom: $govie-border-width-wide solid #fff500;
 }
 
-.app-header--campaign .govuk-header__container {
+.app-header--campaign .govie-header__container {
   border-bottom: none;
 }
 
 .app-covid-banner-top {
-  padding-bottom: govuk-spacing(4);
-  background-color: govuk-colour("black");
+  padding-bottom: govie-spacing(4);
+  background-color: govie-colour("black");
 }
 
-.app-covid-banner-top .govuk-heading-xl {
-  padding-top: govuk-spacing(2);
-  color: govuk-colour("white");
+.app-covid-banner-top .govie-heading-xl {
+  padding-top: govie-spacing(2);
+  color: govie-colour("white");
 }
 
 .app-covid-banner-bottom {
-  margin-bottom: govuk-spacing(6);
-  padding: govuk-spacing(3) 0 govuk-spacing(1);
+  margin-bottom: govie-spacing(6);
+  padding: govie-spacing(3) 0 govie-spacing(1);
   background-color: #272828;
 }
 
-.app-covid-banner-bottom .govuk-body,
-.app-covid-banner-bottom .govuk-heading-m {
-  color: govuk-colour("white");
+.app-covid-banner-bottom .govie-body,
+.app-covid-banner-bottom .govie-heading-m {
+  color: govie-colour("white");
 }
 
-.app-covid-banner-top .govuk-breadcrumbs__link {
-  @include govuk-link-style-inverse;
+.app-covid-banner-top .govie-breadcrumbs__link {
+  @include govie-link-style-inverse;
 }
 
 .app-cta-link {
-  @include govuk-font($size: 19, $weight: bold);
+  @include govie-font($size: 19, $weight: bold);
 }
 
 .app-section {
-  padding: govuk-spacing(3) 0;
-  border-top: 2px solid govuk-colour("black");
+  padding: govie-spacing(3) 0;
+  border-top: 2px solid govie-colour("black");
 }
 
 .app-updates {
-  margin-bottom: govuk-spacing(8);
-  padding: govuk-spacing(4) govuk-spacing(4) govuk-spacing(2);
-  border: 1px solid $govuk-border-colour;
-  background-color: govuk-colour("light-grey");
+  margin-bottom: govie-spacing(8);
+  padding: govie-spacing(4) govie-spacing(4) govie-spacing(2);
+  border: 1px solid $govie-border-colour;
+  background-color: govie-colour("light-grey");
 }
 
 .app-nhs-box {
-  margin-bottom: govuk-spacing(4);
-  padding: govuk-spacing(4);
-  border: $govuk-border-width solid govuk-colour("black");
+  margin-bottom: govie-spacing(4);
+  padding: govie-spacing(4);
+  border: $govie-border-width solid govie-colour("black");
 }
 
 .app-danger-box {
-  padding: govuk-spacing(6) govuk-spacing(5);
+  padding: govie-spacing(6) govie-spacing(5);
   border-left: solid #fff500;
   border-width: 0 0 0 10px;
   border-image: repeating-linear-gradient(25deg, transparent 0, #fff500 1px, #fff500 10px, transparent 11px, transparent 20px) 25;
-  color: govuk-colour("white");
+  color: govie-colour("white");
   background-color: #272828;
 }
 
-.app-danger-box .govuk-body,
-.app-danger-box .govuk-heading-m {
-  color: govuk-colour("white");
+.app-danger-box .govie-body,
+.app-danger-box .govie-heading-m {
+  color: govie-colour("white");
 }

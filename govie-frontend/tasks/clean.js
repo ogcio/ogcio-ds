@@ -10,7 +10,7 @@ function paths () {
     param.push(
       `!${destination}/`,
       `!${destination}/package.json`,
-      `!${destination}/govuk-prototype-kit.config.json`,
+      `!${destination}/govie-prototype-kit.config.json`,
       `!${destination}/README.md`
     )
   }

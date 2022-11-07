@@ -5,7 +5,7 @@ module.exports = {
     'dist/**/*',
     'package/**/*',
     'public/**/*',
-    'src/govuk/vendor/**/*'
+    'src/govie/vendor/**/*'
   ],
   overrides: [
     {

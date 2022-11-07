@@ -29,8 +29,8 @@ scenario: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
       <form method="post" novalidate>
         {% if errorSummary.length > 0 %}
             {{ govukErrorSummary({
@@ -42,14 +42,14 @@ scenario: >-
         {% call govukFieldset({
           legend: {
             text: "What is your address?",
-            classes: "govuk-fieldset__legend--xl",
+            classes: "govie-fieldset__legend--xl",
             isPageHeading: true
           }
         }) %}
 
           {{ govukInput({
             label: {
-              html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+              html: 'Building and street <span class="govie-visually-hidden">line 1 of 2</span>'
             },
             id: "address-line-1",
             name: "address-line-1",
@@ -60,7 +60,7 @@ scenario: >-
 
           {{ govukInput({
             label: {
-              html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+              html: '<span class="govie-visually-hidden">Building and street line 2 of 2</span>'
             },
             id: "address-line-2",
             name: "address-line-2",
@@ -72,7 +72,7 @@ scenario: >-
             label: {
               text: "Town or city"
             },
-            classes: "govuk-!-width-two-thirds",
+            classes: "govie-!-width-two-thirds",
             id: "address-town",
             name: "address-town",
             value: values["address-town"],
@@ -83,7 +83,7 @@ scenario: >-
             label: {
               text: "County"
             },
-            classes: "govuk-!-width-two-thirds",
+            classes: "govie-!-width-two-thirds",
             id: "address-county",
             name: "address-county",
             value: values["address-county"],
@@ -94,7 +94,7 @@ scenario: >-
             label: {
               text: "Postcode"
             },
-            classes: "govuk-input--width-10",
+            classes: "govie-input--width-10",
             id: "address-postcode",
             name: "address-postcode",
             value: values["address-postcode"],

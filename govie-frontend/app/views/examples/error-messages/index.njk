@@ -46,11 +46,11 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Error messages</h1>
+  <h1 class="govie-heading-xl">Error messages</h1>
 
 
   <form action="/" method="post">
-    <h2 class="govuk-heading-m">Simple input</h2>
+    <h2 class="govie-heading-m">Simple input</h2>
 
     {{ govukInput({
       label: {
@@ -67,7 +67,7 @@
       }
     }) }}
 
-    <h2 class="govuk-heading-m">Multiple inputs</h2>
+    <h2 class="govie-heading-m">Multiple inputs</h2>
 
     {# Use fieldset to wrap around components and render collective error #}
     {% call govukFieldset({
@@ -101,7 +101,7 @@
     {# end fieldset render #}
     {% endcall %}
 
-    <h2 class="govuk-heading-m">Radios with error message</h2>
+    <h2 class="govie-heading-m">Radios with error message</h2>
 
     {{ govukRadios({
       fieldset: {
@@ -130,7 +130,7 @@
       ]
     }) }}
 
-    <h2 class="govuk-heading-m">Checkboxes with error message</h2>
+    <h2 class="govie-heading-m">Checkboxes with error message</h2>
 
     {{ govukCheckboxes({
       fieldset: {
@@ -159,7 +159,7 @@
       ]
     }) }}
 
-    <h2 class="govuk-heading-m">Date input with shared error message</h2>
+    <h2 class="govie-heading-m">Date input with shared error message</h2>
 
     {{- govukDateInput({
       fieldset: {
@@ -178,21 +178,21 @@
       items:[
         {
           name: 'day',
-          classes: 'govuk-input--width-2 govuk-input--error'
+          classes: 'govie-input--width-2 govie-input--error'
         },
         {
           name: 'month',
-          classes: 'govuk-input--width-2 govuk-input--error'
+          classes: 'govie-input--width-2 govie-input--error'
         },
         {
           name: 'year',
-          classes: 'govuk-input--width-4 govuk-input--error'
+          classes: 'govie-input--width-4 govie-input--error'
         }
       ]
       })
     -}}
 
-    <h2 class="govuk-heading-m">Date input with single error message</h2>
+    <h2 class="govie-heading-m">Date input with single error message</h2>
 
     {{- govukDateInput({
       fieldset: {
@@ -211,23 +211,23 @@
       items:[
         {
           name: 'day',
-          classes: 'govuk-input--width-2 govuk-input--error'
+          classes: 'govie-input--width-2 govie-input--error'
         },
         {
           name: 'month',
           value: '10',
-          classes: 'govuk-input--width-2'
+          classes: 'govie-input--width-2'
         },
         {
           name: 'year',
           value: '1985',
-          classes: 'govuk-input--width-4'
+          classes: 'govie-input--width-4'
         }
       ]
       })
     -}}
 
-    <h2 class="govuk-heading-m">Select with error message</h2>
+    <h2 class="govie-heading-m">Select with error message</h2>
 
     {{ govukSelect({
       "id": "select-1",
@@ -255,7 +255,7 @@
       ]
       }) }}
 
-    <h2 class="govuk-heading-m">Textarea with error message</h2>
+    <h2 class="govie-heading-m">Textarea with error message</h2>
 
     {{ govukTextarea({
       id: "more-detail",

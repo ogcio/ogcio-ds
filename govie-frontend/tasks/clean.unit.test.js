@@ -15,7 +15,7 @@ describe('Clean task', () => {
           'package/**/*',
           '!package/',
           '!package/package.json',
-          '!package/govuk-prototype-kit.config.json',
+          '!package/govie-prototype-kit.config.json',
           '!package/README.md'
         ]
       },

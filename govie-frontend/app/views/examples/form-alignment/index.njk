@@ -45,18 +45,18 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Form elements alignment</h1>
-  <h2 class="govuk-heading-m">Input and button</h2>
+  <h1 class="govie-heading-xl">Form elements alignment</h1>
+  <h2 class="govie-heading-m">Input and button</h2>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
       {{ govukLabel({
         "text": "National Insurance number",
-        "for": "govuk-input-a"
+        "for": "govie-input-a"
       }) }}
       <div class="app-u-w-half">
         {{ govukInput({
-          id: "govuk-input-a",
+          id: "govie-input-a",
           name: "national-insurance-number"
         }) }}
       </div>
@@ -68,7 +68,7 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Select and button</h2>
+  <h2 class="govie-heading-m">Select and button</h2>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
@@ -104,7 +104,7 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Input and select</h2>
+  <h2 class="govie-heading-m">Input and select</h2>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
@@ -142,7 +142,7 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Input and checkboxes</h2>
+  <h2 class="govie-heading-m">Input and checkboxes</h2>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
@@ -170,7 +170,7 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Input and radios</h2>
+  <h2 class="govie-heading-m">Input and radios</h2>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
@@ -198,7 +198,7 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Radios, checkboxes and button</h2>
+  <h2 class="govie-heading-m">Radios, checkboxes and button</h2>
   <form action="/" method="post">
     {% call govukFieldset() %}
       <div class="app-u-w-quarter">
@@ -233,82 +233,82 @@
     {%- endcall %}
   </form>
 
-  <h2 class="govuk-heading-m">Input with govuk-!-width</h2>
+  <h2 class="govie-heading-m">Input with govie-!-width</h2>
 
   {% call govukFieldset() %}
     {{ govukInput({
-      id: "govuk-!-width-one-quarter",
-      classes: "govuk-!-width-one-quarter",
+      id: "govie-!-width-one-quarter",
+      classes: "govie-!-width-one-quarter",
       label: {
-        text: "Input with govuk-!-width-one-quarter (25% width)"
+        text: "Input with govie-!-width-one-quarter (25% width)"
       }
     }) }}
     {{ govukInput({
-      id: "govuk-!-width-one-third",
-      classes: "govuk-!-width-one-third",
+      id: "govie-!-width-one-third",
+      classes: "govie-!-width-one-third",
       label: {
-        text: "Input with govuk-!-width-one-third (33% width)"
+        text: "Input with govie-!-width-one-third (33% width)"
       }
     }) }}
     {{ govukInput({
-      id: "govuk-!-width-one-half",
-      classes: "govuk-!-width-one-half",
+      id: "govie-!-width-one-half",
+      classes: "govie-!-width-one-half",
       label: {
-        text: "Input with govuk-!-width-one-half (50% width)"
+        text: "Input with govie-!-width-one-half (50% width)"
       }
     }) }}
     {{ govukInput({
-      id: "govuk-!-width-two-thirds",
-      classes: "govuk-!-width-two-thirds",
+      id: "govie-!-width-two-thirds",
+      classes: "govie-!-width-two-thirds",
       label: {
-        text: "Input with govuk-!-width-two-thirds (66% width)"
+        text: "Input with govie-!-width-two-thirds (66% width)"
       }
     }) }}
     {{ govukInput({
-      id: "govuk-!-width-three-quarters",
-      classes: "govuk-!-width-three-quarters",
+      id: "govie-!-width-three-quarters",
+      classes: "govie-!-width-three-quarters",
       label: {
-        text: "Input with govuk-!-width-width-three-quarters (75% width)"
+        text: "Input with govie-!-width-width-three-quarters (75% width)"
       }
     }) }}
   {%- endcall %}
 
-  <h2 class="govuk-heading-m">Display with govuk-!-display</h2>
+  <h2 class="govie-heading-m">Display with govie-!-display</h2>
 
-  <h3 class="govuk-heading-s govuk-!-font-weight-regular">govuk-!-display-block</h2>
+  <h3 class="govie-heading-s govie-!-font-weight-regular">govie-!-display-block</h2>
 
   {{ govukButton({
-    classes: 'govuk-!-display-block',
+    classes: 'govie-!-display-block',
     text:'Save and continue',
     element: 'input',
     href: '/'
   }) }}
 
   {{ govukButton({
-    classes: 'govuk-!-display-block',
+    classes: 'govie-!-display-block',
     text:'Save and continue',
     element: 'input',
     href: '/'
   }) }}
 
-  <h3 class="govuk-heading-s govuk-!-font-weight-regular">govuk-!-display-inline-block</h2>
+  <h3 class="govie-heading-s govie-!-font-weight-regular">govie-!-display-inline-block</h2>
 
     {{ govukPanel({
-      classes: 'govuk-!-display-inline-block',
+      classes: 'govie-!-display-inline-block',
       titleText: 'Application complete',
       html: 'Your reference number<br><strong>HDJ2123F</strong>'
     }) }}
 
 
     {{ govukButton({
-      classes: 'govuk-!-display-inline-block',
+      classes: 'govie-!-display-inline-block',
       text:'Save and continue',
       element: 'input',
       href: '/' })
     }}
 
-  <h3 class="govuk-heading-s govuk-!-font-weight-regular">govuk-!-display-inline</h2>
+  <h3 class="govie-heading-s govie-!-font-weight-regular">govie-!-display-inline</h2>
 
-  <a class="govuk-!-display-inline govuk-link" href="#">Apples</a>
-  <a class="govuk-!-display-inline govuk-link" href="#">Oranges</a>
+  <a class="govie-!-display-inline govie-link" href="#">Apples</a>
+  <a class="govie-!-display-inline govie-link" href="#">Oranges</a>
 {% endblock %}

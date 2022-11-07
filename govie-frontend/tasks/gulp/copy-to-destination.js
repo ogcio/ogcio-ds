@@ -16,13 +16,13 @@ const { destination } = require('../task-arguments.js')
 gulp.task('copy:files', () => {
   return merge(
     /**
-     * Copy files to destination with './govuk-esm' suffix
+     * Copy files to destination with './govie-esm' suffix
      * Includes only source JavaScript ECMAScript (ES) modules
      */
     gulp.src([
       `${configPaths.src}**/*.mjs`,
       `!${configPaths.src}**/*.test.*`
-    ]).pipe(gulp.dest(`${destination}/govuk-esm/`)),
+    ]).pipe(gulp.dest(`${destination}/govie-esm/`)),
 
     /**
      * Copy files to destination with './govuk' suffix
@@ -40,7 +40,7 @@ gulp.task('copy:files', () => {
         '!**/__snapshots__/**',
 
         // Preserve destination README when copying to ./package
-        // https://github.com/alphagov/govuk-frontend/tree/main/package#readme
+        // https://github.com/alphagov/govie-frontend/tree/main/package#readme
         `!${configPaths.src}README.md`,
 
         // Exclude Sass files handled by PostCSS stream below
@@ -77,7 +77,7 @@ gulp.task('copy:files', () => {
           basename: 'macro-options',
           extname: '.json'
         }))
-    ).pipe(gulp.dest(`${destination}/govuk/`))
+    ).pipe(gulp.dest(`${destination}/govie/`))
   )
 })
 

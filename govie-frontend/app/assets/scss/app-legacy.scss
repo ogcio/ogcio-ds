@@ -4,9 +4,9 @@
 // GOV.UK Template is included as a separate CSS file, which is how most
 // services use it (as opposed to including it in their Sass file)
 
-$govuk-compatibility-govukfrontendtoolkit: true;
-$govuk-compatibility-govuktemplate: true;
-$govuk-compatibility-govukelements: true;
+$govie-compatibility-govukfrontendtoolkit: true;
+$govie-compatibility-govuktemplate: true;
+$govie-compatibility-govukelements: true;
 
 // Suppress compatibility mode deprecation warnings locally
 $govuk-suppressed-warnings: (

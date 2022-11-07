@@ -31,11 +31,11 @@ See [Tasks](tasks.md) for details of what `npm test` does.
 ### Running individual tests
 You can run a subset of the test suite that only tests components by running:
 
-    `npx jest src/govuk/components/button`
+    `npx jest src/govie/components/button`
 
 Note: There's a watch mode that keeps a testing session open waiting for changes that can be used with:
 
-    `npx jest --watch src/govuk/components/button`
+    `npx jest --watch src/govie/components/button`
 
 ### Running only SASS linting
 
@@ -60,12 +60,12 @@ We use [Jest](https://jestjs.io/), an automated testing platform with an asserti
 ### Component tests
 We write functional tests for every component to check the output of our Nunjucks code. These are found in `template.test.js` files in each component directory. These Nunjucks tests render the component examples defined in the component yaml files, and assert that the HTML tags, attributes and classes are as expected. For example: checking that when you pass in an `id` to the component using the Nunjucks macro, it outputs the component with an `id` attribute equal to that value.
 
-If a component uses JavaScript, we also write functional tests in a `[component name].test.js` file, for example [checkboxes.test.js](../../src/govuk/components/checkboxes/checkboxes.test.js). These component tests check that interactions, such as a mouse click, have the expected result.
+If a component uses JavaScript, we also write functional tests in a `[component name].test.js` file, for example [checkboxes.test.js](../../src/govie/components/checkboxes/checkboxes.test.js). These component tests check that interactions, such as a mouse click, have the expected result.
 
 You should also test component Javascript logic with unit tests, in a `[component name].unit.test.mjs` file. These tests are better suited for testing behind-the-scenes logic, or in cases where the final output of some logic is not a change to the component markup.
 
 ### Global tests
-We write functional tests for checking our JavaScript exports and our global sass variables - see [all.test.js](../../src/govuk/all.test.js) for examples of global tests we run.
+We write functional tests for checking our JavaScript exports and our global sass variables - see [all.test.js](../../src/govie/all.test.js) for examples of global tests we run.
 
 ### Conventions
 We aim to write the test descriptions in everyday language. For example, "back-link component fails to render if the required fields are not included".
@@ -79,7 +79,7 @@ For components, the snapshots are stored in `[component-name directory]/_snapsho
 
 If a snapshot test fails, review the difference in the console. If the change is the correct change to make, run:
 
-`npm test -- -u src/govuk/components/button`
+`npm test -- -u src/govie/components/button`
 
 This will update the snapshot file. Commit this file separately with a commit message that explains you're updating the snapshot file and an explanation of what caused the change.
 

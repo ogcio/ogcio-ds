@@ -8,33 +8,33 @@
 {% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="govie-heading-xl">
        {{ pageTitle }}
       </h1>
 
-      <p class="govuk-body">Josh Lyman last logged in <strong>3 days ago</strong>.</p>
+      <p class="govie-body">Josh Lyman last logged in <strong>3 days ago</strong>.</p>
 
-      <p class="govuk-body">By deleting their administrator account they will no longer have access to this system. All cases that <strong>Josh Lyman</strong> is assigned to will remain open but their name will be removed from the case history.</p>
+      <p class="govie-body">By deleting their administrator account they will no longer have access to this system. All cases that <strong>Josh Lyman</strong> is assigned to will remain open but their name will be removed from the case history.</p>
 
       {{ govukWarningText({
         text: "This action is final and cannot be undone.",
         iconFallbackText: "Warning",
-        classes: "govuk-!-margin-bottom-8"
+        classes: "govie-!-margin-bottom-8"
       }) }}
 
       <form method="post" novalidate>
-        <div class="govuk-button-group">
+        <div class="govie-button-group">
           {{ govukButton({
             text: "Delete account",
-            classes: "govuk-button--warning"
+            classes: "govie-button--warning"
           }) }}
 
           {{ govukButton({
             text: "Cancel",
-            classes: "govuk-button--secondary"
+            classes: "govie-button--secondary"
           }) }}
         </div>
       </form>

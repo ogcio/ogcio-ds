@@ -36,10 +36,10 @@ data-module="govuk-accordion"
 
 ## Use classes to target DOM elements
 
-After you initialise a component, use `govuk-js-*` classes to target DOM elements. For example:
+After you initialise a component, use `govie-js-*` classes to target DOM elements. For example:
 
 ```html
-class="govuk-js-header-toggle"
+class="govie-js-header-toggle"
 ```
 
 ## Comments
@@ -122,7 +122,7 @@ Use default export over named export.
 
 ## Polyfilling
 
-If you need to support older browsers, import the necessary [polyfills](/src/govuk/vendor/polyfills) and they will be added to the environment when the feature is not supported.
+If you need to support older browsers, import the necessary [polyfills](/src/govie/vendor/polyfills) and they will be added to the environment when the feature is not supported.
 
 For example, if you want to polyfill `addEventListener` for IE8, import the Event polyfills.
 

@@ -24,9 +24,9 @@ The naming convention follows this pattern:
 .block__element {}
 .block--modifier {}
 
-.govuk-card               // Block - the root of a component
-.govuk-card__body         // Element - a part of the block
-.govuk-card--active       // Modifier - a variant of the block
+.govie-card               // Block - the root of a component
+.govie-card__body         // Element - a part of the block
+.govie-card--active       // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element
@@ -57,7 +57,7 @@ given class name. It also discourages excessive nesting.
 Bad:
 
 ```
-.govuk-breadcrumb {
+.govie-breadcrumb {
   ...
   &__item {
     ...
@@ -68,11 +68,11 @@ Bad:
 Good:
 
 ```
-.govuk-breadcrumb {
+.govie-breadcrumb {
   ...
 }
 
-.govuk-breadcrumb__item {
+.govie-breadcrumb__item {
   ...
 }
 ```
@@ -98,7 +98,7 @@ other components.
 
 Keep all of the variants of a component in the same place.
 
-`.govuk-error-summary` modifies the `.govuk-list` component.
+`.govuk-error-summary` modifies the `.govie-list` component.
 
 Component modifiers use an extra class, scoped to the component:
 
@@ -155,7 +155,7 @@ Bad:
 Good:
 ```
 .selector {
-  color: $govuk-blue;
+  color: $govie-blue;
 }
 ```
 
@@ -239,7 +239,7 @@ a {
 
 Bad:
 ```
-.govuk-breadcrumb {
+.govie-breadcrumb {
   ...
   &__item {
     ...
@@ -249,11 +249,11 @@ Bad:
 
 Good:
 ```
-.govuk-breadcrumb {
+.govie-breadcrumb {
   ...
 }
 
-.govuk-breadcrumb__item {
+.govie-breadcrumb__item {
   ...
 }
 ```
@@ -288,7 +288,7 @@ Bad:
 ```
 @import 'foo';
 
-$govuk-font-family-gds-transport: 'GDS Transport', arial, sans-serif;
+$govie-font-family-lato: 'Lato', arial, sans-serif;
 
 .bar {
   content: 'baz';
@@ -299,7 +299,7 @@ Good:
 ```
 @import "foo";
 
-$govuk-font-family-gds-transport: "GDS Transport", arial, sans-serif;
+$govie-font-family-lato: "Lato", arial, sans-serif;
 
 .bar {
   content: "baz";
@@ -427,14 +427,14 @@ $bar: 2 - 1;
 Bad:
 ```
 @mixin FONT_STACK() {
-  font-family: $govuk-font-stack;
+  font-family: $govie-font-stack;
 }
 ```
 
 Good:
 ```
 @mixin font-stack() {
-  font-family: $govuk-font-stack;
+  font-family: $govie-font-stack;
 }
 ```
 
@@ -510,4 +510,4 @@ The SassDoc comments are used to generate the [Sass API reference in the GOV.UK 
 
 For SassDoc comments, use 3 slashes (`///`) at the start of the line.
 
-See [colour.scss](../../../src/govuk/helpers/_colour.scss) for an example of SassDoc syntax.
+See [colour.scss](../../../src/govie/helpers/_colour.scss) for an example of SassDoc syntax.

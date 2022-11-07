@@ -37,15 +37,15 @@ notes: The links to change your answers are not functional.
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
+<div class="govie-grid-row">
+  <div class="govie-grid-column-two-thirds-from-desktop">
 
-    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+    <h1 class="govie-heading-xl">Check your answers before sending your application</h1>
 
-    <h2 class="govuk-heading-m">Personal details</h2>
+    <h2 class="govie-heading-m">Personal details</h2>
 
     {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-9',
+      classes: 'govie-!-margin-bottom-9',
       rows: [
         {
           key: {
@@ -103,7 +103,7 @@ notes: The links to change your answers are not functional.
             text: "Contact details"
           },
           value: {
-            html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+            html: '<p class="govie-body">07700 900457</p><p class="govie-body">sarah.phillips@example.com</p>'
           },
           actions: {
             items: [
@@ -119,10 +119,10 @@ notes: The links to change your answers are not functional.
     }) }}
 
 
-    <h2 class="govuk-heading-m">Application details</h2>
+    <h2 class="govie-heading-m">Application details</h2>
 
     {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-9',
+      classes: 'govie-!-margin-bottom-9',
       rows: [
         {
           key: {
@@ -198,11 +198,11 @@ notes: The links to change your answers are not functional.
           },
           value: {
             html: '
-              <p class="govuk-body">I have contacted my council for a Temporary Event Notice (<abbr title="Temporary Event Notice">TEN</abbr>) as I want to carry out a ‘licensable activity’ on unlicensed premises in England or Wales.</p>
+              <p class="govie-body">I have contacted my council for a Temporary Event Notice (<abbr title="Temporary Event Notice">TEN</abbr>) as I want to carry out a ‘licensable activity’ on unlicensed premises in England or Wales.</p>
 
-              <p class="govuk-body">Licensable activity includes:</p>
+              <p class="govie-body">Licensable activity includes:</p>
 
-              <ul class="govuk-list govuk-list--bullet">
+              <ul class="govie-list govie-list--bullet">
                 <li>selling alcohol</li>
                 <li>serving alcohol to members of a private club</li>
                 <li>providing entertainment, such as music, dancing or indoor sporting events</li>
@@ -223,9 +223,9 @@ notes: The links to change your answers are not functional.
       ]
     }) }}
 
-    <h2 class="govuk-heading-m">Now send your application</h2>
+    <h2 class="govie-heading-m">Now send your application</h2>
 
-    <p class="govuk-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+    <p class="govie-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
     <form action="/full-page-examples/check-your-answers" method="post">
 

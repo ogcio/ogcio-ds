@@ -104,33 +104,33 @@ notes: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
+      <h1 class="govie-heading-xl">{{ pageTitle }}</h1>
 
-      <p class="govuk-body">You can apply for, renew, replace or update your passport and pay for it online.</p>
+      <p class="govie-body">You can apply for, renew, replace or update your passport and pay for it online.</p>
 
       {{ govukButton({
         text: "Start now",
         href: "#",
-        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        classes: "govie-!-margin-top-2 govie-!-margin-bottom-8",
         isStartButton: true
       }) }}
 
       {% set moreInformationHTML %}
-        <p class="govuk-body">You’ll need a debit or credit card to use this service.</p>
+        <p class="govie-body">You’ll need a debit or credit card to use this service.</p>
 
-        <p class="govuk-body"><a class="govuk-link" href="#">It’s £9.50 cheaper</a> to apply for a passport online than by post.</p>
+        <p class="govie-body"><a class="govie-link" href="#">It’s £9.50 cheaper</a> to apply for a passport online than by post.</p>
 
-        <p class="govuk-body">It should take around 6 weeks to get your first UK adult passport, but it can take longer.</p>
+        <p class="govie-body">It should take around 6 weeks to get your first UK adult passport, but it can take longer.</p>
 
-        <p class="govuk-body">All other application types (for example, renewing a passport or getting a child passport) should take 3 weeks. It can take longer if more information is needed or your application hasn’t been filled out correctly.</p>
+        <p class="govie-body">All other application types (for example, renewing a passport or getting a child passport) should take 3 weeks. It can take longer if more information is needed or your application hasn’t been filled out correctly.</p>
 
-        <p class="govuk-body">You should use a different service if you <a class="govuk-link" href="#">need your passport urgently</a>.</p>
+        <p class="govie-body">You should use a different service if you <a class="govie-link" href="#">need your passport urgently</a>.</p>
       {% endset %}
 
       {% set otherWaysToApplyHTML %}
-        <p class="govuk-body">You can pick up passport application forms from your <a class="govuk-link" rel="external" href="http://www.postoffice.co.uk/branch-finder">local Post Office</a> and apply by post, or use the <a class="govuk-link" href="#">Post Office Check and Send service</a>.</p>
+        <p class="govie-body">You can pick up passport application forms from your <a class="govie-link" rel="external" href="http://www.postoffice.co.uk/branch-finder">local Post Office</a> and apply by post, or use the <a class="govie-link" href="#">Post Office Check and Send service</a>.</p>
       {% endset %}
 
       {{ govukTabs({
@@ -153,30 +153,30 @@ notes: >-
       }) }}
     </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govie-grid-column-one-third">
 
       <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
 
       <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
+        <h2 class="govie-heading-m" id="subsection-title">
           Related content
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
+          <ul class="govie-list govie-!-font-size-16">
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/get-a-passport-urgently">Get a passport urgently</a>
+              <a class="govie-link" href="#/get-a-passport-urgently">Get a passport urgently</a>
             </li>
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/renew-adult-passport">Renew or replace your adult passport</a>
+              <a class="govie-link" href="#/renew-adult-passport">Renew or replace your adult passport</a>
             </li>
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/passport-fees">Passport fees</a>
+              <a class="govie-link" href="#/passport-fees">Passport fees</a>
             </li>
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/government/news/need-to-renew-your-british-passport-go-online">Need to renew your British passport? Go online</a>
+              <a class="govie-link" href="#/government/news/need-to-renew-your-british-passport-go-online">Need to renew your British passport? Go online</a>
             </li>
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/government/news/changes-to-passport-applications-for-british-nationals-living-abroad">Changes to passport applications for British nationals living abroad</a>
+              <a class="govie-link" href="#/government/news/changes-to-passport-applications-for-british-nationals-living-abroad">Changes to passport applications for British nationals living abroad</a>
             </li>
           </ul>
         </nav>
@@ -189,7 +189,7 @@ notes: >-
    to take care of the 'Hide' button to make progressive enhancement in the example functional #}
  <script>
     var hideButton = document.querySelector('.js-hide')
-    var cookieBanner = document.querySelector(".govuk-cookie-banner")
+    var cookieBanner = document.querySelector(".govie-cookie-banner")
     var confirmationBanner = document.querySelector('.js-confirmation-banner')
 
     if (confirmationBanner) {

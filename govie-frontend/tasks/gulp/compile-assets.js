@@ -33,14 +33,14 @@ gulp.task('scss:compile', function () {
       compileStyles(
         gulp.src(`${configPaths.src}all.scss`)
           .pipe(rename({
-            basename: 'govuk-frontend',
+            basename: 'govie-frontend',
             extname: '.min.css'
           }))),
 
       compileStyles(
         gulp.src(`${configPaths.src}all-ie8.scss`)
           .pipe(rename({
-            basename: 'govuk-frontend-ie8',
+            basename: 'govie-frontend-ie8',
             extname: '.min.css'
           })))
     )
@@ -101,7 +101,7 @@ gulp.task('js:compile', () => {
   return merge(srcFiles.map(function (file) {
     // This is combined with destinationPath in gulp.dest()
     // so the files are output to the correct folders
-    const newDirectoryPath = path.dirname(file).replace('src/govuk', '')
+    const newDirectoryPath = path.dirname(file).replace('src/govie', '')
 
     // We only want to give component JavaScript a unique module name
     let moduleName = 'GOVUKFrontend'
@@ -124,7 +124,7 @@ gulp.task('js:compile', () => {
       })))
       .pipe(gulpif(isDist,
         rename({
-          basename: 'govuk-frontend',
+          basename: 'govie-frontend',
           extname: '.min.js'
         })
       ))

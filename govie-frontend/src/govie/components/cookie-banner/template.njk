@@ -1,0 +1,73 @@
+{% from "../button/macro.njk" import govukButton -%}
+
+<div class="govie-cookie-banner {{ params.classes if params.classes }}" data-nosnippet role="region" aria-label="{{ params.ariaLabel | default("Cookie banner") }}"
+  {%- if params.hidden %} hidden{% endif %}
+  {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+
+  {%- for message in params.messages %}
+    {% set classNames = "govie-cookie-banner__message govie-width-container" %}
+    {% if message.classes %}
+      {% set classNames = classNames + " " + message.classes %}
+    {% endif %}
+
+    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}"{% endif %}
+    {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
+    {% if message.hidden %} hidden{% endif %}>
+
+    <div class="govie-grid-row">
+      <div class="govie-grid-column-two-thirds">
+        {% if message.headingHtml or message.headingText %}
+        <h2 class="govie-cookie-banner__heading govie-heading-m">
+          {%- if message.headingHtml -%}
+            {{ message.headingHtml | safe }}
+          {%- else -%}
+            {{ message.headingText }}
+          {%- endif -%}
+        </h2>
+        {% endif %}
+
+        <div class="govie-cookie-banner__content">
+          {%- if message.html -%}
+            {{ message.html | safe }}
+          {%- elif message.text -%}
+            <p class="govie-body">{{ message.text }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+      {% if message.actions %}
+      <div class="govie-button-group">
+        {% for action in message.actions %}
+          {% if action.href %}
+            {% if action.type == "button" %}
+              {{ govukButton({
+                "text": action.text,
+                "type": "button",
+                "classes": action.classes,
+                "href": action.href,
+                "attributes": action.attributes
+              }) | indent(12) | trim }}
+            {% else %}
+              {% set linkClasses = "govie-link" %}
+              {% if action.classes %}
+                {% set linkClasses = linkClasses + " " + action.classes %}
+              {% endif %}
+              <a class="{{ linkClasses }}" href="{{ action.href }}" {%- for attribute, value in action.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ action.text }}</a>
+            {% endif %}
+          {% else %}
+            {{ govukButton({
+              "text": action.text,
+              "value": action.value,
+              "name": action.name,
+              "type": action.type,
+              "classes": action.classes,
+              "attributes": action.attributes
+            }) | indent(12) | trim }}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -15,9 +15,9 @@ async function updateDistAssetsVersion () {
 
   // Files to process
   const assetFiles = [
-    resolve(`${destination}/govuk-frontend.min.css`),
-    resolve(`${destination}/govuk-frontend-ie8.min.css`),
-    resolve(`${destination}/govuk-frontend.min.js`)
+    resolve(`${destination}/govie-frontend.min.css`),
+    resolve(`${destination}/govie-frontend-ie8.min.css`),
+    resolve(`${destination}/govie-frontend.min.js`)
   ]
 
   // Loop through files

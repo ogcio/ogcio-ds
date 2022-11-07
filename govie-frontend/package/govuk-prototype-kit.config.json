@@ -3,12 +3,12 @@
     "/"
   ],
   "scripts": [
-    "/govuk/all.js"
+    "/govie/all.js"
   ],
   "assets": [
-    "/govuk/assets"
+    "/govie/assets"
   ],
   "sass": [
-    "/govuk/all.scss"
+    "/govie/all.scss"
   ]
 }
