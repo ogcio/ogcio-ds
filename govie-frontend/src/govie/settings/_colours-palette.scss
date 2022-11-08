@@ -47,12 +47,14 @@ $govie-use-legacy-palette: if(
 /// @access private
 
 $_govie-colour-palette-modern: (
+  "dark-red": #ae1122,
   "red": #d4351c,
   "yellow": #ffdd00,
   "green": #00703c,
   "blue": #1d70b8,
   "dark-blue": #003078,
   "light-blue": #5694ca,
+  "mid-blue": #2c55a2,
   "purple": #4c2c92,
 
   "black": #0b0c0c,
@@ -95,6 +97,7 @@ $_govie-colour-palette-legacy: (
   "turquoise": #28a197,
   "light-blue": #2b8cc4,
   "blue": #005ea5,
+  "dark-blue": #003078,
 
   "black": #0b0c0c,
   "grey-1": #6f777b,
