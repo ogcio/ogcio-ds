@@ -15,7 +15,7 @@ describe('/components/button', () => {
       const result = await page.evaluate(() => {
         // `undefined` simulates the element being missing,
         // from an unchecked `document.querySelector` for example
-        new window.GOVUKFrontend.Button(undefined).init()
+        new window.GOVIEFrontend.Button(undefined).init()
 
         // If our component initialisation breaks, this won't run
         return true
@@ -223,7 +223,7 @@ describe('/components/button', () => {
         await renderAndInitialise(page, 'button', {
           nunjucksParams: examples.default,
           initialiser () {
-            window.GOVUKFrontend.initAll({
+            window.GOVIEFrontend.initAll({
               button: {
                 preventDoubleClick: true
               }

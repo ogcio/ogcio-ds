@@ -85,7 +85,7 @@ describe('Error Summary', () => {
         const result = await page.evaluate(() => {
           // `undefined` simulates the element being missing,
           // from an unchecked `document.querySelector` for example
-          new window.GOVUKFrontend.ErrorSummary(undefined).init()
+          new window.GOVIEFrontend.ErrorSummary(undefined).init()
 
           // If our component initialisation breaks, this won't run
           return true
@@ -122,7 +122,7 @@ describe('Error Summary', () => {
         await renderAndInitialise(page, 'error-summary', {
           nunjucksParams: examples.default,
           initialiser () {
-            window.GOVUKFrontend.initAll({
+            window.GOVIEFrontend.initAll({
               errorSummary: {
                 disableAutoFocus: true
               }

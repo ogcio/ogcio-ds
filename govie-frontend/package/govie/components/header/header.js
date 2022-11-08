@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('GOVUKFrontend.Header', factory) :
-	(global.GOVUKFrontend = global.GOVUKFrontend || {}, global.GOVUKFrontend.Header = factory());
+	typeof define === 'function' && define.amd ? define('GOVIEFrontend.Header', factory) :
+	(global.GOVIEFrontend = global.GOVIEFrontend || {}, global.GOVIEFrontend.Header = factory());
 }(this, (function () { 'use strict';
 
 (function(undefined) {

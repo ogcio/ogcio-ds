@@ -19,7 +19,6 @@ describe('package/', () => {
   beforeAll(async () => {
     componentsFilesSource = await getFilesByDirectory(configPaths.components)
     componentsFilesPackage = await getFilesByDirectory(`${configPaths.package}govie/components/`)
-    componentsFilesPackageESM = await getFilesByDirectory(`${configPaths.package}govie-esm/components/`)
 
     // Components list
     componentNames = [...(await getDirectories(configPaths.components)).keys()]
@@ -74,7 +73,7 @@ describe('package/', () => {
 
               // Account for govie-esm folder
               if (fileWithoutSrc.split('.').pop() === 'mjs') {
-                const esmFile = fileWithoutSrc.replace('govie/', 'govie-esm/')
+                const esmFile = fileWithoutSrc.replace('govie/')
                 const umdFile = fileWithoutSrc.replace('.mjs', '.js')
 
                 return [umdFile, esmFile]
@@ -118,18 +117,18 @@ describe('package/', () => {
 
   describe('all.scss', () => {
     it('should compile without throwing an exception', async () => {
-      const allScssFile = path.join(configPaths.package, 'govuk', 'all.scss')
+      const allScssFile = path.join(configPaths.package, 'govie', 'all.scss')
       await renderSass({ file: allScssFile })
     })
   })
 
   describe('all.js', () => {
     it('should have correct module name', async () => {
-      const allJsFile = path.join(configPaths.package, 'govuk', 'all.js')
+      const allJsFile = path.join(configPaths.package, 'govie', 'all.js')
 
       return readFile(allJsFile, 'utf8')
         .then((data) => {
-          expect(data).toContain("typeof define === 'function' && define.amd ? define('GOVUKFrontend', ['exports'], factory)")
+          expect(data).toContain("typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports'], factory)")
         })
         .catch(error => {
           throw error
