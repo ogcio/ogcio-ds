@@ -47,35 +47,35 @@ notes: >-
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+  <h1 class="govie-heading-xl">{{ pageTitle }}</h1>
 
   {{ govukInput({
     label: {
       text: "Search GOV.UK",
-      classes: "govuk-label--l, govuk-visually-hidden"
+      classes: "govie-label--l, govie-visually-hidden"
     },
     id: "search",
     name: "search",
-    classes: "govuk-!-width-two-thirds",
+    classes: "govie-!-width-two-thirds",
     value: "driving"
   }) }}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <ul class="govuk-list govuk-list--spaced app-filter">
-        <li><a class="govuk-link" href="#">Topic</a></li>
-        <li><a class="govuk-link" href="#">Content type</a></li>
-        <li><a class="govuk-link" href="#">Updated</a></li>
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-one-third">
+      <ul class="govie-list govie-list--spaced app-filter">
+        <li><a class="govie-link" href="#">Topic</a></li>
+        <li><a class="govie-link" href="#">Content type</a></li>
+        <li><a class="govie-link" href="#">Updated</a></li>
       </ul>
       <form method="get" novalidate>
         {{ govukCheckboxes({
           idPrefix: "organisation",
           name: "organisation",
-          classes: "govuk-checkboxes--small",
+          classes: "govie-checkboxes--small",
           fieldset: {
             legend: {
-              html: "<a class='govuk-link' href=''>Organisation</a>",
-              classes: "app-open-fieldset govuk-fieldset__legend--s"
+              html: "<a class='govie-link' href=''>Organisation</a>",
+              classes: "app-open-fieldset govie-fieldset__legend--s"
             }
           },
           items: [
@@ -102,12 +102,12 @@ notes: >-
         }) }}
       </form>
     </div>
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govie-grid-column-two-thirds">
       <div class="app-search-results-summary">
-        <h2 class="govuk-heading-s">{{ total }} results</h2>
-        <span class="subscribe-link"><a href="#" class="govuk-link govuk-body-s">Subscribe to feed</a></span>
+        <h2 class="govie-heading-s">{{ total }} results</h2>
+        <span class="subscribe-link"><a href="#" class="govie-link govie-body-s">Subscribe to feed</a></span>
       </div>
-      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-3">
+      <hr class="govie-section-break govie-section-break--s govie-section-break--visible govie-!-margin-bottom-3">
       <div class="app-search-result-sort">
         {{ govukSelect({
           id: "sort",
@@ -133,28 +133,28 @@ notes: >-
           ]
         }) }}
       </div>
-      <ul class="govuk-list app-document-list">
+      <ul class="govie-list app-document-list">
           {% for document in documents %}
               {% set document = document.document %}
               <li>
-                  <h3 class="govuk-heading-s govuk-!-margin-bottom-2">
-                    <a class="govuk-link govuk-link--no-underline" href="https://gov.uk{{ document.link }}">
+                  <h3 class="govie-heading-s govie-!-margin-bottom-2">
+                    <a class="govie-link govie-link--no-underline" href="https://gov.uk{{ document.link }}">
                       {{ document.title }}
                     </a>
                   </h3>
-                  <p class="govuk-body-s govuk-!-margin-bottom-4">
+                  <p class="govie-body-s govie-!-margin-bottom-4">
                       {{ document.summary }}
                   </p>
                   {% if document.children %}
-                    <ul class="govuk-list app-search-result-list__children">
+                    <ul class="govie-list app-search-result-list__children">
                       {% for child in document.children %}
                         <li>
-                          <h4 class="govuk-heading-xs govuk-!-margin-bottom-1 govuk-!-margin-top-1">
-                            <a class="govuk-link govuk-link--no-underline" href="#">
+                          <h4 class="govie-heading-xs govie-!-margin-bottom-1 govie-!-margin-top-1">
+                            <a class="govie-link govie-link--no-underline" href="#">
                               {{ child.title }}
                             </a>
                           </h4>
-                          <p class="govuk-body-s">
+                          <p class="govie-body-s">
                             {{ child.summary }}
                           </p>
                         </li>
@@ -162,9 +162,9 @@ notes: >-
                     </ul>
                   {% endif %}
                   {% if document.metadata %}
-                    <ul class="app-metadata-list govuk-!-padding-0">
+                    <ul class="app-metadata-list govie-!-padding-0">
                         {% for data in document.metadata %}
-                            <li class="govuk-body govuk-!-font-size-16">
+                            <li class="govie-body govie-!-font-size-16">
                                 {% if data['is_text'] %}
                                     {{ data.value }}
                                 {% endif %}

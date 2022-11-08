@@ -38,8 +38,8 @@ notes: Based on https://www.signin.service.gov.uk/feedback
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
         <form method="post" novalidate>
             {% if errorSummary.length > 0 %}
                 {{ govukErrorSummary({
@@ -48,9 +48,9 @@ notes: Based on https://www.signin.service.gov.uk/feedback
                 }) }}
             {% endif %}
 
-            <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+            <h1 class="govie-heading-xl">{{ pageTitle }}</h1>
 
-            <p class="govuk-body">
+            <p class="govie-body">
                 Use this form to ask a question, report a problem or suggest an improvement GOV.UK Verify can make.
             </p>
 
@@ -84,7 +84,7 @@ notes: Based on https://www.signin.service.gov.uk/feedback
             }) }}
 
             {% set yesHTML %}
-                <p class="govuk-body">Leave your details below if you'd like a response from GOV.UK Verify.</p>
+                <p class="govie-body">Leave your details below if you'd like a response from GOV.UK Verify.</p>
 
                 {{ govukInput({
                     id: "name",
@@ -110,7 +110,7 @@ notes: Based on https://www.signin.service.gov.uk/feedback
                     errorMessage: errors["email"]
                 }) }}
 
-                <p class="govuk-body govuk-!-margin-top-6">By sending this message, you consent to us using your information as detailed in the privacy notice.</p>
+                <p class="govie-body govie-!-margin-top-6">By sending this message, you consent to us using your information as detailed in the privacy notice.</p>
             {% endset -%}
 
             {{ govukRadios({

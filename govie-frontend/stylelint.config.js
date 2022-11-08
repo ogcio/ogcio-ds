@@ -5,7 +5,7 @@ module.exports = {
     'dist/**/*',
     'package/**/*',
     'public/**/*',
-    'src/govuk/vendor/**/*'
+    'src/govie/vendor/**/*'
   ],
   overrides: [
     {
@@ -16,7 +16,7 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     /**
-     * GOV.UK Frontend has a specific ordering pattern
+     * GOV.IE Frontend has a specific ordering pattern
      * that should be applied to rules
      *
      * https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md

@@ -43,14 +43,14 @@ notes: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
+      <h1 class="govie-heading-xl">{{ pageTitle }}</h1>
 
       {% set englandAndWalesHTML %}
 
         {% set englandAndWalesPanelTitleHtml %}
-          <span class='govuk-!-font-size-36 govuk-!-margin-bottom-4 govuk-!-display-block'>
+          <span class='govie-!-font-size-36 govie-!-margin-bottom-4 govie-!-display-block'>
             The next bank holiday in England and Wales is
           </span>
           19 April
@@ -62,25 +62,25 @@ notes: >-
           text: 'Good Friday'
         }) }}
 
-        <hr class="govuk-section-break govuk-section-break--l">
+        <hr class="govie-section-break govie-section-break--l">
 
-        <h2 class="govuk-heading-m">Upcoming bank holidays in England and Wales</h2>
+        <h2 class="govie-heading-m">Upcoming bank holidays in England and Wales</h2>
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -166,19 +166,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2020",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -272,31 +272,31 @@ notes: >-
             ]
           ]
         }) }}
-        <p class="govuk-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
+        <p class="govie-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
 
-        <p class="govuk-body">Your employer doesn’t have to give you <a class="govuk-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
+        <p class="govie-body">Your employer doesn’t have to give you <a class="govie-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
 
-        <p class="govuk-body">Bank holidays might affect <a class="govuk-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
+        <p class="govie-body">Bank holidays might affect <a class="govie-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
 
-        <hr class="govuk-section-break govuk-section-break--m">
+        <hr class="govie-section-break govie-section-break--m">
 
-        <h2 class="govuk-heading-m">Past bank holidays in England and Wales</h2>
+        <h2 class="govie-heading-m">Past bank holidays in England and Wales</h2>
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -316,19 +316,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2018",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -414,19 +414,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2017",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -512,19 +512,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2016",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -610,19 +610,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2015",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -708,19 +708,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2014",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -806,19 +806,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2013",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -904,19 +904,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2012",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1005,7 +1005,7 @@ notes: >-
       {% set scotlandHTML %}
 
         {% set scotlandPanelTitleHtml %}
-          <span class='govuk-!-font-size-36 govuk-!-margin-bottom-4 govuk-!-display-block'>
+          <span class='govie-!-font-size-36 govie-!-margin-bottom-4 govie-!-display-block'>
             The next bank holiday in Scotland is
           </span>
           19 April
@@ -1017,26 +1017,26 @@ notes: >-
           text: 'Good Friday'
         }) }}
 
-        <hr class="govuk-section-break govuk-section-break--l">
+        <hr class="govie-section-break govie-section-break--l">
 
-        <h2 class="govuk-heading-m">Upcoming bank holidays in Scotland</h2>
+        <h2 class="govie-heading-m">Upcoming bank holidays in Scotland</h2>
 
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1122,19 +1122,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2020",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1251,31 +1251,31 @@ notes: >-
           ]
         }) }}
 
-        <p class="govuk-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
+        <p class="govie-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
 
-        <p class="govuk-body">Your employer doesn’t have to give you <a class="govuk-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
+        <p class="govie-body">Your employer doesn’t have to give you <a class="govie-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
 
-        <p class="govuk-body">Bank holidays might affect <a class="govuk-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
+        <p class="govie-body">Bank holidays might affect <a class="govie-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
 
-        <hr class="govuk-section-break govuk-section-break--m">
+        <hr class="govie-section-break govie-section-break--m">
 
-        <h2 class="govuk-heading-m">Past bank holidays in Scotland</h2>
+        <h2 class="govie-heading-m">Past bank holidays in Scotland</h2>
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1295,19 +1295,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2018",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1416,19 +1416,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2017",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1537,19 +1537,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2016",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1658,19 +1658,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2015",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1779,19 +1779,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2014",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -1900,19 +1900,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2013",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2021,19 +2021,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2012",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2144,7 +2144,7 @@ notes: >-
       {% set irelandHTML %}
 
         {% set irelandPanelTitleHtml %}
-          <span class='govuk-!-font-size-36 govuk-!-margin-bottom-4 govuk-!-display-block'>
+          <span class='govie-!-font-size-36 govie-!-margin-bottom-4 govie-!-display-block'>
             The next bank holiday in Northern Ireland is
           </span>
           19 April
@@ -2156,26 +2156,26 @@ notes: >-
           text: 'Good Friday'
         }) }}
 
-        <hr class="govuk-section-break govuk-section-break--l">
+        <hr class="govie-section-break govie-section-break--l">
 
-        <h2 class="govuk-heading-m">Upcoming bank holidays in Northern Ireland</h2>
+        <h2 class="govie-heading-m">Upcoming bank holidays in Northern Ireland</h2>
 
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2283,19 +2283,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2020",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2412,31 +2412,31 @@ notes: >-
           ]
         }) }}
 
-        <p class="govuk-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
+        <p class="govie-body">If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.</p>
 
-        <p class="govuk-body">Your employer doesn’t have to give you <a class="govuk-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
+        <p class="govie-body">Your employer doesn’t have to give you <a class="govie-link" href="/holiday-entitlement-rights" title="Holiday entitlement rights">paid leave on bank or public holidays</a>.</p>
 
-        <p class="govuk-body">Bank holidays might affect <a class="govuk-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
+        <p class="govie-body">Bank holidays might affect <a class="govie-link" href="/how-to-have-your-benefits-paid">how and when your benefits are paid</a>.</p>
 
-        <hr class="govuk-section-break govuk-section-break--m">
+        <hr class="govie-section-break govie-section-break--m">
 
-        <h2 class="govuk-heading-m">Past bank holidays in Northern Ireland</h2>
+        <h2 class="govie-heading-m">Past bank holidays in Northern Ireland</h2>
 
         {{ govukTable({
           caption: "2019",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2456,19 +2456,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2018",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2554,19 +2554,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2017",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2652,19 +2652,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2016",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2750,19 +2750,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2015",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2848,19 +2848,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2014",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -2946,19 +2946,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2013",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -3044,19 +3044,19 @@ notes: >-
 
         {{ govukTable({
           caption: "2012",
-          captionClasses: "govuk-!-margin-bottom-4",
+          captionClasses: "govie-!-margin-bottom-4",
           head: [
             {
               text: "Date",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Day",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             },
             {
               text: "Name",
-              classes: "govuk-visually-hidden"
+              classes: "govie-visually-hidden"
             }
           ],
           rows: [
@@ -3170,26 +3170,26 @@ notes: >-
           ]
         }) }}
 
-        <p class="govuk-body">Last updated: 8 February 2019</p>
+        <p class="govie-body">Last updated: 8 February 2019</p>
       </article>
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govie-grid-column-one-third">
 
-      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+      <!-- The Related items component is not part of GOV.IE Frontend but will be styled if used in the Prototype Kit -->
 
       <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
+        <h2 class="govie-heading-m" id="subsection-title">
           Related content
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
+          <ul class="govie-list govie-!-font-size-16">
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/holiday-entitlement-rights">Holiday entitlement</a>
+              <a class="govie-link" href="#/holiday-entitlement-rights">Holiday entitlement</a>
             </li>
             <li class="gem-c-related-navigation__link">
-              <a class="govuk-link" href="#/school-term-holiday-dates">School term and holiday dates</a>
+              <a class="govie-link" href="#/school-term-holiday-dates">School term and holiday dates</a>
             </li>
           </ul>
         </nav>

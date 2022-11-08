@@ -54,11 +54,11 @@ describe('dist/', () => {
     })
   })
 
-  describe(`govuk-frontend-${version}.min.css`, () => {
+  describe(`govie-frontend-${version}.min.css`, () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `govuk-frontend-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(configPaths.dist, `govie-frontend-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -70,11 +70,11 @@ describe('dist/', () => {
     })
   })
 
-  describe(`govuk-frontend-ie8-${version}.min.css`, () => {
+  describe(`govie-frontend-ie8-${version}.min.css`, () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `govuk-frontend-ie8-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(configPaths.dist, `govie-frontend-ie8-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -82,11 +82,11 @@ describe('dist/', () => {
     })
   })
 
-  describe(`govuk-frontend-${version}.min.js`, () => {
+  describe(`govie-frontend-${version}.min.js`, () => {
     let javascript
 
     beforeAll(async () => {
-      javascript = await readFile(path.join(configPaths.dist, `govuk-frontend-${version}.min.js`), 'utf8')
+      javascript = await readFile(path.join(configPaths.dist, `govie-frontend-${version}.min.js`), 'utf8')
     })
 
     it('should have the correct version name', () => {

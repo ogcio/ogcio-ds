@@ -12,10 +12,10 @@
 
 {% set variants = {
   'Link': '',
-  'Link with no visited state': 'govuk-link--no-visited-state',
-  'Text link': 'govuk-link--text-colour',
-  'Muted link': 'govuk-link--muted',
-  'Inverse': 'govuk-link--inverse'
+  'Link with no visited state': 'govie-link--no-visited-state',
+  'Text link': 'govie-link--text-colour',
+  'Muted link': 'govie-link--muted',
+  'Inverse': 'govie-link--inverse'
 } %}
 
 {% set states = {
@@ -29,33 +29,33 @@
   'Focussed active link': ':focus :active'
 } %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="govie-heading-xl">
         Links
       </h1>
 
-      <p class="govuk-body">
-        <a class="govuk-link" href="#">Link with that wraps over two lines to test that the focus style works as expected</a>
+      <p class="govie-body">
+        <a class="govie-link" href="#">Link with that wraps over two lines to test that the focus style works as expected</a>
       </p>
 
-      <p class="govuk-body">
-        (<a class="govuk-link" href="#">Link with surrounding brackets</a>) test that the focus style does not overlap.
+      <p class="govie-body">
+        (<a class="govie-link" href="#">Link with surrounding brackets</a>) test that the focus style does not overlap.
       </p>
 
-      <p class="govuk-body">
-        <a class="govuk-link govuk-link--no-underline" href="#">Link with no underline</a>
+      <p class="govie-body">
+        <a class="govie-link govie-link--no-underline" href="#">Link with no underline</a>
       </p>
 
     {% for variant_description, variant_class in variants %}
 
-      <section class="govuk-!-margin-top-8"{% if variant_class == "govuk-link--inverse"%} style="background: #1d70b8; padding: 15px; margin: -15px;"{% endif %}>
-        <h2 class="govuk-heading-l"{% if variant_class == "govuk-link--inverse"%} style="color: #fff;"{% endif %}>{{ variant_description }}</h2>
+      <section class="govie-!-margin-top-8"{% if variant_class == "govie-link--inverse"%} style="background: #1d70b8; padding: 15px; margin: -15px;"{% endif %}>
+        <h2 class="govie-heading-l"{% if variant_class == "govie-link--inverse"%} style="color: #fff;"{% endif %}>{{ variant_description }}</h2>
 
       {% for state_description, state_class in states %}
-        <p class="govuk-body">
-          <a href="/#{{ randomPageHash }}" class="govuk-link {{ variant_class }} {{ state_class }}">
+        <p class="govie-body">
+          <a href="/#{{ randomPageHash }}" class="govie-link {{ variant_class }} {{ state_class }}">
             {{ state_description}}
           </a>
         </p>
@@ -63,31 +63,31 @@
       </section>
     {% endfor %}
 
-      <section class="govuk-!-margin-top-8">
-        <h2 class="govuk-heading-l govuk-!-margin-top-6">Multi-line links</h2>
+      <section class="govie-!-margin-top-8">
+        <h2 class="govie-heading-l govie-!-margin-top-6">Multi-line links</h2>
 
-        <p class="govuk-heading-xl">
-          <a class="govuk-link" href="#">Research your family history using the General Register Office</a>
+        <p class="govie-heading-xl">
+          <a class="govie-link" href="#">Research your family history using the General Register Office</a>
         </p>
 
-        <p class="govuk-heading-l">
-          <a class="govuk-link" href="#">Research your family history using the General Register Office</a>
+        <p class="govie-heading-l">
+          <a class="govie-link" href="#">Research your family history using the General Register Office</a>
         </p>
 
-        <p class="govuk-heading-m">
-          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        <p class="govie-heading-m">
+          <a class="govie-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
         </p>
 
-        <p class="govuk-heading-s">
-          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        <p class="govie-heading-s">
+          <a class="govie-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
         </p>
 
-        <p class="govuk-body">
-          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        <p class="govie-body">
+          <a class="govie-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
         </p>
 
-        <p class="govuk-body-s">
-          <a class="govuk-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
+        <p class="govie-body-s">
+          <a class="govie-link" href="#">Consultation on amendments to the Attorney General’s Code of Practice issued under Section 377A of the Proceeds of Crime Act 2002</a>
         </p>
       </section>
 

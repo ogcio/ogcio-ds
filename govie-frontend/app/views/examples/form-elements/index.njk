@@ -17,24 +17,24 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Form elements</h1>
+  <h1 class="govie-heading-xl">Form elements</h1>
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li><a href="#input" class="govuk-link">Label and text input</a></li>
-    <li><a href="#textarea" class="govuk-link">Label and textarea</a></li>
-    <li><a href="#radio-stacked" class="govuk-link">Fieldset, legend and radio buttons (stacked)</a></li>
-    <li><a href="#radio-inline" class="govuk-link">Fieldset, legend and radio buttons (inline - yes or no)</a></li>
-    <li><a href="#checkboxes-stacked" class="govuk-link">Fieldset, legend and checkboxes (stacked)</a></li>
-    <li><a href="#date" class="govuk-link">Date pattern</a></li>
-    <li><a href="#select" class="govuk-link">Select box</a></li>
-    <li><a href="#file" class="govuk-link">File upload</a></li>
+  <ul class="govie-list govie-list--bullet">
+    <li><a href="#input" class="govie-link">Label and text input</a></li>
+    <li><a href="#textarea" class="govie-link">Label and textarea</a></li>
+    <li><a href="#radio-stacked" class="govie-link">Fieldset, legend and radio buttons (stacked)</a></li>
+    <li><a href="#radio-inline" class="govie-link">Fieldset, legend and radio buttons (inline - yes or no)</a></li>
+    <li><a href="#checkboxes-stacked" class="govie-link">Fieldset, legend and checkboxes (stacked)</a></li>
+    <li><a href="#date" class="govie-link">Date pattern</a></li>
+    <li><a href="#select" class="govie-link">Select box</a></li>
+    <li><a href="#file" class="govie-link">File upload</a></li>
   </ul>
 
   <form action="/" method="post">
     {% call govukFieldset() %}
       <span id="input"></span>
       {{ govukInput({
-        id: "govuk-input-a",
+        id: "govie-input-a",
         label: {
           text: "National Insurance number"
         }
@@ -48,8 +48,8 @@
       <span id="textarea"></span>
       {% from "textarea/macro.njk" import govukTextarea %}
       {{ govukTextarea({
-        id: "govuk-textarea-a",
-        name: "govuk-textarea-a",
+        id: "govie-textarea-a",
+        name: "govie-textarea-a",
         rows: "5",
         label: {
           text: "Why can't you provide a National Insurance number?"
@@ -62,7 +62,7 @@
       "fieldset": {
         "legend": {
           text: "How do you want to be contacted?",
-          classes: "govuk-fieldset__legend--m"
+          classes: "govie-fieldset__legend--m"
         }
       },
       "idPrefix": "radio-stacked",
@@ -86,7 +86,7 @@
     <span id="radio-inline"></span>
     {{ govukRadios({
       "fieldset": {},
-      "classes": "govuk-radios--inline",
+      "classes": "govie-radios--inline",
       "idPrefix": "radio-inline",
       "name": "radio-inline",
       "items": [
@@ -127,7 +127,7 @@
       "fieldset": {
         "legend": {
           "text": "What is your date of birth?",
-          "classes": "govuk-fieldset__legend--m"
+          "classes": "govie-fieldset__legend--m"
         }
       },
       "hint": {
@@ -148,16 +148,16 @@
         "items": [
           {
             "value": 1,
-            "text": "GOV.UK frontend option 1"
+            "text": "GOV.IE Frontend option 1"
           },
           {
             "value": 2,
-            "text": "GOV.UK frontend option 2",
+            "text": "GOV.IE Frontend option 2",
             "selected": true
           },
           {
             "value": 3,
-            "text": "GOV.UK frontend option 3"
+            "text": "GOV.IE Frontend option 3"
           }
         ]
       }) }}

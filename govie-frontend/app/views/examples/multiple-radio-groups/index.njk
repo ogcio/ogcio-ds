@@ -11,18 +11,18 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl">Multiple radio groups</h1>
+<h1 class="govie-heading-xl">Multiple radio groups</h1>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
+<div class="govie-grid-row">
+  <div class="govie-grid-column-one-half">
     <form method="get" novalidate>
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h2 class="govuk-fieldset__heading">
+      <fieldset class="govie-fieldset">
+        <legend class="govie-fieldset__legend govie-fieldset__legend--l">
+          <h2 class="govie-fieldset__heading">
             What is your favourite colour?
           </h2>
         </legend>
-        <h3 class="govuk-heading-m">Warm colours</h3>
+        <h3 class="govie-heading-m">Warm colours</h3>
         {{ govukRadios({
           idPrefix: "warm",
           name: "colour",
@@ -31,20 +31,20 @@
               value: "red",
               text: "Red",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like red too.</p>'
+                html: '<p class="govie-body">Nice choice, I like red too.</p>'
               }
             },
             {
               value: "orange",
               text: "Orange",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like orange too.</p>'
+                html: '<p class="govie-body">Nice choice, I like orange too.</p>'
               }
             }
           ]
         }) }}
 
-        <h3 class="govuk-heading-m">Cool colours</h3>
+        <h3 class="govie-heading-m">Cool colours</h3>
         {{ govukRadios({
           idPrefix: "cool",
           name: "colour",
@@ -53,20 +53,20 @@
               value: "blue",
               text: "Blue",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like blue too.</p>'
+                html: '<p class="govie-body">Nice choice, I like blue too.</p>'
               }
             },
             {
               value: "green",
               text: "Green",
               conditional: {
-                html: '<p class="govuk-body">Boo, you monster...</p>'
+                html: '<p class="govie-body">Boo, you monster...</p>'
               }
             }
           ]
         }) }}
 
-        <h3 class="govuk-heading-m">Do you like colours in general?</h3>
+        <h3 class="govie-heading-m">Do you like colours in general?</h3>
         {{ govukRadios({
           idPrefix: "colours-in-general",
           name: "colours-in-general",
@@ -75,14 +75,14 @@
               value: "yes",
               text: "Yes",
               conditional: {
-                html: '<p class="govuk-body">Fair enough.</p>'
+                html: '<p class="govie-body">Fair enough.</p>'
               }
             },
             {
               value: "no",
               text: "No",
               conditional: {
-                html: '<p class="govuk-body">No judgment.</p>'
+                html: '<p class="govie-body">No judgment.</p>'
               }
             }
           ]
@@ -93,15 +93,15 @@
       }) }}
     </form>
   </div>
-  <div class="govuk-grid-column-one-half">
+  <div class="govie-grid-column-one-half">
     <form method="get" novalidate>
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h2 class="govuk-fieldset__heading">
+      <fieldset class="govie-fieldset">
+        <legend class="govie-fieldset__legend govie-fieldset__legend--l">
+          <h2 class="govie-fieldset__heading">
             What is your least favourite colour?
           </h2>
         </legend>
-        <h3 class="govuk-heading-m">Warm colours</h3>
+        <h3 class="govie-heading-m">Warm colours</h3>
         {{ govukRadios({
           idPrefix: "least-warm",
           name: "colour",
@@ -110,20 +110,20 @@
               value: "red",
               text: "Red",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like red too.</p>'
+                html: '<p class="govie-body">Nice choice, I like red too.</p>'
               }
             },
             {
               value: "orange",
               text: "Orange",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like orange too.</p>'
+                html: '<p class="govie-body">Nice choice, I like orange too.</p>'
               }
             }
           ]
         }) }}
 
-        <h3 class="govuk-heading-m">Cool colours</h3>
+        <h3 class="govie-heading-m">Cool colours</h3>
         {{ govukRadios({
           idPrefix: "least-cool",
           name: "colour",
@@ -132,14 +132,14 @@
               value: "blue",
               text: "Blue",
               conditional: {
-                html: '<p class="govuk-body">Nice choice, I like blue too.</p>'
+                html: '<p class="govie-body">Nice choice, I like blue too.</p>'
               }
             },
             {
               value: "green",
               text: "Green",
               conditional: {
-                html: '<p class="govuk-body">Boo, you monster...</p>'
+                html: '<p class="govie-body">Boo, you monster...</p>'
               }
             }
           ]
@@ -150,7 +150,7 @@
       }) }}
     </form>
 
-    <h3 class="govuk-heading-m">A question that is not in a form</h3>
+    <h3 class="govie-heading-m">A question that is not in a form</h3>
     {{ govukRadios({
       idPrefix: "question-not-in-form",
       name: "question-not-in-form",
@@ -159,14 +159,14 @@
           value: "yes",
           text: "Yes",
           conditional: {
-            html: '<p class="govuk-body">Fair enough.</p>'
+            html: '<p class="govie-body">Fair enough.</p>'
           }
         },
         {
           value: "no",
           text: "No",
           conditional: {
-            html: '<p class="govuk-body">No judgment.</p>'
+            html: '<p class="govie-body">No judgment.</p>'
           }
         }
       ]

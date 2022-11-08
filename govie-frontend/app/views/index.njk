@@ -1,55 +1,55 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">
-    GOV.UK Frontend
+  <h1 class="govie-heading-xl">
+    GOV.IE Frontend
   </h1>
 
-  <div class="govuk-grid-row">
+  <div class="govie-grid-row">
 
-    <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m">Components</h2>
+    <div class="govie-grid-column-one-third">
+      <h2 class="govie-heading-m">Components</h2>
 
-      <ul class="govuk-list">
-        <li><a href="/components/all{{ legacyQuery }}" class="govuk-link">All</a></li>
+      <ul class="govie-list">
+        <li><a href="/components/all{{ legacyQuery }}" class="govie-link">All</a></li>
         {% for componentName in componentNames | sort %}
-          <li><a href="/components/{{ componentName }}{{ legacyQuery }}" class="govuk-link">{{ componentName | replace("-", " ") | capitalize }}</a></li>
+          <li><a href="/components/{{ componentName }}{{ legacyQuery }}" class="govie-link">{{ componentName | replace("-", " ") | capitalize }}</a></li>
         {% endfor %}
       </ul>
     </div>
 
-    <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m">Examples</h2>
+    <div class="govie-grid-column-one-third">
+      <h2 class="govie-heading-m">Examples</h2>
 
-      <ul class="govuk-list">
+      <ul class="govie-list">
       {% for exampleName in exampleNames | sort %}
-        <li><a href="/examples/{{ exampleName }}{{ legacyQuery }}" class="govuk-link">{{ exampleName | replace("-", " ") | capitalize }}</a></li>
+        <li><a href="/examples/{{ exampleName }}{{ legacyQuery }}" class="govie-link">{{ exampleName | replace("-", " ") | capitalize }}</a></li>
       {% endfor %}
       </ul>
     </div>
 
-    <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m"><a href="/full-page-examples" class="govuk-link">Full page examples</a></h2>
+    <div class="govie-grid-column-one-third">
+      <h2 class="govie-heading-m"><a href="/full-page-examples" class="govie-link">Full page examples</a></h2>
 
-      <ul class="govuk-list">
+      <ul class="govie-list">
       {% for example in fullPageExamples %}
-        <li><a href="/full-page-examples/{{ example.path }}{{ legacyQuery }}" class="govuk-link">{{ example.name | replace("-", " ") | capitalize }}</a></li>
+        <li><a href="/full-page-examples/{{ example.path }}{{ legacyQuery }}" class="govie-link">{{ example.name | replace("-", " ") | capitalize }}</a></li>
       {% endfor %}
       </ul>
 
-      <h2 class="govuk-heading-m">Documentation</h2>
+      <h2 class="govie-heading-m">Documentation</h2>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Sass documentation</h3>
-      <ul class="govuk-list">
-        <li><a href="https://frontend.design-system.service.gov.uk/sass-api-reference/" class="govuk-link">Latest release</a></li>
+      <h3 class="govie-heading-s govie-!-margin-bottom-2">Sass documentation</h3>
+      <ul class="govie-list">
+        <li><a href="https://frontend.design-system.service.gov.uk/sass-api-reference/" class="govie-link">Latest release</a></li>
         {% if not flags.isDeployedToHeroku %}
-        <li><a href="/docs/sass" class="govuk-link">Local version</a></li>
+        <li><a href="/docs/sass" class="govie-link">Local version</a></li>
         {% endif %}
       </ul>
 
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">JavaScript documentation</h3>
-      <ul class="govuk-list">
-        <li><a href="/docs/javascript" class="govuk-link">Local version</a></li>
+      <h3 class="govie-heading-s govie-!-margin-bottom-2">JavaScript documentation</h3>
+      <ul class="govie-list">
+        <li><a href="/docs/javascript" class="govie-link">Local version</a></li>
       </ul>
     </div>
   </div>

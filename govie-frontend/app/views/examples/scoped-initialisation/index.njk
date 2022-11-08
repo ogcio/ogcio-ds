@@ -15,9 +15,9 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Scoped initialisation</h1>
-  <h2 class="govuk-heading-m">Unscoped section</h2>
-  <p class="govuk-body">This example should intentionally not have JavaScript functionality</p>
+  <h1 class="govie-heading-xl">Scoped initialisation</h1>
+  <h2 class="govie-heading-m">Unscoped section</h2>
+  <p class="govie-body">This example should intentionally not have JavaScript functionality</p>
 
   {{ govukCheckboxes({
     idPrefix: "not-scoped",
@@ -27,14 +27,14 @@
         value: "not-scoped",
         text: "Not scoped",
         conditional: {
-          html: '<p class="govuk-body">Revealed not scoped text</p>'
+          html: '<p class="govie-body">Revealed not scoped text</p>'
         }
       }
     ]
   }) }}
 
-  <h2 class="govuk-heading-m">Scoped section</h2>
-  <p class="govuk-body">Only this example should have JavaScript functionality</p>
+  <h2 class="govie-heading-m">Scoped section</h2>
+  <p class="govie-body">Only this example should have JavaScript functionality</p>
   <div id="scoped">
     {{ govukCheckboxes({
       idPrefix: "scoped",
@@ -44,7 +44,7 @@
           value: "scoped",
           text: "Scoped",
           conditional: {
-            html: '<p class="govuk-body">Revealed scoped text</p>'
+            html: '<p class="govie-body">Revealed scoped text</p>'
           }
         }
       ]

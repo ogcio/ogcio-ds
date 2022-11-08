@@ -23,7 +23,7 @@ describe('Banner', () => {
 
     // Check the page responded correctly
     expect(response.status).toBe(200)
-    expect($.html()).toContain('GOV.UK Frontend')
+    expect($.html()).toContain('GOV.IE Frontend')
 
     // Check that the banner is visible
     const appBanner = $('[data-module="app-banner"]')
@@ -37,7 +37,7 @@ describe('Banner', () => {
 
     // Check the page responded correctly
     expect(response.status).toBe(200)
-    expect($.html()).toContain('GOV.UK Frontend')
+    expect($.html()).toContain('GOV.IE Frontend')
 
     // Check that the banner is visible
     const appBanner = $('[data-module="app-banner"]')

@@ -44,7 +44,7 @@ scenario: >-
         tag: {
             text: "beta"
         },
-        html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+        html: 'This is a new service – your <a class="govie-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{ govukBackLink({
         text: "Back",
@@ -53,8 +53,8 @@ scenario: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
         <form method="post" novalidate>
             {% if errorSummary.length > 0 %}
                 {{ govukErrorSummary({
@@ -63,13 +63,13 @@ scenario: >-
                 }) }}
             {% endif %}
 
-            <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+            <h1 class="govie-heading-xl">{{ pageTitle }}</h1>
 
-            <p class="govuk-body">
+            <p class="govie-body">
                 Your photo will now go through an automated check.
             </p>
 
-            <p class="govuk-body">
+            <p class="govie-body">
                 You’ll need to review it before you add the photo to your application.
             </p>
 
@@ -91,7 +91,7 @@ scenario: >-
                 items: [
                     {
                         value: "true",
-                        html: 'I accept the <a class="govuk-link" href="#">terms and conditions</a>',
+                        html: 'I accept the <a class="govie-link" href="#">terms and conditions</a>',
                         checked: values["terms-and-conditions"]
                     }
                 ],

@@ -1,0 +1,14 @@
+{
+  "nunjucksPaths": [
+    "/"
+  ],
+  "scripts": [
+    "/govie/all.js"
+  ],
+  "assets": [
+    "/govie/assets"
+  ],
+  "sass": [
+    "/govie/all.scss"
+  ]
+}

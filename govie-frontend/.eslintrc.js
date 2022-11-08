@@ -8,7 +8,7 @@ module.exports = {
     'package-lock.json',
     'package/**/*',
     'public/**/*',
-    'src/govuk/vendor/polyfills/**/*'
+    'src/govie/vendor/polyfills/**/*'
   ],
   overrides: [
     {

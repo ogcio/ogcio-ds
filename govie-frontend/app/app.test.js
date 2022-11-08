@@ -90,7 +90,7 @@ describe(`http://localhost:${PORT}`, () => {
       const $ = cheerio.load(await response.text())
 
       const $html = $('html')
-      expect($html.attr('class')).toBe('govuk-template app-html-class')
+      expect($html.attr('class')).toBe('govie-template app-html-class')
     })
 
     it('should have assets overriden', async () => {
@@ -117,7 +117,7 @@ describe(`http://localhost:${PORT}`, () => {
       const $ = cheerio.load(await response.text())
 
       const $body = $('body')
-      expect($body.attr('class')).toBe('govuk-template__body app-body-class')
+      expect($body.attr('class')).toBe('govie-template__body app-body-class')
     })
 
     it('should have `pageTitle` overriden', async () => {
@@ -140,7 +140,7 @@ describe(`http://localhost:${PORT}`, () => {
       const response = await fetchPath(templatePath)
       const $ = cheerio.load(await response.text())
 
-      const $skipLink = $('.govuk-skip-link')
+      const $skipLink = $('.govie-skip-link')
       expect($skipLink.html()).toBe('Passer au contenu principal')
     })
 
@@ -148,8 +148,8 @@ describe(`http://localhost:${PORT}`, () => {
       const response = await fetchPath(templatePath)
       const $ = cheerio.load(await response.text())
 
-      const $header = $('.govuk-header')
-      const $serviceName = $header.find('.govuk-header__service-name')
+      const $header = $('.govie-header')
+      const $serviceName = $header.find('.govie-header__service-name')
 
       expect($serviceName.html()).toContain('Nom du service')
     })
@@ -158,18 +158,18 @@ describe(`http://localhost:${PORT}`, () => {
       const response = await fetchPath(templatePath)
       const $ = cheerio.load(await response.text())
 
-      const $phaseBanner = $('.govuk-phase-banner')
-      const $text = $phaseBanner.find('.govuk-phase-banner__text')
+      const $phaseBanner = $('.govie-phase-banner')
+      const $text = $phaseBanner.find('.govie-phase-banner__text')
 
-      expect($text.html()).toContain("C'est un nouveau service - vos <a class=\"govuk-link\" href=\"#\">commentaires</a> nous aideront à l'améliorer.")
+      expect($text.html()).toContain("C'est un nouveau service - vos <a class=\"govie-link\" href=\"#\">commentaires</a> nous aideront à l'améliorer.")
     })
 
     it('should have a custom Footer component', async () => {
       const response = await fetchPath(templatePath)
       const $ = cheerio.load(await response.text())
 
-      const $footer = $('.govuk-footer')
-      const $footerLink = $footer.find('.govuk-footer__link')
+      const $footer = $('.govie-footer')
+      const $footerLink = $footer.find('.govie-footer__link')
 
       expect($footerLink.html()).toContain('Aidez-moi')
     })
@@ -186,9 +186,9 @@ describe(`http://localhost:${PORT}`, () => {
       const response = await fetchPath(templatePath)
       const $ = cheerio.load(await response.text())
 
-      const $container = $('.govuk-width-container')
-      const $phaseBanner = $container.find('> .govuk-phase-banner')
-      const $backLink = $container.find('> .govuk-back-link')
+      const $container = $('.govie-width-container')
+      const $phaseBanner = $container.find('> .govie-phase-banner')
+      const $backLink = $container.find('> .govie-back-link')
 
       expect($phaseBanner.length).toBe(1)
       expect($backLink.length).toBe(1)
@@ -199,7 +199,7 @@ describe(`http://localhost:${PORT}`, () => {
       const $ = cheerio.load(await response.text())
 
       const $main = $('main')
-      expect($main.attr('class')).toBe('govuk-main-wrapper govuk-main-wrapper--auto-spacing app-main-class')
+      expect($main.attr('class')).toBe('govie-main-wrapper govie-main-wrapper--auto-spacing app-main-class')
     })
   })
 })

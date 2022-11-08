@@ -1,6 +1,6 @@
 # Components
 
-You can find components in `src/govuk/components`.
+You can find components in `src/govie/components`.
 
 ## Name your components
 

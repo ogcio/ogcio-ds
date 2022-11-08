@@ -1,31 +1,31 @@
-@import "../../../../src/govuk/base";
-$govuk-new-link-styles: true;
-@import "../../../../src/govuk/core/all";
+@import "../../../../src/govie/base";
+$govie-new-link-styles: true;
+@import "../../../../src/govie/core/all";
 
 .app-document-list > li {
-  padding-top: govuk-spacing(4);
-  padding-bottom: govuk-spacing(2);
-  border-bottom: 1px solid $govuk-border-colour;
+  padding-top: govie-spacing(4);
+  padding-bottom: govie-spacing(2);
+  border-bottom: 1px solid $govie-border-colour;
 }
 
 .app-metadata-list > li {
   display: inline-block;
-  margin-right: govuk-spacing(2);
+  margin-right: govie-spacing(2);
 }
 
 .app-filter li {
-  padding-bottom: govuk-spacing(4);
-  border-bottom: 1px solid $govuk-border-colour;
+  padding-bottom: govie-spacing(4);
+  border-bottom: 1px solid $govie-border-colour;
 }
 
 .app-open-fieldset {
-  margin-top: govuk-spacing(4);
-  margin-bottom: govuk-spacing(4);
+  margin-top: govie-spacing(4);
+  margin-bottom: govie-spacing(4);
   font-weight: normal;
 }
 
 .app-search-result-list__children {
-  margin-left: govuk-spacing(4);
+  margin-left: govie-spacing(4);
 
   @include mq($from: tablet) {
     display: grid;
@@ -46,13 +46,13 @@ $govuk-new-link-styles: true;
 }
 
 .app-search-result-sort {
-  @include govuk-font($size: 16);
+  @include govie-font($size: 16);
 }
 
 .app-search-result-sort label {
-  @include govuk-font($size: 16);
+  @include govie-font($size: 16);
   display: inline;
-  margin-right: govuk-spacing(1);
+  margin-right: govie-spacing(1);
 }
 
 .app-next-page__number {
@@ -61,9 +61,9 @@ $govuk-new-link-styles: true;
 
 .app-next-page {
   display: block;
-  padding: govuk-spacing(4) govuk-spacing(2);
+  padding: govie-spacing(4) govie-spacing(2);
 }
 
 .app-next-page:hover {
-  background-color: govuk-colour("light-grey");
+  background-color: govie-colour("light-grey");
 }

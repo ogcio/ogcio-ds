@@ -76,7 +76,7 @@
     ]
   }) }}
 
-  <h1 class="govuk-heading-xl">Your details</h1>
+  <h1 class="govie-heading-xl">Your details</h1>
 
   {{ govukInput({
     label: {
@@ -136,15 +136,15 @@
     "items": [
       {
         "name": "day",
-        "classes": "govuk-input--width-2 govuk-input--error"
+        "classes": "govie-input--width-2 govie-input--error"
       },
       {
         "name": "month",
-        "classes": "govuk-input--width-2 govuk-input--error"
+        "classes": "govie-input--width-2 govie-input--error"
       },
       {
         "name": "year",
-        "classes": "govuk-input--width-4 govuk-input--error"
+        "classes": "govie-input--width-4 govie-input--error"
       }
     ]
     })
@@ -165,17 +165,17 @@
     "items": [
       {
         "name": "day",
-        "classes": "govuk-input--width-2",
+        "classes": "govie-input--width-2",
         "value": 5
       },
       {
         "name": "month",
-        "classes": "govuk-input--width-2",
+        "classes": "govie-input--width-2",
         "value": 12
       },
       {
         "name": "year",
-        "classes": "govuk-input--width-4 govuk-input--error"
+        "classes": "govie-input--width-4 govie-input--error"
       }
     ]
     })
@@ -292,7 +292,7 @@
       "legend": {
         "text": "Legend for conditionally revealed content"
       },
-      "classes": "govuk-radios--error",
+      "classes": "govie-radios--error",
       attributes: {
         id: 'test-conditional-reveal'
       }
@@ -318,14 +318,14 @@
   }) }}
 
   {{ govukRadios({
-    classes: "govuk-radios--inline",
+    classes: "govie-radios--inline",
     idPrefix: "radios-big-heading",
     name: "radios-big-heading",
     fieldset: {
       legend: {
         text: "Have you supplied orders signed in triplicate, sent in, sent back, queried, lost, found, subjected to public inquiry, lost again, and finally buried in soft peat for three months and recycled as firelighters?",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--xl test-radios-big-heading-legend"
+        classes: "govie-fieldset__legend--xl test-radios-big-heading-legend"
       }
     },
     errorMessge: {
@@ -346,14 +346,14 @@
   {% call govukFieldset({
     legend: {
       text: "What is your address?",
-      classes: "govuk-fieldset__legend--xl",
+      classes: "govie-fieldset__legend--xl",
       isPageHeading: true
     }
   }) %}
 
     {{ govukInput({
       label: {
-        html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+        html: 'Building and street <span class="govie-visually-hidden">line 1 of 2</span>'
       },
       id: "address-line-1",
       name: "address-line-1"
@@ -361,7 +361,7 @@
 
     {{ govukInput({
       label: {
-        html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+        html: '<span class="govie-visually-hidden">Building and street line 2 of 2</span>'
       },
       id: "address-line-2",
       name: "address-line-2"
@@ -371,7 +371,7 @@
       label: {
         text: "Town or city"
       },
-      classes: "govuk-!-width-two-thirds",
+      classes: "govie-!-width-two-thirds",
       id: "address-town",
       name: "address-town"
     }) }}
@@ -380,7 +380,7 @@
       label: {
         text: "County"
       },
-      classes: "govuk-!-width-two-thirds",
+      classes: "govie-!-width-two-thirds",
       id: "address-county",
       name: "address-county"
     }) }}
@@ -392,7 +392,7 @@
       errorMessage: {
         text: "Enter a valid postcode"
       },
-      classes: "govuk-input--width-10",
+      classes: "govie-input--width-10",
       id: "address-postcode",
       name: "address-postcode"
     }) }}

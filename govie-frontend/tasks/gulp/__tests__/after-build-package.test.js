@@ -18,8 +18,8 @@ describe('package/', () => {
 
   beforeAll(async () => {
     componentsFilesSource = await getFilesByDirectory(configPaths.components)
-    componentsFilesPackage = await getFilesByDirectory(`${configPaths.package}govuk/components/`)
-    componentsFilesPackageESM = await getFilesByDirectory(`${configPaths.package}govuk-esm/components/`)
+    componentsFilesPackage = await getFilesByDirectory(`${configPaths.package}govie/components/`)
+    componentsFilesPackageESM = await getFilesByDirectory(`${configPaths.package}govie-esm/components/`)
 
     // Components list
     componentNames = [...(await getDirectories(configPaths.components)).keys()]
@@ -50,12 +50,12 @@ describe('package/', () => {
         '*.test.*',
         '*.yaml',
         '*.snap',
-        '*/govuk/README.md'
+        '*/govie/README.md'
       ]
 
       const additionalFilesNotInSrc = [
         'package.json',
-        'govuk-prototype-kit.config.json',
+        'govie-prototype-kit.config.json',
         '**/macro-options.json',
         '**/fixtures.json',
         'README.md'
@@ -72,9 +72,9 @@ describe('package/', () => {
               // Remove /src prefix from filenames
               const fileWithoutSrc = file.replace(/^src\//, '')
 
-              // Account for govuk-esm folder
+              // Account for govie-esm folder
               if (fileWithoutSrc.split('.').pop() === 'mjs') {
-                const esmFile = fileWithoutSrc.replace('govuk/', 'govuk-esm/')
+                const esmFile = fileWithoutSrc.replace('govie/', 'govie-esm/')
                 const umdFile = fileWithoutSrc.replace('.mjs', '.js')
 
                 return [umdFile, esmFile]
@@ -108,8 +108,8 @@ describe('package/', () => {
     it('is not overwritten', () => {
       return readFile(path.join(configPaths.package, 'README.md'), 'utf8')
         .then(contents => {
-          // Look for H1 matching 'GOV.UK Frontend' from existing README
-          expect(contents).toMatch(/^# GOV.UK Frontend/)
+          // Look for H1 matching 'GOV.IE Frontend' from existing README
+          expect(contents).toMatch(/^# GOV.IE Frontend/)
         }).catch(error => {
           throw error
         })

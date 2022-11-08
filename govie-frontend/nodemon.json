@@ -1,6 +1,6 @@
 {
   "exec": "node ./app/start.js",
-  "watch": ["app", "src/govuk"],
+  "watch": ["app", "src/govie"],
   "ignore": ["**/*.test.*"],
   "ext": "js,json,yaml",
   "quiet": true

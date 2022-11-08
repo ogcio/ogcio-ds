@@ -36,10 +36,10 @@ data-module="govuk-accordion"
 
 ## Use classes to target DOM elements
 
-After you initialise a component, use `govuk-js-*` classes to target DOM elements. For example:
+After you initialise a component, use `govie-js-*` classes to target DOM elements. For example:
 
 ```html
-class="govuk-js-header-toggle"
+class="govie-js-header-toggle"
 ```
 
 ## Comments
@@ -122,7 +122,7 @@ Use default export over named export.
 
 ## Polyfilling
 
-If you need to support older browsers, import the necessary [polyfills](/src/govuk/vendor/polyfills) and they will be added to the environment when the feature is not supported.
+If you need to support older browsers, import the necessary [polyfills](/src/govie/vendor/polyfills) and they will be added to the environment when the feature is not supported.
 
 For example, if you want to polyfill `addEventListener` for IE8, import the Event polyfills.
 
@@ -134,7 +134,7 @@ If you need polyfills for features that are not yet included in this project, pl
 
 ## Formatting and linting
 
-GOV.UK Frontend uses [standardjs](http://standardjs.com/), an opinionated JavaScript linter. All JavaScript files follow its conventions, and it runs on CI to ensure that new pull requests are in line with them.
+GOV.IE Frontend uses [standardjs](http://standardjs.com/), an opinionated JavaScript linter. All JavaScript files follow its conventions, and it runs on CI to ensure that new pull requests are in line with them.
 
 The standard docs have a [complete list of rules and some reasoning behind them](http://standardjs.com/rules.html).
 

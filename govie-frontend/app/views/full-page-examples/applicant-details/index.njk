@@ -3,7 +3,7 @@ scenario:
   As part of an online service you are asked to provide details for the
   applicant.
 notes: >-
-  This example shows GOV.UK Frontend used alongside our 'legacy' frontend
+  This example shows GOV.IE Frontend used alongside our 'legacy' frontend
   frameworks. The full name field, and links within the header and footer have
   known accessibility issues.
 ---
@@ -66,18 +66,18 @@ notes: >-
             <input class="form-control {%- if errors["full-name"] %} form-control-error {% endif %}" id="full-name" type="text" name="full-name" value="{{ values['full-name'] }}" autocomplete="name">
           </div>
 
-          {% set dateInputDayClass = "govuk-input--width-2" %}
-          {% set dateInputMonthClass = "govuk-input--width-2" %}
-          {% set dateInputYearClass = "govuk-input--width-4" %}
+          {% set dateInputDayClass = "govie-input--width-2" %}
+          {% set dateInputMonthClass = "govie-input--width-2" %}
+          {% set dateInputYearClass = "govie-input--width-4" %}
 
           {% if errors["dob-day"] %}
-            {% set dateInputDayClass = dateInputDayClass + " govuk-input--error" %}
+            {% set dateInputDayClass = dateInputDayClass + " govie-input--error" %}
           {% endif %}
           {% if errors["dob-month"] %}
-            {% set dateInputMonthClass = dateInputMonthClass + " govuk-input--error" %}
+            {% set dateInputMonthClass = dateInputMonthClass + " govie-input--error" %}
           {% endif %}
           {% if errors["dob-year"] %}
-            {% set dateInputYearClass = dateInputYearClass + " govuk-input--error" %}
+            {% set dateInputYearClass = dateInputYearClass + " govie-input--error" %}
           {% endif %}
 
           {{ govukDateInput({
@@ -86,7 +86,7 @@ notes: >-
             fieldset: {
               legend: {
                 text: "Date of birth",
-                classes: "govuk-fieldset__legend--s"
+                classes: "govie-fieldset__legend--s"
               }
             },
             hint: {

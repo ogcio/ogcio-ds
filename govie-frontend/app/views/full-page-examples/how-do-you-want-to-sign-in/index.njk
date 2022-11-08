@@ -29,8 +29,8 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govie-grid-row">
+    <div class="govie-grid-column-two-thirds">
 
       <form method="post" novalidate>
           {% if errorSummary.length > 0 %}
@@ -47,7 +47,7 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
             legend: {
               text: "How do you want to sign in?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
+              classes: "govie-fieldset__legend--xl"
             }
           },
           hint: {
@@ -59,7 +59,7 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
               text: "Sign in with Government Gateway",
               checked: values["sign-in"] === "government-gateway",
               label: {
-                classes: "govuk-label--s"
+                classes: "govie-label--s"
               },
               hint: {
                 text: "You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
@@ -70,7 +70,7 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
               text: "Sign in with GOV.UK Verify",
               checked: values["sign-in"] === "govuk-verify",
               label: {
-                classes: "govuk-label--s"
+                classes: "govie-label--s"
               },
               hint: {
                 text: "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
@@ -81,7 +81,7 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
               text: "Sign in with a digital identity from another European country",
               checked: values["sign-in"] === "sign-in-with-a-digital-identity-from-another-european-country",
               label: {
-                classes: "govuk-label--s"
+                classes: "govie-label--s"
               },
               hint: {
                 text: "If you are part of Germany’s Online-Ausweis you can use it here. Identity schemes from other countries will become available later."
@@ -95,7 +95,7 @@ notes: Based on https://www.gov.uk/log-in-file-self-assessment-tax-return/sign-i
               text: "Register for Self Assessment",
               checked: values["sign-in"] === "register-for-self-assessment",
               label: {
-                classes: "govuk-label--s"
+                classes: "govie-label--s"
               },
               hint: {
                 text: "You must register before you can file your first tax return."
