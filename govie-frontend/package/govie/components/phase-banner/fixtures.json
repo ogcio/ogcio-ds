@@ -9,7 +9,7 @@
                 },
                 "html": "This is a new service - your <a href=\"#\" class=\"govie-link\">feedback</a> will help us to improve it."
             },
-            "html": "<div class=\"govuk-phase-banner\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      alpha\n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service - your <a href=\"#\" class=\"govie-link\">feedback</a> will help us to improve it.\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      alpha\n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service - your <a href=\"#\" class=\"govie-link\">feedback</a> will help us to improve it.\n    </span>\n  </p>\n</div>",
             "hidden": false
         },
         {
@@ -18,7 +18,7 @@
                 "text": "This is a new service – your feedback will help us to improve it",
                 "classes": "extra-class one-more-class"
             },
-            "html": "<div class=\"govuk-phase-banner extra-class one-more-class\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner extra-class one-more-class\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
             "hidden": true
         },
         {
@@ -26,7 +26,7 @@
             "options": {
                 "text": "This is a new service – your feedback will help us to improve it"
             },
-            "html": "<div class=\"govuk-phase-banner\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
             "hidden": true
         },
         {
@@ -34,7 +34,7 @@
             "options": {
                 "text": "This is a new service - your <a href=\"#\" class=\"govie-link\">feedback</a> will help us to improve it."
             },
-            "html": "<div class=\"govuk-phase-banner\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service - your &lt;a href=&quot;#&quot; class=&quot;govie-link&quot;&gt;feedback&lt;/a&gt; will help us to improve it.\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service - your &lt;a href=&quot;#&quot; class=&quot;govie-link&quot;&gt;feedback&lt;/a&gt; will help us to improve it.\n    </span>\n  </p>\n</div>",
             "hidden": true
         },
         {
@@ -46,7 +46,7 @@
                     "second-attribute": "bar"
                 }
             },
-            "html": "<div class=\"govuk-phase-banner\" first-attribute=\"foo\" second-attribute=\"bar\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\" first-attribute=\"foo\" second-attribute=\"bar\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      \n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
             "hidden": true
         },
         {
@@ -57,7 +57,7 @@
                     "html": "<em>alpha</em>"
                 }
             },
-            "html": "<div class=\"govuk-phase-banner\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag\">\n      <em>alpha</em>\n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag\">\n      <em>alpha</em>\n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
             "hidden": true
         },
         {
@@ -69,7 +69,7 @@
                     "text": "alpha"
                 }
             },
-            "html": "<div class=\"govuk-phase-banner\">\n  <p class=\"govuk-phase-banner__content\">\n    <strong class=\"govie-tag govuk-phase-banner__content__tag govie-tag--grey\">\n      alpha\n    </strong>\n    <span class=\"govuk-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
+            "html": "<div class=\"govie-phase-banner\">\n  <p class=\"govie-phase-banner__content\">\n    <strong class=\"govie-tag govie-phase-banner__content__tag govie-tag--grey\">\n      alpha\n    </strong>\n    <span class=\"govie-phase-banner__text\">\n      This is a new service – your feedback will help us to improve it\n    </span>\n  </p>\n</div>",
             "hidden": true
         }
     ]

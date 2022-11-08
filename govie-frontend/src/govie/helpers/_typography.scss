@@ -24,7 +24,7 @@
   // alphagov/govuk_template is being used since nta will already be included by
   // default.
   @if $govie-include-default-font-face {
-    @include _govie-font-face-gds-transport;
+    @include _govie-font-face-lato;
   }
 
   @include govie-media-query($media-type: print) {

@@ -109,7 +109,7 @@ describe('@mixin govie-typography-common', () => {
     const resultsString = results.css.toString()
 
     expect(resultsString).not.toContain('@font-face')
-    expect(resultsString).toContain('font-family: "nta"')
+    expect(resultsString).toContain('font-family: "Lato"')
     expect(resultsString).toContain('font-family: "ntatabularnumbers"')
   })
 
@@ -419,7 +419,7 @@ describe('@mixin govie-typography-responsive', () => {
         return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue())
           .toEqual(
             '$govie-typography-use-rem is deprecated. From version 5.0, ' +
-            'GOV.UK Frontend will not support disabling rem font sizes. To ' +
+            'GOV.IE Frontend will not support disabling rem font sizes. To ' +
             'silence this warning, update $govie-suppressed-warnings with ' +
             'key: "allow-not-using-rem"'
           )
@@ -619,7 +619,7 @@ describe('$govie-font-family-tabular value is specified', () => {
       return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue())
         .toEqual(
           '$govie-font-family-tabular is deprecated. From version 5.0, ' +
-          'GOV.UK Frontend will not support using a separate font-face for ' +
+          'GOV.IE Frontend will not support using a separate font-face for ' +
           'tabular numbers. To silence this warning, update ' +
           '$govie-suppressed-warnings with key: "tabular-font-face"'
         )

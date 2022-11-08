@@ -43,7 +43,7 @@
 
 @mixin govie-compatibility($product) {
   @include _warning(compatibility-helper, "govie-compatibility is deprecated. " +
-  "From version 5.0, GOV.UK Frontend will not support compatibility mode.");
+  "From version 5.0, GOV.IE Frontend will not support compatibility mode.");
   @include _govie-compatibility($product) {
     @content;
   }

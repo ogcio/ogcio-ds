@@ -73,7 +73,7 @@ Please see our [Git style guide in the 'How to store source code' page of the GD
 See the versioning documentation for [updating the changelog](/docs/contributing/versioning.md#updating-changelog)
 
 ## Testing a release
-If you need to test a release, for example if you're contributing a new component see [Publishing pre-release of GOV.UK Frontend](/docs/releasing/publishing-a-pre-release.md).
+If you need to test a release, for example if you're contributing a new component see [Publishing pre-release of GOV.IE Frontend](/docs/releasing/publishing-a-pre-release.md).
 
 ## Application tasks
 

@@ -33,7 +33,7 @@ $govie-typography-use-rem: if(
   $govie-compatibility-govietemplate == false and
   $govie-compatibility-govieelements == false {
   @include _warning(allow-not-using-rem, "$govie-typography-use-rem is deprecated. " +
-  "From version 5.0, GOV.UK Frontend will not support disabling rem font sizes.");
+  "From version 5.0, GOV.IE Frontend will not support disabling rem font sizes.");
 }
 
 /// Root font size

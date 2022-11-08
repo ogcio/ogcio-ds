@@ -8,7 +8,7 @@ Wherever possible, deprecate features as part of a minor release, before removin
 
 This gives users the option of migrating away from using the deprecated features at their own pace, minimising the amount of work that needs to be done when new major versions are released.
 
-Features should not be deprecated while they are relied on by other parts of GOV.UK Frontend.
+Features should not be deprecated while they are relied on by other parts of GOV.IE Frontend.
 
 Deprecations should not be made in patch releases.
 
@@ -33,7 +33,7 @@ For example:
 > @import "node_modules/govuk-frontend/core/typography";
 > ```
 > 
-> If you do not import `node_modules/govuk-frontend/govuk/base` first, your service will no longer work from GOV.UK Frontend v4.0.0.
+> If you do not import `node_modules/govuk-frontend/govuk/base` first, your service will no longer work from GOV.IE Frontend v4.0.0.
 
 ### Make sure we remember to remove the deprecated feature
 
@@ -178,4 +178,4 @@ In the above examples we've used `@include _warning(...)` instead of the native 
 
 You can read more about how `$govie-suppressed-warnings` and `_warning` work by reading their respective sassdocs in `/src/govie/settings/warnings.scss`.
 
-We make this option available for users because they can not always action deprecation warnings or upgrade their codebase beyond a specific version of GOV.UK Frontend. For example, a legacy codebase that does not have the resource to upgrade to the latest breaking change where a deprecated feature will be removed. This feature allows those users to continue to operate their codebase without having to repeatedly see non-actionable deprecation warnings in their testing.
+We make this option available for users because they can not always action deprecation warnings or upgrade their codebase beyond a specific version of GOV.IE Frontend. For example, a legacy codebase that does not have the resource to upgrade to the latest breaking change where a deprecated feature will be removed. This feature allows those users to continue to operate their codebase without having to repeatedly see non-actionable deprecation warnings in their testing.

@@ -14,7 +14,7 @@ This change was introduced in `[pull request #xxxx: PULL-REQUEST-TITLE](LINK-TO-
 
 ### Recommended changes
 
-We've recently made some changes to GOV.UK Frontend. While these are not breaking changes, implementing them will make your service work better.
+We've recently made some changes to GOV.IE Frontend. While these are not breaking changes, implementing them will make your service work better.
 
 #### Heading (h4) to summarise change goes here
 
@@ -32,5 +32,5 @@ This was added in `[pull request #xxxx: PULL-REQUEST-TITLE](LINK-TO-PULL-REQUEST
 
 ### Fixes
 
-We’ve made fixes to GOV.UK Frontend in the following pull requests:
+We’ve made fixes to GOV.IE Frontend in the following pull requests:
 - `[pull request #xxxx: PULL-REQUEST-TITLE](LINK-TO-PULL-REQUEST)` - (optional) thanks to `[@GITHUB-NAME](LINK-TO-CONTRIBUTOR-GITHUB-PAGE)` for reporting this issue/contributing this change

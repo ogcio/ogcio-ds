@@ -1,22 +1,22 @@
 # Publishing from a support branch
 
-This document is for GOV.UK Design System developers who need to publish a support branch of GOV.UK Frontend. For example, you might need to release a fix as part of a:
+This document is for GOV.UK Design System developers who need to publish a support branch of GOV.IE Frontend. For example, you might need to release a fix as part of a:
 
 - patch release, after the team has started to merge changes for a new feature release into the `main` branch - for example, a 3.14.x release once we've started merging changes for 3.15.0
 - release, after the team has started to merge changes for a new breaking release into the `main` branch - for example, a 3.x.x release once we've started merging changes for 4.0.0
 - release for a previous major version - for example, a 4.x.x release after we've released 5.0.0
 
-If you want to publish the `main` branch for GOV.UK Frontend, [follow the steps in Publishing GOV.UK Frontend](/docs/releasing/publishing.md).
+If you want to publish the `main` branch for GOV.IE Frontend, [follow the steps in Publishing GOV.IE Frontend](/docs/releasing/publishing.md).
 
 If the `main` branch only has a few unreleasable changes, you can temporarily revert these changes.
 
 1. Revert the unreleasable changes on the `main` branch.
-2. Publish GOV.UK Frontend.
+2. Publish GOV.IE Frontend.
 3. Add the reverted changes back into the `main` branch.
 
 However, this approach has risks. For example, it creates a messy commit history on the `main` branch.
 
-## Before you publish GOV.UK Frontend
+## Before you publish GOV.IE Frontend
 
 1. At stand-up, person leading the release (usually a developer) to tell the GOV.UK Design System team we are close to releasing.
 
@@ -24,8 +24,8 @@ However, this approach has risks. For example, it creates a messy commit history
     - create announcement draft for the new release (example issue: [#2108](https://github.com/alphagov/govuk-frontend/issues/2108))
     - create release notes for the new release (example issue: [#1986](https://github.com/alphagov/govuk-frontend/issues/1986))
     - create release notes for the new release of GOV.UK Prototype Kit (example issue: [#958](https://github.com/alphagov/govuk-prototype-kit/issues/958))
-    - create an issue for the new release of GOV.UK Frontend (example issue: [#1987](https://github.com/alphagov/govuk-frontend/issues/1987))
-    - update the GOV.UK Design System to use the new release of GOV.UK Frontend (example issue: [#1347](https://github.com/alphagov/govuk-design-system/issues/1347))
+    - create an issue for the new release of GOV.IE Frontend (example issue: [#1987](https://github.com/alphagov/govuk-frontend/issues/1987))
+    - update the GOV.UK Design System to use the new release of GOV.IE Frontend (example issue: [#1347](https://github.com/alphagov/govuk-design-system/issues/1347))
     - create an issue for the new release of GOV.UK Prototype Kit (example issue: [#917](https://github.com/alphagov/govuk-prototype-kit/issues/917))
     - update the GOV.UK Prototype Kit to use the new release (example issue: [#923](https://github.com/alphagov/govuk-prototype-kit/issues/923))
 
@@ -33,7 +33,7 @@ However, this approach has risks. For example, it creates a messy commit history
 
 4. Content designer to:
     - write announcements to post on Slack after we release:
-      - GOV.UK Frontend (for example, [draft comms for the cookie banner component](https://docs.google.com/document/d/1jVyMB7i94NOeflWaf3kE4Q4APMXGfluK3rOh74IHO08/edit))
+      - GOV.IE Frontend (for example, [draft comms for the cookie banner component](https://docs.google.com/document/d/1jVyMB7i94NOeflWaf3kE4Q4APMXGfluK3rOh74IHO08/edit))
       - GOV.UK Prototype kit
     - check who the release’s contributors are and if we have consent to include their name
 
@@ -44,13 +44,13 @@ However, this approach has risks. For example, it creates a messy commit history
 7. Person leading the release to coordinate the sign-off when they are ready to do the release. Once the team agrees, this confirms a code and content freeze. Use the [#design-system-team-channel](https://gds.slack.com/app_redirect?channel=design-system-team-channel) to confirm sign-off from:
     - content designer, technical writer and designers for guidance, examples and community backlog decision rationale
     - technical writer and developers for Nunjucks macros
-    - developers for changes to GOV.UK Frontend
+    - developers for changes to GOV.IE Frontend
     - technical writer for release notes
     - content designer, community manager or technical writer for announcements and engagement activities
 
 Note: Before you go on annual leave, tell the delivery manager who will be looking after your work. This will help us to complete sign-off.
 
-## Publish a new version of GOV.UK Frontend from the support branch
+## Publish a new version of GOV.IE Frontend from the support branch
 
 ### Change the code
 
@@ -93,7 +93,7 @@ Note: Before you go on annual leave, tell the delivery manager who will be looki
 
 8. Run `npm run build-release` to:
 
-- build GOV.UK Frontend into the `/package` and `/dist` directories
+- build GOV.IE Frontend into the `/package` and `/dist` directories
 - commit the changes
 - push a branch to GitHub
 
@@ -121,7 +121,7 @@ Note: Before you go on annual leave, tell the delivery manager who will be looki
 
     - select the most recent tag
     - press **Edit tag**
-    - set ‘GOV.UK Frontend v[version-number]’ as the title
+    - set ‘GOV.IE Frontend v[version-number]’ as the title
     - add release notes from changelog
     - attach the generated ZIP that has been generated at the root of this project
     - publish release

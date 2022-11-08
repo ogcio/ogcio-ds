@@ -5,7 +5,7 @@ const configPaths = require('../../config/paths.js')
 const { renderSass } = require('../../lib/jest-helpers')
 const { goTo, goToExample } = require('../../lib/puppeteer-helpers')
 
-describe('GOV.UK Frontend', () => {
+describe('GOV.IE Frontend', () => {
   describe('javascript', () => {
     it('can be accessed via `GOVUKFrontend`', async () => {
       await goTo(page, '/')
@@ -29,7 +29,7 @@ describe('GOV.UK Frontend', () => {
       const components = Object.keys(GOVUKFrontendGlobal)
         .filter(method => !['initAll'].includes(method))
 
-      // Ensure GOV.UK Frontend exports the expected components
+      // Ensure GOV.IE Frontend exports the expected components
       expect(components).toEqual([
         'Accordion',
         'Button',

@@ -11,7 +11,7 @@
 ///
 /// @access private
 
-@mixin _govie-font-face-gds-transport {
+@mixin _govie-font-face-lato {
   @include govie-not-ie8 { // In IE8, which cannot render WOFF format, we fall back to system fonts
     @include govie-exports("govie/helpers/font-faces") {
       @at-root {

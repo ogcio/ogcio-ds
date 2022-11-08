@@ -13,7 +13,7 @@ use a different prefix, for example `.app-` or the initials of your department.
 
 ## Block Element Modifier (BEM)
 
-GOV.UK Frontend uses the Block Element Modifier (BEM) methodology when naming
+GOV.IE Frontend uses the Block Element Modifier (BEM) methodology when naming
 CSS classes. This is designed to help developers understand how the different
 classes relate to each other.
 
@@ -35,9 +35,9 @@ or modifiers themselves can be hyphen delimited without causing ambiguity.
 For example:
 
 ```scss
-.govuk-phase-banner
-.govuk-phase-banner__phase-tag
-.govuk-phase-banner__phase-tag--light-blue
+.govie-phase-banner
+.govie-phase-banner__phase-tag
+.govie-phase-banner__phase-tag--light-blue
 ```
 
 ### Further reading:
@@ -506,7 +506,7 @@ Wrap comments at 80 characters wherever possible.
 
 We document SCSS using [SassDoc](http://sassdoc.com/). This includes most of the settings, helpers and tools layers, with variables, functions and mixins being marked as private or public.
 
-The SassDoc comments are used to generate the [Sass API reference in the GOV.UK Frontend docs](https://frontend.design-system.service.gov.uk/sass-api-reference/).
+The SassDoc comments are used to generate the [Sass API reference in the GOV.IE Frontend docs](https://frontend.design-system.service.gov.uk/sass-api-reference/).
 
 For SassDoc comments, use 3 slashes (`///`) at the start of the line.
 

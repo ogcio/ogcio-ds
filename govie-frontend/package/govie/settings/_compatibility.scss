@@ -1,16 +1,16 @@
 ////
 /// 'Compatibility Mode'
 ///
-/// Enabling these flags improves compatibility if you are using GOV.UK Frontend
+/// Enabling these flags improves compatibility if you are using GOV.IE Frontend
 /// in an application that also uses govuk_elements, govuk_frontend_toolkit or
 /// govuk_template (the 'legacy repos').
 ///
 /// Enabling any of these settings will, by default:
 ///
-/// - switch GOV.UK Frontend to using the same colour palette as the legacy
+/// - switch GOV.IE Frontend to using the same colour palette as the legacy
 ///   repos, by setting `$govie-use-legacy-palette` to true.
 ///
-/// - prevent GOV.UK Frontend from using rem for font sizing, by setting
+/// - prevent GOV.IE Frontend from using rem for font sizing, by setting
 ///   `$govie-typography-use-rem` to false.
 ///
 /// @group settings/compatibility
@@ -30,10 +30,10 @@ $govie-compatibility-goviefrontendtoolkit: false !default;
 ///
 /// Enabling this will:
 ///
-/// - prevent GOV.UK Frontend from including the New Transport typeface, as
+/// - prevent GOV.IE Frontend from including the New Transport typeface, as
 ///   it'll use the version of New Transport included with GOV.UK Template.
 ///
-/// - alter some of the CSS outputted by GOV.UK Frontend to 'counter'
+/// - alter some of the CSS outputted by GOV.IE Frontend to 'counter'
 ///   specific CSS rules in GOV.UK Template.
 ///
 /// Set this to true if you are also including alphagov/govuk_template in your
@@ -48,7 +48,7 @@ $govie-compatibility-govietemplate: false !default;
 ///
 /// Enabling this will:
 ///
-/// - alter some of the CSS outputted by GOV.UK Frontend to 'counter'
+/// - alter some of the CSS outputted by GOV.IE Frontend to 'counter'
 ///   specific CSS rules in GOV.UK Elements.
 ///
 /// Set this to true if you are also including alphagov/govuk_elements in your

@@ -8,7 +8,7 @@
 /// Use 'legacy' fonts
 ///
 /// Whether or not to use v1 nta font from GOV.UK Elements / Frontend
-/// Toolkit, for teams that are migrating to GOV.UK Frontend and may be using
+/// Toolkit, for teams that are migrating to GOV.IE Frontend and may be using
 /// components from both places in a single application.
 ///
 /// @type Boolean
@@ -33,7 +33,7 @@ $govie-use-legacy-font: if(
   $govie-compatibility-govietemplate == false and
   $govie-compatibility-govieelements == false {
   @include _warning(legacy-font, "$govie-use-legacy-font is deprecated. " +
-  "From version 5.0, GOV.UK Frontend will only support the included version " +
+  "From version 5.0, GOV.IE Frontend will only support the included version " +
   "of Lato.");
 }
 
@@ -69,7 +69,7 @@ $govie-font-family-tabular: if(
 // manually instead of automatically via $govie-use-legacy-font
 @if $govie-font-family-tabular != false and $govie-use-legacy-font == false {
   @include _warning(tabular-font-face, "$govie-font-family-tabular is deprecated. " +
-  "From version 5.0, GOV.UK Frontend will not support using a separate " +
+  "From version 5.0, GOV.IE Frontend will not support using a separate " +
   "font-face for tabular numbers.");
 }
 

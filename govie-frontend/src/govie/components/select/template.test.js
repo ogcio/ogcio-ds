@@ -49,7 +49,7 @@ describe('Select', () => {
       const $ = render('select', examples.default)
 
       const $firstItem = $('.govie-select option:first-child')
-      expect($firstItem.text()).toEqual('GOV.UK frontend option 1')
+      expect($firstItem.text()).toEqual('GOV.IE Frontend option 1')
     })
 
     it('renders item with selected', () => {

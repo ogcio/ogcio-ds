@@ -90,7 +90,7 @@ describe('@mixin govie-compatibility', () => {
       // argument, which should be the deprecation notice
       return expect(mockWarnFunction.mock.calls[0][0].getValue())
         .toEqual(
-          'govie-compatibility is deprecated. From version 5.0, GOV.UK Frontend ' +
+          'govie-compatibility is deprecated. From version 5.0, GOV.IE Frontend ' +
           'will not support compatibility mode. To silence this warning, ' +
           'update $govie-suppressed-warnings with key: "compatibility-helper"'
         )

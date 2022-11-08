@@ -17,7 +17,7 @@ But we should make sure that we only make breaking changes when we have a good r
 Good examples of such situations would be:
 
 - issues that are barriers for end-users (users of services) based on evidence (for example user research)
-- issues that are barriers for users (users of GOV.UK Frontend) based on evidence
+- issues that are barriers for users (users of GOV.IE Frontend) based on evidence
 - accessibility issues
 - security issues
 - performance issues
@@ -48,7 +48,7 @@ The [Semantic Versioning specification](https://semver.org/) requires a public A
 > For this system to work, you first need to declare a public API. This may consist of documentation or be enforced by the code itself.
 
 ### Design System Website
-One of ways users interact with GOV.UK Frontend is through the [GOV.UK Design System website](https://design-system.service.gov.uk/).
+One of ways users interact with GOV.IE Frontend is through the [GOV.UK Design System website](https://design-system.service.gov.uk/).
 
 This includes:
 
