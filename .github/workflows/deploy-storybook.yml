@@ -3,7 +3,7 @@ name: Deploy the built storybook to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [main]
+    branches: [chore/update-github-action]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,7 +20,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: govie-react
+    working-directory: govie-frontend
 
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: govie-react/packages/storybook/storybook-static
+          path: govie-frontend/build
 
   deploy:
     # Add a dependency to the build job
