@@ -14,6 +14,8 @@
   "scripts": {
     "postinstall": "npm ls --depth=0",
     "start": "gulp dev",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook --output-dir build",
     "serve": "nodemon",
     "heroku": "npm run build:compile && node app/start.js",
     "build-release": "./bin/build-release.sh",
@@ -37,6 +39,16 @@
     "@babel/preset-env": "^7.19.4",
     "@percy/cli": "^1.12.0",
     "@percy/puppeteer": "^2.0.2",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^9.8.8",
     "babel-jest": "^29.2.1",
     "body-parser": "^1.18.3",
@@ -100,6 +112,7 @@
     "shuffle-seed": "^1.1.6",
     "slash": "^3.0.0",
     "standard": "^17.0.0",
+    "storybook-addon-themes": "^6.1.0",
     "stylelint": "^14.14.0",
     "stylelint-config-gds": "^0.2.0",
     "stylelint-order": "^5.0.0",
@@ -107,5 +120,8 @@
     "wait-on": "^6.0.1",
     "ws": "^8.9.0",
     "yargs": "^17.6.0"
+  },
+  "dependencies": {
+    "@storybook/html": "^6.5.13"
   }
 }
