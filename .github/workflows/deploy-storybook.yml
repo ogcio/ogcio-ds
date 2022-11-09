@@ -20,7 +20,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: govie-react
+    working-directory: govie-frontend
 
 jobs:
   build:
@@ -38,13 +38,13 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
-      - run: yarn
-      - run: yarn build:storybook
+      - run: npm i
+      - run: npm run storybook:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: govie-react/packages/storybook/storybook-static
+          path: govie-frontend/build
 
   deploy:
     # Add a dependency to the build job
