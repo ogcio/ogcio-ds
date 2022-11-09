@@ -21,7 +21,7 @@ const { destination, isDist, isPackage } = require('../task-arguments.js')
 
 // Determine destination namespace
 function destinationPath () {
-  return isPackage ? `${destination}/govuk` : destination
+  return isPackage ? `${destination}/govie` : destination
 }
 
 gulp.task('scss:compile', function () {
@@ -104,7 +104,7 @@ gulp.task('js:compile', () => {
     const newDirectoryPath = path.dirname(file).replace('src/govie', '')
 
     // We only want to give component JavaScript a unique module name
-    let moduleName = 'GOVUKFrontend'
+    let moduleName = 'GOVIEFrontend'
     if (path.dirname(file).includes('/components/')) {
       moduleName = componentNameToJavaScriptModuleName(path.parse(file).name)
     }
@@ -112,7 +112,7 @@ gulp.task('js:compile', () => {
     return gulp.src(file)
       .pipe(rollup({
         // Used to set the `window` global and UMD/AMD export name
-        // Component JavaScript is given a unique name to aid individual imports, e.g GOVUKFrontend.Accordion
+        // Component JavaScript is given a unique name to aid individual imports, e.g GOVIEFrontend.Accordion
         name: moduleName,
         // Legacy mode is required for IE8 support
         legacy: true,

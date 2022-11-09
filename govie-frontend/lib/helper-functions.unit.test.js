@@ -27,11 +27,11 @@ describe('componentNameToMacroName', () => {
 describe('componentNameToJavaScriptModuleName', () => {
   it('transforms a single word component name', () => {
     expect(helpers.componentNameToJavaScriptModuleName('button'))
-      .toBe('GOVUKFrontend.Button')
+      .toBe('GOVIEFrontend.Button')
   })
 
   it('transforms a multi-word component name', () => {
     expect(helpers.componentNameToJavaScriptModuleName('character-count'))
-      .toBe('GOVUKFrontend.CharacterCount')
+      .toBe('GOVIEFrontend.CharacterCount')
   })
 })

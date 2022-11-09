@@ -436,7 +436,7 @@ describe('Character count', () => {
           await renderAndInitialise(page, 'character-count', {
             nunjucksParams: examples['to configure in JavaScript'],
             initialiser () {
-              window.GOVUKFrontend.initAll({
+              window.GOVIEFrontend.initAll({
                 characterCount: {
                   maxlength: 10
                 }
@@ -459,7 +459,7 @@ describe('Character count', () => {
           await renderAndInitialise(page, 'character-count', {
             nunjucksParams: examples['to configure in JavaScript'],
             initialiser () {
-              window.GOVUKFrontend.initAll({
+              window.GOVIEFrontend.initAll({
                 characterCount: {
                   maxwords: 10
                 }
@@ -482,7 +482,7 @@ describe('Character count', () => {
           await renderAndInitialise(page, 'character-count', {
             nunjucksParams: examples['to configure in JavaScript'],
             initialiser () {
-              window.GOVUKFrontend.initAll({
+              window.GOVIEFrontend.initAll({
                 characterCount: {
                   maxlength: 10,
                   threshold: 75
@@ -605,7 +605,7 @@ describe('Character count', () => {
           // We want to make sure we handle this gracefully in case users have
           // an existing character count inside an incorrect locale.
           $component.setAttribute('lang', 'cy')
-          new window.GOVUKFrontend.CharacterCount($component, config).init()
+          new window.GOVIEFrontend.CharacterCount($component, config).init()
         }
       })
 

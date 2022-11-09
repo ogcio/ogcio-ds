@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('GOVUKFrontend.Radios', factory) :
-	(global.GOVUKFrontend = global.GOVUKFrontend || {}, global.GOVUKFrontend.Radios = factory());
+	typeof define === 'function' && define.amd ? define('GOVIEFrontend.Radios', factory) :
+	(global.GOVIEFrontend = global.GOVIEFrontend || {}, global.GOVIEFrontend.Radios = factory());
 }(this, (function () { 'use strict';
 
 (function(undefined) {

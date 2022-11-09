@@ -42,14 +42,14 @@ function componentNameToJavaScriptClassName (componentName) {
  * Used by rollup to set the `window` global and UMD/AMD export name
  *
  * Component names are kebab-cased strings (button, date-input), whilst module
- * names have a `GOVUKFrontend.` prefix and are PascalCased
- * (GOVUKFrontend.Button, GOVUKFrontend.CharacterCount).
+ * names have a `GOVIEFrontend.` prefix and are PascalCased
+ * (GOVIEFrontend.Button, GOVIEFrontend.CharacterCount).
  *
  * @param {string} componentName - A kebab-cased component name
  * @returns {string} The name of its corresponding module
  */
 function componentNameToJavaScriptModuleName (componentName) {
-  return `GOVUKFrontend.${componentNameToJavaScriptClassName(componentName)}`
+  return `GOVIEFrontend.${componentNameToJavaScriptClassName(componentName)}`
 }
 
 module.exports = {

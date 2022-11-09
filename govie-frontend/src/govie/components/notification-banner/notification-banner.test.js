@@ -87,7 +87,7 @@ describe('Notification banner, when type is set to "success"', () => {
       await renderAndInitialise(page, 'notification-banner', {
         nunjucksParams: examples['with type as success'],
         initialiser () {
-          window.GOVUKFrontend.initAll({
+          window.GOVIEFrontend.initAll({
             notificationBanner: {
               disableAutoFocus: true
             }

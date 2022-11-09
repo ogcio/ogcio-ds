@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define('GOVUKFrontend.Checkboxes', factory) :
-	(global.GOVUKFrontend = global.GOVUKFrontend || {}, global.GOVUKFrontend.Checkboxes = factory());
+	typeof define === 'function' && define.amd ? define('GOVIEFrontend.Checkboxes', factory) :
+	(global.GOVIEFrontend = global.GOVIEFrontend || {}, global.GOVIEFrontend.Checkboxes = factory());
 }(this, (function () { 'use strict';
 
 (function(undefined) {

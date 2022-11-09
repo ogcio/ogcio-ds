@@ -7,26 +7,26 @@ const { goTo, goToExample } = require('../../lib/puppeteer-helpers')
 
 describe('GOV.IE Frontend', () => {
   describe('javascript', () => {
-    it('can be accessed via `GOVUKFrontend`', async () => {
+    it('can be accessed via `GOVIEFrontend`', async () => {
       await goTo(page, '/')
 
-      const GOVUKFrontendGlobal = await page.evaluate(() => window.GOVUKFrontend)
+      const GOVIEFrontendGlobal = await page.evaluate(() => window.GOVIEFrontend)
 
-      expect(typeof GOVUKFrontendGlobal).toBe('object')
+      expect(typeof GOVIEFrontendGlobal).toBe('object')
     })
     it('exports `initAll` function', async () => {
       await goTo(page, '/')
 
-      const typeofInitAll = await page.evaluate(() => typeof window.GOVUKFrontend.initAll)
+      const typeofInitAll = await page.evaluate(() => typeof window.GOVIEFrontend.initAll)
 
       expect(typeofInitAll).toEqual('function')
     })
     it('exports Components', async () => {
       await goTo(page, '/')
 
-      const GOVUKFrontendGlobal = await page.evaluate(() => window.GOVUKFrontend)
+      const GOVIEFrontendGlobal = await page.evaluate(() => window.GOVIEFrontend)
 
-      const components = Object.keys(GOVUKFrontendGlobal)
+      const components = Object.keys(GOVIEFrontendGlobal)
         .filter(method => !['initAll'].includes(method))
 
       // Ensure GOV.IE Frontend exports the expected components
@@ -48,11 +48,11 @@ describe('GOV.IE Frontend', () => {
       await goTo(page, '/')
 
       var componentsWithoutInitFunctions = await page.evaluate(() => {
-        const components = Object.keys(window.GOVUKFrontend)
+        const components = Object.keys(window.GOVIEFrontend)
           .filter(method => !['initAll'].includes(method))
 
         return components.filter(component => {
-          var prototype = window.GOVUKFrontend[component].prototype
+          var prototype = window.GOVIEFrontend[component].prototype
           return typeof prototype.init !== 'function'
         })
       })

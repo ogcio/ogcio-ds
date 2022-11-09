@@ -40,7 +40,7 @@ async function renderAndInitialise (page, componentName, options = {}) {
 
   const initialiser = options.initialiser || function ({ config, componentClassName }) {
     const $component = document.querySelector('[data-module]')
-    new window.GOVUKFrontend[componentClassName]($component, config).init()
+    new window.GOVIEFrontend[componentClassName]($component, config).init()
   }
 
   if (initialiser) {

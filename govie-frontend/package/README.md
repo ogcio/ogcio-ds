@@ -56,7 +56,7 @@ You can include Javascript for all components either by copying the `all.js` fro
 Next you need to initialise the script by adding:
 
 ```html
-<script>window.GOVUKFrontend.initAll()</script>
+<script>window.GOVIEFrontend.initAll()</script>
 ```
 
 [More details on importing Javascript and advanced options](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript)
