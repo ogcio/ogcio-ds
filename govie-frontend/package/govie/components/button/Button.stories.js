@@ -13,13 +13,11 @@ export default {
       control: { type: 'radio' },
     },
     label: { control: 'text' },
-    disabled: { control: 'boolean' },
-    focused: { control: 'boolean' }
+    disabled: { control: 'boolean' }
   },
   args: {
     mode: 'primary',
-    disabled: false,
-    focused: false
+    disabled: false
   }
 };
 
@@ -63,10 +61,6 @@ const Template = (args) => {
     btn.setAttribute('aria-disabled', true)
   }
 
-  if (args.focused) {
-    btn.focus({focusVisible: true})
-  }
-
   return btn;
 };
 
@@ -97,10 +91,4 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   label: "Disabled account",
   disabled: true,
-};
-
-export const Focused = Template.bind({});
-Focused.args = {
-  label: "Focused button",
-  focused: true
 };
