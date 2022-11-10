@@ -14,7 +14,8 @@
   "scripts": {
     "postinstall": "npm ls --depth=0",
     "start": "gulp dev",
-    "storybook": "start-storybook -p 6006",
+    "storybook": " npm run build:dist && npm run storybook:ci",
+    "storybook:ci": "start-storybook -p 6006",
     "storybook:build": "build-storybook --output-dir build",
     "serve": "nodemon",
     "heroku": "npm run build:compile && node app/start.js",
