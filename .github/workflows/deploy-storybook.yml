@@ -3,7 +3,7 @@ name: Deploy the built storybook to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [main]
+    branches: [feat/add-button-storybook]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -39,6 +39,7 @@ jobs:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
       - run: npm i
+      - run: npm run build:dist
       - run: npm run storybook:build
 
       - name: Upload artifact
