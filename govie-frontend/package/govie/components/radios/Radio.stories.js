@@ -24,6 +24,9 @@ export default {
     },
     generalHint: { control: 'text' },
     optionsHint: { control: 'array' },
+    extraOptions: { control: 'text' },
+    extraOptionsDivider: { control: 'text' },
+    extraOptionsHint: { control: 'array' },
     inline: { control: 'boolean' },
     title: { control: 'boolean' }
   },
@@ -116,6 +119,26 @@ const Template = (args) => {
       })
     );
   });
+  
+  if (args.extraOptions) {
+    const divider = document.createElement('div');
+    divider.className = 'govie-radios__divider';
+    divider.innerText = args.extraOptionsDivider;
+
+    group.appendChild(divider);
+
+    args.extraOptions?.split(',').forEach((label, index) => {
+      group.appendChild(
+        createRadioItem({
+          id: `${args.id}-${args.options.length+index}`,
+          name: args.id,
+          value: label.toLowerCase(),
+          label,
+          optionHint: args.extraOptionsHint ? args.extraOptionsHint[index] : null
+        })
+      );
+    });
+  }
 
   container.appendChild(group);
 
@@ -162,4 +185,12 @@ RadioWithOptionsHints.args = {
   optionsHint: ['Yes, I have changed my name', 'No, I didn\'t change my name']
 };
 
+export const RadioWithDivider = Template.bind({});
+RadioWithDivider.args = {
+  id: 'changed-name',
+  label: 'Have you changed your name?',
+  options: 'Yes,No',
+  extraOptionsDivider: 'or',
+  extraOptions: 'Not sure'
+};
 
