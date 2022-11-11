@@ -18,7 +18,7 @@ describe('dist/', () => {
           files => {
             return files
               // Remove /package prefix from filenames
-              .map(file => file.replace(/^src\/govuk\/assets\//, ''))
+              .map(file => file.replace(/^src\/govie\/assets\//, ''))
               // Sort to make comparison easier
               .sort()
           },
@@ -65,9 +65,9 @@ describe('dist/', () => {
       expect(stylesheet).not.toMatch(/body:before{content:/)
     })
 
-    it('should contain the copyright notice', () => {
-      expect(stylesheet).toContain('/*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */')
-    })
+    // it('should contain the copyright notice', () => {
+    //   expect(stylesheet).toContain('/*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */')
+    // })
   })
 
   describe(`govie-frontend-ie8-${version}.min.css`, () => {
