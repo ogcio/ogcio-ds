@@ -7,12 +7,23 @@ export default {
           'Use the radios component when users can only select one option from a list.',
       },
     },
+    controls: { sort: 'requiredFirst' }
   },
   argTypes: {
-    id: { control: 'text' },
-    label: { control: 'text' },
+    id: { 
+      type: { required: true },
+      control: 'text' 
+    },
+    label: { 
+      type: { required: true },
+      control: 'text' 
+    },
+    options: { 
+      type: { required: true },
+      control: 'text' 
+    },
     generalHint: { control: 'text' },
-    options: { control: 'text' },
+    optionsHint: { control: 'array' },
     inline: { control: 'boolean' },
     title: { control: 'boolean' }
   },
@@ -36,7 +47,7 @@ const createLegend = ({ label, title}) => {
   return legend;
 };
 
-const createRadioItem = ({ id, value, name, label }) => {
+const createRadioItem = ({ id, value, name, label, optionHint }) => {
   const item = document.createElement('div');
   item.className = 'govie-radios__item';
 
@@ -54,6 +65,15 @@ const createRadioItem = ({ id, value, name, label }) => {
 
   item.appendChild(input);
   item.appendChild(labelComponent);
+
+  if (optionHint) {
+    const hint = document.createElement('div');
+    hint.className = 'govie-hint govie-radios__hint';
+    hint.id = `${id}-hint`;
+    hint.innerText = optionHint;
+
+    item.appendChild(hint);
+  }
 
   return item;
 };
@@ -92,6 +112,7 @@ const Template = (args) => {
         name: args.id,
         value: label.toLowerCase(),
         label,
+        optionHint: args.optionsHint ? args.optionsHint[index] : null
       })
     );
   });
@@ -126,8 +147,19 @@ InlineRadio.args = {
 
 export const RadioWithHints = Template.bind({});
 RadioWithHints.args = {
-  id: 'sign-in',
-  label: 'How do you want to sign in?',
-  options: 'Sign in with Gateway,Sign in with Verify',
-  generalHint: 'You\'ll need an account to prove your identity and complete your Self Assessment.'
+  id: 'changed-name',
+  label: 'Have you changed your name?',
+  options: 'Yes,No',
+  generalHint: 'This includes changing your last name or spelling your name differently.'
 };
+
+export const RadioWithOptionsHints = Template.bind({});
+RadioWithOptionsHints.args = {
+  id: 'changed-name',
+  label: 'Have you changed your name?',
+  options: 'Yes,No',
+  generalHint: 'This includes changing your last name or spelling your name differently.',
+  optionsHint: ['Yes, I have changed my name', 'No, I didn\'t change my name']
+};
+
+
