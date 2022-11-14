@@ -16,11 +16,11 @@
   }
 
   // Based on the govie-crest-2x.png image dimensions.
-  $govie-footer-crest-image-width-2x: 250px;
-  $govie-footer-crest-image-height-2x: 204px;
+  $govie-footer-logo-image-width-2x: 380px;
+  $govie-footer-logo-image-height-2x: 130px;
   // Half the 2x image so that it fits the regular 1x size.
-  $govie-footer-crest-image-width: ($govie-footer-crest-image-width-2x / 2);
-  $govie-footer-crest-image-height: ($govie-footer-crest-image-height-2x / 2);
+  $govie-footer-logo-image-width: ($govie-footer-logo-image-width-2x / 2);
+  $govie-footer-logo-image-height: ($govie-footer-logo-image-height-2x / 2);
 
   .govie-footer {
     @include govie-font($size: 16);
@@ -106,15 +106,17 @@
 
   .govie-footer__copyright-logo {
     display: inline-block;
-    min-width: $govie-footer-crest-image-width;
-    padding-top: ($govie-footer-crest-image-height + govie-spacing(2));
-    background-image: govie-image-url("govie-crest.png");
+    min-width: $govie-footer-logo-image-width;
+    padding-top: ($govie-footer-logo-image-height + govie-spacing(2));
+    background-image: govie-image-url("govie-logotype.png");
     @include govie-device-pixel-ratio {
-      background-image: govie-image-url("govie-crest-2x.png");
+      // TODO: 2x image
+      // background-image: govie-image-url("govie-logotype-2x.png");
+      background-image: govie-image-url("govie-logotype.png");
     }
     background-repeat: no-repeat;
     background-position: 50% 0%;
-    background-size: $govie-footer-crest-image-width $govie-footer-crest-image-height;
+    background-size: $govie-footer-logo-image-width $govie-footer-logo-image-height;
     text-align: center;
     white-space: nowrap;
   }
