@@ -3,8 +3,11 @@
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
     <!-- component HTML -->
+    <div id="root"></div>
     <script src="./govie-frontend-4.3.1.min.js"></script>
     <script>
-      window.GOVIEFrontend.initAll()
+      document.addEventListener("DOMContentLoaded", function(){
+        window.GOVIEFrontend.initAll()
+      });
     </script>
 </body>
