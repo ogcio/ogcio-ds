@@ -25,6 +25,7 @@ export default {
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
+      type: { required: true },
     },
     generalHint: { control: 'text' },
     optionsHint: { control: 'array' },
@@ -33,6 +34,7 @@ export default {
     extraOptionsHint: { control: 'array' },
     inline: { control: 'boolean' },
     errorMessage: { control: 'text' },
+    conditionals: { control: 'text' },
   },
   args: {
     inline: false,
@@ -60,7 +62,15 @@ const createLegend = (label, size) => {
   return legend
 }
 
-const createRadioItem = ({ id, value, name, label, optionHint }) => {
+const createRadioItem = ({
+  id,
+  value,
+  name,
+  label,
+  optionHint,
+  conditional,
+}) => {
+  const items = []
   const item = document.createElement('div')
   item.className = 'govie-radios__item'
 
@@ -70,9 +80,10 @@ const createRadioItem = ({ id, value, name, label, optionHint }) => {
   input.type = 'radio'
   input.value = value
   input.className = 'govie-radios__input'
+  conditional && input.setAttribute('data-aria-controls', `conditional-${id}`)
 
   const labelComponent = document.createElement('label')
-  labelComponent.className = 'govie-labal govie-radios__label'
+  labelComponent.className = 'govie-label govie-radios__label'
   labelComponent.for = id
   labelComponent.innerText = label
 
@@ -88,7 +99,36 @@ const createRadioItem = ({ id, value, name, label, optionHint }) => {
     item.appendChild(hint)
   }
 
-  return item
+  items.push(item)
+
+  if (conditional) {
+    const conditionalItem = document.createElement('div')
+    conditionalItem.className = 'govie-radios__conditional govie-radios__conditional--hidden'
+    conditionalItem.id = `conditional-${id}`
+
+    const itemGroup = document.createElement('div')
+    itemGroup.className = 'govie-form-group'
+
+    const conditionalLabel = document.createElement('label')
+    conditionalLabel.className = 'govie-label'
+    conditionalLabel.for = `${id}-conditional`
+    conditionalLabel.innerText = conditional
+
+    itemGroup.appendChild(conditionalLabel)
+
+    const conditionalInput = document.createElement('input')
+    conditionalInput.id = `${id}-conditional`
+    conditionalInput.type = 'text'
+    conditionalInput.false = value
+    conditionalInput.className = 'govie-input govie-!-width-one-third'
+
+    itemGroup.appendChild(conditionalInput)
+
+    conditionalItem.appendChild(itemGroup)
+    items.push(conditionalItem)
+  }
+
+  return items
 }
 
 const Template = (args) => {
@@ -106,7 +146,7 @@ const Template = (args) => {
     const p = document.createElement('p')
     p.id = `${args.id}-error`
     p.className = 'govie-error-message'
-    
+
     const span = document.createElement('span')
     span.className = 'govie-visually-hidden'
     span.innerText = 'Error:'
@@ -127,21 +167,23 @@ const Template = (args) => {
   }
 
   const group = document.createElement('div')
-
+  group.setAttribute('data-module', 'govie-radios')
   const inline = args.inline ? 'govie-radios--inline' : ''
   group.className = [`govie-radios govie-radios--${args.size}`, inline].join(
     ' '
   )
   group.setAttribute('data-module', 'govie-radios')
 
+  const conditionals = args.conditionals?.split(',')
   args.options?.split(',').forEach((label, index) => {
-    group.appendChild(
-      createRadioItem({
+    group.append(
+      ...createRadioItem({
         id: `${args.id}-${index}`,
         name: args.id,
         value: label.toLowerCase(),
         label,
         optionHint: args.optionsHint ? args.optionsHint[index] : null,
+        conditional: conditionals ? conditionals[index] : null,
       })
     )
   })
@@ -154,8 +196,8 @@ const Template = (args) => {
     group.appendChild(divider)
 
     args.extraOptions?.split(',').forEach((label, index) => {
-      group.appendChild(
-        createRadioItem({
+      group.append(
+        ...createRadioItem({
           id: `${args.id}-${args.options.length + index}`,
           name: args.id,
           value: label.toLowerCase(),
@@ -163,6 +205,7 @@ const Template = (args) => {
           optionHint: args.extraOptionsHint
             ? args.extraOptionsHint[index]
             : null,
+          conditional: conditionals ? conditionals[index] : null,
         })
       )
     })
@@ -178,14 +221,6 @@ Radio.args = {
   id: 'where-do-you-live',
   label: 'Where do you live?',
   options: 'England,Scottland,Ireland',
-}
-
-export const SubheadingRadio = Template.bind({})
-SubheadingRadio.args = {
-  id: 'where-do-you-live',
-  label: 'Where do you live?',
-  options: 'England,Scottland,Ireland',
-  title: false,
 }
 
 export const InlineRadio = Template.bind({})
@@ -238,4 +273,12 @@ RadioWithError.args = {
   label: 'Have you changed your name?',
   options: 'Yes,No',
   errorMessage: 'Select an option',
+}
+
+export const RadioWithConditional = Template.bind({})
+RadioWithConditional.args = {
+  id: 'contact',
+  label: 'How would you prefer to be contacted?',
+  options: 'Email,Phone',
+  conditionals: 'Email address,Phone number'
 }
