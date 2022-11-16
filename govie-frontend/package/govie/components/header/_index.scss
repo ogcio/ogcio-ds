@@ -1,6 +1,6 @@
 @include govie-exports("govie/component/header") {
 
-  $govie-header-background: govie-colour("black");
+  $govie-header-background: govie-colour("surface");
   $govie-header-border-color: $govie-brand-colour;
   $govie-header-border-width: govie-spacing(2);
   $govie-header-text: govie-colour("white");
@@ -62,7 +62,7 @@
     vertical-align: top;
   }
 
-  .govie-header__logotype-crown-fallback-image {
+  .govie-header__logotype-harp-fallback-image {
     width: 36px;
     height: 32px;
     border: 0;
@@ -303,7 +303,7 @@
     }
 
     // Hide the inverted crown when printing in browsers that don't support SVG.
-    .govie-header__logotype-crown-fallback-image {
+    .govie-header__logotype-harp-fallback-image {
       display: none;
     }
 
@@ -324,7 +324,7 @@
     // Begin adjustments for font baseline offset
     // These should be removed when the font is updated with the correct baseline
     .govie-header__logotype-crown,
-    .govie-header__logotype-crown-fallback-image {
+    .govie-header__logotype-harp-fallback-image {
       position: relative;
       top: -4px;
       vertical-align: middle;
