@@ -9,22 +9,67 @@ export default {
     },
   },
   argTypes: {
-    // mode: {
-    //   options: ['primary', 'secondary', 'warning', 'start'],
-    //   control: { type: 'radio' },
-    // },
-    items: { control: 'text' },
+    inlineLinks: { control: 'text' },
+    secondaryNavigationLinks: { control: 'array' },
     logoLink: { control: 'text' },
     licenseLink: { control: 'text' },
-    //   disabled: { control: 'boolean' },
   },
   args: {
     logoLink: '#',
     licenseLink: '#',
-  }
+  },
 }
 
-const createLinks = (items) => {
+const createNavigationSection = (items, headingText, twoColumns) => {
+  const section = document.createElement('div')
+
+  section.className = `govie-footer__section ${
+    twoColumns
+      ? 'govie-grid-column-two-thirds'
+      : 'govie-grid-column-one-third'
+  }`
+
+  const heading = document.createElement('h2')
+  heading.className = 'govie-footer__heading govuk-heading-m'
+  heading.innerText = headingText
+
+  const ul = document.createElement('ul')
+  ul.className = `govie-footer__list ${
+    twoColumns ? 'govie-footer__list--columns-2' : ''
+  }`
+
+  items.forEach((item, index) => {
+    ul.insertAdjacentHTML(
+      'beforeend',
+      `
+      <li class="govie-footer__list-item">
+        <a class="govie-footer__link" href="#${index + 1}">
+          ${item}
+        </a>
+      </li>
+    `
+    )
+  })
+
+  section.appendChild(heading)
+  section.appendChild(ul)
+  
+  return section
+}
+
+const createNavigation = (navigationLinks) => {
+  const [first, second] = navigationLinks
+
+  const navigation = document.createElement('div')
+  navigation.className = 'govie-footer__navigation'
+
+  navigation.appendChild(createNavigationSection(first, 'Two column list', true))
+  navigation.appendChild(createNavigationSection(second, 'Single column list'))
+
+  return navigation
+}
+
+const createInlineLinks = (items) => {
   const ul = document.createElement('ul')
   ul.className = 'govie-footer__inline-list'
 
@@ -52,22 +97,24 @@ const Template = (args) => {
   const widthContainer = document.createElement('div')
   widthContainer.className = 'govie-width-container'
 
+  if (args.secondaryNavigationLinks) {
+    widthContainer.appendChild(createNavigation(args.secondaryNavigationLinks))
+  }
+
   const meta = document.createElement('div')
   meta.className = 'govie-footer__meta'
 
   const metaItem = document.createElement('div')
   metaItem.className = 'govie-footer__meta-item govie-footer__meta-item--grow'
 
-  if (args.items) {
+  if (args.inlineLinks) {
     const h2 = document.createElement('h2')
     h2.className = 'govie-visually-hidden'
     h2.innerText = 'Support links'
 
     metaItem.appendChild(h2)
 
-    metaItem.appendChild(
-      createLinks(args.items.split(','))
-    )
+    metaItem.appendChild(createInlineLinks(args.inlineLinks.split(',')))
   }
 
   const metaItemLogo = document.createElement('div')
@@ -104,6 +151,7 @@ const Template = (args) => {
 
   meta.appendChild(metaItem)
   meta.appendChild(metaItemLogo)
+  
   widthContainer.appendChild(meta)
   footer.appendChild(widthContainer)
 
@@ -115,10 +163,37 @@ Footer.args = {}
 
 export const FooterWithLinks = Template.bind({})
 FooterWithLinks.args = {
-  items: 'Item 1, Item 2, Item 3'
+  inlineLinks: 'Item 1, Item 2, Item 3',
 }
 
 export const FooterWithSecondaryNavigation = Template.bind({})
 FooterWithSecondaryNavigation.args = {
-  
+  secondaryNavigationLinks: [
+    [
+      'Navigation item 1',
+      'Navigation item 2',
+      'Navigation item 3',
+      'Navigation item 4',
+      'Navigation item 5',
+      'Navigation item 6',
+    ],
+    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3'],
+  ],
+}
+
+
+export const FooterWithSecondaryNavigationAndLinks = Template.bind({})
+FooterWithSecondaryNavigationAndLinks.args = {
+  inlineLinks: 'Item 1, Item 2, Item 3',
+  secondaryNavigationLinks: [
+    [
+      'Navigation item 1',
+      'Navigation item 2',
+      'Navigation item 3',
+      'Navigation item 4',
+      'Navigation item 5',
+      'Navigation item 6',
+    ],
+    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3'],
+  ],
 }
