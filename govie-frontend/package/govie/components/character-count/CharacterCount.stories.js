@@ -79,6 +79,7 @@ const getTextareaDescribedBy = (args) => {
 
 const getTextareaClassNames = (args) => {
   const inputClassNames = ['govie-textarea']
+  inputClassNames.push('govie-js-character-count')
 
   if (args.errorMessage) {
     inputClassNames.push('govie-input--error')
@@ -238,9 +239,10 @@ const Template = (args) => {
 
 export const DefaultTextarea = Template.bind({})
 DefaultTextarea.args = {
-  fieldId: 'default-character-count',
-  fieldName: 'default-character-count',
+  fieldId: 'with-hint',
+  fieldName: 'with-hint',
   label: 'Can you provide more detail?',
+  hint: 'Do not include personal or financial information like your National Insurance number or credit card details.',
   labelAsHeading: true,
 }
 
