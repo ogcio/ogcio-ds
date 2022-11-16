@@ -29,6 +29,7 @@ const Template = (args) => {
   btn.setAttribute("data-module", "govie-button");
 
   if (start) {
+    btn.href = '#'
     btn.setAttribute("role", "button");
     btn.setAttribute("draggable", "false")
     btn.innerHTML = `
