@@ -20,7 +20,7 @@ const createNavigationList = (items) => {
 
   items.forEach((item, index) => {
     const li = document.createElement('li')
-    li.className = `govie-header__navigation-item ${index === 0 ? 'govie-header__navigation-item--active' : ''}`
+    li.className = 'govie-header__navigation-item'
 
     li.innerHTML = `
       <a class="govie-header__link" href="#${index}">
@@ -105,6 +105,11 @@ Header.args = {}
 export const HeaderWithServiceName = Template.bind({})
 HeaderWithServiceName.args = {
   serviceName: 'Service name',
+}
+
+export const HeaderWithdNavigation = Template.bind({})
+HeaderWithdNavigation.args = {
+  navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
 }
 
 export const HeaderWithServiceNameAndNavigation = Template.bind({})
