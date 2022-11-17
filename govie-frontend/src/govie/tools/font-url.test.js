@@ -49,7 +49,7 @@ describe('@function font-url', () => {
         @return url("/custom/#{$filename}");
       }
 
-      $govie-fonts-path: '/assets/fonts/';
+      $govie-fonts-path: './assets/fonts/';
       $govie-font-url-function: 'custom-url-handler';
 
       @font-face {
