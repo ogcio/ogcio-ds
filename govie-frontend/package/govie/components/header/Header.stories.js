@@ -52,7 +52,7 @@ const Template = (args) => {
 
   a.innerHTML = `
     <span class="govie-header__logotype">
-      <img src="/assets/images/govie-logo-full.png" class="govie-header__logotype-harp-fallback-image" width="36" height="32">
+      <img src="./assets/images/govie-logo-full.png" class="govie-header__logotype-harp-fallback-image" width="36" height="32">
     </span>
   `
 

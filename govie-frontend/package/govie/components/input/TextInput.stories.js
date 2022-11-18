@@ -315,7 +315,7 @@ export const WithBothAffix = Template.bind({})
 WithBothAffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
-  prefix: '£',
+  prefix: '€',
   suffix: 'per item',
 }
 
@@ -323,7 +323,7 @@ export const WithPrefix = Template.bind({})
 WithPrefix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
-  prefix: '£',
+  prefix: '€',
 }
 
 export const WithSuffix = Template.bind({})
@@ -346,9 +346,9 @@ export const WithErrorMessageAndAffix = Template.bind({})
 WithErrorMessageAndAffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
-  label: 'What is the cost per item, in pounds?',
+  label: 'What is the cost per item, in Euros?',
   labelAsHeading: true,
-  errorMessage: 'Enter a cost per item, in pounds',
-  prefix: '£',
+  errorMessage: 'Enter a cost per item, in Euros',
+  prefix: '€',
   suffix: 'per item',
 }
