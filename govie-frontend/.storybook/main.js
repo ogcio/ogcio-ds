@@ -9,5 +9,5 @@ module.exports = {
     '@storybook/addon-interactions'
   ],
   framework: '@storybook/html',
-  staticDirs: ['../dist']
+  staticDirs: [{ from: '../dist', to: '/' }]
 }
