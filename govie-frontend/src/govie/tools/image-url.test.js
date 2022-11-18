@@ -47,7 +47,7 @@ describe('@function image-url', () => {
         @return url("/custom/#{$filename}");
       }
 
-      $govie-images-path: '/assets/fonts/';
+      $govie-images-path: './assets/fonts/';
       $govie-image-url-function: 'custom-url-handler';
 
       .foo {
