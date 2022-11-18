@@ -270,7 +270,7 @@ describe('header', () => {
 
     describe('fallback PNG', () => {
       it('is invisible to modern browsers', () => {
-        const $fallbackImage = $('.govie-header__logotype-crown-fallback-image')
+        const $fallbackImage = $('.govie-header__logotype-harp-fallback-image')
         expect($fallbackImage.length).toEqual(0)
       })
     })
