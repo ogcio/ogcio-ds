@@ -9,10 +9,6 @@ export default {
     },
   },
   argTypes: {
-    //   mode: {
-    //     options: ['primary', 'secondary', 'warning', 'start'],
-    //     control: { type: 'radio' },
-    //   },
     id: {
       type: { required: true },
       control: 'text',
@@ -21,19 +17,22 @@ export default {
       type: { required: true },
       control: 'text',
     },
-    hint: { control: 'text' },
+    hint: { 
+      control: 'text',
+      description: 'You can add hint text to help the user understand the options and choose one of them.'
+    },
     errorMessage: { control: 'text' },
     options: { control: 'object' },
   },
   args: {
-    id: 'subject',
-    label: 'Choose location',
+    id: 'default-select',
+    label: 'Default select',
     options: {
-      choose: 'Choose location',
-      northeast: 'North East',
-      northwest: 'North West',
-      southeast: 'South East',
-      southwest: 'South West',
+      choose: 'Default select',
+      northeast: 'Option 1',
+      northwest: 'Option 2',
+      southeast: 'Option 3',
+      southwest: 'Option 4',
     },
   },
 }
@@ -74,7 +73,7 @@ const Template = (args) => {
     classnames.push('govie-form-group--error')
     group.insertAdjacentHTML('beforeend',  
       `<p id="default-select-error" class="govie-error-message">
-        <span class="govie-visually-hidden">Error:</span> Enter more detail
+        <span class="govie-visually-hidden">Error:</span> ${args.errorMessage}
       </p>
     `)
   }
