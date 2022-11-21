@@ -7,7 +7,6 @@ export default {
           'Use the radios component when users can only select one option from a list.',
       },
     },
-    controls: { sort: 'requiredFirst' },
   },
   argTypes: {
     id: {
@@ -103,7 +102,8 @@ const createRadioItem = ({
 
   if (conditional) {
     const conditionalItem = document.createElement('div')
-    conditionalItem.className = 'govie-radios__conditional govie-radios__conditional--hidden'
+    conditionalItem.className =
+      'govie-radios__conditional govie-radios__conditional--hidden'
     conditionalItem.id = `conditional-${id}`
 
     const itemGroup = document.createElement('div')
@@ -280,5 +280,5 @@ RadioWithConditional.args = {
   id: 'contact',
   label: 'How would you prefer to be contacted?',
   options: 'Email,Phone',
-  conditionals: 'Email address,Phone number'
+  conditionals: 'Email address,Phone number',
 }

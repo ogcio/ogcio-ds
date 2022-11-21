@@ -7,7 +7,6 @@ export default {
           'Links are blue and underlined by default. If your link is at the end of a sentence or paragraph, make sure that the linked text does not include the full stop.',
       },
     },
-    controls: { sort: 'requiredFirst' },
   },
   argTypes: {
     label: {

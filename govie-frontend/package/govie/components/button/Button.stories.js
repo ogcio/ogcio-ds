@@ -10,14 +10,19 @@ export default {
   },
   argTypes: {
     mode: {
-      options: ['primary', 'secondary', 'warning', 'start'],
+      options: ['default', 'secondary', 'warning', 'start'],
       control: { type: 'radio' },
+      description:
+        '`Default`: For the main call to action on a page.<br>`Secondary`: For secondary calls to action on a page.<br>`Warning`: Are designed to make users think carefully before they use them. <br/>`Start`: For the main call to action on your service’s start page.',
     },
-    label: { control: 'text' },
+    label: {
+      control: 'text',
+      type: { name: 'string', required: true },
+    },
     disabled: { control: 'boolean' },
   },
   args: {
-    mode: 'primary',
+    mode: 'default',
     disabled: false,
   },
 }
@@ -66,8 +71,8 @@ const Template = (args) => {
   return btn
 }
 
-export const DefaultButton = Template.bind({})
-DefaultButton.args = {
+export const Default = Template.bind({})
+Default.args = {
   label: 'Save and Continue',
 }
 
