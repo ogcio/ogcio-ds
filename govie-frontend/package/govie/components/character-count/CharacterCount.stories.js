@@ -1,5 +1,5 @@
 export default {
-  title: 'Character count',
+  title: 'Form/Character count',
   parameters: {
     docs: {
       component:

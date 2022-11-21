@@ -1,5 +1,5 @@
 export default {
-  title: 'Text Input',
+  title: 'Form/Text Input',
   parameters: {
     docs: {
       component:

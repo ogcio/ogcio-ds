@@ -1,5 +1,5 @@
 export default {
-  title: 'Select',
+  title: 'Form/Select',
   parameters: {
     docs: {
       description: {
@@ -17,9 +17,10 @@ export default {
       type: { required: true },
       control: 'text',
     },
-    hint: { 
+    hint: {
       control: 'text',
-      description: 'You can add hint text to help the user understand the options and choose one of them.'
+      description:
+        'You can add hint text to help the user understand the options and choose one of them.',
     },
     errorMessage: { control: 'text' },
     options: { control: 'object' },
@@ -71,11 +72,13 @@ const Template = (args) => {
 
   if (args.errorMessage) {
     classnames.push('govie-form-group--error')
-    group.insertAdjacentHTML('beforeend',  
+    group.insertAdjacentHTML(
+      'beforeend',
       `<p id="default-select-error" class="govie-error-message">
         <span class="govie-visually-hidden">Error:</span> ${args.errorMessage}
       </p>
-    `)
+    `
+    )
   }
 
   group.className = classnames.join(' ')
@@ -89,10 +92,10 @@ Select.args = {}
 
 export const SelectWithHint = Template.bind({})
 SelectWithHint.args = {
-  hint: 'This can be different to where you went before'
+  hint: 'This can be different to where you went before',
 }
 
 export const SelectWithError = Template.bind({})
 SelectWithError.args = {
-  errorMessage: 'Error message'
+  errorMessage: 'Error message',
 }

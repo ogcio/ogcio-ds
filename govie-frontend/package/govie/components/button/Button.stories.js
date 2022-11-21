@@ -1,37 +1,43 @@
 export default {
-  title: "Button",
+  title: 'Form/Button',
   parameters: {
     docs: {
       description: {
-        component: 'Use the button component to help users carry out an action like starting an application or saving their information.',
+        component:
+          'Use the button component to help users carry out an action like starting an application or saving their information.',
       },
     },
   },
   argTypes: {
     mode: {
-      options: ['primary', 'secondary', 'warning', 'start'],
+      options: ['default', 'secondary', 'warning', 'start'],
       control: { type: 'radio' },
+      description:
+        '`Default`: For the main call to action on a page.<br>`Secondary`: For secondary calls to action on a page.<br>`Warning`: Are designed to make users think carefully before they use them. <br/>`Start`: For the main call to action on your service’s start page.',
     },
-    label: { control: 'text' },
-    disabled: { control: 'boolean' }
+    label: {
+      control: 'text',
+      type: { name: 'string', required: true },
+    },
+    disabled: { control: 'boolean' },
   },
   args: {
-    mode: 'primary',
-    disabled: false
-  }
-};
+    mode: 'default',
+    disabled: false,
+  },
+}
 
 const Template = (args) => {
-  const start = args.mode === 'start';
-  const btn = document.createElement(start ? "a" : "button");
+  const start = args.mode === 'start'
+  const btn = document.createElement(start ? 'a' : 'button')
 
-  btn.innerText = args.label;
-  btn.setAttribute("data-module", "govie-button");
+  btn.innerText = args.label
+  btn.setAttribute('data-module', 'govie-button')
 
   if (start) {
     btn.href = '#'
-    btn.setAttribute("role", "button");
-    btn.setAttribute("draggable", "false")
+    btn.setAttribute('role', 'button')
+    btn.setAttribute('draggable', 'false')
     btn.innerHTML = `
       ${args.label} 
       <svg
@@ -55,41 +61,41 @@ const Template = (args) => {
     start: 'govie-button--start',
   }
 
-  btn.className = ["govie-button", classes[args.mode]].join(" ");
+  btn.className = ['govie-button', classes[args.mode]].join(' ')
 
   if (args.disabled) {
     btn.setAttribute('disabled', true)
     btn.setAttribute('aria-disabled', true)
   }
 
-  return btn;
-};
+  return btn
+}
 
-export const DefaultButton = Template.bind({});
-DefaultButton.args = {
-  label: "Save and Continue"
-};
+export const Default = Template.bind({})
+Default.args = {
+  label: 'Save and Continue',
+}
 
-export const StartButton = Template.bind({});
+export const StartButton = Template.bind({})
 StartButton.args = {
   mode: 'start',
-  label: "Start now"
-};
+  label: 'Start now',
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
 Secondary.args = {
   mode: 'secondary',
-  label: "Secondary button"
-};
+  label: 'Secondary button',
+}
 
-export const Warning = Template.bind({});
+export const Warning = Template.bind({})
 Warning.args = {
   mode: 'warning',
-  label: "Delete account"
-};
+  label: 'Delete account',
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
-  label: "Disabled account",
+  label: 'Disabled account',
   disabled: true,
-};
+}

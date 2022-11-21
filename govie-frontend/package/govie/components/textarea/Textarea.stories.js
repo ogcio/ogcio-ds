@@ -1,5 +1,5 @@
 export default {
-  title: 'Textarea',
+  title: 'Form/Textarea',
   parameters: {
     docs: {
       component:

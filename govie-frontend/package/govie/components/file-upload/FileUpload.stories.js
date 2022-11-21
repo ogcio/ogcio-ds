@@ -1,5 +1,5 @@
 export default {
-  title: 'File Upload',
+  title: 'Form/File Upload',
   parameters: {
     docs: {
       component:
