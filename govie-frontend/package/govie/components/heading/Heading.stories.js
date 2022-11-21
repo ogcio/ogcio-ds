@@ -4,7 +4,7 @@ export default {
     docs: {
       description: {
         component:
-          'Use heading tags, such as h1, h2 and so on, to tag the headings on a page.',
+          'Write all headings in sentence case. Using Headings as a component is useful when you want to design a page using auto-layout.',
       },
     },
   },
@@ -16,14 +16,19 @@ export default {
     size: {
       options: ['xl', 'l', 'm', 's'],
       control: { type: 'radio' },
-      type: { required: true }
+      type: { required: true },
+    },
+    caption: {
+      control: 'text',
+      description:
+        'Sometimes you may need to make it clear that a page is part of a larger section or group. To do this, you can use a heading with a caption above it.',
     },
     captionSize: {
       options: ['xl', 'l', 'm'],
       control: { type: 'radio' },
     },
-    caption: {
-      control: 'text',
+    nestedCaption: {
+      control: 'boolean',
     },
   },
   args: {
@@ -33,17 +38,24 @@ export default {
 }
 
 const Template = (args) => {
+  const container = document.createElement('div')
+  
   const component = document.createElement('h1')
   component.className = `govie-heading-${args.size}`
   component.innerText = args.text
-  
-  const container = document.createElement('div')
+
   if (args.caption) {
     const caption = document.createElement('span')
     caption.className = `govie-caption-${args.captionSize}`
     caption.innerText = args.caption
-    container.innerHTML = `
-    ${caption.outerHTML}`
+
+    if (args.nestedCaption) {
+      component.insertAdjacentHTML('afterbegin', caption.outerHTML)
+      return component
+    } else {
+      container.innerHTML = `
+      ${caption.outerHTML}`
+    }
   } else {
     return component
   }
@@ -70,4 +82,11 @@ export const WithCaption = Template.bind({})
 WithCaption.args = {
   text: 'Heading',
   caption: 'Caption',
+}
+
+export const WithNestedCaption = Template.bind({})
+WithNestedCaption.args = {
+  text: 'Heading',
+  caption: 'Nested caption',
+  nestedCaption: true
 }
