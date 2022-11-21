@@ -1,5 +1,5 @@
 export default {
-  title: 'Date Input',
+  title: 'Form/Date Input',
   parameters: {
     docs: {
       component:

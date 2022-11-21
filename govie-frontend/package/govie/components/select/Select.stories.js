@@ -1,5 +1,5 @@
 export default {
-  title: 'Select',
+  title: 'Form/Select',
   parameters: {
     docs: {
       description: {

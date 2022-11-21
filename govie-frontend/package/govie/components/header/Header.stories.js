@@ -1,5 +1,5 @@
 export default {
-  title: 'Header',
+  title: 'Page & Layout/Header',
   parameters: {
     docs: {
       description: {

@@ -1,5 +1,5 @@
 export default {
-  title: 'Link',
+  title: 'Typography/Link',
   parameters: {
     docs: {
       description: {

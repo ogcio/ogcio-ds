@@ -1,5 +1,5 @@
 export default {
-  title: 'Footer',
+  title: 'Page & Layout/Footer',
   parameters: {
     docs: {
       description: {

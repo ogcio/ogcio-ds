@@ -1,5 +1,5 @@
 export default {
-  title: 'Radio',
+  title: 'Form/Radio',
   parameters: {
     docs: {
       description: {
