@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Page & Layout/Footer',
   parameters: {
@@ -24,9 +26,7 @@ const createNavigationSection = (items, headingText, twoColumns) => {
   const section = document.createElement('div')
 
   section.className = `govie-footer__section ${
-    twoColumns
-      ? 'govie-grid-column-two-thirds'
-      : 'govie-grid-column-one-third'
+    twoColumns ? 'govie-grid-column-two-thirds' : 'govie-grid-column-one-third'
   }`
 
   const heading = document.createElement('h2')
@@ -53,7 +53,7 @@ const createNavigationSection = (items, headingText, twoColumns) => {
 
   section.appendChild(heading)
   section.appendChild(ul)
-  
+
   return section
 }
 
@@ -63,7 +63,9 @@ const createNavigation = (navigationLinks) => {
   const navigation = document.createElement('div')
   navigation.className = 'govie-footer__navigation'
 
-  navigation.appendChild(createNavigationSection(first, 'Two column list', true))
+  navigation.appendChild(
+    createNavigationSection(first, 'Two column list', true)
+  )
   navigation.appendChild(createNavigationSection(second, 'Single column list'))
 
   return navigation
@@ -151,9 +153,11 @@ const Template = (args) => {
 
   meta.appendChild(metaItem)
   meta.appendChild(metaItemLogo)
-  
+
   widthContainer.appendChild(meta)
   footer.appendChild(widthContainer)
+
+  footer.innerHTML = getNodeFormattedInnerHtml(footer)
 
   return footer
 }
@@ -180,7 +184,6 @@ FooterWithSecondaryNavigation.args = {
     ['Navigation item 1', 'Navigation item 2', 'Navigation item 3'],
   ],
 }
-
 
 export const FooterWithSecondaryNavigationAndLinks = Template.bind({})
 FooterWithSecondaryNavigationAndLinks.args = {

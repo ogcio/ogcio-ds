@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Character count',
   parameters: {
@@ -29,7 +31,7 @@ export default {
       control: 'number',
       description:
         'If the limit is much higher than most users are likely to reach, you can choose to only display the message after a user has entered a certain amount.' +
-        '\nTo do this, set a threshold in the component markup. For example, data-threshold="75" will show the count message only when users have entered 75% of the limit.',
+        '\nTo do this, set a threshold in the component markup. For example, `data-threshold="75"` will show the count message only when users have entered 75% of the limit.',
     },
     label: {
       control: 'text',
@@ -37,7 +39,7 @@ export default {
     labelAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the <label> as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
     },
     hint: {
       control: 'text',
@@ -47,7 +49,7 @@ export default {
     rows: {
       control: 'number',
       description:
-        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the rows attribute.',
+        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.',
     },
     errorMessage: {
       control: 'text',
@@ -102,9 +104,9 @@ const createHintElement = (args) => {
   const hint = document.createElement('div')
   hint.className = 'govie-hint'
   hint.id = `${args.fieldId}-hint`
-  hint.innerHTML = args.hint
+  hint.innerText = args.hint
 
-  return hint.outerHTML
+  return hint
 }
 
 const createLabelElement = (args) => {
@@ -116,35 +118,31 @@ const createLabelElement = (args) => {
 
   const label = document.createElement('label')
   label.setAttribute('for', args.fieldId)
-  label.innerHTML = args.label
+  label.innerText = args.label
   label.className = labelClassNames.join(' ')
 
   if (args.labelAsHeading) {
     const labelWrapper = document.createElement('h1')
     labelWrapper.className = 'govie-label-wrapper'
-    labelWrapper.innerHTML = `
-        ${label.outerHTML}
-      `
+    labelWrapper.appendChild(label)
 
-    return labelWrapper.outerHTML
+    return labelWrapper
   }
 
-  return label.outerHTML
+  return label
 }
 
 const createErrorMessageElement = (args) => {
   const hiddenErrorSpan = document.createElement('span')
   hiddenErrorSpan.className = 'govie-visually-hidden'
-  hiddenErrorSpan.innerHTML = 'Error:'
+  hiddenErrorSpan.innerText = 'Error:'
 
   const errorMessage = document.createElement('p')
   errorMessage.id = `${args.fieldId}-error`
   errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `
-        ${hiddenErrorSpan.outerHTML} ${args.errorMessage}
-      `
+  errorMessage.innerHTML = `${hiddenErrorSpan.outerHTML} ${args.errorMessage}`
 
-  return errorMessage.outerHTML
+  return errorMessage
 }
 
 const createTextareaElement = (args) => {
@@ -163,33 +161,28 @@ const createTextareaElement = (args) => {
     textarea.setAttribute('aria-describedby', textareaDescribedBy.join(' '))
   }
 
-  return textarea.outerHTML
+  return textarea
 }
 
 const createFormGroupElement = (args) => {
-  const formGroupElements = []
+  const formGroup = document.createElement('div')
+  formGroup.className = getFormGroupClassNames(args).join(' ')
 
   if (args.label) {
-    formGroupElements.push(createLabelElement(args))
+    formGroup.appendChild(createLabelElement(args))
   }
 
   if (args.hint) {
-    formGroupElements.push(createHintElement(args))
+    formGroup.appendChild(createHintElement(args))
   }
 
   if (args.errorMessage) {
-    formGroupElements.push(createErrorMessageElement(args))
+    formGroup.appendChild(createErrorMessageElement(args))
   }
 
-  formGroupElements.push(createTextareaElement(args))
+  formGroup.appendChild(createTextareaElement(args))
 
-  const formGroup = document.createElement('div')
-  formGroup.className = getFormGroupClassNames(args).join(' ')
-  formGroup.innerHTML = `
-      ${formGroupElements.join('\n      ')}
-    `
-
-  return formGroup.outerHTML
+  return formGroup
 }
 
 const createInfoElement = (args) => {
@@ -198,16 +191,12 @@ const createInfoElement = (args) => {
   info.id = `${args.fieldId}-info`
 
   if (args.limitedByCharacter) {
-    info.innerHTML = `
-      You can enter up to ${args.maxLength} characters
-    `
+    info.innerText = `You can enter up to ${args.maxLength} characters`
   } else {
-    info.innerHTML = `
-      You can enter up to ${args.maxWords} words
-    `
+    info.innerText = `You can enter up to ${args.maxWords} words`
   }
 
-  return info.outerHTML
+  return info
 }
 
 const Template = (args) => {
@@ -229,10 +218,10 @@ const Template = (args) => {
     characterCount.setAttribute('data-threshold', args.threshold)
   }
 
-  characterCount.innerHTML = `
-    ${formGroupElement}
-    ${infoElement}
-  `
+  characterCount.appendChild(formGroupElement)
+  characterCount.appendChild(infoElement)
+
+  characterCount.innerHTML = getNodeFormattedInnerHtml(characterCount)
 
   return characterCount
 }

@@ -123,6 +123,7 @@
     "yargs": "^17.6.0"
   },
   "dependencies": {
-    "@storybook/html": "^6.5.13"
+    "@storybook/html": "^6.5.13",
+    "js-beautify": "^1.14.7"
   }
 }

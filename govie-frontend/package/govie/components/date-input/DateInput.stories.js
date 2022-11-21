@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Date Input',
   parameters: {
@@ -17,7 +19,7 @@ export default {
     legendAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking more than one question on the page, do not set the contents of the <legend> as the page heading.',
+        'If you’re asking more than one question on the page, do not set the contents of the `<legend>` as the page heading.',
     },
     hint: {
       control: 'text',
@@ -47,33 +49,27 @@ const createLegend = (args) => {
     legend.className = classNames[0]
     legend.innerText = args.legend
 
-    return legend.outerHTML
+    return legend
   }
 
   const legendHeading = document.createElement('h1')
   legendHeading.className = 'govie-fieldset__heading'
-  legendHeading.innerHTML = `
-        ${args.legend}
-      `
+  legendHeading.innerText = args.legend
 
   classNames.push('govie-fieldset__legend--l')
   legend.className = classNames.join(' ')
-  legend.innerHTML = `
-      ${legendHeading.outerHTML}
-    `
+  legend.appendChild(legendHeading)
 
-  return legend.outerHTML
+  return legend
 }
 
 const createHint = (args) => {
   const hint = document.createElement('div')
   hint.id = `${args.fieldId}-hint`
   hint.className = 'govie-hint'
-  hint.innerHTML = `
-      ${args.hint}
-    `
+  hint.innerText = args.hint
 
-  return hint.outerHTML
+  return hint
 }
 
 const createErrorMessage = (args) => {
@@ -84,22 +80,18 @@ const createErrorMessage = (args) => {
   const errorMessage = document.createElement('p')
   errorMessage.id = `${args.fieldId}-error`
   errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `
-      ${errorSpan.outerHTML} ${args.errorMessage}
-    `
+  errorMessage.innerHTML = `${errorSpan.outerHTML} ${args.errorMessage}`
 
-  return errorMessage.outerHTML
+  return errorMessage
 }
 
 const createInputItemLabel = (fieldId, itemType) => {
   const label = document.createElement('label')
   label.className = 'govie-label govie-date-input__label'
   label.setAttribute('for', `${fieldId}-${itemType.toLowerCase()}`)
-  label.innerHTML = `
-            ${itemType}
-          `
+  label.innerText = itemType
 
-  return label.outerHTML
+  return label
 }
 
 const createInputItem = (fieldId, itemType, width, didError) => {
@@ -119,24 +111,20 @@ const createInputItem = (fieldId, itemType, width, didError) => {
   input.type = 'text'
   input.setAttribute('inputmode', 'numeric')
 
-  return input.outerHTML
+  return input
 }
 
 const wrapInputItem = (label, input) => {
   const formGroup = document.createElement('div')
   formGroup.className = 'govie-form-group'
-  formGroup.innerHTML = `
-          ${label}
-          ${input}
-        `
+  formGroup.appendChild(label)
+  formGroup.appendChild(input)
 
   const inputItemWrapper = document.createElement('div')
   inputItemWrapper.className = 'govie-date-input__item'
-  inputItemWrapper.innerHTML = `
-        ${formGroup.outerHTML}
-      `
+  inputItemWrapper.appendChild(formGroup)
 
-  return inputItemWrapper.outerHTML
+  return inputItemWrapper
 }
 
 const didItemTypeError = (args, itemType) => {
@@ -186,39 +174,34 @@ const createInputItemsContainer = (args) => {
   inputItemsContainer.id = args.fieldId
 
   const inputItems = createInputItems(args)
+  inputItems.forEach((item) => inputItemsContainer.appendChild(item))
 
-  inputItemsContainer.innerHTML = `
-      ${inputItems.join('\n      ')}
-    `
-
-  return inputItemsContainer.outerHTML
+  return inputItemsContainer
 }
 
 const createFieldSet = (args) => {
-  const fieldsetInnerElements = [createLegend(args)]
   const describedby = [`${args.fieldId}-hint`]
-
-  if (args.hint) {
-    fieldsetInnerElements.push(createHint(args))
-  }
-
-  if (args.errorMessage) {
-    describedby.push(`${args.fieldId}-error`)
-    fieldsetInnerElements.push(createErrorMessage(args))
-  }
-
-  fieldsetInnerElements.push(createInputItemsContainer(args))
 
   const fieldset = document.createElement('fieldset')
   fieldset.className = 'govie-fieldset'
   fieldset.setAttribute('role', 'group')
+
+  fieldset.appendChild(createLegend(args))
+
+  if (args.hint) {
+    fieldset.appendChild(createHint(args))
+  }
+
+  if (args.errorMessage) {
+    describedby.push(`${args.fieldId}-error`)
+    fieldset.appendChild(createErrorMessage(args))
+  }
+
+  fieldset.appendChild(createInputItemsContainer(args))
+
   fieldset.setAttribute('aria-describedby', describedby.join(' '))
 
-  fieldset.innerHTML = `
-    ${fieldsetInnerElements.join('\n    ')}
-  `
-
-  return fieldset.outerHTML
+  return fieldset
 }
 
 const Template = (args) => {
@@ -229,9 +212,9 @@ const Template = (args) => {
 
   const formGroup = document.createElement('div')
   formGroup.className = classNames.join(' ')
-  formGroup.innerHTML = `
-  ${createFieldSet(args)}
-`
+  formGroup.appendChild(createFieldSet(args))
+
+  formGroup.innerHTML = getNodeFormattedInnerHtml(formGroup)
 
   return formGroup
 }

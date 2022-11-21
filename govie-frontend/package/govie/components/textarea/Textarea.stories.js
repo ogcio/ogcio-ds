@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Textarea',
   parameters: {
@@ -20,7 +22,7 @@ export default {
     labelAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the <label> as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
     },
     hint: {
       control: 'text',
@@ -30,7 +32,7 @@ export default {
     rows: {
       control: 'number',
       description:
-        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the rows attribute.',
+        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.',
     },
     errorMessage: {
       control: 'text',
@@ -76,9 +78,9 @@ const createHintElement = (args) => {
   const hint = document.createElement('div')
   hint.className = 'govie-hint'
   hint.id = `${args.fieldId}-hint`
-  hint.innerHTML = args.hint
+  hint.innerText = args.hint
 
-  return hint.outerHTML
+  return hint
 }
 
 const createLabelElement = (args) => {
@@ -90,35 +92,31 @@ const createLabelElement = (args) => {
 
   const label = document.createElement('label')
   label.setAttribute('for', args.fieldId)
-  label.innerHTML = args.label
+  label.innerText = args.label
   label.className = labelClassNames.join(' ')
 
   if (args.labelAsHeading) {
     const labelWrapper = document.createElement('h1')
     labelWrapper.className = 'govie-label-wrapper'
-    labelWrapper.innerHTML = `
-      ${label.outerHTML}
-    `
+    labelWrapper.appendChild(label)
 
-    return labelWrapper.outerHTML
+    return labelWrapper
   }
 
-  return label.outerHTML
+  return label
 }
 
 const createErrorMessageElement = (args) => {
   const hiddenErrorSpan = document.createElement('span')
   hiddenErrorSpan.className = 'govie-visually-hidden'
-  hiddenErrorSpan.innerHTML = 'Error:'
+  hiddenErrorSpan.innerText = 'Error:'
 
   const errorMessage = document.createElement('p')
   errorMessage.id = `${args.fieldId}-error`
   errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `
-      ${hiddenErrorSpan.outerHTML} ${args.errorMessage}
-    `
+  errorMessage.innerHTML = `${hiddenErrorSpan.outerHTML} ${args.errorMessage}`
 
-  return errorMessage.outerHTML
+  return errorMessage
 }
 
 const createTextareaElement = (args) => {
@@ -137,31 +135,28 @@ const createTextareaElement = (args) => {
     textarea.setAttribute('aria-describedby', textareaDescribedBy.join(' '))
   }
 
-  return textarea.outerHTML
+  return textarea
 }
 
 const Template = (args) => {
-  const formGroupElements = []
+  const formGroup = document.createElement('div')
+  formGroup.className = getFormGroupClassNames(args).join(' ')
 
   if (args.label) {
-    formGroupElements.push(createLabelElement(args))
+    formGroup.appendChild(createLabelElement(args))
   }
 
   if (args.hint) {
-    formGroupElements.push(createHintElement(args))
+    formGroup.appendChild(createHintElement(args))
   }
 
   if (args.errorMessage) {
-    formGroupElements.push(createErrorMessageElement(args))
+    formGroup.appendChild(createErrorMessageElement(args))
   }
 
-  formGroupElements.push(createTextareaElement(args))
+  formGroup.appendChild(createTextareaElement(args))
 
-  const formGroup = document.createElement('div')
-  formGroup.className = getFormGroupClassNames(args).join(' ')
-  formGroup.innerHTML = `
-    ${formGroupElements.join('\n    ')}
-  `
+  formGroup.innerHTML = getNodeFormattedInnerHtml(formGroup)
 
   return formGroup
 }
