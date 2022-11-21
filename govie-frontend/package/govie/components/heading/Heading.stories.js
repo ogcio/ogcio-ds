@@ -29,11 +29,13 @@ export default {
     },
     nestedCaption: {
       control: 'boolean',
+      description: 'If the caption should be considered part of the page heading, you can also nest the caption within the <h1>'
     },
   },
   args: {
     size: 'l',
     captionSize: 'l',
+    nestedCaption: false
   },
 }
 
