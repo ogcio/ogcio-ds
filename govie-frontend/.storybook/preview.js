@@ -3,9 +3,9 @@ export const parameters = {
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/
+      date: /Date$/,
     },
-    sort: 'requiredFirst'
+    sort: 'requiredFirst',
   },
-  docs: { source: { format: false } }
+  docs: { source: { format: false } },
 }

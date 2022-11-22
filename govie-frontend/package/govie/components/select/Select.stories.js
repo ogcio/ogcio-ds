@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Select',
   parameters: {
@@ -83,6 +85,8 @@ const Template = (args) => {
 
   group.className = classnames.join(' ')
   group.appendChild(select)
+
+  group.innerHTML = getNodeFormattedInnerHtml(group)
 
   return group
 }
