@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Page & Layout/Header',
   parameters: {
@@ -95,6 +97,8 @@ const Template = (args) => {
   }
 
   header.appendChild(wrapper)
+
+  header.innerHTML = getNodeFormattedInnerHtml(header)
 
   return header
 }

@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Radio',
   parameters: {
@@ -212,6 +214,8 @@ const Template = (args) => {
   }
 
   container.appendChild(group)
+
+  container.innerHTML = getNodeFormattedInnerHtml(container)
 
   return container
 }

@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/File Upload',
   parameters: {
@@ -33,11 +35,9 @@ const createHint = (args) => {
   const hint = document.createElement('div')
   hint.id = `${args.fieldId}-hint`
   hint.className = 'govie-hint'
-  hint.innerHTML = `
-    ${args.hint}
-  `
+  hint.innerText = args.hint
 
-  return hint.outerHTML
+  return hint
 }
 
 const createErrorMessage = (args) => {
@@ -48,22 +48,18 @@ const createErrorMessage = (args) => {
   const errorMessage = document.createElement('p')
   errorMessage.id = `${args.fieldId}-error`
   errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `
-    ${errorSpan.outerHTML} ${args.errorMessage}
-  `
+  errorMessage.innerHTML = `${errorSpan.outerHTML} ${args.errorMessage}`
 
-  return errorMessage.outerHTML
+  return errorMessage
 }
 
 const createLabel = (args) => {
   const label = document.createElement('label')
   label.className = 'govie-label'
   label.setAttribute('for', `${args.fieldId}`)
-  label.innerHTML = `
-    ${args.label}
-  `
+  label.innerText = args.label
 
-  return label.outerHTML
+  return label
 }
 
 const createInput = (args) => {
@@ -86,33 +82,32 @@ const createInput = (args) => {
   input.type = 'file'
   input.setAttribute('aria-describedby', describedby.join(' '))
 
-  return input.outerHTML
+  return input
 }
 
 const Template = (args) => {
+  const formGroup = document.createElement('div')
   const classNames = ['govie-form-group']
+
   if (args.errorMessage) {
     classNames.push('govie-form-group--error')
   }
 
-  const formGroupElements = []
-  formGroupElements.push(createLabel(args))
+  formGroup.className = classNames.join(' ')
+
+  formGroup.appendChild(createLabel(args))
 
   if (args.hint) {
-    formGroupElements.push(createHint(args))
+    formGroup.appendChild(createHint(args))
   }
 
   if (args.errorMessage) {
-    formGroupElements.push(createErrorMessage(args))
+    formGroup.appendChild(createErrorMessage(args))
   }
 
-  formGroupElements.push(createInput(args))
+  formGroup.appendChild(createInput(args))
 
-  const formGroup = document.createElement('div')
-  formGroup.className = classNames.join(' ')
-  formGroup.innerHTML = `
-  ${formGroupElements.join('\n  ')}
-`
+  formGroup.innerHTML = getNodeFormattedInnerHtml(formGroup)
 
   return formGroup
 }

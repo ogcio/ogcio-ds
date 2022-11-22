@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Form/Button',
   parameters: {
@@ -67,6 +69,8 @@ const Template = (args) => {
     btn.setAttribute('disabled', true)
     btn.setAttribute('aria-disabled', true)
   }
+
+  btn.innerHTML = getNodeFormattedInnerHtml(btn)
 
   return btn
 }
