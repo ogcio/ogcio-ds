@@ -1,5 +1,3 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
-
 export default {
   title: 'Typography/Table',
   parameters: {
