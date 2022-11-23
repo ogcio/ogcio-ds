@@ -1,3 +1,5 @@
+import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+
 export default {
   title: 'Typography/Heading',
   parameters: {
@@ -53,18 +55,18 @@ const Template = (args) => {
 
     if (args.nestedCaption) {
       component.insertAdjacentHTML('afterbegin', caption.outerHTML)
+      component.innerHTML = getNodeFormattedInnerHtml(component)
       return component
     } else {
-      container.innerHTML = `
-      ${caption.outerHTML}`
+      container.appendChild(caption)
     }
   } else {
-    return component
+      component.innerHTML = getNodeFormattedInnerHtml(component)
+      return component
   }
 
-  container.innerHTML = `${container.innerHTML}
-    ${component.outerHTML}
-  `
+  container.appendChild(component)
+  container.innerHTML = getNodeFormattedInnerHtml(container)
   return container
 }
 

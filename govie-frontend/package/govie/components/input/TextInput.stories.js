@@ -224,8 +224,8 @@ const Template = (args) => {
   return formGroup
 }
 
-export const DefaultTextInput = Template.bind({})
-DefaultTextInput.args = {
+export const Default = Template.bind({})
+Default.args = {
   fieldId: 'default-input',
   fieldName: 'default-input',
   fluid: true,
