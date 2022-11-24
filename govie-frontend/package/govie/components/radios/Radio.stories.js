@@ -220,31 +220,31 @@ const Template = (args) => {
   return container
 }
 
-export const Radio = Template.bind({})
-Radio.args = {
+export const Default = Template.bind({})
+Default.args = {
   id: 'where-do-you-live',
   label: 'Where do you live?',
   options: 'England,Scottland,Ireland',
 }
 
-export const InlineRadio = Template.bind({})
-InlineRadio.args = {
+export const Inline = Template.bind({})
+Inline.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
   inline: true,
 }
 
-export const SmallRadio = Template.bind({})
-SmallRadio.args = {
+export const Small = Template.bind({})
+Small.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
   size: 'small',
 }
 
-export const RadioWithHints = Template.bind({})
-RadioWithHints.args = {
+export const WithHints = Template.bind({})
+WithHints.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
@@ -252,8 +252,8 @@ RadioWithHints.args = {
     'This includes changing your last name or spelling your name differently.',
 }
 
-export const RadioWithOptionsHints = Template.bind({})
-RadioWithOptionsHints.args = {
+export const WithOptionsHints = Template.bind({})
+WithOptionsHints.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
@@ -262,8 +262,8 @@ RadioWithOptionsHints.args = {
   optionsHint: ['Yes, I have changed my name', "No, I didn't change my name"],
 }
 
-export const RadioWithDivider = Template.bind({})
-RadioWithDivider.args = {
+export const WithDivider = Template.bind({})
+WithDivider.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
@@ -271,16 +271,16 @@ RadioWithDivider.args = {
   extraOptions: 'Not sure',
 }
 
-export const RadioWithError = Template.bind({})
-RadioWithError.args = {
+export const WithError = Template.bind({})
+WithError.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: 'Yes,No',
   errorMessage: 'Select an option',
 }
 
-export const RadioWithConditional = Template.bind({})
-RadioWithConditional.args = {
+export const WithConditional = Template.bind({})
+WithConditional.args = {
   id: 'contact',
   label: 'How would you prefer to be contacted?',
   options: 'Email,Phone',

@@ -91,15 +91,15 @@ const Template = (args) => {
   return group
 }
 
-export const Select = Template.bind({})
-Select.args = {}
+export const Default = Template.bind({})
+Default.args = {}
 
-export const SelectWithHint = Template.bind({})
-SelectWithHint.args = {
+export const WithHint = Template.bind({})
+WithHint.args = {
   hint: 'This can be different to where you went before',
 }
 
-export const SelectWithError = Template.bind({})
-SelectWithError.args = {
+export const WithError = Template.bind({})
+WithError.args = {
   errorMessage: 'Error message',
 }

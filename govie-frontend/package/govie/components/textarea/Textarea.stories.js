@@ -161,8 +161,8 @@ const Template = (args) => {
   return formGroup
 }
 
-export const DefaultTextarea = Template.bind({})
-DefaultTextarea.args = {
+export const Default = Template.bind({})
+Default.args = {
   fieldId: 'default-textarea',
   fieldName: 'default-textarea',
   label: 'Can you provide more detail?',

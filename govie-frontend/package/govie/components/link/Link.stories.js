@@ -66,8 +66,8 @@ const Template = (args) => {
   return link
 }
 
-export const Link = Template.bind({})
-Link.args = {
+export const Default = Template.bind({})
+Default.args = {
   label: 'Link text',
 }
 

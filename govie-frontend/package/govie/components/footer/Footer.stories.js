@@ -162,16 +162,16 @@ const Template = (args) => {
   return footer
 }
 
-export const Footer = Template.bind({})
-Footer.args = {}
+export const Default = Template.bind({})
+Default.args = {}
 
-export const FooterWithLinks = Template.bind({})
-FooterWithLinks.args = {
+export const WithLinks = Template.bind({})
+WithLinks.args = {
   inlineLinks: 'Item 1, Item 2, Item 3',
 }
 
-export const FooterWithSecondaryNavigation = Template.bind({})
-FooterWithSecondaryNavigation.args = {
+export const WithSecondaryNavigation = Template.bind({})
+WithSecondaryNavigation.args = {
   secondaryNavigationLinks: [
     [
       'Navigation item 1',
@@ -185,8 +185,8 @@ FooterWithSecondaryNavigation.args = {
   ],
 }
 
-export const FooterWithSecondaryNavigationAndLinks = Template.bind({})
-FooterWithSecondaryNavigationAndLinks.args = {
+export const WithSecondaryNavigationAndLinks = Template.bind({})
+WithSecondaryNavigationAndLinks.args = {
   inlineLinks: 'Item 1, Item 2, Item 3',
   secondaryNavigationLinks: [
     [
