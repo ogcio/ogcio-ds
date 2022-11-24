@@ -16,9 +16,11 @@ export default {
       control: 'array',
       type: { name: 'array', required: true },
     },
+    withTableContent: { control: 'boolean' },
   },
   args: {
-    tabs: ['Panel 1', 'Panel 2'],
+    tabs: ['Tab 1', 'Tab 2'],
+    withTableContent: false,
   },
 }
 
@@ -63,12 +65,35 @@ const Template = (args) => {
       index !== 0 ? 'govie-tabs__panel--hidden' : ''
     }`
     panel.setAttribute('id', id)
-    
-    const h2 = document.createElement('h2')
-    h2.className = 'govie-heading-s'
-    h2.innerText = `Tab content ${index}`
+    if (args.withTableContent) {
+      panel.innerHTML = `
+        <table class="govie-table">
+        <thead class="govie-table__head">
+          <tr class="govie-table__row">
+            <th class="govie-table__header" scope="col">Date</th>
+            <th class="govie-table__header" scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody class="govie-table__body">
+          <tr class="govie-table__row">
+            <th class="govie-table__header" scope="row">${index+3} weeks</th>
+            <td class="govie-table__cell">€109.80 per week</td>
+          </tr>
+          <tr class="govie-table__row">
+            <th class="govie-table__header" scope="row">Next ${index+3} weeks</th>
+            <td class="govie-table__cell">€10.80 per week</td>
+          </tr>
+        </tbody>
+      </table>
+        `
+    } else {
+      const h2 = document.createElement('h2')
+      h2.className = 'govie-heading-s'
+      h2.innerText = `${args.tabs[index]} content`
 
-    panel.appendChild(h2)
+      panel.appendChild(h2)
+    }
+
     tabs.appendChild(panel)
   })
 
@@ -78,3 +103,8 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const WithTableContent = Template.bind({})
+WithTableContent.args = {
+  withTableContent: true,
+}
