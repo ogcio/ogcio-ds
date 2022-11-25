@@ -128,11 +128,6 @@ const Template = (args) => {
 export const Default = Template.bind({})
 Default.args = {}
 
-export const ConfirmationMessage = Template.bind({})
-ConfirmationMessage.args = {
-  confirmed: true,
-}
-
 export const CookieAccepted = Template.bind({})
 CookieAccepted.args = {
   confirmed: true,
