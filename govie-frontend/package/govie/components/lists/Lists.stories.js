@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Lists',
@@ -44,9 +44,9 @@ export default {
 
 const Template = (args) => {
   const list = document.createElement(args.numbered ? 'ol' : 'ul')
-  list.className = `govie-list${args.type !== 'normal' ? ` govie-list--${args.type}` : ''}${
-    args.spaced ? ' govie-list--spaced' : ''
-  }`
+  list.className = `govie-list${
+    args.type !== 'normal' ? ` govie-list--${args.type}` : ''
+  }${args.spaced ? ' govie-list--spaced' : ''}`
 
   args.items.forEach((item) => {
     const li = document.createElement('li')
@@ -65,8 +65,7 @@ const Template = (args) => {
     list.appendChild(li)
   })
 
-  list.innerHTML = getNodeFormattedInnerHtml(list)
-  return list
+  return beautifyHtmlNode(list)
 }
 
 export const Default = Template.bind({})

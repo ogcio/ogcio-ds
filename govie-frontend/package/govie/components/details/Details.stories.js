@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Details',
@@ -42,9 +42,8 @@ const Template = (args) => {
   details.setAttribute('data-module', 'govie-details')
   details.appendChild(summary)
   details.appendChild(text)
-  details.innerHTML = getNodeFormattedInnerHtml(details)
 
-  return details
+  return beautifyHtmlNode(details)
 }
 
 export const Default = Template.bind({})

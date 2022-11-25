@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Page & Layout/Notification Panel',
@@ -14,20 +14,21 @@ export default {
     header: {
       control: 'text',
       type: { name: 'string', required: true },
-      description: 'The notification banner header text content'
+      description: 'The notification banner header text content',
     },
     content: {
       control: 'text',
       type: { name: 'string', required: true },
-      description: 'The notification banner text content'
+      description: 'The notification banner text content',
     },
     success: {
       control: 'boolean',
-      description: 'Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.'
-    }
+      description:
+        'Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.',
+    },
   },
   args: {
-    success: false
+    success: false,
   },
 }
 
@@ -37,13 +38,13 @@ const Template = (args) => {
     args.success ? 'govie-notification-banner--success' : ''
   }`
 
-  panel.setAttribute('role', args.success ? 'alert': 'region')
+  panel.setAttribute('role', args.success ? 'alert' : 'region')
   panel.setAttribute('aria-labelledby', 'govie-notification-banner-title')
   panel.setAttribute('data-module', 'govie-notification-banner')
 
   const header = document.createElement('div')
   header.className = 'govie-notification-banner__header'
-  
+
   const h2 = document.createElement('h2')
   h2.className = 'govie-notification-banner__title'
   h2.setAttribute('id', 'govie-notification-banner-title')
@@ -54,7 +55,7 @@ const Template = (args) => {
 
   const content = document.createElement('div')
   content.className = 'govie-notification-banner__content'
-  
+
   const p = document.createElement('p')
   p.className = 'govie-notification-banner__heading'
   p.innerHTML = args.content
@@ -62,24 +63,22 @@ const Template = (args) => {
   content.appendChild(p)
   panel.appendChild(content)
 
-  panel.innerHTML = getNodeFormattedInnerHtml(panel)
-
-  return panel
+  return beautifyHtmlNode(panel)
 }
 
 export const Default = Template.bind({})
 Default.args = {
   header: 'Important',
-  content: 'There may be a delay in processing your application because of the coronavirus outbreak.'
+  content:
+    'There may be a delay in processing your application because of the coronavirus outbreak.',
 }
 
 export const Success = Template.bind({})
 Success.args = {
   header: 'Important',
   content: 'Training outcome recorded and trainee withdrawn.',
-  success: true
+  success: true,
 }
-
 
 export const WithLink = Template.bind({})
 WithLink.args = {
@@ -87,6 +86,5 @@ WithLink.args = {
   content: `
     You have 7 days left to send your application.
     <a class="govie-notification-banner__link" href="#">View application</a>.
-  `
+  `,
 }
-

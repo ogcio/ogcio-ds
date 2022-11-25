@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Heading',
@@ -31,19 +31,20 @@ export default {
     },
     nestedCaption: {
       control: 'boolean',
-      description: 'If the caption should be considered part of the page heading, you can also nest the caption within the <h1>'
+      description:
+        'If the caption should be considered part of the page heading, you can also nest the caption within the <h1>',
     },
   },
   args: {
     size: 'l',
     captionSize: 'l',
-    nestedCaption: false
+    nestedCaption: false,
   },
 }
 
 const Template = (args) => {
   const container = document.createElement('div')
-  
+
   const component = document.createElement('h1')
   component.className = `govie-heading-${args.size}`
   component.innerText = args.text
@@ -61,13 +62,13 @@ const Template = (args) => {
       container.appendChild(caption)
     }
   } else {
-      component.innerHTML = getNodeFormattedInnerHtml(component)
-      return component
+    component.innerHTML = getNodeFormattedInnerHtml(component)
+    return component
   }
 
   container.appendChild(component)
-  container.innerHTML = getNodeFormattedInnerHtml(container)
-  return container
+
+  return beautifyHtmlNode(container)
 }
 
 export const Default = Template.bind({})
@@ -92,5 +93,5 @@ export const WithNestedCaption = Template.bind({})
 WithNestedCaption.args = {
   text: 'Heading',
   caption: 'Nested caption',
-  nestedCaption: true
+  nestedCaption: true,
 }
