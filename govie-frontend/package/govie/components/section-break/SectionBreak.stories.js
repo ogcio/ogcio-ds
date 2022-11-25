@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Section Break',
@@ -13,11 +13,11 @@ export default {
       options: ['default', 'xl', 'l', 'm', 's'],
       control: { type: 'radio' },
       description: 'Modifiers for different size margins.',
-      type: { required: true }
+      type: { required: true },
     },
   },
   args: {
-    size: 'default'
+    size: 'default',
   },
 }
 
@@ -30,9 +30,8 @@ const Template = (args) => {
   }
 
   text.className = classes.join(' ')
-  text.innerHTML = getNodeFormattedInnerHtml(text)
 
-  return text
+  return beautifyHtmlNode(text)
 }
 
 export const Default = Template.bind({})
