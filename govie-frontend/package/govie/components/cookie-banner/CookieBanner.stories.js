@@ -16,8 +16,6 @@ export default {
     cookieOption: {
       options: ['accepted', 'rejected'],
       control: { type: 'radio' },
-      description:
-        '`Default`: For the main call to action on a page.<br>`Secondary`: For secondary calls to action on a page.<br>`Warning`: Are designed to make users think carefully before they use them. <br/>`Start`: For the main call to action on your service’s start page.',
     },
   },
   args: {
