@@ -62,8 +62,7 @@ const Template = (args) => {
       container.appendChild(caption)
     }
   } else {
-    component.innerHTML = getNodeFormattedInnerHtml(component)
-    return component
+    return beautifyHtmlNode(component)
   }
 
   container.appendChild(component)
