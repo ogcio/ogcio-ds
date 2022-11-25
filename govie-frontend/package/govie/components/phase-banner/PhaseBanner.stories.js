@@ -10,8 +10,7 @@ export default {
   },
   argTypes: {
     tag: {
-      options: ['alpha', 'beta'],
-      control: { type: 'radio' },
+      control: 'text',
       type: { required: true },
     },
     text: {
@@ -49,7 +48,9 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  tag: 'alpha'
+}
 
 export const Beta = Template.bind({})
 Beta.args = {
