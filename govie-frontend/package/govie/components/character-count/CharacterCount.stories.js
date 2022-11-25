@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/Character count',
@@ -221,9 +221,7 @@ const Template = (args) => {
   characterCount.appendChild(formGroupElement)
   characterCount.appendChild(infoElement)
 
-  characterCount.innerHTML = getNodeFormattedInnerHtml(characterCount)
-
-  return characterCount
+  return beautifyHtmlNode(characterCount)
 }
 
 export const Default = Template.bind({})

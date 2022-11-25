@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/File Upload',
@@ -107,9 +107,7 @@ const Template = (args) => {
 
   formGroup.appendChild(createInput(args))
 
-  formGroup.innerHTML = getNodeFormattedInnerHtml(formGroup)
-
-  return formGroup
+  return beautifyHtmlNode(formGroup)
 }
 
 export const Default = Template.bind({})

@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/Select',
@@ -86,9 +86,7 @@ const Template = (args) => {
   group.className = classnames.join(' ')
   group.appendChild(select)
 
-  group.innerHTML = getNodeFormattedInnerHtml(group)
-
-  return group
+  return beautifyHtmlNode(group)
 }
 
 export const Default = Template.bind({})

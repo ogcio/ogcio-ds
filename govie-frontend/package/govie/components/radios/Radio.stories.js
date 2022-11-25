@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/Radio',
@@ -215,9 +215,7 @@ const Template = (args) => {
 
   container.appendChild(group)
 
-  container.innerHTML = getNodeFormattedInnerHtml(container)
-
-  return container
+  return beautifyHtmlNode(container)
 }
 
 export const Default = Template.bind({})

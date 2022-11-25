@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Page & Layout/Header',
@@ -98,9 +98,7 @@ const Template = (args) => {
 
   header.appendChild(wrapper)
 
-  header.innerHTML = getNodeFormattedInnerHtml(header)
-
-  return header
+  return beautifyHtmlNode(header)
 }
 
 export const Default = Template.bind({})

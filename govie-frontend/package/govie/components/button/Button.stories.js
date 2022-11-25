@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/Button',
@@ -70,9 +70,7 @@ const Template = (args) => {
     btn.setAttribute('aria-disabled', true)
   }
 
-  btn.innerHTML = getNodeFormattedInnerHtml(btn)
-
-  return btn
+  return beautifyHtmlNode(btn)
 }
 
 export const Default = Template.bind({})

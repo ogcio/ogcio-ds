@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Form/Date Input',
@@ -214,9 +214,7 @@ const Template = (args) => {
   formGroup.className = classNames.join(' ')
   formGroup.appendChild(createFieldSet(args))
 
-  formGroup.innerHTML = getNodeFormattedInnerHtml(formGroup)
-
-  return formGroup
+  return beautifyHtmlNode(formGroup)
 }
 
 export const Default = Template.bind({})
