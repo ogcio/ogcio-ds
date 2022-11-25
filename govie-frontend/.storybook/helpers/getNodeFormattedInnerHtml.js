@@ -1,4 +1,3 @@
-// getNodeFormattedInnerHtml.js
 import { html as beautify } from 'js-beautify'
 
 const getNodeFormattedInnerHtml = (node) => {
