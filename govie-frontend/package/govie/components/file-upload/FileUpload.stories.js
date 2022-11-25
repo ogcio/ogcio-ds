@@ -112,8 +112,8 @@ const Template = (args) => {
   return formGroup
 }
 
-export const DefaultDateInput = Template.bind({})
-DefaultDateInput.args = {}
+export const Default = Template.bind({})
+Default.args = {}
 
 export const WithHint = Template.bind({})
 WithHint.args = {

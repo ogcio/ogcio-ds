@@ -103,21 +103,21 @@ const Template = (args) => {
   return header
 }
 
-export const Header = Template.bind({})
-Header.args = {}
+export const Default = Template.bind({})
+Default.args = {}
 
-export const HeaderWithServiceName = Template.bind({})
-HeaderWithServiceName.args = {
+export const WithServiceName = Template.bind({})
+WithServiceName.args = {
   serviceName: 'Service name',
 }
 
-export const HeaderWithdNavigation = Template.bind({})
-HeaderWithdNavigation.args = {
+export const WithdNavigation = Template.bind({})
+WithdNavigation.args = {
   navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
 }
 
-export const HeaderWithServiceNameAndNavigation = Template.bind({})
-HeaderWithServiceNameAndNavigation.args = {
+export const WithServiceNameAndNavigation = Template.bind({})
+WithServiceNameAndNavigation.args = {
   serviceName: 'Service name',
   navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
 }

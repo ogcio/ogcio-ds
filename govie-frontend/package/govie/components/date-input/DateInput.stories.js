@@ -219,8 +219,8 @@ const Template = (args) => {
   return formGroup
 }
 
-export const DefaultDateInput = Template.bind({})
-DefaultDateInput.args = {
+export const Default = Template.bind({})
+Default.args = {
   legend: 'When was your flight?',
   legendAsHeading: true,
   hint: 'For example, 12 8 2006',

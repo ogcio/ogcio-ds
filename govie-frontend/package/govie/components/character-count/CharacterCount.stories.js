@@ -226,8 +226,8 @@ const Template = (args) => {
   return characterCount
 }
 
-export const DefaultTextarea = Template.bind({})
-DefaultTextarea.args = {
+export const Default = Template.bind({})
+Default.args = {
   fieldId: 'with-hint',
   fieldName: 'with-hint',
   label: 'Can you provide more detail?',
