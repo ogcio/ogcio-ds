@@ -56,8 +56,7 @@ const Template = (args) => {
 
     if (args.nestedCaption) {
       component.insertAdjacentHTML('afterbegin', caption.outerHTML)
-      component.innerHTML = getNodeFormattedInnerHtml(component)
-      return component
+      return beautifyHtmlNode(component)
     } else {
       container.appendChild(caption)
     }
