@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import { slugify } from '../../../../.storybook/helpers/utils'
 
 export default {
@@ -76,11 +76,13 @@ const Template = (args) => {
         </thead>
         <tbody class="govie-table__body">
           <tr class="govie-table__row">
-            <th class="govie-table__header" scope="row">${index+3} weeks</th>
+            <th class="govie-table__header" scope="row">${index + 3} weeks</th>
             <td class="govie-table__cell">€109.80 per week</td>
           </tr>
           <tr class="govie-table__row">
-            <th class="govie-table__header" scope="row">Next ${index+3} weeks</th>
+            <th class="govie-table__header" scope="row">Next ${
+              index + 3
+            } weeks</th>
             <td class="govie-table__cell">€10.80 per week</td>
           </tr>
         </tbody>
@@ -97,8 +99,7 @@ const Template = (args) => {
     tabs.appendChild(panel)
   })
 
-  tabs.innerHTML = getNodeFormattedInnerHtml(tabs)
-  return tabs
+  return beautifyHtmlNode(tabs)
 }
 
 export const Default = Template.bind({})

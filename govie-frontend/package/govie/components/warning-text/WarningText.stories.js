@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Warning Text',
@@ -38,9 +38,8 @@ const Template = (args) => {
   warningText.className = 'govie-warning-text'
   warningText.appendChild(icon)
   warningText.appendChild(text)
-  warningText.innerHTML = getNodeFormattedInnerHtml(warningText)
 
-  return warningText
+  return beautifyHtmlNode(warningText)
 }
 
 export const Default = Template.bind({})

@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Error Sumamry',
@@ -76,9 +76,7 @@ const Template = (args) => {
   errorSummary.setAttribute('data-module', 'govie-error-summary')
   errorSummary.appendChild(alert)
 
-  errorSummary.innerHTML = getNodeFormattedInnerHtml(errorSummary)
-
-  return errorSummary
+  return beautifyHtmlNode(errorSummary)
 }
 
 export const Default = Template.bind({})

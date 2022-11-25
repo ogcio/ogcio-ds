@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Accordion',
@@ -93,9 +93,7 @@ const Template = (args) => {
     })
   }
 
-  accordion.innerHTML = getNodeFormattedInnerHtml(accordion)
-
-  return accordion
+  return beautifyHtmlNode(accordion)
 }
 
 export const Default = Template.bind({})

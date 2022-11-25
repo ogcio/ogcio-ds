@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Inset Text',
@@ -24,9 +24,7 @@ const Template = (args) => {
   text.className = 'govie-inset-text'
   text.append(args.text)
 
-  text.innerHTML = getNodeFormattedInnerHtml(text)
-
-  return text
+  return beautifyHtmlNode(text)
 }
 
 export const Default = Template.bind({})

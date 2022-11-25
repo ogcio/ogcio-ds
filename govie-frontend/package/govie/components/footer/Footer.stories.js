@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Page & Layout/Footer',
@@ -157,9 +157,7 @@ const Template = (args) => {
   widthContainer.appendChild(meta)
   footer.appendChild(widthContainer)
 
-  footer.innerHTML = getNodeFormattedInnerHtml(footer)
-
-  return footer
+  return beautifyHtmlNode(footer)
 }
 
 export const Default = Template.bind({})

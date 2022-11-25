@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Page & Layout/Panel',
@@ -42,8 +42,7 @@ const Template = (args) => {
     panel.appendChild(body)
   }
 
-  panel.innerHTML = getNodeFormattedInnerHtml(panel)
-  return panel
+  return beautifyHtmlNode(panel)
 }
 
 export const Default = Template.bind({})

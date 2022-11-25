@@ -1,3 +1,5 @@
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+
 export default {
   title: 'Typography/Table',
   parameters: {
@@ -107,7 +109,7 @@ const Template = (args) => {
 
   table.appendChild(tbody)
 
-  return table
+  return beautifyHtmlNode(table)
 }
 
 export const Default = Template.bind({})

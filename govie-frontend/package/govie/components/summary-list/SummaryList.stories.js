@@ -1,4 +1,4 @@
-import getNodeFormattedInnerHtml from '../../../../.storybook/helpers/getNodeFormattedInnerHtml'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
   title: 'Typography/Summary List',
@@ -127,9 +127,7 @@ const Template = (args) => {
     })
   }
 
-  summaryList.innerHTML = getNodeFormattedInnerHtml(summaryList)
-
-  return summaryList
+  return beautifyHtmlNode(summaryList)
 }
 
 export const Default = Template.bind({})
