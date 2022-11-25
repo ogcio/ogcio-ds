@@ -2742,11 +2742,12 @@ Tabs.prototype.unsetAttributes = function ($tab) {
 
 Tabs.prototype.onTabClick = function (e) {
   if (!e.target.classList.contains('govie-tabs__tab')) {
-  // Allow events on child DOM elements to bubble up to tab parent
+    // Allow events on child DOM elements to bubble up to tab parent
     return false
   }
   e.preventDefault();
   var $newTab = e.target;
+
   var $currentTab = this.getCurrentTab();
   this.hideTab($currentTab);
   this.showTab($newTab);
