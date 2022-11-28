@@ -12,22 +12,30 @@ export default {
   },
   argTypes: {
     mode: {
-      options: ['default', 'first', 'last', 'ellipsis', 'small number of pages'],
+      options: [
+        'default',
+        'first selected',
+        'last selected',
+        'ellipsis',
+        'smaller number of pages',
+        'larger number of pages',
+      ],
       control: { type: 'radio' },
       type: { required: true },
       description:
         '`Default`: Show both next and previous page link.<br>' +
-        '`First`: Do not show the previous page link on the first page.<br>' +
-        '`Last`: Do not show the next page link on the last page.<br>' +
-        '`Small number of pages`: Use ‘Previous’ and ‘Next’ links to let users navigate through a small number of pages.',
+        '`First selected`: Do not show the previous page link on the first page.<br>' +
+        '`Last selected`: Do not show the next page link on the last page.<br>' +
+        '`Smaller number of pages`: Use ‘Previous’ and ‘Next’ links to let users navigate through a smaller number of pages.<br>' +
+        '`Larger number of pages`: Use a list-type layout if users need to navigate through large numbers of pages.',
     },
     previousLabel: {
       control: 'text',
-      if: { arg: 'mode', eq: 'small number of pages' },
+      if: { arg: 'mode', eq: 'smaller number of pages' },
     },
     nextLabel: {
       control: 'text',
-      if: { arg: 'mode', eq: 'small number of pages' },
+      if: { arg: 'mode', eq: 'smaller number of pages' },
     },
   },
   args: {
@@ -99,38 +107,43 @@ const createList = (mode) => {
   const list = document.createElement('ul')
   const listClasses = ['govie-pagination__list']
 
-  if (mode !== 'first') {
+  if (mode !== 'first selected') {
     list.appendChild(createPreviousButton())
   }
 
-  Array(5)
-    .fill('')
-    .forEach((_, index) => {
-      const item = document.createElement('li')
+  ;[1, 6, 7, 8, 40].forEach((number, index) => {
+    const item = document.createElement('li')
+    const classes = ['govie-pagination__item']
 
-      const classes = ['govie-pagination__item']
-      if (
-        (mode === 'first' && index === 0) ||
-        (mode === 'last' && index === 4) ||
-        (mode === 'default' && index === 2)
-      ) {
-        classes.push('govie-pagination__item--current')
-      }
+    if (mode === 'larger number of pages' && (index === 1 || index === 4)) {
+      const ellipsis = document.createElement('li')
+      ellipsis.className = `${classes[0]} govie-pagination__item--ellipses`
+      ellipsis.innerHTML = '&ctdot;'
+      list.appendChild(ellipsis)
+    }
 
-      item.className = classes.join(' ')
+    if (
+      (mode === 'first selected' && index === 0) ||
+      (mode === 'last selected' && index === 4) ||
+      ((mode === 'default' || mode === 'larger number of pages') && index === 2)
+    ) {
+      classes.push('govie-pagination__item--current')
+    }
 
-      const link = document.createElement('a')
-      link.className = 'govie-link govie-pagination__link'
-      link.href = '#'
-      link.ariaLabel = `Page ${index + 1}`
-      link.ariaCurrent = 'page'
-      link.innerText = index + 1
+    item.className = classes.join(' ')
 
-      item.appendChild(link)
-      list.appendChild(item)
-    })
+    const link = document.createElement('a')
+    link.className = 'govie-link govie-pagination__link'
+    link.href = '#'
+    link.ariaLabel = `Page ${index + 1}`
+    link.ariaCurrent = 'page'
+    link.innerText = mode !== 'larger number of pages' ? index + 1 : number
 
-  if (mode !== 'last') {
+    item.appendChild(link)
+    list.appendChild(item)
+  })
+
+  if (mode !== 'last selected') {
     list.appendChild(createNextButton())
   }
 
@@ -146,7 +159,7 @@ const Template = (args) => {
   navigation.ariaLabel = 'results'
   navigation.setAttribute('role', 'navigation')
 
-  if (args.mode !== 'small number of pages') {
+  if (args.mode !== 'smaller number of pages') {
     navigation.appendChild(createList(args.mode))
   } else {
     navigationClasses.push('govie-pagination--block')
@@ -164,22 +177,27 @@ Default.args = {}
 
 export const FirstPageSelected = Template.bind({})
 FirstPageSelected.args = {
-  mode: 'first',
+  mode: 'first selected',
 }
 
 export const LastPageSelected = Template.bind({})
 LastPageSelected.args = {
-  mode: 'last',
+  mode: 'last selected',
 }
 
-export const SmallNumberOfPages = Template.bind({})
-SmallNumberOfPages.args = {
-  mode: 'small number of pages',
+export const SmallerNumberOfPages = Template.bind({})
+SmallerNumberOfPages.args = {
+  mode: 'smaller number of pages',
 }
 
-export const SmallNumberOfPagesWithLabel = Template.bind({})
-SmallNumberOfPagesWithLabel.args = {
-  mode: 'small number of pages',
+export const SmallerNumberOfPagesWithLabel = Template.bind({})
+SmallerNumberOfPagesWithLabel.args = {
+  mode: 'smaller number of pages',
   previousLabel: 'Applying for a provisional bus licence',
   nextLabel: 'Driver CPC part 1 test: theory',
+}
+
+export const LargerNumberofPages = Template.bind({})
+LargerNumberofPages.args = {
+  mode: 'larger number of pages',
 }
