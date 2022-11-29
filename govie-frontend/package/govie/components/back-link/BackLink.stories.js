@@ -1,5 +1,5 @@
 export default {
-  title: 'Typography/Back link',
+  title: 'Navigation/Back link',
   parameters: {
     docs: {
       description: {
