@@ -44,45 +44,37 @@ export default {
   },
 }
 
-const Template = (args) => {
-  const table = document.createElement('table')
-  table.className = 'govie-table'
-
-  if (args.caption) {
-    const caption = document.createElement('caption')
-    caption.className = `govie-table__caption govie-table__caption--${args.captionSize}`
-    caption.innerText = args.caption
-
-    table.appendChild(caption)
-  }
-
-  // table header
+const createTableHeader = (headers, numeric) => {
   const thead = document.createElement('thead')
   thead.className = 'govie-table__head'
 
   const trHead = document.createElement('tr')
   trHead.className = 'govie-table__row'
 
-  args.headers.forEach((header, index) => {
+  headers.forEach((header, index) => {
     const th = document.createElement('th')
-    th.className = `govie-table__header${
-      index !== 0 && args.numeric ? ' govie-table__header--numeric' : ''
-    }`
-
     th.setAttribute('scope', 'col')
+    
+    const classes = ['govie-table__header']
+    if(index !== 0 && numeric) {
+      classes.push('govie-table__header--numeric')
+    }
+
+    th.className = classes.join(' ')
     th.innerText = header
 
     trHead.appendChild(th)
   })
 
   thead.appendChild(trHead)
-  table.appendChild(thead)
+  return thead
+}
 
-  // table body
+const createTableBody = (rows, numeric) => {
   const tbody = document.createElement('tbody')
   tbody.className = 'govie-table__body'
 
-  args.rows.forEach((row) => {
+  rows.forEach((row) => {
     const tr = document.createElement('tr')
     tr.className = 'govie-table__row'
 
@@ -96,18 +88,45 @@ const Template = (args) => {
         tr.appendChild(th)
       } else {
         const td = document.createElement('td')
-        td.className = `govie-table__cell${
-          args.numeric ? ' govie-table__cell--numeric' : ''
-        }`
+        
+        const classes = ['govie-table__cell']
+
+        if(numeric) {
+          classes.push('govie-table__cell--numeric')
+        }
+
+        td.className = classes.join(' ')
         td.innerText = cell
+
         tr.appendChild(td)
       }
     })
 
     tbody.appendChild(tr)
   })
+  return tbody
+}
 
-  table.appendChild(tbody)
+const Template = (args) => {
+  const table = document.createElement('table')
+  table.className = 'govie-table'
+
+  if (args.caption) {
+    const caption = document.createElement('caption')
+    
+    const classes = ['govie-table__caption']
+    if (args.captionSize) {
+      classes.push(`govie-table__caption--${args.captionSize}`)
+    }
+
+    caption.className = classes.join(' ')
+    caption.innerText = args.caption
+
+    table.appendChild(caption)
+  }
+
+  table.appendChild(createTableHeader(args.headers, args.numeric))
+  table.appendChild(createTableBody(args.rows, args.numeric))
 
   return beautifyHtmlNode(table)
 }
