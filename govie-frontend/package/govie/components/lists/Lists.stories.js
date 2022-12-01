@@ -42,22 +42,33 @@ export default {
   },
 }
 
+const createLink = (item) => {
+  const link = document.createElement('a')
+  link.className = 'govie-link'
+  link.href = '#'
+  link.innerText = item
+
+  return link
+}
+
 const Template = (args) => {
   const list = document.createElement(args.numbered ? 'ol' : 'ul')
-  list.className = `govie-list${
-    args.type !== 'normal' ? ` govie-list--${args.type}` : ''
-  }${args.spaced ? ' govie-list--spaced' : ''}`
+
+  const classes = ['govie-list']
+  if (args.type !== 'normal') {
+    classes.push(`govie-list--${args.type}`)
+  }
+  if (args.spaced) {
+    classes.push('govie-list--spaced')
+  }
+
+  list.className = classes.join(' ')
 
   args.items.forEach((item) => {
     const li = document.createElement('li')
 
     if (args.link) {
-      const a = document.createElement('a')
-      a.className = 'govie-link'
-      a.herf = '#'
-      a.innerText = item
-
-      li.appendChild(a)
+      li.appendChild(createLink(item))
     } else {
       li.innerText = item
     }
