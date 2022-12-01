@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs'
+
+import { Swatch } from './storybook-components/Swatch.jsx'
+
+<Meta title="Docs/Colours" />
+
+# Colours
+
+- Colour palette ([\_colours-palette.scss](https://github.com/ogcio/ogcio-ds/blob/main/govie-frontend/package/govie/settings/_colours-palette.scss))
+- Colour tokens ([\_colours-applied.scss](https://github.com/ogcio/ogcio-ds/blob/main/govie-frontend/package/govie/settings/_colours-applied.scss))
+
+The colour tokens take the palette colours and apply them to specific scenarios, e.g. link colour, border colours etc.
+
+## Colours
+
+### Colour palette
+
+| Name               | Value   | Swatch                      |
+| ------------------ | ------- | --------------------------- |
+| dark-red | govie-colour("dark-red")    | <Swatch colour="#ae1122" /> |
+| red | govie-colour("red")    | <Swatch colour="#d4351c" /> |
+| yellow  | govie-colour("yellow") | <Swatch colour="#ffdd00" /> |
+| green  | govie-colour("green") | <Swatch colour="#00703c" /> |
+| blue  | govie-colour("blue") | <Swatch colour="#1d70b8" /> |
+| dark-blue  | govie-colour("dark-blue") | <Swatch colour="#003078" /> |
+| light-blue  | govie-colour("light-blue") | <Swatch colour="#5694ca" /> |
+| mid-blue  | govie-colour("mid-blue") | <Swatch colour="#2c55a2" /> |
+| purple  | govie-colour("purple") | <Swatch colour="#4c2c92" /> |
+| black  | govie-colour("black") | <Swatch colour="#0b0c0c" /> |
+| dark-grey  | govie-colour("dark-grey") | <Swatch colour="#505a5f" /> |
+| mid-grey  | govie-colour("mid-grey") | <Swatch colour="#b1b4b6" /> |
+| light-grey  | govie-colour("light-grey") | <Swatch colour="#f3f2f1" /> |
+| white  | govie-colour("white") | <Swatch colour="#ffffff" /> |
+| surface  | govie-colour("surface") | <Swatch colour="#004D44" /> |
+| secondary-surface  | govie-colour("secondary-surface") | <Swatch colour="#A39161" /> |
+| tertiary-surface  | govie-colour("tertiary-surface") | <Swatch colour="#565152" /> |
+| light-purple  | govie-colour("light-purple") | <Swatch colour="#6f72af" /> |
+| bright-purple  | govie-colour("bright-purple") | <Swatch colour="#912b88" /> |
+| pink  | govie-colour("pink") | <Swatch colour="#d53880" /> |
+| light-pink  | govie-colour("light-pink") | <Swatch colour="#f499be" /> |
+| orange  | govie-colour("orange") | <Swatch colour="#f47738" /> |
+| brown  | govie-colour("brown") | <Swatch colour="#b58840" /> |
+| light-green  | govie-colour("light-green") | <Swatch colour="#85994b" /> |
+| turquoise  | govie-colour("turquoise") | <Swatch colour="#28a197" /> |
+
+### Colour tokens
+
+| Name               | Palette colour | Value | Swatch                   |
+| ------------------ | -------------- | ----- | ------------------------ | 
+| $govie-brand-colour | govie-colour("blue")              | #1d70b8  | <Swatch colour="#1d70b8" /> | 
+| $govie-text-colour  | govie-colour("black")              | #0b0c0c  | <Swatch colour="#0b0c0c" /> | 
+| $govie-canvas-background-colour  | govie-colour("light-grey")              | #f3f2f1  | <Swatch colour="#f3f2f1" /> | 
+| $govie-body-background-colour  | govie-colour("white")              | #ffffff  | <Swatch colour="#ffffff" /> | 
+| $govie-print-text-colour  | -            | #000000  | <Swatch colour="#000000" /> | 
+| $govie-secondary-text-colour  | govie-colour("dark-grey")            | #505a5f  | <Swatch colour="#505a5f" /> | 
+| $govie-focus-colour  | govie-colour("yellow")            | #ffdd00  | <Swatch colour="#ffdd00" /> | 
+| $govie-focus-text-colour  | govie-colour("black")            | #0b0c0c  | <Swatch colour="#0b0c0c" /> | 
+| $govie-error-colour  | govie-colour("dark-red")            | #ae1122  | <Swatch colour="#ae1122" /> | 
+| $govie-success-colour  | govie-colour("green")            | #00703c  | <Swatch colour="#00703c" /> | 
+| $govie-border-colour  | govie-colour("mid-grey")            | #b1b4b6  | <Swatch colour="#b1b4b6" /> | 
+| $govie-input-border-colour  | govie-colour("black")            | #0b0c0c  | <Swatch colour="#0b0c0c" /> | 
+| $govie-hover-colour  | govie-colour("mid-grey")            | #b1b4b6  | <Swatch colour="#b1b4b6" /> | 
+| $govie-link-colour  | govie-colour("mid-blue")            | #2c55a2  | <Swatch colour="#2c55a2" /> | 
+| $govie-link-visited-colour  | govie-colour("purple")            | #4c2c92  | <Swatch colour="#4c2c92" /> | 
+| $govie-link-hover-colour  | govie-colour("dark-blue")            | #003078  | <Swatch colour="#003078" /> | 
+| $govie-link-active-colour  | govie-colour("black")            | #0b0c0c  | <Swatch colour="#0b0c0c" /> | 
+
