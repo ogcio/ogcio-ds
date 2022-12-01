@@ -41,20 +41,26 @@ export default {
     noVisited: false,
     external: false,
     dark: false,
-    noUnderline: false
+    noUnderline: false,
   },
 }
 
 const Template = (args) => {
   const link = document.createElement('a')
 
-  let classes = `govie-link ${
-    args.noVisited && 'govie-link--no-visited-state'
-  } ${args.dark && 'govie-link--inverse'} ${
-    args.noUnderline && 'govie-link--no-underline'
-  }`
+  const classes = ['govie-link']
 
-  link.className = classes
+  if (args.noVisited) {
+    classes.push('govie-link--no-visited-state')
+  }
+  if (args.dark) {
+    classes.push('govie-link--inverse')
+  }
+  if (args.noUnderline) {
+    classes.push('govie-link--no-underline')
+  }
+
+  link.className = classes.join(' ')
   link.href = args.href
   link.innerText = args.label
 
