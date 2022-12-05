@@ -1,40 +1,6 @@
-@import "compatibility";
-
 ////
 /// @group settings/typography
 ////
-
-/// Whether or not to define font sizes in rem, improving accessibility by
-/// allowing users to adjust the base font-size. This is enabled by default,
-/// unless any of the compatibility mode settings are enabled.
-///
-/// You should make sure that $govie-root-font-size is set correctly for your
-/// project.
-///
-/// @type Boolean
-/// @access public
-/// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
-/// suite of tools and settings
-
-$govie-typography-use-rem: if(
-  (
-    $govie-compatibility-goviefrontendtoolkit or
-    $govie-compatibility-govietemplate or
-    $govie-compatibility-govieelements
-  ),
-  false,
-  true
-) !default;
-
-// Only show the deprecation warning if user is setting $govie-typography-use-rem
-// manually instead of automatically via compatibility variables
-@if $govie-typography-use-rem == false and
-  $govie-compatibility-goviefrontendtoolkit == false and
-  $govie-compatibility-govietemplate == false and
-  $govie-compatibility-govieelements == false {
-  @include _warning(allow-not-using-rem, "$govie-typography-use-rem is deprecated. " +
-  "From version 5.0, GOV.IE Frontend will not support disabling rem font sizes.");
-}
 
 /// Root font size
 ///
@@ -44,11 +10,6 @@ $govie-typography-use-rem: if(
 /// Ideally you should not be setting the font-size on the html or root element
 /// in order to allow it to scale with user-preference, in which case this
 /// should be set to 16px.
-///
-/// If you are integrating Frontend into an existing project that also uses
-/// alphagov/govuk_template and you wish to enable `$govie-typography-use-rem`
-/// then you should set this to 10px to match the 62.5% (10px) base font size
-/// that govuk_template sets on the <html> element.
 ///
 /// @type Number
 /// @access public

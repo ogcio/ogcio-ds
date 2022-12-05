@@ -19,12 +19,6 @@
     border-bottom: 1px solid $govie-border-colour;
     text-align: left;
     vertical-align: top;
-    // GOV.UK Elements sets the font-size and line-height for all headers and cells
-    // in tables.
-    @include _govie-compatibility(govuk_elements) {
-      font-size: inherit;
-      line-height: inherit;
-    }
   }
 
   .govie-table__cell--numeric {

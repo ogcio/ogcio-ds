@@ -30,7 +30,7 @@
 
   .govie-panel--confirmation {
     color: govie-colour("white");
-    background: govie-colour("green", $legacy: "turquoise");
+    background: govie-colour("green");
 
     @include govie-media-query($media-type: print) {
       border-color: currentcolor;

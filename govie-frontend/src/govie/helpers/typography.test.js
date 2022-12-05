@@ -55,9 +55,6 @@ describe('@mixin govie-typography-common', () => {
     :root {
       @include govie-typography-common;
     }
-    :root {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
-    }
     `
 
     const results = await renderSass({ data: sass, ...sassConfig })
@@ -71,15 +68,11 @@ describe('@mixin govie-typography-common', () => {
   it('should not output a @font-face declaration when the user has changed their font', async () => {
     const sass = `
     $govie-font-family: Helvetica, Arial, sans-serif;
-    $govie-font-family-tabular: monospace;
     @import "settings/all";
     @import "helpers/all";
 
     :root {
       @include govie-typography-common;
-    }
-    :root {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
     }
     `
 
@@ -91,28 +84,6 @@ describe('@mixin govie-typography-common', () => {
     expect(resultsString).not.toContain('font-family: "ntatabularnumbers"')
   })
 
-  it('should not output a @font-face declaration when the user wants compatibility with GOV.UK Template', async () => {
-    const sass = `
-    $govie-compatibility-govietemplate: true;
-    @import "settings/all";
-    @import "helpers/all";
-
-    :root {
-      @include govie-typography-common;
-    }
-    :root {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
-    }
-    `
-
-    const results = await renderSass({ data: sass, ...sassConfig })
-    const resultsString = results.css.toString()
-
-    expect(resultsString).not.toContain('@font-face')
-    expect(resultsString).toContain('font-family: "Lato"')
-    expect(resultsString).toContain('font-family: "ntatabularnumbers"')
-  })
-
   it('should not output a @font-face declaration when the user has turned off this feature', async () => {
     const sass = `
     $govie-include-default-font-face: false;
@@ -121,9 +92,6 @@ describe('@mixin govie-typography-common', () => {
 
     :root {
       @include govie-typography-common;
-    }
-    :root {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
     }
     `
 
@@ -145,9 +113,6 @@ describe('@mixin govie-typography-common', () => {
 
     :root {
       @include govie-typography-common;
-    }
-    :root {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
     }
     `
 
@@ -427,29 +392,6 @@ describe('@mixin govie-typography-responsive', () => {
     })
   })
 
-  describe('when compatibility mode is set', () => {
-    it('$govie-typography-use-rem is disabled by default', async () => {
-      const sass = `
-        $govie-compatibility-govietemplate: true;
-        ${sassBootstrap}
-
-        .foo {
-          @include govie-typography-responsive($size: 14)
-        }`
-
-      const results = await renderSass({ data: sass, ...sassConfig })
-
-      expect(results.css.toString().trim()).toBe(outdent`
-        .foo {
-          font-size: 12px;
-          line-height: 1.25; }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px;
-              line-height: 1.42857; } }`)
-    })
-  })
-
   describe('@mixin govie-font', () => {
     it('outputs all required typographic CSS properties', async () => {
       const sass = `
@@ -500,22 +442,6 @@ describe('@mixin govie-typography-responsive', () => {
           .foo {
             font-feature-settings: normal;
             font-variant-numeric: tabular-nums; } }`)
-    })
-
-    it('uses the tabular font instead if defined and $tabular: true', async () => {
-      const sass = `
-      $govie-font-family-tabular: "ntatabularnumbers";
-      ${sassBootstrap}
-
-      .foo {
-        @include govie-font($size: 14, $tabular: true)
-      }`
-
-      const results = await renderSass({ data: sass, ...sassConfig })
-      const css = results.css.toString()
-
-      expect(css).toContain('font-family: "ntatabularnumbers"')
-      expect(css).not.toContain('font-feature-settings')
     })
 
     it('sets font-size based on $size', async () => {
@@ -603,26 +529,6 @@ describe('@mixin govie-typography-responsive', () => {
       const results = await renderSass({ data: sass, ...sassConfig })
 
       expect(results.css.toString()).toContain('line-height: 1.337;')
-    })
-  })
-})
-
-describe('$govie-font-family-tabular value is specified', () => {
-  it('outputs a deprecation warning when set', async () => {
-    const sass = `
-    $govie-font-family-tabular: monospace;
-      ${sassBootstrap}`
-
-    await renderSass({ data: sass, ...sassConfig }).then(() => {
-      // Get the argument of the last @warn call, which we expect to be the
-      // deprecation notice
-      return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue())
-        .toEqual(
-          '$govie-font-family-tabular is deprecated. From version 5.0, ' +
-          'GOV.IE Frontend will not support using a separate font-face for ' +
-          'tabular numbers. To silence this warning, update ' +
-          '$govie-suppressed-warnings with key: "tabular-font-face"'
-        )
     })
   })
 })

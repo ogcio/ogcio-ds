@@ -1,6 +1,6 @@
 @include govie-exports("govie/component/accordion") {
   $govie-accordion-base-colour: govie-colour("black");
-  $govie-accordion-hover-colour: govie-colour("light-grey", $legacy: "grey-3");
+  $govie-accordion-hover-colour: govie-colour("light-grey");
   $govie-accordion-icon-focus-colour: $govie-focus-colour;
   $govie-accordion-bottom-border-width: 1px;
 

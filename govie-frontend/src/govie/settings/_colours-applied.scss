@@ -55,7 +55,7 @@ $govie-print-text-colour: #000000 !default;
 /// @type Colour
 /// @access public
 
-$govie-secondary-text-colour: govie-colour("dark-grey", $legacy: #505a5f) !default;
+$govie-secondary-text-colour: govie-colour("dark-grey") !default;
 
 /// Focus colour
 ///
@@ -65,7 +65,7 @@ $govie-secondary-text-colour: govie-colour("dark-grey", $legacy: #505a5f) !defau
 /// @type Colour
 /// @access public
 
-$govie-focus-colour: govie-colour("yellow", $legacy: #ffdd00) !default;
+$govie-focus-colour: govie-colour("yellow") !default;
 
 /// Focused text colour
 ///
@@ -84,7 +84,7 @@ $govie-focus-text-colour: govie-colour("black") !default;
 /// @type Colour
 /// @access public
 
-$govie-error-colour: govie-colour("dark-red", $legacy: #ae1122) !default;
+$govie-error-colour: govie-colour("dark-red") !default;
 
 /// Success colour
 ///
@@ -102,7 +102,7 @@ $govie-sucesss-colour: govie-colour("green") !default;
 /// @type Colour
 /// @access public
 
-$govie-border-colour: govie-colour("mid-grey", $legacy: #b1b4b6);
+$govie-border-colour: govie-colour("mid-grey");
 
 /// Input border colour
 ///
@@ -120,7 +120,7 @@ $govie-input-border-colour: govie-colour("black") !default;
 /// @type Colour
 /// @access public
 
-$govie-hover-colour: govie-colour("mid-grey", $legacy: "grey-3");
+$govie-hover-colour: govie-colour("mid-grey");
 
 // =============================================================================
 // Links
@@ -131,14 +131,14 @@ $govie-hover-colour: govie-colour("mid-grey", $legacy: "grey-3");
 /// @type Colour
 /// @access public
 
-$govie-link-colour: govie-colour("mid-blue", $legacy: #2c55a2) !default;
+$govie-link-colour: govie-colour("mid-blue") !default;
 
 /// Visited link colour
 ///
 /// @type Colour
 /// @access public
 
-$govie-link-visited-colour: govie-colour("purple", $legacy: #4c2c92) !default;
+$govie-link-visited-colour: govie-colour("purple") !default;
 
 /// Link hover colour
 ///

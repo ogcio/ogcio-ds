@@ -1,41 +1,8 @@
-@import "compatibility";
 @import "typography-font-families";
 
 ////
 /// @group settings/typography
 ////
-
-/// Use 'legacy' fonts
-///
-/// Whether or not to use v1 nta font from GOV.UK Elements / Frontend
-/// Toolkit, for teams that are migrating to GOV.IE Frontend and may be using
-/// components from both places in a single application.
-///
-/// @type Boolean
-/// @access public
-/// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
-/// suite of tools and settings
-
-$govie-use-legacy-font: if(
-  (
-    $govie-compatibility-goviefrontendtoolkit or
-    $govie-compatibility-govietemplate or
-    $govie-compatibility-govieelements
-  ),
-  true,
-  false
-) !default;
-
-// Only show the deprecation warning if user is setting $govie-use-legacy-font
-// manually instead of automatically via compatibility variables
-@if $govie-use-legacy-font == true and
-  $govie-compatibility-goviefrontendtoolkit == false and
-  $govie-compatibility-govietemplate == false and
-  $govie-compatibility-govieelements == false {
-  @include _warning(legacy-font, "$govie-use-legacy-font is deprecated. " +
-  "From version 5.0, GOV.IE Frontend will only support the included version " +
-  "of Lato.");
-}
 
 // =========================================================
 // Font families
@@ -46,32 +13,7 @@ $govie-use-legacy-font: if(
 /// @type List
 /// @access public
 
-$govie-font-family: if(
-  $govie-use-legacy-font,
-  $govie-font-family-lato,
-  $govie-font-family-lato
-) !default;
-
-/// Font families to use when displaying tabular numbers
-///
-/// @type List
-/// @access public
-/// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
-/// suite of tools and settings
-
-$govie-font-family-tabular: if(
-  $govie-use-legacy-font,
-  $govie-font-family-lato-tabular,
-  false
-) !default;
-
-// Only show the deprecation warning if user is setting $govie-font-family-tabular
-// manually instead of automatically via $govie-use-legacy-font
-@if $govie-font-family-tabular != false and $govie-use-legacy-font == false {
-  @include _warning(tabular-font-face, "$govie-font-family-tabular is deprecated. " +
-  "From version 5.0, GOV.IE Frontend will not support using a separate " +
-  "font-face for tabular numbers.");
-}
+$govie-font-family: $govie-font-family-lato !default;
 
 /// Font families to use for print media
 ///
