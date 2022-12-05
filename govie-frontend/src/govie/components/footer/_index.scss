@@ -1,16 +1,16 @@
 @include govie-exports("govie/component/footer") {
 
   $govie-footer-background: $govie-canvas-background-colour;
-  $govie-footer-border: $govie-border-colour;
+  $govie-footer-border: $govie-header-footer-colour;
   // This variable can be removed entirely once the legacy palette goes away,
   // as it'll just be the same as $govie-footer-border.
-  $govie-footer-border-top: $govie-border-colour;
+  $govie-footer-border-top: $govie-header-footer-colour;
   $govie-footer-text: $govie-text-colour;
   $govie-footer-link-hover-colour: null; // Only used with the legacy palette
 
   @if $govie-use-legacy-palette {
-    $govie-footer-border-top: #a1acb2;
-    $govie-footer-border: govie-colour("grey-2");
+    $govie-footer-border-top: $govie-header-footer-colour;
+    $govie-footer-border: $govie-header-footer-colour;
     $govie-footer-text: #454a4c;
     $govie-footer-link-hover-colour: #171819;
   }
