@@ -1,5 +1,4 @@
-@import "../settings/colours-palette";
-@import "../settings/colours-organisations";
+@import '../settings/colours-palette';
 
 ////
 /// @group helpers/colour
@@ -27,7 +26,7 @@
 /// Make a colour darker by mixing it with black
 ///
 /// @param {Colour} $colour - colour to shade
-/// @param {Number} $percentage - percentage of `$colour` in returned colour
+/// @param {Number} $percentage - percentage of black to mix with $colour
 /// @return {Colour}
 /// @access public
 
@@ -38,10 +37,10 @@
 /// Make a colour lighter by mixing it with white
 ///
 /// @param {Colour} $colour - colour to tint
-/// @param {Number} $percentage - percentage of `$colour` in returned colour
+/// @param {Number} $percentage - percentage of white to mix with $colour
 /// @return {Colour}
 /// @access public
 
 @function govie-tint($colour, $percentage) {
-  @return mix(govie-colour("white"), $colour, $percentage);
+  @return mix(govie-colour('white'), $colour, $percentage);
 }

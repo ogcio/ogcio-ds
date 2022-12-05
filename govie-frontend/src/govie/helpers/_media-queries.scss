@@ -8,7 +8,11 @@
 
 // Pass our breakpoints and static breakpoint definitions through to sass-mq.
 $mq-breakpoints: if(variable-exists(govie-breakpoints), $govie-breakpoints, ());
-$mq-static-breakpoint: if(variable-exists(govie-ie8-breakpoint), $govie-ie8-breakpoint, desktop);
+$mq-static-breakpoint: if(
+  variable-exists(govie-ie8-breakpoint),
+  $govie-ie8-breakpoint,
+  desktop
+);
 
 $mq-show-breakpoints: ();
 
@@ -35,7 +39,7 @@ $sass-mq-already-included: false !default;
   $mq-show-breakpoints: ();
 }
 
-@import "../vendor/sass-mq";
+@import '../vendor/sass-mq';
 
 $sass-mq-already-included: true;
 

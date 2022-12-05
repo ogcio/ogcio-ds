@@ -47,6 +47,9 @@ $govie-suppressed-warnings: () !default;
   @if not index($govie-suppressed-warnings, $key) {
     @warn $message + " To silence this warning, update $govie-suppressed-warnings " +
       "with key: \"#{$key}\"";
-    $govie-suppressed-warnings: append($govie-suppressed-warnings, $key) !global;
+    $govie-suppressed-warnings: append(
+      $govie-suppressed-warnings,
+      $key
+    ) !global;
   }
 }
