@@ -319,25 +319,4 @@
       }
     }
   }
-
-  @if $govie-use-legacy-font {
-    // Begin adjustments for font baseline offset
-    // These should be removed when the font is updated with the correct baseline
-    .govie-header__logotype-crown,
-    .govie-header__logotype-harp-fallback-image {
-      position: relative;
-      top: -4px;
-      vertical-align: middle;
-    }
-
-    .govie-header {
-      $offset: 3px;
-      padding-top: $offset;
-    }
-
-    .govie-header__link--homepage {
-      line-height: 30px;
-    }
-    // End adjustments
-  }
 }

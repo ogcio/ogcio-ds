@@ -81,7 +81,6 @@ describe('@mixin govie-typography-common', () => {
 
     expect(resultsString).not.toContain('@font-face')
     expect(resultsString).not.toContain('font-family: "Lato"')
-    expect(resultsString).not.toContain('font-family: "ntatabularnumbers"')
   })
 
   it('should not output a @font-face declaration when the user has turned off this feature', async () => {
