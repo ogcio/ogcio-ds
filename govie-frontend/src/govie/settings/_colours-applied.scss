@@ -30,7 +30,7 @@ $govie-text-colour: govie-colour("black") !default;
 /// @type Colour
 /// @access public
 
-$govie-canvas-background-colour: govie-colour("light-grey", $legacy: "grey-3") !default;
+$govie-canvas-background-colour: govie-tint(#A39161, 90) !default;
 
 /// Body background colour
 ///
@@ -153,3 +153,17 @@ $govie-link-hover-colour: govie-colour("dark-blue") !default;
 /// @access public
 
 $govie-link-active-colour: govie-colour("black") !default;
+
+/// Header surface colour
+///
+/// @type Colour
+/// @access public
+
+$govie-header-surface-colour: #004D44 !default;
+
+/// Header and footer border colour
+///
+/// @type Colour
+/// @access public
+
+$govie-header-footer-colour: #A39161 !default;
