@@ -1,19 +1,8 @@
 @include govie-exports("govie/component/footer") {
 
   $govie-footer-background: $govie-canvas-background-colour;
-  $govie-footer-border: $govie-border-colour;
-  // This variable can be removed entirely once the legacy palette goes away,
-  // as it'll just be the same as $govie-footer-border.
-  $govie-footer-border-top: $govie-border-colour;
+  $govie-footer-border: $govie-header-footer-colour;
   $govie-footer-text: $govie-text-colour;
-  $govie-footer-link-hover-colour: null; // Only used with the legacy palette
-
-  @if $govie-use-legacy-palette {
-    $govie-footer-border-top: #a1acb2;
-    $govie-footer-border: govie-colour("grey-2");
-    $govie-footer-text: #454a4c;
-    $govie-footer-link-hover-colour: #171819;
-  }
 
   // Based on the govie-crest-2x.png image dimensions.
   $govie-footer-logo-image-width-2x: 380px;
@@ -27,36 +16,14 @@
     @include govie-responsive-padding(7, "top");
     @include govie-responsive-padding(5, "bottom");
 
-    border-top: 1px solid $govie-footer-border-top;
+    border-top: 1px solid $govie-footer-border;
     color: $govie-footer-text;
     background: $govie-footer-background;
   }
 
   .govie-footer__link {
     @include govie-link-common;
-
-    @if $govie-use-legacy-palette {
-      &:link,
-      &:visited {
-        color: $govie-footer-text;
-      }
-
-      &:hover,
-      &:active {
-        color: $govie-footer-link-hover-colour;
-      }
-    } @else {
-      @include govie-link-style-text;
-    }
-
-    // alphagov/govuk_template includes a specific a:link:focus selector
-    // designed to make unvisited links a slightly darker blue when focussed, so
-    // we need to override the text colour for that combination of selectors.
-    @include _govie-compatibility(govuk_template) {
-      &:link:focus {
-        @include govie-text-colour;
-      }
-    }
+    @include govie-link-style-text;
   }
 
   .govie-footer__section-break {

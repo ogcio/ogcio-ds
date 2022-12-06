@@ -7,7 +7,7 @@
 /// @type Colour
 /// @access public
 
-$govie-button-background-colour: govie-colour("green", $legacy: #00823b) !default;
+$govie-button-background-colour: govie-colour("green") !default;
 
 /// Button component text colour
 ///
@@ -23,7 +23,7 @@ $govie-button-text-colour: govie-colour("white") !default;
   $govie-button-text-colour: $govie-button-text-colour;
 
   // Secondary button variables
-  $govie-secondary-button-colour: govie-colour("light-grey", $legacy: "grey-3");
+  $govie-secondary-button-colour: govie-colour("light-grey");
   $govie-secondary-button-hover-colour: govie-shade($govie-secondary-button-colour, 10%);
   $govie-secondary-button-shadow-colour: govie-shade($govie-secondary-button-colour, 40%);
   $govie-secondary-button-text-colour: govie-colour("black");
@@ -114,17 +114,6 @@ $govie-button-text-colour: govie-colour("white") !default;
       box-shadow: inset 0 0 0 1px $govie-focus-colour;
     }
 
-    // alphagov/govuk_template includes a specific a:link:focus selector
-    // designed to make unvisited links a slightly darker blue when focussed, so
-    // we need to override the text colour for that combination of selectors so
-    // so that unvisited links styled as buttons do not end up with dark blue
-    // text when focussed.
-    @include _govie-compatibility(govuk_template) {
-      &:link:focus {
-        color: $govie-button-text-colour;
-      }
-    }
-
     &:focus:not(:active):not(:hover) {
       border-color: $govie-focus-colour;
       color: $govie-focus-text-colour;
@@ -197,17 +186,6 @@ $govie-button-text-colour: govie-colour("white") !default;
       color: $govie-secondary-button-text-colour;
     }
 
-    // alphagov/govuk_template includes a specific a:link:focus selector
-    // designed to make unvisited links a slightly darker blue when focussed, so
-    // we need to override the text colour for that combination of selectors so
-    // so that unvisited links styled as buttons do not end up with dark blue
-    // text when focussed.
-    @include _govie-compatibility(govuk_template) {
-      &:link:focus {
-        color: $govie-secondary-button-text-colour;
-      }
-    }
-
     &:hover {
       background-color: $govie-secondary-button-hover-colour;
 
@@ -227,17 +205,6 @@ $govie-button-text-colour: govie-colour("white") !default;
     &:active,
     &:hover {
       color: $govie-warning-button-text-colour;
-    }
-
-    // alphagov/govuk_template includes a specific a:link:focus selector
-    // designed to make unvisited links a slightly darker blue when focussed, so
-    // we need to override the text colour for that combination of selectors so
-    // so that unvisited links styled as buttons do not end up with dark blue
-    // text when focussed.
-    @include _govie-compatibility(govuk_template) {
-      &:link:focus {
-        color: $govie-warning-button-text-colour;
-      }
     }
 
     &:hover {
@@ -271,19 +238,5 @@ $govie-button-text-colour: govie-colour("white") !default;
     // Work around SVGs not inheriting color from parent in forced color mode
     // (https://github.com/w3c/csswg-drafts/issues/6310)
     forced-color-adjust: auto;
-  }
-
-  @if $govie-use-legacy-font {
-    // Begin adjustments for font baseline offset when using v1 of nta
-    $offset: 2;
-
-    .govie-button {
-      padding-top: (govie-spacing(2) - $govie-border-width-form-element - ($button-shadow-size / 2) + $offset); // s1
-      padding-bottom: (govie-spacing(2) - $govie-border-width-form-element - ($button-shadow-size / 2) - $offset + 1); // s1
-    }
-
-    .govie-button__start-icon {
-      margin-top: -3px;
-    }
   }
 }

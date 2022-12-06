@@ -2,7 +2,7 @@
 /// @group helpers
 ////
 
-@import "../tools/exports";
+@import '../tools/exports';
 
 /// Font Face - Lato
 ///
@@ -12,26 +12,25 @@
 /// @access private
 
 @mixin _govie-font-face-lato {
-  @include govie-not-ie8 { // In IE8, which cannot render WOFF format, we fall back to system fonts
-    @include govie-exports("govie/helpers/font-faces") {
+  @include govie-not-ie8 {
+    // In IE8, which cannot render WOFF format, we fall back to system fonts
+    @include govie-exports('govie/helpers/font-faces') {
       @at-root {
         @font-face {
-          font-family: "Lato";
+          font-family: 'Lato';
           font-style: normal;
           font-weight: normal;
-          src:
-            govie-font-url("lato-regular.woff2") format("woff2"),
-            govie-font-url("lato-regular.woff") format("woff");
+          src: govie-font-url('lato-regular.woff2') format('woff2'),
+            govie-font-url('lato-regular.woff') format('woff');
           font-display: fallback;
         }
 
         @font-face {
-          font-family: "Lato";
+          font-family: 'Lato';
           font-style: normal;
           font-weight: bold;
-          src:
-            govie-font-url("lato-bold.woff2") format("woff2"),
-            govie-font-url("lato-bold.woff") format("woff");
+          src: govie-font-url('lato-bold.woff2') format('woff2'),
+            govie-font-url('lato-bold.woff') format('woff');
           font-display: fallback;
         }
       }

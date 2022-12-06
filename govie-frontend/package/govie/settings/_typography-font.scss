@@ -1,28 +1,8 @@
-@import "compatibility";
-@import "typography-font-families";
+@import 'typography-font-families';
 
 ////
 /// @group settings/typography
 ////
-
-/// Use 'legacy' fonts
-///
-/// Whether or not to use v1 nta font from GOV.UK Elements / Frontend
-/// Toolkit, for teams that are migrating to GOV.IE Frontend and may be using
-/// components from both places in a single application.
-///
-/// @type Boolean
-/// @access public
-
-$govie-use-legacy-font: if(
-  (
-    $govie-compatibility-goviefrontendtoolkit or
-    $govie-compatibility-govietemplate or
-    $govie-compatibility-govieelements
-  ),
-  true,
-  false
-) !default;
 
 // =========================================================
 // Font families
@@ -33,22 +13,7 @@ $govie-use-legacy-font: if(
 /// @type List
 /// @access public
 
-$govie-font-family: if(
-  $govie-use-legacy-font,
-  $govie-font-family-lato,
-  $govie-font-family-lato
-) !default;
-
-/// Font families to use when displaying tabular numbers
-///
-/// @type List
-/// @access public
-
-$govie-font-family-tabular: if(
-  $govie-use-legacy-font,
-  $govie-font-family-lato-tabular,
-  false
-) !default;
+$govie-font-family: $govie-font-family-lato !default;
 
 /// Font families to use for print media
 ///

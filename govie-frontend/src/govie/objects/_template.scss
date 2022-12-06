@@ -1,7 +1,6 @@
-@import "../base";
+@import '../base';
 
-@include govie-exports("govie/objects/template") {
-
+@include govie-exports('govie/objects/template') {
   // Applied to the <html> element
   .govie-template {
     // Set the overall page background colour to the same colour as used by the

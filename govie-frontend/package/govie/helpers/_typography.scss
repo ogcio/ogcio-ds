@@ -2,7 +2,7 @@
 /// @group helpers/typography
 ////
 
-@import "../tools/px-to-rem";
+@import '../tools/px-to-rem';
 
 /// 'Common typography' helper
 ///
@@ -19,10 +19,6 @@
 
   // If the user is using the default Lato font we need to include
   // the font-face declarations.
-  //
-  // We do not need to include the Lato font-face declarations if
-  // alphagov/govuk_template is being used since nta will already be included by
-  // default.
   @if $govie-include-default-font-face {
     @include _govie-font-face-lato;
   }
@@ -118,8 +114,11 @@
 ///
 /// @access public
 
-@mixin govie-typography-responsive($size, $override-line-height: false, $important: false) {
-
+@mixin govie-typography-responsive(
+  $size,
+  $override-line-height: false,
+  $important: false
+) {
   @if not map-has-key($govie-typography-scale, $size) {
     @error "Unknown font size `#{$size}` - expected a point from the typography scale.";
   }
@@ -127,16 +126,17 @@
   $font-map: map-get($govie-typography-scale, $size);
 
   @each $breakpoint, $breakpoint-map in $font-map {
-    $font-size: map-get($breakpoint-map, "font-size");
+    $font-size: map-get($breakpoint-map, 'font-size');
     $font-size-rem: govie-px-to-rem($font-size);
 
     $line-height: _govie-line-height(
-      $line-height: if(
-        $override-line-height,
-        $override-line-height,
-        map-get($breakpoint-map, "line-height")
-      ),
-      $font-size: $font-size
+      $line-height:
+        if(
+          $override-line-height,
+          $override-line-height,
+          map-get($breakpoint-map, 'line-height')
+        ),
+      $font-size: $font-size,
     );
 
     // Mark rules as !important if $important is true - this will result in
@@ -148,11 +148,8 @@
 
     @if not $breakpoint {
       font-size: $font-size;
-      @if $govie-typography-use-rem {
-        font-size: $font-size-rem;
-      }
       line-height: $line-height;
-    } @else if $breakpoint == "print" {
+    } @else if $breakpoint == 'print' {
       @include govie-media-query($media-type: print) {
         font-size: $font-size;
         line-height: $line-height;
@@ -160,9 +157,6 @@
     } @else {
       @include govie-media-query($from: $breakpoint) {
         font-size: $font-size;
-        @if $govie-typography-use-rem {
-          font-size: $font-size-rem;
-        }
         line-height: $line-height;
       }
     }
@@ -182,21 +176,21 @@
 ///
 /// @access public
 
-@mixin govie-font($size, $weight: regular, $tabular: false, $line-height: false) {
+@mixin govie-font(
+  $size,
+  $weight: regular,
+  $tabular: false,
+  $line-height: false
+) {
   @if $tabular {
-    // if govie-font-family-tabular is set use $govie-font-family-tabular
-    @if $govie-font-family-tabular {
-      @include govie-typography-common($font-family: $govie-font-family-tabular);
-    } @else {
-      @include govie-typography-common;
-      -webkit-font-feature-settings: "tnum" 1;
-              font-feature-settings: "tnum" 1;
+    @include govie-typography-common;
+    -webkit-font-feature-settings: 'tnum' 1;
+    font-feature-settings: 'tnum' 1;
 
-      @supports (font-variant-numeric: tabular-nums) {
-        -webkit-font-feature-settings: normal;
-                font-feature-settings: normal;
-        font-variant-numeric: tabular-nums;
-      }
+    @supports (font-variant-numeric: tabular-nums) {
+      -webkit-font-feature-settings: normal;
+      font-feature-settings: normal;
+      font-variant-numeric: tabular-nums;
     }
   } @else {
     @include govie-typography-common;
@@ -209,6 +203,9 @@
   }
 
   @if $size {
-    @include govie-typography-responsive($size, $override-line-height: $line-height);
+    @include govie-typography-responsive(
+      $size,
+      $override-line-height: $line-height
+    );
   }
 }
