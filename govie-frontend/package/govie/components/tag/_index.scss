@@ -16,27 +16,16 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    @if $govie-use-legacy-font {
-      // Since New Transport sits slightly higher than other common fonts.
-      // We use intentionally uneven padding to make it balanced, this can be
-      // removed using the version of the font that has a more common vertical spacing.
-      @include govie-font($size: 16, $weight: bold, $line-height: 1.25);
-      padding-top: 4px;
-      padding-right: 8px;
-      padding-bottom: 1px;
-      padding-left: 8px;
-    } @else {
-      @include govie-font($size: 16, $weight: bold, $line-height: 1);
-      padding-top: 5px;
-      padding-right: 8px;
-      padding-bottom: 4px;
-      padding-left: 8px;
-    }
+    @include govie-font($size: 16, $weight: bold, $line-height: 1);
+    padding-top: 5px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    padding-left: 8px;
   }
 
   .govie-tag--grey {
-    color: govie-shade(govie-colour("dark-grey", $legacy: "grey-1"), 30);
-    background: govie-tint(govie-colour("dark-grey", $legacy: "grey-1"), 90);
+    color: govie-shade(govie-colour("dark-grey"), 30);
+    background: govie-tint(govie-colour("dark-grey"), 90);
   }
 
   .govie-tag--purple {

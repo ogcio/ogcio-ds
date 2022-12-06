@@ -31,9 +31,8 @@
 /// @access public
 
 @function govie-spacing($spacing-point) {
-
   $actual-input-type: type-of($spacing-point);
-  @if $actual-input-type != "number" {
+  @if $actual-input-type != 'number' {
     @error "Expected a number (integer), but got a "
     + "#{$actual-input-type}.";
   }
@@ -71,47 +70,57 @@
 ///
 /// @access private
 
-@mixin _govie-responsive-spacing($responsive-spacing-point, $property, $direction: "all", $important: false, $adjustment: false) {
-
+@mixin _govie-responsive-spacing(
+  $responsive-spacing-point,
+  $property,
+  $direction: 'all',
+  $important: false,
+  $adjustment: false
+) {
   $actual-input-type: type-of($responsive-spacing-point);
-  @if $actual-input-type != "number" {
+  @if $actual-input-type != 'number' {
     @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
   }
 
-  @if not map-has-key($govie-spacing-responsive-scale, $responsive-spacing-point) {
+  @if not
+    map-has-key($govie-spacing-responsive-scale, $responsive-spacing-point)
+  {
     @error "Unknown spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the "
     + "responsive spacing scale in `_settings/spacing.scss`.";
   }
 
   // Make sure that the return value from `_settings/spacing.scss` is a map.
-  $scale-map: map-get($govie-spacing-responsive-scale, $responsive-spacing-point);
+  $scale-map: map-get(
+    $govie-spacing-responsive-scale,
+    $responsive-spacing-point
+  );
   $actual-map-type: type-of($scale-map);
-  @if $actual-map-type != "map" {
+  @if $actual-map-type != 'map' {
     @error "Expected a number (integer), but got a "
     + "#{$actual-map-type}. Make sure you are using a map to set the responsive spacing in `_settings/spacing.scss`)";
   }
 
   // Loop through each breakpoint in the map
   @each $breakpoint, $breakpoint-value in $scale-map {
-
     @if $adjustment {
       $breakpoint-value: $breakpoint-value + $adjustment;
     }
 
     // The 'null' breakpoint is for mobile.
     @if not $breakpoint {
-
       @if $direction == all {
         #{$property}: $breakpoint-value if($important, !important, null);
       } @else {
-        #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+        #{$property}-#{$direction}: $breakpoint-value
+          if($important, !important, null);
       }
     } @else {
       @include govie-media-query($from: $breakpoint) {
         @if $direction == all {
           #{$property}: $breakpoint-value if($important, !important, null);
         } @else {
-          #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
+          #{$property}-#{$direction}: $breakpoint-value
+            if($important, !important, null);
         }
       }
     }
@@ -140,8 +149,19 @@
 ///
 /// @access public
 
-@mixin govie-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _govie-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
+@mixin govie-responsive-margin(
+  $responsive-spacing-point,
+  $direction: 'all',
+  $important: false,
+  $adjustment: false
+) {
+  @include _govie-responsive-spacing(
+    $responsive-spacing-point,
+    'margin',
+    $direction,
+    $important,
+    $adjustment
+  );
 }
 
 /// Responsive padding
@@ -166,6 +186,17 @@
 ///
 /// @access public
 
-@mixin govie-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _govie-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
+@mixin govie-responsive-padding(
+  $responsive-spacing-point,
+  $direction: 'all',
+  $important: false,
+  $adjustment: false
+) {
+  @include _govie-responsive-spacing(
+    $responsive-spacing-point,
+    'padding',
+    $direction,
+    $important,
+    $adjustment
+  );
 }

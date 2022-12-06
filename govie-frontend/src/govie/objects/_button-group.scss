@@ -1,6 +1,6 @@
-@import "../base";
+@import '../base';
 
-@include govie-exports("govie/objects/button-group") {
+@include govie-exports('govie/objects/button-group') {
   // Button groups can be used to group buttons and links together as a group.
   //
   // Within a button group:
@@ -19,7 +19,11 @@
 
     $link-spacing: govie-spacing(1);
 
-    @include govie-responsive-margin(6, "bottom", $adjustment: $vertical-gap * -1);
+    @include govie-responsive-margin(
+      6,
+      'bottom',
+      $adjustment: $vertical-gap * -1
+    );
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that

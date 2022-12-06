@@ -7,8 +7,7 @@
 /// This map is used to determine which deprecation warnings to **not** show
 /// to users when compiling sass. This is in place for codebases that do not
 /// have the necessary capacity to upgrade and remove the deprecation,
-/// particularly if the deprecation is significant. For example, removal of
-/// compatibility with legacy libraries such as govuk_elements.
+/// particularly if the deprecation is significant.
 ///
 /// You can add to this map and define which warnings to suppress by appending to
 /// it using the warning key, found in the warning message. For example:
@@ -48,6 +47,9 @@ $govie-suppressed-warnings: () !default;
   @if not index($govie-suppressed-warnings, $key) {
     @warn $message + " To silence this warning, update $govie-suppressed-warnings " +
       "with key: \"#{$key}\"";
-    $govie-suppressed-warnings: append($govie-suppressed-warnings, $key) !global;
+    $govie-suppressed-warnings: append(
+      $govie-suppressed-warnings,
+      $key
+    ) !global;
   }
 }
