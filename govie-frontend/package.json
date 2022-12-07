@@ -106,6 +106,7 @@
     "postcss-unopacity": "^2.0.0",
     "postcss-unrgba": "^1.1.1",
     "puppeteer": "^19.1.0",
+    "react": "^17.0.2",
     "recursive-readdir": "^2.2.2",
     "rollup": "0.56.5",
     "sass-color-helpers": "^2.1.1",
@@ -120,10 +121,11 @@
     "undici": "^5.11.0",
     "wait-on": "^6.0.1",
     "ws": "^8.9.0",
-    "yargs": "^17.6.0"
-  },
-  "dependencies": {
+    "yargs": "^17.6.0",
+    "@storybook/addon-docs": "^6.5.13",
     "@storybook/html": "^6.5.13",
     "js-beautify": "^1.14.7"
+  },
+  "dependencies": {
   }
 }
