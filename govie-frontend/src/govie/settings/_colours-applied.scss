@@ -22,23 +22,6 @@ $govie-brand-colour: govie-colour('blue') !default;
 
 $govie-text-colour: govie-colour('black') !default;
 
-/// Canvas background colour
-///
-/// Used by the footer component and template to give the illusion of a long
-/// footer.
-///
-/// @type Colour
-/// @access public
-
-$govie-canvas-background-colour: $govie-footer-surface-colour !default;
-
-/// Body background colour
-///
-/// @type Colour
-/// @access public
-
-$govie-body-background-colour: govie-colour('white') !default;
-
 /// Text colour for print media
 ///
 /// Use 'true black' to avoid printers using colour ink to print body text
@@ -174,3 +157,20 @@ $govie-header-footer-colour: #a39161 !default;
 /// @access public
 
 $govie-footer-surface-colour: govie-tint(#a39161, 90) !default;
+
+/// Canvas background colour
+///
+/// Used by the footer component and template to give the illusion of a long
+/// footer.
+///
+/// @type Colour
+/// @access public
+
+$govie-canvas-background-colour: $govie-footer-surface-colour !default;
+
+/// Body background colour
+///
+/// @type Colour
+/// @access public
+
+$govie-body-background-colour: govie-colour('white') !default;
