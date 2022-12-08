@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs'
+import { CodeBlock } from './components/CodeBlock'
+import { AssetsVariables } from './components/AssetsVariables'
+import { ColoursVariables } from './components/ColoursVariables'
+import { MeasurementVariables } from './components/MeasurementVariables'
+
+<Meta title="Docs/SASS API reference" />
+
+<h1>SASS API reference</h1>
+
+<h2>Settings</h2>
+
+<br />
+<AssetsVariables />
+<ColoursVariables />
+
+<h3>Global styles</h3>
+<CodeBlock
+  variable="$govie-global-styles"
+  description={
+    <>
+      <p>Include ‘global’ styles</p>
+      <p>
+        Whether to style paragraphs (&lt;p&gt;) and links (&lt;a&gt;) without
+        explicitly having to apply the <code>govie-body</code> and{' '}
+        <code>govie-link</code> classes.
+      </p>
+    </>
+  }
+  code="$govie-global-styles: false;"
+/>
+
+<h3>Internet explorer 8</h3>
+<CodeBlock
+  variable="$govie-is-ie8"
+  description="Whether the stylesheet being built is targeting Internet Explorer 8."
+  code="$govie-is-ie8: false;"
+/>
+<CodeBlock
+  variable="$govie-ie8-breakpoint"
+  description="The name of the breakpoint to use as the target when rasterizing media queries."
+  code="govie-ie8-breakpoint: desktop;"
+/>
+
+<MeasurementVariables />

@@ -1,7 +1,7 @@
 @include govie-exports("govie/component/footer") {
 
-  $govie-footer-background: $govie-canvas-background-colour;
-  $govie-footer-border: $govie-header-footer-colour;
+  $govie-footer-background: $govie-footer-surface-colour;
+  $govie-footer-border: $govie-header-footer-border-colour;
   $govie-footer-text: $govie-text-colour;
 
   // Based on the govie-crest-2x.png image dimensions.

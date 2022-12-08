@@ -23,25 +23,30 @@ export const parameters = {
         </p>
       ),
       h1: ({ children, ...args }) => (
-        <h1 className="govie-heading-l" {...args}>
+        <h1 className="govie-heading-xl" {...args}>
           {children}
         </h1>
       ),
       h2: ({ children, ...args }) => (
-        <h2 className="govie-heading-m" {...args}>
+        <h2 className="govie-heading-l" {...args}>
           {children}
         </h2>
       ),
       h3: ({ children, ...args }) => (
-        <h2 className="govie-heading-s" {...args}>
+        <h3 className="govie-heading-m" {...args}>
           {children}
-        </h2>
+        </h3>
+      ),
+      h4: ({ children, ...args }) => (
+        <h4 className="govie-heading-s" {...args}>
+          {children}
+        </h4>
       )
     }
   },
   options: {
     storySort: {
-      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout'],
+      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout']
     }
   }
 }

@@ -1,7 +1,7 @@
 @include govie-exports("govie/component/header") {
 
   $govie-header-background: $govie-header-surface-colour;
-  $govie-header-border-color: $govie-header-footer-colour;
+  $govie-header-border-color: $govie-header-footer-border-colour;
   $govie-header-border-width: govie-spacing(2);
   $govie-header-text: govie-colour("white");
   $govie-header-link-active: #1d8feb;
