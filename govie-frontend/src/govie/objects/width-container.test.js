@@ -9,7 +9,7 @@ const sassConfig = {
 describe('@mixin govie-width-container', () => {
   it('allows different widths to be specified using $width', async () => {
     const sass = `
-      @import "objects/width-container";
+      @import "./objects/width-container";
 
       .app-width-container--wide {
         @include govie-width-container(1200px);

@@ -11,7 +11,6 @@ We love contributions! We've compiled these docs to help you understand our cont
   - [Indentation and whitespace](#indentation-and-whitespace)
   - [CSS](#css)
   - [JavaScript](#javascript)
-  - [Components and Nunjucks API](#components-and-nunjucks-api)
 - [Testing and linting](#testing-and-linting)
 - [Supported browsers](#supported-browsers)
 - [Commit hygiene](#commit-hygiene)
@@ -49,10 +48,6 @@ See our [coding standards for CSS](/docs/contributing/coding-standards/css.md) a
 ### JavaScript
 
 See our [coding standards for JavaScript](/docs/contributing/coding-standards/js.md) and [testing ](/docs/contributing/testing.md).
-
-### Components and Nunjucks API
-
-See our [coding standards for components](/docs/contributing/coding-standards/components.md), [coding standards for Nunjucks macros](/docs/contributing/coding-standards/nunjucks-api.md) and [testing](/docs/contributing/testing.md).
 
 ## Testing and linting
 

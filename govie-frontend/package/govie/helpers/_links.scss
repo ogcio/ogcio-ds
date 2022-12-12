@@ -55,9 +55,9 @@
     // Disable ink skipping on underlines on hover. Browsers haven't
     // standardised on this part of the spec yet, so set both properties
     -webkit-text-decoration-skip-ink: none;
-    text-decoration-skip-ink: none; // Chromium, Firefox
+            text-decoration-skip-ink: none; // Chromium, Firefox
     -webkit-text-decoration-skip: none;
-    text-decoration-skip: none; // Safari
+            text-decoration-skip: none; // Safari
   }
 }
 
@@ -178,7 +178,7 @@
 ///
 /// Makes links use the secondary text colour. The link will darken if it's
 /// active or a user hovers their cursor over it.
-///ß
+///
 /// If you use this mixin in a component, you must also include the
 /// `govie-link-common` mixin to get the correct focus and hover states.
 ///

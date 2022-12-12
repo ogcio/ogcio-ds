@@ -79,7 +79,6 @@ You can [read more about the different types of tests in this project](../releas
 You should write new tests if you’ve created a new component, or changed the way a component works by:
 
 - changing or adding to the component's JavaScript code
-- changing or adding to the component's Nunjucks macro
 - creating or updating a Sass mixin or function
 
 If you're new to testing, see existing test files for examples of things to do. Do not let the tests keep you from submitting your contribution! If you're not sure which tests are needed or are having trouble updating them, submit your pull request anyway. We will help you create the tests and solve problems during code review.
@@ -96,7 +95,6 @@ Create the following files in the `src/govie/components` folder:
 
 - `<COMPONENT>/<COMPONENT>.test.js` - to test functionality if the component uses JavaScript
 - `<COMPONENT>/<COMPONENT>.unit.test.mjs` - to unit test any JavaScript logic
-- `<COMPONENT>/template.test.js` - to test the Nunjucks macro
 
 Where `<COMPONENT>` is the name of the component you created.
 
@@ -108,7 +106,6 @@ In the `src/govie/components` folder, update or add tests to:
 
 - `<COMPONENT>/<COMPONENT>.test.js` - if you updated functionality
 - `<COMPONENT>/<COMPONENT>.unit.test.mjs` - if you updated JavaScript logic
-- `<COMPONENT>/template.test.js` - if you updated the Nunjucks macro
 
 Where `<COMPONENT>` is the name of the component you changed or added to.
 

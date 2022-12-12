@@ -1,17 +1,13 @@
 const { readdir, readFile, stat } = require('fs/promises')
 const { join, normalize } = require('path')
-const yaml = require('js-yaml')
 const fm = require('front-matter')
 
 const configPaths = require('../config/paths.js')
 
 /**
- * Test environment globals
  * Used to cache slow operations
- *
- * See `config/jest/globals.mjs`
  */
-const cache = global.cache || {}
+const cache = {}
 
 /**
  * Directory listing for path
@@ -93,118 +89,10 @@ const getFilesByDirectory = async (directoryPath) => {
   return new Map(listings)
 }
 
-/**
- * Load single component data
- *
- * @param {string} componentName - Component name
- * @returns {Promise<ComponentData>} Component data
- */
-const getComponentData = async (componentName) => {
-  const componentData = cache.componentsData
-    ?.find(({ name }) => name === componentName)
-
-  // Retrieve from cache
-  if (componentData) {
-    return componentData
-  }
-
-  // Read from disk
-  try {
-    const yamlPath = join(configPaths.components, componentName, `${componentName}.yaml`)
-    const yamlData = yaml.load(await readFile(yamlPath, 'utf8'), { json: true })
-
-    return {
-      name: componentName,
-      ...yamlData
-    }
-  } catch (error) {
-    throw new Error(error)
-  }
-}
-
-/**
- * Load all components' data
- *
- * @returns {Promise<ComponentData[]>} Components' data
- */
-const getComponentsData = async () => {
-  if (cache.componentsData) {
-    return cache.componentsData
-  }
-
-  // Read from disk
-  const directories = await getDirectories(configPaths.components)
-  return Promise.all([...directories.keys()].map(getComponentData))
-}
-
-/**
- * Load all full page examples' front matter
- *
- * @returns {Promise<FullPageExample[]>} Full page examples
- */
-const getFullPageExamples = async () => {
-  const directories = await getDirectories(configPaths.fullPageExamples)
-
-  // Add metadata (front matter) to each example
-  const examples = await Promise.all([...directories.keys()].map(async (exampleName) => {
-    const templatePath = join(configPaths.fullPageExamples, exampleName, 'index.njk')
-    const { attributes } = fm(await readFile(templatePath, 'utf8'))
-
-    return {
-      name: exampleName,
-      path: exampleName,
-      ...attributes
-    }
-  }))
-
-  const collator = new Intl.Collator('en', {
-    sensitivity: 'base'
-  })
-
-  return examples.sort(({ name: a }, { name: b }) =>
-    collator.compare(a, b))
-}
 
 module.exports = {
-  getComponentData,
-  getComponentsData,
   getDirectories,
   getFiles,
   getFilesByDirectory,
-  getFullPageExamples,
   getListing
 }
-
-/**
- * Directory listing
- *
- * @typedef {Map<string, { path: string; stats: import('fs').Stats }>} DirectoryListing
- */
-
-/**
- * Directory listing entry
- *
- * @typedef {object} DirectoryListingEntry
- * @property {string} path - Relative path to file or directory
- * @property {import('fs').Stats} stats - Information about a file or directory
- */
-
-/**
- * Component data from YAML
- *
- * @typedef {object} ComponentData
- * @property {string} name - Component name
- * @property {unknown[]} [params] - Nunjucks macro options
- * @property {unknown[]} [examples] - Example Nunjucks macro options
- * @property {string} [previewLayout] - Nunjucks layout for component preview
- * @property {string} [accessibilityCriteria] - Accessibility criteria
- */
-
-/**
- * Full page example from front matter
- *
- * @typedef {object} FullPageExample
- * @property {string} name - Example name
- * @property {string} [scenario] - Description explaining the example
- * @property {string} [notes] - Additional notes about the example
- */

@@ -53,7 +53,6 @@ One of ways users interact with GOV.IE Frontend is through the [GOV.UK Design Sy
 This includes:
 
 - HTML - Documented in examples (for example, the [buttons code example](https://design-system.service.gov.uk/components/button/))
-- Nunjucks - Documented in examples (for example, the buttons code example)
 - SCSS - for example [colours variables](https://design-system.service.gov.uk/styles/colour/)
 
 ### npm package
@@ -63,7 +62,6 @@ This includes:
 
 - [JavaScript](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript)
 - [SCSS](https://frontend.design-system.service.gov.uk/sass-api-reference/#sass-api-reference)
-- Nunjucks Macros (Templates)
 
 ## Updating Changelog
 
