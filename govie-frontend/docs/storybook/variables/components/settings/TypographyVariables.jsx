@@ -47,17 +47,17 @@ $govie-include-default-font-face: (
 );`}
     />
     <CodeExample
-      variable="$govuk-font-weight-govie"
+      variable="$govie-font-weight-govie"
       description="Font weight for govie typography"
-      code="$govuk-font-weight-govie: 400;"
+      code="$govie-font-weight-govie: 400;"
     />
     <CodeExample
-      variable="$govuk-font-weight-bold"
+      variable="$govie-font-weight-bold"
       description="Font weight for bold typography"
-      code="$govuk-font-weight-bold: 700;"
+      code="$govie-font-weight-bold: 700;"
     />
     <CodeExample
-      variable="$govuk-root-font-size"
+      variable="$govie-root-font-size"
       description={
         <>
           <p>Root font size</p>
@@ -72,10 +72,10 @@ $govie-include-default-font-face: (
           </p>
         </>
       }
-      code="$govuk-root-font-size: 16px;"
+      code="$govie-root-font-size: 16px;"
     />
     <CodeExample
-      variable="$govuk-typography-scale"
+      variable="$govie-typography-scale"
       description={
         <>
           <p>Responsive typography font map.</p>

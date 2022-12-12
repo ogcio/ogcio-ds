@@ -91,8 +91,10 @@ export const TypographyVariables = () => (
             <br />
             <b>$size</b> (<code>Number</code>): Point from the spacing scale
             (the size as it would appear on tablet and above).
+            <br />
             <b>$override-line-height</b> (<code>Number</code>): Non responsive
             custom line height. Omit to use the line height from the font map.
+            <br />
             <b>$important</b> (<code>Boolean</code>): Whether to mark
             declarations as !important.
           </p>
@@ -112,16 +114,19 @@ export const TypographyVariables = () => (
             <b>$size</b> (<code>Number</code>): Point from the spacing scale
             (the size as it would appear on tablet and above). Use false to
             avoid setting a size.
+            <br />
             <b>$weight</b> (<code>String</code>): Weight: <code>bold</code> or{' '}
-            <code>regular</code>.<b>$tabular</b> (<code>Boolean</code>): Whether
-            to use tabular numbers or not.
+            <code>regular</code>.<br />
+            <b>$tabular</b> (<code>Boolean</code>): Whether to use tabular
+            numbers or not.
+            <br />
             <b>$line-height</b> (<code>Number</code>): Line-height, if
             overriding the default.
           </p>
         </>
       }
       code={
-        '@include govuk-font($size, $weight: "regular", $tabular: false, $line-height: false);'
+        '@include govie-font($size, $weight: "regular", $tabular: false, $line-height: false);'
       }
     />
     <br />
