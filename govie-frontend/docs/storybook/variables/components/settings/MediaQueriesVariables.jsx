@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { CodeBlock } from './CodeBlock'
+import { CodeExample } from '../CodeExample'
 
 export const MediaQueriesVariables = () => (
   <>
     <h3 className="govie-heading-m">Media queries</h3>
-    <CodeBlock
+    <CodeExample
       variable="$govie-breakpoints"
       description="Breakpoint definitions."
       code={`
@@ -15,7 +15,7 @@ $govie-breakpoints: (
   desktop: 769px
 );`}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-show-breakpoints"
       description={
         <>

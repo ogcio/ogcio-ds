@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { CodeBlock } from './CodeBlock'
+import { CodeExample } from '../CodeExample'
 
 export const AssetsVariables = () => (
   <>
     <h3 className="govie-heading-m">Assets</h3>
-    <CodeBlock
+    <CodeExample
       variable="$govie-assets-path"
       description={
         <>
@@ -19,12 +19,12 @@ export const AssetsVariables = () => (
       }
       code={'$govie-assets-path: "/assets/";'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-images-path"
       description="Path to the images folder, with trailing slash."
       code={'$govie-images-path: "#{$govie-assets-path}images/";'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-fonts-path"
       description="Path to the fonts folder, with trailing slash."
       code={'$govie-fonts-path: "#{$govie-assets-path}fonts/";'}

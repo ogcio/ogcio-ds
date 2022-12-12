@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { CodeBlock } from './CodeBlock'
+import { CodeExample } from '../CodeExample'
 
 export const TypographyVariables = () => (
   <>
     <h3 className="govie-heading-m">Typography</h3>
-    <CodeBlock
+    <CodeExample
       variable="$govie-font-family-lato"
-      description="List of font families to use if using Lato (the default font ‘stack’ for gov.ie)."
+      description="List of font families to use if using Lato (the default font ‘stack’ for gov.ie)"
       code="$govie-font-family-lato: 'Lato', arial, sans-serif;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-font-family"
       description="Font families to use for all typography on screen media."
       code="$govie-font-family: $govie-font-family-lato;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-font-family-print"
       description={
         <>
@@ -26,16 +26,18 @@ export const TypographyVariables = () => (
           </p>
         </>
       }
-      code="$govie-font-family-print: serif;"
+      code="$govie-font-family-print: sans-serif;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-include-default-font-face"
       description={
         <>
-          <p>Font families to use for print media.</p>
+          <p>Include the default @font-face declarations.</p>
           <p>
-            We recommend that you use system fonts when printing. This will
-            avoid issues with some printer drivers and operating systems.
+            If you have set <code>$govie-font-family</code> to something other
+            than
+            <code>$govie-font-family-gds-transport</code> this option is
+            disabled by default.
           </p>
         </>
       }
@@ -44,21 +46,21 @@ $govie-include-default-font-face: (
   $govie-font-family == $govie-font-family-lato
 );`}
     />
-    <CodeBlock
-      variable="$govie-font-weight-regular"
-      description="Font weight for regular typography."
-      code="$govie-font-weight-regular: 400;"
+    <CodeExample
+      variable="$govuk-font-weight-govie"
+      description="Font weight for govie typography"
+      code="$govuk-font-weight-govie: 400;"
     />
-    <CodeBlock
-      variable="$govie-font-weight-bold"
-      description="Font weight for bold typography."
-      code="$govie-font-weight-bold: 700;"
+    <CodeExample
+      variable="$govuk-font-weight-bold"
+      description="Font weight for bold typography"
+      code="$govuk-font-weight-bold: 700;"
     />
-    <CodeBlock
-      variable="$govie-root-font-size"
+    <CodeExample
+      variable="$govuk-root-font-size"
       description={
         <>
-          <p>Root font size.</p>
+          <p>Root font size</p>
           <p>
             This is used to calculate rem sizes for the typography, and should
             match the effective font-size of your root (or html) element.
@@ -70,31 +72,24 @@ $govie-include-default-font-face: (
           </p>
         </>
       }
-      code="$govie-root-font-size: 16px;"
+      code="$govuk-root-font-size: 16px;"
     />
-    <CodeBlock
-      variable="$govie-typography-scale"
+    <CodeExample
+      variable="$govuk-typography-scale"
       description={
         <>
           <p>Responsive typography font map.</p>
           <p>
-            This is used to generate responsive typography that adapts according
-            to the breakpoints.
+          This is used to generate responsive typography that adapts according to the breakpoints.
           </p>
           <p>
-            Font size and font weight can be defined for each breakpoint. You
-            can define different behaviour on tablet and desktop. The ‘null’
-            breakpoint is for mobile.
+          Font size and font weight can be defined for each breakpoint. You can define different behaviour on tablet and desktop. The ‘null’ breakpoint is for mobile.
           </p>
           <p>
-            Line-heights will automatically be converted from pixel measurements
-            into relative values. For example, with a font-size of 16px and a
-            line-height of 24px, the line-height will be converted to 1.5 before
-            output.
+          Line-heights will automatically be converted from pixel measurements into relative values. For example, with a font-size of 16px and a line-height of 24px, the line-height will be converted to 1.5 before output.
           </p>
           <p>
-            You can also specify a separate font size and line height for print
-            media.
+          You can also specify a separate font size and line height for print media.
           </p>
         </>
       }
@@ -214,5 +209,6 @@ $govie-typography-scale: (
   )
 );`}
     />
+    <br />
   </>
 )

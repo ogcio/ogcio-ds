@@ -1,26 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { CodeBlock } from './CodeBlock'
+import { CodeExample } from '../CodeExample'
 
 export const ColoursVariables = () => (
   <>
     <h3 className="govie-heading-m">Colours</h3>
-    <CodeBlock
+    <CodeExample
       variable="$govie-brand-colour"
       description={<p>Brand colour.</p>}
       code={'$govie-brand-colour: govie-colour("blue");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-text-colour"
       description={<p>Text colour.</p>}
       code={'$govie-text-colour: govie-colour("black");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-body-background-colour"
       description={<p>Body background colour.</p>}
       code={'$govie-body-background-colour: govie-colour("white");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-print-text-colour"
       description={
         <>
@@ -33,7 +33,7 @@ export const ColoursVariables = () => (
       }
       code="$govie-print-text-colour: #000000;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-secondary-text-colour"
       description={
         <>
@@ -43,7 +43,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-secondary-text-colour: govie-colour("dark-grey");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-focus-colour"
       description={
         <>
@@ -56,7 +56,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-focus-colour: govie-colour("yellow");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-focus-text-colour"
       description={
         <>
@@ -69,7 +69,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-focus-text-colour: govie-colour("black");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-focus-text-colour"
       description={
         <>
@@ -82,7 +82,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-focus-text-colour: govie-colour("black");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-error-colour"
       description={
         <>
@@ -95,7 +95,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-error-colour: govie-colour("red");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-success-colour"
       description={
         <>
@@ -105,7 +105,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-success-colour: govie-colour("green");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-border-colour"
       description={
         <>
@@ -115,7 +115,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-border-colour: govie-colour("mid-grey");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-input-border-colour"
       description={
         <>
@@ -125,7 +125,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-input-border-colour: govie-colour("black");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-hover-colour"
       description={
         <>
@@ -135,7 +135,7 @@ export const ColoursVariables = () => (
       }
       code={'$govie-hover-colour: govie-colour("mid-grey");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-link-colour"
       description={
         <>
@@ -144,32 +144,32 @@ export const ColoursVariables = () => (
       }
       code={'$govie-link-colour: govie-colour("blue");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-link-visited-colour"
       description="Visited link colour."
       code={'$govie-link-visited-colour: govie-colour("purple");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-link-hover-colour"
       description="Link hover colour."
       code={'$govie-link-hover-colour: govie-colour("dark-blue");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-link-active-colour"
       description="Active link colour."
       code={'$govie-link-active-colour: govie-colour("black");'}
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-header-surface-colour"
       description="Head surface colour."
       code="$govie-header-surface-colour: #004d44;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-header-footer-border-colour"
       description="Header and footer border colour."
       code="$govie-header-footer-border-colour: #a39161;"
     />
-    <CodeBlock
+    <CodeExample
       variable="$govie-footer-surface-colour"
       description="Used by the footer component and template to give the illusion of a long footer."
       code="$govie-footer-surface-colour: govie-tint(#a39161, 90);"
