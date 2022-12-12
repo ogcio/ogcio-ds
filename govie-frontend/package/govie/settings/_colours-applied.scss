@@ -149,14 +149,7 @@ $govie-header-surface-colour: #004d44 !default;
 /// @type Colour
 /// @access public
 
-$govie-header-footer-colour: #a39161 !default;
-
-/// Footer surface colour
-///
-/// @type Colour
-/// @access public
-
-$govie-footer-surface-colour: govie-tint(#a39161, 90) !default;
+$govie-header-footer-border-colour: #a39161 !default;
 
 /// Canvas background colour
 ///
@@ -166,7 +159,7 @@ $govie-footer-surface-colour: govie-tint(#a39161, 90) !default;
 /// @type Colour
 /// @access public
 
-$govie-canvas-background-colour: $govie-footer-surface-colour !default;
+$govie-footer-surface-colour: govie-tint(#a39161, 90) !default;
 
 /// Body background colour
 ///

@@ -41,10 +41,12 @@
     "@percy/cli": "^1.12.0",
     "@percy/puppeteer": "^2.0.2",
     "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-docs": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
     "@storybook/addon-links": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/html": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/preset-scss": "^1.0.3",
@@ -89,6 +91,7 @@
     "jest-environment-puppeteer": "^6.1.1",
     "jest-serializer-html": "^7.1.0",
     "jquery": "1.12.4",
+    "js-beautify": "^1.14.7",
     "js-yaml": "^4.1.0",
     "jsdoc": "^3.6.11",
     "jsdoc-tsimport-plugin": "^1.0.5",
@@ -122,9 +125,7 @@
     "wait-on": "^6.0.1",
     "ws": "^8.9.0",
     "yargs": "^17.6.0",
-    "@storybook/addon-docs": "^6.5.13",
-    "@storybook/html": "^6.5.13",
-    "js-beautify": "^1.14.7"
+    "react-code-blocks": "^0.0.9-0"
   },
   "dependencies": {
   }
