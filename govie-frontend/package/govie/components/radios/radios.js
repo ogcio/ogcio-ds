@@ -1014,10 +1014,141 @@ if (detect) return
 
 }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+    // Detection from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    var detect = ('trim' in String.prototype);
+    
+    if (detect) return
+
+    // Polyfill from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    String.prototype.trim = function () {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/detect.js
+  var detect = (
+    'document' in this && "matches" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/polyfill.js
+  Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
+    var element = this;
+    var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+    var index = 0;
+
+    while (elements[index] && elements[index] !== element) {
+      ++index;
+    }
+
+    return !!elements[index];
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/detect.js
+  var detect = (
+    'document' in this && "closest" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/polyfill.js
+  Element.prototype.closest = function closest(selector) {
+    var node = this;
+
+    while (node) {
+      if (node.matches(selector)) return node;
+      else node = 'SVGElement' in window && node instanceof SVGElement ? node.parentNode : node.parentElement;
+    }
+
+    return null;
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
 /**
  * TODO: Ideally this would be a NodeList.prototype.forEach polyfill
  * This seems to fail in IE8, requires more investigation.
  * See: https://github.com/imagitama/nodelist-foreach-polyfill
+ *
+ * @param {NodeListOf<Element>} nodes - NodeList from querySelectorAll()
+ * @param {nodeListIterator} callback - Callback function to run for each node
+ * @returns {undefined}
  */
 function nodeListForEach (nodes, callback) {
   if (window.NodeList.prototype.forEach) {
@@ -1028,6 +1159,20 @@ function nodeListForEach (nodes, callback) {
   }
 }
 
+/**
+ * @callback nodeListIterator
+ * @param {Element} value - The current node being iterated on
+ * @param {number} index - The current index in the iteration
+ * @param {NodeListOf<Element>} nodes - NodeList from querySelectorAll()
+ * @returns {undefined}
+ */
+
+/**
+ * Radios component
+ *
+ * @class
+ * @param {HTMLElement} $module - HTML element to use for radios
+ */
 function Radios ($module) {
   this.$module = $module;
   this.$inputs = $module.querySelectorAll('input[type="radio"]');
@@ -1098,7 +1243,7 @@ Radios.prototype.syncAllConditionalReveals = function () {
  * Synchronise the visibility of the conditional reveal, and its accessible
  * state, with the input's checked state.
  *
- * @param {HTMLInputElement} $input Radio input
+ * @param {HTMLInputElement} $input - Radio input
  */
 Radios.prototype.syncConditionalRevealWithInputState = function ($input) {
   var $target = document.getElementById($input.getAttribute('aria-controls'));
@@ -1119,7 +1264,7 @@ Radios.prototype.syncConditionalRevealWithInputState = function ($input) {
  * with the same name (because checking one radio could have un-checked a radio
  * in another $module)
  *
- * @param {MouseEvent} event Click event
+ * @param {MouseEvent} event - Click event
  */
 Radios.prototype.handleClick = function (event) {
   var $clickedInput = event.target;

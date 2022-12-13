@@ -20,7 +20,6 @@ function kebabCaseToPascalCase (value) {
  * a `govuk` prefix and are camel cased (govukButton, govukDateInput).
  *
  * @param {string} componentName - A kebab-cased component name
- * @returns {string} The name of its corresponding Nunjucks macro
  */
 function componentNameToMacroName (componentName) {
   return `govuk${kebabCaseToPascalCase(componentName)}`

@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  const babelEnv = api.env();
+  const babelEnv = api.env()
   const browserslistEnv = !api.env('test') ? 'production' : 'node'
 
   const presets = [
@@ -13,11 +13,11 @@ module.exports = function (api) {
       '@babel/preset-react',
       {
         development: babelEnv === 'development',
-      }
-    ]
+      },
+    ],
   ]
 
   return {
-    presets
+    presets,
   }
 }

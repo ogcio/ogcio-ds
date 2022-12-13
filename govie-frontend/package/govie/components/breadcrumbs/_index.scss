@@ -49,10 +49,10 @@
     &:before {
       content: "";
       display: block;
+
       position: absolute;
       top: 0;
       bottom: 0;
-
 
       // Offset by the difference between the width of the non-rotated square
       // and its width when rotated

@@ -8,7 +8,7 @@ We use different types of tests to check different areas of our code are working
 
 Unit tests are small, modular tests that verify a "unit" of code. We write unit tests to check our JavaScript logic, particularly 'background logic' that does not heavily rely on [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) interaction (where functional tests may be better suited).
 
-Functional tests verify the output of an action and do not check the intermediate states of the system when performing that action. We write functional tests to check component interactions have the expected results, so we also refer to these as component tests. We also write functional tests to check that our Nunjucks code outputs expected HTML, and we refer to these as our Nunjucks tests.
+Functional tests verify the output of an action and do not check the intermediate states of the system when performing that action. We write functional tests to check component interactions have the expected results, so we also refer to these as component tests.
 
 [Snapshot tests](https://facebook.github.io/jest/docs/en/snapshot-testing.html) are used for preventing unintended changes to our component markup. When the snapshot test runs, it  compares the previously captured snapshot to the current markup.
 
@@ -58,8 +58,6 @@ See [JavaScript Coding Standards](/docs/contributing/coding-standards/js.md#form
 We use [Jest](https://jestjs.io/), an automated testing platform with an assertion library, and [Puppeteer](https://pptr.dev/) that is used to control [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome).
 
 ### Component tests
-We write functional tests for every component to check the output of our Nunjucks code. These are found in `template.test.js` files in each component directory. These Nunjucks tests render the component examples defined in the component yaml files, and assert that the HTML tags, attributes and classes are as expected. For example: checking that when you pass in an `id` to the component using the Nunjucks macro, it outputs the component with an `id` attribute equal to that value.
-
 If a component uses JavaScript, we also write functional tests in a `[component name].test.js` file, for example [checkboxes.test.js](../../src/govie/components/checkboxes/checkboxes.test.js). These component tests check that interactions, such as a mouse click, have the expected result.
 
 You should also test component Javascript logic with unit tests, in a `[component name].unit.test.mjs` file. These tests are better suited for testing behind-the-scenes logic, or in cases where the final output of some logic is not a change to the component markup.

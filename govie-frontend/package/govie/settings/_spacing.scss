@@ -18,7 +18,7 @@ $govie-spacing-points: (
   6: 30px,
   7: 40px,
   8: 50px,
-  9: 60px
+  9: 60px,
 ) !default;
 
 /// Responsive spacing maps
@@ -38,39 +38,39 @@ $govie-spacing-points: (
 
 $govie-spacing-responsive-scale: (
   0: (
-    null: 0
+    null: 0,
   ),
   1: (
-    null: 5px
+    null: 5px,
   ),
   2: (
-    null: 10px
+    null: 10px,
   ),
   3: (
-    null: 15px
+    null: 15px,
   ),
   4: (
     null: 15px,
-    tablet: 20px
+    tablet: 20px,
   ),
   5: (
     null: 15px,
-    tablet: 25px
+    tablet: 25px,
   ),
   6: (
     null: 20px,
-    tablet: 30px
+    tablet: 30px,
   ),
   7: (
     null: 25px,
-    tablet: 40px
+    tablet: 40px,
   ),
   8: (
     null: 30px,
-    tablet: 50px
+    tablet: 50px,
   ),
   9: (
     null: 40px,
-    tablet: 60px
-  )
+    tablet: 60px,
+  ),
 ) !default;

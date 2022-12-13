@@ -18,7 +18,6 @@ npm scripts are defined in `package.json`. These trigger a number of Gulp tasks.
 - start up Express, restarting when `.js` files change
 
 **`npm run test` will do the following:**
-- run Nunjucks macros tests
 - run JavaScript tests on the review application
 - run accessibility and HTML validation tests
 
@@ -34,8 +33,6 @@ npm scripts are defined in `package.json`. These trigger a number of Gulp tasks.
 - output files into `./package`, or another location via the `--destination` flag
 - clean the `./package` folder
 - copy Sass files, applying Autoprefixer via PostCSS
-- copy Nunjucks component template/macro files, including JSON configs
-- copy JavaScript ESM source files
 - compile JavaScript ESM to CommonJS (`gulp js:compile`)
 - runs `npm run test:build:package` (which will test the output is correct)
 

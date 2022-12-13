@@ -659,15 +659,140 @@ if (detect) return
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-/**
- * TODO: Ideally this would be a NodeList.prototype.forEach polyfill
- * This seems to fail in IE8, requires more investigation.
- * See: https://github.com/imagitama/nodelist-foreach-polyfill
- */
+(function(undefined) {
 
-// Used to generate a unique string, allows multiple instances of the component without
-// Them conflicting with each other.
-// https://stackoverflow.com/a/8809472
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+    // Detection from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    var detect = ('trim' in String.prototype);
+    
+    if (detect) return
+
+    // Polyfill from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    String.prototype.trim = function () {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/detect.js
+  var detect = (
+    'document' in this && "matches" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/polyfill.js
+  Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
+    var element = this;
+    var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+    var index = 0;
+
+    while (elements[index] && elements[index] !== element) {
+      ++index;
+    }
+
+    return !!elements[index];
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/detect.js
+  var detect = (
+    'document' in this && "closest" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/polyfill.js
+  Element.prototype.closest = function closest(selector) {
+    var node = this;
+
+    while (node) {
+      if (node.matches(selector)) return node;
+      else node = 'SVGElement' in window && node instanceof SVGElement ? node.parentNode : node.parentElement;
+    }
+
+    return null;
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+/**
+ * Used to generate a unique string, allows multiple instances of the component
+ * without them conflicting with each other.
+ * https://stackoverflow.com/a/8809472
+ *
+ * @returns {string} Unique ID
+ */
 function generateUniqueID () {
   var d = new Date().getTime();
   if (typeof window.performance !== 'undefined' && typeof window.performance.now === 'function') {
@@ -681,6 +806,14 @@ function generateUniqueID () {
 }
 
 /**
+ * @callback nodeListIterator
+ * @param {Element} value - The current node being iterated on
+ * @param {number} index - The current index in the iteration
+ * @param {NodeListOf<Element>} nodes - NodeList from querySelectorAll()
+ * @returns {undefined}
+ */
+
+/**
  * JavaScript 'polyfill' for HTML5's <details> and <summary> elements
  * and 'shim' to add accessiblity enhancements for all browsers
  *
@@ -690,6 +823,12 @@ function generateUniqueID () {
 var KEY_ENTER = 13;
 var KEY_SPACE = 32;
 
+/**
+ * Details component
+ *
+ * @class
+ * @param {HTMLElement} $module - HTML element to use for details
+ */
 function Details ($module) {
   this.$module = $module;
 }
@@ -756,9 +895,10 @@ Details.prototype.polyfillDetails = function () {
 };
 
 /**
-* Define a statechange function that updates aria-expanded and style.display
-* @param {object} summary element
-*/
+ * Define a statechange function that updates aria-expanded and style.display
+ *
+ * @returns {boolean} Returns true
+ */
 Details.prototype.polyfillSetAttributes = function () {
   if (this.$module.hasAttribute('open')) {
     this.$module.removeAttribute('open');
@@ -774,10 +914,11 @@ Details.prototype.polyfillSetAttributes = function () {
 };
 
 /**
-* Handle cross-modal click events
-* @param {object} node element
-* @param {function} callback function
-*/
+ * Handle cross-modal click events
+ *
+ * @param {object} node - element
+ * @param {polyfillHandleInputsCallback} callback - function
+ */
 Details.prototype.polyfillHandleInputs = function (node, callback) {
   node.addEventListener('keypress', function (event) {
     var target = event.target;
@@ -810,6 +951,12 @@ Details.prototype.polyfillHandleInputs = function (node, callback) {
 
   node.addEventListener('click', callback);
 };
+
+/**
+ * @callback polyfillHandleInputsCallback
+ * @param {KeyboardEvent} event - Keyboard event
+ * @returns {undefined}
+ */
 
 return Details;
 

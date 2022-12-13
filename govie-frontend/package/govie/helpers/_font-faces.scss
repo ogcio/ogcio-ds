@@ -16,6 +16,7 @@
     // In IE8, which cannot render WOFF format, we fall back to system fonts
     @include govie-exports('govie/helpers/font-faces') {
       @at-root {
+        /* stylelint-disable-line scss/comment-no-loud  */
         @font-face {
           font-family: 'Lato';
           font-style: normal;

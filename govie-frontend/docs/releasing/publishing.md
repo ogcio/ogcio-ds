@@ -26,7 +26,6 @@
 
 8. Person leading the release to coordinate the sign-off when they are ready to do the release. Once the team agrees, this confirms a code and content freeze. Use the [#design-system-team-channel](https://gds.slack.com/app_redirect?channel=design-system-team-channel) to confirm sign-off from:
   - content designer, technical writer and designers for guidance, examples and community backlog decision rationale
-  - technical writer and developers for Nunjucks macros
   - developers for changes to GOV.IE Frontend
   - technical writer for release notes
   - content designer, community manager and technical writer for announcements and engagement activities

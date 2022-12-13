@@ -13,7 +13,6 @@ gulp.task('watch', () => {
       'sassdoc.config.yaml',
       `${configPaths.src}**/**/*.scss`,
       `${configPaths.app}assets/scss/**/*.scss`,
-      `${configPaths.fullPageExamples}**/*.scss`,
       `!${configPaths.src}vendor/*`
     ], gulp.series('styles')),
 

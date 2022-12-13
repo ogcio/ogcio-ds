@@ -1,4 +1,6 @@
-const { componentNameToJavaScriptModuleName } = require('../../lib/helper-functions')
+const {
+  componentNameToJavaScriptModuleName,
+} = require('../../lib/helper-functions')
 
 const path = require('path')
 
@@ -20,53 +22,30 @@ const { destination, isDist, isPackage } = require('../task-arguments.js')
 // --------------------------------------
 
 // Determine destination namespace
-function destinationPath () {
+function destinationPath() {
   return isPackage ? `${destination}/govie` : destination
 }
 
 gulp.task('scss:compile', function () {
-  /**
-   * Release distribution
-   */
-  if (isDist) {
-    return merge(
-      compileStyles(
-        gulp.src(`${configPaths.src}all.scss`)
-          .pipe(rename({
-            basename: 'govie-frontend',
-            extname: '.min.css'
-          }))),
-
-      compileStyles(
-        gulp.src(`${configPaths.src}all-ie8.scss`)
-          .pipe(rename({
-            basename: 'govie-frontend-ie8',
-            extname: '.min.css'
-          })))
-    )
-      .pipe(gulp.dest(destination))
-  }
-
-  /**
-   * Review application
-   */
   return merge(
     compileStyles(
-      gulp.src(`${configPaths.app}assets/scss/app?(-ie8).scss`)),
+      gulp.src(`${configPaths.src}all.scss`).pipe(
+        rename({
+          basename: 'govie-frontend',
+          extname: '.min.css',
+        })
+      )
+    ),
 
     compileStyles(
-      gulp.src(`${configPaths.app}assets/scss/app-legacy?(-ie8).scss`), {
-        includePaths: ['node_modules/govuk_frontend_toolkit/stylesheets', 'node_modules']
-      }),
-
-    compileStyles(
-      gulp.src(`${configPaths.fullPageExamples}**/styles.scss`)
-        .pipe(rename((path) => {
-          path.basename = path.dirname
-          path.dirname = 'full-page-examples'
-        })))
-  )
-    .pipe(gulp.dest(destinationPath()))
+      gulp.src(`${configPaths.src}all-ie8.scss`).pipe(
+        rename({
+          basename: 'govie-frontend-ie8',
+          extname: '.min.css',
+        })
+      )
+    )
+  ).pipe(gulp.dest(destination))
 })
 
 /**
@@ -76,15 +55,17 @@ gulp.task('scss:compile', function () {
  * @param {import('node-sass').Options} [options] - Sass options
  * @returns {import('stream').Stream} Output file stream
  */
-function compileStyles (stream, options = {}) {
+function compileStyles(stream, options = {}) {
   return stream
-    .pipe(plumber((error) => {
-      console.error(error.message)
+    .pipe(
+      plumber((error) => {
+        console.error(error.message)
 
-      // Ensure the task we're running exits with an error code
-      stream.once('finish', () => process.exit(1))
-      stream.emit('end')
-    }))
+        // Ensure the task we're running exits with an error code
+        stream.once('finish', () => process.exit(1))
+        stream.emit('end')
+      })
+    )
     .pipe(sass(options))
     .pipe(postcss())
 }
@@ -93,44 +74,61 @@ function compileStyles (stream, options = {}) {
 // --------------------------------------
 gulp.task('js:compile', () => {
   // For dist/ folder we only want compiled 'all.js'
-  const fileLookup = isDist ? configPaths.src + 'all.mjs' : configPaths.src + '**/!(*.test).mjs'
+  const fileLookup = isDist
+    ? configPaths.src + 'all.mjs'
+    : configPaths.src + '**/!(*.test).mjs'
 
   // Perform a synchronous search and return an array of matching file names
   const srcFiles = glob.sync(fileLookup)
 
-  return merge(srcFiles.map(function (file) {
-    // This is combined with destinationPath in gulp.dest()
-    // so the files are output to the correct folders
-    const newDirectoryPath = path.dirname(file).replace('src/govie', '')
+  return merge(
+    srcFiles.map(function (file) {
+      // This is combined with destinationPath in gulp.dest()
+      // so the files are output to the correct folders
+      const newDirectoryPath = path.dirname(file).replace('src/govie', '')
 
-    // We only want to give component JavaScript a unique module name
-    let moduleName = 'GOVIEFrontend'
-    if (path.dirname(file).includes('/components/')) {
-      moduleName = componentNameToJavaScriptModuleName(path.parse(file).name)
-    }
+      // We only want to give component JavaScript a unique module name
+      let moduleName = 'GOVIEFrontend'
+      if (path.dirname(file).includes('/components/')) {
+        moduleName = componentNameToJavaScriptModuleName(path.parse(file).name)
+      }
 
-    return gulp.src(file)
-      .pipe(rollup({
-        // Used to set the `window` global and UMD/AMD export name
-        // Component JavaScript is given a unique name to aid individual imports, e.g GOVIEFrontend.Accordion
-        name: moduleName,
-        // Legacy mode is required for IE8 support
-        legacy: true,
-        // UMD allows the published bundle to work in CommonJS and in the browser.
-        format: 'umd'
-      }))
-      .pipe(gulpif(isDist, uglify({
-        ie8: true
-      })))
-      .pipe(gulpif(isDist,
-        rename({
-          basename: 'govie-frontend',
-          extname: '.min.js'
-        })
-      ))
-      .pipe(rename({
-        extname: '.js'
-      }))
-      .pipe(gulp.dest(destinationPath() + newDirectoryPath))
-  }))
+      return gulp
+        .src(file)
+        .pipe(
+          rollup({
+            // Used to set the `window` global and UMD/AMD export name
+            // Component JavaScript is given a unique name to aid individual imports, e.g GOVIEFrontend.Accordion
+            name: moduleName,
+            // Legacy mode is required for IE8 support
+            legacy: true,
+            // UMD allows the published bundle to work in CommonJS and in the browser.
+            format: 'umd',
+          })
+        )
+        .pipe(
+          gulpif(
+            isDist,
+            uglify({
+              ie8: true,
+            })
+          )
+        )
+        .pipe(
+          gulpif(
+            isDist,
+            rename({
+              basename: 'govie-frontend',
+              extname: '.min.js',
+            })
+          )
+        )
+        .pipe(
+          rename({
+            extname: '.js',
+          })
+        )
+        .pipe(gulp.dest(destinationPath() + newDirectoryPath))
+    })
+  )
 })
