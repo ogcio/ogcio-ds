@@ -3,7 +3,7 @@ module.exports = {
     builder: 'webpack5'
   },
   stories: [
-    '../docs/storybook/**/*.stories.mdx',
+    '../storybook/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
