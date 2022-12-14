@@ -34,6 +34,6 @@ module.exports = {
   // Check destination flags
   isPackage: destination === 'package',
   isPublic: destination === 'public',
-  isDist: destination === 'dist' || destination === 'storybook',
-  isStorybook: destination === 'storybook'
+  isDist: destination === 'dist' || destination === 'storybook/dist',
+  isStorybook: destination === 'storybook/dist'
 }

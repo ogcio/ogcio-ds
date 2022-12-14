@@ -1,0 +1,27 @@
+:root {
+  --govie-brand-colour: #1d70b8;
+  --govie-text-colour: #f8f8f8;
+  --govie-print-text-colour: #f8f8f8;
+  --govie-secondary-text-colour: #bfc1c3;
+  --govie-focus-colour: #f47738;
+  --govie-focus-text-colour: #f8f8f8;
+  --govie-error-colour: #b10e1e;
+  --govie-sucesss-colour: #006435;
+  --govie-border-colour: #b1b4b6;
+  --govie-input-border-colour: #f8f8f8;
+  --govie-hover-colour: #b1b4b6;
+  --govie-link-colour: #005ea5;
+  --govie-link-visited-colour: #4c2c92;
+  --govie-link-hover-colour: #2b8cc4;
+  --govie-link-active-colour: #0b0c0c;
+  --govie-header-surface-colour: #005ea5;
+  --govie-header-footer-border-colour: #b58840;
+  --govie-footer-surface-colour: #f6f4ef;
+  --govie-body-background-colour: #2a2a2a;
+  --govie-button-background-colour: #2b8cc4;
+  --govie-button-text-colour: #ffffff;
+}
+
+.sbdocs-wrapper {
+  background: var(--govie-body-background-colour);
+}

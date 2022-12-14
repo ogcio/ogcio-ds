@@ -1,7 +1,22 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react'
+
+import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import darkTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/dark.css'
+import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/default.css'
+
+export const decorators = [cssVariablesTheme]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  cssVariables: {
+    files: {
+      'Dark theme': darkTheme,
+      'Default theme': defaultTheme
+    },
+    defaultTheme: 'Default theme'
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -41,16 +56,12 @@ export const parameters = {
         <h4 className="govie-heading-s" {...args}>
           {children}
         </h4>
-      )
-    }
+      ),
+    },
   },
   options: {
     storySort: {
-      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout']
+      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout'],
     }
-  },
-  designToken: {
-    defaultTab: 'Colors',
-    showSearch: false
   }
 }

@@ -1,8 +1,4 @@
 :root {
-    /**
-    * @tokens Colors
-    * @presenter Color
-    */
     --govie-brand-colour: #1d70b8;
     --govie-text-colour: #0b0c0c;
     --govie-print-text-colour: #000000;
@@ -23,7 +19,5 @@
     --govie-footer-surface-colour: #f6f4ef;
     --govie-body-background-colour: #ffffff;
     --govie-button-background-colour: #00703c;
-    /**
-    * @tokens-end
-    */
+    --govie-button-text-colour: #ffffff;
   }

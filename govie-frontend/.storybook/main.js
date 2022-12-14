@@ -1,4 +1,7 @@
 module.exports = {
+  core: {
+    builder: 'webpack5'
+  },
   stories: [
     '../docs/storybook/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.mdx',
@@ -9,14 +12,16 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
-    {
-      name: 'storybook-design-token',
-      options: {
-        preserveCSSVars: true,
-        designTokenGlob: 'src/**/**/*.css'
-      }
-    }
+    '@etchteam/storybook-addon-css-variables-theme'
   ],
   framework: '@storybook/html',
-  staticDirs: [{ from: '../storybook', to: '/' }]
+  staticDirs: [
+    {
+      from: '../storybook/dist',
+      to: '/'
+    }
+  ],
+  docs: {
+    docsPage: 'automatic'
+  }
 }
