@@ -23,20 +23,30 @@ gulp.task('copy:files', () => {
         '!**/*.test.*',
         '!**/__snapshots__/',
         '!**/__snapshots__/**',
+        // Exclude Storybook stories files
+        '!**/*.stories.*',
 
         // Preserve destination README when copying to ./package
         // https://github.com/alphagov/govie-frontend/tree/main/package#readme
         `!${configPaths.src}README.md`,
 
-        // Exclude Sass files handled by PostCSS stream below
+        // Exclude Sass and CSS files handled by PostCSS stream below
         `!${configPaths.src}**/*.scss`,
+        '!**/*.css',
 
-        // Exclude source YAML handled by JSON streams below
-        `!${configPaths.components}**/*.yaml`
+        // Exclude Sass files related to Storybook app
+        `!${configPaths.src}/{storybook,storybook/**}`,
       ]),
 
       // Add CSS prefixes to Sass
-      gulp.src(`${configPaths.src}**/*.scss`)
+      gulp
+        .src([
+          `${configPaths.src}**/*.scss`,
+
+          // Exclude Sass files related to Storybook app
+          `!${configPaths.src}storybook/**/*`,
+          `!${configPaths.src}**/all-storybook.scss`,
+        ])
         .pipe(postcss([autoprefixer], { syntax: postcssScss }))
     ).pipe(gulp.dest(`${destination}/govie/`))
   )

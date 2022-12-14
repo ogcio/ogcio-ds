@@ -1,7 +1,7 @@
 {
   "name": "govie-frontend",
   "description": "GOV.IE Frontend contains the code you need to start building a user interface for government platforms and services.",
-  "version": "4.3.1",
+  "version": "0.0.1",
   "main": "govie/all.js",
   "exports": {
     ".": {

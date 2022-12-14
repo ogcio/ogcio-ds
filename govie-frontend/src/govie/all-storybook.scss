@@ -1,0 +1,10 @@
+// By setting $govie-is-storybook to true, we create a version of the stylesheet that
+// targets Storybook – e.g. conditionally including or excluding styles.
+$govie-is-storybook: true;
+
+// Override SASS variables using CSS variables
+// The CSS are used just in the storybook, in order to allow 
+// theme changes on the Storybook
+@import 'storybook/all';
+
+@import 'all';

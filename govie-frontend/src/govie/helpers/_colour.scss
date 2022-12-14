@@ -24,6 +24,7 @@
 }
 
 /// Make a colour darker by mixing it with black
+/// SASS `mix` function doesn't work with CSS vars, so won't work on storybook
 ///
 /// @param {Colour} $colour - colour to shade
 /// @param {Number} $percentage - percentage of black to mix with $colour
@@ -31,10 +32,15 @@
 /// @access public
 
 @function govie-shade($colour, $percentage) {
-  @return mix(#000000, $colour, $percentage);
+  @if $govie-is-storybook {
+    @return $colour;
+  } @else {
+    @return mix(#000000, $colour, $percentage);
+  }
 }
 
 /// Make a colour lighter by mixing it with white
+/// SASS `mix` function doesn't work with CSS vars, so won't work on storybook
 ///
 /// @param {Colour} $colour - colour to tint
 /// @param {Number} $percentage - percentage of white to mix with $colour
@@ -42,5 +48,9 @@
 /// @access public
 
 @function govie-tint($colour, $percentage) {
-  @return mix(govie-colour('white'), $colour, $percentage);
+  @if $govie-is-storybook {
+    @return $colour;
+  } @else {
+    @return mix(govie-colour('white'), $colour, $percentage);
+  }
 }

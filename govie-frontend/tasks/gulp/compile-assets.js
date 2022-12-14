@@ -16,7 +16,12 @@ const merge = require('merge-stream')
 const rename = require('gulp-rename')
 
 const configPaths = require('../../config/paths.js')
-const { destination, isDist, isPackage } = require('../task-arguments.js')
+const {
+  destination,
+  isDist,
+  isStorybook,
+  isPackage,
+} = require('../task-arguments.js')
 
 // Compile CSS and JS task --------------
 // --------------------------------------
@@ -27,12 +32,16 @@ function destinationPath() {
 }
 
 gulp.task('scss:compile', function () {
+  const path = isStorybook
+    ? `${configPaths.src}all-storybook.scss`
+    : `${configPaths.src}all.scss`
+
   return merge(
     compileStyles(
-      gulp.src(`${configPaths.src}all.scss`).pipe(
+      gulp.src(path).pipe(
         rename({
           basename: 'govie-frontend',
-          extname: '.min.css',
+          extname: '.min.css'
         })
       )
     ),
@@ -41,7 +50,7 @@ gulp.task('scss:compile', function () {
       gulp.src(`${configPaths.src}all-ie8.scss`).pipe(
         rename({
           basename: 'govie-frontend-ie8',
-          extname: '.min.css',
+          extname: '.min.css'
         })
       )
     )

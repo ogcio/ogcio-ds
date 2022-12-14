@@ -48,5 +48,9 @@ export const parameters = {
     storySort: {
       order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout']
     }
+  },
+  designToken: {
+    defaultTab: 'Colors',
+    showSearch: false
   }
 }
