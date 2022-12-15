@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react'
-
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 import darkTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/dark.css'
 import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/default.css'
@@ -26,6 +26,16 @@ export const parameters = {
   },
   docs: {
     source: { format: false },
+    container: ({ children, context }) => {
+      let newContext
+      cssVariablesTheme(c => newContext = c, context)
+
+      return (
+        <DocsContainer context={newContext}>
+            {children}
+        </DocsContainer>
+      );
+    },
     components: {
       a: ({ children, ...args }) => (
         <a className="govie-link" {...args}>
