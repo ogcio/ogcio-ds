@@ -1,3 +1,6 @@
+/* 
+  * Override the Sass variables in order to alloww changing the theme 
+  */
 :root {
   --govie-brand-colour: #1d70b8;
   --govie-text-colour: #f8f8f8;
@@ -10,27 +13,69 @@
   --govie-border-colour: #b1b4b6;
   --govie-input-border-colour: #f8f8f8;
   --govie-hover-colour: #b1b4b6;
-  --govie-link-colour: #005ea5;
-  --govie-link-visited-colour: #4c2c92;
-  --govie-link-hover-colour: #2b8cc4;
+  --govie-link-colour: #46a5ee;
+  --govie-link-visited-colour: #7043d2;
+  --govie-link-hover-colour: #277aab;
   --govie-link-active-colour: #0b0c0c;
   --govie-header-surface-colour: #005ea5;
-  --govie-header-footer-border-colour: #b58840;
-  --govie-footer-surface-colour: #f6f4ef;
-  --govie-body-background-colour: #2a2a2a;
+  --govie-header-footer-border-colour: #27283a;
+  --govie-footer-surface-colour: #393737;
+  --govie-body-background-colour: #363639;
   --govie-button-background-colour: #2b8cc4;
   --govie-button-text-colour: #ffffff;
 }
 
+/* 
+  * Override Storybook default styles to work with the dark theme 
+  */
 .sbdocs-wrapper {
   background: var(--govie-body-background-colour) !important;
 }
 
-.sbdocs-table tr th, .sbdocs-table tr td {
+.sbdocs-table tr th,
+.sbdocs-table tr td {
   border-color: var(--govie-border-colour) !important;
   color: var(--govie-text-colour) !important;
 }
 
 .sbdocs-table tr:nth-of-type(2n) {
   background-color: transparent !important;
+}
+
+.sbdocs,
+.sbdocs-title,
+.docblock-argstable-head th {
+  color: var(--govie-text-colour) !important;
+}
+
+.sbdocs-h2 {
+  border-bottom-color: var(--govie-text-colour);
+}
+
+.sbdocs-preview {
+  background-color: #333333 !important;
+}
+
+/* 
+  * Override the style of some components in order to have a 
+  * better look and feel with the dark theme
+  */
+::-webkit-file-upload-button {
+  background-color: var(--govie-hover-colour);
+}
+
+.govie-select {
+  color: #000000;
+}
+
+.govie-cookie-banner {
+  background-color: var(--govie-body-background-colour) !important;
+}
+
+.govie-tabs__list-item {
+  background-color: var(--govie-body-background-colour) !important;
+}
+
+.govie-header {
+  border-color: var(--govie-body-background-colour);
 }
