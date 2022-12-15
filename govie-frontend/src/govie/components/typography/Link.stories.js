@@ -26,7 +26,7 @@ export default {
       control: 'boolean',
       description: 'To open the link in a new tab',
     },
-    external: {
+    dark: {
       control: 'boolean',
       description:
         'Show white links on dark backgrounds — for example, in headers, custom components, and patterns with darker backgrounds.',
