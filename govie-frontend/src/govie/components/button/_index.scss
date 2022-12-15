@@ -20,7 +20,6 @@ $govie-button-text-colour: govie-colour("white") !default;
   $govie-button-colour: $govie-button-background-colour;
   $govie-button-hover-colour: govie-shade($govie-button-colour, 20%);
   $govie-button-shadow-colour: govie-shade($govie-button-colour, 60%);
-  $govie-button-text-colour: $govie-button-text-colour;
 
   // Secondary button variables
   $govie-secondary-button-colour: govie-colour("light-grey");

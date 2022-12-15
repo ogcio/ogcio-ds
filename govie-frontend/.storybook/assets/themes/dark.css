@@ -1,7 +1,7 @@
 :root {
   --govie-brand-colour: #1d70b8;
   --govie-text-colour: #f8f8f8;
-  --govie-print-text-colour: #f8f8f8;
+  --govie-print-text-colour: #0b0c0c;
   --govie-secondary-text-colour: #bfc1c3;
   --govie-focus-colour: #f47738;
   --govie-focus-text-colour: #f8f8f8;
@@ -23,5 +23,14 @@
 }
 
 .sbdocs-wrapper {
-  background: var(--govie-body-background-colour);
+  background: var(--govie-body-background-colour) !important;
+}
+
+.sbdocs-table tr th, .sbdocs-table tr td {
+  border-color: var(--govie-border-colour) !important;
+  color: var(--govie-text-colour) !important;
+}
+
+.sbdocs-table tr:nth-of-type(2n) {
+  background-color: transparent !important;
 }

@@ -40,7 +40,7 @@
 }
 
 /// Make a colour lighter by mixing it with white
-/// SASS `mix` function doesn't work with CSS vars, so won't work on storybook
+/// SASS `mix` function doesn't work with CSS vars
 ///
 /// @param {Colour} $colour - colour to tint
 /// @param {Number} $percentage - percentage of white to mix with $colour
@@ -48,9 +48,5 @@
 /// @access public
 
 @function govie-tint($colour, $percentage) {
-  @if $govie-is-storybook {
-    @return $colour;
-  } @else {
-    @return mix(govie-colour('white'), $colour, $percentage);
-  }
+  @return mix(govie-colour('white'), $colour, $percentage);
 }
