@@ -13,10 +13,10 @@
   ],
   "scripts": {
     "postinstall": "npm ls --depth=0",
-    "storybook": " npm run build:storybook:build && npm run storybook:ci",
+    "storybook": " npm run build:storybook:dist && npm run storybook:ci",
     "storybook:ci": "start-storybook -p 6006",
     "storybook:build": "build-storybook --output-dir build",
-    "build:storybook:build": "gulp build:storybook:build --destination 'storybook/dist'",
+    "build:storybook:dist": "gulp build:storybook:dist --destination 'storybook/dist'",
     "build-release": "./bin/build-release.sh",
     "publish-release": "./bin/publish-release.sh",
     "pre-release": "./bin/pre-release.sh",
