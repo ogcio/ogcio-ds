@@ -25,7 +25,6 @@
 
 /// Make a colour darker by mixing it with black
 /// SASS `mix` function doesn't work with CSS vars, so won't work on storybook
-///
 /// @param {Colour} $colour - colour to shade
 /// @param {Number} $percentage - percentage of black to mix with $colour
 /// @return {Colour}
@@ -40,7 +39,6 @@
 }
 
 /// Make a colour lighter by mixing it with white
-/// SASS `mix` function doesn't work with CSS vars
 ///
 /// @param {Colour} $colour - colour to tint
 /// @param {Number} $percentage - percentage of white to mix with $colour

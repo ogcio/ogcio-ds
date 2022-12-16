@@ -18,8 +18,15 @@ $govie-button-text-colour: govie-colour("white") !default;
 
 @include govie-exports("govie/component/button") {
   $govie-button-colour: $govie-button-background-colour;
+
   $govie-button-hover-colour: govie-shade($govie-button-colour, 20%);
   $govie-button-shadow-colour: govie-shade($govie-button-colour, 60%);
+  
+  // If is for the Storybook app, use the variables that contains CSS vars values
+  @if $govie-is-storybook {
+    $govie-button-hover-colour: $govie-button-background-hover-colour;
+    $govie-button-shadow-colour: $govie-button-background-shadow-colour;
+  }
 
   // Secondary button variables
   $govie-secondary-button-colour: govie-colour("light-grey");

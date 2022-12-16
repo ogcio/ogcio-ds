@@ -22,6 +22,8 @@
   --govie-footer-surface-colour: #393737;
   --govie-body-background-colour: #363639;
   --govie-button-background-colour: #2b8cc4;
+  --govie-button-background-hover-colour: #22709d;
+  --govie-button-background-shadow-colour: #11384e;
   --govie-button-text-colour: #ffffff;
 }
 
