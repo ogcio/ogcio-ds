@@ -89,7 +89,7 @@ gulp.task('build:dist', gulp.series(
  * Build dist storybook task
  * Prepare dist folder for storybook
  */
-gulp.task('build:dist:storybook', gulp.series(
+gulp.task('build:storybook:build', gulp.series(
   clean,
   'compile',
   'copy:assets'
