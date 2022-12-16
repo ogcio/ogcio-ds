@@ -1,16 +1,37 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react'
+import { DocsContainer } from '@storybook/addon-docs/blocks'
+import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import darkTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/dark.css'
+import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/govie-frontend.min.css'
+
+export const decorators = [cssVariablesTheme]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  cssVariables: {
+    files: {
+      'Dark theme': darkTheme,
+      'Default theme': defaultTheme,
+    },
+    defaultTheme: 'Default theme',
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/
+      date: /Date$/,
     },
-    sort: 'requiredFirst'
+    sort: 'requiredFirst',
   },
   docs: {
     source: { format: false },
+    container: ({ children, context }) => {
+      let newContext
+      cssVariablesTheme((c) => (newContext = c), context)
+
+      return <DocsContainer context={newContext}>{children}</DocsContainer>
+    },
     components: {
       a: ({ children, ...args }) => (
         <a className="govie-link" {...args}>
@@ -41,12 +62,12 @@ export const parameters = {
         <h4 className="govie-heading-s" {...args}>
           {children}
         </h4>
-      )
-    }
+      ),
+    },
   },
   options: {
     storySort: {
-      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout']
-    }
-  }
+      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout'],
+    },
+  },
 }

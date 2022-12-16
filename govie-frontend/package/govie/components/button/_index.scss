@@ -7,32 +7,50 @@
 /// @type Colour
 /// @access public
 
-$govie-button-background-colour: govie-colour("green") !default;
+$govie-button-background-colour: govie-colour('green') !default;
 
 /// Button component text colour
 ///
 /// @type Colour
 /// @access public
 
-$govie-button-text-colour: govie-colour("white") !default;
+$govie-button-text-colour: govie-colour('white') !default;
 
-@include govie-exports("govie/component/button") {
+@include govie-exports('govie/component/button') {
   $govie-button-colour: $govie-button-background-colour;
+
   $govie-button-hover-colour: govie-shade($govie-button-colour, 20%);
   $govie-button-shadow-colour: govie-shade($govie-button-colour, 60%);
-  $govie-button-text-colour: $govie-button-text-colour;
+
+  // If is for the Storybook app, use the variables that contains CSS vars values
+  @if $govie-is-storybook {
+    $govie-button-hover-colour: $govie-button-background-hover-colour;
+    $govie-button-shadow-colour: $govie-button-background-shadow-colour;
+  }
 
   // Secondary button variables
-  $govie-secondary-button-colour: govie-colour("light-grey");
-  $govie-secondary-button-hover-colour: govie-shade($govie-secondary-button-colour, 10%);
-  $govie-secondary-button-shadow-colour: govie-shade($govie-secondary-button-colour, 40%);
-  $govie-secondary-button-text-colour: govie-colour("black");
+  $govie-secondary-button-colour: govie-colour('light-grey');
+  $govie-secondary-button-hover-colour: govie-shade(
+    $govie-secondary-button-colour,
+    10%
+  );
+  $govie-secondary-button-shadow-colour: govie-shade(
+    $govie-secondary-button-colour,
+    40%
+  );
+  $govie-secondary-button-text-colour: govie-colour('black');
 
   // Warning button variables
-  $govie-warning-button-colour: govie-colour("red");
-  $govie-warning-button-hover-colour: govie-shade($govie-warning-button-colour, 20%);
-  $govie-warning-button-shadow-colour: govie-shade($govie-warning-button-colour, 60%);
-  $govie-warning-button-text-colour: govie-colour("white");
+  $govie-warning-button-colour: govie-colour('red');
+  $govie-warning-button-hover-colour: govie-shade(
+    $govie-warning-button-colour,
+    20%
+  );
+  $govie-warning-button-shadow-colour: govie-shade(
+    $govie-warning-button-colour,
+    60%
+  );
+  $govie-warning-button-text-colour: govie-colour('white');
 
   // Because the shadow (s0) is visually 'part of' the button, we need to reduce
   // the height of the button to compensate by adjusting its padding (s1) and
@@ -49,8 +67,17 @@ $govie-button-text-colour: govie-colour("white") !default;
     margin-top: 0;
     margin-right: 0;
     margin-left: 0;
-    @include govie-responsive-margin(6, "bottom", $adjustment: $button-shadow-size); // s2
-    padding: (govie-spacing(2) - $govie-border-width-form-element) govie-spacing(2) (govie-spacing(2) - $govie-border-width-form-element - ($button-shadow-size / 2)); // s1
+    @include govie-responsive-margin(
+      6,
+      'bottom',
+      $adjustment: $button-shadow-size
+    ); // s2
+    padding: (govie-spacing(2) - $govie-border-width-form-element)
+      govie-spacing(2)
+      (
+        govie-spacing(2) - $govie-border-width-form-element -
+          ($button-shadow-size / 2)
+      ); // s1
     border: $govie-border-width-form-element solid transparent;
     border-radius: 0;
     color: $govie-button-text-colour;
@@ -127,7 +154,7 @@ $govie-button-text-colour: govie-colour("white") !default;
     // Use a pseudo element to expand the click target area to include the
     // button's shadow as well, in case users try to click it.
     &:before {
-      content: "";
+      content: '';
       display: block;
 
       position: absolute;
@@ -156,9 +183,9 @@ $govie-button-text-colour: govie-colour("white") !default;
   }
 
   .govie-button--disabled,
-  .govie-button[disabled="disabled"],
+  .govie-button[disabled='disabled'],
   .govie-button[disabled] {
-    opacity: (.5);
+    opacity: (0.5);
 
     &:hover {
       background-color: $govie-button-colour;

@@ -121,7 +121,12 @@
   }
 
   &:hover {
-    color: scale-color($govie-error-colour, $lightness: -30%);
+    // SASS `scale-color` function doesn't work with CSS vars, so won't work on storybook
+    @if $govie-is-storybook {
+      color: $govie-error-colour;
+    } @else {
+      color: scale-color($govie-error-colour, $lightness: -30%);
+    }
   }
 
   &:active {
@@ -158,7 +163,12 @@
   }
 
   &:hover {
-    color: scale-color($govie-sucesss-colour, $lightness: -30%);
+    // SASS `scale-color` function doesn't work with CSS vars, so won't work on storybook
+    @if $govie-is-storybook {
+      color: $govie-error-colour;
+    } @else {
+      color: scale-color($govie-sucesss-colour, $lightness: -30%);
+    }
   }
 
   &:active {

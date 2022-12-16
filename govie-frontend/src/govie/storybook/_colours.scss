@@ -1,0 +1,47 @@
+////
+/// @group storybook/colours
+////
+
+// This file sets the SASS variables with CSS variable values in order to
+// allow the customization of themes that will be displayed
+// exclusively in the Storybook app.
+
+$govie-brand-colour: var(--govie-brand-colour);
+$govie-text-colour: var(--govie-text-colour);
+$govie-print-text-colour: var(--govie-print-text-colour);
+$govie-secondary-text-colour: var(--govie-secondary-text-colour);
+$govie-focus-colour: var(--govie-focus-colour);
+$govie-focus-text-colour: var(--govie-focus-text-colour);
+$govie-border-colour: var(--govie-border-colour);
+$govie-input-border-colour: var(--govie-input-border-colour);
+$govie-hover-colour: var(--govie-hover-colour);
+
+// Indicative colour
+$govie-error-colour: var(--govie-error-colour);
+$govie-sucesss-colour: var(--govie-sucesss-colour);
+
+// Links
+$govie-link-colour: var(--govie-link-colour);
+$govie-link-visited-colour: var(--govie-link-visited-colour);
+$govie-link-hover-colour: var(--govie-link-hover-colour);
+$govie-link-active-colour: var(--govie-link-active-colour);
+
+// Surfaces and backgrounds
+$govie-header-surface-colour: var(--govie-header-surface-colour);
+$govie-header-footer-border-colour: var(--govie-header-footer-border-colour);
+$govie-footer-surface-colour: var(--govie-footer-surface-colour);
+$govie-body-background-colour: var(--govie-body-background-colour);
+
+// Button colours
+$govie-button-text-colour: var(--govie-button-text-colour);
+$govie-button-background-colour: var(--govie-button-background-colour);
+
+// As some SASS functions like `mix` and `scale-color` don't work with CSS variables,
+// these variables are made for some already calculated values and are used
+// exclusively in the Storybook application
+$govie-button-background-hover-colour: var(
+  --govie-button-background-hover-colour
+);
+$govie-button-background-shadow-colour: var(
+  --govie-button-background-shadow-colour
+);

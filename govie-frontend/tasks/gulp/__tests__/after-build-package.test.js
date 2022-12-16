@@ -55,8 +55,13 @@ describe('package/', () => {
       const filesToIgnore = [
         '.DS_Store',
         '*.test.*',
+        '*.stories.*',
         '*.snap',
-        '*/govie/README.md'
+        '*/govie/README.md',
+        // Excluse files related to Storybook application
+        '*.css',
+        '*/govie/all-storybook.scss',
+        '*/govie/storybook/*.scss',
       ]
 
       const additionalFilesNotInSrc = ['package.json', 'README.md']

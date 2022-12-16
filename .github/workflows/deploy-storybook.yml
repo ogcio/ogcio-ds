@@ -39,7 +39,7 @@ jobs:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
       - run: npm i
-      - run: npm run build:dist
+      - run: npm run build:storybook:dist
       - run: npm run storybook:build
 
       - name: Upload artifact
