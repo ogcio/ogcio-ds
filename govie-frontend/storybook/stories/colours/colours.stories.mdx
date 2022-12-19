@@ -23,87 +23,90 @@ import { Swatch } from './components/Swatch.jsx'
 
 <h2>Main colours</h2>
 <p>
-    Use the Sass variables provided rather than copying the hexadecimal (hex) colour values. For example, use <code>$govie-brand-colour</code> rather than <code>#1d70b8</code>. This means that your service will always use the most recent colour palette whenever you update.
+  Use the Sass variables provided rather than copying the hexadecimal (hex)
+  colour values. For example, use <code>$govie-brand-colour</code> rather than
+  the hexadecimal. This means that your service will always use the most recent
+  colour palette whenever you update.
 </p>
 <p>
-    Only use the variables in the context theyre designed for. In all other cases, you should reference the colour palette directly. For example, if you wanted to use red, you should use <code>govie-colour("red")</code> rather than <code>$govie-error-colour</code>.
+  Only use the variables in the context theyre designed for. In all other cases,
+  you should reference the colour palette directly. For example, if you wanted
+  to use red, you should use <code>govie-colour("red")</code> rather than{' '}
+  <code>$govie-error-colour</code>.
 </p>
-
 
 <h3>Text</h3>
 
-| Name                            | Value                   | Swatch                      |
-| ------------------------------- | ----------------------- | --------------------------- |
-| $govie-text-colour              | #0b0c0c                 | <Swatch colour="#0b0c0c" /> |
-| $govie-print-text-colour        | #000000                 | <Swatch colour="#000000" /> |
-| $govie-secondary-text-colour    | #505a5f                 | <Swatch colour="#505a5f" /> |
+| Name                          | Swatch                                                 | Notes                        |
+| ----------------------------- | ------------------------------------------------------ | ---------------------------- |
+| $govie-text-colour            | <Swatch colour="var(--govie-text-colour)" />           | Text colour.                 |
+| $Ígovie-print-text-colour     | <Swatch colour="var(--govie-print-text-colour)" />     | Text colour for print media. |
+| $Ígovie-secondary-text-colour | <Swatch colour="var(--govie-secondary-text-colour)" /> | Secondary text colour.       |
 
 <h3>Links</h3>
 
-| Name                            | Value                   | Swatch                      |
-| ------------------------------- | ----------------------- | --------------------------- |
-| $govie-link-colour              | #2c55a2                 | <Swatch colour="#2c55a2" /> |
-| $govie-link-visited-colour      | #4c2c92                 | <Swatch colour="#4c2c92" /> |
-| $govie-link-hover-colour        | #003078                 | <Swatch colour="#003078" /> |
-| $govie-link-active-colour       | #0b0c0c                 | <Swatch colour="#0b0c0c" /> |
+| Name                        | Swatch                                               | Notes                        |
+| --------------------------- | ---------------------------------------------------- | ---------------------------- |
+| $Ígovie-link-colour         | <Swatch colour="var(--govie-link-colour)" />         | Use for link colour.         |
+| $Ígovie-link-visited-colour | <Swatch colour="var(--govie-link-visited-colour)" /> | Use for visited link colour. |
+| $Ígovie-link-hover-colour   | <Swatch colour="var(--govie-link-hover-colour)" />   | Use for link hover colour.   |
+| $Ígovie-link-active-colour  | <Swatch colour="var(--govie-link-active-colour)" />  | Use gor active link colour.  |
 
 <h3>Border</h3>
 
-| Name                            | Value                   | Swatch                      |
-| ------------------------------- | ----------------------- | --------------------------- |
-| $govie-border-colour            | #b1b4b6                 | <Swatch colour="#b1b4b6" /> |
-| $govie-input-border-colour      | #0b0c0c                 | <Swatch colour="#0b0c0c" /> |
+| Name                       | Swatch                                               | Notes                                                                       |
+| -------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------- |
+| $govie-border-colour       | <Swatch colour="var(--govie-border-colour)" />       | Border colour. Used in for example borders, separators, rules and keylines. |
+| $govie-input-border-colour | <Swatch colour="var(--govie-input-border-colour)" /> | Input border colour. Used for form inputs and controls.                     |
 
 <h3>Focus</h3>
 
-| Name                            | Value                   | Swatch                      | Notes            | 
-| ------------------------------- | ----------------------- | --------------------------- | ---------------- | 
-| $govie-focus-colour             | #ffdd00                 | <Swatch colour="#ffdd00" /> | Only use this colour to indicate which element is focused on. <br />For example, when a user tabs to an element with their keyboard. |
-| $govie-focus-text-colour        | #0b0c0c                 | <Swatch colour="#0b0c0c" /> | | 
+| Name                     | Swatch                                             | Notes                                                                                                                                |
+| ------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| $govie-focus-colour      | <Swatch colour="var(--govie-focus-colour)" />      | Only use this colour to indicate which element is focused on. <br />For example, when a user tabs to an element with their keyboard. |
+| $govie-focus-text-colour | <Swatch colour="var(--govie-focus-text-colour)" /> | Ensure that the contrast between the text and background colour passes WCAG Level AA contrast requirements.                          |
 
-<h3>Error state</h3>
+<h3>State colours</h3>
 
-| Name                            | Value                   | Swatch                      | Notes            | 
-| ------------------------------- | ----------------------- | --------------------------- | ---------------- | 
-| $govie-error-colour             | #ae1122                 | <Swatch colour="#ae1122" /> | Use for error messages. |
-
-<h3>Success state</h3>
-
-| Name                            | Value                   | Swatch                      | Notes            | 
-| ------------------------------- | ----------------------- | --------------------------- | ---------------- | 
-| $govie-success-colour           | #00703c                 | <Swatch colour="#00703c" /> | Use for success messages. |
-
+| Name                  | Swatch                                          | Notes                     |
+| --------------------- | ----------------------------------------------- | ------------------------- |
+| $govie-error-colour   | <Swatch colour="var(--govie-error-colour)" />   | Use for error messages.   |
+| $govie-success-colour | <Swatch colour="var(--govie-sucesss-colour)" /> | Use for success messages. |
 
 <h3>Brand colour </h3>
 
-| Name                            | Value                   | Swatch                      |
-| ------------------------------- | ----------------------- | --------------------------- |
-| $govie-brand-colour             | #1d70b8                 | <Swatch colour="#1d70b8" /> | 
+| Name                | Swatch                                        | Notes         |
+| ------------------- | --------------------------------------------- | ------------- |
+| $govie-brand-colour | <Swatch colour="var(--govie-brand-colour)" /> | Brand colour. |
 
 <h3> Surface colours</h3>
 
-| Name                            | Value                   | Swatch                      |
-| ------------------------------- | ----------------------- | --------------------------- |
-| $govie-header-surface-colour    | #004d44                 | <Swatch colour="#004d44" /> |
-| $govie-header-footer-border-colour     | #a39161                 | <Swatch colour="#a39161" /> |
-| $govie-footer-surface-colour    | govie-tint(#a39161, 90) | <Swatch colour="#f6f4ef" /> |
+| Name                               | Swatch                                                       | Notes                                                                     |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| $govie-header-surface-colour       | <Swatch colour="var(--govie-header-surface-colour)" />       | Header surface colour.                                                    |
+| $govie-header-footer-border-colour | <Swatch colour="var(--govie-header-footer-border-colour)" /> | Header and footer border colour.                                          |
+| $govie-footer-surface-colour       | <Swatch colour="var(--govie-footer-surface-colour)" />       | Used by the footer component and template to give the illusion of a long. |
+| $govie-body-background-colour      | <Swatch colour="var(--govie-body-background-colour)" />      | Body background colour.                                                   |
 
 <br />
 <h2>Colour palette</h2>
 <p>
-  Use these colours for supporting materials like illustrations, or in custom components where appropriate.
+  Use these colours for supporting materials like illustrations, or in custom
+  components where appropriate.
 </p>
 <p>
-  To reference colours from the palette directly you should use the <code>govie-colour</code> function. 
-  For example, color: <code>govie-colour("blue")</code>.
+  To reference colours from the palette directly you should use the{' '}
+  <code>govie-colour</code> function. For example, color:{' '}
+  <code>govie-colour("blue")</code>.
 </p>
 
 <p>
-  Avoid using the palette colours if there is a Sass variable that is designed for your context. For example, if you are styling the error state of a component you should use the <code>$govie-error-colour</code> Sass variable rather than <code>govie-colour("red")</code>.
+  Avoid using the palette colours if there is a Sass variable that is designed
+  for your context. For example, if you are styling the error state of a
+  component you should use the <code>$govie-error-colour</code> Sass variable
+  rather than <code>govie-colour("red")</code>.
 </p>
-<p>
-  If you need to use tints of this palette, use either 25% or 50%.
-</p>
+<p>If you need to use tints of this palette, use either 25% or 50%.</p>
 
 | Name          | Value                         | Swatch                      |
 | ------------- | ----------------------------- | --------------------------- |
