@@ -36,6 +36,9 @@ gulp.task('copy:files', () => {
 
         // Exclude Sass files related to Storybook app
         `!${configPaths.src}/{storybook,storybook/**}`,
+
+        // Exclude storybook pages
+        `!${configPaths.src}/{pages,pages/**}`,
       ]),
 
       // Add CSS prefixes to Sass
