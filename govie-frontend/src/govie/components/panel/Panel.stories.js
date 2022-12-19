@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Page & Layout/Panel',
+  title: 'Layout/Panel',
   parameters: {
     docs: {
       description: {

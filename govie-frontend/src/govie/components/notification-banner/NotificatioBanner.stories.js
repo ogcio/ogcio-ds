@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Page & Layout/Notification Panel',
+  title: 'Layout/Notification Panel',
   parameters: {
     docs: {
       description: {

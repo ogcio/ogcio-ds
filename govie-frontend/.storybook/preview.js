@@ -67,7 +67,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Page & Layout'],
+      order: ['Docs', 'Form', 'Typography', 'Navigation', 'Layout', 'Pages'],
     },
   },
 }

@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Page & Layout/Footer',
+  title: 'Layout/Footer',
   parameters: {
     docs: {
       description: {

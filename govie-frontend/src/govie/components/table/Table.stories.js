@@ -37,10 +37,14 @@ export default {
       description:
         'When comparing columns of numbers, align the numbers to the right in table cells.',
     },
+    boldFirstColumn: {
+      control: 'boolean',
+    },
   },
   args: {
     captionSize: 'm',
     numeric: false,
+    boldFirstColumn: true,
   },
 }
 
@@ -54,9 +58,9 @@ const createTableHeader = (headers, numeric) => {
   headers.forEach((header, index) => {
     const th = document.createElement('th')
     th.setAttribute('scope', 'col')
-    
+
     const classes = ['govie-table__header']
-    if(index !== 0 && numeric) {
+    if (index !== 0 && numeric) {
       classes.push('govie-table__header--numeric')
     }
 
@@ -70,7 +74,7 @@ const createTableHeader = (headers, numeric) => {
   return thead
 }
 
-const createTableBody = (rows, numeric) => {
+const createTableBody = (rows, numeric, boldFirstColumn) => {
   const tbody = document.createElement('tbody')
   tbody.className = 'govie-table__body'
 
@@ -79,7 +83,7 @@ const createTableBody = (rows, numeric) => {
     tr.className = 'govie-table__row'
 
     row.forEach((cell, index) => {
-      if (index === 0) {
+      if (index === 0 && boldFirstColumn) {
         const th = document.createElement('th')
         th.className = 'govie-table__header'
         th.setAttribute('scope', 'row')
@@ -88,10 +92,10 @@ const createTableBody = (rows, numeric) => {
         tr.appendChild(th)
       } else {
         const td = document.createElement('td')
-        
+
         const classes = ['govie-table__cell']
 
-        if(numeric) {
+        if (numeric) {
           classes.push('govie-table__cell--numeric')
         }
 
@@ -113,7 +117,7 @@ const Template = (args) => {
 
   if (args.caption) {
     const caption = document.createElement('caption')
-    
+
     const classes = ['govie-table__caption']
     if (args.captionSize) {
       classes.push(`govie-table__caption--${args.captionSize}`)
@@ -126,7 +130,9 @@ const Template = (args) => {
   }
 
   table.appendChild(createTableHeader(args.headers, args.numeric))
-  table.appendChild(createTableBody(args.rows, args.numeric))
+  table.appendChild(
+    createTableBody(args.rows, args.numeric, args.boldFirstColumn)
+  )
 
   return beautifyHtmlNode(table)
 }
