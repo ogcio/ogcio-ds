@@ -109,8 +109,8 @@ WithServiceName.args = {
   serviceName: 'Service name',
 }
 
-export const WithdNavigation = Template.bind({})
-WithdNavigation.args = {
+export const WithNavigation = Template.bind({})
+WithNavigation.args = {
   navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
 }
 
