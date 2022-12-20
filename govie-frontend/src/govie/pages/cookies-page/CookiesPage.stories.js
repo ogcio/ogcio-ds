@@ -1,5 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import createParagraph from '../../../../.storybook/helpers/createParagraph'
 
 import { Default as PageHeader } from '../../components/header/Header.stories'
 import { Default as PageFooter } from '../../components/footer/Footer.stories'
@@ -22,17 +23,9 @@ export default {
   },
 }
 
-const createParagraph = (text) => {
-  const paragraph = document.createElement('p')
-  paragraph.className = 'govie-body'
-  paragraph.innerText = text
-
-  return paragraph
-}
-
-const createMainWrapper = () => {
-  const mainWrapper = document.createElement('div')
-  mainWrapper.className = 'govie-main-wrapper govie-width-container'
+const createColumn = () => {
+  const column = document.createElement('div')
+  column.className = 'govie-grid-column-two-thirds'
 
   const cookiesHeading = parseHtmlString(
     Heading({
@@ -42,15 +35,15 @@ const createMainWrapper = () => {
       nestedCaption: false,
     })
   )
-  mainWrapper.appendChild(cookiesHeading)
+  column.appendChild(cookiesHeading)
 
   const firstIntroText =
     'Cookies are small files saved on your phone, tablet or computer when you visit a website.'
-  mainWrapper.appendChild(createParagraph(firstIntroText))
+  column.appendChild(createParagraph(firstIntroText))
 
   const secondIntroText =
     'We use cookies to make GOV.UK Notify work and collect information about how you use our service.'
-  mainWrapper.appendChild(createParagraph(secondIntroText))
+  column.appendChild(createParagraph(secondIntroText))
 
   const essentialCookiesHeading = parseHtmlString(
     Heading({
@@ -60,11 +53,11 @@ const createMainWrapper = () => {
       nestedCaption: false,
     })
   )
-  mainWrapper.appendChild(essentialCookiesHeading)
+  column.appendChild(essentialCookiesHeading)
 
   const essentialCookiesText =
     'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.'
-  mainWrapper.appendChild(createParagraph(essentialCookiesText))
+  column.appendChild(createParagraph(essentialCookiesText))
 
   const essentialCookiesTable = parseHtmlString(
     Table({
@@ -75,7 +68,7 @@ const createMainWrapper = () => {
       ],
     })
   )
-  mainWrapper.appendChild(essentialCookiesTable)
+  column.appendChild(essentialCookiesTable)
 
   const analyticsCookiesHeading = parseHtmlString(
     Heading({
@@ -85,19 +78,19 @@ const createMainWrapper = () => {
       nestedCaption: false,
     })
   )
-  mainWrapper.appendChild(analyticsCookiesHeading)
+  column.appendChild(analyticsCookiesHeading)
 
   const firstAnalyticsCookiesText =
     'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.'
-  mainWrapper.appendChild(createParagraph(firstAnalyticsCookiesText))
+  column.appendChild(createParagraph(firstAnalyticsCookiesText))
 
   const secondAnalyticsCookiesText =
     'Google is not allowed to use or share our analytics data with anyone.'
-  mainWrapper.appendChild(createParagraph(secondAnalyticsCookiesText))
+  column.appendChild(createParagraph(secondAnalyticsCookiesText))
 
   const thirdAnalyticsCookiesText =
     'Google Analytics stores anonymised information about:'
-  mainWrapper.appendChild(createParagraph(thirdAnalyticsCookiesText))
+  column.appendChild(createParagraph(thirdAnalyticsCookiesText))
 
   const googleAnalyticsInfoList = parseHtmlString(
     Lists({
@@ -109,7 +102,7 @@ const createMainWrapper = () => {
       type: 'bullet',
     })
   )
-  mainWrapper.appendChild(googleAnalyticsInfoList)
+  column.appendChild(googleAnalyticsInfoList)
 
   const analyticsCookiesTable = parseHtmlString(
     Table({
@@ -128,7 +121,7 @@ const createMainWrapper = () => {
       ],
     })
   )
-  mainWrapper.appendChild(analyticsCookiesTable)
+  column.appendChild(analyticsCookiesTable)
 
   const form = document.createElement('form')
 
@@ -147,7 +140,19 @@ const createMainWrapper = () => {
   )
   form.appendChild(saveSettingsButton)
 
-  mainWrapper.appendChild(form)
+  column.appendChild(form)
+
+  return column
+}
+
+const createMainWrapper = () => {
+  const row = document.createElement('div')
+  row.className = 'govie-grid-row'
+  row.appendChild(createColumn())
+
+  const mainWrapper = document.createElement('div')
+  mainWrapper.className = 'govie-main-wrapper govie-width-container'
+  mainWrapper.appendChild(row)
 
   return mainWrapper
 }
