@@ -1,5 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import createParagraph from '../../../../.storybook/helpers/createParagraph'
 
 import { Default as PageHeader } from '../../components/header/Header.stories'
 import { Default as PageFooter } from '../../components/footer/Footer.stories'
@@ -16,14 +17,6 @@ export default {
       },
     },
   },
-}
-
-const createParagraph = (text) => {
-  const paragraph = document.createElement('p')
-  paragraph.className = 'govie-body'
-  paragraph.innerHTML = text
-
-  return paragraph
 }
 
 const createMainWrapper = () => {
