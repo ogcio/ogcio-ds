@@ -1,14 +1,16 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import createParagraph from '../../../../.storybook/helpers/createParagraph'
+import {
+  createPageHeader,
+  createPageFooter,
+} from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as PageHeader } from '../../components/header/Header.stories'
-import { Default as PageFooter } from '../../components/footer/Footer.stories'
-import { Default as Heading } from '../../components/typography/Heading.stories'
-import { Default as Table } from '../../components/table/Table.stories'
-import { Default as Lists } from '../../components/typography/Lists.stories'
-import { Default as Radios } from '../../components/radios/Radio.stories'
-import { Default as Button } from '../../components/button/Button.stories'
+import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as table } from '../../components/table/Table.stories'
+import { Default as lists } from '../../components/typography/Lists.stories'
+import { Default as radios } from '../../components/radios/Radio.stories'
+import { Default as button } from '../../components/button/Button.stories'
 
 export default {
   title: 'Pages/Cookies Page',
@@ -27,15 +29,15 @@ const createColumn = () => {
   const column = document.createElement('div')
   column.className = 'govie-grid-column-two-thirds'
 
-  const cookiesHeading = parseHtmlString(
-    Heading({
+  const cookiesheading = parseHtmlString(
+    heading({
       text: 'Cookies',
       size: 'l',
       captionSize: 'l',
       nestedCaption: false,
     })
   )
-  column.appendChild(cookiesHeading)
+  column.appendChild(cookiesheading)
 
   const firstIntroText =
     'Cookies are small files saved on your phone, tablet or computer when you visit a website.'
@@ -45,22 +47,22 @@ const createColumn = () => {
     'We use cookies to make GOV.UK Notify work and collect information about how you use our service.'
   column.appendChild(createParagraph(secondIntroText))
 
-  const essentialCookiesHeading = parseHtmlString(
-    Heading({
+  const essentialCookiesheading = parseHtmlString(
+    heading({
       text: 'Essential cookies',
       size: 'm',
       captionSize: 'm',
       nestedCaption: false,
     })
   )
-  column.appendChild(essentialCookiesHeading)
+  column.appendChild(essentialCookiesheading)
 
   const essentialCookiesText =
     'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.'
   column.appendChild(createParagraph(essentialCookiesText))
 
-  const essentialCookiesTable = parseHtmlString(
-    Table({
+  const essentialCookiestable = parseHtmlString(
+    table({
       headers: ['Name', 'Purpose', 'Expires'],
       rows: [
         ['notify_admin_session', 'Used to keep you signed in', '20 hours'],
@@ -68,17 +70,17 @@ const createColumn = () => {
       ],
     })
   )
-  column.appendChild(essentialCookiesTable)
+  column.appendChild(essentialCookiestable)
 
-  const analyticsCookiesHeading = parseHtmlString(
-    Heading({
+  const analyticsCookiesheading = parseHtmlString(
+    heading({
       text: 'Analytics cookies (optional)',
       size: 'm',
       captionSize: 'm',
       nestedCaption: false,
     })
   )
-  column.appendChild(analyticsCookiesHeading)
+  column.appendChild(analyticsCookiesheading)
 
   const firstAnalyticsCookiesText =
     'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.'
@@ -93,7 +95,7 @@ const createColumn = () => {
   column.appendChild(createParagraph(thirdAnalyticsCookiesText))
 
   const googleAnalyticsInfoList = parseHtmlString(
-    Lists({
+    lists({
       items: [
         'how you got to [service]',
         'the pages you visit on [service] and how long you spend on them',
@@ -104,8 +106,8 @@ const createColumn = () => {
   )
   column.appendChild(googleAnalyticsInfoList)
 
-  const analyticsCookiesTable = parseHtmlString(
-    Table({
+  const analyticsCookiestable = parseHtmlString(
+    table({
       headers: ['Name', 'Purpose', 'Expires'],
       rows: [
         [
@@ -121,12 +123,12 @@ const createColumn = () => {
       ],
     })
   )
-  column.appendChild(analyticsCookiesTable)
+  column.appendChild(analyticsCookiestable)
 
   const form = document.createElement('form')
 
   const acceptRadioButtons = parseHtmlString(
-    Radios({
+    radios({
       options: 'Yes,No',
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
@@ -136,7 +138,7 @@ const createColumn = () => {
   form.appendChild(acceptRadioButtons)
 
   const saveSettingsButton = parseHtmlString(
-    Button({ mode: 'default', label: 'Save cookie settings' })
+    button({ mode: 'default', label: 'Save cookie settings' })
   )
   form.appendChild(saveSettingsButton)
 
@@ -159,19 +161,9 @@ const createMainWrapper = () => {
 
 const Template = (args) => {
   const body = document.createElement('body')
-
-  const pageHeader = parseHtmlString(
-    PageHeader({
-      navigationLinks:
-        'Navigation item 1, Navigation item 2, Navigation item 3',
-    })
-  )
-  body.appendChild(pageHeader)
-
+  body.appendChild(createPageHeader())
   body.appendChild(createMainWrapper())
-
-  const pageFooter = parseHtmlString(PageFooter({}))
-  body.appendChild(pageFooter)
+  body.appendChild(createPageFooter())
 
   return beautifyHtmlNode(body)
 }
