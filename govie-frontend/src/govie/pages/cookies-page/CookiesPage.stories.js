@@ -20,19 +20,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    headingText: {
-      control: 'text',
-      type: { name: 'string', required: true },
-      description:
-        'It’s meant for a high-level explanation of what has happened.',
-    },
-    bodyHtml: {
-      control: 'text',
-      description:
-        'Use this component instead of the heading text if you need to give detailed information, or more context.',
-    },
-  },
 }
 
 const createParagraph = (text) => {
@@ -185,6 +172,4 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  headingText: 'Application complete',
-}
+Default.args = {}

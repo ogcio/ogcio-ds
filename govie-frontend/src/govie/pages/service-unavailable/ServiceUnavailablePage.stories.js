@@ -54,7 +54,8 @@ const createMainWrapper = () => {
     'We saved your answers. They will be available for 30 days.'
   column.appendChild(createParagraph(secondIntroText))
 
-  const link = '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
+  const link =
+    '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
   const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your tax credits.`
   column.appendChild(createParagraph(thirdIntroText))
 
