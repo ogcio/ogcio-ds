@@ -56,7 +56,7 @@ const createMainWrapper = () => {
 
   const link =
     '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
-  const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your tax credits.`
+  const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your [service].`
   column.appendChild(createParagraph(thirdIntroText))
 
   row.appendChild(column)
