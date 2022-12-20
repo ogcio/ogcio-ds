@@ -34,7 +34,6 @@ const createColumn = () => {
       text: 'Cookies',
       size: 'l',
       captionSize: 'l',
-      nestedCaption: false,
     })
   )
   column.appendChild(cookiesheading)
@@ -52,7 +51,6 @@ const createColumn = () => {
       text: 'Essential cookies',
       size: 'm',
       captionSize: 'm',
-      nestedCaption: false,
     })
   )
   column.appendChild(essentialCookiesheading)
@@ -77,7 +75,6 @@ const createColumn = () => {
       text: 'Analytics cookies (optional)',
       size: 'm',
       captionSize: 'm',
-      nestedCaption: false,
     })
   )
   column.appendChild(analyticsCookiesheading)
