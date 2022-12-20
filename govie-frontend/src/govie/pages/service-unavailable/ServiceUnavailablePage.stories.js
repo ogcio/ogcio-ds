@@ -1,10 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import createParagraph from '../../../../.storybook/helpers/createParagraph'
+import {
+  createPageHeader,
+  createPageFooter,
+} from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as PageHeader } from '../../components/header/Header.stories'
-import { Default as PageFooter } from '../../components/footer/Footer.stories'
-import { Default as Heading } from '../../components/typography/Heading.stories'
+import { Default as heading } from '../../components/typography/Heading.stories'
 
 export default {
   title: 'Pages/Service Unavailable',
@@ -31,7 +33,7 @@ const createMainWrapper = () => {
   column.className = 'govie-grid-column-two-thirds'
 
   const pageNotFoundHeading = parseHtmlString(
-    Heading({
+    heading({
       text: 'Sorry, the service is unavailable',
       size: 'l',
       captionSize: 'l',
@@ -60,18 +62,9 @@ const createMainWrapper = () => {
 
 const Template = (args) => {
   const body = document.createElement('body')
-
-  const pageHeader = parseHtmlString(
-    PageHeader({
-      serviceName: 'Service name',
-    })
-  )
-  body.appendChild(pageHeader)
-
+  body.appendChild(createPageHeader())
   body.appendChild(createMainWrapper())
-
-  const pageFooter = parseHtmlString(PageFooter({}))
-  body.appendChild(pageFooter)
+  body.appendChild(createPageFooter())
 
   return beautifyHtmlNode(body)
 }

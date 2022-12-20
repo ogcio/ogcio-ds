@@ -1,7 +1,7 @@
 const createParagraph = (text) => {
   const paragraph = document.createElement('p')
   paragraph.className = 'govie-body'
-  paragraph.innerText = text
+  paragraph.innerHTML = text
 
   return paragraph
 }
