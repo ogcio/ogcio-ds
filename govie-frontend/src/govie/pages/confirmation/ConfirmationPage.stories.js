@@ -1,6 +1,5 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import createParagraph from '../../../../.storybook/helpers/createParagraph'
 import {
   createPageHeader,
   createPageFooter,
@@ -8,6 +7,7 @@ import {
 
 import { Default as panel } from '../../components/panel/Panel.stories'
 import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Confirmation',
@@ -33,8 +33,12 @@ const createColumn = () => {
   )
   column.appendChild(applicationCompletePanel)
 
-  const confirmationText = 'We have sent you a confirmation email.'
-  column.appendChild(createParagraph(confirmationText))
+  const confirmationParagraph = parseHtmlString(
+    paragraph({
+      text: 'We have sent you a confirmation email.',
+    })
+  )
+  column.appendChild(confirmationParagraph)
 
   const whatHappensNextHeading = parseHtmlString(
     heading({
@@ -45,16 +49,26 @@ const createColumn = () => {
   )
   column.appendChild(whatHappensNextHeading)
 
-  const whatHappensNextFirstText = `We've sent your application to Hackney Electoral Register Office.`
-  column.appendChild(createParagraph(whatHappensNextFirstText))
+  const whatHappensNextFirstParagraph = parseHtmlString(
+    paragraph({
+      text: `We've sent your application to Hackney Electoral Register Office.`,
+    })
+  )
+  column.appendChild(whatHappensNextFirstParagraph)
 
-  const whatHappensNextSecondText =
-    'They will contact you either to confirm your registration, or to ask for more information.'
-  column.appendChild(createParagraph(whatHappensNextSecondText))
+  const whatHappensNextSecondParagraph = parseHtmlString(
+    paragraph({
+      text: 'They will contact you either to confirm your registration, or to ask for more information.',
+    })
+  )
+  column.appendChild(whatHappensNextSecondParagraph)
 
-  const whatHappensNextThirdText =
-    '<a href="#" class="govie-link">What did you think of this service?</a> (takes 30 seconds)'
-  column.appendChild(createParagraph(whatHappensNextThirdText))
+  const whatHappensNextThirdParagraph = parseHtmlString(
+    paragraph({
+      text: '<a href="#" class="govie-link">What did you think of this service?</a> (takes 30 seconds)',
+    })
+  )
+  column.appendChild(whatHappensNextThirdParagraph)
 
   return column
 }

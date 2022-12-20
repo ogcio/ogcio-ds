@@ -1,12 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import createParagraph from '../../../../.storybook/helpers/createParagraph'
 import {
   createPageHeader,
   createPageFooter,
 } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Page not found',
@@ -41,17 +41,26 @@ const createMainWrapper = () => {
   )
   column.appendChild(pageNotFoundHeading)
 
-  const firstIntroText = 'If you typed the web address, check it is correct.'
-  column.appendChild(createParagraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({ text: 'If you typed the web address, check it is correct.' })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'If you pasted the web address, check you copied the entire address.'
-  column.appendChild(createParagraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'If you pasted the web address, check you copied the entire address.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
   const link =
     '<a href="#" class="govie-link">contact the [service] Helpline</a>'
-  const thirdIntroText = `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`
-  column.appendChild(createParagraph(thirdIntroText))
+  const thirdIntroParagraph = parseHtmlString(
+    paragraph({
+      text: `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`,
+    })
+  )
+  column.appendChild(thirdIntroParagraph)
 
   row.appendChild(column)
   mainWrapper.appendChild(row)

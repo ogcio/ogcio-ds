@@ -1,12 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import createParagraph from '../../../../.storybook/helpers/createParagraph'
 import {
   createPageHeader,
   createPageFooter,
 } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Service Unavailable',
@@ -42,17 +42,26 @@ const createMainWrapper = () => {
   )
   column.appendChild(pageNotFoundHeading)
 
-  const firstIntroText = 'You will be able to use the service later.'
-  column.appendChild(createParagraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({ text: 'You will be able to use the service later.' })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'We saved your answers. They will be available for 30 days.'
-  column.appendChild(createParagraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'We saved your answers. They will be available for 30 days.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
   const link =
     '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
-  const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your [service].`
-  column.appendChild(createParagraph(thirdIntroText))
+  const thirdIntroParagraph = parseHtmlString(
+    paragraph({
+      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
+    })
+  )
+  column.appendChild(thirdIntroParagraph)
 
   row.appendChild(column)
   mainWrapper.appendChild(row)

@@ -1,14 +1,14 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import createParagraph from '../../../../.storybook/helpers/createParagraph'
 import {
   createPageHeader,
   createPageFooter,
 } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as table } from '../../components/table/Table.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 import { Default as lists } from '../../components/typography/Lists.stories'
+import { Default as table } from '../../components/table/Table.stories'
 import { Default as radios } from '../../components/radios/Radio.stories'
 import { Default as button } from '../../components/button/Button.stories'
 
@@ -38,13 +38,19 @@ const createColumn = () => {
   )
   column.appendChild(cookiesheading)
 
-  const firstIntroText =
-    'Cookies are small files saved on your phone, tablet or computer when you visit a website.'
-  column.appendChild(createParagraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'Cookies are small files saved on your phone, tablet or computer when you visit a website.',
+    })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'We use cookies to make GOV.UK Notify work and collect information about how you use our service.'
-  column.appendChild(createParagraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'We use cookies to make GOV.UK Notify work and collect information about how you use our service.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
   const essentialCookiesheading = parseHtmlString(
     heading({
@@ -55,9 +61,12 @@ const createColumn = () => {
   )
   column.appendChild(essentialCookiesheading)
 
-  const essentialCookiesText =
-    'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.'
-  column.appendChild(createParagraph(essentialCookiesText))
+  const essentialCookiesParagraph = parseHtmlString(
+    paragraph({
+      text: 'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.',
+    })
+  )
+  column.appendChild(essentialCookiesParagraph)
 
   const essentialCookiestable = parseHtmlString(
     table({
@@ -79,17 +88,26 @@ const createColumn = () => {
   )
   column.appendChild(analyticsCookiesheading)
 
-  const firstAnalyticsCookiesText =
-    'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.'
-  column.appendChild(createParagraph(firstAnalyticsCookiesText))
+  const firstAnalyticsCookiesParagraph = parseHtmlString(
+    paragraph({
+      text: 'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.',
+    })
+  )
+  column.appendChild(firstAnalyticsCookiesParagraph)
 
-  const secondAnalyticsCookiesText =
-    'Google is not allowed to use or share our analytics data with anyone.'
-  column.appendChild(createParagraph(secondAnalyticsCookiesText))
+  const secondAnalyticsCookiesParagraph = parseHtmlString(
+    paragraph({
+      text: 'Google is not allowed to use or share our analytics data with anyone.',
+    })
+  )
+  column.appendChild(secondAnalyticsCookiesParagraph)
 
-  const thirdAnalyticsCookiesText =
-    'Google Analytics stores anonymised information about:'
-  column.appendChild(createParagraph(thirdAnalyticsCookiesText))
+  const thirdAnalyticsCookiesParagraph = parseHtmlString(
+    paragraph({
+      text: 'Google Analytics stores anonymised information about:',
+    })
+  )
+  column.appendChild(thirdAnalyticsCookiesParagraph)
 
   const googleAnalyticsInfoList = parseHtmlString(
     lists({
