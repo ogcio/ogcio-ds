@@ -53,8 +53,9 @@ const createMainWrapper = () => {
     'If you pasted the web address, check you copied the entire address.'
   column.appendChild(createParagraph(secondIntroText))
 
-  const link = '<a href="#" class="govie-link">contact the Helpline</a>'
-  const thirdIntroText = `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your tax credits.`
+  const link =
+    '<a href="#" class="govie-link">contact the [service] Helpline</a>'
+  const thirdIntroText = `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`
   column.appendChild(createParagraph(thirdIntroText))
 
   row.appendChild(column)
