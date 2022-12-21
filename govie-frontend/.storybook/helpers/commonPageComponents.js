@@ -1,10 +1,10 @@
 import parseHtmlString from './parseHtmlString'
-import { Default as PageHeader } from '../../src/govie/components/header/Header.stories'
-import { Default as PageFooter } from '../../src/govie/components/footer/Footer.stories'
+import { Default as pageHeader } from '../../src/govie/components/header/Header.stories'
+import { Default as pageFooter } from '../../src/govie/components/footer/Footer.stories'
 
 export const createPageHeader = () => {
   return parseHtmlString(
-    PageHeader({
+    pageHeader({
       navigationLinks:
         'Navigation item 1, Navigation item 2, Navigation item 3',
     })
@@ -13,7 +13,7 @@ export const createPageHeader = () => {
 
 export const createPageFooter = () => {
   return parseHtmlString(
-    PageFooter({
+    pageFooter({
       inlineLinks:
         'Help, Privacy, Cookies, Accessibility statement, Contact, Terms and conditions, Government Digital Service',
       secondaryNavigationLinkHeadings: ['Topics', 'Government activity'],
@@ -49,4 +49,49 @@ export const createPageFooter = () => {
       ],
     })
   )
+}
+
+// It expects a single HTML node as the mainContent
+// TODO: Add support for extra content above the main element
+export const createBody = (mainContent) => {
+  const body = document.createElement('body')
+  body.className = 'govie-template__body'
+
+  const jsEnabledScript = document.createElement('script')
+  jsEnabledScript.innerHTML = `document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');`
+  body.appendChild(jsEnabledScript)
+
+  const skipToMainLink = document.createElement('a')
+  skipToMainLink.href = '#main-content'
+  skipToMainLink.className = 'govie-skip-link'
+  skipToMainLink.setAttribute('data-module', 'govie-skip-link')
+  skipToMainLink.innerText = 'Skip to main content'
+  body.appendChild(skipToMainLink)
+
+  body.appendChild(createPageHeader())
+
+  const widthContainer = document.createElement('div')
+  widthContainer.className = 'govie-width-container '
+
+  const mainContentWrapper = document.createElement('main')
+  mainContentWrapper.className = 'govie-main-wrapper '
+  mainContentWrapper.id = 'main-content'
+  mainContentWrapper.setAttribute('role', 'main')
+  mainContentWrapper.appendChild(mainContent)
+
+  widthContainer.appendChild(mainContentWrapper)
+
+  body.appendChild(widthContainer)
+
+  body.appendChild(createPageFooter())
+
+  const allJsReference = document.createElement('script')
+  allJsReference.src = '/govie-frontend/all.js'
+  body.appendChild(allJsReference)
+
+  const initAllScript = document.createElement('script')
+  initAllScript.innerHTML = `window.GOVIEFrontend.initAll()`
+  body.appendChild(initAllScript)
+
+  return body
 }
