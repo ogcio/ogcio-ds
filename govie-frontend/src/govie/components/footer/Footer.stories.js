@@ -13,12 +13,15 @@ export default {
   argTypes: {
     inlineLinks: { control: 'text' },
     secondaryNavigationLinks: { control: 'array' },
+    secondaryNavigationLinkHeadings: { control: 'array' },
     logoLink: { control: 'text' },
     licenseLink: { control: 'text' },
   },
   args: {
     logoLink: '#',
     licenseLink: '#',
+    secondaryNavigationLinks: [],
+    secondaryNavigationLinkHeadings: ['Two column list', 'Single column list'],
   },
 }
 
@@ -57,16 +60,18 @@ const createNavigationSection = (items, headingText, twoColumns) => {
   return section
 }
 
-const createNavigation = (navigationLinks) => {
+const createNavigation = (navigationLinks, navigationLinkHeadings) => {
   const [first, second] = navigationLinks
 
   const navigation = document.createElement('div')
   navigation.className = 'govie-footer__navigation'
 
   navigation.appendChild(
-    createNavigationSection(first, 'Two column list', true)
+    createNavigationSection(first, navigationLinkHeadings[0], true)
   )
-  navigation.appendChild(createNavigationSection(second, 'Single column list'))
+  navigation.appendChild(
+    createNavigationSection(second, navigationLinkHeadings[1])
+  )
 
   return navigation
 }
@@ -99,8 +104,16 @@ const Template = (args) => {
   const widthContainer = document.createElement('div')
   widthContainer.className = 'govie-width-container'
 
-  if (args.secondaryNavigationLinks) {
-    widthContainer.appendChild(createNavigation(args.secondaryNavigationLinks))
+  if (
+    args.secondaryNavigationLinks &&
+    args.secondaryNavigationLinks.length > 0
+  ) {
+    widthContainer.appendChild(
+      createNavigation(
+        args.secondaryNavigationLinks,
+        args.secondaryNavigationLinkHeadings
+      )
+    )
   }
 
   const meta = document.createElement('div')

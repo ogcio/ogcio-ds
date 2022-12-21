@@ -1,9 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import {
+  createPageHeader,
+  createPageFooter,
+} from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as PageHeader } from '../../components/header/Header.stories'
-import { Default as PageFooter } from '../../components/footer/Footer.stories'
-import { Default as Heading } from '../../components/typography/Heading.stories'
+import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Service Unavailable',
@@ -19,14 +22,6 @@ export default {
   },
 }
 
-const createParagraph = (text) => {
-  const paragraph = document.createElement('p')
-  paragraph.className = 'govie-body'
-  paragraph.innerHTML = text
-
-  return paragraph
-}
-
 const createMainWrapper = () => {
   const mainWrapper = document.createElement('div')
   mainWrapper.className = 'govie-main-wrapper govie-width-container'
@@ -38,7 +33,7 @@ const createMainWrapper = () => {
   column.className = 'govie-grid-column-two-thirds'
 
   const pageNotFoundHeading = parseHtmlString(
-    Heading({
+    heading({
       text: 'Sorry, the service is unavailable',
       size: 'l',
       captionSize: 'l',
@@ -47,17 +42,26 @@ const createMainWrapper = () => {
   )
   column.appendChild(pageNotFoundHeading)
 
-  const firstIntroText = 'You will be able to use the service later.'
-  column.appendChild(createParagraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({ text: 'You will be able to use the service later.' })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'We saved your answers. They will be available for 30 days.'
-  column.appendChild(createParagraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'We saved your answers. They will be available for 30 days.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
   const link =
     '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
-  const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your [service].`
-  column.appendChild(createParagraph(thirdIntroText))
+  const thirdIntroParagraph = parseHtmlString(
+    paragraph({
+      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
+    })
+  )
+  column.appendChild(thirdIntroParagraph)
 
   row.appendChild(column)
   mainWrapper.appendChild(row)
@@ -67,18 +71,9 @@ const createMainWrapper = () => {
 
 const Template = (args) => {
   const body = document.createElement('body')
-
-  const pageHeader = parseHtmlString(
-    PageHeader({
-      serviceName: 'Service name',
-    })
-  )
-  body.appendChild(pageHeader)
-
+  body.appendChild(createPageHeader())
   body.appendChild(createMainWrapper())
-
-  const pageFooter = parseHtmlString(PageFooter({}))
-  body.appendChild(pageFooter)
+  body.appendChild(createPageFooter())
 
   return beautifyHtmlNode(body)
 }

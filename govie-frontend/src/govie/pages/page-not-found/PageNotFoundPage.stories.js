@@ -1,9 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import {
+  createPageHeader,
+  createPageFooter,
+} from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as PageHeader } from '../../components/header/Header.stories'
-import { Default as PageFooter } from '../../components/footer/Footer.stories'
-import { Default as Heading } from '../../components/typography/Heading.stories'
+import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Page not found',
@@ -18,14 +21,6 @@ export default {
   },
 }
 
-const createParagraph = (text) => {
-  const paragraph = document.createElement('p')
-  paragraph.className = 'govie-body'
-  paragraph.innerHTML = text
-
-  return paragraph
-}
-
 const createMainWrapper = () => {
   const mainWrapper = document.createElement('div')
   mainWrapper.className = 'govie-main-wrapper govie-width-container'
@@ -37,7 +32,7 @@ const createMainWrapper = () => {
   column.className = 'govie-grid-column-two-thirds'
 
   const pageNotFoundHeading = parseHtmlString(
-    Heading({
+    heading({
       text: 'Page not found',
       size: 'l',
       captionSize: 'l',
@@ -46,17 +41,26 @@ const createMainWrapper = () => {
   )
   column.appendChild(pageNotFoundHeading)
 
-  const firstIntroText = 'If you typed the web address, check it is correct.'
-  column.appendChild(createParagraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({ text: 'If you typed the web address, check it is correct.' })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'If you pasted the web address, check you copied the entire address.'
-  column.appendChild(createParagraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'If you pasted the web address, check you copied the entire address.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
   const link =
     '<a href="#" class="govie-link">contact the [service] Helpline</a>'
-  const thirdIntroText = `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`
-  column.appendChild(createParagraph(thirdIntroText))
+  const thirdIntroParagraph = parseHtmlString(
+    paragraph({
+      text: `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`,
+    })
+  )
+  column.appendChild(thirdIntroParagraph)
 
   row.appendChild(column)
   mainWrapper.appendChild(row)
@@ -66,18 +70,9 @@ const createMainWrapper = () => {
 
 const Template = (args) => {
   const body = document.createElement('body')
-
-  const pageHeader = parseHtmlString(
-    PageHeader({
-      serviceName: 'Service name',
-    })
-  )
-  body.appendChild(pageHeader)
-
+  body.appendChild(createPageHeader())
   body.appendChild(createMainWrapper())
-
-  const pageFooter = parseHtmlString(PageFooter({}))
-  body.appendChild(pageFooter)
+  body.appendChild(createPageFooter())
 
   return beautifyHtmlNode(body)
 }
