@@ -5,8 +5,8 @@ import {
   createPageFooter,
 } from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 import { Default as heading } from '../../components/typography/Heading.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
   title: 'Pages/Problem With Service',
@@ -15,8 +15,7 @@ export default {
       description: {
         component:
           'This pattern is currently experimental because more research is needed to validate it.\n\n' +
-          'This guidance is for government teams that build online services. <a href="https://www.gov.ie/">To find information and services for the public, go to gov.ie</a>.\n\n' +
-          'Tell the user there is something wrong with the service. These are also known as 500 and internal server error pages.',
+          'A page not found tells someone we cannot find the page they were trying to view. They are also known as 404 pages.',
       },
     },
   },
@@ -41,17 +40,25 @@ const createMainWrapper = () => {
   )
   column.appendChild(pageNotFoundHeading)
 
-  const firstIntroText = 'Try again later.'
-  column.appendChild(paragraph(firstIntroText))
+  const firstIntroParagraph = parseHtmlString(
+    paragraph({ text: 'Try again later.' })
+  )
+  column.appendChild(firstIntroParagraph)
 
-  const secondIntroText =
-    'We saved your answers. They will be available for 30 days.'
-  column.appendChild(paragraph(secondIntroText))
+  const secondIntroParagraph = parseHtmlString(
+    paragraph({
+      text: 'We saved your answers. They will be available for 30 days.',
+    })
+  )
+  column.appendChild(secondIntroParagraph)
 
-  const link =
-    '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
-  const thirdIntroText = `${link} if you need to make changes to your claim or speak to someone about your [service].`
-  column.appendChild(paragraph(thirdIntroText))
+  const link = '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
+  const thirdIntroParagraph = parseHtmlString(
+    paragraph({
+      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
+    })
+  )
+  column.appendChild(thirdIntroParagraph)
 
   row.appendChild(column)
   mainWrapper.appendChild(row)
