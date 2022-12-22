@@ -46,7 +46,7 @@ const createOneQuestionNodes = () => {
 }
 
 const createMultipleQuestionsNodes = () => {
-  let htmlNodes = []
+  const htmlNodes = []
 
   const questionsHeading = parseHtmlString(
     heading({
