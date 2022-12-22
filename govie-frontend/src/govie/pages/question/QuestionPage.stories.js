@@ -10,7 +10,7 @@ import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
-  title: 'Pages/Question Page',
+  title: 'Pages/Question',
   parameters: {
     docs: {
       description: {
