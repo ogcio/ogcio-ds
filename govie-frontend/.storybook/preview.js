@@ -15,9 +15,9 @@ export const parameters = {
     files: {
       'HSE theme': hseTheme,
       'AGS theme': agsTheme,
-      'Default theme': defaultTheme,
+      'OGCIO theme': defaultTheme,
     },
-    defaultTheme: 'Default theme',
+    defaultTheme: 'OGCIO theme',
   },
   controls: {
     matchers: {
