@@ -1,0 +1,16 @@
+/* 
+  * Override the Sass variables in order to alloww changing the theme 
+  */
+:root {
+  --govie-print-text-colour: #0b0c0c;
+  --govie-focus-colour: #63e6be;
+  --govie-focus-text-colour: #000000;
+  --govie-link-colour: #0f45a0;
+  --govie-link-visited-colour: #0f45a0;
+  --govie-link-hover-colour: #0f45a0;
+  --govie-header-surface-colour: #02594c;
+  --govie-footer-surface-colour: #02594c;
+  --govie-button-background-colour: #02594c;
+  --govie-button-background-hover-colour: #02473d;
+  --govie-button-background-shadow-colour: #01241e;
+}

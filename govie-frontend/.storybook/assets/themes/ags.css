@@ -1,0 +1,33 @@
+/* 
+  * Override the Sass variables in order to alloww changing the theme 
+  */
+:root {
+  --govie-print-text-colour: #0b0c0c;
+  --govie-focus-colour: #ffbf47;
+  --govie-focus-text-colour: #000000;
+  --govie-link-colour: #20399d;
+  --govie-link-visited-colour: #13225d;
+  --govie-link-hover-colour: #13225d;
+  --govie-header-surface-colour: #bfdbff;
+  --govie-footer-surface-colour: #161f3e;
+  --govie-button-background-colour: #07418b;
+  --govie-button-background-hover-colour: #FFFFFF;
+  --govie-button-background-shadow-colour: #07418b;
+}
+
+.govie-footer {
+  color: #FFF;
+}
+
+.govie-footer__link:link, .govie-footer__link:visited {
+  color: #FFF;
+}
+
+.govie-header__link:link, .govie-header__link:visited {
+  color: #13225d;
+}
+
+.govie-button:hover {
+  color: var(--govie-button-background-colour);
+  border: 1px solid var(--govie-button-background-colour);
+}
