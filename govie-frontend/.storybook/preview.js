@@ -3,7 +3,8 @@
 import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
-import darkTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/dark.css'
+import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
+import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
 import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/govie-frontend.min.css'
 
 export const decorators = [cssVariablesTheme]
@@ -12,10 +13,11 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   cssVariables: {
     files: {
-      'Dark theme': darkTheme,
-      'Default theme': defaultTheme,
+      'HSE theme': hseTheme,
+      'AGS theme': agsTheme,
+      'OGCIO theme': defaultTheme,
     },
-    defaultTheme: 'Default theme',
+    defaultTheme: 'OGCIO theme',
   },
   controls: {
     matchers: {
