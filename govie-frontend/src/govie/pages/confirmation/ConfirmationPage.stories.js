@@ -1,9 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import {
-  createPageHeader,
-  createPageFooter,
-} from '../../../../.storybook/helpers/commonPageComponents'
+import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as panel } from '../../components/panel/Panel.stories'
 import { Default as heading } from '../../components/typography/Heading.stories'
@@ -15,7 +12,7 @@ export default {
     docs: {
       description: {
         component:
-          'Use this pattern to let users know they’ve completed a transaction.',
+          "Use this pattern to let users know they've completed a transaction.",
       },
     },
   },
@@ -51,7 +48,7 @@ const createColumn = () => {
 
   const whatHappensNextFirstParagraph = parseHtmlString(
     paragraph({
-      text: `We've sent your application to Hackney Electoral Register Office.`,
+      text: "We've sent your application to Hackney Electoral Register Office.",
     })
   )
   column.appendChild(whatHappensNextFirstParagraph)
@@ -86,11 +83,7 @@ const createMainWrapper = () => {
 }
 
 const Template = (args) => {
-  const body = document.createElement('body')
-  body.appendChild(createPageHeader())
-  body.appendChild(createMainWrapper())
-  body.appendChild(createPageFooter())
-
+  const body = createBody(createMainWrapper())
   return beautifyHtmlNode(body)
 }
 

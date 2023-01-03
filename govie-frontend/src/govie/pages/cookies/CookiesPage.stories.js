@@ -1,9 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import {
-  createPageHeader,
-  createPageFooter,
-} from '../../../../.storybook/helpers/commonPageComponents'
+import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
@@ -13,7 +10,7 @@ import { Default as radios } from '../../components/radios/Radio.stories'
 import { Default as button } from '../../components/button/Button.stories'
 
 export default {
-  title: 'Pages/Cookies Page',
+  title: 'Pages/Cookies',
   parameters: {
     docs: {
       description: {
@@ -175,11 +172,7 @@ const createMainWrapper = () => {
 }
 
 const Template = (args) => {
-  const body = document.createElement('body')
-  body.appendChild(createPageHeader())
-  body.appendChild(createMainWrapper())
-  body.appendChild(createPageFooter())
-
+  const body = createBody(createMainWrapper())
   return beautifyHtmlNode(body)
 }
 

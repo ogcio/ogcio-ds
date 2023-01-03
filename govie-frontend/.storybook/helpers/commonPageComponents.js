@@ -6,7 +6,7 @@ export const createPageHeader = () => {
   return parseHtmlString(
     pageHeader({
       navigationLinks:
-        'Navigation item 1, Navigation item 2, Navigation item 3',
+        'Navigation item 1, Navigation item 2, Navigation item 3'
     })
   )
 }
@@ -34,7 +34,7 @@ export const createPageFooter = () => {
           'Money and tax',
           'Passports, travel and living abroad',
           'Visas and immigration',
-          'Working, jobs and pensions',
+          'Working, jobs and pensions'
         ],
         [
           'Departments',
@@ -44,9 +44,9 @@ export const createPageFooter = () => {
           'Policy papers and consultations',
           'Transparency',
           'How government works',
-          'Get involved',
-        ],
-      ],
+          'Get involved'
+        ]
+      ]
     })
   )
 }
@@ -58,7 +58,7 @@ export const createBody = (mainContent) => {
   body.className = 'govie-template__body'
 
   const jsEnabledScript = document.createElement('script')
-  jsEnabledScript.innerHTML = `document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');`
+  jsEnabledScript.innerHTML = 'document.body.className = ((document.body.className) ? document.body.className + \' js-enabled\' : \'js-enabled\');'
   body.appendChild(jsEnabledScript)
 
   const skipToMainLink = document.createElement('a')
@@ -90,7 +90,7 @@ export const createBody = (mainContent) => {
   body.appendChild(allJsReference)
 
   const initAllScript = document.createElement('script')
-  initAllScript.innerHTML = `window.GOVIEFrontend.initAll()`
+  initAllScript.innerHTML = 'window.GOVIEFrontend.initAll()'
   body.appendChild(initAllScript)
 
   return body

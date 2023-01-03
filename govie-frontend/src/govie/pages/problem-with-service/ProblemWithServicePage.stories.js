@@ -1,15 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import {
-  createPageHeader,
-  createPageFooter,
-} from '../../../../.storybook/helpers/commonPageComponents'
+import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
-  title: 'Pages/Problem With Service',
+  title: 'Pages/Problem with service',
   parameters: {
     docs: {
       description: {
@@ -52,7 +49,8 @@ const createMainWrapper = () => {
   )
   column.appendChild(secondIntroParagraph)
 
-  const link = '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
+  const link =
+    '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
   const thirdIntroParagraph = parseHtmlString(
     paragraph({
       text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
@@ -67,11 +65,7 @@ const createMainWrapper = () => {
 }
 
 const Template = (args) => {
-  const body = document.createElement('body')
-  body.appendChild(createPageHeader())
-  body.appendChild(createMainWrapper())
-  body.appendChild(createPageFooter())
-
+  const body = createBody(createMainWrapper())
   return beautifyHtmlNode(body)
 }
 
