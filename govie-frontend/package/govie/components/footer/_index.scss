@@ -4,7 +4,6 @@
   $govie-footer-border: $govie-header-footer-border-colour;
   $govie-footer-text: $govie-text-colour;
 
-  // Based on the govie-crest-2x.png image dimensions.
   $govie-footer-logo-image-width-2x: 380px;
   $govie-footer-logo-image-height-2x: 130px;
   // Half the 2x image so that it fits the regular 1x size.
@@ -81,11 +80,11 @@
     display: inline-block;
     min-width: $govie-footer-logo-image-width;
     padding-top: ($govie-footer-logo-image-height + govie-spacing(2));
-    background-image: govie-image-url("govie-logotype.png");
+    background-image: govie-image-url("logotype.png");
     @include govie-device-pixel-ratio {
       // TODO: 2x image
-      // background-image: govie-image-url("govie-logotype-2x.png");
-      background-image: govie-image-url("govie-logotype.png");
+      // background-image: govie-image-url("logotype-2x.png");
+      background-image: govie-image-url("logotype.png");
     }
     background-repeat: no-repeat;
     background-position: 50% 0%;
