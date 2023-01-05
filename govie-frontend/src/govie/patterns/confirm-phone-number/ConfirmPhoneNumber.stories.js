@@ -15,7 +15,7 @@ export default {
     docs: {
       description: {
         component:
-          'Check that a user has access to a specific mobile phone number using a security code sent by text message.',
+          'Ask the user to enter a security code when they need to sign in or complete a higher-risk task, such as changing a password.',
       },
     },
   },
