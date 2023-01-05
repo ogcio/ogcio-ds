@@ -1,3 +1,5 @@
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+
 export default {
   title: 'Navigation/Back link',
   parameters: {
@@ -25,7 +27,7 @@ const Template = (args) => {
   backLink.className = 'govie-back-link'
   backLink.innerText = 'Back'
 
-  return backLink
+  return beautifyHtmlNode(backLink)
 }
 
 export const Default = Template.bind({})
