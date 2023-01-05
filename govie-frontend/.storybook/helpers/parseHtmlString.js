@@ -1,5 +1,5 @@
 const parseHtmlString = (htmlString) => {
-  var template = document.createElement('template')
+  const template = document.createElement('template')
   htmlString = htmlString.trim()
   template.innerHTML = htmlString
 

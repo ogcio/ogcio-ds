@@ -62,9 +62,11 @@ export default {
       description:
         'Use prefixes and suffixes to help users enter things like currencies and measurements.',
     },
-    errorMessage: {
-      control: 'text',
-    },
+    errorMessage: { control: 'text' },
+    inputExtraClasses: { control: 'text' },
+    type: { control: 'text' },
+    value: { control: 'text' },
+    autocomplete: { control: 'text' },
   },
 }
 
@@ -99,6 +101,10 @@ const getTextInputClassNames = (args) => {
 
   if (args.errorMessage) {
     inputClassNames.push('govie-input--error')
+  }
+
+  if (args.inputExtraClasses) {
+    inputClassNames.push(args.inputExtraClasses)
   }
 
   return inputClassNames
@@ -171,10 +177,19 @@ const createErrorMessageElement = (args) => {
 const createTextInputElement = (args) => {
   const textInputDescribedBy = getTextInputDescribedBy(args)
   const textInput = document.createElement('input')
-  textInput.type = 'text'
+
+  textInput.setAttribute('type', args.type ?? 'text')
   textInput.id = args.fieldId
   textInput.name = args.fieldName
   textInput.className = getTextInputClassNames(args).join(' ')
+
+  if (args.value) {
+    textInput.setAttribute('value', args.value)
+  }
+
+  if (args.autocomplete) {
+    textInput.setAttribute('autocomplete', args.autocomplete)
+  }
 
   if (textInputDescribedBy.length > 0) {
     textInput.setAttribute('aria-describedby', textInputDescribedBy.join(' '))

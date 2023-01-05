@@ -35,7 +35,7 @@ const Template = (args) => {
 
   const text = document.createElement('div')
   text.className = 'govie-details__text'
-  text.innerText = args.text
+  text.innerHTML = args.text
 
   const details = document.createElement('details')
   details.className = 'govie-details'
