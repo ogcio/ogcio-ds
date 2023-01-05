@@ -21,14 +21,16 @@ export default {
   },
   argTypes: {
     errorMessage: { control: 'boolean' },
-    newCode: { control: 'boolean' },
+    requestNewCode: { control: 'boolean' },
+    phoneAccess: { control: 'boolean' },
   },
   args: {
-    newCode: false,
+    requestNewCode: false,
+    phoneAccess: false,
   },
 }
 
-const createInput = (args) => {
+const createSecurityInput = (args) => {
   const securityInput = parseHtmlString(
     input({
       fieldId: 'security-code',
@@ -36,8 +38,23 @@ const createInput = (args) => {
       label: 'Security code',
       inputExtraClasses: 'govie-input--width-4',
       errorMessage: args.errorMessage,
+      autocomplete: 'one-time-code',
     })
   )
+
+  return securityInput
+}
+
+const createTelInput = () => {
+  const securityInput = input({
+    fieldId: 'mobile-number',
+    fieldName: 'mobile-number',
+    label: 'Mobile number',
+    inputExtraClasses: 'govie-input--width-20',
+    type: 'tel',
+    value: '07700 900000',
+    autocomplete: 'tel',
+  })
 
   return securityInput
 }
@@ -51,23 +68,33 @@ const createNotReceivedLink = () => {
 
 const createContent = (args) => {
   const components = []
-  const confirmationButton = parseHtmlString(button({ label: 'Continue' }))
 
-  if (args.newCode) {
-    const requestlink = link({ label: 'contact the Tax Credits Helpline' })
-
+  if (args.requestNewCode) {
     const requestCodeMsg = parseHtmlString(
-      details({
-        summary: 'I do not have access to the phone',
-        text: `If you cannot access the phone number for this account, ${requestlink} to get help signing in.`,
-      })
+      args.phoneAccess
+        ? details({
+          summary: 'Change where the text message is sent',
+          text: createTelInput(),
+        })
+        : details({
+          summary: 'I do not have access to the phone',
+          text: `If you cannot access the phone number for this account, ${link(
+              {
+                label: 'contact the Tax Credits Helpline',
+              }
+            )} to get help signing in.`,
+        })
     )
 
     components.push(requestCodeMsg)
   } else {
-    components.push(createInput(args))
-    components.push(confirmationButton)
+    components.push(createSecurityInput(args))
   }
+
+  const confirmationButton = parseHtmlString(
+    button({ label: args.requestNewCode ? 'Request a new code' : 'Continue' })
+  )
+  components.push(confirmationButton)
 
   return components
 }
@@ -77,20 +104,22 @@ const createPageContent = (args) => {
 
   const header = parseHtmlString(
     heading({
-      text: args.newCode ? 'Request a new security code' : 'Checek your phone',
+      text: args.requestNewCode
+        ? 'Request a new security code'
+        : 'Checek your phone',
       size: 'l',
     })
   )
 
   const message = parseHtmlString(
     paragraph({
-      text: args.newCode
+      text: args.requestNewCode
         ? 'Text messages sometimes take a few minutes to arrive. If you do not receive the text message, you can request a new one.'
         : 'We’ve sent you a text message with a security code.',
     })
   )
 
-  if (args.newCode) {
+  if (args.requestNewCode) {
     const back = parseHtmlString(backLink({ url: '#' }))
     components.push(back)
   }
@@ -98,7 +127,10 @@ const createPageContent = (args) => {
   components.push(header)
   components.push(message)
   components.push(...createContent(args))
-  components.push(createNotReceivedLink())
+
+  if (!args.requestNewCode) {
+    components.push(createNotReceivedLink())
+  }
 
   return components
 }
@@ -134,5 +166,11 @@ WithExpiredCodeErrorMessage.args = {
 
 export const RequestNewCode = Template.bind({})
 RequestNewCode.args = {
-  newCode: true,
+  requestNewCode: true,
+}
+
+export const RequestNewCodeWithoutPhoneAccess = Template.bind({})
+RequestNewCodeWithoutPhoneAccess.args = {
+  requestNewCode: true,
+  phoneAccess: true,
 }
