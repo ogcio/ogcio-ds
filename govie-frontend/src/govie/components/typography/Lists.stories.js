@@ -70,7 +70,7 @@ const Template = (args) => {
     if (args.link) {
       li.appendChild(createLink(item))
     } else {
-      li.innerText = item
+      li.innerHTML = item
     }
 
     list.appendChild(li)

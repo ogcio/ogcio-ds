@@ -22,7 +22,7 @@ export default {
 const Template = (args) => {
   const text = document.createElement('div')
   text.className = 'govie-inset-text'
-  text.append(args.text)
+  text.innerHTML = args.text
 
   return beautifyHtmlNode(text)
 }
