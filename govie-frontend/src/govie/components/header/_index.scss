@@ -62,7 +62,7 @@
     vertical-align: top;
   }
 
-  .govie-header__logotype-harp-fallback-image {
+  .govie-header__logotype-fallback-image {
     width: 110px;
     height: 40px;
     border: 0;
@@ -302,7 +302,7 @@
     }
 
     // Hide the inverted crown when printing in browsers that don't support SVG.
-    .govie-header__logotype-harp-fallback-image {
+    .govie-header__logotype-fallback-image {
       display: none;
     }
 
