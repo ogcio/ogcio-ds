@@ -22,11 +22,11 @@ export default {
 }
 
 const Template = (args) => {
-  const paragraph = document.createElement('p')
-  paragraph.className = 'govie-label'
-  paragraph.innerHTML = args.text
+  const label = document.createElement('label')
+  label.className = 'govie-label'
+  label.innerHTML = args.text
 
-  return beautifyHtmlNode(paragraph)
+  return beautifyHtmlNode(label)
 }
 
 export const Default = Template.bind({})
