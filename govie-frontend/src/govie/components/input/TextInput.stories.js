@@ -65,6 +65,9 @@ export default {
     errorMessage: {
       control: 'text',
     },
+    inputExtraClasses: {
+      control: 'text',
+    },
   },
 }
 
@@ -99,6 +102,10 @@ const getTextInputClassNames = (args) => {
 
   if (args.errorMessage) {
     inputClassNames.push('govie-input--error')
+  }
+
+  if (args.inputExtraClasses) {
+    inputClassNames.push(args.inputExtraClasses)
   }
 
   return inputClassNames

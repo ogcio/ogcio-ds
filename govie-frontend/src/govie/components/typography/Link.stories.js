@@ -1,3 +1,5 @@
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+
 export default {
   title: 'Navigation/Link',
   parameters: {
@@ -69,7 +71,7 @@ const Template = (args) => {
     link.target = '_blank'
   }
 
-  return link
+  return beautifyHtmlNode(link)
 }
 
 export const Default = Template.bind({})
