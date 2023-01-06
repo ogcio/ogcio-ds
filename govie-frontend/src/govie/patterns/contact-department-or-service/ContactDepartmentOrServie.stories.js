@@ -29,8 +29,8 @@ export default {
   },
 }
 
-const createHeading = (text, size = 's') =>
-  parseHtmlString(heading({ text, size }))
+const createHeading = (text, size = 's', element = 'h3') =>
+  parseHtmlString(heading({ text, size, element }))
 
 const createParagraph = (text) => parseHtmlString(paragraph({ text }))
 
@@ -49,7 +49,7 @@ const createListContactList = ({ title, items }) => [
 const createFullPage = (args) => {
   const components = []
 
-  components.push(createHeading('Get help with your application', 'm'))
+  components.push(createHeading('Get help with your application', 'm', 'h2' ))
   components.push(createHeading('Telephone'))
   components.push(
     createParagraph(
@@ -111,7 +111,7 @@ const createFullPage = (args) => {
 const createContactInformation = () => {
   const components = []
 
-  components.push(createHeading('Talk to an advisor', 'm'))
+  components.push(createHeading('Talk to an advisor', 'm', 'h2'))
 
   const contactList = parseHtmlString(
     list({
