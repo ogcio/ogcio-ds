@@ -20,6 +20,11 @@ export default {
       control: { type: 'radio' },
       type: { required: true },
     },
+    element: {
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'radio' },
+      type: { required: true },
+    },
     caption: {
       control: 'text',
       description:
@@ -39,13 +44,14 @@ export default {
     size: 'l',
     captionSize: 'l',
     nestedCaption: false,
+    element: 'h1',
   },
 }
 
 const Template = (args) => {
   const container = document.createElement('div')
 
-  const component = document.createElement('h1')
+  const component = document.createElement(args.element ?? 'h1')
   component.className = `govie-heading-${args.size}`
   component.innerText = args.text
 
