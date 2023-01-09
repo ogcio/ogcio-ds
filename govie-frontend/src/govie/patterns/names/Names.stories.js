@@ -18,8 +18,8 @@ export default {
   },
 }
 
-const createEmailInput = (args) => {
-  const emailInput = parseHtmlString(
+const createNameInput = (args) => {
+  const nameInput = parseHtmlString(
     input({
       fieldId: 'full-name',
       fieldName: 'full-name',
@@ -29,11 +29,11 @@ const createEmailInput = (args) => {
     })
   )
 
-  return emailInput
+  return nameInput
 }
 
 const Template = (args) => {
-  const body = createEmailInput(args)
+  const body = createNameInput(args)
   return beautifyHtmlNode(body)
 }
 
