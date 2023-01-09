@@ -52,7 +52,7 @@ const Template = (args) => {
   const container = document.createElement('div')
 
   const component = document.createElement(args.element ?? 'h1')
-  component.className = `govie-heading-${args.size}`
+  component.className = `govie-heading-${args.size ?? 'l'}`
   component.innerText = args.text
 
   if (args.caption) {
