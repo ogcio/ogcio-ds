@@ -81,11 +81,11 @@ const createColumn = () => {
 
     {
       key: 'Address',
-      value: '72 Guild Street<br>London<br>SE23 6FH',
+      value: 'Address line 1<br>Address line 2<br>City<br>Eircode',
     },
     {
       key: 'Contact details',
-      value: ['07700 864523', 'sarah.phillips@example.com'],
+      value: ['000 000000', 'sarah.phillips@example.com'],
     },
   ])
   column.appendChild(personalDetailsSummary)
@@ -107,7 +107,7 @@ const createColumn = () => {
 
     {
       key: 'Home address',
-      value: '72 Guild Street<br>London<br>SE23 6FH',
+      value: 'Address line 1<br>Address line 2<br>City<br>Eircode',
     },
     {
       key: 'Licence period',
