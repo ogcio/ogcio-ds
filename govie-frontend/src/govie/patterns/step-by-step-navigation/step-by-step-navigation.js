@@ -5,14 +5,16 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
 ;(function (Modules) {
   function AppStepNav($module) {
     this.$module = $module
-    this.$module.actions = {} // stores text for JS appended elements 'show' and 'hide' on steps, and 'show/hide all' button
-    this.$module.rememberShownStep = false
-    this.$module.stepNavSize = false
-    this.$module.sessionStoreLink = 'govie-step-nav-active-link'
-    this.$module.activeLinkClass = 'app-step-nav__list-item--active'
-    this.$module.activeStepClass = 'app-step-nav__step--active'
-    this.$module.activeLinkHref = '#content'
-    this.$module.uniqueId = false
+    if (this.$module) {
+      this.$module.actions = {} // stores text for JS appended elements 'show' and 'hide' on steps, and 'show/hide all' button
+      this.$module.rememberShownStep = false
+      this.$module.stepNavSize = false
+      this.$module.sessionStoreLink = 'govie-step-nav-active-link'
+      this.$module.activeLinkClass = 'app-step-nav__list-item--active'
+      this.$module.activeStepClass = 'app-step-nav__step--active'
+      this.$module.activeLinkHref = '#content'
+      this.$module.uniqueId = false
+    }
   }
 
   AppStepNav.prototype.init = function () {
