@@ -11,6 +11,8 @@ import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
 import Tabs from './components/tabs/tabs.mjs'
 
+import './patterns/step-by-step-navigation/step-by-step-navigation'
+
 /**
  * Initialise all components
  *
@@ -25,7 +27,7 @@ import Tabs from './components/tabs/tabs.mjs'
  * @param {object} [config.errorSummary] - Error Summary config
  * @param {object} [config.notificationBanner] - Notification Banner config
  */
-function initAll (config) {
+function initAll(config) {
   config = typeof config !== 'undefined' ? config : {}
 
   // Allow the user to initialise GOV.IE Frontend in only certain sections of the page
@@ -42,7 +44,9 @@ function initAll (config) {
     new Button($button, config.button).init()
   })
 
-  var $characterCounts = $scope.querySelectorAll('[data-module="govie-character-count"]')
+  var $characterCounts = $scope.querySelectorAll(
+    '[data-module="govie-character-count"]'
+  )
   nodeListForEach($characterCounts, function ($characterCount) {
     new CharacterCount($characterCount, config.characterCount).init()
   })
@@ -58,7 +62,9 @@ function initAll (config) {
   })
 
   // Find first error summary module to enhance.
-  var $errorSummary = $scope.querySelector('[data-module="govie-error-summary"]')
+  var $errorSummary = $scope.querySelector(
+    '[data-module="govie-error-summary"]'
+  )
   if ($errorSummary) {
     new ErrorSummary($errorSummary, config.errorSummary).init()
   }
@@ -69,9 +75,14 @@ function initAll (config) {
     new Header($header).init()
   }
 
-  var $notificationBanners = $scope.querySelectorAll('[data-module="govie-notification-banner"]')
+  var $notificationBanners = $scope.querySelectorAll(
+    '[data-module="govie-notification-banner"]'
+  )
   nodeListForEach($notificationBanners, function ($notificationBanner) {
-    new NotificationBanner($notificationBanner, config.notificationBanner).init()
+    new NotificationBanner(
+      $notificationBanner,
+      config.notificationBanner
+    ).init()
   })
 
   var $radios = $scope.querySelectorAll('[data-module="govie-radios"]')
@@ -87,6 +98,9 @@ function initAll (config) {
   nodeListForEach($tabs, function ($tabs) {
     new Tabs($tabs).init()
   })
+
+  var $stepByStepNav = $scope.querySelector('#step-by-step-navigation')
+  new GOVIE.Modules.AppStepNav($stepByStepNav).init()
 }
 
 export {
@@ -101,5 +115,5 @@ export {
   NotificationBanner,
   Radios,
   SkipLink,
-  Tabs
+  Tabs,
 }
