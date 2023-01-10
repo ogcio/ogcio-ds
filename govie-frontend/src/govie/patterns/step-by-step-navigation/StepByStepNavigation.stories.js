@@ -457,10 +457,12 @@ const Template = (args) => {
   )
   const headerRow = createHeaderRow()
   const stepByStepNavigationRow = createStepByStepNavigationRow()
-  const body = createBody(
-    [headerRow, stepByStepNavigationRow],
-    [breadcrumbsNavigation]
-  )
+
+  const body = createBody({
+    mainContent: [headerRow, stepByStepNavigationRow],
+    preMainContents: [breadcrumbsNavigation],
+    additionalWrapperClasses: ['govuk-main-wrapper--auto-spacing'],
+  })
 
   return beautifyHtmlNode(body)
 }

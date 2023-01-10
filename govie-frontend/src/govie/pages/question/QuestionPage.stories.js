@@ -174,7 +174,7 @@ const Template = (args) => {
   row.className = 'govie-grid-row'
   row.appendChild(createColumn(args))
 
-  const body = createBody(row)
+  const body = createBody({ mainContent: row })
 
   return beautifyHtmlNode(body)
 }
