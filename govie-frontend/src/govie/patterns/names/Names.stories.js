@@ -4,12 +4,12 @@ import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { Default as input } from '../../components/input/TextInput.stories'
 
 export default {
-  title: 'Patterns/Email addresses',
+  title: 'Patterns/Names',
   parameters: {
     docs: {
       description: {
         component:
-          'Follow this pattern whenever you need to capture an email address.',
+          'You should follow this pattern whenever you need to ask for a user’s name as part of your service. Only ask for people’s names if you need that information to deliver a service.',
       },
     },
   },
@@ -18,25 +18,22 @@ export default {
   },
 }
 
-const createEmailInput = (args) => {
-  const emailInput = parseHtmlString(
+const createNameInput = (args) => {
+  const nameInput = parseHtmlString(
     input({
-      fieldId: 'email',
-      fieldName: 'email',
-      label: 'Email address',
+      fieldId: 'full-name',
+      fieldName: 'full-name',
+      label: 'Full name',
       errorMessage: args.errorMessage,
-      autocomplete: 'email',
-      type: 'email',
-      hint: 'We’ll only use this to send you a receipt',
-      value: args.errorMessage ? 'Not an email address' : null
+      autocomplete: 'name',
     })
   )
 
-  return emailInput
+  return nameInput
 }
 
 const Template = (args) => {
-  const body = createEmailInput(args)
+  const body = createNameInput(args)
   return beautifyHtmlNode(body)
 }
 
@@ -45,6 +42,5 @@ Default.args = {}
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
-  errorMessage:
-    'Enter an email address in the correct format, like name@example.com',
+  errorMessage: 'Enter your full name'
 }
