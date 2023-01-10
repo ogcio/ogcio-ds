@@ -60,8 +60,8 @@ const createFullPage = (args) => {
   const infoList = parseHtmlString(
     list({
       items: [
-        'Telephone: 020 7946 0101',
-        'Textphone: 020 7946 0102',
+        'Telephone: 000 000000',
+        'Textphone: 000 000000',
         'Monday to Friday, 8am to 6pm',
         'Saturday and Sunday, 10am to 4pm',
       ],
@@ -94,7 +94,7 @@ const createFullPage = (args) => {
 
   components.push(createHeading('Address'))
   components.push(
-    createParagraph('49 to 53 Cherry Street<br>London<br>AB1 2DC')
+    createParagraph('Address line 1<br>Address line 2<br>City<br>Eir code')
   )
 
   components.push(createHeading('Social media'))
@@ -116,8 +116,8 @@ const createContactInformation = () => {
   const contactList = parseHtmlString(
     list({
       items: [
-        'Telephone: 020 7946 0101',
-        'Textphone: 020 7946 0102',
+        'Telephone: 000 000000',
+        'Textphone: 000 000000',
         'Monday to Friday, 9am to 5pm (except public holidays)',
       ],
     })
@@ -136,7 +136,7 @@ const createContactInformation = () => {
 const createExpandingContactInformation = () => {
   const contactsList = list({
     items: [
-      'Telephone: 020 7946 0101',
+      'Telephone: 000 000000',
       'Monday to Friday, 8am to 6pm (except public holidays)',
       'Saturday and Sunday, 10am to 4pm',
     ],
