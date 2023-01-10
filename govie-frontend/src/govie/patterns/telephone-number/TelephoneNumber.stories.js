@@ -23,7 +23,7 @@ const createTelephoneInput = (args) => {
     input({
       fieldId: 'telephone-number',
       fieldName: 'telephone-number',
-      label: 'UK telephone number',
+      label: 'Telephone number',
       errorMessage: args.errorMessage,
       autocomplete: 'tel',
       type: 'tel',
@@ -50,5 +50,5 @@ WithHint.args = {
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
-  errorMessage: 'Enter a UK telephone number',
+  errorMessage: 'Enter a telephone number',
 }
