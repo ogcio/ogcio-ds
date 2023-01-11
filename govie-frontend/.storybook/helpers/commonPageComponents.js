@@ -119,18 +119,15 @@ export const createBody = ({
 
   body.appendChild(createPageFooter(shortFooter))
 
-  const allJsReference = document.createElement('script')
-  allJsReference.src = '/govie-frontend/all.js'
-  body.appendChild(allJsReference)
-
-  const initAllScriptCommentText = `Include the below script tag for your pages
+  const initScriptTagsText = ` Include and uncomment the below script tags for your pages
+    <script src="/govie-frontend/all.js" />
     <script>
       window.GOVIEFrontend.initAll()
     </script>
   `
-  const initAllScriptComment = document.createComment(initAllScriptCommentText)
+  const initScriptTagsComment = document.createComment(initScriptTagsText)
   body.append('\n')
-  body.appendChild(initAllScriptComment)
+  body.appendChild(initScriptTagsComment)
 
   return body
 }

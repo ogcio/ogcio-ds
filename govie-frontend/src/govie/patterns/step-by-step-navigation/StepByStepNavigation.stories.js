@@ -391,7 +391,7 @@ const createStepByStepNavigation = () => {
   const stepByStepNavigation = document.createElement('div')
   stepByStepNavigation.setAttribute('data-module', 'appstepnav')
   stepByStepNavigation.setAttribute('id', 'step-by-step-navigation')
-  stepByStepNavigation.className = 'app-step-nav js-hidden app-step-nav--large'
+  stepByStepNavigation.className = 'app-step-nav app-step-nav--large'
   stepByStepNavigation.setAttribute('data-show-text', 'Show')
   stepByStepNavigation.setAttribute('data-hide-text', 'Hide')
   stepByStepNavigation.setAttribute('data-show-all-text', 'Show all steps')
