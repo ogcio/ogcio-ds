@@ -202,35 +202,6 @@ const createHeaderRow = () => {
   return row
 }
 
-const createNavigationControls = () => {
-  const controls = document.createElement('div')
-  controls.className = 'app-step-nav__controls govie-!-display-none-print'
-
-  const button = document.createElement('button')
-  button.setAttribute('aria-expanded', false)
-  button.className =
-    'app-step-nav__button app-step-nav__button--controls js-step-controls-button'
-  button.setAttribute(
-    'aria-controls',
-    'step-panel-check-you-re-allowed-to-drive-1'
-  )
-
-  const chevronSpan = document.createElement('span')
-  chevronSpan.className =
-    'app-step-nav__chevron js-step-controls-button-icon app-step-nav__chevron--down'
-  button.appendChild(chevronSpan)
-
-  const textSpan = document.createElement('span')
-  textSpan.className =
-    'app-step-nav__button-text app-step-nav__button-text--all js-step-controls-button-text'
-  textSpan.innerText = 'Show all steps'
-  button.appendChild(textSpan)
-
-  controls.appendChild(button)
-
-  return controls
-}
-
 const createStepNumber = (stepNumber) => {
   const stepNumberSpan = document.createElement('span')
   stepNumberSpan.className = 'app-step-nav__circle app-step-nav__circle--number'
@@ -426,7 +397,6 @@ const createStepByStepNavigation = () => {
   stepByStepNavigation.setAttribute('data-show-all-text', 'Show all steps')
   stepByStepNavigation.setAttribute('data-hide-all-text', 'Hide all steps')
 
-  // stepByStepNavigation.appendChild(createNavigationControls())
   stepByStepNavigation.appendChild(createStepsList())
 
   return stepByStepNavigation

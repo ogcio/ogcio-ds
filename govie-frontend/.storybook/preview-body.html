@@ -13,7 +13,9 @@
     // when a story is viewed in Canvas mode versus a full page demo mode.
     // Therefore there are 2 different listeners to cover both scenario.
     document.addEventListener('DOMContentLoaded', function () {
-      var previewIframe = window.parent.document.getElementById('storybook-preview-iframe')
+      var previewIframe = window.parent.document.getElementById(
+        'storybook-preview-iframe'
+      )
 
       if (previewIframe) {
         window.GOVIEFrontend.initAll()
@@ -21,7 +23,9 @@
     })
 
     window.addEventListener('load', function () {
-      var previewIframe = window.parent.document.getElementById('storybook-preview-iframe')
+      var previewIframe = window.parent.document.getElementById(
+        'storybook-preview-iframe'
+      )
 
       if (!previewIframe) {
         window.GOVIEFrontend.initAll()
