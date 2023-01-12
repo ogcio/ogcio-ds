@@ -11,7 +11,7 @@ import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
 import Tabs from './components/tabs/tabs.mjs'
 
-import './patterns/step-by-step-navigation/step-by-step-navigation'
+import './components/step-by-step-navigation/step-by-step-navigation'
 
 /**
  * Initialise all components
@@ -99,7 +99,7 @@ function initAll(config) {
     new Tabs($tabs).init()
   })
 
-  var $stepByStepNav = $scope.querySelector('#step-by-step-navigation')
+  var $stepByStepNav = $scope.querySelector('#govie-step-by-step-navigation')
   new GOVIE.Modules.AppStepNav($stepByStepNav).init()
 }
 

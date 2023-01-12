@@ -11,7 +11,6 @@
     : factory()
 })(this, function () {
   'use strict'
-
   ;(function (undefined) {
     // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Object/defineProperty/detect.js
     var detect =
@@ -28,9 +27,8 @@
         }
       })()
 
-    if (detect) return
-
-    // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Object.defineProperty&flags=always
+    if (detect)
+      return // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Object.defineProperty&flags=always
     ;(function (nativeDefineProperty) {
       var supportsAccessors =
         Object.prototype.hasOwnProperty('__defineGetter__')
@@ -116,7 +114,6 @@
       ('object' === typeof global && global) ||
       {}
   ))
-
   ;(function (undefined) {
     // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/master/packages/polyfill-library/polyfills/DOMTokenList/detect.js
     var detect =
@@ -127,9 +124,8 @@
           : true
       })(document.createElement('x'))
 
-    if (detect) return
-
-    // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/master/packages/polyfill-library/polyfills/DOMTokenList/polyfill.js
+    if (detect)
+      return // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/master/packages/polyfill-library/polyfills/DOMTokenList/polyfill.js
     ;(function (global) {
       var nativeImpl = 'DOMTokenList' in global && global.DOMTokenList
 
@@ -394,7 +390,6 @@
       ('object' === typeof global && global) ||
       {}
   ))
-
   ;(function (undefined) {
     // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Document/detect.js
     var detect = 'Document' in this
@@ -426,14 +421,12 @@
       ('object' === typeof global && global) ||
       {}
   ))
-
   ;(function (undefined) {
     // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Element/detect.js
     var detect = 'Element' in this && 'HTMLElement' in this
 
-    if (detect) return
-
-    // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element&flags=always
+    if (detect)
+      return // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element&flags=always
     ;(function () {
       // IE8
       if (window.Element && !window.HTMLElement) {
@@ -548,7 +541,6 @@
       ('object' === typeof global && global) ||
       {}
   ))
-
   ;(function (undefined) {
     // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/8717a9e04ac7aff99b4980fbedead98036b0929a/packages/polyfill-library/polyfills/Element/prototype/classList/detect.js
     var detect =
@@ -562,9 +554,8 @@
         return e.classList.contains('b')
       })()
 
-    if (detect) return
-
-    // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element.prototype.classList&flags=always
+    if (detect)
+      return // Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element.prototype.classList&flags=always
     ;(function (global) {
       var dpSupport = true
       var defineGetter = function (object, name, fn, configurable) {

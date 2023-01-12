@@ -14,8 +14,8 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
     this.$module.rememberShownStep = false
     this.$module.stepNavSize = false
     this.$module.sessionStoreLink = 'govie-step-nav-active-link'
-    this.$module.activeLinkClass = 'app-step-nav__list-item--active'
-    this.$module.activeStepClass = 'app-step-nav__step--active'
+    this.$module.activeLinkClass = 'govie-step-nav__list-item--active'
+    this.$module.activeStepClass = 'govie-step-nav__step--active'
     this.$module.activeLinkHref = '#content'
     this.$module.uniqueId = false
   }
@@ -26,13 +26,13 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
     }
 
     // Indicate that js has worked
-    this.$module.classList.add('app-step-nav--active')
+    this.$module.classList.add('govie-step-nav--active')
 
     // Prevent FOUC, remove class hiding content
     this.$module.classList.remove('js-hidden')
 
     this.$module.stepNavSize = this.$module.classList.contains(
-      'app-step-nav--large'
+      'govie-step-nav--large'
     )
       ? 'Big'
       : 'Small'
@@ -44,7 +44,7 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
     this.$module.stepHeaders = this.$module.querySelectorAll('.js-toggle-panel')
     this.$module.totalSteps = this.$module.querySelectorAll('.js-panel').length
     this.$module.totalLinks = this.$module.querySelectorAll(
-      '.app-step-nav__link'
+      '.govie-step-nav__link'
     ).length
     this.$module.showOrHideAllButton = false
 
@@ -86,13 +86,13 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
 
   AppStepNav.prototype.addShowHideAllButton = function () {
     var showAll = document.createElement('div')
-    var steps = this.$module.querySelectorAll('.app-step-nav__steps')[0]
+    var steps = this.$module.querySelectorAll('.govie-step-nav__steps')[0]
 
-    showAll.className = 'app-step-nav__controls govie-!-display-none-print'
+    showAll.className = 'govie-step-nav__controls govie-!-display-none-print'
     showAll.innerHTML =
-      '<button aria-expanded="false" class="app-step-nav__button app-step-nav__button--controls js-step-controls-button">' +
-      '<span class="app-step-nav__chevron app-step-nav__chevron--down js-step-controls-button-icon"></span>' +
-      '<span class="app-step-nav__button-text app-step-nav__button-text--all js-step-controls-button-text">' +
+      '<button aria-expanded="false" class="govie-step-nav__button govie-step-nav__button--controls js-step-controls-button">' +
+      '<span class="govie-step-nav__chevron govie-step-nav__chevron--down js-step-controls-button-icon"></span>' +
+      '<span class="govie-step-nav__button-text govie-step-nav__button-text--all js-step-controls-button-text">' +
       this.$module.actions.showAllText +
       '</span>' +
       '</button>'
@@ -115,11 +115,12 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
         var thisSectionSpan = document.createElement('span')
 
         showHideSpan.className =
-          'app-step-nav__toggle-link js-toggle-link govie-!-display-none-print'
+          'govie-step-nav__toggle-link js-toggle-link govie-!-display-none-print'
         showHideSpanText.className =
-          'app-step-nav__button-text js-toggle-link-text'
-        showHideSpanIcon.className = 'app-step-nav__chevron js-toggle-link-icon'
-        showHideSpanFocus.className = 'app-step-nav__toggle-link-focus'
+          'govie-step-nav__button-text js-toggle-link-text'
+        showHideSpanIcon.className =
+          'govie-step-nav__chevron js-toggle-link-icon'
+        showHideSpanFocus.className = 'govie-step-nav__toggle-link-focus'
         thisSectionSpan.className = 'govie-visually-hidden'
 
         showHideSpan.appendChild(showHideSpanFocus)
@@ -208,15 +209,15 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
       title.outerHTML =
         '<span class="js-step-title">' +
         '<button ' +
-        'class="app-step-nav__button app-step-nav__button--title js-step-title-button" ' +
+        'class="govie-step-nav__button govie-step-nav__button--title js-step-title-button" ' +
         'aria-expanded="false" aria-controls="' +
         contentId +
         '">' +
-        '<span class="app-step-nav____title-text-focus">' +
-        '<span class="app-step-nav__title-text js-step-title-text">' +
+        '<span class="govie-step-nav____title-text-focus">' +
+        '<span class="govie-step-nav__title-text js-step-title-text">' +
         titleText +
         '</span>' +
-        '<span class="govie-visually-hidden app-step-nav__section-heading-divider">, </span>' +
+        '<span class="govie-visually-hidden govie-step-nav__section-heading-divider">, </span>' +
         '</span>' +
         '</button>' +
         '</span>'
@@ -397,7 +398,7 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
       '.' + this.$module.activeLinkClass
     )[0]
     if (activeLink) {
-      var activeStep = activeLink.closest('.app-step-nav__step')
+      var activeStep = activeLink.closest('.govie-step-nav__step')
       activeStep.classList.add(this.$module.activeStepClass)
       activeStep.setAttribute('data-show', '')
     }
@@ -451,10 +452,10 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
 
     if (shownStepsIsTotalSteps) {
       showAllButtonText.innerHTML = this.$module.actions.hideAllText
-      showAllChevon.classList.remove('app-step-nav__chevron--down')
+      showAllChevon.classList.remove('govie-step-nav__chevron--down')
     } else {
       showAllButtonText.innerHTML = this.$module.actions.showAllText
-      showAllChevon.classList.add('app-step-nav__chevron--down')
+      showAllChevon.classList.add('govie-step-nav__chevron--down')
     }
   }
 
@@ -495,12 +496,12 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
         this.stepElement.classList.add('step-is-shown')
         this.stepContent.classList.remove('js-hidden')
         toggleLinkText.innerHTML = this.hideText
-        stepChevron.classList.remove('app-step-nav__chevron--down')
+        stepChevron.classList.remove('govie-step-nav__chevron--down')
       } else {
         this.stepElement.classList.remove('step-is-shown')
         this.stepContent.classList.add('js-hidden')
         toggleLinkText.innerHTML = this.showText
-        stepChevron.classList.add('app-step-nav__chevron--down')
+        stepChevron.classList.add('govie-step-nav__chevron--down')
       }
       this.titleButton.setAttribute('aria-expanded', isShown)
     }
@@ -608,7 +609,7 @@ window.GOVIE.Modules = window.GOVIE.Modules || {}
         label: this.target.getAttribute('href') + ' : ' + this.size,
       }
       var dimension28 = this.target
-        .closest('.app-step-nav__list')
+        .closest('.govie-step-nav__list')
         .getAttribute('data-length')
 
       if (dimension28) {
