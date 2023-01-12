@@ -1,17 +1,16 @@
 import { nodeListForEach } from './common.mjs'
 import Accordion from './components/accordion/accordion.mjs'
 import Button from './components/button/button.mjs'
-import Details from './components/details/details.mjs'
 import CharacterCount from './components/character-count/character-count.mjs'
 import Checkboxes from './components/checkboxes/checkboxes.mjs'
+import Details from './components/details/details.mjs'
 import ErrorSummary from './components/error-summary/error-summary.mjs'
-import NotificationBanner from './components/notification-banner/notification-banner.mjs'
 import Header from './components/header/header.mjs'
+import NotificationBanner from './components/notification-banner/notification-banner.mjs'
 import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
+import StepByStepNav from './components/step-by-step-navigation/step-by-step-navigation.mjs'
 import Tabs from './components/tabs/tabs.mjs'
-
-import './components/step-by-step-navigation/step-by-step-navigation'
 
 /**
  * Initialise all components
@@ -100,7 +99,7 @@ function initAll(config) {
   })
 
   var $stepByStepNav = $scope.querySelector('#govie-step-by-step-navigation')
-  new GOVIE.Modules.AppStepNav($stepByStepNav).init()
+  new StepByStepNav($stepByStepNav).init()
 }
 
 export {
