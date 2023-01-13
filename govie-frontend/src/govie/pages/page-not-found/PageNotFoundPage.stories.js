@@ -66,7 +66,7 @@ const createMainWrapper = () => {
 }
 
 const Template = (args) => {
-  const body = createBody(createMainWrapper())
+  const body = createBody({ mainContent: createMainWrapper() })
   return beautifyHtmlNode(body)
 }
 

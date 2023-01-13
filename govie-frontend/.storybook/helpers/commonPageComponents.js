@@ -53,9 +53,16 @@ export const createPageFooter = (shortFooter) => {
   )
 }
 
-// It expects a single HTML node as the mainContent
-// TODO: Add support for extra content above the main element
-export const createBody = (mainContent, shortFooter) => {
+// mainContent: array of HTML nodes or single HTML node
+// preMainContents: array of HTML Nodes to appear before the 'main' tag
+// additionalWrapperClasses: array of strings
+// shortFooter: boolean
+export const createBody = ({
+  mainContent,
+  preMainContents,
+  additionalWrapperClasses,
+  shortFooter,
+}) => {
   const body = document.createElement('body')
   body.className = 'govie-template__body'
 
@@ -76,11 +83,35 @@ export const createBody = (mainContent, shortFooter) => {
   const widthContainer = document.createElement('div')
   widthContainer.className = 'govie-width-container '
 
+  if (
+    preMainContents &&
+    Array.isArray(preMainContents) &&
+    preMainContents.length > 0
+  ) {
+    preMainContents.forEach((htmlNode) => widthContainer.appendChild(htmlNode))
+  }
+
+  let wrapperClasses = ['govie-main-wrapper']
+  if (
+    additionalWrapperClasses &&
+    Array.isArray(additionalWrapperClasses) &&
+    additionalWrapperClasses.length > 0
+  ) {
+    wrapperClasses = wrapperClasses.concat(additionalWrapperClasses)
+  }
+
   const mainContentWrapper = document.createElement('main')
-  mainContentWrapper.className = 'govie-main-wrapper '
+  mainContentWrapper.className = wrapperClasses.join(' ')
   mainContentWrapper.id = 'main-content'
   mainContentWrapper.setAttribute('role', 'main')
-  mainContentWrapper.appendChild(mainContent)
+
+  if (Array.isArray(mainContent) && mainContent.length > 0) {
+    mainContent.forEach((item) => {
+      mainContentWrapper.appendChild(item)
+    })
+  } else {
+    mainContentWrapper.appendChild(mainContent)
+  }
 
   widthContainer.appendChild(mainContentWrapper)
 
@@ -88,13 +119,15 @@ export const createBody = (mainContent, shortFooter) => {
 
   body.appendChild(createPageFooter(shortFooter))
 
-  const allJsReference = document.createElement('script')
-  allJsReference.src = '/govie-frontend/all.js'
-  body.appendChild(allJsReference)
-
-  const initAllScript = document.createElement('script')
-  initAllScript.innerHTML = 'window.GOVIEFrontend.initAll()'
-  body.appendChild(initAllScript)
+  const initScriptTagsText = ` Include and uncomment the below script tags for your pages
+    <script src="/govie-frontend/all.js" />
+    <script>
+      window.GOVIEFrontend.initAll()
+    </script>
+  `
+  const initScriptTagsComment = document.createComment(initScriptTagsText)
+  body.append('\n')
+  body.appendChild(initScriptTagsComment)
 
   return body
 }
