@@ -73,17 +73,17 @@ const createContent = (args) => {
     const requestCodeMsg = parseHtmlString(
       args.phoneAccess
         ? details({
-          summary: 'Change where the text message is sent',
-          text: createTelInput(),
-        })
+            summary: 'Change where the text message is sent',
+            text: createTelInput(),
+          })
         : details({
-          summary: 'I do not have access to the phone',
-          text: `If you cannot access the phone number for this account, ${link(
+            summary: 'I do not have access to the phone',
+            text: `If you cannot access the phone number for this account, ${link(
               {
                 label: 'contact the Tax Credits Helpline',
               }
             )} to get help signing in.`,
-        })
+          })
     )
 
     components.push(requestCodeMsg)
@@ -106,7 +106,7 @@ const createPageContent = (args) => {
     heading({
       text: args.requestNewCode
         ? 'Request a new security code'
-        : 'Checek your phone',
+        : 'Check your phone',
       size: 'l',
     })
   )
