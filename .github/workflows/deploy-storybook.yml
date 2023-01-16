@@ -15,12 +15,8 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
-
-defaults:
-  run:
-    working-directory: govie-frontend
 
 jobs:
   build:
@@ -28,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Read .nvmrc
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
@@ -36,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
       - run: npm i
       - run: npm run build:storybook:dist
@@ -45,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: govie-frontend/build
+          path: build
 
   deploy:
     # Add a dependency to the build job
@@ -56,6 +52,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages 
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

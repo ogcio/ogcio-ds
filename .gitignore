@@ -1,11 +1,25 @@
-node_modules
-.idea
-.parcel-cache
-.DS_Store
+node_modules/
 
 packages/built/tmp
 packages/*/dist
-
 examples/*/dist
 
 build
+
+npm-debug.log
+
+preview/
+tmp/
+axeReports/
+coverage/
+public/
+package/package-lock.json
+examples/**/package-lock.json
+*.zip
+jsdoc/
+sassdoc/
+
+.idea
+.parcel-cache
+.DS_Store
+.cache
