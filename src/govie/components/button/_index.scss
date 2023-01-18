@@ -258,6 +258,8 @@ $govie-button-text-colour: govie-colour('white') !default;
   .govie-button--icon {
     min-height: auto;
     justify-content: center;
+    display: inline-flex;
+    align-items: center;
   }
 
   .govie-button__icon-right,
