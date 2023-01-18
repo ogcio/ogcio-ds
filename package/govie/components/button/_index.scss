@@ -222,15 +222,27 @@ $govie-button-text-colour: govie-colour('white') !default;
 
       &[disabled] {
         background-color: transparent;
+        color: govie-colour('dark-grey');
       }
     }
 
     &[disabled] {
       color: govie-colour('dark-grey');
+
+      &:active,
+      &:focus {
+        background-color: transparent;
+        border-color: transparent;
+        color: govie-colour('dark-grey');
+      }
     }
 
     &:focus:hover:active {
       background-color: $govie-focus-colour;
+    }
+
+    &:focus:not(:active):not(:hover) {
+      border-color: transparent;
     }
 
     svg {
