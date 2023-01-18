@@ -33,15 +33,5 @@ $govie-footer-surface-colour: var(--govie-footer-surface-colour);
 $govie-body-background-colour: var(--govie-body-background-colour);
 
 // Button colours
-$govie-button-text-colour: var(--govie-button-text-colour);
-$govie-button-background-colour: var(--govie-button-background-colour);
-
-// As some SASS functions like `mix` and `scale-color` don't work with CSS variables,
-// these variables are made for some already calculated values and are used
-// exclusively in the Storybook application
-$govie-button-background-hover-colour: var(
-  --govie-button-background-hover-colour
-);
-$govie-button-background-shadow-colour: var(
-  --govie-button-background-shadow-colour
-);
+$govie-primary-button-background-colour: var(--govie-primary-button-background-colour);
+$govie-primary-button-hover-background-colour: var(--govie-primary-button-hover-background-colour);
