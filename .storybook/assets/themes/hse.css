@@ -10,7 +10,6 @@
   --govie-link-hover-colour: #0f45a0;
   --govie-header-surface-colour: #02594c;
   --govie-footer-surface-colour: #02594c;
-  --govie-button-background-colour: #02594c;
-  --govie-button-background-hover-colour: #02473d;
-  --govie-button-background-shadow-colour: #01241e;
+  --govie-primary-button-background-colour: #02594c;
+  --govie-primary-button-hover-background-colour: #02473d;
 }

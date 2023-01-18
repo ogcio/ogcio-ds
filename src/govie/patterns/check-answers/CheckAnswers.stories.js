@@ -4,7 +4,7 @@ import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 import { Default as backLink } from '../../components/back-link/BackLink.stories'
-import { Default as button } from '../../components/button/Button.stories'
+import { Default as button } from '../../components/button/PrimaryButton.stories'
 import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as summaryList } from '../../components/summary-list/SummaryList.stories'
 
