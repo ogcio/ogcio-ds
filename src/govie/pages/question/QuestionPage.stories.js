@@ -2,7 +2,7 @@ import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as button } from '../../components/button/Button.stories'
+import { Default as button } from '../../components/button/PrimaryButton.stories'
 import { Default as dateInput } from '../../components/date-input/DateInput.stories'
 import { Default as textInput } from '../../components/input/TextInput.stories'
 import { Default as radios } from '../../components/radios/Radio.stories'

@@ -7,7 +7,7 @@ import { Default as paragraph } from '../../components/typography/Paragraph.stor
 import { Default as lists } from '../../components/typography/Lists.stories'
 import { Default as table } from '../../components/table/Table.stories'
 import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/Button.stories'
+import { Default as button } from '../../components/button/PrimaryButton.stories'
 
 export default {
   title: 'Pages/Cookies',
