@@ -150,7 +150,7 @@ const createColumn = () => {
   form.appendChild(acceptRadioButtons)
 
   const saveSettingsButton = parseHtmlString(
-    button({ mode: 'default', label: 'Save cookie settings' })
+    button({ label: 'Save cookie settings' })
   )
   form.appendChild(saveSettingsButton)
 
