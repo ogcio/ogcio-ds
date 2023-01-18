@@ -196,6 +196,10 @@ $govie-button-text-colour: govie-colour('white') !default;
       color: $govie-button-text-colour;
       border-color: transparent;
       cursor: default;
+
+      svg path {
+        fill: $govie-button-text-colour;
+      }
     }
 
     &:active {
