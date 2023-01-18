@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Form/Button/Primary button',
+  title: 'Form/Button/Flat button',
   parameters: {
     docs: {
       description: {
@@ -71,7 +71,6 @@ const Template = (args) => {
   if (args.disabled) {
     btn.setAttribute('disabled', true)
     btn.setAttribute('aria-disabled', true)
-    btn.className = 'govie-button--disabled'
   }
 
   const classes = {
@@ -88,7 +87,7 @@ const Template = (args) => {
 
   btn.className = [
     'govie-button',
-    ...btn.classList,
+    'govie-button--flat',
     classes[args.size],
     iconClasses[args.icon],
   ].join(' ')
@@ -98,35 +97,35 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Primary button',
+  label: 'Flat button',
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  label: 'Medium primary button',
+  label: 'Medium flat button',
   size: 'medium',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  label: 'Small primary button',
+  label: 'Small flat button',
   size: 'small',
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
-  label: 'Primary button with left icon',
+  label: 'Flat button with left icon',
   icon: 'left',
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
-  label: 'Primary button with right icon',
+  label: 'Flat button with right icon',
   icon: 'right',
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  label: 'Disabled primary button',
+  label: 'Disabled flat button',
   disabled: true,
 }
