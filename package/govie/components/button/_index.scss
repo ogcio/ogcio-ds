@@ -34,10 +34,6 @@ $govie-button-text-colour: govie-colour('white') !default;
     $govie-secondary-button-colour,
     10%
   );
-  $govie-secondary-button-shadow-colour: govie-shade(
-    $govie-secondary-button-colour,
-    40%
-  );
   $govie-secondary-button-text-colour: govie-colour('black');
 
   // Warning button variables
@@ -45,10 +41,6 @@ $govie-button-text-colour: govie-colour('white') !default;
   $govie-warning-button-hover-colour: govie-shade(
     $govie-warning-button-colour,
     20%
-  );
-  $govie-warning-button-shadow-colour: govie-shade(
-    $govie-warning-button-colour,
-    60%
   );
   $govie-warning-button-text-colour: govie-colour('white');
 
@@ -208,7 +200,7 @@ $govie-button-text-colour: govie-colour('white') !default;
 
   .govie-button--secondary {
     background-color: $govie-secondary-button-colour;
-    box-shadow: 0 $button-shadow-size 0 $govie-secondary-button-shadow-colour;
+    box-shadow: 0 $button-shadow-size 0 transparent;
 
     &,
     &:link,
@@ -229,7 +221,7 @@ $govie-button-text-colour: govie-colour('white') !default;
 
   .govie-button--warning {
     background-color: $govie-warning-button-colour;
-    box-shadow: 0 $button-shadow-size 0 $govie-warning-button-shadow-colour;
+    box-shadow: 0 $button-shadow-size 0 transparent;
 
     &,
     &:link,
