@@ -72,7 +72,7 @@ $govie-button-text-colour: govie-colour('white') !default;
     border-radius: 4px;
     color: $govie-button-text-colour;
     background-color: $govie-button-colour;
-    box-shadow: 0 $button-shadow-size 0 transparent; // s0
+    box-shadow: 0 $button-shadow-size 0 govie-colour('black'); // s0
     text-align: center;
     vertical-align: top;
     cursor: pointer;
@@ -264,7 +264,6 @@ $govie-button-text-colour: govie-colour('white') !default;
   .govie-button--secondary {
     background-color: $govie-secondary-button-colour;
     box-shadow: 0 $button-shadow-size 0 transparent;
-    border-radius: 0;
 
     &,
     &:link,
@@ -278,29 +277,20 @@ $govie-button-text-colour: govie-colour('white') !default;
     &:hover {
       background-color: $govie-secondary-button-hover-colour;
 
-      // &[disabled] {
-      //   background-color: transparent;
-      //   color: govie-colour('dark-grey');
-      // }
+      &[disabled] {
+        background-color: $govie-secondary-button-colour;
+        color: $govie-secondary-button-text-colour;
+      }
     }
 
     &[disabled] {
-      // color: govie-colour('dark-grey');
-
-      &:active,
-      &:focus {
-        background-color: transparent;
+      &:focus:not(:active):not(:hover) {
         border-color: transparent;
-        color: govie-colour('dark-grey');
       }
     }
 
     &:focus:hover:active {
       background-color: $govie-focus-colour;
-    }
-
-    &:focus:not(:active):not(:hover) {
-      border-color: transparent;
     }
 
     svg {
