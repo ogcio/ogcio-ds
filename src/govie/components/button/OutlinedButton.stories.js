@@ -9,7 +9,7 @@ export default {
 
 const Template = (args) => {
   const btn = parseHtmlString(button(args))
-  btn.className = `${btn.classList} govie-button--outlined`
+  btn.className = [...btn.classList, 'govie-button--outlined'].join(' ')
 
   return beautifyHtmlNode(btn)
 }

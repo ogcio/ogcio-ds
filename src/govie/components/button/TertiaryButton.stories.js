@@ -4,47 +4,47 @@ import primary, { Default as button } from './PrimaryButton.stories'
 
 export default {
   ...primary,
-  title: 'Form/Button/Secondary button',
+  title: 'Form/Button/Tertiary button',
 }
 
 const Template = (args) => {
   const btn = parseHtmlString(button(args))
-  btn.className = [...btn.classList, 'govie-button--secondary'].join(' ')
+  btn.className = [...btn.classList, 'govie-button--tertiary'].join(' ')
 
   return beautifyHtmlNode(btn)
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Secondary button',
+  label: 'Tertiary button',
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  label: 'Medium secondary button',
+  label: 'Medium tertiary button',
   size: 'medium',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  label: 'Small secondary button',
+  label: 'Small tertiary button',
   size: 'small',
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
-  label: 'Secondary button with left icon',
+  label: 'Tertiary button with left icon',
   icon: 'left',
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
-  label: 'Secondary button with right icon',
+  label: 'Tertiary button with right icon',
   icon: 'right',
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  label: 'Disabled secondary button',
+  label: 'Disabled tertiary button',
   disabled: true,
 }
