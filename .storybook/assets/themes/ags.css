@@ -11,18 +11,20 @@
   --govie-header-surface-colour: #bfdbff;
   --govie-footer-surface-colour: #161f3e;
   --govie-primary-button-background-colour: #07418b;
-  --govie-primary-button-hover-background-colour: #FFFFFF;
+  --govie-primary-button-hover-background-colour: #ffffff;
 }
 
 .govie-footer {
-  color: #FFF;
+  color: #fff;
 }
 
-.govie-footer__link:link, .govie-footer__link:visited {
-  color: #FFF;
+.govie-footer__link:link,
+.govie-footer__link:visited {
+  color: #fff;
 }
 
-.govie-header__link:link, .govie-header__link:visited {
+.govie-header__link:link,
+.govie-header__link:visited {
   color: #13225d;
 }
 
@@ -31,6 +33,6 @@
   border: 1px solid var(--govie-primary-button-background-colour);
 }
 
-.govie-button:hover svg path{
+.govie-button:hover svg path {
   fill: var(--govie-primary-button-background-colour);
 }
