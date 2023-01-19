@@ -300,6 +300,37 @@ $govie-button-text-colour: govie-colour('white') !default;
     }
   }
 
+  .govie-button--tertiary {
+    background-color: govie-colour('red');
+
+    &,
+    &:link,
+    &:visited,
+    &:active,
+    &:hover {
+      border-color: transparent;
+    }
+
+    &:hover {
+      background-color: govie-colour('dark-red');
+
+      &:focus:active {
+        background-color: $govie-focus-colour;
+        color: $govie-secondary-button-text-colour;
+      }
+    }
+
+    &[disabled] {
+      background-color: govie-colour('red');
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: govie-colour('red');
+      }
+    }
+  }
+
   .govie-button--icon {
     min-height: auto;
     -ms-flex-pack: center;
