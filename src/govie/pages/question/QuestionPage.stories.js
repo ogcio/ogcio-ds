@@ -160,7 +160,7 @@ const createColumn = (args) => {
   }
 
   const continueButton = parseHtmlString(
-    button({ mode: 'default', label: 'Continue' })
+    button({ label: 'Continue' })
   )
   form.appendChild(continueButton)
 

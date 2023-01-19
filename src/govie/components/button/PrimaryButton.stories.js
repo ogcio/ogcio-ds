@@ -71,6 +71,7 @@ const Template = (args) => {
   if (args.disabled) {
     btn.setAttribute('disabled', true)
     btn.setAttribute('aria-disabled', true)
+    btn.className = 'govie-button--disabled'
   }
 
   const classes = {
@@ -87,6 +88,7 @@ const Template = (args) => {
 
   btn.className = [
     'govie-button',
+    ...btn.classList,
     classes[args.size],
     iconClasses[args.icon],
   ].join(' ')
@@ -96,35 +98,35 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Button',
-}
-
-export const Disabled = Template.bind({})
-Disabled.args = {
-  label: 'Disabled button',
-  disabled: true,
+  label: 'Primary button',
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  label: 'Medium button',
+  label: 'Medium primary button',
   size: 'medium',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  label: 'Small button',
+  label: 'Small primary button',
   size: 'small',
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
-  label: 'Button with left icon',
+  label: 'Primary button with left icon',
   icon: 'left',
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
-  label: 'Button with right icon',
+  label: 'Primary button with right icon',
   icon: 'right',
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Disabled primary button',
+  disabled: true,
 }
