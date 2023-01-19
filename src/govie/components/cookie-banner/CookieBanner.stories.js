@@ -72,7 +72,7 @@ const createButton = (label, value) => {
 
 const createActions = (confirmed) => {
   const buttonGroup = document.createElement('div')
-  buttonGroup.className = 'govie-button-group'
+  buttonGroup.className = 'govie-inline-button-group'
 
   if (confirmed) {
     const hideButton = createButton('Hide cookie message')
