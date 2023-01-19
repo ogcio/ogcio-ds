@@ -1,6 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import primary, { Default as button } from '../../components/button/PrimaryButton.stories'
+import primary, { Default as button } from './PrimaryButton.stories'
 
 export default {
   ...primary,
