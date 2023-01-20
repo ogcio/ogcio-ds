@@ -4,24 +4,24 @@ GOV.IE Frontend contains the code you need to start building a user interface
 for government platforms and services.
 
 See live examples of GOV.IE Frontend components, and guidance on when to use
-them in your service, in the [GOV.UK Design System](https://www.gov.uk/design-system).
+them in your service, in the [GOV.UK Design System](https://ogcio.github.io/ogcio-ds/).
 
-## Contact the team
+<!-- ## Contact the team
 
 GOV.IE Frontend is maintained by a team at Government Digital Service. If you want to know more about GOV.IE Frontend, please email the [Design System
-team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system).
+team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system). -->
 
 ## Quick start
 
 There are 2 ways to start using GOV.IE Frontend in your app.
 
 Once installed, you will be able to use the code from the examples in the
-[GOV.UK Design System](https://www.gov.uk/design-system) in your service.
+[GOV.IE Design System](https://ogcio.github.io/ogcio-ds/) in your service.
 
 ### 1. Install with npm (recommended)
 
 We recommend [installing GOV.IE Frontend using node package manager
-(npm)](https://frontend.design-system.service.gov.uk/installing-with-npm/).
+(npm)](https://github.com/ogcio/ogcio-ds/pkgs/npm/ogcio-ds).
 
 ### 2. Install by using compiled files
 
@@ -37,7 +37,7 @@ imports) if you want to override GOV.IE Frontend with your own styles.
 To import add the below to your Sass file:
 
   ```scss
-  @import "node_modules/govuk-frontend/govuk/all";
+  @import "node_modules/govie-frontend/govie/all";
   ```
 
 [More details on importing styles](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#css)
@@ -48,35 +48,34 @@ Some of the JavaScript included in GOV.IE Frontend improves the usability and
 accessibility of the components. You should make sure that you are importing and
 initialising Javascript in your application to ensure that all users can use it successfully.
 
-You can include Javascript for all components either by copying the `all.js` from `node_modules/govuk-frontend/govuk/` into your application or referencing the file directly:
+You can include Javascript for all components either by copying the `all.js` from `node_modules/govie-frontend/govie/` into your application or referencing the file directly:
 
 ```html
-<script src="<path-to-govuk-frontend-all-file>/all.js"></script>
+<script src="<path-to-govie-frontend-all-file>/all.js"></script>
 ```
 Next you need to initialise the script by adding:
 
 ```html
 <script>window.GOVIEFrontend.initAll()</script>
 ```
-
-[More details on importing Javascript and advanced options](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript)
+<!-- 
+[More details on importing Javascript and advanced options](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript) -->
 
 
 ## Importing assets
 
 In order to import GOV.IE Frontend images and fonts to your project, you should configure your application to reference or copy the relevant GOV.IE Frontend assets.
-
-[More details on importing assets](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#font-and-image-assets)
+<!-- 
+[More details on importing assets](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#font-and-image-assets) -->
 
 
 ## Getting updates
 
-To be notified when there’s a new release, you can either:
+To be notified when there’s a new release, you can:
 
-- [watch the govuk-frontend Github repository](https://help.github.com/en/articles/watching-and-unwatching-repositories)
-- join the [#govuk-design-system channel on cross-government Slack](https://ukgovernmentdigital.slack.com/app_redirect?channel=govuk-design-system)
+- [watch the govie-frontend Github repository](https://help.github.com/en/articles/watching-and-unwatching-repositories)
 
-Find out how to [update with npm](https://frontend.design-system.service.gov.uk/updating-with-npm/).
+<!-- Find out how to [update with npm](https://frontend.design-system.service.gov.uk/updating-with-npm/). -->
 
 ## Licence
 
@@ -84,8 +83,8 @@ Unless stated otherwise, the codebase is released under the MIT License. This
 covers both the codebase and any sample code in the documentation. The
 documentation is &copy; Crown copyright and available under the terms of the
 Open Government 3.0 licence.
-
+<!-- 
 ## Contribution guidelines
 
 If you want to help us build GOV.IE Frontend, view our [contribution
-guidelines](https://github.com/alphagov/govuk-frontend/blob/master/CONTRIBUTING.md).
+guidelines](https://github.com/ogcio/ogcio-ds/blob/main/CONTRIBUTING.md). -->
