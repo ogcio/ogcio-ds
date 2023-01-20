@@ -1,0 +1,57 @@
+@include govie-exports('govie/component/button-group') {
+  .govie-conjoined-button-group {
+    // Flexbox is used to center-align links on mobile, align everything along
+    // the baseline on tablet and above, and to removes extra whitespace that
+    // we'd get between the buttons and links because they're inline-blocks.
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .govie-button {
+      margin: 0;
+      background-color: transparent;
+      border: $govie-border-width-form-element solid #004d44;
+      color: #004d44;
+      box-shadow: none;
+      border-radius: 0;
+
+      &:hover {
+        background-color: govie-colour('light-grey');
+      }
+
+      &:focus {
+        background-color: #cce2d899;
+      }
+
+      &:first-of-type {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    // On tablet and above, we also introduce a 'column gap' between the
+    // buttons and links in each row and left align links
+    @include govie-media-query($from: tablet) {
+      // Cancel out the column gap for the last item in each row
+      //   margin-right: ($horizontal-gap * -1);
+
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+
+      //   .govie-button,
+      //   .govie-link {
+      //     margin-right: $horizontal-gap;
+      //   }
+
+      //   .govie-link {
+      //     text-align: left;
+      //   }
+    }
+  }
+}
