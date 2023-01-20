@@ -26,7 +26,7 @@ We recommend [installing GOV.IE Frontend using node package manager
 ### 2. Install by using compiled files
 
 You can also [download the compiled and minified assets (CSS, JavaScript) from
-GitHub](https://frontend.design-system.service.gov.uk/installing-from-dist/).
+GitHub](https://github.com/ogcio/ogcio-ds/tree/main/dist).
 
 ## Importing styles
 
@@ -39,8 +39,8 @@ To import add the below to your Sass file:
   ```scss
   @import "node_modules/govie-frontend/govie/all";
   ```
-
-[More details on importing styles](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#css)
+<!-- 
+[More details on importing styles](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#css) -->
 
 ## Importing JavaScript
 
