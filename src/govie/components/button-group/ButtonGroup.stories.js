@@ -6,7 +6,7 @@ export default {
     docs: {
       description: {
         component:
-          'Use the button component to help users carry out an action.',
+          'Use the group button component to group related buttons.',
       },
     },
   },
