@@ -18,9 +18,12 @@ $govie-button-group-button-hover-background-colour: govie-shade(#CCE2D8, 60) !de
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
     // we'd get between the buttons and links because they're inline-blocks.
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
 
     .govie-button {
       margin: 0;
@@ -97,9 +100,13 @@ $govie-button-group-button-hover-background-colour: govie-shade(#CCE2D8, 60) !de
       // Cancel out the column gap for the last item in each row
       //   margin-right: ($horizontal-gap * -1);
 
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: baseline;
+      -ms-flex-direction: row;
+
+          flex-direction: row;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -ms-flex-align: baseline;
+          align-items: baseline;
     }
   }
 }

@@ -21,7 +21,6 @@ export default {
   args: {
     disabled: false,
     size: 'standard',
-    icon: 'standard',
   },
 }
 
@@ -50,6 +49,7 @@ const Template = (args) => {
 
       btn.className = [
         'govie-button',
+        ...btn.classList,
         classes[args.size],
       ].join(' ')
 
@@ -63,4 +63,23 @@ const Template = (args) => {
 export const Default = Template.bind({})
 Default.args = {
   buttonLabels: ['Button', 'Button', 'Button'],
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  buttonLabels: ['Disabled', 'Disabled', 'Disabled'],
+  disabled: true
+}
+
+
+export const Medium = Template.bind({})
+Medium.args = {
+  buttonLabels: ['Medium button', 'Medium button', 'Medium button'],
+  size: 'medium',
+}
+
+export const Small = Template.bind({})
+Small.args = {
+  buttonLabels: ['Small button', 'Small button', 'Small button'],
+  size: 'small',
 }
