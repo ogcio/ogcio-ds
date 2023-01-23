@@ -15,19 +15,18 @@
     "node": ">= 4.2.0"
   },
   "author": {
-    "name": "GOV.UK Design System Team (Government Digital Service)",
-    "email": "design-system-developers@digital.cabinet-office.gov.uk"
+    "name": "GOV.IE Design System Team (Office of the Government Chief Information Officer)"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alphagov/govuk-frontend.git"
+    "url": "https://github.com/ogcio/ogcio-ds.git"
   },
   "bugs": {
-    "url": "https://github.com/alphagov/govuk-frontend/issues"
+    "url": "https://github.com/ogcio/ogcio-ds/issues"
   },
-  "homepage": "https://frontend.design-system.service.gov.uk/",
+  "homepage": "https://ogcio.github.io/ogcio-ds/",
   "keywords": [
-    "govuk",
+    "govie",
     "frontend",
     "design system",
     "template"

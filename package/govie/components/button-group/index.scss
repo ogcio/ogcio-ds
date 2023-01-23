@@ -54,21 +54,18 @@ $govie-button-group-button-hover-background-colour: govie-tint(
         }
       }
 
-      &:not(:first-child) {
-        margin-left: 0;
-        margin-top: -($govie-border-width-form-element);
-      }
-
       &:first-of-type {
         border-top-left-radius: 4px;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 4px;
+        border-bottom-left-radius: 4px;
       }
 
       &:last-of-type {
-        border-top-right-radius: 0;
+        border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
-        border-bottom-left-radius: 4px;
+      }
+
+      &:not(:first-child) {
+        margin-left: -($govie-border-width-form-element);
       }
 
       &:active {
@@ -102,28 +99,16 @@ $govie-button-group-button-hover-background-colour: govie-tint(
     // On tablet and above, we also introduce a 'column gap' between the
     // buttons and links in each row and left align links
     @include govie-media-query($from: tablet) {
+      // Cancel out the column gap for the last item in each row
+      //   margin-right: ($horizontal-gap * -1);
+
       -ms-flex-direction: row;
+
           flex-direction: row;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
       -ms-flex-align: baseline;
           align-items: baseline;
-
-      .govie-button {
-        &:first-of-type {
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-        }
-  
-        &:last-of-type {
-          border-top-right-radius: 4px;
-          border-bottom-right-radius: 4px;
-        }
-  
-        &:not(:first-child) {
-          margin-left: -($govie-border-width-form-element);
-        }
-      }
     }
   }
 }
