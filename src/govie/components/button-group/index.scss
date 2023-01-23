@@ -1,17 +1,17 @@
 
-/// Button inside buttongroup component background colour
+/// Button inside button group component background colour
 ///
 /// @type Colour
 /// @access public
 
 $govie-button-group-button-background-colour: transparent !default;
 
-/// Primary button component hover background colour
+/// Button inside button group component hover background colour
 ///
 /// @type Colour
 /// @access public
 
-$govie-button-group-button-hover-background-colour: govie-shade(#CCE2D8, 60) !default;
+$govie-button-group-button-hover-background-colour: govie-tint(#CCE2D8, 60) !default;
 
 @include govie-exports('govie/component/button-group') {
   .govie-conjoined-button-group {

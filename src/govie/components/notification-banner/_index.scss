@@ -78,9 +78,9 @@
   }
 
   .govie-notification-banner--success {
-    border-color: $govie-sucesss-colour;
+    border-color: $govie-success-colour;
 
-    background-color: $govie-sucesss-colour;
+    background-color: $govie-success-colour;
 
     .govie-notification-banner__link {
       @include govie-link-style-success;

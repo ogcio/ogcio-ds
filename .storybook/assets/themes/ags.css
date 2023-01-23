@@ -30,7 +30,7 @@
 
 .govie-button:hover {
   color: var(--govie-primary-button-background-colour);
-  border: 1px solid var(--govie-primary-button-background-colour);
+  border: 2px solid var(--govie-primary-button-background-colour);
 }
 
 .govie-button:hover svg path {
