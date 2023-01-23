@@ -159,7 +159,7 @@
 @mixin govie-link-style-success {
   &:link,
   &:visited {
-    color: $govie-sucesss-colour;
+    color: $govie-success-colour;
   }
 
   &:hover {
@@ -167,12 +167,12 @@
     @if $govie-is-storybook {
       color: $govie-error-colour;
     } @else {
-      color: scale-color($govie-sucesss-colour, $lightness: -30%);
+      color: scale-color($govie-success-colour, $lightness: -30%);
     }
   }
 
   &:active {
-    color: $govie-sucesss-colour;
+    color: $govie-success-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour

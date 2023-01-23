@@ -1,7 +1,7 @@
 @import '../base';
 
-@include govie-exports('govie/objects/button-group') {
-  // Button groups can be used to group buttons and links together as a group.
+@include govie-exports('govie/objects/inline-button-group') {
+  // Inline button groups can be used to group buttons and links together as a group.
   //
   // Within a button group:
   //
@@ -9,7 +9,7 @@
   //   centre-aligned on mobile
   // - spacing between the buttons and links is handled automatically, including
   //   when they wrap across multiple lines
-  .govie-button-group {
+  .govie-inline-button-group {
     $horizontal-gap: govie-spacing(3);
     $vertical-gap: govie-spacing(3);
 
