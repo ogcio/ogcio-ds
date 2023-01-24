@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
@@ -85,19 +85,27 @@ export const parameters = {
   },
 }
 
+///
+/// Change logo according to the selected theme
+///
+
 document.addEventListener('storybookcssvariables:theme:change', (event) => {
+  // set theme selectedTheme variable to the current select theme
   selectedTheme = event?.detail?.theme
-  loadCorrectLogo()
+  loadLogo()
 })
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  loadCorrectLogo()
+  // reload the logo when the DOM finish loading because
+  // the pages have an iframe inside that took longer
+  // to fully load
+  loadLogo()
 })
 
-const loadCorrectLogo = () => {
+const loadLogo = () => {
   const logo = document.getElementById('logo-image')
 
-  if (logo) {
+  if (logo) { // to avoid errors when the iframe has not completed loading yet
     if (selectedTheme === 'AGS theme') {
       logo.src = './themes/ags.png'
       logo.style = 'width: 166px;'
