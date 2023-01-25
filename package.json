@@ -30,7 +30,8 @@
     "test:build:dist": "npx jest --selectProjects \"Gulp tasks\" --testMatch \"**/*build-dist*\"",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --cache --cache-location .cache/eslint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"**/*.{cjs,js,mjs}\"",
-    "lint:scss": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"{app,src}/**/*.scss\""
+    "lint:scss": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"{app,src}/**/*.scss\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
@@ -122,6 +123,7 @@
     "undici": "^5.11.0",
     "wait-on": "^6.0.1",
     "ws": "^8.9.0",
-    "yargs": "^17.6.0"
+    "yargs": "^17.6.0",
+    "husky": "^8.0.0"
   }
 }
