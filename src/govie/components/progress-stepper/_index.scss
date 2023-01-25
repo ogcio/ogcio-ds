@@ -66,7 +66,8 @@
   }
 
   .govie-progress-stepper__active-icon-circle {
-    fill: govie-tint(govie-colour("turquoise"), 50);
+    fill: $govie-header-surface-colour;
+    fill-opacity: 0.2;
   }
 
   .govie-progress-stepper__step-connector {
@@ -87,7 +88,7 @@
 
   .govie-progress-stepper__step--completed, .govie-progress-stepper__step--active {
     .govie-progress-stepper__label-text {
-      color: $govie-print-text-colour;
+      color: $govie-text-colour;
     }
 
     .govie-progress-stepper__label-icon-circle {
