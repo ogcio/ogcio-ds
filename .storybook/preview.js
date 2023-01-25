@@ -3,9 +3,12 @@
 import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
 import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/govie-frontend.min.css'
+
+let selectedTheme
 
 export const decorators = [cssVariablesTheme]
 
@@ -80,4 +83,38 @@ export const parameters = {
       ],
     },
   },
+}
+
+///
+/// Change logo according to the selected theme
+///
+
+document.addEventListener('storybookcssvariables:theme:change', (event) => {
+  // set theme selectedTheme variable to the current select theme
+  selectedTheme = event?.detail?.theme
+  loadLogo()
+})
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  // reload the logo when the DOM finish loading because
+  // the pages have an iframe inside that took longer
+  // to fully load
+  loadLogo()
+})
+
+const loadLogo = () => {
+  const logo = document.getElementById('logo-image')
+
+  if (logo) { // to avoid errors when the iframe has not completed loading yet
+    if (selectedTheme === 'AGS theme') {
+      logo.src = './themes/ags.png'
+      logo.style = 'width: 166px;'
+    } else if (selectedTheme === 'HSE theme') {
+      logo.src = './themes/hse.png'
+      logo.style = 'width: 52px;'
+    } else {
+      logo.src = './assets/images/logo-full.png'
+      logo.style = 'width: 116px;'
+    }
+  }
 }
