@@ -80,6 +80,7 @@ export const parameters = {
         'Layout',
         'Pages',
         'Patterns',
+        'Application',
       ],
     },
   },

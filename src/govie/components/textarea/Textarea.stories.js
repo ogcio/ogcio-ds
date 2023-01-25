@@ -4,8 +4,10 @@ export default {
   title: 'Form/Textarea',
   parameters: {
     docs: {
-      component:
-        'Use the textarea component when you need to let users enter an amount of text that’s longer than a single line.',
+      description: {
+        component:
+          'Use the textarea component when you need to let users enter an amount of text that’s longer than a single line.',
+      },
     },
   },
   argTypes: {

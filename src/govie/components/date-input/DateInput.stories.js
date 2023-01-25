@@ -4,8 +4,10 @@ export default {
   title: 'Form/Date Input',
   parameters: {
     docs: {
-      component:
-        'Use the date input component to help users enter a memorable date or one they can easily look up.',
+      description: {
+        component:
+          'Use the date input component to help users enter a memorable date or one they can easily look up.',
+      },
     },
   },
   argTypes: {

@@ -4,8 +4,10 @@ export default {
   title: 'Form/Text Input',
   parameters: {
     docs: {
-      component:
-        'Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.',
+      description: {
+        component:
+          'Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.',
+      },
     },
   },
   argTypes: {

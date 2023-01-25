@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Inset Text',
   parameters: {
     docs: {
-      component:
-        'Use the inset text component to differentiate a block of text from the content that surrounds it, for example: quotes, examples or additional information about the page.',
+      description: {
+        component:
+          'Use the inset text component to differentiate a block of text from the content that surrounds it, for example: quotes, examples or additional information about the page.',
+      },
     },
   },
   argTypes: {

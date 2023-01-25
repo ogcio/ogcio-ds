@@ -4,8 +4,10 @@ export default {
   title: 'Form/File Upload',
   parameters: {
     docs: {
-      component:
-        'Help users select and upload a file. You should only ask users to upload something if it’s critical to the delivery of your service.',
+      description: {
+        component:
+          'Help users select and upload a file. You should only ask users to upload something if it’s critical to the delivery of your service.',
+      },
     },
   },
   argTypes: {

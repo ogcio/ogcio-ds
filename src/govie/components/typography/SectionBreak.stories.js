@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Section Break',
   parameters: {
     docs: {
-      component:
-        'You can use the Section Break to create a thematic break between sections of content.',
+      description: {
+        component:
+          'You can use the Section Break to create a thematic break between sections of content.',
+      },
     },
   },
   argTypes: {

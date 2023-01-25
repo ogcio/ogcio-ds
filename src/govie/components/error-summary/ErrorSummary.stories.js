@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Error Sumamry',
   parameters: {
     docs: {
-      component:
-        'Use this component at the top of a page to summarise any errors a user has made.',
+      description: {
+        component:
+          'Use this component at the top of a page to summarise any errors a user has made.',
+      },
     },
   },
   argTypes: {

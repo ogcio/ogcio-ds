@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Accordion',
   parameters: {
     docs: {
-      component:
-        'The accordion component lets users show and hide sections of related content on a page.',
+      description: {
+        component:
+          'The accordion component lets users show and hide sections of related content on a page.',
+      },
     },
   },
   argTypes: {

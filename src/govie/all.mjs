@@ -7,6 +7,7 @@ import Details from './components/details/details.mjs'
 import ErrorSummary from './components/error-summary/error-summary.mjs'
 import Header from './components/header/header.mjs'
 import NotificationBanner from './components/notification-banner/notification-banner.mjs'
+import ProgressStepper from './components/progress-stepper/progress-stepper.mjs'
 import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
 import StepByStepNav from './components/step-by-step-navigation/step-by-step-navigation.mjs'
@@ -100,6 +101,13 @@ function initAll(config) {
 
   var $stepByStepNav = $scope.querySelector('#govie-step-by-step-navigation')
   new StepByStepNav($stepByStepNav).init()
+
+  var $progressSteppers = $scope.querySelectorAll(
+    '[data-module="govie-progress-stepper"]'
+  )
+  nodeListForEach($progressSteppers, function ($progressStepper) {
+    new ProgressStepper($progressStepper).init()
+  })
 }
 
 export {
