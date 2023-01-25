@@ -6,10 +6,10 @@ const glob = require('glob')
 const configPaths = require('../../../config/paths.js')
 const {
   getDirectories,
-  getFilesByDirectory
+  getFilesByDirectory,
 } = require('../../../lib/file-helper')
 const {
-  componentNameToJavaScriptModuleName
+  componentNameToJavaScriptModuleName,
 } = require('../../../lib/helper-functions')
 
 const { renderSass } = require('../../../lib/jest-helpers')
@@ -107,7 +107,12 @@ describe('package/', () => {
       (results) => {
         const [actualPackageFiles, expectedPackageFiles] = results
 
-        expect(actualPackageFiles).toEqual(expectedPackageFiles)
+        const expectedPackageFilesWithConfigs = [
+          '.npmrc',
+          ...expectedPackageFiles,
+        ]
+
+        expect(actualPackageFiles).toEqual(expectedPackageFilesWithConfigs)
       }
     )
   })
