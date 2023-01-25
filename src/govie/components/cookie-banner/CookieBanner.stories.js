@@ -5,8 +5,10 @@ export default {
   title: 'Typography/Cookie banner',
   parameters: {
     docs: {
-      component:
-        'Allow users to accept or reject cookies which are not essential to making your service work..',
+      description: {
+        component:
+          'Allow users to accept or reject cookies which are not essential to making your service work..',
+      },
     },
   },
   argTypes: {
@@ -34,8 +36,7 @@ const createContent = (title, confirmed, cookie) => {
   cookieContent.className = 'govie-cookie-banner__content'
 
   if (confirmed) {
-    cookieContent.innerHTML =
-      `<p class="govie-body">You’ve ${cookie} analytics cookies. You can <a class="govie-link" href="#">change your cookie settings</a> at any time.</p>`
+    cookieContent.innerHTML = `<p class="govie-body">You’ve ${cookie} analytics cookies. You can <a class="govie-link" href="#">change your cookie settings</a> at any time.</p>`
   } else {
     cookieContent.innerHTML = `
     <p class="govie-body">We use some essential cookies to make this service work.</p>
@@ -95,12 +96,19 @@ const createActions = (confirmed) => {
   return buttonGroup
 }
 
-const createCookieMessage = (title, confirmationMessage, showConfirmation, cookieOption) => {
+const createCookieMessage = (
+  title,
+  confirmationMessage,
+  showConfirmation,
+  cookieOption
+) => {
   const cookieContent = document.createElement('div')
   cookieContent.className = 'govie-cookie-banner__message govie-width-container'
   cookieContent.hidden = showConfirmation
 
-  cookieContent.appendChild(createContent(title, confirmationMessage, cookieOption))
+  cookieContent.appendChild(
+    createContent(title, confirmationMessage, cookieOption)
+  )
   cookieContent.appendChild(createActions(confirmationMessage))
 
   return cookieContent
@@ -117,8 +125,13 @@ const Template = (args) => {
   cookieContainer.setAttribute('data-nosnippet', true)
 
   const cookieContent = createCookieMessage(title, false, args.confirmed)
-  const cookieAnswerContent = createCookieMessage(title, true, !args.confirmed, args.cookieOption)
-  
+  const cookieAnswerContent = createCookieMessage(
+    title,
+    true,
+    !args.confirmed,
+    args.cookieOption
+  )
+
   cookieContainer.appendChild(cookieContent)
   cookieContainer.appendChild(cookieAnswerContent)
 
@@ -131,11 +144,11 @@ Default.args = {}
 export const CookieAccepted = Template.bind({})
 CookieAccepted.args = {
   confirmed: true,
-  cookieOption: 'accepted'
+  cookieOption: 'accepted',
 }
 
 export const CookiesRejected = Template.bind({})
 CookiesRejected.args = {
   confirmed: true,
-  cookieOption: 'rejected'
+  cookieOption: 'rejected',
 }

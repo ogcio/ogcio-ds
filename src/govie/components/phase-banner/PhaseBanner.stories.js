@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Phase banner',
   parameters: {
     docs: {
-      component:
-        'Use the phase banner component to show users your service is still being worked on.',
+      description: {
+        component:
+          'Use the phase banner component to show users your service is still being worked on.',
+      },
     },
   },
   argTypes: {
@@ -20,7 +22,7 @@ export default {
   },
   args: {
     tag: 'alpha',
-    text: 'This is a new service – your <a class="govie-link" href="#">feedback</a> will help us to improve it.'
+    text: 'This is a new service – your <a class="govie-link" href="#">feedback</a> will help us to improve it.',
   },
 }
 
@@ -49,10 +51,10 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  tag: 'alpha'
+  tag: 'alpha',
 }
 
 export const Beta = Template.bind({})
 Beta.args = {
-  tag: 'beta'
+  tag: 'beta',
 }

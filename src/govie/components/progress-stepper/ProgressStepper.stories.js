@@ -1,11 +1,13 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Typography/Progress Stepper',
+  title: 'Application/Progress Stepper',
   parameters: {
     docs: {
-      component:
-        'Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation. Steppers may display a transient feedback message after a step is saved.',
+      description: {
+        component:
+          'Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation. Steppers may display a transient feedback message after a step is saved.',
+      },
     },
   },
   argTypes: {
@@ -67,7 +69,7 @@ const createStepLabel = (stepData) => {
   return stepLabel
 }
 
-const createStep = (stepData, index) => {
+const createStep = (stepData) => {
   const classNames = ['govie-progress-stepper__step']
 
   if (stepData.isCompleted) {
@@ -92,8 +94,8 @@ const Template = (args) => {
   progressStepper.className = 'govie-progress-stepper'
   progressStepper.setAttribute('data-module', 'govie-progress-stepper')
 
-  args.steps.forEach((step, index) => {
-    progressStepper.appendChild(createStep(step, index))
+  args.steps.forEach((step) => {
+    progressStepper.appendChild(createStep(step))
   })
 
   return beautifyHtmlNode(progressStepper)

@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Details',
   parameters: {
     docs: {
-      component:
-        'Make a page easier to scan by letting users reveal more detailed information only if they need it.',
+      description: {
+        component:
+          'Make a page easier to scan by letting users reveal more detailed information only if they need it.',
+      },
     },
   },
   argTypes: {

@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Summary List',
   parameters: {
     docs: {
-      component:
-        'Use the summary list to summarise information, for example, a user’s responses at the end of a form.',
+      description: {
+        component:
+          'Use the summary list to summarise information, for example, a user’s responses at the end of a form.',
+      },
     },
   },
   argTypes: {

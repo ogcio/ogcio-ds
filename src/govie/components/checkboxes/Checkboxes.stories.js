@@ -4,8 +4,10 @@ export default {
   title: 'Form/Checkboxes',
   parameters: {
     docs: {
-      component:
-        'Let users select one or more options by using the checkboxes component.',
+      description: {
+        component:
+          'Let users select one or more options by using the checkboxes component.',
+      },
     },
   },
   argTypes: {

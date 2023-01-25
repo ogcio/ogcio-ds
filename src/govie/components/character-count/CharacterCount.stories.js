@@ -4,8 +4,10 @@ export default {
   title: 'Form/Character count',
   parameters: {
     docs: {
-      component:
-        'Help users know how much text they can enter when there is a limit on the number of characters.',
+      description: {
+        component:
+          'Help users know how much text they can enter when there is a limit on the number of characters.',
+      },
     },
   },
   argTypes: {

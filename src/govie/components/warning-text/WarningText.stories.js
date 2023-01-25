@@ -4,8 +4,10 @@ export default {
   title: 'Typography/Warning Text',
   parameters: {
     docs: {
-      component:
-        'Use the warning text component when you need to warn users about something important.',
+      description: {
+        component:
+          'Use the warning text component when you need to warn users about something important.',
+      },
     },
   },
   argTypes: {
