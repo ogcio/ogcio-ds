@@ -8,7 +8,7 @@
  * Progress Stepper component
  *
  * @class
- * @param {HTMLElement} $module - HTML element to use for radios
+ * @param {HTMLElement} $module - The element this component controls
  */
 function ProgressStepper($module) {
   this.$module = $module;
