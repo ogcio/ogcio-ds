@@ -12,6 +12,7 @@ import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
 import StepByStepNav from './components/step-by-step-navigation/step-by-step-navigation.mjs'
 import Tabs from './components/tabs/tabs.mjs'
+import Tick from './components/tick/tick.mjs'
 
 /**
  * Initialise all components
@@ -108,6 +109,9 @@ function initAll(config) {
   nodeListForEach($progressSteppers, function ($progressStepper) {
     new ProgressStepper($progressStepper).init()
   })
+
+  var $tick = $scope.querySelector('[data-module="govie-tick"]')
+  new Tick($tick).init()
 }
 
 export {
@@ -123,4 +127,7 @@ export {
   Radios,
   SkipLink,
   Tabs,
+  ProgressStepper,
+  Tick,
+  StepByStepNav,
 }
