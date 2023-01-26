@@ -4519,7 +4519,7 @@ Tabs.prototype.getHref = function ($tab) {
 };
 
 /**
- * Progress Stepper component
+ * Tick component
  *
  * @class
  * @param {HTMLElement} $module - The element this component controls

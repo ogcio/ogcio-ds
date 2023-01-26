@@ -4,7 +4,10 @@ export default {
   title: 'Application/Tick',
   parameters: {
     docs: {
-      component: 'tick tick tick',
+      description: {
+        component:
+          'Ticks toggle the state of a single setting active or inactive.',
+      },
     },
   },
   argTypes: {

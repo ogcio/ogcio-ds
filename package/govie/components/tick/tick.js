@@ -5,7 +5,7 @@
 }(this, (function () { 'use strict';
 
 /**
- * Progress Stepper component
+ * Tick component
  *
  * @class
  * @param {HTMLElement} $module - The element this component controls
