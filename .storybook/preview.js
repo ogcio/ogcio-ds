@@ -37,24 +37,27 @@ export const parameters = {
 
       return (
         <DocsContainer context={newContext}>
-          <div
-            className="govie-body"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              padding: '8px',
-              margin: 0,
-              background: '#fff4b0',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              fontSize: '16px',
-            }}
-          >
-            JavaScript does not work in the 'Docs' tab and this can cause
-            some components to not behave as expected.
-          </div>
+          {context.name !== 'Page' && (
+            <div
+              className="govie-body"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                padding: '8px',
+                margin: 0,
+                background: '#fff4b0',
+                width: 'calc(100% - 18px)',
+                fontSize: '14px',
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+              }}
+            >
+              JavaScript does not work in the 'Docs' tab and this can cause some
+              components to not behave as expected.
+            </div>
+          )}
           {children}
         </DocsContainer>
       )
