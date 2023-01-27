@@ -35,7 +35,29 @@ export const parameters = {
       let newContext
       cssVariablesTheme((c) => (newContext = c), context)
 
-      return <DocsContainer context={newContext}>{children}</DocsContainer>
+      return (
+        <DocsContainer context={newContext}>
+          <div
+            className="govie-body"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              padding: '8px',
+              margin: 0,
+              background: '#fff4b0',
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              fontSize: '16px',
+            }}
+          >
+            JavaScript does not work in the 'Docs' tab and this can cause
+            some components to not behave as expected.
+          </div>
+          {children}
+        </DocsContainer>
+      )
     },
     components: {
       a: ({ children, ...args }) => (
@@ -106,7 +128,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const loadLogo = () => {
   const logo = document.getElementById('logo-image')
 
-  if (logo) { // to avoid errors when the iframe has not completed loading yet
+  if (logo) {
+    // to avoid errors when the iframe has not completed loading yet
     if (selectedTheme === 'AGS theme') {
       logo.src = './themes/ags.png'
       logo.style = 'width: 166px;'
