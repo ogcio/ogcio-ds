@@ -56,16 +56,19 @@ $govie-button-group-button-hover-background-colour: govie-tint(
 
       &:first-of-type {
         border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 4px;
       }
 
-      &:last-of-type {
+      &:first-of-type {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 0;
         border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
       }
 
       &:not(:first-child) {
-        margin-left: -($govie-border-width-form-element);
+        margin-left: 0;
+        margin-top: -($govie-border-width-form-element);
       }
 
       &:active {
@@ -109,6 +112,22 @@ $govie-button-group-button-hover-background-colour: govie-tint(
           flex-wrap: wrap;
       -ms-flex-align: baseline;
           align-items: baseline;
+
+      .govie-button {
+        &:first-of-type {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+
+        &:last-of-type {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        &:not(:first-child) {
+          margin-left: -($govie-border-width-form-element);
+        }
+      }
     }
   }
 }
