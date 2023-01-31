@@ -1,0 +1,76 @@
+@include govie-exports('govie/component/tooltip') {
+  .govie-tooltip {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+
+    &:hover {
+      .govie-tooltip-text {
+        visibility: visible;
+      }
+    }
+
+    .govie-tooltip-text {
+      @include govie-font($size: 16, $line-height: 20px);
+      // visibility: hidden;
+      position: absolute;
+      background-color: govie-colour('black');
+      border-radius: 8px;
+      z-index: 2;
+      min-width: 150px;
+      color: govie-colour('white');
+      padding: 8px 16px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: govie-colour('black') transparent transparent transparent;
+      }
+
+      &.govie-tooltip--top {
+        bottom: 150%;
+        left: 50%;
+        margin-left: -60px;
+
+        &::after {
+          top: 100%;
+          left: 50%;
+        }
+      }
+
+      &.govie-tooltip--bottom {
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+
+        &::after {
+          bottom: 100%;
+          left: 50%;
+        }
+      }
+
+      &.govie-tooltip--left {
+        top: -5px;
+        right: 110%;
+
+        &::after {
+          top: 50%;
+          left: 100%;
+        }
+      }
+
+      &.govie-tooltip--right {
+        top: -5px;
+        left: 110%;
+
+        &::after {
+          top: 50%;
+          right: 100%;
+        }
+      }
+    }
+  }
+}
