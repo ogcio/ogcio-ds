@@ -55,6 +55,10 @@ $govie-icon-button-hover-background-colour: govie-colour('light-grey') !default;
     cursor: pointer;
     -webkit-appearance: none;
 
+    svg path {
+      fill: $govie-icon-button-text-colour;
+    }
+
     // Ensure that any global link styles are overridden
     &:link,
     &:visited,
