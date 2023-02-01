@@ -1,6 +1,4 @@
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import { Default as tooltipDefault } from '../tooltip/Tooltip.stories'
 
 export default {
   title: 'Form/Icon Button',
@@ -13,9 +11,14 @@ export default {
   },
   argTypes: {
     disabled: { control: 'boolean' },
+    label: {
+      control: 'text',
+      type: { name: 'string', required: true },
+    },
   },
   args: {
     disabled: false,
+    label: 'Add'
   },
 }
 
@@ -46,7 +49,7 @@ const Template = (args) => {
 
   const tooltip = document.createElement('span')
   tooltip.className = 'govie-tooltip'
-  tooltip.innerHTML = 'Add'
+  tooltip.innerHTML = args.label
 
   container.appendChild(tooltip)
 
@@ -55,6 +58,11 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const WithOtherLabel = Template.bind({})
+WithOtherLabel.args = {
+  label: 'Another label'
+}
 
 export const Disabled = Template.bind({})
 Disabled.args = {
