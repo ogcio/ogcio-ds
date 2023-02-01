@@ -1,4 +1,5 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
 export default {
   title: 'Application/Tooltip',
@@ -24,11 +25,11 @@ export default {
 const Template = (args) => {
   const container = document.createElement('span')
   container.setAttribute('data-module', 'govie-tooltip')
-  container.innerText = 'Hover me'
+  container.innerHTML = 'Hover me'
 
   const tooltip = document.createElement('span')
   tooltip.className = 'govie-tooltip'
-  tooltip.innerText = args.label
+  tooltip.innerHTML = args.label
 
   container.appendChild(tooltip)
 

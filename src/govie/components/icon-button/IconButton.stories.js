@@ -1,4 +1,6 @@
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import { Default as tooltipDefault } from '../tooltip/Tooltip.stories'
 
 export default {
   title: 'Form/Icon Button',
@@ -38,7 +40,17 @@ const Template = (args) => {
 
   btn.className = classes.join(' ')
 
-  return beautifyHtmlNode(btn)
+  const container = document.createElement('span')
+  container.setAttribute('data-module', 'govie-tooltip')
+  container.appendChild(btn)
+
+  const tooltip = document.createElement('span')
+  tooltip.className = 'govie-tooltip'
+  tooltip.innerHTML = 'Add'
+
+  container.appendChild(tooltip)
+
+  return beautifyHtmlNode(container)
 }
 
 export const Default = Template.bind({})

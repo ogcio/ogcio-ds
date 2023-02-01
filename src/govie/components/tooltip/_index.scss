@@ -13,6 +13,7 @@
     padding: 8px 16px;
     pointer-events: none;
     border-radius: 8px;
+    @include govie-font($size: 16, $line-height: 20px);
 
     &.top {
       margin-top: 20px;
@@ -33,11 +34,11 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 14px solid govie-colour('black');
+      border-top: 10px solid govie-colour('black');
       content: '';
       position: absolute;
       left: 50%;
-      bottom: -10px;
+      bottom: -8px;
       margin-left: -10px;
     }
 
@@ -59,4 +60,10 @@
       margin: 0;
     }
   }
+
+  [data-module="govie-tooltip"] {
+    display: inline-block;
+    height: fit-content;
+    width: fit-content;
+}
 }

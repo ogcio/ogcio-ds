@@ -28,6 +28,7 @@ Tooltip.prototype.init = function () {
 
 Tooltip.prototype.setup = function () {
   var $module = this.$module
+
   $module.addEventListener('mouseenter', this.show)
   $module.addEventListener('mouseleave', this.hide)
 
@@ -40,6 +41,7 @@ Tooltip.prototype.show = function () {
 
   if (typeof this.querySelector !== 'undefined') {
     var tip = this.querySelector('.govie-tooltip')
+
     if (!tip || tip === '') {
       return false
     }

@@ -4610,6 +4610,7 @@ Tooltip.prototype.init = function () {
 
 Tooltip.prototype.setup = function () {
   var $module = this.$module;
+
   $module.addEventListener('mouseenter', this.show);
   $module.addEventListener('mouseleave', this.hide);
 
@@ -4622,6 +4623,7 @@ Tooltip.prototype.show = function () {
 
   if (typeof this.querySelector !== 'undefined') {
     var tip = this.querySelector('.govie-tooltip');
+
     if (!tip || tip === '') {
       return false
     }
@@ -4699,6 +4701,11 @@ function initAll(config) {
 
   var $buttons = $scope.querySelectorAll('[data-module="govie-button"]');
   nodeListForEach($buttons, function ($button) {
+    new Button($button, config.button).init();
+  });
+
+  var $iconButtons = $scope.querySelectorAll('[data-module="govie-icon-button"]');
+  nodeListForEach($iconButtons, function ($button) {
     new Button($button, config.button).init();
   });
 

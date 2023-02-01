@@ -46,6 +46,11 @@ function initAll(config) {
     new Button($button, config.button).init()
   })
 
+  var $iconButtons = $scope.querySelectorAll('[data-module="govie-icon-button"]')
+  nodeListForEach($iconButtons, function ($button) {
+    new Button($button, config.button).init()
+  })
+
   var $characterCounts = $scope.querySelectorAll(
     '[data-module="govie-character-count"]'
   )

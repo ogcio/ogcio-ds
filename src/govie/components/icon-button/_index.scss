@@ -22,7 +22,7 @@ $govie-icon-button-background-colour: transparent !default;
 /// @type Colour
 /// @access public
 
-$govie-icon-button-hover-background-colour: govie-colour('light-grey') !default;
+$govie-icon-button-hover-background-colour: govie-colour('mid-grey') !default;
 
 @include govie-exports('govie/component/icon-button') {
   $button-shadow-size: $govie-border-width-form-element;
@@ -35,11 +35,7 @@ $govie-icon-button-hover-background-colour: govie-colour('light-grey') !default;
     position: relative;
     width: 48px;
     height: 48px;
-    margin-top: 0;
-    margin-right: 0;
-    margin-left: 0;
-
-    @include govie-responsive-margin(6, 'bottom'); // s2
+    margin: 0;
 
     padding: (govie-spacing(2) - $govie-border-width-form-element)
       govie-spacing(2) + $govie-border-width-form-element
