@@ -21,10 +21,11 @@ module.exports = {
     {
       from: '../storybook/dist',
       to: '/',
-    }, {
+    },
+    {
       from: './assets/themes',
       to: '/themes',
-    }
+    },
   ],
   docs: {
     docsPage: 'automatic',
