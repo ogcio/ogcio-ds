@@ -4676,8 +4676,10 @@ function initAll(config) {
     new ProgressStepper($progressStepper).init();
   });
 
-  var $tick = $scope.querySelector('[data-module="govie-tick"]');
-  new Tick($tick).init();
+  var $ticks = $scope.querySelectorAll('[data-module="govie-tick"]');
+  nodeListForEach($ticks, function ($tick) {
+    new Tick($tick).init();
+  });
 }
 
 exports.initAll = initAll;

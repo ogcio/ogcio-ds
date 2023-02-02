@@ -155,6 +155,7 @@ const createCheckboxItem = (fieldId, index, itemData, isExclusive = false) => {
   checkboxItem.appendChild(
     createInputNode(fieldId, index, itemData, isExclusive)
   )
+
   checkboxItem.appendChild(createInputLabelNode(fieldId, index, itemData))
 
   if (itemData.hint) {
@@ -288,7 +289,10 @@ const createFieldSetNode = (args) => {
   const fieldSet = document.createElement('fieldset')
   fieldSet.className = 'govie-fieldset'
   fieldSet.setAttribute('aria-describedby', collectFieldSetDescribedby(args))
-  fieldSet.appendChild(createLegendNode(args))
+
+  if (args.legend) {
+    fieldSet.appendChild(createLegendNode(args))
+  }
 
   if (args.hint) {
     fieldSet.appendChild(createHintNode(args))
