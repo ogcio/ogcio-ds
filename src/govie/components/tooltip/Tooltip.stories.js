@@ -16,9 +16,14 @@ export default {
       control: 'text',
       type: { name: 'string', required: true },
     },
+    position: {
+      options: ['top', 'bottom', 'left', 'right'],
+      control: { type: 'radio' },
+    },
   },
   args: {
     label: 'Tooltip text',
+    position: 'top',
   },
 }
 
@@ -28,7 +33,7 @@ const Template = (args) => {
   container.innerHTML = 'Hover me'
 
   const tooltip = document.createElement('span')
-  tooltip.className = 'govie-tooltip'
+  tooltip.className = `govie-tooltip govie-tooltip--${args.position}`
   tooltip.innerHTML = args.label
 
   container.appendChild(tooltip)
@@ -36,5 +41,26 @@ const Template = (args) => {
   return beautifyHtmlNode(container)
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Top = Template.bind({})
+Top.args = {
+  label: 'Top tooltip',
+  position: 'top',
+}
+
+export const Bottom = Template.bind({})
+Bottom.args = {
+  label: 'Bottom tooltip',
+  position: 'bottom',
+}
+
+export const Left = Template.bind({})
+Left.args = {
+  label: 'Left tooltip',
+  position: 'left',
+}
+
+export const Right = Template.bind({})
+Right.args = {
+  label: 'Right tooltip',
+  position: 'right',
+}

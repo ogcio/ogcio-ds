@@ -4595,11 +4595,11 @@ function Tooltip($module) {
  * Initialise component
  */
 Tooltip.prototype.init = function () {
-  tooltip = document.querySelector('.govie-tooltip--container');
+  tooltip = document.querySelector('.govie-tooltip-container');
 
   if (!tooltip) {
     var container = document.createElement('div');
-    container.className = 'govie-tooltip--container';
+    container.className = 'govie-tooltip-container';
 
     document.body.appendChild(container);
     tooltip = container;
@@ -4641,36 +4641,33 @@ Tooltip.prototype.show = function () {
       tooltip.offsetWidth / 2;
     var posTop = Tooltip.target.offsetTop - tooltip.offsetHeight - 20;
 
-    tooltip.className = 'govie-tooltip--container';
+    tooltip.className = 'govie-tooltip-container';
 
-    if (posLeft < 0) {
-      posLeft = Tooltip.target.offsetLeft + Tooltip.target.offsetWidth / 2 - 20;
-      tooltip.className += ' left';
-    }
-
-    if (posLeft + tooltip.offsetWidth > window.innerWidth) {
-      posLeft =
-        Tooltip.target.offsetLeft -
-        tooltip.offsetWidth +
-        Tooltip.target.offsetWidth / 2 +
-        20;
-      tooltip.className += ' right';
-    }
-
-    if (posTop < 0) {
+    if (this.querySelector('.govie-tooltip--left')) {
+      posLeft = -(tooltip.offsetWidth);
+      posTop = -6;
+      tooltip.className += ' govie-tooltip-container--left';
+    } else if (this.querySelector('.govie-tooltip--right')) {
+      posLeft = tooltip.offsetWidth - 15;
+      posTop = -2;
+      tooltip.className += ' govie-tooltip-container--right';
+    } else if (this.querySelector('.govie-tooltip--bottom')) {
       posTop = Tooltip.target.offsetTop + Tooltip.target.offsetHeight;
-      tooltip.className += ' top';
+      tooltip.className += ' govie-tooltip-container--top';
     }
 
     tooltip.style.left = posLeft + 'px';
     tooltip.style.top = posTop + 'px';
 
-    tooltip.className += ' show';
+    tooltip.className += ' govie-tooltip-container--show';
   }
 };
 
 Tooltip.prototype.hide = function () {
-  tooltip.className = tooltip.className.replace('show', '');
+  tooltip.className = tooltip.className.replace(
+    'govie-tooltip-container--show',
+    ''
+  );
 };
 
 /**

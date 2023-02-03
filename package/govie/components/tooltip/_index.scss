@@ -3,7 +3,7 @@
     display: none;
   }
 
-  .govie-tooltip--container {
+  .govie-tooltip-container {
     opacity: 0;
     text-align: center;
     color: govie-colour('white');
@@ -15,16 +15,16 @@
     border-radius: 8px;
     @include govie-font($size: 16, $line-height: 20px);
 
-    &.top {
+    &.govie-tooltip-container--top {
       margin-top: 20px;
     }
 
-    &.show {
+    &.govie-tooltip-container--show {
       opacity: 1;
       margin-top: 10px;
       pointer-events: all;
 
-      &.top {
+      &.govie-tooltip-container--top {
         margin-top: 10px;
       }
     }
@@ -42,26 +42,38 @@
       margin-left: -10px;
     }
 
-    &.top:after {
-      border-top-color: transparent;
-      border-bottom: 10px solid govie-colour('black');
+    &.govie-tooltip-container--top:after {
       top: -20px;
       bottom: auto;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent govie-colour('black') transparent;
     }
 
-    &.left:after {
-      left: 10px;
-      margin: 0;
-    }
-
-    &.right:after {
-      right: 10px;
+    &.govie-tooltip-container--left:after {
       left: auto;
+      right: -16px;
       margin: 0;
+      top: 50%;
+      margin-top: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent transparent govie-colour('black');
+    }
+
+    &.govie-tooltip-container--right:after {
+      right: auto;
+      left: -16px;
+      margin: 0;
+      top: 50%;
+      margin-top: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent govie-colour('black') transparent transparent;
     }
   }
 
-  [data-module="govie-tooltip"] {
+  [data-module='govie-tooltip'] {
     display: inline-block;
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -69,5 +81,5 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-}
+  }
 }
