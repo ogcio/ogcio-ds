@@ -20,6 +20,10 @@ export default {
       options: ['top', 'bottom', 'left', 'right'],
       control: { type: 'radio' },
     },
+    icon: {
+      control: 'text',
+      type: { name: 'string', required: true },
+    },
   },
   args: {
     disabled: false,
@@ -35,7 +39,10 @@ const Template = (args) => {
   btn.innerText = args.label
   btn.setAttribute('data-module', 'govie-icon-button')
 
-  btn.innerHTML = `
+  btn.innerHTML =
+    args.icon !== undefined
+      ? args.icon
+      : `
     <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 8.5H8V14.5H6V8.5H0V6.5H6V0.5H8V6.5H14V8.5Z" />
     </svg>
@@ -67,7 +74,7 @@ Default.args = {}
 
 export const WithDifferentTooltip = Template.bind({})
 WithDifferentTooltip.args = {
-  tooltipLabel: 'Other tooltip label'
+  tooltipLabel: 'Other tooltip label',
 }
 
 export const WithDifferentTooltipPosition = Template.bind({})
