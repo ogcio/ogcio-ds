@@ -13,6 +13,7 @@ import SkipLink from './components/skip-link/skip-link.mjs'
 import StepByStepNav from './components/step-by-step-navigation/step-by-step-navigation.mjs'
 import Tabs from './components/tabs/tabs.mjs'
 import Tick from './components/tick/tick.mjs'
+import Tooltip from './components/tooltip/tooltip.mjs'
 
 /**
  * Initialise all components
@@ -42,6 +43,11 @@ function initAll(config) {
 
   var $buttons = $scope.querySelectorAll('[data-module="govie-button"]')
   nodeListForEach($buttons, function ($button) {
+    new Button($button, config.button).init()
+  })
+
+  var $iconButtons = $scope.querySelectorAll('[data-module="govie-icon-button"]')
+  nodeListForEach($iconButtons, function ($button) {
     new Button($button, config.button).init()
   })
 
@@ -112,22 +118,28 @@ function initAll(config) {
 
   var $tick = $scope.querySelector('[data-module="govie-tick"]')
   new Tick($tick).init()
+
+  var $tooltips = $scope.querySelectorAll('[data-module="govie-tooltip"]')
+  nodeListForEach($tooltips, function ($tooltip) {
+    new Tooltip($tooltip).init()
+  })
 }
 
 export {
   initAll,
   Accordion,
   Button,
-  Details,
   CharacterCount,
   Checkboxes,
+  Details,
   ErrorSummary,
   Header,
   NotificationBanner,
+  ProgressStepper,
   Radios,
   SkipLink,
-  Tabs,
-  ProgressStepper,
-  Tick,
   StepByStepNav,
+  Tabs,
+  Tick,
+  Tooltip,
 }

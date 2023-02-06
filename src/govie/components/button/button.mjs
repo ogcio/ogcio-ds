@@ -1,5 +1,5 @@
 import { mergeConfigs, normaliseDataset } from '../../common.mjs'
-import '../../vendor/polyfills/Event.mjs' // addEventListener and event.target normaliziation
+import '../../vendor/polyfills/Event.mjs' // addEventListener and event.target normalization
 import '../../vendor/polyfills/Function/prototype/bind.mjs'
 
 var KEY_SPACE = 32
