@@ -22,7 +22,7 @@ export default {
     type: 'icons',
     disabled: false,
     tooltipPosition: 'right',
-    links: ['Edit', 'View', 'Delete']
+    links: ['Edit', 'View', 'Delete'],
   },
 }
 
@@ -92,14 +92,17 @@ const Template = (args) => {
 }
 
 export const Icons = Template.bind({})
-Icons.args = {}
+Icons.args = {
+  type: 'icons',
+}
 
 export const Links = Template.bind({})
 Links.args = {
-  type: 'links'
+  type: 'links',
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  disabled: true
+  disabled: true,
+  type: 'icons',
 }
