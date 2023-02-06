@@ -1,5 +1,4 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
 export default {
   title: 'Application/Tooltip',
@@ -10,6 +9,7 @@ export default {
           'Tooltips display informative text when users hover over an element.',
       },
     },
+    layout: 'centered',
   },
   argTypes: {
     label: {

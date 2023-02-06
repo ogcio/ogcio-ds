@@ -8,17 +8,23 @@ export default {
         component: 'Icon buttons are commonly found in app bars and toolbars.',
       },
     },
+    layout: 'centered',
   },
   argTypes: {
     disabled: { control: 'boolean' },
-    label: {
+    tooltipLabel: {
       control: 'text',
       type: { name: 'string', required: true },
+    },
+    position: {
+      options: ['top', 'bottom', 'left', 'right'],
+      control: { type: 'radio' },
     },
   },
   args: {
     disabled: false,
-    label: 'Add'
+    tooltipLabel: 'Add',
+    position: 'top',
   },
 }
 
@@ -48,8 +54,8 @@ const Template = (args) => {
   container.appendChild(btn)
 
   const tooltip = document.createElement('span')
-  tooltip.className = 'govie-tooltip'
-  tooltip.innerHTML = args.label
+  tooltip.className = `govie-tooltip govie-tooltip--${args.position}`
+  tooltip.innerHTML = args.tooltipLabel
 
   container.appendChild(tooltip)
 
@@ -59,9 +65,14 @@ const Template = (args) => {
 export const Default = Template.bind({})
 Default.args = {}
 
-export const WithOtherLabel = Template.bind({})
-WithOtherLabel.args = {
-  label: 'Another label'
+export const WithDifferentTooltip = Template.bind({})
+WithDifferentTooltip.args = {
+  tooltipLabel: 'Other tooltip label'
+}
+
+export const WithDifferentTooltipPosition = Template.bind({})
+WithDifferentTooltipPosition.args = {
+  position: 'bottom',
 }
 
 export const Disabled = Template.bind({})

@@ -57,20 +57,29 @@ Tooltip.prototype.show = function () {
       Tooltip.target.offsetLeft +
       Tooltip.target.offsetWidth / 2 -
       tooltip.offsetWidth / 2
-    var posTop = Tooltip.target.offsetTop - tooltip.offsetHeight - 20
+
+    var posTop = Tooltip.target.offsetTop - tooltip.offsetHeight - 10
 
     tooltip.className = 'govie-tooltip-container'
 
     if (this.querySelector('.govie-tooltip--left')) {
-      posLeft = -(tooltip.offsetWidth)
-      posTop = -6
+      posLeft = Tooltip.target.offsetLeft - tooltip.offsetWidth - 10
+      posTop =
+        Tooltip.target.offsetTop -
+        tooltip.offsetHeight +
+        tooltip.offsetHeight / 2 +
+        Tooltip.target.offsetHeight / 2
       tooltip.className += ' govie-tooltip-container--left'
     } else if (this.querySelector('.govie-tooltip--right')) {
-      posLeft = tooltip.offsetWidth - 15
-      posTop = -2
+      posLeft = Tooltip.target.offsetWidth + Tooltip.target.offsetLeft + 10
+      posTop =
+        Tooltip.target.offsetTop -
+        tooltip.offsetHeight +
+        tooltip.offsetHeight / 2 +
+        Tooltip.target.offsetHeight / 2
       tooltip.className += ' govie-tooltip-container--right'
     } else if (this.querySelector('.govie-tooltip--bottom')) {
-      posTop = Tooltip.target.offsetTop + Tooltip.target.offsetHeight
+      posTop = Tooltip.target.offsetTop + Tooltip.target.offsetHeight + 2
       tooltip.className += ' govie-tooltip-container--top'
     }
 
