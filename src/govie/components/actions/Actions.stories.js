@@ -9,31 +9,30 @@ import { Default as iconButton } from '../../components/icon-button/IconButton.s
 
 export default {
   title: 'Application/Actions',
-  parameters: {
-    docs: {
-      //   description: {
-      //     component:
-      //       'Use the table component to make information easier to compare and scan for users.',
-      //   },
-    },
-  },
   argTypes: {
     type: {
       options: ['icons', 'text'],
       control: { type: 'radio' },
     },
+    tooltipPosition: {
+      options: ['top', 'bottom', 'left', 'right'],
+      control: { type: 'radio' },
+    },
+    links: { control: 'array' },
+    disabled: { control: 'boolean' },
   },
   args: {
     type: 'icons',
     disabled: false,
+    tooltipPosition: 'right',
+    links: ['Edit', 'View', 'Delete']
   },
 }
 
-const createLinksCell = () => {
+const createLinksCell = (links) => {
   const container = document.createElement('div')
 
-  const actions = ['Edit', 'View', 'Delete']
-  actions.forEach((action) => {
+  links.forEach((action) => {
     const actionLink = parseHtmlString(link({ label: action, href: '#' }))
     actionLink.className += ' govie-!-margin-right-3'
     container.appendChild(actionLink)
@@ -42,7 +41,7 @@ const createLinksCell = () => {
   return container
 }
 
-const createActionsCell = () => {
+const createActionsCell = (position, disabled) => {
   const container = document.createElement('div')
 
   const actions = [
@@ -52,6 +51,8 @@ const createActionsCell = () => {
     </svg>
     `,
       tooltipLabel: 'Map',
+      position,
+      disabled,
     }),
     iconButton({
       icon: `<svg class="govie-!-margin-right-3" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,6 +60,8 @@ const createActionsCell = () => {
     </svg>
     `,
       tooltipLabel: 'Cut',
+      position,
+      disabled,
     }),
     iconButton({
       icon: `<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,6 +69,8 @@ const createActionsCell = () => {
       </svg>      
     `,
       tooltipLabel: 'Delete',
+      position,
+      disabled,
     }),
   ]
 
@@ -81,9 +86,9 @@ const Template = (args) => {
   const table = document.createElement('div')
 
   if (args.type === 'icons') {
-    table.appendChild(createActionsCell())
+    table.appendChild(createActionsCell(args.tooltipPosition, args.disabled))
   } else {
-    table.appendChild(createLinksCell())
+    table.appendChild(createLinksCell(args.links))
   }
 
   return beautifyHtmlNode(table)
