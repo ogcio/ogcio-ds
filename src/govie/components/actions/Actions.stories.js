@@ -1,9 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
-import { Default as checkbox } from '../../components/checkboxes/Checkboxes.stories'
-import { Default as tick } from '../../components/tick/Tick.stories'
-import { Default as tag } from '../../components/tag/Tag.stories'
 import { Default as link } from '../../components/typography/Link.stories'
 import { Default as iconButton } from '../../components/icon-button/IconButton.stories'
 
@@ -11,7 +8,7 @@ export default {
   title: 'Application/Actions',
   argTypes: {
     type: {
-      options: ['icons', 'text'],
+      options: ['icons', 'links'],
       control: { type: 'radio' },
     },
     tooltipPosition: {
@@ -94,5 +91,15 @@ const Template = (args) => {
   return beautifyHtmlNode(table)
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Icons = Template.bind({})
+Icons.args = {}
+
+export const Links = Template.bind({})
+Links.args = {
+  type: 'links'
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true
+}
