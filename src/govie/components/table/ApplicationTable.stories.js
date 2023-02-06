@@ -117,9 +117,9 @@ const createActionsCell = () => {
       tooltipLabel: 'Cut',
     }),
     iconButton({
-      icon: `<svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7 16.25C6.45 16.25 5.97933 16.1033 5.588 15.8097C5.196 15.5157 5 15.1625 5 14.75V5H4V3.5H9V2.75H15V3.5H20V5H19V14.75C19 15.1625 18.8043 15.5157 18.413 15.8097C18.021 16.1033 17.55 16.25 17 16.25H7ZM17 5H7V14.75H17V5ZM9 13.25H11V6.5H9V13.25ZM13 13.25H15V6.5H13V13.25ZM7 5V14.75V5Z" fill="#0B0C0C"/>
-    </svg>
+      icon: `<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 14.25C2.45 14.25 1.97933 14.1033 1.588 13.8097C1.196 13.5157 1 13.1625 1 12.75V3H0V1.5H5V0.75H11V1.5H16V3H15V12.75C15 13.1625 14.8043 13.5157 14.413 13.8097C14.021 14.1033 13.55 14.25 13 14.25H3ZM13 3H3V12.75H13V3ZM5 11.25H7V4.5H5V11.25ZM9 11.25H11V4.5H9V11.25ZM3 3V12.75V3Z" fill="#0B0C0C"/>
+      </svg>      
     `,
       tooltipLabel: 'Delete',
     }),
