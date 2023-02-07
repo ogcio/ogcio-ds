@@ -21,6 +21,11 @@
     vertical-align: top;
   }
 
+  .govie-table__header--vertical-centralized,
+  .govie-table__cell--vertical-centralized {
+    vertical-align: middle;
+  }
+
   .govie-table__cell--numeric {
     @include govie-font($size: false, $tabular: true);
   }

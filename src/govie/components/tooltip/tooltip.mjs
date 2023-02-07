@@ -53,33 +53,36 @@ Tooltip.prototype.show = function () {
       tooltip.style.maxWidth = 320 + 'px'
     }
 
+    var target = Tooltip.target.getBoundingClientRect()
+    // getBoundingClientRect is only viewport coordinates we need height of what we've scrolled.
+    var scrollPosition = document.documentElement.scrollTop
     var posLeft =
-      Tooltip.target.offsetLeft +
-      Tooltip.target.offsetWidth / 2 -
-      tooltip.offsetWidth / 2
+      target.left + Tooltip.target.offsetWidth / 2 - tooltip.offsetWidth / 2
 
-    var posTop = Tooltip.target.offsetTop - tooltip.offsetHeight - 10
+    var posTop = target.y + scrollPosition - tooltip.offsetHeight - 10
 
     tooltip.className = 'govie-tooltip-container'
 
     if (this.querySelector('.govie-tooltip--left')) {
-      posLeft = Tooltip.target.offsetLeft - tooltip.offsetWidth - 10
+      posLeft = target.left - tooltip.offsetWidth - 10
       posTop =
-        Tooltip.target.offsetTop -
+        target.y +
+        scrollPosition -
         tooltip.offsetHeight +
         tooltip.offsetHeight / 2 +
         Tooltip.target.offsetHeight / 2
       tooltip.className += ' govie-tooltip-container--left'
     } else if (this.querySelector('.govie-tooltip--right')) {
-      posLeft = Tooltip.target.offsetWidth + Tooltip.target.offsetLeft + 10
+      posLeft = Tooltip.target.offsetWidth + target.left + 10
       posTop =
-        Tooltip.target.offsetTop -
+      target.y +
+      scrollPosition -
         tooltip.offsetHeight +
         tooltip.offsetHeight / 2 +
         Tooltip.target.offsetHeight / 2
       tooltip.className += ' govie-tooltip-container--right'
     } else if (this.querySelector('.govie-tooltip--bottom')) {
-      posTop = Tooltip.target.offsetTop + Tooltip.target.offsetHeight + 2
+      posTop = target.y + scrollPosition + Tooltip.target.offsetHeight + 2
       tooltip.className += ' govie-tooltip-container--top'
     }
 

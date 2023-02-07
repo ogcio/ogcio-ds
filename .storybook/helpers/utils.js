@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-export const slugify = text =>
+export const slugify = (text) =>
   text
     .toString()
     .normalize('NFD') // The normalize() using NFKD method returns the Unicode Normalization Form of a given string.
@@ -11,3 +11,19 @@ export const slugify = text =>
     .replace(/\_/g, '-') // Replace _ with -
     .replace(/\-\-+/g, '-') // Replace multiple - with single -
     .replace(/\-$/g, '') // Remove trailing -
+
+export const createSvgIcon = (width, height, content, className) => {
+  const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  icon.setAttribute('class', className)
+  icon.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+  icon.setAttribute('focusable', 'false')
+  icon.setAttribute('width', width)
+  icon.setAttribute('height', height)
+  icon.setAttribute('viewBox', `0 0 ${width} ${height}`)
+
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  path.setAttribute('d', content)
+
+  icon.appendChild(path)
+  return icon
+}
