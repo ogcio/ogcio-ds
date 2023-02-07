@@ -106,20 +106,26 @@ const Template = (args) => {
   if (args.type === 'icons') {
     table.appendChild(createActionsCell(args.tooltipPosition, args.disabled))
   } else {
-    table.appendChild(createLinksCell(args.links))
+    table.appendChild(createLinksCell(args.links || ['Edit', 'View', 'Delete']))
   }
 
   return beautifyHtmlNode(table)
 }
 
-export const Icons = Template.bind({})
-Icons.args = {
+export const Default = Template.bind({})
+Default.args = {
   type: 'icons',
 }
 
 export const Links = Template.bind({})
 Links.args = {
   type: 'links',
+}
+
+export const DifferentLinks = Template.bind({})
+DifferentLinks.args = {
+  type: 'links',
+  links: ['Edit', 'Copy', 'Paste']
 }
 
 export const Disabled = Template.bind({})
