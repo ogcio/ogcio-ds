@@ -4636,18 +4636,20 @@ Tooltip.prototype.show = function () {
     }
 
     var target = Tooltip.target.getBoundingClientRect();
-
+    // getBoundingClientRect is only viewport coordinates we need height of what we've scrolled.
+    var scrollPosition = document.documentElement.scrollTop;
     var posLeft =
       target.left + Tooltip.target.offsetWidth / 2 - tooltip.offsetWidth / 2;
 
-    var posTop = target.top - tooltip.offsetHeight - 10;
+    var posTop = target.y + scrollPosition - tooltip.offsetHeight - 10;
 
     tooltip.className = 'govie-tooltip-container';
 
     if (this.querySelector('.govie-tooltip--left')) {
       posLeft = target.left - tooltip.offsetWidth - 10;
       posTop =
-        target.top -
+        target.y +
+        scrollPosition -
         tooltip.offsetHeight +
         tooltip.offsetHeight / 2 +
         Tooltip.target.offsetHeight / 2;
@@ -4655,13 +4657,14 @@ Tooltip.prototype.show = function () {
     } else if (this.querySelector('.govie-tooltip--right')) {
       posLeft = Tooltip.target.offsetWidth + target.left + 10;
       posTop =
-        target.top -
+        target.y +
+        scrollPosition -
         tooltip.offsetHeight +
         tooltip.offsetHeight / 2 +
         Tooltip.target.offsetHeight / 2;
       tooltip.className += ' govie-tooltip-container--right';
     } else if (this.querySelector('.govie-tooltip--bottom')) {
-      posTop = target.top + Tooltip.target.offsetHeight + 2;
+      posTop = target.y + scrollPosition + Tooltip.target.offsetHeight + 2;
       tooltip.className += ' govie-tooltip-container--top';
     }
 
@@ -4780,8 +4783,10 @@ function initAll(config) {
     new ProgressStepper($progressStepper).init();
   });
 
-  var $tick = $scope.querySelector('[data-module="govie-tick"]');
-  new Tick($tick).init();
+  var $ticks = $scope.querySelectorAll('[data-module="govie-tick"]');
+  nodeListForEach($ticks, function ($tick) {
+    new Tick($tick).init();
+  });
 
   var $tooltips = $scope.querySelectorAll('[data-module="govie-tooltip"]');
   nodeListForEach($tooltips, function ($tooltip) {

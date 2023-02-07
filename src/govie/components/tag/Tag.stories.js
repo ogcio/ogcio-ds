@@ -1,3 +1,5 @@
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+
 export default {
   title: 'Typography/Tag',
   parameters: {
@@ -42,9 +44,9 @@ const Template = (args) => {
 
   const tag = document.createElement('strong')
   tag.className = classNames.join(' ')
-  tag.innerText = args.text
+  tag.innerHTML = args.text
 
-  return tag
+  return beautifyHtmlNode(tag)
 }
 
 export const Default = Template.bind({})
