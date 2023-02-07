@@ -1,5 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import { createSvgIcon } from '../../../../.storybook/helpers/utils'
 
 import { Default as link } from '../../components/typography/Link.stories'
 import { Default as iconButton } from '../../components/icon-button/IconButton.stories'
@@ -24,22 +25,6 @@ export default {
     tooltipPosition: 'right',
     links: ['Edit', 'View', 'Delete'],
   },
-}
-
-function createSvgIcon(width, height, content, className) {
-  var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-  icon.setAttribute('class', className)
-  icon.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
-  icon.setAttribute('focusable', 'false')
-  icon.setAttribute('width', width)
-  icon.setAttribute('height', height)
-  icon.setAttribute('viewBox', `0 0 ${width} ${height}`)
-
-  var path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
-  path.setAttribute('d', content)
-
-  icon.appendChild(path)
-  return icon
 }
 
 const createLinksCell = (links) => {
