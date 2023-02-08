@@ -27,7 +27,6 @@ const createInput = (errorMessage) => {
       ? 'Enter a PPS number in the correct format'
       : null,
     inputExtraClasses: 'govie-input--width-10',
-    autocomplete: 'postal-code',
     hint: 'A PPS Number is always a 7 numbers followed by either one or 2 letters. It is sometimes called PPSN.',
   })
 
@@ -35,7 +34,8 @@ const createInput = (errorMessage) => {
 }
 
 const Template = (args) => {
-  return beautifyHtmlNode(createInput(args.errorMessage))
+  const ppsnInput = createInput(args.errorMessage)
+  return beautifyHtmlNode(ppsnInput)
 }
 
 export const Default = Template.bind({})
