@@ -75,8 +75,8 @@ Tooltip.prototype.show = function () {
     } else if (this.querySelector('.govie-tooltip--right')) {
       posLeft = Tooltip.target.offsetWidth + target.left + 10
       posTop =
-      target.y +
-      scrollPosition -
+        target.y +
+        scrollPosition -
         tooltip.offsetHeight +
         tooltip.offsetHeight / 2 +
         Tooltip.target.offsetHeight / 2
