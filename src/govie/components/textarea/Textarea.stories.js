@@ -39,6 +39,9 @@ export default {
     errorMessage: {
       control: 'text',
     },
+    autocomplete: {
+      control: 'text',
+    },
   },
 }
 
@@ -128,6 +131,10 @@ const createTextareaElement = (args) => {
   textarea.id = args.fieldId
   textarea.name = args.fieldName
   textarea.className = getTextareaClassNames(args).join(' ')
+
+  if (args.autocomplete) {
+    textarea.setAttribute('autocomplete', args.autocomplete)
+  }
 
   if (args.rows) {
     textarea.rows = args.rows

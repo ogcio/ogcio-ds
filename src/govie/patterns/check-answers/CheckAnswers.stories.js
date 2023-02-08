@@ -32,7 +32,7 @@ const createSummaryList = (data) => {
   return parseHtmlString(summaryList({ rows, useBorders: true }))
 }
 
-const createFormSubmition = () => {
+const createFormSubmission = () => {
   const form = document.createElement('form')
   form.setAttribute('action', '/form-handler')
   form.setAttribute('method', 'post')
@@ -127,7 +127,7 @@ const createColumn = () => {
     })
   )
   column.appendChild(confirmationParagraph)
-  column.appendChild(createFormSubmition())
+  column.appendChild(createFormSubmission())
 
   return column
 }
