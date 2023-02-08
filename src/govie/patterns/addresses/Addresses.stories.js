@@ -105,9 +105,9 @@ const createForm = () => {
 
 const createFormWithError = () => {
   return createInput({
-    id: 'address-postcode-error',
+    id: 'address-postcode',
     label: 'Postcode',
-    errorMessage: 'Error:</span> Enter a real postcode',
+    errorMessage: 'Enter a real postcode',
     inputExtraClasses: 'govie-input--width-10',
     value: 'Not a postcode',
     autocomplete: 'postal-code',
