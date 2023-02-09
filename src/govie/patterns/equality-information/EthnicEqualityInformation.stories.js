@@ -10,11 +10,11 @@ export default {
     type: {
       options: [
         'default',
-        'white',
+        'white background',
         'multiple ethnic groups',
         'asian or asian british',
         'black, african, caribbean or black british',
-        'background',
+        'other backgrounds',
       ],
       control: { type: 'radio' },
     },
@@ -136,7 +136,7 @@ const Template = (args) => {
   container.className = 'govie-width-container'
 
   switch (args.type) {
-    case 'white':
+    case 'white background':
       container.appendChild(createWhiteEthnicForm())
       break
     case 'multiple ethnic groups':
@@ -148,7 +148,7 @@ const Template = (args) => {
     case 'black, african, caribbean or black british':
       container.appendChild(createBlackEthnicForm())
       break
-    case 'other':
+    case 'other backgrounds':
       container.appendChild(createOtherEthnicForm())
       break
     default:
@@ -165,7 +165,7 @@ Default.args = {}
 export const White = Template.bind({})
 White.storyName = 'White background'
 White.args = {
-  type: 'white',
+  type: 'white background',
 }
 
 export const MixedEthnicGroups = Template.bind({})
@@ -189,5 +189,5 @@ Black.args = {
 export const OtherEthnicGroups = Template.bind({})
 OtherEthnicGroups.storyName = 'Other backgrounds'
 OtherEthnicGroups.args = {
-  type: 'other',
+  type: 'other backgrounds',
 }

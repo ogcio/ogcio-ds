@@ -27,7 +27,6 @@ export default {
         'religion',
         'sex and gender',
         'sexual orientation',
-        'with error',
       ],
       control: { type: 'radio' },
     },
@@ -227,9 +226,6 @@ const Template = (args) => {
     case 'sexual orientation':
       container.append(createSexualOrientationForm())
       break
-    case 'with error':
-      container.append(createWithErrorForm(args.errorMessage))
-      break
     default:
       container.append(...createEquityForm())
   }
@@ -279,10 +275,4 @@ SexAndGender.args = {
 export const SexualOrientation = Template.bind({})
 SexualOrientation.args = {
   type: 'sexual orientation',
-}
-
-export const WithError = Template.bind({})
-WithError.args = {
-  type: 'with error',
-  errorMessage: 'Select an ethnic group or ‘Prefer not to say’',
 }

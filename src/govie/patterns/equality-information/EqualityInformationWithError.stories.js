@@ -11,7 +11,7 @@ export default {
     docs: {
       description: {
         component:
-          'If a user enters information that’s valid but incomplete, accept it. For example, they might just enter their year of birth without the day or month.\nError messages should be styled like this:',
+          'If a user enters information that’s valid but incomplete, accept it. For example, they might just enter their year of birth without the day or month. Error messages should be styled like this:',
       },
     },
   },
@@ -38,7 +38,7 @@ const createBirthForm = (errorMessage) => {
   return parseHtmlString(date)
 }
 
-const createWithErrorForm = (errorMessage) => {
+const createEthnicForm = (errorMessage) => {
   const radio = radios({
     id: 'ethnicity',
     size: 'large',
@@ -67,7 +67,7 @@ const Template = (args) => {
       container.appendChild(createBirthForm(args.errorMessage))
       break
     default:
-      container.append(createWithErrorForm(args.errorMessage))
+      container.append(createEthnicForm(args.errorMessage))
   }
 
   container.appendChild(parseHtmlString(button({ label: 'Continue' })))
