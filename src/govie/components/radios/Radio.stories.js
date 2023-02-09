@@ -21,7 +21,7 @@ export default {
     },
     options: {
       type: { required: true },
-      control: 'text',
+      control: 'array',
     },
     size: {
       options: ['small', 'medium', 'large'],
@@ -30,7 +30,7 @@ export default {
     },
     generalHint: { control: 'text' },
     optionsHint: { control: 'array' },
-    extraOptions: { control: 'text' },
+    extraOptions: { control: 'array' },
     extraOptionsDivider: { control: 'text' },
     extraOptionsHint: { control: 'array' },
     inline: { control: 'boolean' },
@@ -161,9 +161,9 @@ const Template = (args) => {
 
   if (args.generalHint) {
     const hint = document.createElement('div')
-    hint.id = args.id
+    hint.id = `${args.id}-hint`
     hint.className = 'govie-hint'
-    hint.innerText = args.generalHint
+    hint.innerHTML = args.generalHint
 
     container.appendChild(hint)
   }
@@ -177,7 +177,7 @@ const Template = (args) => {
   group.setAttribute('data-module', 'govie-radios')
 
   const conditionals = args.conditionals?.split(',')
-  args.options?.split(',').forEach((label, index) => {
+  args.options.forEach((label, index) => {
     group.append(
       ...createRadioItem({
         id: `${args.id}-${index}`,
@@ -197,7 +197,7 @@ const Template = (args) => {
 
     group.appendChild(divider)
 
-    args.extraOptions?.split(',').forEach((label, index) => {
+    args.extraOptions.forEach((label, index) => {
       group.append(
         ...createRadioItem({
           id: `${args.id}-${args.options.length + index}`,
@@ -222,14 +222,14 @@ export const Default = Template.bind({})
 Default.args = {
   id: 'where-do-you-live',
   label: 'Where do you live?',
-  options: 'England,Scottland,Ireland',
+  options: ['England', 'Scotland', 'Ireland'],
 }
 
 export const Inline = Template.bind({})
 Inline.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   inline: true,
 }
 
@@ -237,7 +237,7 @@ export const Small = Template.bind({})
 Small.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   size: 'small',
 }
 
@@ -245,7 +245,7 @@ export const WithHints = Template.bind({})
 WithHints.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   generalHint:
     'This includes changing your last name or spelling your name differently.',
 }
@@ -254,7 +254,7 @@ export const WithOptionsHints = Template.bind({})
 WithOptionsHints.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   generalHint:
     'This includes changing your last name or spelling your name differently.',
   optionsHint: ['Yes, I have changed my name', "No, I didn't change my name"],
@@ -264,16 +264,16 @@ export const WithDivider = Template.bind({})
 WithDivider.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   extraOptionsDivider: 'or',
-  extraOptions: 'Not sure',
+  extraOptions: ['Not sure'],
 }
 
 export const WithError = Template.bind({})
 WithError.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
-  options: 'Yes,No',
+  options: ['Yes', 'No'],
   errorMessage: 'Select an option',
 }
 
@@ -281,6 +281,6 @@ export const WithConditional = Template.bind({})
 WithConditional.args = {
   id: 'contact',
   label: 'How would you prefer to be contacted?',
-  options: 'Email,Phone',
+  options: ['Email', 'Phone'],
   conditionals: 'Email address,Phone number',
 }
