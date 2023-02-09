@@ -202,20 +202,20 @@ const createTextInputElement = (args) => {
   }
 
   textInput.spellcheck = 'false'
-  const ipnutWrapper = document.createElement('div')
-  ipnutWrapper.className = 'govie-input__wrapper'
+  const inputWrapper = document.createElement('div')
+  inputWrapper.className = 'govie-input__wrapper'
 
   if (args.prefix) {
-    ipnutWrapper.appendChild(createAffixElement(args.prefix, true))
+    inputWrapper.appendChild(createAffixElement(args.prefix, true))
   }
 
-  ipnutWrapper.appendChild(textInput)
+  inputWrapper.appendChild(textInput)
 
   if (args.suffix) {
-    ipnutWrapper.appendChild(createAffixElement(args.suffix, false))
+    inputWrapper.appendChild(createAffixElement(args.suffix, false))
   }
 
-  return ipnutWrapper
+  return inputWrapper
 }
 
 const Template = (args) => {
