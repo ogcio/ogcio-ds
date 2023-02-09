@@ -186,26 +186,6 @@ const createSexualOrientationForm = () => {
   return parseHtmlString(radio)
 }
 
-const createWithErrorForm = (errorMessage) => {
-  const radio = radios({
-    id: 'ethnicity',
-    size: 'large',
-    label: 'What is your ethnic group?',
-    options: [
-      'White',
-      'Mixed or multiple ethnic groups',
-      'Asian or Asian British',
-      'Black, African, Caribbean or Black British',
-      'Other ethnic group',
-    ],
-    extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
-    errorMessage,
-  })
-
-  return parseHtmlString(radio)
-}
-
 const Template = (args) => {
   const container = document.createElement('div')
   container.className = 'govie-width-container'
