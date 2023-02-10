@@ -16,11 +16,13 @@ export default {
     },
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-    textArea: { control: 'boolean' },
+    type: {
+      options: ['default', 'textarea', 'with error'],
+      control: { type: 'radio' },
+    },
   },
   args: {
-    textArea: false,
+    type: 'default',
   },
 }
 
@@ -127,15 +129,14 @@ const createFormWithTextArea = () => {
 }
 
 const Template = (args) => {
-  if (args.errorMessage) {
-    return beautifyHtmlNode(createFormWithError())
+  switch (args.type) {
+    case 'with error':
+      return beautifyHtmlNode(createFormWithError())
+    case 'textarea':
+      return beautifyHtmlNode(createFormWithTextArea())
+    default:
+      return beautifyHtmlNode(createForm())
   }
-
-  if (args.textArea) {
-    return beautifyHtmlNode(createFormWithTextArea())
-  }
-
-  return beautifyHtmlNode(createForm())
 }
 
 export const Default = Template.bind({})
@@ -150,18 +151,19 @@ WithError.parameters = {
   },
 }
 WithError.args = {
-  errorMessage: 'Enter a real postcode',
+  type: 'with error',
 }
 
 export const WithTextarea = Template.bind({})
 WithTextarea.parameters = {
   docs: {
     description: {
-      story: 'Use a textarea if you expect a broad range of address formats and you do not need to format the address for print or use specific sub-parts of the address (for example, street or postcode).',
+      story:
+        'Use a textarea if you expect a broad range of address formats and you do not need to format the address for print or use specific sub-parts of the address (for example, street or postcode).',
     },
   },
 }
 
 WithTextarea.args = {
-  textArea: true,
+  type: 'textarea',
 }
