@@ -60,7 +60,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
   if (firstColumn) {
     const th = document.createElement('th')
     th.className =
-      'govie-table__header govie-table__header--vertical-centralized'
+      'govie-table__header govie-table__header--vertical-centralized govie-body-s'
     th.setAttribute('scope', 'row')
     th.innerHTML = cell
 
@@ -71,6 +71,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
     const classes = [
       'govie-table__cell',
       'govie-table__cell--vertical-centralized',
+      'govie-body-s',
     ]
 
     if (numeric) {
