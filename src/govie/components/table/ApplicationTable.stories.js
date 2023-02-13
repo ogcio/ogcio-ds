@@ -97,7 +97,7 @@ const createTableRow = ({ text, type }, total) => {
     { cell: tick({ filled: true, checked: true }) },
     { cell: 'IrishTown' },
     { cell: tick({ value: 'tick', checked: true }) },
-    { cell: tag({ text, type }) },
+    { cell: tag({ text, type, extraClass: 'govie-body-s' }) },
     { cell: parseHtmlString(actions({ type: 'icons' })).outerHTML },
     { cell: parseHtmlString(actions({ type: 'links' })).outerHTML },
     { cell: total, numeric: true },
