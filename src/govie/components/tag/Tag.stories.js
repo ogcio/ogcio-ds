@@ -30,6 +30,9 @@ export default {
         'yellow',
       ],
     },
+    extraClass: {
+      control: 'text'
+    },
   },
   args: {
     type: 'default',
@@ -38,8 +41,13 @@ export default {
 
 const Template = (args) => {
   const classNames = ['govie-tag']
+
   if (args.type && args.type.toLowerCase() !== 'default') {
     classNames.push(`govie-tag--${args.type}`)
+  }
+
+  if (args.extraClass) {
+    classNames.push(args.extraClass)
   }
 
   const tag = document.createElement('strong')

@@ -60,7 +60,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
   if (firstColumn) {
     const th = document.createElement('th')
     th.className =
-      'govie-table__header govie-table__header--vertical-centralized'
+      'govie-table__header govie-table__header--vertical-centralized govie-body-s'
     th.setAttribute('scope', 'row')
     th.innerHTML = cell
 
@@ -71,6 +71,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
     const classes = [
       'govie-table__cell',
       'govie-table__cell--vertical-centralized',
+      'govie-body-s',
     ]
 
     if (numeric) {
@@ -96,7 +97,7 @@ const createTableRow = ({ text, type }, total) => {
     { cell: tick({ filled: true, checked: true }) },
     { cell: 'IrishTown' },
     { cell: tick({ value: 'tick', checked: true }) },
-    { cell: tag({ text, type }) },
+    { cell: tag({ text, type, extraClass: 'govie-body-s' }) },
     { cell: parseHtmlString(actions({ type: 'icons' })).outerHTML },
     { cell: parseHtmlString(actions({ type: 'links' })).outerHTML },
     { cell: total, numeric: true },
