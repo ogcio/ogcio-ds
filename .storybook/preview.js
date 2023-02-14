@@ -4,13 +4,15 @@ import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
+import withAdditionalSourceTypes from './withAdditionalSourceTypes'
+
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
 import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/govie-frontend.min.css'
 
 let selectedTheme
 
-export const decorators = [cssVariablesTheme]
+export const decorators = [cssVariablesTheme, withAdditionalSourceTypes]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,16 +20,16 @@ export const parameters = {
     files: {
       'HSE theme': hseTheme,
       'AGS theme': agsTheme,
-      'OGCIO theme': defaultTheme,
+      'OGCIO theme': defaultTheme
     },
-    defaultTheme: 'OGCIO theme',
+    defaultTheme: 'OGCIO theme'
   },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
+      date: /Date$/
     },
-    sort: 'requiredFirst',
+    sort: 'requiredFirst'
   },
   docs: {
     source: { format: false },
@@ -51,7 +53,7 @@ export const parameters = {
                 fontSize: '14px',
                 display: 'flex',
                 justifyContent: 'center',
-                textAlign: 'center',
+                textAlign: 'center'
               }}
             >
               JavaScript does not work in the 'Docs' tab and this can cause some
@@ -92,8 +94,8 @@ export const parameters = {
         <h4 className="govie-heading-s" {...args}>
           {children}
         </h4>
-      ),
-    },
+      )
+    }
   },
   options: {
     storySort: {
@@ -105,10 +107,10 @@ export const parameters = {
         'Layout',
         'Pages',
         'Patterns',
-        'Application',
-      ],
-    },
-  },
+        'Application'
+      ]
+    }
+  }
 }
 
 ///
