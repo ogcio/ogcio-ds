@@ -6,88 +6,22 @@
 
 (function(undefined) {
 
-// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Object/defineProperty/detect.js
-var detect = (
-  // In IE8, defineProperty could only act on DOM elements, so full support
-  // for the feature requires the ability to set a property on an arbitrary object
-  'defineProperty' in Object && (function() {
-  	try {
-  		var a = {};
-  		Object.defineProperty(a, 'test', {value:42});
-  		return true;
-  	} catch(e) {
-  		return false
-  	}
-  }())
-);
+// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Window/detect.js
+var detect = ('Window' in this);
 
 if (detect) return
 
-// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Object.defineProperty&flags=always
-(function (nativeDefineProperty) {
-
-	var supportsAccessors = Object.prototype.hasOwnProperty('__defineGetter__');
-	var ERR_ACCESSORS_NOT_SUPPORTED = 'Getters & setters cannot be defined on this javascript engine';
-	var ERR_VALUE_ACCESSORS = 'A property cannot both have accessors and be writable or have a value';
-
-	Object.defineProperty = function defineProperty(object, property, descriptor) {
-
-		// Where native support exists, assume it
-		if (nativeDefineProperty && (object === window || object === document || object === Element.prototype || object instanceof Element)) {
-			return nativeDefineProperty(object, property, descriptor);
-		}
-
-		if (object === null || !(object instanceof Object || typeof object === 'object')) {
-			throw new TypeError('Object.defineProperty called on non-object');
-		}
-
-		if (!(descriptor instanceof Object)) {
-			throw new TypeError('Property description must be an object');
-		}
-
-		var propertyString = String(property);
-		var hasValueOrWritable = 'value' in descriptor || 'writable' in descriptor;
-		var getterType = 'get' in descriptor && typeof descriptor.get;
-		var setterType = 'set' in descriptor && typeof descriptor.set;
-
-		// handle descriptor.get
-		if (getterType) {
-			if (getterType !== 'function') {
-				throw new TypeError('Getter must be a function');
-			}
-			if (!supportsAccessors) {
-				throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);
-			}
-			if (hasValueOrWritable) {
-				throw new TypeError(ERR_VALUE_ACCESSORS);
-			}
-			Object.__defineGetter__.call(object, propertyString, descriptor.get);
+// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Window&flags=always
+if ((typeof WorkerGlobalScope === "undefined") && (typeof importScripts !== "function")) {
+	(function (global) {
+		if (global.constructor) {
+			global.Window = global.constructor;
 		} else {
-			object[propertyString] = descriptor.value;
+			(global.Window = global.constructor = new Function('return function Window() {}')()).prototype = this;
 		}
+	}(this));
+}
 
-		// handle descriptor.set
-		if (setterType) {
-			if (setterType !== 'function') {
-				throw new TypeError('Setter must be a function');
-			}
-			if (!supportsAccessors) {
-				throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);
-			}
-			if (hasValueOrWritable) {
-				throw new TypeError(ERR_VALUE_ACCESSORS);
-			}
-			Object.__defineSetter__.call(object, propertyString, descriptor.set);
-		}
-
-		// OK to define value unconditionally - if a getter has been specified as well, an error would be thrown above
-		if ('value' in descriptor) {
-			object[propertyString] = descriptor.value;
-		}
-
-		return object;
-	};
-}(Object.defineProperty));
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
@@ -233,282 +167,88 @@ if (detect) return
 
 (function(undefined) {
 
-  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
-  var detect = (function(){
-    if (!document.documentElement.dataset) {
-      return false;
-    }
-    var el = document.createElement('div');
-    el.setAttribute("data-a-b", "c");
-    return el.dataset && el.dataset.aB == "c";
-  }());
-
-  if (detect) return
-
-  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
-  Object.defineProperty(Element.prototype, 'dataset', {
-    get: function() {
-      var element = this;
-      var attributes = this.attributes;
-      var map = {};
-  
-      for (var i = 0; i < attributes.length; i++) {
-        var attribute = attributes[i];
-  
-        // This regex has been edited from the original polyfill, to add
-        // support for period (.) separators in data-* attribute names. These
-        // are allowed in the HTML spec, but were not covered by the original
-        // polyfill's regex. We use periods in our i18n implementation.
-        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
-          var name = attribute.name;
-          var value = attribute.value;
-  
-          var propName = name.substr(5).replace(/-./g, function (prop) {
-            return prop.charAt(1).toUpperCase();
-          });
-          
-          // If this browser supports __defineGetter__ and __defineSetter__,
-          // continue using defineProperty. If not (like IE 8 and below), we use
-          // a hacky fallback which at least gives an object in the right format
-          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
-            Object.defineProperty(map, propName, {
-              enumerable: true,
-              get: function() {
-                return this.value;
-              }.bind({value: value || ''}),
-              set: function setter(name, value) {
-                if (typeof value !== 'undefined') {
-                  this.setAttribute(name, value);
-                } else {
-                  this.removeAttribute(name);
-                }
-              }.bind(element, name)
-            });
-          } else {
-            map[propName] = value;
-          }
-
-        }
-      }
-  
-      return map;
-    }
-  });
-
-}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-(function(undefined) {
-
-    // Detection from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
-    var detect = ('trim' in String.prototype);
-    
-    if (detect) return
-
-    // Polyfill from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
-    String.prototype.trim = function () {
-        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
-    };
-
-}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-(function(undefined) {
-
-  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/detect.js
-  var detect = (
-    'document' in this && "matches" in document.documentElement
-  );
-
-  if (detect) return
-
-  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/polyfill.js
-  Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
-    var element = this;
-    var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
-    var index = 0;
-
-    while (elements[index] && elements[index] !== element) {
-      ++index;
-    }
-
-    return !!elements[index];
-  };
-
-}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-(function(undefined) {
-
-  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/detect.js
-  var detect = (
-    'document' in this && "closest" in document.documentElement
-  );
-
-  if (detect) return
-
-  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/polyfill.js
-  Element.prototype.closest = function closest(selector) {
-    var node = this;
-
-    while (node) {
-      if (node.matches(selector)) return node;
-      else node = 'SVGElement' in window && node instanceof SVGElement ? node.parentNode : node.parentElement;
-    }
-
-    return null;
-  };
-
-}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-/**
- * Config flattening function
- *
- * Takes any number of objects, flattens them into namespaced key-value pairs,
- * (e.g. {'i18n.showSection': 'Show section'}) and combines them together, with
- * greatest priority on the LAST item passed in.
- *
- * @returns {object} A flattened object of key-value pairs.
- */
-function mergeConfigs (/* configObject1, configObject2, ...configObjects */) {
-  /**
-   * Function to take nested objects and flatten them to a dot-separated keyed
-   * object. Doing this means we don't need to do any deep/recursive merging of
-   * each of our objects, nor transform our dataset from a flat list into a
-   * nested object.
-   *
-   * @param {object} configObject - Deeply nested object
-   * @returns {object} Flattened object with dot-separated keys
-   */
-  var flattenObject = function (configObject) {
-    // Prepare an empty return object
-    var flattenedObject = {};
-
-    // Our flattening function, this is called recursively for each level of
-    // depth in the object. At each level we prepend the previous level names to
-    // the key using `prefix`.
-    var flattenLoop = function (obj, prefix) {
-      // Loop through keys...
-      for (var key in obj) {
-        // Check to see if this is a prototypical key/value,
-        // if it is, skip it.
-        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
-          continue
-        }
-        var value = obj[key];
-        var prefixedKey = prefix ? prefix + '.' + key : key;
-        if (typeof value === 'object') {
-          // If the value is a nested object, recurse over that too
-          flattenLoop(value, prefixedKey);
-        } else {
-          // Otherwise, add this value to our return object
-          flattenedObject[prefixedKey] = value;
-        }
-      }
-    };
-
-    // Kick off the recursive loop
-    flattenLoop(configObject);
-    return flattenedObject
-  };
-
-  // Start with an empty object as our base
-  var formattedConfigObject = {};
-
-  // Loop through each of the remaining passed objects and push their keys
-  // one-by-one into configObject. Any duplicate keys will override the existing
-  // key with the new value.
-  for (var i = 0; i < arguments.length; i++) {
-    var obj = flattenObject(arguments[i]);
-    for (var key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        formattedConfigObject[key] = obj[key];
-      }
-    }
-  }
-
-  return formattedConfigObject
-}
-
-/**
- * Normalise string
- *
- * 'If it looks like a duck, and it quacks like a duck…' 🦆
- *
- * If the passed value looks like a boolean or a number, convert it to a boolean
- * or number.
- *
- * Designed to be used to convert config passed via data attributes (which are
- * always strings) into something sensible.
- *
- * @param {string} value - The value to normalise
- * @returns {string | boolean | number | undefined} Normalised data
- */
-function normaliseString (value) {
-  if (typeof value !== 'string') {
-    return value
-  }
-
-  var trimmedValue = value.trim();
-
-  if (trimmedValue === 'true') {
-    return true
-  }
-
-  if (trimmedValue === 'false') {
-    return false
-  }
-
-  // Empty / whitespace-only strings are considered finite so we need to check
-  // the length of the trimmed string as well
-  if (trimmedValue.length > 0 && isFinite(trimmedValue)) {
-    return Number(trimmedValue)
-  }
-
-  return value
-}
-
-/**
- * Normalise dataset
- *
- * Loop over an object and normalise each value using normaliseData function
- *
- * @param {DOMStringMap} dataset - HTML element dataset
- * @returns {Object<string, string | boolean | number | undefined>} Normalised dataset
- */
-function normaliseDataset (dataset) {
-  var out = {};
-
-  for (var key in dataset) {
-    out[key] = normaliseString(dataset[key]);
-  }
-
-  return out
-}
-
-/**
- * @callback nodeListIterator
- * @param {Element} value - The current node being iterated on
- * @param {number} index - The current index in the iteration
- * @param {NodeListOf<Element>} nodes - NodeList from querySelectorAll()
- * @returns {undefined}
- */
-
-(function(undefined) {
-
-// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Window/detect.js
-var detect = ('Window' in this);
+// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Object/defineProperty/detect.js
+var detect = (
+  // In IE8, defineProperty could only act on DOM elements, so full support
+  // for the feature requires the ability to set a property on an arbitrary object
+  'defineProperty' in Object && (function() {
+  	try {
+  		var a = {};
+  		Object.defineProperty(a, 'test', {value:42});
+  		return true;
+  	} catch(e) {
+  		return false
+  	}
+  }())
+);
 
 if (detect) return
 
-// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Window&flags=always
-if ((typeof WorkerGlobalScope === "undefined") && (typeof importScripts !== "function")) {
-	(function (global) {
-		if (global.constructor) {
-			global.Window = global.constructor;
-		} else {
-			(global.Window = global.constructor = new Function('return function Window() {}')()).prototype = this;
-		}
-	}(this));
-}
+// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Object.defineProperty&flags=always
+(function (nativeDefineProperty) {
 
+	var supportsAccessors = Object.prototype.hasOwnProperty('__defineGetter__');
+	var ERR_ACCESSORS_NOT_SUPPORTED = 'Getters & setters cannot be defined on this javascript engine';
+	var ERR_VALUE_ACCESSORS = 'A property cannot both have accessors and be writable or have a value';
+
+	Object.defineProperty = function defineProperty(object, property, descriptor) {
+
+		// Where native support exists, assume it
+		if (nativeDefineProperty && (object === window || object === document || object === Element.prototype || object instanceof Element)) {
+			return nativeDefineProperty(object, property, descriptor);
+		}
+
+		if (object === null || !(object instanceof Object || typeof object === 'object')) {
+			throw new TypeError('Object.defineProperty called on non-object');
+		}
+
+		if (!(descriptor instanceof Object)) {
+			throw new TypeError('Property description must be an object');
+		}
+
+		var propertyString = String(property);
+		var hasValueOrWritable = 'value' in descriptor || 'writable' in descriptor;
+		var getterType = 'get' in descriptor && typeof descriptor.get;
+		var setterType = 'set' in descriptor && typeof descriptor.set;
+
+		// handle descriptor.get
+		if (getterType) {
+			if (getterType !== 'function') {
+				throw new TypeError('Getter must be a function');
+			}
+			if (!supportsAccessors) {
+				throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);
+			}
+			if (hasValueOrWritable) {
+				throw new TypeError(ERR_VALUE_ACCESSORS);
+			}
+			Object.__defineGetter__.call(object, propertyString, descriptor.get);
+		} else {
+			object[propertyString] = descriptor.value;
+		}
+
+		// handle descriptor.set
+		if (setterType) {
+			if (setterType !== 'function') {
+				throw new TypeError('Setter must be a function');
+			}
+			if (!supportsAccessors) {
+				throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);
+			}
+			if (hasValueOrWritable) {
+				throw new TypeError(ERR_VALUE_ACCESSORS);
+			}
+			Object.__defineSetter__.call(object, propertyString, descriptor.set);
+		}
+
+		// OK to define value unconditionally - if a getter has been specified as well, an error would be thrown above
+		if ('value' in descriptor) {
+			object[propertyString] = descriptor.value;
+		}
+
+		return object;
+	};
+}(Object.defineProperty));
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
@@ -919,8 +659,317 @@ if (detect) return
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+    // Detection from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    var detect = ('trim' in String.prototype);
+    
+    if (detect) return
+
+    // Polyfill from https://github.com/mdn/content/blob/cf607d68522cd35ee7670782d3ee3a361eaef2e4/files/en-us/web/javascript/reference/global_objects/string/trim/index.md#polyfill
+    String.prototype.trim = function () {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/detect.js
+  var detect = (
+    'document' in this && "matches" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/matches/polyfill.js
+  Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
+    var element = this;
+    var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+    var index = 0;
+
+    while (elements[index] && elements[index] !== element) {
+      ++index;
+    }
+
+    return !!elements[index];
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/detect.js
+  var detect = (
+    'document' in this && "closest" in document.documentElement
+  );
+
+  if (detect) return
+
+  // Polyfill from https://raw.githubusercontent.com/Financial-Times/polyfill-service/1f3c09b402f65bf6e393f933a15ba63f1b86ef1f/packages/polyfill-library/polyfills/Element/prototype/closest/polyfill.js
+  Element.prototype.closest = function closest(selector) {
+    var node = this;
+
+    while (node) {
+      if (node.matches(selector)) return node;
+      else node = 'SVGElement' in window && node instanceof SVGElement ? node.parentNode : node.parentElement;
+    }
+
+    return null;
+  };
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+/**
+ * Config flattening function
+ *
+ * Takes any number of objects, flattens them into namespaced key-value pairs,
+ * (e.g. {'i18n.showSection': 'Show section'}) and combines them together, with
+ * greatest priority on the LAST item passed in.
+ *
+ * @returns {object} A flattened object of key-value pairs.
+ */
+function mergeConfigs (/* configObject1, configObject2, ...configObjects */) {
+  /**
+   * Function to take nested objects and flatten them to a dot-separated keyed
+   * object. Doing this means we don't need to do any deep/recursive merging of
+   * each of our objects, nor transform our dataset from a flat list into a
+   * nested object.
+   *
+   * @param {object} configObject - Deeply nested object
+   * @returns {object} Flattened object with dot-separated keys
+   */
+  var flattenObject = function (configObject) {
+    // Prepare an empty return object
+    var flattenedObject = {};
+
+    // Our flattening function, this is called recursively for each level of
+    // depth in the object. At each level we prepend the previous level names to
+    // the key using `prefix`.
+    var flattenLoop = function (obj, prefix) {
+      // Loop through keys...
+      for (var key in obj) {
+        // Check to see if this is a prototypical key/value,
+        // if it is, skip it.
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue
+        }
+        var value = obj[key];
+        var prefixedKey = prefix ? prefix + '.' + key : key;
+        if (typeof value === 'object') {
+          // If the value is a nested object, recurse over that too
+          flattenLoop(value, prefixedKey);
+        } else {
+          // Otherwise, add this value to our return object
+          flattenedObject[prefixedKey] = value;
+        }
+      }
+    };
+
+    // Kick off the recursive loop
+    flattenLoop(configObject);
+    return flattenedObject
+  };
+
+  // Start with an empty object as our base
+  var formattedConfigObject = {};
+
+  // Loop through each of the remaining passed objects and push their keys
+  // one-by-one into configObject. Any duplicate keys will override the existing
+  // key with the new value.
+  for (var i = 0; i < arguments.length; i++) {
+    var obj = flattenObject(arguments[i]);
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        formattedConfigObject[key] = obj[key];
+      }
+    }
+  }
+
+  return formattedConfigObject
+}
+
+/**
+ * Normalise string
+ *
+ * 'If it looks like a duck, and it quacks like a duck…' 🦆
+ *
+ * If the passed value looks like a boolean or a number, convert it to a boolean
+ * or number.
+ *
+ * Designed to be used to convert config passed via data attributes (which are
+ * always strings) into something sensible.
+ *
+ * @param {string} value - The value to normalise
+ * @returns {string | boolean | number | undefined} Normalised data
+ */
+function normaliseString (value) {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  var trimmedValue = value.trim();
+
+  if (trimmedValue === 'true') {
+    return true
+  }
+
+  if (trimmedValue === 'false') {
+    return false
+  }
+
+  // Empty / whitespace-only strings are considered finite so we need to check
+  // the length of the trimmed string as well
+  if (trimmedValue.length > 0 && isFinite(trimmedValue)) {
+    return Number(trimmedValue)
+  }
+
+  return value
+}
+
+/**
+ * Normalise dataset
+ *
+ * Loop over an object and normalise each value using normaliseData function
+ *
+ * @param {DOMStringMap} dataset - HTML element dataset
+ * @returns {Object<string, string | boolean | number | undefined>} Normalised dataset
+ */
+function normaliseDataset (dataset) {
+  var out = {};
+
+  for (var key in dataset) {
+    out[key] = normaliseString(dataset[key]);
+  }
+
+  return out
+}
+
+/**
+ * @callback nodeListIterator
+ * @param {Element} value - The current node being iterated on
+ * @param {number} index - The current index in the iteration
+ * @param {NodeListOf<Element>} nodes - NodeList from querySelectorAll()
+ * @returns {undefined}
+ */
+
 var KEY_SPACE = 32;
 var DEBOUNCE_TIMEOUT_IN_SECONDS = 1;
+
+/**
+ * Trigger a click event when the space key is pressed
+ *
+ * Some screen readers tell users they can activate things with the 'button'
+ * role, so we need to match the functionality of native HTML buttons
+ *
+ * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
+ *
+ * @param {KeyboardEvent} event
+ */
+function handleKeyDown (event) {
+  var target = event.target;
+
+  if (target.getAttribute('role') === 'button' && event.keyCode === KEY_SPACE) {
+    event.preventDefault(); // prevent the page from scrolling
+    target.click();
+  }
+}
+
+/**
+ * Debounce double-clicks
+ *
+ * If the click quickly succeeds a previous click then nothing will happen. This
+ * stops people accidentally causing multiple form submissions by double
+ * clicking buttons.
+ *
+ * @param {MouseEvent} event
+ * @returns {undefined | false} - Returns undefined, or false when debounced
+ */
+function debounce (event) {
+  // Check the button that was clicked has preventDoubleClick enabled
+  if (!this.config.preventDoubleClick) {
+    return
+  }
+
+  // If the timer is still running, prevent the click from submitting the form
+  if (this.debounceFormSubmitTimer) {
+    event.preventDefault();
+    return false
+  }
+
+  this.debounceFormSubmitTimer = setTimeout(
+    function () {
+      this.debounceFormSubmitTimer = null;
+    }.bind(this),
+    DEBOUNCE_TIMEOUT_IN_SECONDS * 1000
+  );
+}
 
 /**
  * JavaScript enhancements for the Button component
@@ -930,7 +979,7 @@ var DEBOUNCE_TIMEOUT_IN_SECONDS = 1;
  * @param {object} config - Button config
  * @param {boolean} [config.preventDoubleClick=false] - Whether the button should prevent double clicks
  */
-function Button ($module, config) {
+function Button($module, config) {
   if (!$module) {
     return this
   }
@@ -939,7 +988,7 @@ function Button ($module, config) {
   this.debounceFormSubmitTimer = null;
 
   var defaultConfig = {
-    preventDoubleClick: false
+    preventDoubleClick: false,
   };
   this.config = mergeConfigs(
     defaultConfig,
@@ -960,51 +1009,8 @@ Button.prototype.init = function () {
   this.$module.addEventListener('click', this.debounce.bind(this));
 };
 
-/**
- * Trigger a click event when the space key is pressed
- *
- * Some screen readers tell users they can activate things with the 'button'
- * role, so we need to match the functionality of native HTML buttons
- *
- * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
- *
- * @param {KeyboardEvent} event
- */
-Button.prototype.handleKeyDown = function (event) {
-  var target = event.target;
-
-  if (target.getAttribute('role') === 'button' && event.keyCode === KEY_SPACE) {
-    event.preventDefault(); // prevent the page from scrolling
-    target.click();
-  }
-};
-
-/**
- * Debounce double-clicks
- *
- * If the click quickly succeeds a previous click then nothing will happen. This
- * stops people accidentally causing multiple form submissions by double
- * clicking buttons.
- *
- * @param {MouseEvent} event
- * @returns {undefined | false} - Returns undefined, or false when debounced
- */
-Button.prototype.debounce = function (event) {
-  // Check the button that was clicked has preventDoubleClick enabled
-  if (!this.config.preventDoubleClick) {
-    return
-  }
-
-  // If the timer is still running, prevent the click from submitting the form
-  if (this.debounceFormSubmitTimer) {
-    event.preventDefault();
-    return false
-  }
-
-  this.debounceFormSubmitTimer = setTimeout(function () {
-    this.debounceFormSubmitTimer = null;
-  }.bind(this), DEBOUNCE_TIMEOUT_IN_SECONDS * 1000);
-};
+Button.prototype.handleKeyDown = handleKeyDown;
+Button.prototype.debounce = debounce;
 
 return Button;
 
