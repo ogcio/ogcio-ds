@@ -1,50 +1,50 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import primary, { Default as button } from './PrimaryButton.stories'
+import TertiaryButton from './TertiaryButton'
+import primary from './PrimaryButton.stories'
 
 export default {
   ...primary,
-  title: 'Form/Button/Tertiary button',
+  title: 'Form/Button/Tertiary button'
 }
 
 const Template = (args) => {
-  const btn = parseHtmlString(button(args))
-  btn.className = [...btn.classList, 'govie-button--tertiary'].join(' ')
-
-  return beautifyHtmlNode(btn)
+  return (
+    <TertiaryButton icon={args.icon} disabled={args.disabled} size={args.size}>
+      {args.label}
+    </TertiaryButton>
+  )
 }
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Tertiary button',
+  label: 'Tertiary button'
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
   label: 'Medium tertiary button',
-  size: 'medium',
+  size: 'medium'
 }
 
 export const Small = Template.bind({})
 Small.args = {
   label: 'Small tertiary button',
-  size: 'small',
+  size: 'small'
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
   label: 'Tertiary button with left icon',
-  icon: 'left',
+  icon: 'left'
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
   label: 'Tertiary button with right icon',
-  icon: 'right',
+  icon: 'right'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   label: 'Disabled tertiary button',
-  disabled: true,
+  disabled: true
 }
