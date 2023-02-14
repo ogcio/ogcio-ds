@@ -1,12 +1,19 @@
+import ReactDOMServer from 'react-dom/server'
+
 import parseHtmlString from './parseHtmlString'
-import { Default as pageHeader } from '../../src/govie/components/header/Header.stories'
-import { Default as pageFooter } from '../../src/govie/components/footer/Footer.stories'
+import { Default as pageHeaderReact } from '../../src/govie/components/header/Header.stories'
+import { Default as pageFooterReact } from '../../src/govie/components/footer/Footer.stories'
+
+const pageHeader = (args) =>
+  ReactDOMServer.renderToStaticMarkup(pageHeaderReact(args))
+const pageFooter = (args) =>
+  ReactDOMServer.renderToStaticMarkup(pageFooterReact(args))
 
 export const createPageHeader = () => {
   return parseHtmlString(
     pageHeader({
       navigationLinks:
-        'Navigation item 1, Navigation item 2, Navigation item 3',
+        'Navigation item 1, Navigation item 2, Navigation item 3'
     })
   )
 }
@@ -16,40 +23,40 @@ export const createPageFooter = (shortFooter) => {
     shortFooter
       ? pageFooter({})
       : pageFooter({
-          inlineLinks:
+        inlineLinks:
             'Help, Privacy, Cookies, Accessibility statement, Contact, Terms and conditions, Government Digital Service',
-          secondaryNavigationLinkHeadings: ['Topics', 'Government activity'],
-          secondaryNavigationLinks: [
-            [
-              'Benefits',
-              'Births, death, marriages and care',
-              'Business and self-employed',
-              'Childcare and parenting',
-              'Citizenship and living in Ireland',
-              'Crime, justice and the law',
-              'Disabled people',
-              'Driving and transport',
-              'Education and learning',
-              'Employing people',
-              'Environment and countryside',
-              'Housing and local services',
-              'Money and tax',
-              'Passports, travel and living abroad',
-              'Visas and immigration',
-              'Working, jobs and pensions',
-            ],
-            [
-              'Departments',
-              'News',
-              'Guidance and regulation',
-              'Research and statistics',
-              'Policy papers and consultations',
-              'Transparency',
-              'How government works',
-              'Get involved',
-            ],
+        secondaryNavigationLinkHeadings: ['Topics', 'Government activity'],
+        secondaryNavigationLinks: [
+          [
+            'Benefits',
+            'Births, death, marriages and care',
+            'Business and self-employed',
+            'Childcare and parenting',
+            'Citizenship and living in Ireland',
+            'Crime, justice and the law',
+            'Disabled people',
+            'Driving and transport',
+            'Education and learning',
+            'Employing people',
+            'Environment and countryside',
+            'Housing and local services',
+            'Money and tax',
+            'Passports, travel and living abroad',
+            'Visas and immigration',
+            'Working, jobs and pensions'
           ],
-        })
+          [
+            'Departments',
+            'News',
+            'Guidance and regulation',
+            'Research and statistics',
+            'Policy papers and consultations',
+            'Transparency',
+            'How government works',
+            'Get involved'
+          ]
+        ]
+      })
   )
 }
 
@@ -61,7 +68,7 @@ export const createBody = ({
   mainContent,
   preMainContents,
   additionalWrapperClasses,
-  shortFooter,
+  shortFooter
 }) => {
   const body = document.createElement('body')
   body.className = 'govie-template__body'

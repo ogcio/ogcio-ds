@@ -1,12 +1,14 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as link } from '../../components/typography/Link.stories'
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as list } from '../../components/typography/Lists.stories'
-import { Default as insetText } from '../../components/inset-text/InsetText.stories'
-import { Default as details } from '../../components/details/Details.stories'
+import {
+  heading,
+  paragraph,
+  list,
+  link,
+  insetText,
+  details
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Patterns/Contact a department or service',
@@ -14,19 +16,19 @@ export default {
     docs: {
       description: {
         component:
-          'Use this pattern whenever you need to help users contact your team or department. Carry out contextual user research to decide exactly where to use this pattern in a page or service.',
-      },
-    },
+          'Use this pattern whenever you need to help users contact your team or department. Carry out contextual user research to decide exactly where to use this pattern in a page or service.'
+      }
+    }
   },
   argTypes: {
     type: {
       options: ['Full', 'Contact information', 'Expading contact information'],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    type: 'Full',
-  },
+    type: 'Full'
+  }
 }
 
 const createHeading = (text, size = 's', element = 'h3') =>
@@ -43,13 +45,13 @@ const createParagraphLink = (text) => {
 
 const createListContactList = ({ title, items }) => [
   createHeading(title),
-  parseHtmlString(list({ items })),
+  parseHtmlString(list({ items }))
 ]
 
 const createFullPage = (args) => {
   const components = []
 
-  components.push(createHeading('Get help with your application', 'm', 'h2' ))
+  components.push(createHeading('Get help with your application', 'm', 'h2'))
   components.push(createHeading('Telephone'))
   components.push(
     createParagraph(
@@ -63,8 +65,8 @@ const createFullPage = (args) => {
         'Telephone: 000 000000',
         'Textphone: 000 000000',
         'Monday to Friday, 8am to 6pm',
-        'Saturday and Sunday, 10am to 4pm',
-      ],
+        'Saturday and Sunday, 10am to 4pm'
+      ]
     })
   )
   components.push(infoList)
@@ -77,8 +79,8 @@ const createFullPage = (args) => {
       title: 'Email',
       items: [
         link({ label: 'name@example.com' }),
-        'We aim to respond within 2 working days',
-      ],
+        'We aim to respond within 2 working days'
+      ]
     })
   )
 
@@ -87,8 +89,8 @@ const createFullPage = (args) => {
       title: 'Webchat',
       items: [
         link({ label: 'Speak to an adviser now' }),
-        'Current waiting time is 17 minutes',
-      ],
+        'Current waiting time is 17 minutes'
+      ]
     })
   )
 
@@ -118,8 +120,8 @@ const createContactInformation = () => {
       items: [
         'Telephone: 000 000000',
         'Textphone: 000 000000',
-        'Monday to Friday, 9am to 5pm (except public holidays)',
-      ],
+        'Monday to Friday, 9am to 5pm (except public holidays)'
+      ]
     })
   )
   components.push(contactList)
@@ -138,8 +140,8 @@ const createExpandingContactInformation = () => {
     items: [
       'Telephone: 000 000000',
       'Monday to Friday, 8am to 6pm (except public holidays)',
-      'Saturday and Sunday, 10am to 4pm',
-    ],
+      'Saturday and Sunday, 10am to 4pm'
+    ]
   })
 
   const chargesText = createParagraphLink('Find out about call charges')
@@ -147,14 +149,14 @@ const createExpandingContactInformation = () => {
   const emailList = list({
     items: [
       link({ label: 'name@example.com' }),
-      'We aim to respond within 2 working days',
-    ],
+      'We aim to respond within 2 working days'
+    ]
   })
 
   return parseHtmlString(
     details({
       summary: 'If you need help completing this form',
-      text: `${contactsList} ${chargesText} ${emailList}`,
+      text: `${contactsList} ${chargesText} ${emailList}`
     })
   )
 }
@@ -185,10 +187,10 @@ Default.args = {}
 
 export const ContactInformation = Template.bind({})
 ContactInformation.args = {
-  type: 'Contact information',
+  type: 'Contact information'
 }
 
 export const ExpandingContactInformation = Template.bind({})
 ExpandingContactInformation.args = {
-  type: 'Expading contact information',
+  type: 'Expading contact information'
 }

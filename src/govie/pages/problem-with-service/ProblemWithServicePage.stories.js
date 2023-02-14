@@ -1,9 +1,12 @@
+import ReactDOMServer from 'react-dom/server'
+
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
-
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
+import {
+  heading,
+  paragraph
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Pages/Problem with service',
@@ -12,10 +15,10 @@ export default {
       description: {
         component:
           'This pattern is currently experimental because more research is needed to validate it.\n\n' +
-          'A page not found tells someone we cannot find the page they were trying to view. They are also known as 404 pages.',
-      },
-    },
-  },
+          'A page not found tells someone we cannot find the page they were trying to view. They are also known as 404 pages.'
+      }
+    }
+  }
 }
 
 const createMainWrapper = () => {
@@ -32,7 +35,7 @@ const createMainWrapper = () => {
     heading({
       text: 'Sorry, there is a problem with the service',
       size: 'l',
-      captionSize: 'l',
+      captionSize: 'l'
     })
   )
   column.appendChild(pageNotFoundHeading)
@@ -44,7 +47,7 @@ const createMainWrapper = () => {
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
-      text: 'We saved your answers. They will be available for 30 days.',
+      text: 'We saved your answers. They will be available for 30 days.'
     })
   )
   column.appendChild(secondIntroParagraph)
@@ -53,7 +56,7 @@ const createMainWrapper = () => {
     '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
   const thirdIntroParagraph = parseHtmlString(
     paragraph({
-      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
+      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`
     })
   )
   column.appendChild(thirdIntroParagraph)

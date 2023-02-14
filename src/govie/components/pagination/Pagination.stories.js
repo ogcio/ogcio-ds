@@ -6,9 +6,9 @@ export default {
     docs: {
       description: {
         component:
-          'Help users navigate forwards and backwards through a series of pages.',
-      },
-    },
+          'Help users navigate forwards and backwards through a series of pages.'
+      }
+    }
   },
   argTypes: {
     mode: {
@@ -18,7 +18,7 @@ export default {
         'last selected',
         'ellipsis',
         'smaller number of pages',
-        'larger number of pages',
+        'larger number of pages'
       ],
       control: { type: 'radio' },
       type: { required: true },
@@ -27,20 +27,20 @@ export default {
         '`First selected`: Do not show the previous page link on the first page.<br>' +
         '`Last selected`: Do not show the next page link on the last page.<br>' +
         '`Smaller number of pages`: Use ‘Previous’ and ‘Next’ links to let users navigate through a smaller number of pages.<br>' +
-        '`Larger number of pages`: Use a list-type layout if users need to navigate through large numbers of pages.',
+        '`Larger number of pages`: Use a list-type layout if users need to navigate through large numbers of pages.'
     },
     previousLabel: {
       control: 'text',
-      if: { arg: 'mode', eq: 'smaller number of pages' },
+      if: { arg: 'mode', eq: 'smaller number of pages' }
     },
     nextLabel: {
       control: 'text',
-      if: { arg: 'mode', eq: 'smaller number of pages' },
-    },
+      if: { arg: 'mode', eq: 'smaller number of pages' }
+    }
   },
   args: {
-    mode: 'default',
-  },
+    mode: 'default'
+  }
 }
 
 const createPreviousButton = (small, label) => {
@@ -168,8 +168,9 @@ const Template = (args) => {
   }
 
   navigation.className = navigationClasses.join(' ')
-  navigation.innerHTML = beautifyHtmlNode(navigation)
-  return navigation
+  navigation.innerHTML = beautifyHtmlNode(navigation, false)
+
+  return beautifyHtmlNode(navigation)
 }
 
 export const Default = Template.bind({})
@@ -177,27 +178,27 @@ Default.args = {}
 
 export const FirstPageSelected = Template.bind({})
 FirstPageSelected.args = {
-  mode: 'first selected',
+  mode: 'first selected'
 }
 
 export const LastPageSelected = Template.bind({})
 LastPageSelected.args = {
-  mode: 'last selected',
+  mode: 'last selected'
 }
 
 export const SmallerNumberOfPages = Template.bind({})
 SmallerNumberOfPages.args = {
-  mode: 'smaller number of pages',
+  mode: 'smaller number of pages'
 }
 
 export const SmallerNumberOfPagesWithLabel = Template.bind({})
 SmallerNumberOfPagesWithLabel.args = {
   mode: 'smaller number of pages',
   previousLabel: 'Applying for a provisional bus licence',
-  nextLabel: 'Driver CPC part 1 test: theory',
+  nextLabel: 'Driver CPC part 1 test: theory'
 }
 
 export const LargerNumberofPages = Template.bind({})
 LargerNumberofPages.args = {
-  mode: 'larger number of pages',
+  mode: 'larger number of pages'
 }

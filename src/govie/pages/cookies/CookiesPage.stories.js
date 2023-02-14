@@ -1,13 +1,17 @@
+import ReactDOMServer from 'react-dom/server'
+
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
-
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as lists } from '../../components/typography/Lists.stories'
-import { Default as table } from '../../components/table/Table.stories'
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
+import {
+  panel,
+  heading,
+  paragraph,
+  list,
+  table,
+  radios,
+  button
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Pages/Cookies',
@@ -16,10 +20,10 @@ export default {
       description: {
         component:
           'This pattern is currently experimental because more research is needed to validate it.\n\n' +
-          'Tell users about the cookies you’re setting on their device and let them accept or reject different types of non-essential cookies.',
-      },
-    },
-  },
+          'Tell users about the cookies you’re setting on their device and let them accept or reject different types of non-essential cookies.'
+      }
+    }
+  }
 }
 
 const createColumn = () => {
@@ -30,21 +34,21 @@ const createColumn = () => {
     heading({
       text: 'Cookies',
       size: 'l',
-      captionSize: 'l',
+      captionSize: 'l'
     })
   )
   column.appendChild(cookiesheading)
 
   const firstIntroParagraph = parseHtmlString(
     paragraph({
-      text: 'Cookies are small files saved on your phone, tablet or computer when you visit a website.',
+      text: 'Cookies are small files saved on your phone, tablet or computer when you visit a website.'
     })
   )
   column.appendChild(firstIntroParagraph)
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
-      text: 'We use cookies to make GOV.UK Notify work and collect information about how you use our service.',
+      text: 'We use cookies to make GOV.UK Notify work and collect information about how you use our service.'
     })
   )
   column.appendChild(secondIntroParagraph)
@@ -53,14 +57,14 @@ const createColumn = () => {
     heading({
       text: 'Essential cookies',
       size: 'm',
-      captionSize: 'm',
+      captionSize: 'm'
     })
   )
   column.appendChild(essentialCookiesheading)
 
   const essentialCookiesParagraph = parseHtmlString(
     paragraph({
-      text: 'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.',
+      text: 'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.'
     })
   )
   column.appendChild(essentialCookiesParagraph)
@@ -70,8 +74,8 @@ const createColumn = () => {
       headers: ['Name', 'Purpose', 'Expires'],
       rows: [
         ['notify_admin_session', 'Used to keep you signed in', '20 hours'],
-        ['cookie_policy', 'Saves your cookie consent settings', '1 year'],
-      ],
+        ['cookie_policy', 'Saves your cookie consent settings', '1 year']
+      ]
     })
   )
   column.appendChild(essentialCookiestable)
@@ -80,40 +84,40 @@ const createColumn = () => {
     heading({
       text: 'Analytics cookies (optional)',
       size: 'm',
-      captionSize: 'm',
+      captionSize: 'm'
     })
   )
   column.appendChild(analyticsCookiesheading)
 
   const firstAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
-      text: 'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.',
+      text: 'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.'
     })
   )
   column.appendChild(firstAnalyticsCookiesParagraph)
 
   const secondAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
-      text: 'Google is not allowed to use or share our analytics data with anyone.',
+      text: 'Google is not allowed to use or share our analytics data with anyone.'
     })
   )
   column.appendChild(secondAnalyticsCookiesParagraph)
 
   const thirdAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
-      text: 'Google Analytics stores anonymised information about:',
+      text: 'Google Analytics stores anonymised information about:'
     })
   )
   column.appendChild(thirdAnalyticsCookiesParagraph)
 
   const googleAnalyticsInfoList = parseHtmlString(
-    lists({
+    list({
       items: [
         'how you got to [service]',
         'the pages you visit on [service] and how long you spend on them',
-        'any errors you see while using [service]',
+        'any errors you see while using [service]'
       ],
-      type: 'bullet',
+      type: 'bullet'
     })
   )
   column.appendChild(googleAnalyticsInfoList)
@@ -125,14 +129,14 @@ const createColumn = () => {
         [
           '_ga',
           'Checks if you’ve visited Notify before. This helps us count how many people visit our site.',
-          '2 years',
+          '2 years'
         ],
         [
           '_gid',
           'Checks if you’ve visited Notify before. This helps us count how many people visit our site.',
-          '24 hours',
-        ],
-      ],
+          '24 hours'
+        ]
+      ]
     })
   )
   column.appendChild(analyticsCookiestable)
@@ -144,7 +148,7 @@ const createColumn = () => {
       options: 'Yes,No',
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
-      inline: true,
+      inline: true
     })
   )
   form.appendChild(acceptRadioButtons)

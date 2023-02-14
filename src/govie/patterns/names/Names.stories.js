@@ -1,7 +1,6 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-
-import { Default as input } from '../../components/input/TextInput.stories'
+import { textInput } from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Patterns/Names',
@@ -9,23 +8,23 @@ export default {
     docs: {
       description: {
         component:
-          'You should follow this pattern whenever you need to ask for a user’s name as part of your service. Only ask for people’s names if you need that information to deliver a service.',
-      },
-    },
+          'You should follow this pattern whenever you need to ask for a user’s name as part of your service. Only ask for people’s names if you need that information to deliver a service.'
+      }
+    }
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-  },
+    errorMessage: { control: 'text' }
+  }
 }
 
 const createNameInput = (args) => {
   const nameInput = parseHtmlString(
-    input({
+    textInput({
       fieldId: 'full-name',
       fieldName: 'full-name',
       label: 'Full name',
       errorMessage: args.errorMessage,
-      autocomplete: 'name',
+      autocomplete: 'name'
     })
   )
 

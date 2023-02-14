@@ -1,12 +1,12 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
-
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs.stories'
-
-import { Default as stepByStepNavigation } from '../../components/step-by-step-navigation/StepByStepNavigation.stories'
+import {
+  heading,
+  paragraph,
+  breadcrumbs,
+  stepByStepNavigation
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Pages/Step By Step Navigation',
@@ -14,15 +14,15 @@ export default {
     docs: {
       description: {
         component:
-          'The step by step navigation pattern presents an end to end journey in logical steps, with links to content that helps users complete each step.',
-      },
-    },
-  },
+          'The step by step navigation pattern presents an end to end journey in logical steps, with links to content that helps users complete each step.'
+      }
+    }
+  }
 }
 
-///////////////////////////////////////////////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////
 // Template Section ///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
+/// ////////////////////////////////////////////////////////////////////////////
 const createHeaderRow = () => {
   const row = document.createElement('div')
   row.className = 'govie-grid-row'
@@ -34,7 +34,7 @@ const createHeaderRow = () => {
     heading({
       text: 'Learn to drive a car: step by step',
       element: 'h1',
-      size: 'l',
+      size: 'l'
     })
   )
   const introParagraph = parseHtmlString(
@@ -68,8 +68,8 @@ const Template = (args) => {
       breadcrumbs: [
         'Home',
         'Driving and transport',
-        'Driving tests and learning to drive or ride',
-      ],
+        'Driving tests and learning to drive or ride'
+      ]
     })
   )
   const headerRow = createHeaderRow()
@@ -78,7 +78,7 @@ const Template = (args) => {
   const body = createBody({
     mainContent: [headerRow, stepByStepNavigationRow],
     preMainContents: [breadcrumbsNavigation],
-    additionalWrapperClasses: ['govuk-main-wrapper--auto-spacing'],
+    additionalWrapperClasses: ['govuk-main-wrapper--auto-spacing']
   })
 
   return beautifyHtmlNode(body)

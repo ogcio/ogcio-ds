@@ -1,10 +1,13 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
-import { Default as checkbox } from '../../components/checkboxes/Checkboxes.stories'
-import { Default as tick } from '../../components/tick/Tick.stories'
-import { Default as tag } from '../../components/tag/Tag.stories'
-import { Default as actions } from '../../components/actions/Actions.stories'
+import { createSvgIcon } from '../../../../.storybook/helpers/utils'
+import {
+  actions,
+  checkbox,
+  tick,
+  tag
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Application/Table',
@@ -12,10 +15,10 @@ export default {
     docs: {
       description: {
         component:
-          'Use the table component to make information easier to compare and scan for users.',
-      },
-    },
-  },
+          'Use the table component to make information easier to compare and scan for users.'
+      }
+    }
+  }
 }
 
 const createTableHeader = () => {
@@ -28,7 +31,7 @@ const createTableHeader = () => {
     'Status',
     'Actions',
     'Header',
-    'Total',
+    'Total'
   ]
 
   const thead = document.createElement('thead')
@@ -71,7 +74,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
     const classes = [
       'govie-table__cell',
       'govie-table__cell--vertical-centralized',
-      'govie-body-s',
+      'govie-body-s'
     ]
 
     if (numeric) {
@@ -91,8 +94,8 @@ const createTableRow = ({ text, type }, total) => {
     {
       cell: checkbox({
         items: [{ label: '', value: 'check' }],
-        useSmallerBoxes: true,
-      }),
+        useSmallerBoxes: true
+      })
     },
     { cell: tick({ filled: true, checked: true }) },
     { cell: 'IrishTown' },
@@ -100,7 +103,7 @@ const createTableRow = ({ text, type }, total) => {
     { cell: tag({ text, type, extraClass: 'govie-body-s' }) },
     { cell: parseHtmlString(actions({ type: 'icons' })).outerHTML },
     { cell: parseHtmlString(actions({ type: 'links' })).outerHTML },
-    { cell: total, numeric: true },
+    { cell: total, numeric: true }
   ]
 
   const tr = document.createElement('tr')

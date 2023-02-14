@@ -2,11 +2,13 @@ import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as backLink } from '../../components/back-link/BackLink.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as summaryList } from '../../components/summary-list/SummaryList.stories'
+import {
+  heading,
+  paragraph,
+  backLink,
+  button,
+  summaryList
+} from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Patterns/Check answers',
@@ -14,10 +16,10 @@ export default {
     docs: {
       description: {
         component:
-          'Let users check their answers before submitting information to a service.',
-      },
-    },
-  },
+          'Let users check their answers before submitting information to a service.'
+      }
+    }
+  }
 }
 
 const createBackLink = () => parseHtmlString(backLink({}))
@@ -26,7 +28,7 @@ const createSummaryList = (data) => {
   const rows = data.map(({ key, value }) => ({
     key,
     value,
-    actions: [{ label: 'Change', url: '#' }],
+    actions: [{ label: 'Change', url: '#' }]
   }))
 
   return parseHtmlString(summaryList({ rows, useBorders: true }))
@@ -59,7 +61,7 @@ const createColumn = () => {
 
   const checkAnswersHeading = parseHtmlString(
     heading({
-      text: 'Check your answers before sending your application',
+      text: 'Check your answers before sending your application'
     })
   )
   column.appendChild(checkAnswersHeading)
@@ -72,21 +74,21 @@ const createColumn = () => {
   const personalDetailsSummary = createSummaryList([
     {
       key: 'Name',
-      value: 'Sarah Philips',
+      value: 'Sarah Philips'
     },
     {
       key: 'Date of birth',
-      value: '5 January 1978',
+      value: '5 January 1978'
     },
 
     {
       key: 'Address',
-      value: 'Address line 1<br>Address line 2<br>City<br>Eircode',
+      value: 'Address line 1<br>Address line 2<br>City<br>Eircode'
     },
     {
       key: 'Contact details',
-      value: ['000 000000', 'sarah.phillips@example.com'],
-    },
+      value: ['000 000000', 'sarah.phillips@example.com']
+    }
   ])
   column.appendChild(personalDetailsSummary)
 
@@ -98,21 +100,21 @@ const createColumn = () => {
   const applicationDetailsSummary = createSummaryList([
     {
       key: 'Previous application number',
-      value: '502135326',
+      value: '502135326'
     },
     {
       key: 'Licence type',
-      value: 'For personal use',
+      value: 'For personal use'
     },
 
     {
       key: 'Home address',
-      value: 'Address line 1<br>Address line 2<br>City<br>Eircode',
+      value: 'Address line 1<br>Address line 2<br>City<br>Eircode'
     },
     {
       key: 'Licence period',
-      value: 'Valid for 6 months',
-    },
+      value: 'Valid for 6 months'
+    }
   ])
   column.appendChild(applicationDetailsSummary)
 
@@ -123,7 +125,7 @@ const createColumn = () => {
 
   const confirmationParagraph = parseHtmlString(
     paragraph({
-      text: 'By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.',
+      text: 'By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.'
     })
   )
   column.appendChild(confirmationParagraph)
@@ -154,7 +156,7 @@ const createMainWrapper = () => {
 const Template = (args) => {
   const body = createBody({
     mainContent: createMainWrapper(),
-    shortFooter: true,
+    shortFooter: true
   })
   return beautifyHtmlNode(body)
 }

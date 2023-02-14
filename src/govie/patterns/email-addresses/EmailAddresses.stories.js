@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 
-import { Default as input } from '../../components/input/TextInput.stories'
+import { textInput } from '../../../../.storybook/helpers/reactStoriesAsHtml'
 
 export default {
   title: 'Patterns/Email addresses',
@@ -9,18 +9,18 @@ export default {
     docs: {
       description: {
         component:
-          'Follow this pattern whenever you need to capture an email address.',
-      },
-    },
+          'Follow this pattern whenever you need to capture an email address.'
+      }
+    }
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-  },
+    errorMessage: { control: 'text' }
+  }
 }
 
 const createEmailInput = (args) => {
   const emailInput = parseHtmlString(
-    input({
+    textInput({
       fieldId: 'email',
       fieldName: 'email',
       label: 'Email address',
@@ -46,5 +46,5 @@ Default.args = {}
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   errorMessage:
-    'Enter an email address in the correct format, like name@example.com',
+    'Enter an email address in the correct format, like name@example.com'
 }
