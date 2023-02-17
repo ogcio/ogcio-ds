@@ -54,11 +54,11 @@ describe('dist/', () => {
     })
   })
 
-  describe(`govie-frontend-${version}.min.css`, () => {
+  describe(`@ogcio/ogcio-ds-${version}.min.css`, () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `govie-frontend-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -74,7 +74,7 @@ describe('dist/', () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `govie-frontend-ie8-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-ie8-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -82,11 +82,11 @@ describe('dist/', () => {
     })
   })
 
-  describe(`govie-frontend-${version}.min.js`, () => {
+  describe(`@ogcio/ogcio-ds-${version}.min.js`, () => {
     let javascript
 
     beforeAll(async () => {
-      javascript = await readFile(path.join(configPaths.dist, `govie-frontend-${version}.min.js`), 'utf8')
+      javascript = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-${version}.min.js`), 'utf8')
     })
 
     it('should have the correct version name', () => {

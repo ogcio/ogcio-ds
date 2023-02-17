@@ -1,6 +1,5 @@
 @include govie-exports('govie/component/task-list') {
   // Based on https://github.com/alphagov/govuk-prototype-kit/blob/main/lib/assets/sass/patterns/_task-list.scss
-  // Note - this code for prototype purposes only. It is not production code.
   .govie-task-list {
     list-style-type: none;
     padding-left: 0;

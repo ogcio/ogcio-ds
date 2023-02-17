@@ -24,16 +24,16 @@ You can mention the warnings in the release notes to help users understand if th
 
 For example:
 
-> If you import specific files from the core or overrides layers, you’ll now see a deprecation warning when compiling Sass if you do not import `node_modules/govuk-frontend/govuk/base` first.
+> If you import specific files from the core or overrides layers, you’ll now see a deprecation warning when compiling Sass if you do not import `node_modules/@ogcio/ogcio-ds/govie/base` first.
 > 
-> To fix the warning, import `node_modules/govuk-frontend/govuk/base` first. For example:
+> To fix the warning, import `node_modules/@ogcio/ogcio-ds/govie/base` first. For example:
 > 
 > ```scss
-> @import "node_modules/govuk-frontend/govuk/base";
-> @import "node_modules/govuk-frontend/core/typography";
+> @import "node_modules/@ogcio/ogcio-ds/govie/base";
+> @import "node_modules/@ogcio/ogcio-ds/core/typography";
 > ```
 > 
-> If you do not import `node_modules/govuk-frontend/govuk/base` first, your service will no longer work from GOV.IE Frontend v4.0.0.
+> If you do not import `node_modules/@ogcio/ogcio-ds/govie/base` first, your service will no longer work from GOV.IE Frontend v4.0.0.
 
 ### Make sure we remember to remove the deprecated feature
 
@@ -64,11 +64,10 @@ For example:
 ///
 /// A contrived example function that takes a number and multiplies it by 2.
 ///
-/// @deprecated Use govuk-multiply(number, 2) instead.
-///   See https://github.com/alphagov/govuk-frontend/issues/1234
-@function govuk-double($number) {
-  @include _warning("double", "govuk-double($number) is deprecated. Use govuk-multiply($number, 2) instead.");
-  @return govuk-multiply($number, 2);
+/// @deprecated Use govie-multiply(number, 2) instead.
+@function govie-double($number) {
+  @include _warning("double", "govie-double($number) is deprecated. Use govie-multiply($number, 2) instead.");
+  @return govie-multiply($number, 2);
 }
 ```
 
@@ -84,9 +83,9 @@ If possible, update the mixin or function to maintain the existing functionality
 /// @param {String} $spline Spline to reticulate
 /// @param {Number} $angle Angle to reticulate by
 /// @param {Boolean} $rightAngle Deprecated. Use $angle: 90 instead.
-@mixin govuk-reticulate-splines($spline, $angle: 180, $rightAngle: false) {
+@mixin govie-reticulate-splines($spline, $angle: 180, $rightAngle: false) {
   @if ($rightAngle != false) {
-    @include _warning("right-angle", "Passing $rightAngle to govuk-reticulate-splines is deprecated. Pass $angle: 90 instead.");
+    @include _warning("right-angle", "Passing $rightAngle to govie-reticulate-splines is deprecated. Pass $angle: 90 instead.");
 
     $angle: 90;
   }
@@ -99,7 +98,7 @@ If possible, update the mixin or function to maintain the existing functionality
 
 ```scss
 // @deprecated
-.govuk-foo-old-class-name {
+.govie-foo-old-class-name {
   foo: bar;
 }
 ```
@@ -149,9 +148,9 @@ Add 'Deprecated.' to the description for the parameter.
 ///
 /// @param {String} $spline Spline to reticulate
 /// @param {String} $spilne Deprecated. Use $spline instead.
-@function govuk-reticulate-splines($spline, $spilne: false) {
+@function govie-reticulate-splines($spline, $spilne: false) {
   @if ($spilne != false) {
-    @include _warning("spilne", "Passing $spilne to govuk-reticulate-splines is deprecated. Pass $spline instead.");
+    @include _warning("spilne", "Passing $spilne to govie-reticulate-splines is deprecated. Pass $spline instead.");
 
     $spline: $spilne;
   }
@@ -165,9 +164,9 @@ Add 'Deprecated.' to the description for the parameter.
 Keep the old name in the selector list, and mark it as deprecated.
 
 ```scss
-// govuk-old-class-name is deprecated. Use govuk-new-class-name instead.
-.govuk-old-class-name,
-.govuk-new-class-name {
+// govie-old-class-name is deprecated. Use govie-new-class-name instead.
+.govie-old-class-name,
+.govie-new-class-name {
   foo: bar;
 }
 ```

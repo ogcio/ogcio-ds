@@ -54,7 +54,7 @@ const Template = (args) => {
 
   a.innerHTML = `
     <span class="govie-header__logotype">
-      <img id="logo-image" src="./assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
+      <img id="logo-image" src="./@ogcio/assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
     </span>
   `
 

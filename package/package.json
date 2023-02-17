@@ -3,13 +3,19 @@
   "description": "GOV.IE Frontend contains the code you need to start building a user interface for government platforms and services.",
   "version": "0.0.1",
   "main": "govie/all.js",
+  "module": "govie-esm/all.mjs",
   "exports": {
     ".": {
       "sass": "./govie/all.scss",
+      "import": "./govie-esm/all.mjs",
       "require": "./govie/all.js"
     },
-    "./govie/": "./govie/"
+    "./govie/": "./govie/",
+    "./govie-esm/": "./govie-esm/"
   },
+  "sideEffects": [
+    "govie-esm/vendor/**"
+  ],
   "sass": "govie/all.scss",
   "engines": {
     "node": ">= 4.2.0"

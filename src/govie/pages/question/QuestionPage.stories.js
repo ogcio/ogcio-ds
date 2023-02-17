@@ -122,7 +122,7 @@ const createComplexQuestionNodes = () => {
 
   const needsRadioButtons = parseHtmlString(
     radios({
-      options: 'Yes,No',
+      options: ['Yes','No'],
       label: 'Do you have any interview needs?',
       size: 'medium',
       inline: false,

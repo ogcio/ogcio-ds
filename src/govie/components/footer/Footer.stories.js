@@ -33,7 +33,7 @@ const createNavigationSection = (items, headingText, twoColumns) => {
   }`
 
   const heading = document.createElement('h2')
-  heading.className = 'govie-footer__heading govuk-heading-m'
+  heading.className = 'govie-footer__heading govie-heading-m'
   heading.innerText = headingText
 
   const ul = document.createElement('ul')
