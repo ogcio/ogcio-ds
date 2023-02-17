@@ -1,190 +1,149 @@
-const { readFile } = require('fs/promises')
-const path = require('path')
-const recursive = require('recursive-readdir')
-const glob = require('glob')
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 
-const configPaths = require('../../../config/paths.js')
-const {
-  getDirectories,
-  getFilesByDirectory,
-} = require('../../../lib/file-helper')
-const {
-  componentNameToJavaScriptModuleName,
-} = require('../../../lib/helper-functions')
-
-const { renderSass } = require('../../../lib/jest-helpers')
+import configPaths from '../../../config/paths.js'
+import { filterPath, getDirectories, getListing, mapPathTo } from '../../../lib/file-helper.js'
+import { componentNameToClassName, componentPathToModuleName } from '../../../lib/helper-functions.js'
+import { compileSassFile } from '../../../lib/jest-helpers.js'
 
 describe('package/', () => {
+  let listingSource
+  let listingPackage
+
   let componentsFilesSource
   let componentsFilesPackage
+  let componentsFilesPackageESM
 
   let componentNames
 
   beforeAll(async () => {
-    componentsFilesSource = await getFilesByDirectory(configPaths.components)
-    componentsFilesPackage = await getFilesByDirectory(
-      `${configPaths.package}govie/components/`
-    )
+    listingSource = await getListing(configPaths.src)
+    listingPackage = await getListing(configPaths.package)
+
+    componentsFilesSource = await getListing(configPaths.components)
+    componentsFilesPackage = await getListing(join(configPaths.package, 'govie/components'))
+    componentsFilesPackageESM = await getListing(join(configPaths.package, 'govie-esm/components'))
 
     // Components list
-    componentNames = [...(await getDirectories(configPaths.components)).keys()]
+    componentNames = await getDirectories(configPaths.components)
   })
 
-  it('should contain the expected files', () => {
-    // Build an array of the files that are present in the package directory.
-    const actualPackageFiles = () => {
-      return recursive(configPaths.package).then(
-        (files) => {
-          return (
-            files
-              // Remove /package prefix from filenames
-              .map((file) => file.replace(/^package\//, ''))
-              // Sort to make comparison easier
-              .sort()
-          )
-        },
-        (error) => {
-          console.error('Unable to get package files', error)
-        }
-      )
-    }
+  it('should contain the expected files', async () => {
+    const filterPatterns = [
+      '!**/.DS_Store',
+      '!**/*.test.*',
+      '!**/__snapshots__/',
+      '!**/__snapshots__/**',
+      '!govie/README.md'
+    ]
 
-    // Build an array of files we expect to be found in the package directory,
-    // based on the contents of the src directory.
-    const expectedPackageFiles = () => {
-      const filesToIgnore = [
-        '.DS_Store',
-        '*.test.*',
-        '*.stories.*',
-        '*.snap',
-        '*/govie/README.md',
-        // Excluse files related to Storybook application
-        '*.css',
-        '*/govie/all-storybook.scss',
-        '*/govie/storybook/*.scss',
-      ]
+    // Build array of expected output files
+    const listingExpected = listingSource
+      .filter(filterPath(filterPatterns))
 
-      const additionalFilesNotInSrc = ['package.json', 'README.md']
+      // Replaces all source '*.mjs' files
+      .flatMap(mapPathTo(['**/*.mjs'], ({ dir: requirePath, name }) => {
+        const importFilter = /^govie(?!-)/
 
-      return recursive(configPaths.src, filesToIgnore).then(
-        (files) => {
-          let filesNotInSrc = files
-          // Use glob to generate an array of files that accounts for wildcards in filenames
-          filesNotInSrc = glob.sync(
-            '{' + additionalFilesNotInSrc.join(',') + '}',
-            { cwd: 'package' }
-          )
-
-          return (
-            files
-              .map((file) => {
-                // Remove /src prefix from filenames
-                const fileWithoutSrc = file.replace(/^src\//, '')
-                // Account for govie-esm folder
-                if (fileWithoutSrc.split('.').pop() === 'mjs') {
-                  const umdFile = fileWithoutSrc.replace('.mjs', '.js')
-                  return [umdFile]
-                } else {
-                  return fileWithoutSrc
-                }
-              })
-              // Allow for additional files that are not in src
-              .concat(filesNotInSrc)
-              .flat()
-              // Sort to make comparison easier
-              .sort()
-          )
-        },
-        (error) => {
-          console.error('Unable to get package files', error)
-        }
-      )
-    }
-
-    // Compare the expected directory listing with the files we expect
-    // to be present
-    return Promise.all([actualPackageFiles(), expectedPackageFiles()]).then(
-      (results) => {
-        const [actualPackageFiles, expectedPackageFiles] = results
-
-        const expectedPackageFilesWithConfigs = [
-          '.npmrc',
-          ...expectedPackageFiles,
+        // All source `**/*.mjs` files compiled to `**/*.js`
+        const output = [
+          join(requirePath, `${name}.js`),
+          join(requirePath, `${name}.js.map`) // with source map
         ]
 
-        expect(actualPackageFiles).toEqual(expectedPackageFilesWithConfigs)
-      }
-    )
+        // Only source `./govie/**/*.mjs` files copied to `./govie-esm/**/*.mjs`
+        if (importFilter.test(requirePath)) {
+          output.push(join(requirePath.replace(importFilter, 'govie-esm'), `${name}.mjs`))
+        }
+
+        return output
+      }))
+
+      // Replaces source component '*.yaml' with:
+      // - `fixtures.json` fixtures for tests
+      // - `macro-options.json` component options
+      .flatMap(mapPathTo(['**/*.yaml'], ({ dir: requirePath }) => [
+        join(requirePath, 'fixtures.json'),
+        join(requirePath, 'macro-options.json')
+      ]))
+
+      // Files already present in 'package'
+      .concat(...[
+        'package.json',
+        'README.md'
+      ])
+      .sort()
+
+    // Compare array of actual output files
+    expect(listingPackage).toEqual(listingExpected)
   })
 
   describe('README.md', () => {
-    it('is not overwritten', () => {
-      return readFile(path.join(configPaths.package, 'README.md'), 'utf8')
-        .then((contents) => {
-          // Look for H1 matching 'GOV.IE Frontend' from existing README
-          expect(contents).toMatch(/^# GOV.IE Frontend/)
-        })
-        .catch((error) => {
-          throw error
-        })
+    it('is not overwritten', async () => {
+      const contents = await readFile(join(configPaths.package, 'README.md'), 'utf8')
+
+      // Look for H1 matching 'GOV.UK Frontend' from existing README
+      expect(contents).toMatch(/^# GOV.UK Frontend/)
     })
   })
 
   describe('all.scss', () => {
     it('should compile without throwing an exception', async () => {
-      const allScssFile = path.join(configPaths.package, 'govie', 'all.scss')
-      await renderSass({ file: allScssFile })
+      const file = join(configPaths.package, 'govie', 'all.scss')
+      await expect(compileSassFile(file)).resolves
     })
   })
 
   describe('all.js', () => {
     it('should have correct module name', async () => {
-      const allJsFile = path.join(configPaths.package, 'govie', 'all.js')
+      const contents = await readFile(join(configPaths.package, 'govie', 'all.js'), 'utf8')
 
-      return readFile(allJsFile, 'utf8')
-        .then((data) => {
-          expect(data).toContain(
-            "typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports'], factory)"
-          )
-        })
-        .catch((error) => {
-          throw error
-        })
+      // Look for AMD module definition for 'GOVIEFrontend'
+      expect(contents).toContain("typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports'], factory)")
     })
   })
 
   describe('components with JavaScript', () => {
-    beforeEach(async () => {
-      // Filter "JavaScript enabled" only
-      componentNames = [...componentsFilesSource]
-        .filter(([name, files]) => files.has(`${name}.js`))
-        .map(([name]) => name)
+    let componentNamesWithJavaScript
+
+    beforeAll(async () => {
+      // Components list (with JavaScript only)
+      componentNamesWithJavaScript = componentNames
+        .filter((componentName) => componentsFilesSource.includes(join(componentName, `${componentName}.mjs`)))
     })
 
     it('should have component JavaScript file with correct module name', () => {
-      const componentTasks = componentNames.map(async (componentName) => {
-        const componentSource = componentsFilesSource.get(componentName)
-        const componentPackage = componentsFilesPackage.get(componentName)
+      const componentTasks = componentNamesWithJavaScript.map(async (componentName) => {
+        const componentFilter = filterPath([`${componentName}/**`])
+
+        const componentSource = componentsFilesSource.filter(componentFilter)
+        const componentPackage = componentsFilesPackage.filter(componentFilter)
+        const componentPackageESM = componentsFilesPackageESM.filter(componentFilter)
 
         // CommonJS module not found at source
-        expect([...componentSource.keys()]).toEqual(
-          expect.not.arrayContaining([`${componentName}.js`])
-        )
+        expect(componentSource)
+          .toEqual(expect.not.arrayContaining([join(componentName, `${componentName}.js`)]))
 
         // CommonJS generated in package
-        expect([...componentPackage.keys()]).toEqual(
-          expect.arrayContaining([`${componentName}.js`])
-        )
+        expect(componentPackage)
+          .toEqual(expect.arrayContaining([join(componentName, `${componentName}.js`)]))
 
-        const { path: modulePath } = componentPackage.get(`${componentName}.js`)
+        // ESM module generated in package
+        expect(componentsFilesPackageESM)
+          .toEqual(expect.arrayContaining([join(componentName, `${componentName}.mjs`)]))
 
-        const moduleText = await readFile(modulePath, 'utf8')
+        const [modulePath] = componentPackage
+          .filter(filterPath([`**/${componentName}.js`]))
 
-        expect(moduleText).toContain(
-          `typeof define === 'function' && define.amd ? define('${componentNameToJavaScriptModuleName(
-            componentName
-          )}', factory)`
-        )
+        const [modulePathESM] = componentPackageESM
+          .filter(filterPath([`**/${componentName}.mjs`]))
+
+        const moduleName = componentPathToModuleName(join(configPaths.components, modulePath))
+        const moduleText = await readFile(join(configPaths.package, 'govie/components', modulePath), 'utf8')
+        const moduleTextESM = await readFile(join(configPaths.package, 'govie-esm/components', modulePathESM), 'utf8')
+
+        expect(moduleText).toContain(`typeof define === 'function' && define.amd ? define('${moduleName}', factory)`)
+        expect(moduleTextESM).toContain(`export default ${componentNameToClassName(componentName)}`)
       })
 
       // Check all component files

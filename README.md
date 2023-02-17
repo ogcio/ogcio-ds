@@ -4,16 +4,12 @@ GOV.IE Frontend ·
 GOV.IE Frontend contains the code you need to start building a user interface
 for government platforms and services.
 
-<!-- See live examples of GOV.IE Frontend components, and guidance on when to use
-them in your service, in the [GOV.UK Design
-System](https://design-system.service.gov.uk/). -->
-
-## Quick start
+<!-- ## Quick start
 
 There are 2 ways to start using GOV.IE Frontend in your app.
 
 Once installed, you will be able to use the code from the examples in the
-GOV.UK Design System in your service.
+gov.ie Design System in your service.
 
 ### 1. Install with npm (recommended)
 
@@ -58,4 +54,4 @@ If you get a warning from a linter or accessibility checker, check our list of [
 Unless stated otherwise, the codebase is released under the MIT License. This
 covers both the codebase and any sample code in the documentation. The
 documentation is &copy; Crown copyright and available under the terms of the
-Open Government 3.0 licence.
+Open Government 3.0 licence. -->

@@ -68,4 +68,3 @@ You cannot resize the text for GOV.UK Design System styles in iOS.
 
 Due to iOS constraints, our styles do not support adjusting the base font size on iOS devices.
 
-For more details, see our [GitHub issue #882: Investigate Dynamic Type to improve accessibility for iOS users](https://github.com/alphagov/govuk-frontend/issues/882).

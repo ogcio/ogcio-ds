@@ -2,9 +2,9 @@
 
 ## Class naming convention
 
-## `govuk` namespacing
+## `govie` namespacing
 
-All class names start with a `.govuk-` namespace to reduce the likelihood of
+All class names start with a `.govie-` namespace to reduce the likelihood of
 conflicting with existing classes in your application. It also helps to identify
 where the styling for a particular element is coming from.
 
@@ -98,11 +98,11 @@ other components.
 
 Keep all of the variants of a component in the same place.
 
-`.govuk-error-summary` modifies the `.govie-list` component.
+`.govie-error-summary` modifies the `.govie-list` component.
 
 Component modifiers use an extra class, scoped to the component:
 
-`.govuk-error-summary__list`
+`.govie-error-summary__list`
 
 This class is part of the component, rather than a parent of a component.
 
@@ -182,7 +182,7 @@ Bad:
 
 Good:
 ```
-.govuk-wrapper {
+.govie-wrapper {
   ...
 }
 ```

@@ -2,12 +2,11 @@
 
 ## Files
 
-JavaScript files have the same name as the component's folder name. Test files have a `.test` suffix placed before the file extension.
+JavaScript files have the same name as the component's folder name. 
 
 ```
 checkboxes
 ├── checkboxes.mjs
-└── checkboxes.test.js
 ```
 
 ## Skeleton
@@ -31,7 +30,7 @@ export default Checkboxes
 Use `data-module` attributes in HTML to initialise a component in JavaScript. For example:
 
 ```html
-data-module="govuk-accordion"
+data-module="govie-accordion"
 ```
 
 ## Use classes to target DOM elements

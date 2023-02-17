@@ -10,9 +10,9 @@ If you're an external contributor make sure to [fork this project first](https:/
 
 ## 2. Clone repository
 ```
-git clone git@github.com:alphagov/govuk-frontend.git # or clone your own fork
+git clone git@github.com:ogcio/ogcio-ds.git # or clone your own fork
 
-cd govuk-frontend
+cd ogcio-ds
 ```
 
 ## 3. Using nvm (optional)
@@ -30,7 +30,7 @@ npm install
 ```
 
 ### Fixing Node 16+ errors
-If you've previously installed `govuk-frontend` locally using Node v14 or earlier, you may see `node-sass`-related errors when updating to Node v16.
+If you've previously installed `ogcio-ds` locally using Node v14 or earlier, you may see `node-sass`-related errors when updating to Node v16.
 
 To get rid of these errors, delete the `node_modules` folder, then run:
 
@@ -49,5 +49,3 @@ npm start
 ## Deploying
 
 You can deploy your project straight to a Heroku instance.
-
-An existing Heroku instance can be found at: [http://govuk-frontend-review.herokuapp.com/](http://govuk-frontend-review.herokuapp.com/)

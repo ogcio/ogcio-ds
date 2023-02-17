@@ -78,7 +78,7 @@ const Template = (args) => {
   const body = createBody({
     mainContent: [headerRow, stepByStepNavigationRow],
     preMainContents: [breadcrumbsNavigation],
-    additionalWrapperClasses: ['govuk-main-wrapper--auto-spacing'],
+    additionalWrapperClasses: ['govie-main-wrapper--auto-spacing'],
   })
 
   return beautifyHtmlNode(body)

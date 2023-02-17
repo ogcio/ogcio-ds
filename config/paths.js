@@ -1,15 +1,31 @@
+const { dirname, join } = require('path')
+
+// Repository root directory
+const rootPath = dirname(__dirname)
+
+/**
+ * Config root paths
+ */
+const configPaths = {
+  root: rootPath,
+  src: join(rootPath, 'src'),
+  config: join(rootPath, 'config'),
+  node_modules: join(rootPath, 'node_modules'),
+
+  // Build: Release distribution
+  dist: join(rootPath, 'dist'),
+
+  // Build: Package for npm publish
+  package: join(rootPath, 'package'),
+
+  // Review application
+  public: join(rootPath, 'public'),
+}
+
 module.exports = {
-  config: 'config/',
-  dist: 'dist/',
-  node_modules: 'node_modules/',
-  package: 'package/',
-  public: 'public/',
-  jsdoc: 'jsdoc/',
-  sassdoc: 'sassdoc/',
-  src: 'src/govie/',
-  components: 'src/govie/components/',
-  ports: {
-    app: 3000,
-    test: 8888
-  }
+  ...configPaths,
+
+  // Source paths
+  assets: join(configPaths.src, 'govie/assets'),
+  components: join(configPaths.src, 'govie/components'),
 }

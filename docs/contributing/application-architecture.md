@@ -12,7 +12,7 @@
 
 - `dist/` **contains auto-generated files**
 
-  Standalone builds of govuk-frontend. Provides a way to consume govuk-frontend without using npm.
+  Standalone builds of @ogcio/ogcio-ds. Provides a way to consume @ogcio/ogcio-ds without using npm.
 
 - `docs/`
 

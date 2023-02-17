@@ -6,7 +6,7 @@ import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
-import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/govie-frontend.min.css'
+import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css'
 
 let selectedTheme
 
@@ -140,7 +140,7 @@ const loadLogo = () => {
       logo.src = './themes/hse.png'
       logo.style = 'width: 52px;'
     } else {
-      logo.src = './assets/images/logo-full.png'
+      logo.src = './@ogcio/assets/images/logo-full.png'
       logo.style = 'width: 116px;'
     }
   }

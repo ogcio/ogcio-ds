@@ -1,23 +1,45 @@
 module.exports = {
   extends: 'standard',
   ignorePatterns: [
+    '**/dist/**',
+    '**/package/**',
+    '**/public/**',
+    '**/vendor/**',
+
+    // Enable dotfile linting
     '!.*',
-    'dist/**/*',
     'node_modules',
-    'node_modules/.*',
-    'package-lock.json',
-    'package/**/*',
-    'public/**/*',
-    'src/govie/vendor/polyfills/**/*'
+    'node_modules/.*'
   ],
   overrides: [
     {
-      extends: 'plugin:jsdoc/recommended',
+      extends: [
+        'eslint:recommended',
+        'plugin:import/recommended',
+        'plugin:jsdoc/recommended',
+        'plugin:n/recommended',
+        'plugin:promise/recommended'
+      ],
       files: ['**/*.{cjs,js,mjs}'],
+      parserOptions: {
+        ecmaVersion: 'latest'
+      },
       plugins: [
-        'jsdoc'
+        'import',
+        'jsdoc',
+        'n',
+        'promise'
       ],
       rules: {
+        // Check import or require statements are A-Z ordered
+        'import/order': [
+          'error',
+          {
+            alphabetize: { order: 'asc' },
+            'newlines-between': 'always'
+          }
+        ],
+
         // JSDoc blocks are optional
         'jsdoc/require-jsdoc': 'off',
         'jsdoc/require-param-description': 'off',
@@ -28,7 +50,12 @@ module.exports = {
         'jsdoc/require-hyphen-before-param-description': 'warn',
 
         // Check for valid formatting
-        'jsdoc/check-line-alignment': 'warn',
+        'jsdoc/check-line-alignment': [
+          'warn',
+          'never', {
+            wrapIndent: '  '
+          }
+        ],
         'jsdoc/check-syntax': 'error',
 
         // Add unknown @jest-environment tag name
@@ -53,10 +80,29 @@ module.exports = {
       }
     },
     {
+      // Extensions required for ESM import
+      files: ['**/*.mjs'],
+      rules: {
+        'import/extensions': [
+          'error',
+          'always',
+          {
+            ignorePackages: true,
+            pattern: {
+              cjs: 'always',
+              js: 'always',
+              mjs: 'always'
+            }
+          }
+        ]
+      }
+    },
+    {
       files: ['**/*.test.{cjs,js,mjs}'],
       env: {
         jest: true
       }
     }
-  ]
+  ],
+  root: true
 }

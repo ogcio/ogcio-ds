@@ -6,11 +6,6 @@ for government platforms and services.
 See live examples of GOV.IE Frontend components, and guidance on when to use
 them in your service, in the [GOV.UK Design System](https://ogcio.github.io/ogcio-ds/).
 
-<!-- ## Contact the team
-
-GOV.IE Frontend is maintained by a team at Government Digital Service. If you want to know more about GOV.IE Frontend, please email the [Design System
-team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system). -->
-
 ## Quick start
 
 There are 2 ways to start using GOV.IE Frontend in your app.
