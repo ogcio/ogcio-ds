@@ -99,10 +99,11 @@ export async function getImportEntries() {
     isPackage ? '**/*.scss' : '[!_]*.scss'
   )
 
+  
   let finalImportPaths
   if (isStorybook) {
     finalImportPaths = importPaths.filter((modulePath) =>
-      modulePath.includes('storybook')
+    modulePath.includes('storybook')
     )
   } else {
     finalImportPaths = importPaths.filter(

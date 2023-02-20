@@ -46,3 +46,10 @@ $_govie-colour-palette: (
 /// @access public
 
 $govie-colours: $_govie-colour-palette !default;
+
+/// Whether the stylesheet being built should enable functionality for the storybook
+///
+/// @type Boolean
+/// @access public
+
+$govie-is-storybook: false !default;

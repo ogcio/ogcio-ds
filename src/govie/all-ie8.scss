@@ -2,9 +2,5 @@
 // targets IE8 – e.g. conditionally including or excluding styles, and
 // rasterizing media queries.
 $govie-is-ie8: true;
-// By setting $govie-is-storybook to true, we create a version of the stylesheet that
-// targets Storybook – e.g. conditionally including or excluding styles.
-$govie-is-storybook: true;
 
-@import 'storybook/all';
 @import 'all';
