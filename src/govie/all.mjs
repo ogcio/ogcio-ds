@@ -6,6 +6,7 @@ import Checkboxes from './components/checkboxes/checkboxes.mjs'
 import Details from './components/details/details.mjs'
 import ErrorSummary from './components/error-summary/error-summary.mjs'
 import Header from './components/header/header.mjs'
+import Navigation from './components/navigation/navigation.mjs'
 import NotificationBanner from './components/notification-banner/notification-banner.mjs'
 import ProgressStepper from './components/progress-stepper/progress-stepper.mjs'
 import Radios from './components/radios/radios.mjs'
@@ -127,6 +128,8 @@ function initAll(config) {
   nodeListForEach($tooltips, function ($tooltip) {
     new Tooltip($tooltip).init()
   })
+
+  new Navigation().init()
 }
 
 export {
@@ -138,6 +141,7 @@ export {
   Details,
   ErrorSummary,
   Header,
+  Navigation,
   NotificationBanner,
   ProgressStepper,
   Radios,
