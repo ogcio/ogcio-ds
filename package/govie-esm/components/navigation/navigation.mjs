@@ -1,4 +1,5 @@
-import 'govie-frontend/govie/vendor/polyfills/Element/prototype/classList'
+// Based on https://github.com/alphagov/govuk_publishing_components/blob/v29.11.0/app/assets/javascripts/govuk_publishing_components/components/step-by-step-nav.js
+import '../../vendor/polyfills/Element/prototype/classList.mjs'
 import { nodeListForEach } from '../../common.mjs'
 
 var navActiveClass = 'govie-navigation--active'

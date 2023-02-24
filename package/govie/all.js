@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('govie-frontend/govie/vendor/polyfills/Element/prototype/classList')) :
-  typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports', 'govie-frontend/govie/vendor/polyfills/Element/prototype/classList'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports'], factory) :
   (factory((global.GOVIEFrontend = {})));
 }(this, (function (exports) { 'use strict';
 
@@ -3559,6 +3559,8 @@
     this.menuIsOpen = !this.menuIsOpen;
     this.syncState();
   };
+
+  // Based on https://github.com/alphagov/govuk_publishing_components/blob/v29.11.0/app/assets/javascripts/govuk_publishing_components/components/step-by-step-nav.js
 
   var navActiveClass = 'govie-navigation--active';
   var navMenuButtonActiveClass = 'govie-header__menu-button--open';
