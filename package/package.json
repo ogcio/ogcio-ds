@@ -1,7 +1,7 @@
 {
   "name": "@ogcio/ogcio-ds",
   "description": "GOV.IE Frontend contains the code you need to start building a user interface for government platforms and services.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "govie/all.js",
   "module": "govie-esm/all.mjs",
   "exports": {
