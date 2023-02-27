@@ -4,17 +4,23 @@ on:
   push:
     branches: [feat/actions-workflow-aws]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to AWS S3
-permissions:
-  id-token: write
-  contents: read
+jobs:
+  deploy:
+    name: Deploy to Amazon S3
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-- name: AWS credentials
-  uses: aws-actions/configure-aws-credentials@v1
-  with:
-    role-to-assume: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
-    role-duration-seconds: 900
-    aws-region: eu-west-1
-  
-- name: Deploy to S3
-  run: aws s3 ls --region eu-west-1
+      - name: AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
+          role-duration-seconds: 900
+          aws-region: eu-west-1
+
+      - name: Deploy to S3
+        run: aws s3 ls --region eu-west-1
