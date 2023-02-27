@@ -4,6 +4,10 @@ on:
   push:
     branches: [feat/actions-workflow-aws]
 
+env:
+  AWS_DEFAULT_REGION: eu-west-1
+  AWS_S3_BUCKET_NAME: storybook-design-system-gov-ie
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,7 +56,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
           role-duration-seconds: 900
-          aws-region: eu-west-1
+          aws-region: $AWS_DEFAULT_REGION
 
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://storybook-design-system-gov-ie/ --region eu-west-1
+        run: aws s3 sync build/ s3://$AWS_S3_BUCKET_NAME/
