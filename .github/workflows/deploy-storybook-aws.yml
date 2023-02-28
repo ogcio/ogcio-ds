@@ -2,7 +2,7 @@ name: Deploy Storybook to AWS S3
 
 on:
   push:
-    branches: [feat/actions-workflow-aws]
+    branches: [main]
 
 env:
   AWS_DEFAULT_REGION: eu-west-1
