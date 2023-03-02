@@ -15,15 +15,13 @@ jobs:
     steps:
       - name: Checkout package
         uses: actions/checkout@v2
-        with:
-          path: 'package/'
       - name: Setting up .npmrc
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@ogcio'
-      - run: cat .npmrc
-      # - run: npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Github Packages
+        run: npm publish package/ --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
