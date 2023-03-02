@@ -7,20 +7,22 @@ on:
     branches: [feat/actions-publish-npm]
 
 jobs:
-  build:
+  publish:
+    if: "!startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout package
+        uses: actions/checkout@v2
+        with:
+          path: 'package/'
       - uses: actions/setup-node@v3
         with:
-          engine-strict: 'true'
           registry-url: 'https://npm.pkg.github.com'
       - run: cat .npmrc
-      - run: cat package/package.json
-      # - run: npm ci
+      - run: cat package.json
       # - run: npm publish
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
