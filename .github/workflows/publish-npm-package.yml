@@ -8,7 +8,6 @@ on:
 
 jobs:
   publish:
-    if: "!startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -18,11 +17,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: 'package/'
-      - uses: actions/setup-node@v3
+      - name: Setting up .npmrc
+        uses: actions/setup-node@v3
         with:
+          node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
-      - run: cat .npmrc
-      - run: cat package.json
+          scope: '@ogcio'
+      - run: npm ci
       # - run: npm publish
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
