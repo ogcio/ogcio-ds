@@ -1,12 +1,8 @@
 name: Publish package to GitHub Packages
 
-# on:
-#   release:
-#     types: [published]
-
 on:
-  push:
-    branches: [feat/actions-publish-npm]
+  release:
+    types: [published]
 
 jobs:
   publish:
