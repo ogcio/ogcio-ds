@@ -14,15 +14,3 @@ resource "aws_s3_bucket_versioning" "bucket_versioning" {
     status = var.s3_bucket_versioning
   }
 }
-
-resource "aws_s3_bucket_website_configuration" "bucket_website" {
-  bucket = aws_s3_bucket.bucket.id
-
-  index_document {
-    suffix = var.s3_bucket_website_index
-  }
-
-  error_document {
-    key = var.s3_bucket_website_error
-  }
-}
