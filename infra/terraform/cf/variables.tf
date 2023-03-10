@@ -111,5 +111,17 @@ variable "cf_geo_restriction_type" {
   default     = "none"
 }
 
+variable "cf_aliases" {
+  description = "Custom domains"
+  type        = list(string)
+}
 
+variable "cf_viewer_certificate_arn" {
+  description = "ACM certificate ARN"
+  type        = string
+}
 
+variable "cf_viewer_certificate_ssl_support_method" {
+  description = "Viewer certificate SSL support method"
+  type        = string
+}

@@ -7,4 +7,8 @@ include {
 }
 
 inputs = {
+  acm_domain_name               = "storybook.design-system.ogcio.gov.ie"
+  acm_subject_alternative_names = [
+    "www.storybook.design-system.ogcio.gov.ie"
+  ]
 }

@@ -10,6 +10,16 @@ inputs = {
   s3_bucket_arn = "arn:aws:s3:::www-storybook-design-system-gov-ie"
   s3_bucket_id  = "www-storybook-design-system-gov-ie"
 
+  acm_cert_domain_name = "storybook.design-system.ogcio.gov.ie"
+
+  cf_aliases = [
+    "storybook.design-system.ogcio.gov.ie",
+    "www.storybook.design-system.ogcio.gov.ie"
+  ]
+
+  cf_viewer_certificate_arn                = "arn:aws:acm:us-east-1:782102975611:certificate/a495138b-3c00-4883-88d0-e073110093bb"
+  cf_viewer_certificate_ssl_support_method = "sni-only"
+
   cf_policy_document_statement_effect  = "Allow"
   cf_policy_document_statement_actions = ["s3:GetObject"]
   cf_policy_document_principals_type   = "AWS"

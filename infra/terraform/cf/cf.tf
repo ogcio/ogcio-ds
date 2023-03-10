@@ -35,8 +35,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_root_object = var.cf_default_root_object
   price_class         = var.cf_price_class
 
-  # aliases = ["mysite.example.com", "yoursite.example.com"]
-
   default_cache_behavior {
     allowed_methods  = var.cf_cache_allowed_methods
     cached_methods   = var.cf_cache_cached_methods
@@ -50,8 +48,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     viewer_protocol_policy = var.cf_cache_viewer_protocol_policy
   }
 
+  aliases = var.cf_aliases
+
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = var.cf_viewer_certificate_arn
+    ssl_support_method  = var.cf_viewer_certificate_ssl_support_method
   }
 
   restrictions {
