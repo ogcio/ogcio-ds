@@ -8,6 +8,7 @@ env:
   AWS_DEFAULT_REGION: eu-west-1
   AWS_ASSUME_ROLE_ARN: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
   AWS_S3_BUCKET_NAME: storybook-design-system-gov-ie
+  AWS_S3_BUCKET_NAME_WWWW: www-storybook-design-system-gov-ie
 
 jobs:
   build:
@@ -61,3 +62,30 @@ jobs:
 
       - name: Deploy to S3
         run: aws s3 sync build/ s3://$AWS_S3_BUCKET_NAME/
+
+  deploy-wwww:
+    name: Deploy to Amazon S3
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3.0.2
+        with:
+          name: build-artifact
+          path: build
+
+      - name: AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{env.AWS_ASSUME_ROLE_ARN}}
+          role-duration-seconds: 900
+          aws-region: ${{env.AWS_DEFAULT_REGION}}
+
+      - name: Deploy to S3
+        run: aws s3 sync build/ s3://$AWS_S3_BUCKET_NAME_WWWW/
