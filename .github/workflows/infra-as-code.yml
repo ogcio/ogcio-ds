@@ -24,3 +24,7 @@ jobs:
           cp .env.sample .env
           make asdf_setup
  
+      - name: TF init
+        run: |
+          cd infra
+          make terragrunt_init ENVIRONMENT=prod TF_MODULE=s3
