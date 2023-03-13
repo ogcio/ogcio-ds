@@ -7,7 +7,7 @@ import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
-  title: 'Pages/Confirmation',
+  title: 'Templates/Confirmation',
   parameters: {
     docs: {
       description: {

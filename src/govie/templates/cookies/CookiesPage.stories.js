@@ -10,13 +10,13 @@ import { Default as radios } from '../../components/radios/Radio.stories'
 import { Default as button } from '../../components/button/PrimaryButton.stories'
 
 export default {
-  title: 'Pages/Cookies',
+  title: 'Templates/Cookies',
   parameters: {
     docs: {
       description: {
         component:
-          'This pattern is currently experimental because more research is needed to validate it.\n\n' +
-          'Tell users about the cookies you’re setting on their device and let them accept or reject different types of non-essential cookies.',
+          'This template is currently experimental because more research is needed to validate it.\n\n' +
+          "Tell users about the cookies you're setting on their device and let them accept or reject different types of non-essential cookies.",
       },
     },
   },
@@ -26,14 +26,14 @@ const createColumn = () => {
   const column = document.createElement('div')
   column.className = 'govie-grid-column-two-thirds'
 
-  const cookiesheading = parseHtmlString(
+  const cookiesHeading = parseHtmlString(
     heading({
       text: 'Cookies',
       size: 'l',
       captionSize: 'l',
     })
   )
-  column.appendChild(cookiesheading)
+  column.appendChild(cookiesHeading)
 
   const firstIntroParagraph = parseHtmlString(
     paragraph({
@@ -49,14 +49,14 @@ const createColumn = () => {
   )
   column.appendChild(secondIntroParagraph)
 
-  const essentialCookiesheading = parseHtmlString(
+  const essentialCookiesHeading = parseHtmlString(
     heading({
       text: 'Essential cookies',
       size: 'm',
       captionSize: 'm',
     })
   )
-  column.appendChild(essentialCookiesheading)
+  column.appendChild(essentialCookiesHeading)
 
   const essentialCookiesParagraph = parseHtmlString(
     paragraph({
@@ -65,7 +65,7 @@ const createColumn = () => {
   )
   column.appendChild(essentialCookiesParagraph)
 
-  const essentialCookiestable = parseHtmlString(
+  const essentialCookiesTable = parseHtmlString(
     table({
       headers: ['Name', 'Purpose', 'Expires'],
       rows: [
@@ -74,16 +74,16 @@ const createColumn = () => {
       ],
     })
   )
-  column.appendChild(essentialCookiestable)
+  column.appendChild(essentialCookiesTable)
 
-  const analyticsCookiesheading = parseHtmlString(
+  const analyticsCookiesHeading = parseHtmlString(
     heading({
       text: 'Analytics cookies (optional)',
       size: 'm',
       captionSize: 'm',
     })
   )
-  column.appendChild(analyticsCookiesheading)
+  column.appendChild(analyticsCookiesHeading)
 
   const firstAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
@@ -118,30 +118,30 @@ const createColumn = () => {
   )
   column.appendChild(googleAnalyticsInfoList)
 
-  const analyticsCookiestable = parseHtmlString(
+  const analyticsCookiesTable = parseHtmlString(
     table({
       headers: ['Name', 'Purpose', 'Expires'],
       rows: [
         [
           '_ga',
-          'Checks if you’ve visited Notify before. This helps us count how many people visit our site.',
+          "Checks if you've visited Notify before. This helps us count how many people visit our site.",
           '2 years',
         ],
         [
           '_gid',
-          'Checks if you’ve visited Notify before. This helps us count how many people visit our site.',
+          "Checks if you've visited Notify before. This helps us count how many people visit our site.",
           '24 hours',
         ],
       ],
     })
   )
-  column.appendChild(analyticsCookiestable)
+  column.appendChild(analyticsCookiesTable)
 
   const form = document.createElement('form')
 
   const acceptRadioButtons = parseHtmlString(
     radios({
-      options: 'Yes,No',
+      options: ['Yes', 'No'],
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
       inline: true,

@@ -63,8 +63,8 @@ export function copyFiles() {
         // Exclude Sass files handled by Gulp 'compile:scss'
         `!${slash(configPaths.src)}/**/*.scss`,
 
-        // Exclude storybook pages, patterns and other files
-        `!${configPaths.src}/govie/{pages,pages/**}`,
+        // Exclude storybook templates, patterns and other files
+        `!${configPaths.src}/govie/{templates,templates/**}`,
         `!${configPaths.src}/govie/{patterns,patterns/**}`,
         `!${configPaths.src}/govie/{storybook,storybook/**}`,
       ])

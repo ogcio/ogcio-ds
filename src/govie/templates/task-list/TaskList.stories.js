@@ -7,15 +7,15 @@ import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as taskList } from '../../components/task-list/TaskList.stories'
 
 export default {
-  title: 'Pages/Task list',
+  title: 'Templates/Task list',
   parameters: {
     docs: {
       description: {
-        component: `Task list pages help users understand:
+        component: `Task list templates help users understand:
           <ul>
           <li>the tasks involved in completing a transaction</li>
           <li>the order they should complete tasks in</li>
-          <li>when they’ve completed tasks</li>
+          <li>when they\'ve completed tasks</li>
           </ul>
           `,
       },

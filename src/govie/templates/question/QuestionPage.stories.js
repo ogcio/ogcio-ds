@@ -10,13 +10,13 @@ import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
-  title: 'Pages/Question',
+  title: 'Templates/Question',
   parameters: {
     docs: {
       description: {
         component:
-          'This pattern is currently experimental because more research is needed to validate it.\n\n' +
-          'Tell users about the cookies you’re setting on their device and let them accept or reject different types of non-essential cookies.',
+          'This template is currently experimental because more research is needed to validate it.\n\n' +
+          "Tell users about the cookies you're setting on their device and let them accept or reject different types of non-essential cookies.",
       },
     },
   },
@@ -108,21 +108,21 @@ const createComplexQuestionNodes = () => {
 
   const needsThirdParagraph = parseHtmlString(
     paragraph({
-      text: 'For example, you have commitments like caring responsibilites or employment.',
+      text: 'For example, you have commitments like caring responsibilities or employment.',
     })
   )
   htmlNodes.push(needsThirdParagraph)
 
   const needsForthParagraph = parseHtmlString(
     paragraph({
-      text: 'Contact your provider if you’re concerned about the interview process.',
+      text: "Contact your provider if you're concerned about the interview process.",
     })
   )
   htmlNodes.push(needsForthParagraph)
 
   const needsRadioButtons = parseHtmlString(
     radios({
-      options: ['Yes','No'],
+      options: ['Yes', 'No'],
       label: 'Do you have any interview needs?',
       size: 'medium',
       inline: false,
@@ -159,9 +159,7 @@ const createColumn = (args) => {
     })
   }
 
-  const continueButton = parseHtmlString(
-    button({ label: 'Continue' })
-  )
+  const continueButton = parseHtmlString(button({ label: 'Continue' }))
   form.appendChild(continueButton)
 
   column.appendChild(form)

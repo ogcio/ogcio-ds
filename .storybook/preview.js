@@ -103,7 +103,7 @@ export const parameters = {
         'Typography',
         'Navigation',
         'Layout',
-        'Pages',
+        'Templates',
         'Patterns',
         'Application',
       ],

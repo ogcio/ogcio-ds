@@ -9,12 +9,12 @@ import { Default as heading } from '../../components/typography/Heading.stories'
 import { Default as paragraph } from '../../components/typography/Paragraph.stories'
 
 export default {
-  title: 'Pages/Service Unavailable',
+  title: 'Templates/Service Unavailable',
   parameters: {
     docs: {
       description: {
         component:
-          'This pattern is currently experimental because more research is needed to validate it.\n\n' +
+          'This template is currently experimental because more research is needed to validate it.\n\n' +
           'This guidance is for government teams that build online services. <a href="https://www.gov.ie/">To find information and services for the public, go to gov.ie</a>.\n\n' +
           'Tell the user a service is unavailable on purpose. These are also known as 503 and shutter pages.',
       },
