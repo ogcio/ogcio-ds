@@ -17,9 +17,8 @@ jobs:
 
       - name: Install asdf dependencies
         uses: asdf-vm/actions/install@v2.0.0
-        run: cd infra
 
       - name: Make init
         run: |
-          make asdf_setup
+          cd infra && make asdf_setup
  
