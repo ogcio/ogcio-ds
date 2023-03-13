@@ -9,20 +9,17 @@ import { Default as breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs
 import { Default as stepByStepNavigation } from '../../components/step-by-step-navigation/StepByStepNavigation.stories'
 
 export default {
-  title: 'Pages/Step By Step Navigation',
+  title: 'Templates/Step By Step Navigation',
   parameters: {
     docs: {
       description: {
         component:
-          'The step by step navigation pattern presents an end to end journey in logical steps, with links to content that helps users complete each step.',
+          'The step by step navigation template presents an end to end journey in logical steps, with links to content that helps users complete each step.',
       },
     },
   },
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// Template Section ///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
 const createHeaderRow = () => {
   const row = document.createElement('div')
   row.className = 'govie-grid-row'
