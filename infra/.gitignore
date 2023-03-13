@@ -1,0 +1,10 @@
+**/.terraform/*
+**/.terragrunt-cache
+
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+*.tfvars.json
+
+.env
