@@ -20,5 +20,7 @@ jobs:
 
       - name: Make init
         run: |
-          cd infra && make asdf_setup
+          cd infra
+          cp .env.sample .env
+          make asdf_setup
  
