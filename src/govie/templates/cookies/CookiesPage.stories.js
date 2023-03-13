@@ -141,7 +141,7 @@ const createColumn = () => {
 
   const acceptRadioButtons = parseHtmlString(
     radios({
-      options: 'Yes,No',
+      options: ['Yes', 'No'],
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
       inline: true,
