@@ -2,7 +2,7 @@ name: Deploy Storybook to AWS S3
 
 on:
   push:
-    branches: [feat/infra-new-bucket]
+    branches: [main]
 
 env:
   AWS_DEFAULT_REGION: eu-west-1
