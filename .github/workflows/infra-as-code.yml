@@ -1,0 +1,24 @@
+name: Infrastructure as Code with Terraform and Terragrunt
+
+on:
+  push:
+    branches: [feat/infra-new-bucket]
+
+env:
+  AWS_DEFAULT_REGION: eu-west-1
+  AWS_ASSUME_ROLE_ARN: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install asdf dependencies
+        uses: asdf-vm/actions/install@v2.0.0
+
+      - name: Make init
+        run: |
+          make asdf_setup
+ 
