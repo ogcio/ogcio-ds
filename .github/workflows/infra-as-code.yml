@@ -40,9 +40,9 @@ jobs:
       - name: Terragrunt init
         run: |
           cd infra
-          make terragrunt_init
+          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
       - name: Terragrunt plan
         run: |
           cd infra
-          make terragrunt_plan
+          make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
