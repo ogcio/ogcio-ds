@@ -62,4 +62,4 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}
 
       - name: Deploy to S3
-        run: aws s3 sync build/ s3://$AWS_S3_BUCKET_NAME_WWWW/
+        run: aws s3 sync build/ s3://$AWS_S3_BUCKET_NAME/
