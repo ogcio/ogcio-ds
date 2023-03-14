@@ -1,0 +1,191 @@
+import { Meta } from '@storybook/addon-docs'
+import { Code } from './components/Code'
+
+<Meta title="Docs/Setup/Get Started" />
+
+<h1>Get started</h1>
+
+<p>
+  Get one OGCIO-DS component working in your application, so you can test
+  everything works before you add more components or styles.
+</p>
+<p>
+  You will need to do all the following steps to get your component working.
+</p>
+
+<ol>
+  <li>Install OGCIO-DS package.</li>
+  <li>Add the HTML for a component to your application.</li>
+  <li>Get the CSS working.</li>
+  <li>Get the font and images working.</li>
+  <li>Get the JavaScript working.</li>
+</ol>
+
+<h2>1. Install</h2>
+<p>
+  <a className="govie-link govie-body" href="/?path=/docs/docs-setup-install--page">
+    Install OGCIO-DS using npm
+  </a>
+</p>
+<p>
+  If you've installed using precompiled files, get started with{' '}
+  <a href="/?path=/docs/patterns-basic-template--default">a basic page</a>{' '}
+  instead.
+</p>
+
+<h2>2. Add the HTML for a component to your application</h2>
+<p>
+  Go to the{' '}
+  <a
+    href="/?path=/docs/typography-accordion--default"
+    target="_blank"
+    rel="noopener"
+  >
+    example accordion component
+  </a>{' '}
+  on this website, then copy the HTML.
+</p>
+<p>Paste the HTML into a page or template in your application.</p>
+
+<h2>3. Get the CSS working</h2>
+<ol>
+  <li>
+    <p>
+      Add the following to the main Sass file in your project, so your Sass
+      compiler adds all of OGCIO-DS styles to your CSS file.
+    </p>
+    <Code code={`@import '@ogcio/ogcio-ds/govie/all';`} />
+  </li>
+  <li>
+    <p>Add your CSS file to your page layout if you need to. For example:</p>
+    <Code
+      code={`<head>
+  ...
+  <link rel="stylesheet" href="<YOUR-CSS-FILE>.css">
+</head>
+`}
+    />
+  </li>
+  <li>
+    <p>Run your application and check that the accordion displays correctly.</p>
+  </li>
+</ol>
+<p>
+  The accordion will use a generic font until you get the font and images
+  working, and will not be interactive until you get the JavaScript working.
+</p>
+<p>
+  There are also different ways you can{' '}
+  <a href="/importing-css-assets-and-javascript/#css">import OGCIO-DS CSS</a>.
+</p>
+
+<h2>4. Get the font and images working</h2>
+<p>
+  Your component will not use the right font or images until you've added
+  OGCIO-DS assets to your application.
+</p>
+<ol>
+  <li>
+    <p>Copy the following 2 folders:</p>
+    <ul>
+      <li>
+        <code>/node_modules/@ogcio/ogcio-ds/govie/assets/images</code> folder to{' '}
+        <code>&lt;YOUR-APP&gt;/assets/images</code>
+      </li>
+      <li>
+        <code>/node_modules/@ogcio/ogcio-ds/govie/assets/fonts</code> folder to{' '}
+        <code>&lt;YOUR-APP&gt;/assets/fonts</code>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>
+      Run your application, then use{' '}
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Edit_fonts#The_Fonts_tab"
+        target="_blank"
+        rel="noopener"
+      >
+        the Fonts tab in Firefox Page Inspector
+      </a>{' '}
+      to check the accordion is using the Lato font.
+    </p>
+  </li>
+</ol>
+<p>
+  In your live application, we recommend{' '}
+  <a href="/importing-css-assets-and-javascript/#font-and-image-assets">
+    using an automated task or your build pipeline
+  </a>{' '}
+  instead of copying the files manually.
+</p>
+
+<h2>5. Get the JavaScript working</h2>
+<ol>
+  <li>
+    <p>
+      Add the following to the top of the <code>&lt;body&gt;</code> section of
+      your page template:
+    </p>
+    <Code
+      code={`<script>
+  document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+</script>
+`}
+    />
+  </li>
+  <li>
+    <p>
+      Copy the <code>/node_modules/@ogcio/ogcio-ds/govie/all.js</code> file to{' '}
+      <code>&lt;YOUR-JAVASCRIPT-FOLDER&gt;/ogcio-ds.js</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Import the file before the closing <code>&lt;/body&gt;</code> tag of your
+      page template, then run the <code>initAll</code> function to initialise
+      all the components. For example:
+    </p>
+    <Code
+      code={`
+<body>
+  ...
+  <script src="<YOUR-JAVASCRIPT-FOLDER>/ogcio-ds.js"></script>
+  <script>
+    window.GOVIEFrontend.initAll()
+  </script>
+</body>
+        `}
+    />
+  </li>
+  <li>
+    <p>
+      Run your application and check it works the same way as the Design System
+      accordion example, by selecting the buttons and checking the accordion
+      shows and hides sections.
+    </p>
+  </li>
+</ol>
+<p>In your live application:</p>
+<ul>
+  <li>
+    <p>
+      you must use <code>initAll</code> to initialise all components that use
+      OGCIO-DS JavaScript, or some components will not work correctly for
+      disabled users who use assistive technologies
+    </p>
+  </li>
+  <li>
+    <p>
+      we recommend{' '}
+      <a href="/importing-css-assets-and-javascript/#javascript">
+        using an automated task or your build pipeline
+      </a>{' '}
+      instead of copying the files manually
+    </p>
+  </li>
+</ul>
+<p>
+  You can now get the full code for page layouts and other components from this
+  website.
+</p>

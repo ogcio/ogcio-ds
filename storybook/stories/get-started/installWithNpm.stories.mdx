@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs'
+import { Code } from './components/Code'
+
+<Meta title="Docs/Setup/Install with npm" />
+
+<h1>Install with Node.js package manager (npm)</h1>
+<h2>Requirements</h2>
+<ol>
+  <li>
+    <p>
+      <a href="https://nodejs.org/en/" target="_blank" rel="noopener">
+        Install Node.js
+      </a>
+      .
+    </p>
+    <p>
+      If you have not already installed version 4.2.0 or later of Node.js,
+      install the latest Long Term Support (LTS) version.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>cd</code> to the root of your project and check if you have a{' '}
+      <a
+        href="https://docs.npmjs.com/files/package.json"
+        target="_blank"
+        rel="noopener"
+      >
+        <code>package.json</code> file
+      </a>
+      . If you do not have the file, create it by running:
+    </p>
+    <Code code="npm init" />
+  </li>
+</ol>
+
+<h2>Install OGCIO-DS package</h2>
+<p>Run:</p>
+<Code code="npm install @ogcio/ogcio-ds --save" />
+<p>
+  When the installation finishes, the <code>@ogcio/ogcio-ds</code> package will be in
+  your <code>node_modules</code> folder.
+</p>
+<p>
+  You should now get started by{' '}
+  <a href="/?path=/docs/docs-setup-get-started--page">
+    getting the CSS, assets and JavaScript working
+  </a>{' '}
+  with one gov.ie Frontend component.
+</p>

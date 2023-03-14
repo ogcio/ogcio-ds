@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/addon-docs'
+import { Code } from './components/Code'
+
+<Meta title="Docs/Setup/Install using precompiled files" />
+
+<h1>Install using precompiled files</h1>
+<p>
+  You can install OGCIO-DS by copying our CSS, JavaScript and asset files into
+  your project. If you install this way, you can try OGCIO-DS in your
+  application without having to make many changes.
+</p>
+<div className="govie-warning-text">
+  <span className="govie-warning-text__icon" aria-hidden="true">
+    !
+  </span>
+  <strong className="govie-warning-text__text">
+    <span className="govie-warning-text__assistive">Warning</span>
+    In your live application, you should install with Node.js package manager (npm)
+    instead.
+  </strong>
+</div>
+<br />
+<br />
+
+<h2>What you cannot do after installing</h2>
+<p>You'll not be able to:</p>
+<ul>
+  <li>
+    change{' '}
+    <a
+      href="/?path=/story/docs-sass-api-reference--page"
+      target="_blank"
+      rel="noopener"
+    >
+      Sass settings
+    </a>
+    , for example override colours or set your own font
+  </li>
+  <li>import an individual component's CSS or JavaScript</li>
+  <li>use OGCIO-DS colours or mixins in your custom code</li>
+</ul>
+
+<h2>Copy the files</h2>
+<ol>
+  <li>
+    <p>
+      Access the{' '}
+      <a
+        href="https://github.com/ogcio/ogcio-ds/tree/main/dist/%40ogcio"
+        target="_blank"
+        rel="noopener"
+      >
+        official repository
+      </a>
+      .
+    </p>
+  </li>
+  <li>
+    <p>
+      Copy the <code>assets</code> folder to the root of your project's public
+      folder, so that for example{' '}
+      <code>&lt;YOUR-SITE-URL&gt;/assets/logotype.png</code> shows the{' '}
+      <code>logotype.png</code> image in your users' browsers.
+    </p>
+  </li>
+  <li>
+    <p>
+      Copy the two <code>.css</code> files to a stylesheets folder in the root
+      of your project's public folder, so that for example{' '}
+      <code>
+        &lt;YOUR-SITE-URL&gt;/stylesheets/ogcio-ds-&lt;VERSION-NUMBER&gt;.min.css
+      </code>{' '}
+      shows the CSS file in your users' browsers.
+    </p>
+  </li>
+  <li>
+    <p>
+      Copy the <code>.js</code> file to a JavaScript folder in the root of your
+      project's public folder, so that for example{' '}
+      <code>
+        &lt;YOUR-SITE-URL&gt;/javascript/ogcio-ds-&lt;VERSION-NUMBER&gt;.min.js
+      </code>{' '}
+      shows the JavaScript file in your users' browsers.
+    </p>
+  </li>
+</ol>
+
+<h2>Check an example page</h2>
+<ol>
+  <li>
+    <p>
+      Create a page in your project using the following HTML (in your live
+      application, you should use the{' '}
+      <a href="/page-template/" target="_blank" rel="noopener">
+        Design System page template
+      </a>{' '}
+      instead):
+    </p>
+    <Code
+    code={`<!DOCTYPE html>
+<html lang="en" className="govie-template ">
+  <head>
+    <title>Example - OGCIO Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <!--[if !IE 8]><!-->
+      <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css">
+    <!--<![endif]-->
+    <!--[if IE 8]>
+      <link rel="stylesheet" href="/stylesheets/ogcio-ds-ie8-<VERSION-NUMBER>.min.css">
+    <![endif]-->
+  </head>
+  <body className="govie-template__body ">
+    <script>
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
+    <!-- component HTML -->
+    <script src="/javascript/ogcio-ds-<VERSION-NUMBER>.min.js"></script>
+    <script>
+      window.GOVIEFrontend.initAll()
+    </script>
+  </body>
+</html>
+    `}
+     />
+  </li>
+  <li>
+    <p>
+      Replace <code>&lt;VERSION-NUMBER&gt;</code> so the 3 filenames match the
+      files you copied from OGCIO-DS GitHub repo.
+    </p>
+  </li>
+  <li>
+    <p>
+      Go to the{' '}
+      <a href="/?path=/docs/typography-accordion--default" target="_blank" rel="noopener">
+        example accordion component
+      </a>{' '}
+      on the Design System website and copy the HTML from the first example.
+    </p>
+  </li>
+  <li>
+    <p>
+      Replace <code>&lt;!-- component HTML --&gt;</code> with the accordion HTML
+      you copied.
+    </p>
+  </li>
+  <li>
+    <p>
+      Run your application - you can check it works the same way as the{' '}
+      <a href="/?path=/docs/typography-accordion--default" target="_blank" rel="noopener">
+        Design System accordion example
+      </a>{' '}
+      by selecting the buttons and checking the accordion 'shows' and 'hides'
+      sections.
+    </p>
+  </li>
+</ol>

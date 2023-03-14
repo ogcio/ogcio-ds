@@ -93,13 +93,59 @@ export const parameters = {
           {children}
         </h4>
       ),
+      ol: ({ children, ...args }) => (
+        <ol className="govie-list govie-list--number" {...args}>
+          {children}
+        </ol>
+      ),
+      ul: ({ children, ...args }) => (
+        <ul className="govie-list govie-list--bullet" {...args}>
+          {children}
+        </ul>
+      ),
+      li: ({ children, ...args }) => (
+        <li className="govie-body" {...args}>
+          {children}
+        </li>
+      ),
+      code: ({ children, ...args }) => (
+        <code
+          className="govie-!-font-size-19"
+          style={{
+            background: '#f9f9f8',
+            border: '1px solid #bfc1c3',
+          }}
+          {...args}
+        >
+          {children}
+        </code>
+      ),
     },
   },
   options: {
+    controls: { expanded: true },
     storySort: {
       order: [
         'Docs',
+        [
+          'Setup',
+          [
+            'Install with npm',
+            'Update with npm',
+            'Install using precompiled files',
+            'Get started',
+            'Import CSS, assets and JavaScript',
+          ],
+          'Colours',
+          'Typography',
+          'Sass API reference',
+        ],
         'Form',
+        [
+          'Button',
+          ['Primary button', 'Secondary button', 'Tertiary button', '*'],
+          '*',
+        ],
         'Typography',
         'Navigation',
         'Layout',
