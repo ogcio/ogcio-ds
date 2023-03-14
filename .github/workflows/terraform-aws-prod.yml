@@ -101,6 +101,9 @@ jobs:
       contents: read
     env:
       TF_MODULE: cf
+    needs:
+      - terraform-s3
+      - terraform-acm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
