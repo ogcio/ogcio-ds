@@ -24,6 +24,9 @@ asdf_setup: ## Install plugins from the .tool-versions file
 terragrunt_init: ## Terraform init
 	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt init
 
+terragrunt_validate: ## Terraform init
+	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt validate
+
 terragrunt_plan: default ## Terraform plan over Terragrunt
 	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt plan
 

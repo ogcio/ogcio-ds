@@ -23,6 +23,11 @@ Initializing the state and instaling the dependencies
 make terragrunt_init ENVIRONMENT=prod TF_MODULE=s3
 ```
 
+Terragrunt validate
+```bash
+make terragrunt_validate ENVIRONMENT=prod TF_MODULE=s3
+```
+
 Terragrunt plan
 ```bash
 make terragrunt_plan ENVIRONMENT=prod TF_MODULE=s3
