@@ -7,13 +7,16 @@ on:
 env:
   AWS_DEFAULT_REGION: eu-west-1
   AWS_ASSUME_ROLE_ARN: arn:aws:iam::782102975611:role/OGCIO_GitHub_WebIdentity
+  ENVIRONMENT: prod
 
 jobs:
-  terraform:
+  terraform-s3:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
+    env:
+      TF_MODULE: s3
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,34 +37,12 @@ jobs:
           role-duration-seconds: 900
           aws-region: ${{env.AWS_DEFAULT_REGION}}
 
-      - name: TF init
+      - name: Terragrunt init
         run: |
           cd infra
-          make terragrunt_init ENVIRONMENT=prod TF_MODULE=s3
+          make terragrunt_init
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: infra-artifact
-          path: infra
- 
-  terraform-plan:
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    needs: terraform
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Download artifact
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: infra-artifact
-          path: infra
-
-      - name: TF plan
+      - name: Terragrunt plan
         run: |
           cd infra
-          make terragrunt_init ENVIRONMENT=prod TF_MODULE=s3
+          make terragrunt_plan
