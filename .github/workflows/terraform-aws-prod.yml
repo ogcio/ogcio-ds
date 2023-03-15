@@ -10,7 +10,7 @@ env:
   ENVIRONMENT: prod
 
 jobs:
-  terraform-s3:
+  terraform:
     strategy:
       matrix:
         terraform: ["s3", "acm", "cf"]
@@ -18,8 +18,6 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    env:
-      TF_MODULE: s3
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,22 +41,22 @@ jobs:
       - name: Terragrunt init
         run: |
           cd infra
-          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
 
       - name: Terragrunt validate
         run: |
           cd infra
-          make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+          make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
 
       - name: Terragrunt plan
         run: |
           cd infra
-          make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+          make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
 
       - name: Terragrunt apply
         run: |
           cd infra
-          make terragrunt_apply ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+          make terragrunt_apply ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
 
 
   # terraform-acm:
