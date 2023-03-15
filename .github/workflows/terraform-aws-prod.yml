@@ -1,4 +1,4 @@
-name: Infrastructure as Code with Terraform and Terragrunt
+name: IaC with Terraform and Terragrunt
 
 on:
   workflow_dispatch:
@@ -63,7 +63,7 @@ jobs:
           cd infra
           make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{inputs.tf_module}}
 
-      - name: Terragrunt plan/apply
+      - name: Terragrunt ${{inputs.tf_command}}
         run: |
           cd infra
           make terragrunt_${{inputs.tf_command}} ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{inputs.tf_module}}
