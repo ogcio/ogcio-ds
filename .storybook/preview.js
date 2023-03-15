@@ -108,6 +108,16 @@ export const parameters = {
           {children}
         </li>
       ),
+      td: ({ children, ...args }) => (
+        <td className="govie-body" {...args}>
+          {children}
+        </td>
+      ),
+      th: ({ children, ...args }) => (
+        <th className="govie-body" {...args}>
+          {children}
+        </th>
+      ),
       code: ({ children, ...args }) => (
         <code
           className="govie-!-font-size-19"
