@@ -11,40 +11,39 @@ env:
 
 jobs:
   terraform-s3:
-    example_matrix:
-      strategy:
-        matrix:
-          terraform: ["init", "validate", "plan", "apply"]
-      runs-on: ubuntu-latest
-      permissions:
-        id-token: write
-        contents: read
-      env:
-        TF_MODULE: s3
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
+    strategy:
+      matrix:
+        terraform: ["init", "validate", "plan", "apply"]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      TF_MODULE: s3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-        - name: Install asdf dependencies
-          uses: asdf-vm/actions/install@v2.0.0
+      - name: Install asdf dependencies
+        uses: asdf-vm/actions/install@v2.0.0
 
-        - name: Configure asdf versions
-          run: |
-            cd infra
-            cp .env.sample .env
-            make asdf_setup
+      - name: Configure asdf versions
+        run: |
+          cd infra
+          cp .env.sample .env
+          make asdf_setup
 
-        - name: AWS credentials
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            role-to-assume: ${{env.AWS_ASSUME_ROLE_ARN}}
-            role-duration-seconds: 900
-            aws-region: ${{env.AWS_DEFAULT_REGION}}
+      - name: AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{env.AWS_ASSUME_ROLE_ARN}}
+          role-duration-seconds: 900
+          aws-region: ${{env.AWS_DEFAULT_REGION}}
 
-        - name: Terragrunt ${{matrix.terraform}}
-          run: |
-            cd infra
-            make terragrunt_${{matrix.terraform}} ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+      - name: Terragrunt ${{matrix.terraform}}
+        run: |
+          cd infra
+          make terragrunt_${{matrix.terraform}} ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
       # - name: Terragrunt validate
       #   run: |
