@@ -28,9 +28,9 @@ env:
 
 jobs:
   terraform:
-    strategy:
-      matrix:
-        terraform: ${{inputs.tf_module}}
+    # strategy:
+    #   matrix:
+    #     terraform: ${{inputs.tf_module}}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
