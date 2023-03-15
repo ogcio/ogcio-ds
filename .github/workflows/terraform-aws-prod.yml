@@ -1,17 +1,25 @@
-name: Infrastructure as Code with Terraform and Terragrunt
+name: IaC with Terraform and Terragrunt
 
 on:
   workflow_dispatch:
     inputs:
-      tf_modules:
+      tf_module:
         description: 'Terraform modules to be deployed'
         required: true
-        default: 'warning'
+        default: 's3'
         type: choice
         options:
           - s3
           - acm
           - cf
+      tf_command:
+        description: "Terraform command"
+        required: true
+        type: choice
+        default: 'plan'
+        options:
+          - plan
+          - apply
 
 env:
   AWS_DEFAULT_REGION: eu-west-1
@@ -20,9 +28,7 @@ env:
 
 jobs:
   terraform:
-    strategy:
-      matrix:
-        terraform: ${{ inputs.tf_modules }} 
+    name: Terraform ${{inputs.tf_module}} ${{inputs.tf_command}}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -50,19 +56,14 @@ jobs:
       - name: Terragrunt init
         run: |
           cd infra
-          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
+          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{inputs.tf_module}}
 
       - name: Terragrunt validate
         run: |
           cd infra
-          make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
+          make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{inputs.tf_module}}
 
-      - name: Terragrunt plan
+      - name: Terragrunt ${{inputs.tf_command}}
         run: |
           cd infra
-          make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
-
-      - name: Terragrunt apply
-        run: |
-          cd infra
-          make terragrunt_apply ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{matrix.terraform}}
+          make terragrunt_${{inputs.tf_command}} ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{inputs.tf_module}}
