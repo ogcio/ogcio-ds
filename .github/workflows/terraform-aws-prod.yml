@@ -6,7 +6,7 @@ on:
       tf_module:
         description: 'Terraform modules to be deployed'
         required: true
-        default: 'warning'
+        default: 's3'
         type: choice
         options:
           - s3
@@ -28,9 +28,7 @@ env:
 
 jobs:
   terraform:
-    # strategy:
-    #   matrix:
-    #     terraform: ${{inputs.tf_module}}
+    name: Terraform ${{env.ENVIRONMENT}} ${{env.ENVIRONMENT}} ${{inputs.tf_module}} ${{inputs.tf_command}}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
