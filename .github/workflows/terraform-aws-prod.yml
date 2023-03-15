@@ -13,7 +13,7 @@ jobs:
   terraform-s3:
     strategy:
       matrix:
-        terraform: ["init", "validate", "plan", "apply"]
+        terraform: ["s3", "acm", "cf"]
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -40,25 +40,25 @@ jobs:
           role-duration-seconds: 900
           aws-region: ${{env.AWS_DEFAULT_REGION}}
 
-      - name: Terragrunt ${{matrix.terraform}}
+      - name: Terragrunt init
         run: |
           cd infra
-          make terragrunt_${{matrix.terraform}} ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+          make terragrunt_init ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
-      # - name: Terragrunt validate
-      #   run: |
-      #     cd infra
-      #     make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+      - name: Terragrunt validate
+        run: |
+          cd infra
+          make terragrunt_validate ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
-      # - name: Terragrunt plan
-      #   run: |
-      #     cd infra
-      #     make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+      - name: Terragrunt plan
+        run: |
+          cd infra
+          make terragrunt_plan ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
-      # - name: Terragrunt apply
-      #   run: |
-      #     cd infra
-      #     make terragrunt_apply ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
+      - name: Terragrunt apply
+        run: |
+          cd infra
+          make terragrunt_apply ENVIRONMENT=${{env.ENVIRONMENT}} TF_MODULE=${{env.TF_MODULE}}
 
 
   # terraform-acm:
