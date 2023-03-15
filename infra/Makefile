@@ -31,4 +31,4 @@ terragrunt_plan: default ## Terraform plan over Terragrunt
 	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt plan
 
 terragrunt_apply: default ## Terrafomr apply over Terragrunt
-	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt apply
+	@cd terragrunt/$(ENVIRONMENT)/$(AWS_REGION)/$(TF_MODULE) && terragrunt apply -auto-approve

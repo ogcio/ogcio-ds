@@ -1,8 +1,17 @@
 name: Infrastructure as Code with Terraform and Terragrunt
 
 on:
-  push:
-    branches: ["feat/infra-new-bucket"]
+  workflow_dispatch:
+    inputs:
+      tf_modules:
+        description: 'Terraform modules to be deployed'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - s3
+          - acm
+          - cf
 
 env:
   AWS_DEFAULT_REGION: eu-west-1
@@ -13,7 +22,7 @@ jobs:
   terraform:
     strategy:
       matrix:
-        terraform: ["s3", "acm", "cf"]
+        terraform: ${{ inputs.tf_modules }} 
     runs-on: ubuntu-latest
     permissions:
       id-token: write
