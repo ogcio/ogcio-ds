@@ -28,7 +28,7 @@ env:
 
 jobs:
   terraform:
-    name: Terraform ${{env.ENVIRONMENT}} ${{env.ENVIRONMENT}} ${{inputs.tf_module}} ${{inputs.tf_command}}
+    name: Terraform ${{inputs.tf_module}} ${{inputs.tf_command}}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
