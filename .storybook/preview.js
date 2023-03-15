@@ -128,17 +128,17 @@ export const parameters = {
       order: [
         'Docs',
         [
-          'Setup',
-          [
-            'Install with npm',
-            'Update with npm',
-            'Install using precompiled files',
-            'Get started',
-            'Import CSS, assets and JavaScript',
-          ],
+          'Get started',
+          'Install with npm',
+          'Update with npm',
+          'Install using precompiled files',
+          'Import CSS, assets and JavaScript',
+          'Configure components with JavaScript',
+          'Localise OGCIO-DS',
+          'JavaScript API Reference',
+          'Sass API reference',
           'Colours',
           'Typography',
-          'Sass API reference',
         ],
         'Form',
         [

@@ -1,0 +1,147 @@
+import { Meta } from '@storybook/addon-docs'
+import { Code } from '../components/Code'
+
+<Meta title="Docs/Configure components with JavaScript" />
+
+<h1>Configure components with JavaScript</h1>
+<p>
+  You can configure some of the components in OGCIO-DS to customise their
+  behaviour.
+</p>
+<p>You can configure a component by:</p>
+<ul>
+  <li>using data attributes in the HTML</li>
+  <li>passing a JavaScript object when creating an instance of a component</li>
+  <li>
+    using the <code>initAll</code> function
+  </li>
+</ul>
+
+<h2>Passing configuration using data attributes in HTML</h2>
+<p>
+  If you're using HTML, you can pass configuration by adding data attributes to
+  the component's outermost element (the element that has the{' '}
+  <code>data-module</code> attribute). Data attributes use kebab-case.
+</p>
+<p>
+  Some configuration options are grouped under a namespace to keep related
+  options together. For example, the localisation options are grouped under the{' '}
+  <code>i18n</code> namespace. When using these options, include the namespace
+  as a prefix followed by a period as part of the attribute name.
+</p>
+<p>
+  For options accepting object values, you'll need to set one attribute for each
+  key of that object. Suffix the attribute name (including any namespace) with a
+  period and the name of the key in the object.
+</p>
+<p>
+  This example shows the opening tag of a character count component with some
+  configuration options including:
+</p>
+<ul>
+  <li>a specific number of characters (non-namespaced configuration)</li>
+  <li>
+    a new message for when users reach the specified number of characters
+    (namespaced configuration)
+  </li>
+  <li>
+    two plural forms for when users are under the specified limit of characters
+    (namespaced configuration + object value)
+  </li>
+</ul>
+
+<Code
+  code={`<div data-module="govie-character-count"
+  data-maxlength="500"
+  data-i18n.characters-at-limit="No characters left"
+  data-i18n.characters-under-limit.other="%{count} characters to go"
+  data-i18n.characters-under-limit.one="%{count} character to go">`}
+/>
+<p>
+  If your configuration contains{' '}
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Glossary/Entity#reserved_characters"
+    target="_blank"
+    rel="noopener"
+  >
+    quotes or other reserved HTML characters
+  </a>
+  , you'll need to escape those characters.
+</p>
+<p>
+  Configuration is read from data attributes when the component is initialised.
+  Changes to the data attributes made after the component has been initialised
+  will have no effect on the behaviour of the component.
+</p>
+<p>
+  Read the{' '}
+  <a href="/?path=/docs/docs-javascript-api-reference--page">
+    JavaScript API Reference
+  </a>{' '}
+  for the configuration accepted by each component. You'll need to convert the
+  configuration names into kebab-case.
+</p>
+
+<h2>Passing configuration to a new instance of a component in JavaScript</h2>
+<p>
+  You can pass a configuration object to the constructor when creating an
+  instance of a component in JavaScript.
+</p>
+<p>Component constructors accept two arguments:</p>
+<ol>
+  <li>The HTML element that represents the component.</li>
+  <li>An optional configuration object.</li>
+</ol>
+<p>
+  The object should include key-value pairs. The keys should be written in
+  camelCase.
+</p>
+<p>
+  Components will merge the configuration provided at initialisation with those
+  provided as data-attributes. If the same option is defined in both, the one
+  provided by data-attributes will take precedence.
+</p>
+<p>
+  Some configuration options might accept object values or be grouped under a
+  namespace to keep related things together. For example, the localisation
+  options are grouped under the <code>i18n</code> namespace. When using these
+  options, use nested objects. For example:
+</p>
+<Code
+  code={`new CharacterCount($element, {
+  maxlength: 500, // Non namespaced
+  i18n: { // i18n namespace
+    charactersAtLimit: "No characters left",
+    charactersUnderLimit: { // Object value
+      other: "%{count} characters to go",
+      one: "%{count} character to go"
+    }
+  }
+}).init()`}
+/>
+<p>
+  Read the{' '}
+  <a href="/?path=/docs/docs-javascript-api-reference--page">
+    JavaScript API Reference
+  </a>{' '}
+  to see what configuration each component accepts.
+</p>
+
+<h2>Passing configuration using the initAll function</h2>
+<p>
+  You can pass configuration for components when initialising GOV.UK Frontend
+  using the <code>initAll</code> function. You can do this by including
+  key-value pairs of camel-cased component names and configuration objects. This
+  is the same method you would use to pass them when creating an instance of the
+  component. For example:
+</p>
+<Code
+  code={`window.GOVIEFrontend.initAll({
+  characterCount: {
+    maxlength: 500, // Non namespaced
+    i18n: { // i18n namespace
+      charactersAtLimit: "No characters left"
+    }
+  },
+})`}
+/>

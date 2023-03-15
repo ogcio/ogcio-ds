@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { CodeExample } from './components/CodeExample'
+import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <Meta title="Docs/Typography" />
 
@@ -35,7 +35,7 @@ import { CodeExample } from './components/CodeExample'
   you use does not always need to correspond to the heading level.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <h1 class="govie-heading-l">govie-heading-l</h1>
 <h2 class="govie-heading-m">govie-heading-m</h2>
@@ -54,7 +54,7 @@ import { CodeExample } from './components/CodeExample'
   section or group. To do this, you can use a heading with a caption above it.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <span class="govie-caption-xl">govie-caption-xl</span>
 <h1 class="govie-heading-xl">govie-heading-xl</h1>
@@ -69,7 +69,7 @@ import { CodeExample } from './components/CodeExample'
   nest the caption within the <code>&lt;h1&gt;</code>.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <h1 class="govie-heading-l">
   <span class="govie-caption-l">govie-caption-l</span>
@@ -84,7 +84,7 @@ import { CodeExample } from './components/CodeExample'
   screens.
 </p>
 
-<CodeExample code={`<p class="govie-body">govie-body</p>`} />
+<CodeWithDemo code={`<p class="govie-body">govie-body</p>`} />
 
 <p>
   You can also add classes to create a lead paragraph or smaller body copy to
@@ -98,7 +98,7 @@ import { CodeExample } from './components/CodeExample'
   should only be used once per page if needed.
 </p>
 
-<CodeExample code={`<p class="govie-body-l">govie-body-l</p>`} />
+<CodeWithDemo code={`<p class="govie-body-l">govie-body-l</p>`} />
 
 <h3>Body small</h3>
 <p>
@@ -111,7 +111,7 @@ import { CodeExample } from './components/CodeExample'
   The majority of your body copy should use the standard 19px paragraph size.
 </p>
 
-<CodeExample code={`<p class="govie-body-s">govie-body-s</p>`} />
+<CodeWithDemo code={`<p class="govie-body-s">govie-body-s</p>`} />
 
 <h2>Text alignment override classes</h2>
 <p>
@@ -156,7 +156,7 @@ import { CodeExample } from './components/CodeExample'
   element and they will change the font size.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <p class="govie-body govie-!-font-size-80">govie-!-font-size-80</p>
 <p class="govie-body govie-!-font-size-48">govie-!-font-size-48</p>
@@ -175,7 +175,7 @@ import { CodeExample } from './components/CodeExample'
   weight.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <p class="govie-body govie-!-font-weight-regular">govie-!-font-weight-regular</p>
 <p class="govie-body govie-!-font-weight-bold">govie-!-font-weight-bold</p>`}
@@ -204,7 +204,7 @@ import { CodeExample } from './components/CodeExample'
   full stop.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`<p class="govie-body">Jump to <a href="#" class="govie-link">HTML example</a>.</p>`}
 />
 
@@ -214,7 +214,7 @@ import { CodeExample } from './components/CodeExample'
   when linking to pages with frequently-changing content such as the dashboard
   for an admin interface.
 </p>
-<CodeExample
+<CodeWithDemo
   code={`<a href="#" class="govie-link govie-link--no-visited-state">link text (with no visited state)</a>`}
 />
 
@@ -252,7 +252,7 @@ import { CodeExample } from './components/CodeExample'
   . The following example shows how to do this in HTML.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`<a href="#" class="govie-link" rel="noreferrer noopener" target="_blank">link text (opens in new tab)</a>`}
 />
 
@@ -291,7 +291,7 @@ import { CodeExample } from './components/CodeExample'
   .
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`<a href="#" class="govie-link govie-link--inverse">link text (on dark background)</a>`}
   darkMode
 />
@@ -312,7 +312,7 @@ import { CodeExample } from './components/CodeExample'
   same place, across different pages.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`<a href="#" class="govie-link govie-link--no-underline">link text (with no underline)</a>`}
 />
 
@@ -322,7 +322,7 @@ import { CodeExample } from './components/CodeExample'
   manageable chunks.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <ul class="govie-list">
   <li>
@@ -346,7 +346,7 @@ import { CodeExample } from './components/CodeExample'
   item with a lowercase letter, and do not use a full stop at the end.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <p class="govie-body">You can buy:</p>
 <ul class="govie-list govie-list--bullet">
@@ -367,7 +367,7 @@ import { CodeExample } from './components/CodeExample'
   list should end in a full stop because each should be a complete sentence.
 </p>
 
-<CodeExample
+<CodeWithDemo
   code={`
 <ol class="govie-list govie-list--number">
   <li>Delivery address.</li>
@@ -381,7 +381,7 @@ import { CodeExample } from './components/CodeExample'
   If a list is hard to read because the items run across multiple lines you can
   add extra spacing.
 </p>
-<CodeExample
+<CodeWithDemo
   code={`
 <p class="govie-body">You will have to apply the reverse charge if you supply any of these services:</p>
 <ul class="govie-list govie-list--bullet govie-list--spaced">
@@ -423,7 +423,7 @@ import { CodeExample } from './components/CodeExample'
   can add the <code>govie-section-break--visible</code> class to make it visible
   with a separator line.
 </p>
-<CodeExample
+<CodeWithDemo
   code={`
 <hr class="govie-section-break govie-section-break--xl govie-section-break--visible">
 <hr class="govie-section-break govie-section-break--l govie-section-break--visible">

@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from './components/Code'
+import { Code } from '../components/Code'
 
-<Meta title="Docs/Setup/Import CSS, assets and JavaScript" />
+<Meta title="Docs/Import CSS, assets and JavaScript" />
 
 <h1>Import CSS, assets and JavaScript</h1>
 
@@ -29,7 +29,7 @@ import { Code } from './components/Code'
   for a basic OGCIO-DS page.
 </p>
 <Code
-  code={`@import "@ogcio/ogcio-ds/govie/base";
+  code={`@import "@ogcio/ogcio-ds/govie/base";\n
 @import "@ogcio/ogcio-ds/govie/core/all";
 @import "@ogcio/ogcio-ds/govie/objects/all";
 @import "@ogcio/ogcio-ds/govie/components/footer";
@@ -58,7 +58,7 @@ import { Code } from './components/Code'
   <code>@import</code> OGCIO-DS styles before your own Sass rules.
 </p>
 
-<h2>Font and image assets</h2>
+<h2 id="fonts-and-images-assets">Font and image assets</h2>
 <p>To use the font and image assets from OGCIO-DS, you can either:</p>
 <ul>
   <li>
@@ -76,8 +76,11 @@ import { Code } from './components/Code'
   <code>/node_modules/@ogcio/ogcio-ds/govie/assets</code>.
 </p>
 <p>
-  For example if you're using <a href="https://expressjs.com/">express.js</a>,
-  add the following to your <code>app.js</code> file:
+  For example if you're using{' '}
+  <a href="https://expressjs.com/" target="_blank" rel="noopener">
+    express.js
+  </a>
+  , add the following to your <code>app.js</code> file:
 </p>
 <Code
   code={`var path = require('path');
@@ -142,7 +145,7 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
   <code>$govie-font-url-function</code> variables to the name of your function.
 </p>
 
-<h2>JavaScript</h2>
+<h2 id="import-javascript">JavaScript</h2>
 <p>To import the JavaScript from OGCIO-DS, you can either:</p>
 <ul>
   <li>add OGCIO-DS's JavaScript file to your HTML</li>
@@ -220,7 +223,7 @@ if ($radios) {
 />
 
 <p>
-  If you need to import all of GOV.UK Frontend's components, then run the{' '}
+  If you need to import all of OGCIO-DS components, then run the{' '}
   <code>initAll</code> function to initialise them:
 </p>
 <Code
@@ -229,7 +232,7 @@ initAll()`}
 />
 <p>
   If you're using a bundler that uses CommonJS like{' '}
-  <a href="http://browserify.org/" targe="_blank" rel="noopener">
+  <a href="http://browserify.org/" target="_blank" rel="noopener">
     Browserify
   </a>
   , you should use <code>require</code>:
@@ -275,7 +278,7 @@ GOVIEFrontend.initAll()`}
   Make sure you{' '}
   <a
     href="https://www.w3.org/TR/CSP/#security-considerations"
-    targe="_blank"
+    target="_blank"
     rel="noopener"
   >
     understand the security implications of using either option
@@ -293,7 +296,7 @@ GOVIEFrontend.initAll()`}
 <p>
   <a
     href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
-    targe="_blank"
+    target="_blank"
     rel="noopener"
   >
     Learn more about Content Security Policy on the MDN Web Docs website
@@ -301,9 +304,8 @@ GOVIEFrontend.initAll()`}
   .
 </p>
 
-<h4
->
- Use a <code>nonce</code> attribute to unblock inline JavaScript
+<h4>
+  Use a <code>nonce</code> attribute to unblock inline JavaScript
 </h4>
 <p>
   If you're unable to use the hash in your CSP, you can also use a{' '}
