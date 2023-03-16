@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs'
 import { CodeSnippet } from '../components/CodeSnippet'
+import { PrefixedLink } from '../components/PrefixedLink'
 
 <Meta title="Docs/Get started" />
 
@@ -23,33 +24,30 @@ import { CodeSnippet } from '../components/CodeSnippet'
 
 <h2>1. Install OGCIO-DS package</h2>
 <p>
-  <a
-    className="govie-link govie-body"
-    href="/?path=/docs/docs-install-with-npm--page"
-  >
+  <PrefixedLink href="/?path=/docs/docs-install-with-npm--page">
     Install OGCIO-DS using npm
-  </a>
+  </PrefixedLink>
 </p>
 <p>
   If you've{' '}
-  <a href="/?path=/story/docs-install-using-precompiled-files--page">
+  <PrefixedLink href="/?path=/story/docs-install-using-precompiled-files--page">
     installed using precompiled files
-  </a>
-  , get started with <a href="/?path=/story/docs-install-using-precompiled-files--page#basic-example-page">
+  </PrefixedLink>
+  , get started with <PrefixedLink href="/?path=/story/docs-install-using-precompiled-files--page#basic-example-page">
     a basic page
-  </a> instead.
+  </PrefixedLink> instead.
 </p>
 
 <h2>2. Add the HTML for a component to your application</h2>
 <p>
   Go to the{' '}
-  <a
+  <PrefixedLink
     href="/?path=/docs/typography-accordion--default"
     target="_blank"
     rel="noopener"
   >
     example accordion component
-  </a>{' '}
+  </PrefixedLink>{' '}
   on this website, then copy the HTML.
 </p>
 <p>Paste the HTML into a page or template in your application.</p>
@@ -83,9 +81,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
 </p>
 <p>
   There are also different ways you can{' '}
-  <a href="/?path=/docs/docs-import-css-assets-and-javascript--page">
+  <PrefixedLink href="/?path=/docs/docs-import-css-assets-and-javascript--page">
     import OGCIO-DS CSS
-  </a>
+  </PrefixedLink>
   .
 </p>
 
@@ -124,9 +122,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
 </ol>
 <p>
   In your live application, we recommend{' '}
-  <a href="/?path=/docs/docs-import-css-assets-and-javascript--page#fonts-and-images-assets">
+  <PrefixedLink href="/?path=/docs/docs-import-css-assets-and-javascript--page#fonts-and-images-assets">
     using an automated task or your build pipeline
-  </a>{' '}
+  </PrefixedLink>{' '}
   instead of copying the files manually.
 </p>
 
@@ -188,9 +186,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
   <li>
     <p>
       we recommend{' '}
-      <a href="/?path=/docs/docs-import-css-assets-and-javascript--page#import-javascript">
+      <PrefixedLink href="/?path=/docs/docs-import-css-assets-and-javascript--page#import-javascript">
         using an automated task or your build pipeline
-      </a>{' '}
+      </PrefixedLink>{' '}
       instead of copying the files manually
     </p>
   </li>

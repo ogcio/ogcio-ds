@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs'
 import { CodeSnippet } from '../components/CodeSnippet'
+import { PrefixedLink } from '../components/PrefixedLink'
 
 <Meta title="Docs/Install using precompiled files" />
 
@@ -27,13 +28,13 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <ul>
   <li>
     change{' '}
-    <a
+    <PrefixedLink
       href="/?path=/story/docs-sass-api-reference--page"
       target="_blank"
       rel="noopener"
     >
       Sass settings
-    </a>
+    </PrefixedLink>
     , for example override colours or set your own font
   </li>
   <li>import an individual component's CSS or JavaScript</li>
@@ -91,9 +92,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
     <p>
       Create a page in your project using the following HTML (in your live
       application, you should use the{' '}
-      <a href="/?path=/docs/templates-basic-page--default" target="_blank" rel="noopener">
+      <PrefixedLink href="/?path=/docs/templates-basic-page--default" target="_blank" rel="noopener">
         Design System basic page template
-      </a>{' '}
+      </PrefixedLink>{' '}
       instead):
     </p>
     <CodeSnippet
@@ -132,9 +133,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
   <li>
     <p>
       Go to the{' '}
-      <a href="/?path=/docs/typography-accordion--default">
+      <PrefixedLink href="/?path=/docs/typography-accordion--default">
         example accordion component
-      </a>{' '}
+      </PrefixedLink>{' '}
       on the Design System website and copy the HTML from the first example.
     </p>
   </li>
@@ -147,9 +148,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
   <li>
     <p>
       Run your application - you can check it works the same way as the{' '}
-      <a href="/iframe.html?id=typography-accordion--default&viewMode=story" target="_blank" rel="noopener">
+      <PrefixedLink href="/iframe.html?id=typography-accordion--default&viewMode=story" target="_blank" rel="noopener">
         Design System accordion example
-      </a>{' '}
+      </PrefixedLink>{' '}
       by selecting the buttons and checking the accordion 'shows' and 'hides'
       sections.
     </p>
