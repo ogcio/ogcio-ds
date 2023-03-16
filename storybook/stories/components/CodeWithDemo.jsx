@@ -2,7 +2,7 @@
 import { CopyBlock, atomOneLight } from 'react-code-blocks'
 import React from 'react'
 
-export const CodeExample = ({ code, darkMode }) => (
+export const CodeWithDemo = ({ code, darkMode }) => (
   <div
     style={{
       border: '1px solid',
