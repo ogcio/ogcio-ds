@@ -136,7 +136,7 @@ Navigation.prototype.init = function () {
   }
 
   if (typeof window.matchMedia === 'function') {
-    this.mql = window.matchMedia('(min-width: 40.0625em)')
+    this.mql = window.matchMedia('(min-width: 49.0625em)')
 
     // IE and Safari < 14 do not support MediaQueryList.addEventListener
     if ('addEventListener' in this.mql) {
