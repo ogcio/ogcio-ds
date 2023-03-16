@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from '../components/Code'
+import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Localise OGCIO-DS" />
 
@@ -55,7 +55,7 @@ import { Code } from '../components/Code'
   </li>
 </ul>
 <p>JavaScript uses nested objects. For example:</p>
-<Code
+<CodeSnippet
   code={`{
   i18n: {
     camelCasedName: /* Text or Object with plural forms */
@@ -117,7 +117,7 @@ import { Code } from '../components/Code'
   of the 3 configuration options described in the previous section.
 </p>
 
-<h3>Understanding pluralisation rules</h3>
+<h3 id="pluralisation-rules">Understanding pluralisation rules</h3>
 <p>Different languages have different rules for pluralisation.</p>
 <p>
   English only has 2 forms, singular and plural. Other languages often have more
@@ -188,14 +188,14 @@ import { Code } from '../components/Code'
 </p>
 
 <p>With data attributes</p>
-<Code code={`<div data-module="character-count" 
+<CodeSnippet code={`<div data-module="character-count" 
   data-i18n.characters-under-limit.other="%{count} characters to go"
   data-i18n.characters-under-limit.one="One character to go"
   data-i18n.characters-over-limit.one="One character too many">
   <!-- The 'other' key for 'characters-over-limit' will be our default -->`} />
 
 <p>With JavaScript</p>
-<Code code={`new CharacterCount($element, {
+<CodeSnippet code={`new CharacterCount($element, {
   i18n: {
     charactersUnderLimit: {
       other: '%{count} characters to go',

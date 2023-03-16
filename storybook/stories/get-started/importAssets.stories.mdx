@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from '../components/Code'
+import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Import CSS, assets and JavaScript" />
 
@@ -11,7 +11,7 @@ import { Code } from '../components/Code'
   To import all the Sass rules from OGCIO-DS, add the following to your Sass
   file:
 </p>
-<Code code={`@import "@ogcio/ogcio-ds/govie/all";`} />
+<CodeSnippet code={`@import "@ogcio/ogcio-ds/govie/all";`} />
 
 <h3>Import specific parts of the CSS</h3>
 <p>
@@ -28,7 +28,7 @@ import { Code } from '../components/Code'
   For example, add the following to your Sass file to import the CSS you need
   for a basic OGCIO-DS page.
 </p>
-<Code
+<CodeSnippet
   code={`@import "@ogcio/ogcio-ds/govie/base";\n
 @import "@ogcio/ogcio-ds/govie/core/all";
 @import "@ogcio/ogcio-ds/govie/objects/all";
@@ -50,7 +50,7 @@ import { Code } from '../components/Code'
   To import the button component for example, add the following to your Sass
   file:
 </p>
-<Code code={`@import "@ogcio/ogcio-ds/govie/components/button/button";`} />
+<CodeSnippet code={`@import "@ogcio/ogcio-ds/govie/components/button/button";`} />
 
 <h3>Override with your own CSS</h3>
 <p>
@@ -82,7 +82,7 @@ import { Code } from '../components/Code'
   </a>
   , add the following to your <code>app.js</code> file:
 </p>
-<Code
+<CodeSnippet
   code={`var path = require('path');
 app.use('/assets', express.static(path.join(__dirname, '@ogcio/ogcio-ds/govie/assets')))`}
 />
@@ -127,13 +127,13 @@ app.use('/assets', express.static(path.join(__dirname, '@ogcio/ogcio-ds/govie/as
   Set the <code>$govie-assets-path</code> variable if your <code>font</code> and{' '}
   <code>image</code> folders have the same parent folder. For example:
 </p>
-<Code code={`$govie-assets-path: "/<YOUR-ASSETS-FOLDER>/";`} />
+<CodeSnippet code={`$govie-assets-path: "/<YOUR-ASSETS-FOLDER>/";`} />
 <p>
   Set the <code>$govie-images-path</code> and <code>$govie-fonts-path</code>{' '}
   variables if your <code>font</code> and <code>image</code> folders have
   different parent folders. For example:
 </p>
-<Code
+<CodeSnippet
   code={`$govie-images-path: "/<YOUR-IMAGES-FOLDER>/";
 $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
 />
@@ -173,7 +173,7 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
   tag of your HTML page or page template, and run the <code>initAll</code>{' '}
   function to initialise all the components.
 </p>
-<Code
+<CodeSnippet
   code={`<body>
 ...
   <script src="<YOUR-APP>/<YOUR-JS-FILE>.js"></script>
@@ -189,7 +189,7 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
   <code>data-module</code> attribute. For example, use <code>govie-radios</code>{' '}
   to initialise the first radio component on a page:
 </p>
-<Code
+<CodeSnippet
   code={`<script>
     var Radios = window.GOVIEFrontend.Radios
     var $radio = document.querySelector('[data-module="govie-radios"]')
@@ -205,7 +205,7 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
   <code>import</code> to only import the JavaScript for components you're using
   in your service. For example:
 </p>
-<Code
+<CodeSnippet
   code={`
 import { SkipLink, Radios } from '@ogcio/ogcio-ds'
 \n
@@ -226,7 +226,7 @@ if ($radios) {
   If you need to import all of OGCIO-DS components, then run the{' '}
   <code>initAll</code> function to initialise them:
 </p>
-<Code
+<CodeSnippet
   code={`import { initAll } from '@ogcio/ogcio-ds'
 initAll()`}
 />
@@ -237,7 +237,7 @@ initAll()`}
   </a>
   , you should use <code>require</code>:
 </p>
-<Code
+<CodeSnippet
   code={`const GOVIEFrontend = require('@ogcio/ogcio-ds')
 GOVIEFrontend.initAll()`}
 />
@@ -249,7 +249,7 @@ GOVIEFrontend.initAll()`}
   the components on part of a page.
 </p>
 <p>For example:</p>
-<Code
+<CodeSnippet
   code={`<script>
   var $modal = document.querySelector('.modal')
   window.GOVIEFrontend.initAll({
@@ -264,7 +264,7 @@ GOVIEFrontend.initAll()`}
   JavaScript in the page template. You may see a warning like the following in
   your browser's developer tools:
 </p>
-<Code
+<CodeSnippet
   code={`Refused to execute inline script because it violates the following Content Security Policy directive: "default-src 'self'".
 `}
 />
@@ -291,7 +291,7 @@ GOVIEFrontend.initAll()`}
 <p>
   You can unblock inline JavaScript by including the following hash in your CSP:
 </p>
-<Code code={`sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=`} />
+<CodeSnippet code={`sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU=`} />
 <p>You do not need to make any changes to the HTML.</p>
 <p>
   <a

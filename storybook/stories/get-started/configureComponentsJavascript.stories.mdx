@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from '../components/Code'
+import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Configure components with JavaScript" />
 
@@ -50,7 +50,7 @@ import { Code } from '../components/Code'
   </li>
 </ul>
 
-<Code
+<CodeSnippet
   code={`<div data-module="govie-character-count"
   data-maxlength="500"
   data-i18n.characters-at-limit="No characters left"
@@ -107,7 +107,7 @@ import { Code } from '../components/Code'
   options are grouped under the <code>i18n</code> namespace. When using these
   options, use nested objects. For example:
 </p>
-<Code
+<CodeSnippet
   code={`new CharacterCount($element, {
   maxlength: 500, // Non namespaced
   i18n: { // i18n namespace
@@ -135,7 +135,7 @@ import { Code } from '../components/Code'
   is the same method you would use to pass them when creating an instance of the
   component. For example:
 </p>
-<Code
+<CodeSnippet
   code={`window.GOVIEFrontend.initAll({
   characterCount: {
     maxlength: 500, // Non namespaced

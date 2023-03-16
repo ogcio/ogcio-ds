@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 
-export const Code = ({ code }) => (
+export const CodeSnippet = ({ code }) => (
   <div style={{ backgroundColor: '#f9f9f8', marginBottom: '15px' }}>
     <pre
       style={{

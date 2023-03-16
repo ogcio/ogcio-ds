@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from '../components/Code'
+import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Get started" />
 
@@ -61,11 +61,11 @@ import { Code } from '../components/Code'
       Add the following to the main Sass file in your project, so your Sass
       compiler adds all of OGCIO-DS styles to your CSS file.
     </p>
-    <Code code={`@import '@ogcio/ogcio-ds/govie/all';`} />
+    <CodeSnippet code={`@import '@ogcio/ogcio-ds/govie/all';`} />
   </li>
   <li>
     <p>Add your CSS file to your page layout if you need to. For example:</p>
-    <Code
+    <CodeSnippet
       code={`<head>
   ...
   <link rel="stylesheet" href="<YOUR-CSS-FILE>.css">
@@ -137,7 +137,7 @@ import { Code } from '../components/Code'
       Add the following to the top of the <code>&lt;body&gt;</code> section of
       your page template:
     </p>
-    <Code
+    <CodeSnippet
       code={`<script>
   document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 </script>
@@ -156,7 +156,7 @@ import { Code } from '../components/Code'
       page template, then run the <code>initAll</code> function to initialise
       all the components. For example:
     </p>
-    <Code
+    <CodeSnippet
       code={`
 <body>
   ...

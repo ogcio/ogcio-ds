@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs'
-import { Code } from '../components/Code'
+import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Update with npm" />
 
@@ -14,13 +14,13 @@ import { Code } from '../components/Code'
 
 <h2>Find out which version you're using</h2>
 <p>To find out which version of OGCIO-DS your project is using, you can run:</p>
-<Code code="npm list @ogcio/ogcio-ds" />
+<CodeSnippet code="npm list @ogcio/ogcio-ds" />
 <p>
   If you do not have command line access, you can see the version number in the
   <code>package.json</code> file in the root of your project directory. For example:
 </p>
 
-<Code code={`"@ogcio/ogcio-ds": "0.0.8"`} />
+<CodeSnippet code={`"@ogcio/ogcio-ds": "0.0.8"`} />
 
 <h2>Update OGCIO-DS using npm</h2>
 <p>
@@ -40,9 +40,9 @@ import { Code } from '../components/Code'
   the first digit in the version number.
 </p>
 <p>To update to the most recent version, run:</p>
-<Code code="npm install @ogcio/ogcio-ds@latest" />
+<CodeSnippet code="npm install @ogcio/ogcio-ds@latest" />
 <p>
   If you want to install an earlier version, replace <code>latest</code> with
   the version that you want to update to. For example:
 </p>
-<Code code="npm install @ogcio/ogcio-ds@0.0.7" />
+<CodeSnippet code="npm install @ogcio/ogcio-ds@0.0.7" />
