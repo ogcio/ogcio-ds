@@ -157,11 +157,10 @@ import { CodeSnippet } from '../components/CodeSnippet'
     target="_blank"
     rel="noopener"
   >
-    the Unicode Common Locale Data Repository documentation for guidance on
-    which of these forms your locale requires and what <code>few</code> and{' '}
-    <code>many</code> might represent for it
-  </a>
-  .
+    the Unicode Common Locale Data Repository documentation
+  </a>{' '}
+  for guidance on which of these forms your locale requires and what{' '}
+  <code>few</code> and <code>many</code> might represent for it .
 </p>
 <p>
   When providing text with plural forms, you'll need to pass an object
@@ -195,7 +194,8 @@ import { CodeSnippet } from '../components/CodeSnippet'
   <!-- The 'other' key for 'characters-over-limit' will be our default -->`} />
 
 <p>With JavaScript</p>
-<CodeSnippet code={`new CharacterCount($element, {
+<CodeSnippet
+  code={`new CharacterCount($element, {
   i18n: {
     charactersUnderLimit: {
       other: '%{count} characters to go',
@@ -206,5 +206,5 @@ import { CodeSnippet } from '../components/CodeSnippet'
       // The 'other' key for 'characterOverLimit' will be our default
     }
   }
-}).init()`} />
-
+}).init()`}
+/>

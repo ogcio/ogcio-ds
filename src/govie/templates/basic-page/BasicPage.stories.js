@@ -1,11 +1,11 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 
 export default {
-  title: 'Patterns/Basic page',
+  title: 'Templates/Basic page',
   parameters: {
     docs: {
       description: {
-        component: 'A basic page.',
+        component: 'A template for a basic page.',
       },
     },
   },
