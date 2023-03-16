@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs'
 import { CodeSnippet } from '../components/CodeSnippet'
-import { PrefixedLink } from '../components/PrefixedLink'
+import { InternalLink } from '../components/InternalLink'
 
 <Meta title="Docs/Install using precompiled files" />
 
@@ -28,13 +28,13 @@ import { PrefixedLink } from '../components/PrefixedLink'
 <ul>
   <li>
     change{' '}
-    <PrefixedLink
+    <InternalLink
       href="/?path=/story/docs-sass-api-reference--page"
       target="_blank"
       rel="noopener"
     >
       Sass settings
-    </PrefixedLink>
+    </InternalLink>
     , for example override colours or set your own font
   </li>
   <li>import an individual component's CSS or JavaScript</li>
@@ -92,9 +92,9 @@ import { PrefixedLink } from '../components/PrefixedLink'
     <p>
       Create a page in your project using the following HTML (in your live
       application, you should use the{' '}
-      <PrefixedLink href="/?path=/docs/templates-basic-page--default" target="_blank" rel="noopener">
+      <InternalLink href="/?path=/docs/templates-basic-page--default" target="_blank" rel="noopener">
         Design System basic page template
-      </PrefixedLink>{' '}
+      </InternalLink>{' '}
       instead):
     </p>
     <CodeSnippet
@@ -133,9 +133,9 @@ import { PrefixedLink } from '../components/PrefixedLink'
   <li>
     <p>
       Go to the{' '}
-      <PrefixedLink href="/?path=/docs/typography-accordion--default">
+      <InternalLink href="/?path=/docs/typography-accordion--default">
         example accordion component
-      </PrefixedLink>{' '}
+      </InternalLink>{' '}
       on the Design System website and copy the HTML from the first example.
     </p>
   </li>
@@ -148,9 +148,9 @@ import { PrefixedLink } from '../components/PrefixedLink'
   <li>
     <p>
       Run your application - you can check it works the same way as the{' '}
-      <PrefixedLink href="/iframe.html?id=typography-accordion--default&viewMode=story" target="_blank" rel="noopener">
+      <InternalLink href="/iframe.html?id=typography-accordion--default&viewMode=story" target="_blank" rel="noopener">
         Design System accordion example
-      </PrefixedLink>{' '}
+      </InternalLink>{' '}
       by selecting the buttons and checking the accordion 'shows' and 'hides'
       sections.
     </p>

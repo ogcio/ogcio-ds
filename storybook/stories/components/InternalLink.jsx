@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PrefixedLink = ({ href, children, ...props }) => {
+export const InternalLink = ({ href, children, ...props }) => {
   const isGithubPages = window.location.host === 'ogcio.github.io'
   const prefixedHref = isGithubPages ? `ogcio-ds${href}` : href
 
