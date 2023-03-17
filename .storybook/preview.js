@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react'
-import { DocsContainer } from '@storybook/addon-docs/blocks'
+import { DocsContainer } from '@storybook/addon-docs'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
@@ -146,7 +146,7 @@ export const parameters = {
           'Configure components with JavaScript',
           'Localise OGCIO-DS',
           'JavaScript API Reference',
-          'Sass API reference',
+          'Sass API Reference',
           'Colours',
           'Typography',
         ],
