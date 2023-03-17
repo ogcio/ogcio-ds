@@ -757,7 +757,7 @@
 	    'addEventListener' in window
 	  );
 
-	  if (!featuresNeeded) {
+	  if (!featuresNeeded || !this.$nav) {
 	    return
 	  }
 
