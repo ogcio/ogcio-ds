@@ -12,6 +12,7 @@ import ProgressStepper from './components/progress-stepper/progress-stepper.mjs'
 import Radios from './components/radios/radios.mjs'
 import SkipLink from './components/skip-link/skip-link.mjs'
 import StepByStepNav from './components/step-by-step-navigation/step-by-step-navigation.mjs'
+import Superheader from './components/superheader/superheader.mjs'
 import Tabs from './components/tabs/tabs.mjs'
 import Tick from './components/tick/tick.mjs'
 import Tooltip from './components/tooltip/tooltip.mjs'
@@ -85,6 +86,12 @@ function initAll(config) {
     new Header($header).init()
   }
 
+  // Find first header module to enhance.
+  var $superheader = $scope.querySelector('[data-module="super-navigation-mega-menu"]')
+  if ($superheader) {
+    new Superheader($superheader).init()
+  }
+
   var $notificationBanners = $scope.querySelectorAll(
     '[data-module="govie-notification-banner"]'
   )
@@ -147,6 +154,7 @@ export {
   Radios,
   SkipLink,
   StepByStepNav,
+  Superheader,
   Tabs,
   Tick,
   Tooltip,
