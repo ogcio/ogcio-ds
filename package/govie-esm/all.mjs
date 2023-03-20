@@ -87,7 +87,7 @@ function initAll(config) {
   }
 
   // Find first header module to enhance.
-  var $superheader = $scope.querySelector('[data-module="super-navigation-mega-menu"]')
+  var $superheader = $scope.querySelector('[data-module="super-navigation-superheader"]')
   if ($superheader) {
     new Superheader($superheader).init()
   }

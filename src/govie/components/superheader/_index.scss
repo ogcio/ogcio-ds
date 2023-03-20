@@ -1,11 +1,9 @@
 $icon-size: 20px;
-$chevron-indent-spacing: 7px;
-$black-bar-height: 50px;
-$pseudo-underline-height: 3px;
-$button-pipe-colour: govie-colour('mid-grey');
+$govie-bar-height: 50px;
+$govie-pseudo-underline-height: 3px;
 
-$input-size: 40px;
-$large-input-size: 50px;
+$govie-search-input-size: 40px;
+$govie-large-search-input-size: 50px;
 
 $after-link-padding: govie-spacing(4);
 $after-button-padding-right: govie-spacing(4);
@@ -45,7 +43,7 @@ $after-button-padding-left: govie-spacing(4);
 ) {
   background: none;
   content: '';
-  height: $pseudo-underline-height;
+  height: $govie-pseudo-underline-height;
   left: $left;
   position: absolute;
   right: $right;
@@ -76,13 +74,13 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-// Header layout - black bar and logo.
-.gem-c-layout-super-navigation-header {
+.govie-superheader {
   background: $govie-header-surface-colour;
   position: relative;
+  border-bottom: govie-spacing(2) solid govie-colour('white');
 
   .lte-ie8 & {
-    height: $black-bar-height;
+    height: $govie-bar-height;
   }
 
   [hidden] {
@@ -90,20 +88,27 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__container {
+.govie-superheader__container {
+  position: relative;
+
+  .govie-superheader__container {
+    @include govie-clearfix;
+    position: relative;
+    margin-bottom: govie-spacing(-2);
+    border-bottom: govie-spacing(2) solid $govie-header-footer-border-colour;
+  }
+}
+
+.govie-superheader__button-width-container {
   position: relative;
 }
 
-.gem-c-layout-super-navigation-header__button-width-container {
-  position: relative;
-}
-
-.gem-c-layout-super-navigation-header__button-container {
+.govie-superheader__button-container {
   @include govie-media-query($until: tablet) {
     margin-right: govie-spacing(-3);
   }
 
-  top: -$black-bar-height;
+  top: -$govie-bar-height;
   position: absolute;
   right: 0;
 
@@ -112,23 +117,23 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__header-logo {
+.govie-superheader__header-logo {
   display: inline-block;
   height: govie-spacing(6);
   padding-bottom: govie-spacing(2);
   padding-top: govie-spacing(2);
 }
 
-.gem-c-layout-super-navigation-header__content {
+.govie-superheader__content {
   width: 100%;
 }
 
-.gem-c-layout-super-navigation-header__navigation-toggle-wrapper {
+.govie-superheader__navigation-toggle-wrapper {
   position: relative;
 }
 
-.gem-c-layout-super-navigation-header__navigation-item,
-.gem-c-layout-super-navigation-header__search-item {
+.govie-superheader__navigation-item,
+.govie-superheader__search-item {
   background: $govie-header-surface-colour;
   display: block;
   float: left;
@@ -136,9 +141,13 @@ $after-button-padding-left: govie-spacing(4);
   padding: 0;
 }
 
+.govie-superheader__search-item {
+  background: $govie-header-footer-border-colour;
+}
+
 // Top level navigation links and search link.
-.gem-c-layout-super-navigation-header__navigation-item-link,
-.gem-c-layout-super-navigation-header__search-item-link {
+.govie-superheader__navigation-item-link,
+.govie-superheader__search-item-link {
   @include govie-link-common;
   @include govie-link-style-no-visited-state;
 
@@ -172,14 +181,13 @@ $after-button-padding-left: govie-spacing(4);
       box-shadow: none;
       color: $govie-link-colour;
 
-      .gem-c-layout-super-navigation-header__navigation-item-link-inner {
-        border-color: $button-pipe-colour;
+      .govie-superheader__navigation-item-link-inner {
+        border-color: govie-colour('mid-grey');
       }
 
       &:hover {
         @include govie-link-decoration;
         @include govie-link-hover-decoration;
-        color: $govie-link-hover-colour;
       }
     }
 
@@ -210,7 +218,7 @@ $after-button-padding-left: govie-spacing(4);
     }
 
     @include focus-and-focus-visible {
-      .gem-c-layout-super-navigation-header__navigation-item-link-inner {
+      .govie-superheader__navigation-item-link-inner {
         border-color: $govie-focus-colour;
         background: $govie-focus-colour;
       }
@@ -275,7 +283,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-item-link {
+.govie-superheader__navigation-item-link {
   @include govie-media-query($from: desktop) {
     padding: govie-spacing(3) 0;
   }
@@ -286,14 +294,14 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-item-link-inner {
+.govie-superheader__navigation-item-link-inner {
   background-color: govie-colour('black');
-  border-left: 1px solid $button-pipe-colour;
+  border-left: 1px solid govie-colour('mid-grey');
   padding: govie-spacing(1) $after-link-padding;
 }
 
 // Search link and dropdown.
-.gem-c-layout-super-navigation-header__search-item-link {
+.govie-superheader__search-item-link {
   padding: govie-spacing(3);
 
   @include govie-media-query($until: desktop) {
@@ -348,15 +356,19 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__search-item-link-icon,
-.gem-c-layout-super-navigation-header__search-toggle-button-link-icon {
+.govie-superheader__search-item-link-icon,
+.govie-superheader__search-toggle-button-link-icon {
   height: $icon-size;
   pointer-events: none;
   width: $icon-size;
+
+  .govie-superheader__open-button & {
+    display: none;
+  }
 }
 
 // Search and popular content dropdown.
-.gem-c-layout-super-navigation-header__search-and-popular {
+.govie-superheader__search-and-popular {
   display: none;
   padding-bottom: govie-spacing(4);
   padding-top: govie-spacing(4);
@@ -367,7 +379,7 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 // Styles for top level navigation toggle button.
-.gem-c-layout-super-navigation-header__navigation-top-toggle-button {
+.govie-superheader__navigation-top-toggle-button {
   @include govie-link-common;
   @include govie-link-style-no-visited-state;
   @include govie-link-style-no-underline;
@@ -380,16 +392,10 @@ $after-button-padding-left: govie-spacing(4);
   }
 
   &:hover {
-    color: govie-colour('mid-grey');
+    color: govie-colour('white');
 
-    &:after {
-      background: govie-colour('mid-grey');
-    }
-
-    .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-      &:before {
-        border-color: govie-colour('mid-grey');
-      }
+    &::after {
+      background: $govie-header-footer-border-colour;
     }
   }
 
@@ -401,7 +407,7 @@ $after-button-padding-left: govie-spacing(4);
   box-sizing: border-box;
   color: govie-colour('white');
   cursor: pointer;
-  height: $black-bar-height;
+  height: $govie-bar-height;
   padding: 0;
   position: relative;
   margin: 0;
@@ -417,46 +423,6 @@ $after-button-padding-left: govie-spacing(4);
     right: 0;
   }
 
-  &:focus-visible {
-    &:hover {
-      .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-        color: govie-colour('black');
-
-        &:after {
-          background: govie-colour('black');
-        }
-
-        &:before {
-          @include chevron(govie-colour('black'), true);
-        }
-      }
-    }
-  }
-
-  @include focus-and-focus-visible {
-    @include govie-focused-text;
-
-    box-shadow: none;
-
-    &:hover {
-      &:after {
-        background-color: govie-colour('black');
-      }
-    }
-
-    &:after {
-      background-color: govie-colour('black');
-    }
-
-    .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-      border-color: $govie-focus-colour;
-
-      &:before {
-        @include chevron(govie-colour('black'), true);
-      }
-    }
-  }
-
   // Undoes the :focus styles *only* for browsers that support :focus-visible.
   // See https://www.tpgi.com/focus-visible-and-backwards-compatibility/
   @include focus-not-focus-visible {
@@ -464,23 +430,7 @@ $after-button-padding-left: govie-spacing(4);
     box-shadow: none;
     color: govie-colour('white');
 
-    &:hover {
-      .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-        &:before {
-          @include chevron(govie-colour('mid-grey'), true);
-        }
-
-        color: govie-colour('mid-grey');
-      }
-
-      &:after {
-        background: govie-colour('mid-grey');
-      }
-    }
-
-    .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-      border-color: $button-pipe-colour;
-
+    .govie-superheader__navigation-top-toggle-button-inner {
       @include govie-media-query($from: 360px) {
         &:before {
           @include chevron(govie-colour('white'), true);
@@ -490,17 +440,13 @@ $after-button-padding-left: govie-spacing(4);
   }
 
   // Open button modifier
-  &.gem-c-layout-super-navigation-header__open-button {
+  &.govie-superheader__open-button {
     // stylelint-disable max-nesting-depth
     @include focus-and-focus-visible {
       @include govie-focused-text;
       box-shadow: none;
 
-      &:after {
-        background-color: govie-colour('black');
-      }
-
-      .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
+      .govie-superheader__navigation-top-toggle-button-inner {
         color: govie-colour('black');
         border-color: $govie-focus-colour;
 
@@ -514,19 +460,10 @@ $after-button-padding-left: govie-spacing(4);
     }
 
     @include focus-not-focus-visible {
-      background: govie-colour('light-grey');
-
-      &:after {
-        background-color: $govie-link-colour;
-      }
-
-      .gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
-        color: $govie-link-colour;
-        border-color: govie-colour('light-grey');
-
+      .govie-superheader__navigation-top-toggle-button-inner {
         @include govie-media-query($from: 360px) {
           &:before {
-            @include chevron($govie-link-colour);
+            @include chevron(govie-colour('white'));
             @include prefixed-transform($rotate: 225deg, $translateY: 1px);
           }
         }
@@ -536,10 +473,9 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner {
+.govie-superheader__navigation-top-toggle-button-inner {
   display: inline-block;
-  border-left: 1px solid govie-colour('white');
-  border-right: 1px solid govie-colour('white');
+  border-left: 1px solid govie-colour('mid-grey');
   margin: 0;
   padding: govie-spacing(1) govie-spacing(4);
 
@@ -555,22 +491,26 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 // Styles for search toggle button.
-.gem-c-layout-super-navigation-header__search-toggle-button {
+.govie-superheader__search-toggle-button {
   @include govie-font($size: 19, $weight: 'bold', $line-height: 20px);
   background: none;
   border: 0;
   color: govie-colour('white');
   cursor: pointer;
-  height: $black-bar-height;
+  height: $govie-bar-height;
   padding: govie-spacing(3);
   position: relative;
-  width: $black-bar-height;
+  width: $govie-bar-height;
 
   @include focus-and-focus-visible {
     @include govie-focused-text;
     border-color: $govie-focus-colour;
     box-shadow: none;
     z-index: 11;
+
+    path {
+      fill: govie-colour('black');
+    }
   }
 
   &:focus:not(:focus-visible) {
@@ -593,9 +533,9 @@ $after-button-padding-left: govie-spacing(4);
     }
 
     &:hover {
-      background: govie-colour('black');
-      border-bottom: $pseudo-underline-height solid govie-colour('mid-grey');
-      color: govie-colour('mid-grey');
+      background: $govie-header-surface-colour;
+      border-bottom: $govie-pseudo-underline-height solid
+        $govie-header-footer-border-colour;
     }
 
     @include focus-and-focus-visible {
@@ -606,7 +546,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 
   // Open button modifier
-  &.gem-c-layout-super-navigation-header__open-button {
+  &.govie-superheader__open-button {
     @include focus-and-focus-visible {
       @include govie-focused-text;
       border-color: $govie-focus-colour;
@@ -615,50 +555,37 @@ $after-button-padding-left: govie-spacing(4);
 
       @include govie-media-query($from: 360px) {
         &:before {
-          @include chevron($govie-focus-colour, true);
+          @include chevron(govie-colour('black'), true);
         }
       }
     }
-
-    @include focus-not-focus-visible {
-      background: govie-colour('light-grey');
-      border-bottom-color: govie-colour('light-grey');
-      color: govie-colour('light-grey');
-      outline: 1px solid govie-colour('light-grey'); // overlap the border of the nav menu so it won't appear when menu open
-    }
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-top-toggle-close-icon {
-  color: $govie-text-colour;
+.govie-superheader__navigation-top-toggle-close-icon {
+  color: govie-colour('white');
   display: none;
-  font-size: 36px;
-  font-weight: normal;
-  left: 0;
-  line-height: 22px;
-  padding: govie-spacing(3) 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
 
-  .gem-c-layout-super-navigation-header__open-button & {
+  .govie-superheader__open-button & {
     display: block;
   }
+
+  path {
+    fill: govie-colour('white');
+  }
 }
 
-.gem-c-layout-super-navigation-header__search-container {
+.govie-superheader__search-container {
   padding-bottom: govie-spacing(3);
 }
 
 // Dropdown menu.
-.gem-c-layout-super-navigation-header__navigation-dropdown-menu {
+.govie-superheader__navigation-dropdown-menu {
   @include govie-media-query($until: 300px) {
     padding-top: 80px;
   }
 
-  background: govie-colour('light-grey');
+  background: $govie-footer-surface-colour;
   border-bottom: 1px govie-colour('mid-grey') solid;
   padding-top: govie-spacing(6);
 
@@ -668,7 +595,7 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 // Dropdown menu description.
-.gem-c-layout-super-navigation-header__menu-description {
+.govie-superheader__menu-description {
   display: none;
 
   @include govie-media-query($from: desktop) {
@@ -678,7 +605,7 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 // Dropdown menu items.
-.gem-c-layout-super-navigation-header__dropdown-list-item {
+.govie-superheader__dropdown-list-item {
   box-sizing: border-box;
   padding: 0 0 govie-spacing(3) 0;
   position: relative;
@@ -690,7 +617,7 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 // Navigation menu items.
-.gem-c-layout-super-navigation-header__navigation-second-items {
+.govie-superheader__navigation-second-items {
   list-style: none;
   margin: 0;
   padding: govie-spacing(3) govie-spacing(5) govie-spacing(5) 0;
@@ -701,7 +628,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__column--government-activity {
+.govie-superheader__column--government-activity {
   position: relative;
 
   @include govie-media-query($until: desktop) {
@@ -709,20 +636,21 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-second-items--topics {
+.govie-superheader__navigation-second-items--topics {
   @include govie-media-query($until: desktop) {
     border-bottom: 1px solid govie-colour('mid-grey');
   }
 
   @include govie-media-query($from: desktop) {
-    @include columns($items: 17, $columns: 2, $selector: 'li', $flow: column);
+    @include columns($items: 16, $columns: 2, $selector: 'li', $flow: column);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-second-item-link {
+.govie-superheader__navigation-second-item-link {
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
-  font-weight: bold;
+  color: govie-colour('black') !important;
+
 
   &:after {
     @include make-selectable-area-bigger;
@@ -737,7 +665,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-second-item-link--with-description {
+.govie-superheader__navigation-second-item-link--with-description {
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
   font-weight: bold;
@@ -748,7 +676,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__navigation-second-item-description {
+.govie-superheader__navigation-second-item-description {
   @include govie-typography-common;
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
@@ -756,28 +684,29 @@ $after-button-padding-left: govie-spacing(4);
   margin: govie-spacing(1) 0 0 0;
 }
 
-.gem-c-layout-super-navigation-header__search-form {
+.govie-superheader__search-form {
   padding: govie-spacing(2) 0 govie-spacing(6) 0;
 }
 
 // Popular links.
-.gem-c-layout-super-navigation-header__popular-item {
+.govie-superheader__popular-item {
   position: relative;
   padding: govie-spacing(1) 0;
 }
 
-.gem-c-layout-super-navigation-header__popular-link {
+.govie-superheader__popular-link {
   display: inline-block;
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
   padding: 0;
+  color: govie-colour('black') !important;
 
   &:after {
     @include make-selectable-area-bigger;
   }
 }
 
-.gem-c-layout-super-navigation-header__width-container {
+.govie-superheader__width-container {
   @include govie-media-query($until: desktop) {
     margin: 0;
     margin-top: govie-spacing(6);
@@ -790,12 +719,12 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-layout-super-navigation-header__column-header {
+.govie-superheader__column-header {
   font-size: 24px;
 }
 
 @include govie-media-query($media-type: print) {
-  .gem-c-layout-super-navigation-header__content {
+  .govie-superheader__content {
     display: none;
   }
 }
@@ -805,30 +734,30 @@ $after-button-padding-left: govie-spacing(4);
 //
 
 @mixin large-mode {
-  .gem-c-search__label {
+  .govie-superheader-search__label {
     @include govie-font($size: 19, $line-height: 50px);
   }
 
-  .gem-c-search__input[type='search'] {
-    height: $large-input-size;
+  .govie-superheader-search__input[type='search'] {
+    height: $govie-large-search-input-size;
   }
 
-  .gem-c-search__submit {
-    width: $large-input-size;
-    height: $large-input-size;
+  .govie-superheader-search__submit {
+    width: $govie-large-search-input-size;
+    height: $govie-large-search-input-size;
 
-    .gem-c-search__icon {
-      @include icon-positioning($large-input-size);
+    .govie-superheader-search__icon {
+      @include icon-positioning($govie-large-search-input-size);
     }
   }
 }
 
-.gem-c-search {
+.govie-superheader-search {
   position: relative;
   margin-bottom: 30px;
 }
 
-.gem-c-search__label {
+.govie-superheader-search__label {
   @include govie-font($size: 19, $line-height: 40px);
   display: block;
   color: $govie-text-colour;
@@ -851,12 +780,12 @@ $after-button-padding-left: govie-spacing(4);
 
   // match label colour with the label component colour
   // when javascript is enabled and inline_label option  is set to false
-  .js-enabled .gem-c-search--separate-label & {
+  .js-enabled .govie-superheader-search--separate-label & {
     color: $govie-text-colour;
   }
 }
 
-%gem-c-search-input-focus {
+%govie-superheader-search-input-focus {
   outline: $govie-focus-width solid $govie-focus-colour;
   // Ensure outline appears outside of the element
   outline-offset: 0;
@@ -871,7 +800,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-search__input[type='search'] {
+.govie-superheader-search__input[type='search'] {
   // overly specific to prevent some overrides from outside
   @include govie-font($size: 19, $line-height: 1.47);
   margin: 0;
@@ -897,7 +826,7 @@ $after-button-padding-left: govie-spacing(4);
   }
 
   &:focus {
-    @extend %gem-c-search-input-focus;
+    @extend %govie-superheader-search-input-focus;
   }
 }
 
@@ -914,19 +843,19 @@ $after-button-padding-left: govie-spacing(4);
   left: $icon-position;
 }
 
-.gem-c-search__submit {
+.govie-superheader-search__submit {
   border: 0;
   cursor: pointer;
   border-radius: 0;
   position: relative;
   padding: 0;
-  width: $input-size;
-  height: $input-size;
+  width: $govie-search-input-size;
+  height: $govie-search-input-size;
   text-indent: -5000px;
   overflow: hidden;
 
-  .gem-c-search__icon {
-    @include icon-positioning($input-size);
+  .govie-superheader-search__icon {
+    @include icon-positioning($govie-search-input-size);
   }
 
   &:focus {
@@ -934,7 +863,8 @@ $after-button-padding-left: govie-spacing(4);
     outline: $govie-focus-width solid $govie-focus-colour;
     // Ensure outline appears outside of the element
     outline-offset: 0;
-    // Double the border by adding its width again. Use `box-shadow` for this // instead of changing `border-width` - this is for consistency with
+    // Double the border by adding its width again. Use `box-shadow` for this 
+    // instead of changing `border-width` - this is for consistency with
     // Also, `outline` cannot be utilised
     // here as it is already used for the yellow focus state.
     box-shadow: inset 0 0 0 $govie-border-width-form-element * 2
@@ -952,30 +882,30 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-search__item-wrapper {
+.govie-superheader-search__item-wrapper {
   display: table;
   width: 100%;
   background: govie-colour('white');
 }
 
 // general class applied to search input and button wrapper
-.gem-c-search__item {
+.govie-superheader-search__item {
   position: relative;
   display: table-cell;
   vertical-align: top;
 }
 
-.gem-c-search__submit-wrapper {
+.govie-superheader-search__submit-wrapper {
   width: 1%;
 }
 
-.gem-c-search--on-white {
-  .gem-c-search__submit {
+.govie-superheader-search--on-white {
+  .govie-superheader-search__submit {
     background-color: $govie-header-footer-border-colour;
     color: govie-colour('white');
   }
 
-  .gem-c-search__input[type='search'] {
+  .govie-superheader-search__input[type='search'] {
     border-right-width: 0;
 
     // add the border once focused
@@ -985,34 +915,34 @@ $after-button-padding-left: govie-spacing(4);
   }
 }
 
-.gem-c-search--no-border {
-  .gem-c-search__label {
+.govie-superheader-search--no-border {
+  .govie-superheader-search__label {
     color: govie-colour('white');
   }
 
-  .gem-c-search__input[type='search'] {
+  .govie-superheader-search__input[type='search'] {
     border: 0;
   }
 
   .js-enabled & {
-    .gem-c-search__label {
+    .govie-superheader-search__label {
       color: $govie-secondary-text-colour;
     }
   }
 }
 
-.gem-c-search--large {
+.govie-superheader-search--large {
   @include large-mode;
 }
 
-.gem-c-search--large-on-mobile {
+.govie-superheader-search--large-on-mobile {
   @include govie-media-query($until: 'tablet') {
     @include large-mode;
   }
 }
 
-.gem-c-search--separate-label {
-  .gem-c-search__label {
+.govie-superheader-search--separate-label {
+  .govie-superheader-search__label {
     position: relative;
     top: auto;
     left: auto;

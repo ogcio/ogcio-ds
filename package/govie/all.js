@@ -4754,13 +4754,14 @@
   // toggling the menus.
   var hide = function ($button, $menu) {
     $button.setAttribute('aria-expanded', false);
-    $button.classList.remove('gem-c-layout-super-navigation-header__open-button');
+    $button.classList.remove('govie-superheader__open-button');
     $menu.setAttribute('hidden', 'hidden');
     setLabel($button, 'show');
   };
+
   var show = function ($button, $menu) {
     $button.setAttribute('aria-expanded', true);
-    $button.classList.add('gem-c-layout-super-navigation-header__open-button');
+    $button.classList.add('govie-superheader__open-button');
     $menu.removeAttribute('hidden');
     setLabel($button, 'hide');
   };
@@ -4843,6 +4844,7 @@
 
   Superheader.prototype.buttonHandler = function (event) {
     var $target = closestParentIncluding(event.target, 'button');
+
     var $targetMenu = this.$module.querySelector(
       '#' + $target.getAttribute('aria-controls')
     );
@@ -4891,7 +4893,7 @@
     }
 
     this.$module
-      .querySelector('.gem-c-layout-super-navigation-header__search-item-link')
+      .querySelector('.govie-superheader__search-item-link')
       .setAttribute('hidden', 'hidden');
 
     // Navigation menu and search menu are hardcoded to be open in the markup -
@@ -5462,7 +5464,7 @@
     }
 
     // Find first header module to enhance.
-    var $superheader = $scope.querySelector('[data-module="super-navigation-mega-menu"]');
+    var $superheader = $scope.querySelector('[data-module="super-navigation-superheader"]');
     if ($superheader) {
       new Superheader($superheader).init();
     }

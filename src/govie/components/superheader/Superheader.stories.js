@@ -12,568 +12,468 @@ export default {
   // argTypes: {},
 }
 
+const topicMenuList = [
+  'Benefits',
+  'Births, death, marriages and care',
+  'Business and self-employed',
+  'Childcare and parenting',
+  'Citizenship and living in the UK',
+  'Crime, justice and the law',
+  'Disabled people',
+  'Driving and transport',
+  'Education and learning',
+  'Employing people',
+  'Environment and countryside',
+  'Housing and local services',
+  'Money and tax',
+  'Passports, travel and living abroad',
+  'Visas and immigration',
+  'Working, jobs and pensions',
+]
+
+const governmentActivitiesMenuList = [
+  'Departments',
+  'News',
+  'Guidance and regulation',
+  'Research and statistics',
+  'Policy papers and consultations',
+  'Transparency',
+  'How government works',
+  'Get involved',
+]
+
+const searchMenuList = [
+  'Check benefits and financial support you can get',
+  'Find out about the Energy Bills Support Scheme',
+  'Find a job',
+  'Coronavirus (COVID-19)',
+  'Universal Credit account: sign in',
+]
+
+const createLogo = () => {
+  const container = document.createElement('div')
+  container.className = 'govie-width-container'
+
+  const superContainer = document.createElement('div')
+  superContainer.className = 'govie-superheader__container'
+
+  const logoContainer = document.createElement('div')
+  logoContainer.className = 'govie-superheader__header-logo'
+
+  const a = document.createElement('a')
+  a.href = '#'
+  a.className = 'govie-header__link govie-header__link--homepage'
+  a.title = 'Go to the gov.ie homepage'
+  a.innerHTML = `
+    <span class="govie-header__logotype">
+      <img id="logo-image" src="./@ogcio/assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
+    </span>
+  `
+
+  logoContainer.appendChild(a)
+  superContainer.appendChild(logoContainer)
+  container.appendChild(superContainer)
+
+  return container
+}
+
+const createNav = () => {
+  const nav = document.createElement('nav')
+  nav.className = 'govie-superheader__content js-module-initialised'
+  nav.setAttribute('data-module', 'super-navigation-superheader')
+
+  const hiddenTitle = document.createElement('h2')
+  hiddenTitle.className = 'govie-visually-hidden'
+  hiddenTitle.innerText = 'Navigation menu'
+
+  const container = document.createElement('div')
+  container.className =
+    'govie-width-container govie-superheader__button-width-container'
+
+  const buttonsContainer = document.createElement('div')
+  buttonsContainer.className = 'govie-superheader__button-container'
+  buttonsContainer.appendChild(createNavItem())
+  buttonsContainer.appendChild(createSearchItem())
+
+  container.appendChild(buttonsContainer)
+
+  nav.appendChild(hiddenTitle)
+  nav.appendChild(container)
+  nav.appendChild(createDropdownMenu())
+  nav.appendChild(createSearchContainer())
+
+  return nav
+}
+
+const createNavItem = () => {
+  const navigationItem = document.createElement('div')
+  navigationItem.className = 'govie-superheader__navigation-item'
+
+  const link = document.createElement('a')
+  link.className = 'govie-superheader__navigation-item-link'
+  link.href = '#'
+  link.hidden = 'hidden'
+
+  const inner = document.createElement('span')
+  inner.className = 'govie-superheader__navigation-item-link-inner'
+  inner.innerText = 'Menu'
+
+  const navButton = document.createElement('button')
+  navButton.className = 'govie-superheader__navigation-top-toggle-button'
+  navButton.type = 'button'
+  navButton.ariaLabel = 'Show navigation menu'
+  navButton.ariaExpanded = false
+  navButton.id = 'super-navigation-menu-4b386e09-toggle'
+
+  navButton.setAttribute('aria-controls', 'super-navigation-menu-4b386e09')
+  navButton.setAttribute('data-text-for-hide', 'Hide navigation menu')
+  navButton.setAttribute('data-text-for-show', 'Show navigation menu')
+  navButton.setAttribute('data-toggle-desktop-group', 'top')
+  navButton.setAttribute('data-toggle-mobile-group', 'top')
+
+  const navButtonInner = document.createElement('span')
+  navButtonInner.className =
+    'govie-superheader__navigation-top-toggle-button-inner'
+  navButtonInner.innerText = 'Menu'
+  navButton.appendChild(navButtonInner)
+
+  navigationItem.appendChild(link)
+  navigationItem.appendChild(navButton)
+
+  return navigationItem
+}
+
+const createSearchItem = () => {
+  const searchContainer = document.createElement('div')
+  searchContainer.className = 'govie-superheader__search-item'
+
+  const openSearchMenuButton = document.createElement('button')
+  openSearchMenuButton.className = 'govie-superheader__search-toggle-button'
+  openSearchMenuButton.type = 'button'
+  openSearchMenuButton.ariaLabel = 'Show search menu'
+  openSearchMenuButton.ariaExpanded = false
+  openSearchMenuButton.id = 'super-search-menu-toggle'
+
+  openSearchMenuButton.setAttribute('aria-controls', 'super-search-menu')
+  openSearchMenuButton.setAttribute('data-text-for-hide', 'Hide search menu')
+  openSearchMenuButton.setAttribute('data-text-for-show', 'Show search menu')
+  openSearchMenuButton.setAttribute('data-toggle-mobile-group', 'top')
+  openSearchMenuButton.setAttribute('data-toggle-desktop-group', 'top')
+
+  const openSearchMenuButtonInner = document.createElement('span')
+  openSearchMenuButtonInner.className = 'govie-visually-hidden'
+  openSearchMenuButtonInner.innerText = 'Search gov.ie'
+
+  const closeIcon = document.createElement('span')
+  closeIcon.ariaHidden = true
+  closeIcon.className = 'govie-superheader__navigation-top-toggle-close-icon'
+  closeIcon.setAttribute('focusable', 'false')
+  closeIcon.innerHTML = `
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"/>
+    </svg>
+`
+
+  const searchIcon = `
+    <svg
+      class="govie-superheader__search-toggle-button-link-icon"
+      width="27"
+      height="27"
+      viewBox="0 0 27 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle
+        cx="12.0161"
+        cy="11.0161"
+        r="8.51613"
+        stroke="currentColor"
+        stroke-width="3"
+      ></circle>
+      <line
+        x1="17.8668"
+        y1="17.3587"
+        x2="26.4475"
+        y2="25.9393"
+        stroke="currentColor"
+        stroke-width="3"
+      ></line>
+    </svg>
+  `
+
+  openSearchMenuButton.appendChild(openSearchMenuButtonInner)
+  openSearchMenuButton.appendChild(closeIcon)
+  openSearchMenuButton.insertAdjacentHTML('beforeend', searchIcon)
+
+  const searchLink = document.createElement('a')
+  searchLink.className = 'govie-superheader__search-item-link'
+  searchLink.href = '/search'
+  searchLink.hidden = 'hidden'
+
+  const searchLinkInner = document.createElement('span')
+  searchLinkInner.className = 'govie-visually-hidden'
+  searchLinkInner.innerText = 'Search gov.ie'
+
+  searchLink.appendChild(searchLinkInner)
+  searchLink.insertAdjacentHTML(
+    'beforeend',
+    `
+      <svg
+        class="govie-superheader__search-item-link-icon"
+        width="27"
+        height="27"
+        viewBox="0 0 27 27"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle
+          cx="12.0161"
+          cy="11.0161"
+          r="8.51613"
+          stroke="currentColor"
+          stroke-width="3"
+        ></circle>
+        <line
+          x1="17.8668"
+          y1="17.3587"
+          x2="26.4475"
+          y2="25.9393"
+          stroke="currentColor"
+          stroke-width="3"
+        ></line>
+      </svg>
+    `
+  )
+
+  searchContainer.appendChild(openSearchMenuButton)
+  searchContainer.appendChild(searchLink)
+
+  return searchContainer
+}
+
+const createListItems = (text, title, list) => {
+  const container = document.createElement('div')
+
+  container.className = `${
+    text === 'topics'
+      ? 'govie-grid-column-two-thirds-from-desktop'
+      : 'govie-grid-column-one-third-from-desktop'
+  } govie-superheader__column--${text}`
+
+  const listTitle = document.createElement('h3')
+  listTitle.className = 'govie-heading-m govie-superheader__column-header'
+  listTitle.innerText = title
+
+  const listElement = document.createElement('ul')
+  listElement.className = `govie-superheader__navigation-second-items govie-superheader__navigation-second-items--${text}`
+
+  list.forEach((item) => {
+    const itemList = document.createElement('li')
+    itemList.className = 'govie-superheader__dropdown-list-item'
+
+    const link = document.createElement('a')
+    link.className =
+      'govie-superheader__navigation-second-item-link govie-link govie-link--no-visited-state'
+    link.href = '/#'
+    link.innerText = item
+
+    itemList.appendChild(link)
+    listElement.appendChild(itemList)
+  })
+
+  container.appendChild(listTitle)
+  container.appendChild(listElement)
+
+  return container
+}
+
+const createDropdownMenu = () => {
+  const container = document.createElement('div')
+  container.className = 'govie-superheader__navigation-dropdown-menu'
+  container.hidden = 'hidden'
+  container.id = 'super-navigation-menu-4b386e09'
+
+  const widthContainer = document.createElement('div')
+  widthContainer.className = 'govie-width-container'
+
+  const navigationItemsContainer = document.createElement('div')
+  navigationItemsContainer.className =
+    'govie-grid-row govie-superheader__navigation-items'
+
+  navigationItemsContainer.appendChild(
+    createListItems('topics', 'Topics', topicMenuList)
+  )
+  navigationItemsContainer.appendChild(
+    createListItems(
+      'government-activity',
+      'Government activity',
+      governmentActivitiesMenuList
+    )
+  )
+  widthContainer.appendChild(navigationItemsContainer)
+  container.appendChild(widthContainer)
+
+  return container
+}
+
+const createSearchContainer = () => {
+  const container = document.createElement('div')
+  container.className = 'govie-superheader__navigation-dropdown-menu'
+  container.hidden = false
+  container.id = 'super-search-menu'
+
+  const widthContainer = document.createElement('div')
+  widthContainer.className =
+    'govie-width-container govie-superheader__search-container govie-superheader__search-items'
+
+  const title = document.createElement('h3')
+  title.className = 'govie-visually-hidden'
+  title.innerText = 'Search'
+
+  const row = document.createElement('div')
+  row.className = 'govie-grid-row'
+  const column = document.createElement('div')
+  column.className = 'govie-grid-column-full'
+
+  const form = document.createElement('form')
+  form.className = 'govie-superheader__search-form'
+  form.id = 'search'
+  form.role = 'search'
+  form.method = 'get'
+  form.action = '#'
+  form.ariaLabel = 'Site-wide'
+
+  const searchContainer = document.createElement('div')
+  searchContainer.className =
+    'govie-superheader-search govie-!-display-none-print govie-superheader-search--large govie-superheader-search--on-white govie-superheader-search--separate-label'
+
+  const label = document.createElement('label')
+  label.className = 'govie-label govie-label--m'
+  label.innerText = 'Search gov.ie'
+
+  searchContainer.appendChild(label)
+
+  const searchItemWrapper = document.createElement('div')
+  searchItemWrapper.className = 'govie-superheader-search__item-wrapper'
+
+  const input = document.createElement('input')
+  input.className =
+    'govie-superheader-search__item govie-superheader-search__input js-class-toggle'
+  input.name = 'Search'
+  input.type = 'Search'
+  input.value = ''
+
+  const searchSubmitWrapper = document.createElement('div')
+  searchSubmitWrapper.className =
+    'govie-superheader-search__item govie-superheader-search__submit-wrapper'
+
+  const searchButton = document.createElement('button')
+  searchButton.className = 'govie-superheader-search__submit'
+  searchButton.type = 'submit'
+  searchButton.innerText = 'Search'
+
+  searchButton.insertAdjacentHTML(
+    'beforeend',
+    `
+    <svg
+      class="govie-superheader-search__icon"
+      width="27"
+      height="27"
+      viewBox="0 0 27 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle
+        cx="12.0161"
+        cy="11.0161"
+        r="8.51613"
+        stroke="currentColor"
+        stroke-width="3"
+      ></circle>
+      <line
+        x1="17.8668"
+        y1="17.3587"
+        x2="26.4475"
+        y2="25.9393"
+        stroke="currentColor"
+        stroke-width="3"
+      ></line>
+    </svg>
+`
+  )
+
+  searchSubmitWrapper.appendChild(searchButton)
+  searchItemWrapper.appendChild(input)
+  searchItemWrapper.appendChild(searchSubmitWrapper)
+  searchContainer.appendChild(searchItemWrapper)
+
+  form.appendChild(searchContainer)
+  column.appendChild(form)
+
+  const row2 = document.createElement('div')
+  row2.className = 'govie-grid-row'
+  const column2 = document.createElement('div')
+  column2.className = 'govie-grid-column-full'
+
+  const searchTitle = document.createElement('h3')
+  searchTitle.className = 'govie-heading-m'
+  searchTitle.innerText = 'Popular on gov.ie'
+
+  const searchList = document.createElement('ul')
+  searchList.className = 'govie-list'
+
+  searchMenuList.forEach((item) => {
+    const itemList = document.createElement('li')
+    itemList.className = 'govie-superheader__popular-item'
+
+    const link = document.createElement('a')
+    link.className =
+      'govie-superheader__popular-link govie-link govie-link--no-visited-state'
+    link.href = '/check-benefits-financial-support'
+    link.innerText = item
+
+    itemList.append(link)
+
+    searchList.appendChild(itemList)
+  })
+
+  column2.appendChild(searchTitle)
+  column2.appendChild(searchList)
+
+  row.appendChild(column)
+  row.appendChild(column2)
+
+  widthContainer.appendChild(title)
+  widthContainer.appendChild(row)
+  container.appendChild(widthContainer)
+
+  return container
+}
+
 const Template = (args) => {
   const header = document.createElement('header')
-  header.innerHTML = `
-  <header
-  role="banner"
-  class="gem-c-layout-super-navigation-header"
-  data-module="gem-track-click ga4-event-tracker ga4-link-tracker"
->
-  <div class="gem-c-layout-super-navigation-header__container govie-clearfix">
-    <div class="govie-width-container">
-      <div class="gem-c-layout-super-navigation-header__header-logo">
-        <a
-          class="govie-header__link govie-header__link--homepage"
-          id="logo"
-          title="Go to the gov.ie homepage"
-        >
-          <span class="govie-header__logotype">
-            <img id="logo-image" src="./@ogcio/assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
-          </span>
-        </a>
-      </div>
-    </div>
-    <nav
-      aria-labelledby="super-navigation-menu-heading"
-      class="gem-c-layout-super-navigation-header__content js-module-initialised"
-      data-module="super-navigation-mega-menu"
-    >
-      <h2 id="super-navigation-menu-heading" class="govie-visually-hidden">
-        Navigation menu
-      </h2>
+  header.role = 'banner'
+  header.className = 'govie-superheader'
 
-      <div
-        class="govie-width-container gem-c-layout-super-navigation-header__button-width-container"
-      >
-        <div class="gem-c-layout-super-navigation-header__button-container">
-          <div class="gem-c-layout-super-navigation-header__navigation-item">
-            <a
-              class="gem-c-layout-super-navigation-header__navigation-item-link"
-              href="/browse"
-              hidden="hidden"
-            >
-              <span
-                class="gem-c-layout-super-navigation-header__navigation-item-link-inner"
-              >
-                Menu
-              </span>
-            </a>
-            <button
-              aria-controls="super-navigation-menu-d18cb29e"
-              aria-expanded="false"
-              aria-label="Show navigation menu"
-              class="gem-c-layout-super-navigation-header__navigation-top-toggle-button"
-              data-text-for-hide="Hide navigation menu"
-              data-text-for-show="Show navigation menu"
-              data-toggle-desktop-group="top"
-              data-toggle-mobile-group="top"
-              type="button"
-            >
-              <span
-                class="gem-c-layout-super-navigation-header__navigation-top-toggle-button-inner"
-                >Menu</span
-              >
-            </button>
+  const superheaderContainer = document.createElement('div')
+  superheaderContainer.className = 'govie-superheader__container govie-clearfix'
 
-          </div>
+  superheaderContainer.appendChild(createLogo())
+  superheaderContainer.appendChild(createNav())
 
-          <div class="gem-c-layout-super-navigation-header__search-item">
-            <button
-              aria-controls="super-search-menu"
-              aria-expanded="false"
-              aria-label="Show search menu"
-              class="gem-c-layout-super-navigation-header__search-toggle-button"
-              data-text-for-hide="Hide search menu"
-              data-text-for-show="Show search menu"
-              data-toggle-mobile-group="top"
-              data-toggle-desktop-group="top"
-              id="super-search-menu-toggle"
-              type="button"
-            >
-              <span class="govie-visually-hidden"> Search GOV.UK </span>
-
-              <svg
-                class="gem-c-layout-super-navigation-header__search-toggle-button-link-icon"
-                width="27"
-                height="27"
-                viewBox="0 0 27 27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <circle
-                  cx="12.0161"
-                  cy="11.0161"
-                  r="8.51613"
-                  stroke="currentColor"
-                  stroke-width="3"
-                ></circle>
-                <line
-                  x1="17.8668"
-                  y1="17.3587"
-                  x2="26.4475"
-                  y2="25.9393"
-                  stroke="currentColor"
-                  stroke-width="3"
-                ></line>
-              </svg>
-              <span
-                aria-hidden="true"
-                class="gem-c-layout-super-navigation-header__navigation-top-toggle-close-icon"
-                focusable="false"
-              >
-                x
-              </span>
-            </button>
-
-            <a
-              class="gem-c-layout-super-navigation-header__search-item-link"
-              href="/search"
-              hidden="hidden"
-            >
-              <span class="govie-visually-hidden"> Search GOV.UK </span>
-
-              <svg
-                class="gem-c-layout-super-navigation-header__search-item-link-icon"
-                width="27"
-                height="27"
-                viewBox="0 0 27 27"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <circle
-                  cx="12.0161"
-                  cy="11.0161"
-                  r="8.51613"
-                  stroke="currentColor"
-                  stroke-width="3"
-                ></circle>
-                <line
-                  x1="17.8668"
-                  y1="17.3587"
-                  x2="26.4475"
-                  y2="25.9393"
-                  stroke="currentColor"
-                  stroke-width="3"
-                ></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="super-navigation-menu-d18cb29e"
-        class="gem-c-layout-super-navigation-header__navigation-dropdown-menu"
-        hidden="hidden"
-      >
-        <div class="govie-width-container">
-          <div
-            class="govie-grid-row gem-c-layout-super-navigation-header__navigation-items"
-          >
-            <div
-              class="govie-grid-column-two-thirds-from-desktop gem-c-layout-super-navigation-header__column--topics"
-            >
-              <h3
-                class="govie-heading-m gem-c-layout-super-navigation-header__column-header"
-              >
-                Topics
-              </h3>
-              <ul
-                class="gem-c-layout-super-navigation-header__navigation-second-items gem-c-layout-super-navigation-header__navigation-second-items--topics"
-              >
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/benefits"
-                    >Benefits</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/births-deaths-marriages"
-                    >Births, death, marriages and care</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/business"
-                    >Business and self-employed</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/childcare-parenting"
-                    >Childcare and parenting</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/citizenship"
-                    >Citizenship and living in the UK</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/cost-of-living"
-                    >Cost of living support</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/justice"
-                    >Crime, justice and the law</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/disabilities"
-                    >Disabled people</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/driving"
-                    >Driving and transport</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/education"
-                    >Education and learning</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/employing-people"
-                    >Employing people</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/environment-countryside"
-                    >Environment and countryside</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/housing-local-services"
-                    >Housing and local services</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/tax"
-                    >Money and tax</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/abroad"
-                    >Passports, travel and living abroad</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/visas-immigration"
-                    >Visas and immigration</a
-                  >
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                    href="/browse/working"
-                    >Working, jobs and pensions</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div
-              class="govie-grid-column-one-third-from-desktop gem-c-layout-super-navigation-header__column--government-activity"
-            >
-              <h3
-                class="govie-heading-m gem-c-layout-super-navigation-header__column-header"
-              >
-                Government activity
-              </h3>
-              <ul
-                class="gem-c-layout-super-navigation-header__navigation-second-items gem-c-layout-super-navigation-header__navigation-second-items--government-activity"
-              >
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/government/organisations"
-                    >Departments</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    Departments, agencies and public bodies
-                  </p>
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/search/news-and-communications"
-                    >News</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    News stories, speeches, letters and notices
-                  </p>
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/search/guidance-and-regulation"
-                    >Guidance and regulation</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    Detailed guidance, regulations and rules
-                  </p>
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/search/research-and-statistics"
-                    >Research and statistics</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    Reports, analysis and official statistics
-                  </p>
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/search/policy-papers-and-consultations"
-                    >Policy papers and consultations</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    Consultations and strategy
-                  </p>
-                </li>
-                <li
-                  class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                >
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__navigation-second-item-link gem-c-layout-super-navigation-header__navigation-second-item-link--with-description"
-                    href="/search/transparency-and-freedom-of-information-releases"
-                    >Transparency</a
-                  >
-                  <p
-                    class="gem-c-layout-super-navigation-header__navigation-second-item-description"
-                  >
-                    Data, Freedom of Information releases and corporate reports
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="super-search-menu"
-        hidden="hidden"
-        class="gem-c-layout-super-navigation-header__navigation-dropdown-menu"
-      >
-        <div
-          class="govie-width-container gem-c-layout-super-navigation-header__search-container gem-c-layout-super-navigation-header__search-items"
-        >
-          <h3 class="govie-visually-hidden">Search</h3>
-          <div class="govie-grid-row">
-            <div class="govie-grid-column-full">
-              <form
-                class="gem-c-layout-super-navigation-header__search-form"
-                id="search"
-                data-module="ga4-form-tracker"
-                action="/search"
-                method="get"
-                role="search"
-                aria-label="Site-wide"
-              >
-                <div
-                  class="gem-c-search govie-!-display-none-print gem-c-search--large gem-c-search--on-white gem-c-search--separate-label"
-                  data-module="gem-toggle-input-class-on-focus"
-                >
-                  <label
-                    for="search-main-0815e317"
-                    class="govie-label govie-label--m"
-                    >Search GOV.UK</label
-                  >
-                  <div class="gem-c-search__item-wrapper">
-                    <input
-                      enterkeyhint="search"
-                      class="gem-c-search__item gem-c-search__input js-class-toggle"
-                      id="search-main-0815e317"
-                      name="q"
-                      title="Search"
-                      type="search"
-                      value=""
-                    />
-                    <div
-                      class="gem-c-search__item gem-c-search__submit-wrapper"
-                    >
-                      <button
-                        class="gem-c-search__submit"
-                        type="submit"
-                        data-module="gem-track-click"
-                        enterkeyhint="search"
-                      >
-                        Search
-
-                        <svg
-                          class="gem-c-search__icon"
-                          width="27"
-                          height="27"
-                          viewBox="0 0 27 27"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <circle
-                            cx="12.0161"
-                            cy="11.0161"
-                            r="8.51613"
-                            stroke="currentColor"
-                            stroke-width="3"
-                          ></circle>
-                          <line
-                            x1="17.8668"
-                            y1="17.3587"
-                            x2="26.4475"
-                            y2="25.9393"
-                            stroke="currentColor"
-                            stroke-width="3"
-                          ></line>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="govie-grid-row">
-            <div class="govie-grid-column-full">
-              <h3 class="govie-heading-m">Popular on GOV.UK</h3>
-              <ul class="govie-list">
-                <li class="gem-c-layout-super-navigation-header__popular-item">
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__popular-link"
-                    href="/check-benefits-financial-support"
-                    >Check benefits and financial support you can get</a
-                  >
-                </li>
-                <li class="gem-c-layout-super-navigation-header__popular-item">
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__popular-link"
-                    href="/guidance/getting-the-energy-bills-support-scheme-discount"
-                    >Find out about the Energy Bills Support Scheme</a
-                  >
-                </li>
-                <li class="gem-c-layout-super-navigation-header__popular-item">
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__popular-link"
-                    href="/find-a-job"
-                    >Find a job</a
-                  >
-                </li>
-                <li class="gem-c-layout-super-navigation-header__popular-item">
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__popular-link"
-                    href="/coronavirus"
-                    >Coronavirus (COVID-19)</a
-                  >
-                </li>
-                <li class="gem-c-layout-super-navigation-header__popular-item">
-                  <a
-                    class="govie-link gem-c-layout-super-navigation-header__popular-link"
-                    href="/sign-in-universal-credit"
-                    >Universal Credit account: sign in</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header> 
-  `
+  header.appendChild(superheaderContainer)
 
   return beautifyHtmlNode(header)
 }
