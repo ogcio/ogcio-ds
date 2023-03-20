@@ -883,7 +883,6 @@ $after-button-padding-left: govie-spacing(4);
   border-radius: 0; // otherwise iphones apply an automatic border radius
   box-sizing: border-box;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   @include govie-media-query($from: tablet) {
     height: govie-em(40, 19);
