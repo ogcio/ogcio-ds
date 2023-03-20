@@ -24,12 +24,7 @@ module.exports = {
       parserOptions: {
         ecmaVersion: 'latest'
       },
-      plugins: [
-        'import',
-        'jsdoc',
-        'n',
-        'promise'
-      ],
+      plugins: ['import', 'jsdoc', 'n', 'promise'],
       rules: {
         // Check import or require statements are A-Z ordered
         'import/order': [
@@ -50,24 +45,21 @@ module.exports = {
         'jsdoc/require-hyphen-before-param-description': 'warn',
 
         // Check for valid formatting
-        'jsdoc/check-line-alignment': [
-          'warn',
-          'never', {
-            wrapIndent: '  '
-          }
-        ],
+        'jsdoc/check-line-alignment': ['warn', 'never'],
         'jsdoc/check-syntax': 'error',
 
         // Add unknown @jest-environment tag name
         'jsdoc/check-tag-names': [
-          'warn', {
+          'warn',
+          {
             definedTags: ['jest-environment']
           }
         ],
 
         // Add missing .querySelectorAll() type
         'jsdoc/no-undefined-types': [
-          'error', {
+          'error',
+          {
             definedTypes: ['NodeListOf']
           }
         ]
