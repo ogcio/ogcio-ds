@@ -441,7 +441,6 @@ $after-button-padding-left: govie-spacing(4);
 
   // Open button modifier
   &.govie-superheader__open-button {
-    // stylelint-disable max-nesting-depth
     @include focus-and-focus-visible {
       @include govie-focused-text;
       box-shadow: none;
@@ -463,7 +462,7 @@ $after-button-padding-left: govie-spacing(4);
       .govie-superheader__navigation-top-toggle-button-inner {
         @include govie-media-query($from: 360px) {
           &:before {
-            @include chevron(govie-colour('white'));
+            @include chevron(govie-colour('black'));
             @include prefixed-transform($rotate: 225deg, $translateY: 1px);
           }
         }
@@ -637,10 +636,6 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 .govie-superheader__navigation-second-items--topics {
-  @include govie-media-query($until: desktop) {
-    border-bottom: 1px solid govie-colour('mid-grey');
-  }
-
   @include govie-media-query($from: desktop) {
     @include columns($items: 16, $columns: 2, $selector: 'li', $flow: column);
   }
@@ -650,7 +645,6 @@ $after-button-padding-left: govie-spacing(4);
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
   color: govie-colour('black') !important;
-
 
   &:after {
     @include make-selectable-area-bigger;
@@ -720,7 +714,9 @@ $after-button-padding-left: govie-spacing(4);
 }
 
 .govie-superheader__column-header {
-  font-size: 24px;
+  @include govie-font($size: 27, $weight: 'bold');
+  padding-bottom: govie-spacing(4);
+  border-bottom: 1px solid govie-colour('mid-grey');
 }
 
 @include govie-media-query($media-type: print) {
@@ -863,7 +859,7 @@ $after-button-padding-left: govie-spacing(4);
     outline: $govie-focus-width solid $govie-focus-colour;
     // Ensure outline appears outside of the element
     outline-offset: 0;
-    // Double the border by adding its width again. Use `box-shadow` for this 
+    // Double the border by adding its width again. Use `box-shadow` for this
     // instead of changing `border-width` - this is for consistency with
     // Also, `outline` cannot be utilised
     // here as it is already used for the yellow focus state.

@@ -441,7 +441,7 @@ const createSearchContainer = () => {
     const link = document.createElement('a')
     link.className =
       'govie-superheader__popular-link govie-link govie-link--no-visited-state'
-    link.href = '/check-benefits-financial-support'
+    link.href = '#'
     link.innerText = item
 
     itemList.append(link)
