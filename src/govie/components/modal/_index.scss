@@ -1,9 +1,12 @@
 @include govie-exports("govie/component/modal") {
   .govie-modal {
     position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
     .govie-modal--overlay {
-      z-index: 1;
+      z-index: 10;
       position: fixed;
       background-color: rgba(0,0,0,0.4);
       top: 0;
@@ -13,11 +16,12 @@
     }
 
     .govie-modal--content {
-      z-index: 2;
+      z-index: 11;
       position: relative;
       margin: auto;
       padding: govie-spacing(6);
       width: 515px;
+      max-width: 80%;
       box-shadow: -4px 0px 20px rgba(0, 0, 0, 0.1);
       background-color: govie-colour('white');
 
@@ -26,10 +30,11 @@
         align-items: center;
         justify-content: space-between;
         margin-top: govie-spacing(6);
+        gap: govie-spacing(1);
 
         .govie-button {
           box-shadow: none;
-          min-width: 228px;
+          min-width: 45%;
           margin: 0;
         }  
       }
