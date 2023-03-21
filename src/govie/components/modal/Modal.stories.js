@@ -12,6 +12,7 @@ export default {
   parameters: {
     docs: {
       inlineStories: false,
+      iframeHeight: '500px',
       description: {
         component:
           'A panel that can be used to house a important information around actions that require user thought and interaction.',
