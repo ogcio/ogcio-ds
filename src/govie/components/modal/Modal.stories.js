@@ -11,21 +11,15 @@ export default {
   title: 'Application/Modal',
   parameters: {
     docs: {
+      inlineStories: false,
       description: {
         component:
           'A panel that can be used to house a important information around actions that require user thought and interaction.',
       },
     },
   },
-  argTypes: {
-    text: {
-      control: 'text',
-      type: { name: 'text', required: true },
-    },
-  },
-  args: {
-    text: 'It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.',
-  },
+  argTypes: {},
+  args: {},
 }
 
 const createModalOverlay = () => {
