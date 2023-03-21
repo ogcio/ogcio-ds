@@ -52,6 +52,7 @@ export const parameters = {
                 display: 'flex',
                 justifyContent: 'center',
                 textAlign: 'center',
+                zIndex: 20,
               }}
             >
               JavaScript does not work in the 'Docs' tab and this can cause some

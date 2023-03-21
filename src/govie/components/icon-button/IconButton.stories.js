@@ -12,6 +12,7 @@ export default {
   },
   argTypes: {
     disabled: { control: 'boolean' },
+    withoutTooltip: { control: 'boolean' },
     tooltipLabel: {
       control: 'text',
       type: { name: 'string', required: true },
@@ -26,6 +27,7 @@ export default {
     },
   },
   args: {
+    withoutTooltip: false,
     disabled: false,
     tooltipLabel: 'Add',
     position: 'top',
@@ -55,6 +57,10 @@ const Template = (args) => {
   }
 
   btn.className = classes.join(' ')
+
+  if (args.withoutTooltip) {
+    return beautifyHtmlNode(btn)
+  }
 
   const container = document.createElement('span')
   container.setAttribute('data-module', 'govie-tooltip')
