@@ -134,6 +134,7 @@ $after-button-padding-left: govie-spacing(4);
 
 .govie-superheader__navigation-item,
 .govie-superheader__search-item {
+  position: relative;
   background: $govie-header-surface-colour;
   display: block;
   float: left;
@@ -199,7 +200,6 @@ $after-button-padding-left: govie-spacing(4);
       );
     }
 
-    // stylelint-disable max-nesting-depth
     float: left;
     font-size: 16px;
     font-size: govie-px-to-rem(16px);
@@ -275,7 +275,6 @@ $after-button-padding-left: govie-spacing(4);
         );
       }
     }
-    // stylelint-enable max-nesting-depth
   }
 
   &:after {
@@ -402,7 +401,7 @@ $after-button-padding-left: govie-spacing(4);
   font-size: 16px;
   font-size: govie-px-to-rem(16px);
   font-weight: 700;
-  background: govie-colour('black');
+  background: $govie-header-surface-colour;
   border: 0;
   box-sizing: border-box;
   color: govie-colour('white');
@@ -414,7 +413,7 @@ $after-button-padding-left: govie-spacing(4);
   vertical-align: top;
 
   @include govie-media-query($from: desktop) {
-    background: govie-colour('black');
+    background: $govie-header-surface-colour;
     display: block;
     float: left;
     margin: 0;
@@ -442,16 +441,11 @@ $after-button-padding-left: govie-spacing(4);
   // Open button modifier
   &.govie-superheader__open-button {
     @include focus-and-focus-visible {
-      @include govie-focused-text;
       box-shadow: none;
 
       .govie-superheader__navigation-top-toggle-button-inner {
-        color: govie-colour('black');
-        border-color: $govie-focus-colour;
-
         @include govie-media-query($from: 360px) {
           &:before {
-            @include chevron(govie-colour('black'), true);
             @include prefixed-transform($rotate: 225deg, $translateY: 1px);
           }
         }
@@ -462,13 +456,11 @@ $after-button-padding-left: govie-spacing(4);
       .govie-superheader__navigation-top-toggle-button-inner {
         @include govie-media-query($from: 360px) {
           &:before {
-            @include chevron(govie-colour('black'));
             @include prefixed-transform($rotate: 225deg, $translateY: 1px);
           }
         }
       }
     }
-    // stylelint-enable max-nesting-depth
   }
 }
 
@@ -502,21 +494,12 @@ $after-button-padding-left: govie-spacing(4);
   width: $govie-bar-height;
 
   @include focus-and-focus-visible {
-    @include govie-focused-text;
-    border-color: $govie-focus-colour;
     box-shadow: none;
     z-index: 11;
 
     path {
-      fill: govie-colour('black');
+      fill: govie-colour('white');
     }
-  }
-
-  &:focus:not(:focus-visible) {
-    background: none;
-    border-color: govie-colour('white');
-    box-shadow: none;
-    color: govie-colour('white');
   }
 
   @include govie-media-query($from: desktop) {
@@ -524,33 +507,17 @@ $after-button-padding-left: govie-spacing(4);
     margin: 0;
     right: 0;
 
-    @include focus-not-focus-visible {
-      background: $govie-header-footer-border-colour;
-      border-bottom: 1px solid $govie-header-footer-border-colour;
-      border-left: none;
-      position: relative;
-    }
-
     &:hover {
       background: $govie-header-surface-colour;
       border-bottom: $govie-pseudo-underline-height solid
         $govie-header-footer-border-colour;
-    }
-
-    @include focus-and-focus-visible {
-      @include govie-focused-text;
-      border-bottom-color: $govie-focus-colour;
-      box-shadow: none;
     }
   }
 
   // Open button modifier
   &.govie-superheader__open-button {
     @include focus-and-focus-visible {
-      @include govie-focused-text;
-      border-color: $govie-focus-colour;
       box-shadow: none;
-      color: $govie-focus-colour;
 
       @include govie-media-query($from: 360px) {
         &:before {
@@ -590,6 +557,37 @@ $after-button-padding-left: govie-spacing(4);
 
   @include govie-media-query($from: desktop) {
     padding-top: govie-spacing(5);
+  }
+}
+
+// Language dropdown menu.
+.govie-superheader__navigation-language-dropdown-menu {
+  position: absolute;
+
+  background: govie-colour('white');
+  margin-top: govie-spacing(9);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @include govie-media-query($from: mobile, $until: desktop) {
+    margin-top: govie-spacing(2);
+  }
+
+  .govie-superheader__navigation-language-dropdown-menu-list {
+    list-style-type: none;
+    padding: 0;
+    min-width: 187px;
+
+    .govie-superheader__navigation-language-dropdown-menu-list-item {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 12px 10px;
+
+      &:hover {
+        background-color: govie-colour('light-grey');
+        cursor: pointer;
+      }
+    }
   }
 }
 

@@ -9,7 +9,14 @@ export default {
       },
     },
   },
-  // argTypes: {},
+  argTypes: {
+    withExtraMenu: {
+      control: 'boolean',
+    },
+  },
+  args: {
+    withExtraMenu: false,
+  },
 }
 
 const topicMenuList = [
@@ -77,7 +84,7 @@ const createLogo = () => {
   return container
 }
 
-const createNav = () => {
+const createNav = (withExtraMenu) => {
   const nav = document.createElement('nav')
   nav.className = 'govie-superheader__content js-module-initialised'
   nav.setAttribute('data-module', 'super-navigation-superheader')
@@ -92,7 +99,14 @@ const createNav = () => {
 
   const buttonsContainer = document.createElement('div')
   buttonsContainer.className = 'govie-superheader__button-container'
-  buttonsContainer.appendChild(createNavItem())
+
+  buttonsContainer.appendChild(createNavItem('Menu', 'super-navigation-menu'))
+
+  if (withExtraMenu) {
+    buttonsContainer.appendChild(
+      createNavItem('Languages', 'super-navigation-languages', true)
+    )
+  }
   buttonsContainer.appendChild(createSearchItem())
 
   container.appendChild(buttonsContainer)
@@ -105,7 +119,7 @@ const createNav = () => {
   return nav
 }
 
-const createNavItem = () => {
+const createNavItem = (label, dropdownId, withExtraMenu) => {
   const navigationItem = document.createElement('div')
   navigationItem.className = 'govie-superheader__navigation-item'
 
@@ -116,29 +130,33 @@ const createNavItem = () => {
 
   const inner = document.createElement('span')
   inner.className = 'govie-superheader__navigation-item-link-inner'
-  inner.innerText = 'Menu'
+  inner.innerText = label
 
   const navButton = document.createElement('button')
   navButton.className = 'govie-superheader__navigation-top-toggle-button'
   navButton.type = 'button'
-  navButton.ariaLabel = 'Show navigation menu'
+  navButton.ariaLabel = `Show navigation ${label}`
   navButton.ariaExpanded = false
-  navButton.id = 'super-navigation-menu-4b386e09-toggle'
+  navButton.id = `${dropdownId}-toggle`
 
-  navButton.setAttribute('aria-controls', 'super-navigation-menu-4b386e09')
-  navButton.setAttribute('data-text-for-hide', 'Hide navigation menu')
-  navButton.setAttribute('data-text-for-show', 'Show navigation menu')
+  navButton.setAttribute('aria-controls', dropdownId)
+  navButton.setAttribute('data-text-for-hide', `Hide navigation ${label}`)
+  navButton.setAttribute('data-text-for-show', `Show navigation ${label}`)
   navButton.setAttribute('data-toggle-desktop-group', 'top')
   navButton.setAttribute('data-toggle-mobile-group', 'top')
 
   const navButtonInner = document.createElement('span')
   navButtonInner.className =
     'govie-superheader__navigation-top-toggle-button-inner'
-  navButtonInner.innerText = 'Menu'
+  navButtonInner.innerText = label
   navButton.appendChild(navButtonInner)
 
   navigationItem.appendChild(link)
   navigationItem.appendChild(navButton)
+
+  if (withExtraMenu) {
+    navigationItem.appendChild(createLanguageDropdownMenu())
+  }
 
   return navigationItem
 }
@@ -301,7 +319,7 @@ const createDropdownMenu = () => {
   const container = document.createElement('div')
   container.className = 'govie-superheader__navigation-dropdown-menu'
   container.hidden = 'hidden'
-  container.id = 'super-navigation-menu-4b386e09'
+  container.id = 'super-navigation-menu'
 
   const widthContainer = document.createElement('div')
   widthContainer.className = 'govie-width-container'
@@ -322,6 +340,39 @@ const createDropdownMenu = () => {
   )
   widthContainer.appendChild(navigationItemsContainer)
   container.appendChild(widthContainer)
+
+  return container
+}
+
+const createLanguageDropdownMenu = () => {
+  const container = document.createElement('div')
+  container.className = 'govie-superheader__navigation-language-dropdown-menu'
+  container.hidden = 'hidden'
+  container.id = 'super-navigation-languages'
+
+  const list = document.createElement('ul')
+  list.className = 'govie-superheader__navigation-language-dropdown-menu-list'
+
+  const englishItem = document.createElement('li')
+  englishItem.className =
+    'govie-superheader__navigation-language-dropdown-menu-list-item'
+  const englishLink = document.createElement('a')
+  englishLink.className = 'govie-link govie-link--no-underline'
+  englishLink.innerText = 'English'
+  englishItem.appendChild(englishLink)
+
+  const irishItem = document.createElement('li')
+  irishItem.className =
+    'govie-superheader__navigation-language-dropdown-menu-list-item'
+  const irishLink = document.createElement('a')
+  irishLink.className = 'govie-link govie-link--no-underline'
+  irishLink.innerText = 'Gaeilge'
+  irishItem.appendChild(irishLink)
+
+  list.appendChild(englishItem)
+  list.appendChild(irishItem)
+
+  container.appendChild(list)
 
   return container
 }
@@ -471,7 +522,7 @@ const Template = (args) => {
   superheaderContainer.className = 'govie-superheader__container govie-clearfix'
 
   superheaderContainer.appendChild(createLogo())
-  superheaderContainer.appendChild(createNav())
+  superheaderContainer.appendChild(createNav(args.withExtraMenu))
 
   header.appendChild(superheaderContainer)
 
@@ -480,3 +531,8 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const withExtraMenu = Template.bind({})
+withExtraMenu.args = {
+  withExtraMenu: true,
+}
