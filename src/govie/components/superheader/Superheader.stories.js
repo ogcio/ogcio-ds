@@ -87,7 +87,7 @@ const createLogo = () => {
 const createNav = (withLanguageSelector) => {
   const nav = document.createElement('nav')
   nav.className = 'govie-superheader__content js-module-initialised'
-  nav.setAttribute('data-module', 'super-navigation-superheader')
+  nav.setAttribute('data-module', 'govie-superheader')
 
   const hiddenTitle = document.createElement('h2')
   hiddenTitle.className = 'govie-visually-hidden'

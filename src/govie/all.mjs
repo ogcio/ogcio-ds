@@ -87,7 +87,7 @@ function initAll(config) {
   }
 
   // Find first header module to enhance.
-  var $superheader = $scope.querySelector('[data-module="super-navigation-superheader"]')
+  var $superheader = $scope.querySelector('[data-module="govie-superheader"]')
   if ($superheader) {
     new Superheader($superheader).init()
   }
