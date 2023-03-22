@@ -1,7 +1,7 @@
 {
   "name": "@ogcio/ogcio-ds",
   "description": "OGCIO-DS contains the code you need to start building a user interface for government platforms and services.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "govie/all.js",
   "module": "govie-esm/all.mjs",
   "exports": {
