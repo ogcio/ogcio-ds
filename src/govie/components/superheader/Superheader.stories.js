@@ -10,12 +10,12 @@ export default {
     },
   },
   argTypes: {
-    withExtraMenu: {
+    withLanguageSelector: {
       control: 'boolean',
     },
   },
   args: {
-    withExtraMenu: false,
+    withLanguageSelector: false,
   },
 }
 
@@ -84,7 +84,7 @@ const createLogo = () => {
   return container
 }
 
-const createNav = (withExtraMenu) => {
+const createNav = (withLanguageSelector) => {
   const nav = document.createElement('nav')
   nav.className = 'govie-superheader__content js-module-initialised'
   nav.setAttribute('data-module', 'super-navigation-superheader')
@@ -102,9 +102,13 @@ const createNav = (withExtraMenu) => {
 
   buttonsContainer.appendChild(createNavItem('Menu', 'super-navigation-menu'))
 
-  if (withExtraMenu) {
+  if (withLanguageSelector) {
     buttonsContainer.appendChild(
-      createNavItem('Languages', 'super-navigation-languages', true)
+      createNavItem(
+        'Languages',
+        'super-navigation-languages',
+        withLanguageSelector
+      )
     )
   }
   buttonsContainer.appendChild(createSearchItem())
@@ -113,15 +117,17 @@ const createNav = (withExtraMenu) => {
 
   nav.appendChild(hiddenTitle)
   nav.appendChild(container)
-  nav.appendChild(createDropdownMenu())
+  nav.appendChild(createDropdownMenu(withLanguageSelector))
   nav.appendChild(createSearchContainer())
 
   return nav
 }
 
-const createNavItem = (label, dropdownId, withExtraMenu) => {
+const createNavItem = (label, dropdownId, withLanguageSelector) => {
   const navigationItem = document.createElement('div')
-  navigationItem.className = 'govie-superheader__navigation-item'
+  navigationItem.className = `govie-superheader__navigation-item ${
+    withLanguageSelector ? 'govie-superheader__navigation-language-menu' : ''
+  }`
 
   const link = document.createElement('a')
   link.className = 'govie-superheader__navigation-item-link'
@@ -154,7 +160,7 @@ const createNavItem = (label, dropdownId, withExtraMenu) => {
   navigationItem.appendChild(link)
   navigationItem.appendChild(navButton)
 
-  if (withExtraMenu) {
+  if (withLanguageSelector) {
     navigationItem.appendChild(createLanguageDropdownMenu())
   }
 
@@ -315,7 +321,7 @@ const createListItems = (text, title, list) => {
   return container
 }
 
-const createDropdownMenu = () => {
+const createDropdownMenu = (withLanguageSelector) => {
   const container = document.createElement('div')
   container.className = 'govie-superheader__navigation-dropdown-menu'
   container.hidden = 'hidden'
@@ -327,6 +333,58 @@ const createDropdownMenu = () => {
   const navigationItemsContainer = document.createElement('div')
   navigationItemsContainer.className =
     'govie-grid-row govie-superheader__navigation-items'
+
+  if (withLanguageSelector) {
+    const languageSelector = document.createElement('div')
+    languageSelector.className =
+      'govie-superheader__navigation-language-selector'
+
+    const languageButton = document.createElement('button')
+    languageButton.className = 'govie-superheader__navigation-language-title'
+    languageButton.id = 'super-navigation-language-mobile-toggle'
+    languageButton.setAttribute('aria-expanded', 'false')
+    languageButton.setAttribute(
+      'aria-controls',
+      'super-navigation-language-mobile'
+    )
+    languageButton.setAttribute('data-toggle-desktop-group', 'bottom')
+    languageButton.setAttribute('data-toggle-mobile-group', 'bottom')
+
+    const languageText = document.createElement('span')
+    languageText.innerText = 'Languages'
+
+    languageButton.appendChild(languageText)
+
+    const languageList = document.createElement('ul')
+    languageList.className =
+      'govie-superheader__navigation-language-dropdown-menu-mobile'
+    languageList.id = 'super-navigation-language-mobile'
+    languageList.hidden = 'hidden'
+
+    const englishItem = document.createElement('li')
+    englishItem.className = 'govie-superheader__dropdown-list-item'
+    const englishLink = document.createElement('a')
+    englishLink.className =
+      'govie-superheader__navigation-second-item-link govie-link govie-link--no-visited-state'
+    englishLink.innerText = 'English'
+    englishItem.appendChild(englishLink)
+
+    const irishItem = document.createElement('li')
+    irishItem.className = 'govie-superheader__dropdown-list-item'
+    const irishLink = document.createElement('a')
+    irishLink.className =
+      'govie-superheader__navigation-second-item-link govie-link govie-link--no-visited-state'
+    irishLink.innerText = 'Gaeilge'
+    irishItem.appendChild(irishLink)
+
+    languageList.appendChild(englishItem)
+    languageList.appendChild(irishItem)
+
+    languageSelector.appendChild(languageButton)
+    languageSelector.appendChild(languageList)
+
+    navigationItemsContainer.appendChild(languageSelector)
+  }
 
   navigationItemsContainer.appendChild(
     createListItems('topics', 'Topics', topicMenuList)
@@ -522,7 +580,7 @@ const Template = (args) => {
   superheaderContainer.className = 'govie-superheader__container govie-clearfix'
 
   superheaderContainer.appendChild(createLogo())
-  superheaderContainer.appendChild(createNav(args.withExtraMenu))
+  superheaderContainer.appendChild(createNav(args.withLanguageSelector))
 
   header.appendChild(superheaderContainer)
 
@@ -532,7 +590,7 @@ const Template = (args) => {
 export const Default = Template.bind({})
 Default.args = {}
 
-export const withExtraMenu = Template.bind({})
-withExtraMenu.args = {
-  withExtraMenu: true,
+export const withLanguageSelector = Template.bind({})
+withLanguageSelector.args = {
+  withLanguageSelector: true,
 }

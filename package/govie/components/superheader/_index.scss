@@ -140,6 +140,7 @@ $after-button-padding-left: govie-spacing(4);
   float: left;
   margin: 0;
   padding: 0;
+  height: 50px;
 }
 
 .govie-superheader__search-item {
@@ -430,10 +431,8 @@ $after-button-padding-left: govie-spacing(4);
     color: govie-colour('white');
 
     .govie-superheader__navigation-top-toggle-button-inner {
-      @include govie-media-query($from: 360px) {
-        &:before {
-          @include chevron(govie-colour('white'), true);
-        }
+      &:before {
+        @include chevron(govie-colour('white'), true);
       }
     }
   }
@@ -444,10 +443,8 @@ $after-button-padding-left: govie-spacing(4);
       box-shadow: none;
 
       .govie-superheader__navigation-top-toggle-button-inner {
-        @include govie-media-query($from: 360px) {
-          &:before {
-            @include prefixed-transform($rotate: 225deg, $translateY: 1px);
-          }
+        &:before {
+          @include prefixed-transform($rotate: 225deg, $translateY: 1px);
         }
       }
     }
@@ -474,10 +471,8 @@ $after-button-padding-left: govie-spacing(4);
     border-right: 0;
   }
 
-  @include govie-media-query($from: 360px) {
-    &:before {
-      @include chevron(govie-colour('white'));
-    }
+  &:before {
+    @include chevron(govie-colour('white'));
   }
 }
 
@@ -568,10 +563,6 @@ $after-button-padding-left: govie-spacing(4);
   margin-top: govie-spacing(9);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  @include govie-media-query($from: mobile, $until: desktop) {
-    margin-top: govie-spacing(2);
-  }
-
   .govie-superheader__navigation-language-dropdown-menu-list {
     list-style-type: none;
     padding: 0;
@@ -589,6 +580,50 @@ $after-button-padding-left: govie-spacing(4);
       }
     }
   }
+}
+
+.govie-superheader__navigation-language-selector {
+  box-sizing: border-box;
+  padding: 0 15px 20px;
+
+  @include govie-media-query($from: desktop) {
+    display: none;
+  }
+
+  .govie-superheader__navigation-language-title {
+    @include govie-link-common;
+    @include govie-link-style-no-visited-state;
+    @include govie-font($size: 27, $weight: 'bold');
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    cursor: pointer;
+
+    span {
+      &::after {
+        @include chevron(govie-colour('black'));
+        margin-left: govie-spacing(2);
+      }
+    }
+
+    &.govie-superheader__open-button {
+      span {
+        &::after {
+          @include prefixed-transform($rotate: 225deg, $translateY: 1px);
+        }
+      }
+    }
+  }
+}
+
+.govie-superheader__navigation-language-menu {
+  @include govie-media-query($from: mobile, $until: desktop) {
+    display: none;
+  }
+}
+.govie-superheader__navigation-language-dropdown-menu-mobile {
+  list-style-type: none;
+  padding: 0;
 }
 
 // Dropdown menu description.
