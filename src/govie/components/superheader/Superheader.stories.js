@@ -5,7 +5,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'The GOV.IE superheader.',
+        component: 'The gov.ie superheader, for public facing website.',
       },
     },
   },
