@@ -1,9 +1,8 @@
-@include govie-exports("govie/component/header") {
-
+@include govie-exports('govie/component/header') {
   $govie-header-background: $govie-header-surface-colour;
   $govie-header-border-color: $govie-header-footer-border-colour;
   $govie-header-border-width: govie-spacing(2);
-  $govie-header-text: govie-colour("white");
+  $govie-header-text: govie-colour('white');
   $govie-header-link-active: #1d8feb;
   $govie-header-nav-item-border-color: #2e3133;
   $govie-header-link-underline-thickness: 3px;
@@ -11,7 +10,7 @@
   .govie-header {
     @include govie-font($size: 16);
 
-    border-bottom: govie-spacing(2) solid govie-colour("white");
+    border-bottom: govie-spacing(2) solid govie-colour('white');
     color: $govie-header-text;
     background: $govie-header-background;
   }
@@ -52,6 +51,14 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  .govie-header__logotype-full {
+    position: relative;
+    top: -5px;
+    margin-right: 1px;
+    fill: currentcolor;
+    vertical-align: top;
   }
 
   .govie-header__logotype-fallback-image {
@@ -149,10 +156,10 @@
   }
 
   .govie-header__logo {
-    @include govie-responsive-margin(2, "bottom");
+    @include govie-responsive-margin(2, 'bottom');
     padding-right: govie-spacing(8);
 
-    @include govie-media-query ($from: desktop) {
+    @include govie-media-query($from: desktop) {
       width: 33.33%;
       padding-right: $govie-gutter-half;
       float: left;
@@ -161,7 +168,7 @@
   }
 
   .govie-header__content {
-    @include govie-media-query ($from: desktop) {
+    @include govie-media-query($from: desktop) {
       width: 66.66%;
       padding-left: $govie-gutter-half;
       float: left;
@@ -177,7 +184,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    color: govie-colour("white");
+    color: govie-colour('white');
     background: none;
     cursor: pointer;
 
@@ -195,16 +202,24 @@
     }
 
     &:after {
-      @include govie-shape-arrow($direction: down, $base: 10px, $display: inline-block);
-      content: "";
+      @include govie-shape-arrow(
+        $direction: down,
+        $base: 10px,
+        $display: inline-block
+      );
+      content: '';
       margin-left: govie-spacing(1);
     }
 
-    &[aria-expanded="true"]:after {
-      @include govie-shape-arrow($direction: up, $base: 10px, $display: inline-block);
+    &[aria-expanded='true']:after {
+      @include govie-shape-arrow(
+        $direction: up,
+        $base: 10px,
+        $display: inline-block
+      );
     }
 
-    @include govie-media-query ($from: tablet) {
+    @include govie-media-query($from: tablet) {
       top: govie-spacing(3);
     }
 
@@ -219,7 +234,7 @@
   }
 
   .govie-header__navigation {
-    @include govie-media-query ($from: desktop) {
+    @include govie-media-query($from: desktop) {
       margin-bottom: govie-spacing(2);
     }
   }
@@ -236,7 +251,7 @@
   }
 
   .govie-header__navigation--end {
-    @include govie-media-query ($from: desktop) {
+    @include govie-media-query($from: desktop) {
       margin: 0;
       padding: govie-spacing(1) 0;
       text-align: right;
@@ -253,7 +268,7 @@
     padding: govie-spacing(2) 0;
     border-bottom: 1px solid $govie-header-nav-item-border-color;
 
-    @include govie-media-query ($from: desktop) {
+    @include govie-media-query($from: desktop) {
       display: inline-block;
       margin-right: govie-spacing(3);
       padding: govie-spacing(1) 0;
@@ -290,7 +305,7 @@
   @include govie-media-query($media-type: print) {
     .govie-header {
       border-bottom-width: 0;
-      color: govie-colour("black");
+      color: govie-colour('black');
       background: transparent;
     }
 
@@ -302,7 +317,7 @@
     .govie-header__link {
       &:link,
       &:visited {
-        color: govie-colour("black");
+        color: govie-colour('black');
       }
 
       // Do not append link href to GOV.UK link when printing (e.g. '(/)')
