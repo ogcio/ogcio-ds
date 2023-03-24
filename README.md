@@ -1,51 +1,95 @@
-# GOV.IE Frontend 
-=====================
+# OGCIO Design System
 
-OGCIO-DS contains the code you need to start building a user interface
-for government platforms and services.
+This repository contains the code for the OGCIO Design System components, provided for reuse by services.
 
-## Quick start
+See live examples of OGCIO-DS components, and guidance on when to use them in your service, in the [OGCIO-DS Storybook](https://storybook.design-system.ogcio.gov.ie/).
 
-There are 2 ways to start using OGCIO-DS Frontend in your app.
+## Run locally
 
-Once installed, you will be able to use the code from the examples in the
-gov.ie Design System in your service.
+You'll need [Git](https://help.github.com/articles/set-up-git/) and [Node.js](https://nodejs.org/en/) installed to get this project running.
 
-### 1. Install with npm (recommended)
+Note: You will need the [active LTS (Long-term support)](https://github.com/nodejs/Release#release-schedule) Node.js version for this project (as specified in [.nvmrc](./.nvmrc))
 
-We recommend [installing OGCIO-DS using node package manager
-(npm)](https://github.com/ogcio/ogcio-ds/pkgs/npm/ogcio-ds).
+### Fork repository (optional)
+If you're an external contributor make sure to [fork this project first](https://help.github.com/articles/fork-a-repo/)
 
-### 2. Install using compiled files
+### Clone repository
+```
+git clone git@github.com:ogcio/ogcio-ds.git # or clone your own fork
 
-You can also install GOV.IE Frontend by [copying our CSS, JavaScript and asset
-files into your project](https://github.com/ogcio/ogcio-ds/tree/main/dist).
+cd ogcio-ds
+```
 
-1. Access the pre-compiled files in our [repo](https://github.com/ogcio/ogcio-ds/tree/main/dist/@ogcio/)
-2. Copy the assets folder to the root of your project’s public folder, so that for example `<YOUR-SITE-URL>/assets/logo-full.png` shows the `logo-full.png` image in your users’ browsers.
-3. Copy the 2 .css files to a stylesheets folder in the root of your project’s public folder, so that for example `<YOUR-SITE-URL>/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css` shows the CSS file in your users’ browsers.
-4. Copy the .js file to a JavaScript folder in the root of your project’s public folder, so that for example `<YOUR-SITE-URL>/javascript/ogcio-ds-<VERSION-NUMBER>.min.js` shows the JavaScript file in your users’ browsers.
-<!-- 
-## Accessibility
+### Using nvm (optional)
+If you work across multiple Node.js projects there's a good chance they require different Node.js and npm versions.
 
-The GOV.UK Design System team works hard to ensure that GOV.IE Frontend is accessible.
+To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
-Using Frontend will help your service meet [level AA of WCAG 2.1](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag). But you must still [check that your service meets accessibility requirements](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction), especially if you extend or modify components.
+1. [install nvm](https://github.com/creationix/nvm#installation)
+2. Run `nvm install` in the project directory (this will use [.nvmrc](./.nvmrc))
 
-You should also use:
+### Install npm dependencies
+```
+npm install
+```
 
-- [the JavaScript from GOV.IE Frontend](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript)
-- [a separate stylesheet](https://frontend.design-system.service.gov.uk/supporting-ie8/) if you support Internet Explorer 8
+### Start a local server
 
-Your service will not meet level AA of WCAG 2.1 if you use [compatibility mode](https://frontend.design-system.service.gov.uk/compatibility-mode/) to use GOV.IE Frontend with old frameworks or the old colour palette.
+We use [Storybook](https://storybook.js.org/) to serve our components. To build Storybook locally sources (`build`), use:
+```
+npm run storybook:build
+```
 
-You can also read the [accessibility statement for the GOV.UK Design System](https://design-system.service.gov.uk/accessibility/). -->
+To build Storybook dist sources (`storybook/dist`), use:
+```
+npm run build:storybook:dist
+```
 
-<!-- ### Accessibility warnings
+If you don't need to build Storybook sources but just serve the pages.
+```
+npm run storybook:ci
+```
 
-If you get a warning from a linter or accessibility checker, check our list of [issues you should not need to fix](https://github.com/alphagov/govuk-frontend/issues/1280#issuecomment-509588851). -->
+And to build sources for storybook (under `storybook/dist`), serve Storybook and watch for changes.
+```
+npm run storybook
+```
+Storybook will be available in `localhost:6006`.
 
-## Licence
+<br />
 
-Unless stated otherwise, the codebase is released under the MIT License. This
-covers both the codebase and any sample code in the documentation. 
+## Build a new package version
+Build `./src` to `./package`
+```
+npm run build:package
+```
+
+## Build pre-compiled files
+Build `./src` to `./dist`
+```
+npm run build:dist
+```
+
+## OGCIO-DS package publishing
+
+The following steps are required for making new package be available on Github Packages:
+* Create PR for your code and update the `package/package.json` file with the newest version
+* Once your PR is merged to the `main` branch you need to create a tag (ether from CLI or from the GUI), the tag name should be same as the version name
+* The last step is create a new release based on the previously created tag, this last action will trigger the package pipeline and the latest version will be available as a package
+
+
+--------------------
+
+## Continuous integration
+
+When changes are pushed to `main` branch on GitHub, [Github Actions][github-actions] will:
+
+- deploy the [Storybook website on GH pages](https://ogcio.github.io/ogcio-ds/)
+- deploy the [Storybook website](https://storybook.design-system.ogcio.gov.ie/)
+
+
+[github-actions]: https://github.com/ogcio/ogcio-ds/tree/main/.github/workflows
+
+## Contributing
+
+Contributors to OGCIO repositories are expected to follow the [Contributor Guide](https://ogcio.github.io/ogcio-ds-website/help/how-to-contribute/).
