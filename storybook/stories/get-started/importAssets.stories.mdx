@@ -50,7 +50,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
   To import the button component for example, add the following to your Sass
   file:
 </p>
-<CodeSnippet code={`@import "@ogcio/ogcio-ds/govie/components/button/button";`} />
+<CodeSnippet
+  code={`@import "@ogcio/ogcio-ds/govie/components/button/button";`}
+/>
 
 <h3>Override with your own CSS</h3>
 <p>
@@ -140,9 +142,12 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
 <p>
   You can also use your own function to generate paths, for example if you're
   using <code>asset-pipeline</code> in{' '}
-  <a href="https://github.com/rails/sass-rails">sass-rails</a>. Set the{' '}
-  <code>$govie-image-url-function</code> and{' '}
-  <code>$govie-font-url-function</code> variables to the name of your function.
+  <a href="https://github.com/rails/sass-rails" target="_blank" rel="noopener">
+    sass-rails
+  </a>
+  . Set the <code>$govie-image-url-function</code> and <code>
+    $govie-font-url-function
+  </code> variables to the name of your function.
 </p>
 
 <h2 id="import-javascript">JavaScript</h2>
