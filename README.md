@@ -56,7 +56,6 @@ npm run storybook
 ```
 Storybook will be available in `localhost:6006`.
 
-<br />
 
 ## Build a new package version
 Build `./src` to `./package`
