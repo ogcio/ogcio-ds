@@ -1,4 +1,4 @@
-# GOV.IE Frontend 
+# OGCIO-DS
 
 
 OGCIO-DS contains the code you need to start building a user interface for government platforms and services. 
@@ -45,12 +45,6 @@ To be notified when there’s a new release, you can [watch the ogcio-ds Github 
 
 
 Find out how to [update with npm](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-update-with-npm--page/).
-
-### Security
-
-GDS is an advocate of responsible vulnerability disclosure. If you’ve found a vulnerability, we would like to know so we can fix it.
-
-For full details on how to tell us about vulnerabilities, [see our security policy](https://github.com/alphagov/govuk-frontend/security/policy).
 
 ## Licence
 
