@@ -1,4 +1,5 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import { xIcon, searchIcon, logoImage } from '../../storybook/svgImages'
 
 export default {
   title: 'Layout/Superheader',
@@ -73,7 +74,7 @@ const createLogo = () => {
   a.title = 'Go to the gov.ie homepage'
   a.innerHTML = `
     <span class="govie-header__logotype">
-      <img id="logo-image" src="./@ogcio/assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
+      ${logoImage}
     </span>
   `
 
@@ -192,46 +193,7 @@ const createSearchItem = () => {
   closeIcon.ariaHidden = true
   closeIcon.className = 'govie-superheader__navigation-top-toggle-close-icon'
   closeIcon.setAttribute('focusable', 'false')
-  closeIcon.innerHTML = `
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"/>
-    </svg>
-`
-
-  const searchIcon = `
-    <svg
-      class="govie-superheader__search-toggle-button-link-icon"
-      width="27"
-      height="27"
-      viewBox="0 0 27 27"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle
-        cx="12.0161"
-        cy="11.0161"
-        r="8.51613"
-        stroke="currentColor"
-        stroke-width="3"
-      ></circle>
-      <line
-        x1="17.8668"
-        y1="17.3587"
-        x2="26.4475"
-        y2="25.9393"
-        stroke="currentColor"
-        stroke-width="3"
-      ></line>
-    </svg>
-  `
+  closeIcon.innerHTML = xIcon
 
   openSearchMenuButton.appendChild(openSearchMenuButtonInner)
   openSearchMenuButton.appendChild(closeIcon)
@@ -249,34 +211,7 @@ const createSearchItem = () => {
   searchLink.appendChild(searchLinkInner)
   searchLink.insertAdjacentHTML(
     'beforeend',
-    `
-      <svg
-        class="govie-superheader__search-item-link-icon"
-        width="27"
-        height="27"
-        viewBox="0 0 27 27"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <circle
-          cx="12.0161"
-          cy="11.0161"
-          r="8.51613"
-          stroke="currentColor"
-          stroke-width="3"
-        ></circle>
-        <line
-          x1="17.8668"
-          y1="17.3587"
-          x2="26.4475"
-          y2="25.9393"
-          stroke="currentColor"
-          stroke-width="3"
-        ></line>
-      </svg>
-    `
+    searchIcon
   )
 
   searchContainer.appendChild(openSearchMenuButton)
@@ -493,34 +428,7 @@ const createSearchContainer = () => {
 
   searchButton.insertAdjacentHTML(
     'beforeend',
-    `
-    <svg
-      class="govie-superheader-search__icon"
-      width="27"
-      height="27"
-      viewBox="0 0 27 27"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle
-        cx="12.0161"
-        cy="11.0161"
-        r="8.51613"
-        stroke="currentColor"
-        stroke-width="3"
-      ></circle>
-      <line
-        x1="17.8668"
-        y1="17.3587"
-        x2="26.4475"
-        y2="25.9393"
-        stroke="currentColor"
-        stroke-width="3"
-      ></line>
-    </svg>
-`
+    searchIcon
   )
 
   searchSubmitWrapper.appendChild(searchButton)
