@@ -1,4 +1,5 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import { arrowRightIcon, plusIcon } from '../../storybook/svgImages'
 
 export default {
   title: 'Form/Button/Primary button',
@@ -40,31 +41,13 @@ const Template = (args) => {
 
   if (args.icon === 'left') {
     btn.innerHTML = `
-      <svg 
-        class="govie-button__icon-left" 
-        width="14" 
-        height="15" 
-        viewBox="0 0 14 15" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M14 8.5H8V14.5H6V8.5H0V6.5H6V0.5H8V6.5H14V8.5Z" fill="white"/>
-      </svg>
+      ${plusIcon}
       ${args.label} 
     `
   } else if (args.icon === 'right') {
     btn.innerHTML = `
       ${args.label} 
-      <svg 
-        class="govie-button__icon-right" 
-        width="16" 
-        height="17" 
-        viewBox="0 0 16 17" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M8 0.5L6.59 1.91L12.17 7.5H0V9.5H12.17L6.59 15.09L8 16.5L16 8.5L8 0.5Z" fill="white"/>
-      </svg>
+      ${arrowRightIcon}
     `
   }
 
