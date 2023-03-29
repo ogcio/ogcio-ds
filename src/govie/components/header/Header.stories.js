@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          'The GOV.IE header shows users that they are on GOV.IE and which service they are using.',
+          'The OGCIO-DS header shows users that they are on gov.ie and which service they are using.',
       },
     },
   },

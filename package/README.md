@@ -28,13 +28,13 @@ You can also install OGCIO-DS by [copying our CSS, JavaScript and asset files in
 
 ## Accessibility
 
-The OGCIO-DS team works hard to ensure that GOV.IE Frontend is accessible.
+The OGCIO-DS team works hard to ensure that OGCIO-DS is accessible.
 
 Using Frontend will help your service meet [level AA of WCAG 2.1](https://www.w3.org/TR/WCAG21/). But you must still check that your service meets accessibility requirements, especially if you extend or modify components.
 
 You should also use:
 
-- [the JavaScript from GOV.IE Frontend](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-import-css-assets-and-javascript--page/#import-javascript)
+- [the JavaScript from OGCIO-DS](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-import-css-assets-and-javascript--page/#import-javascript)
 - [a separate stylesheet](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-support-internet-explorer-8--page) if you support Internet Explorer 8
 
 You can also read the [accessibility statement for OGCIO-DS](https://www.design-system.ogcio.gov.ie/accessibility/)
