@@ -145,6 +145,7 @@ const createColumn = () => {
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
       inline: true,
+      id: 'accept-analytics'
     })
   )
   form.appendChild(acceptRadioButtons)

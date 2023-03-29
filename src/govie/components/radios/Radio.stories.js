@@ -85,7 +85,7 @@ const createRadioItem = ({
 
   const labelComponent = document.createElement('label')
   labelComponent.className = 'govie-label govie-radios__label'
-  labelComponent.for = id
+  labelComponent.setAttribute('for', id)
   labelComponent.innerText = label
 
   item.appendChild(input)

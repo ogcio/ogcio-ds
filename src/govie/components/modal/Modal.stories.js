@@ -36,7 +36,7 @@ const createCloseButton = () => {
   closeButtonContainer.className = 'govie-modal--close-button-container'
 
   const closeButton = parseHtmlString(
-    iconButton({ icon: xIcon, withoutTooltip: true })
+    iconButton({ icon: xIcon, tooltipLabel: 'Close' })
   )
   closeButtonContainer.appendChild(closeButton)
 
@@ -48,12 +48,12 @@ const createContentButtonsRow = () => {
   buttonsRow.className = 'govie-modal--buttons'
 
   const cancelButton = parseHtmlString(
-    outlinedButton({ label: 'Cancel Action', size: 'medium' })
+    outlinedButton({ label: 'Cancel Action', size: 'medium', id: 'cancel button' })
   )
   buttonsRow.appendChild(cancelButton)
 
   const confirmButton = parseHtmlString(
-    primaryButton({ label: 'Primary Action', size: 'medium' })
+    primaryButton({ label: 'Primary Action', size: 'medium', id: 'confirm button' })
   )
   buttonsRow.appendChild(confirmButton)
 

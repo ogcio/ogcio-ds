@@ -111,27 +111,21 @@ const createColumn = () => {
   return column
 }
 
-const createMainWrapper = () => {
+const createMainContent = () => {
   const row = document.createElement('div')
   row.className = 'govie-grid-row'
   row.appendChild(createColumn())
 
-  const mainWrapper = document.createElement('main')
-  mainWrapper.className = 'govie-main-wrapper'
-  mainWrapper.id = 'main-content'
-  mainWrapper.role = 'main'
-  mainWrapper.appendChild(row)
-
   const container = document.createElement('div')
   container.className = 'govie-width-container'
-  container.appendChild(mainWrapper)
+  container.appendChild(row)
 
   return container
 }
 
 const Template = (args) => {
   const body = createBody({
-    mainContent: createMainWrapper(),
+    mainContent: createMainContent(),
     shortFooter: true,
   })
   return beautifyHtmlNode(body)

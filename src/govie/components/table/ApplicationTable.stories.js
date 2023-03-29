@@ -49,6 +49,10 @@ const createTableHeader = () => {
     th.className = classes.join(' ')
     th.innerText = header
 
+    if (header === '') {
+      th.innerHTML = '<span class="govie-visually-hidden">Check column</span>'
+    }
+
     trHead.appendChild(th)
   })
 
@@ -85,15 +89,17 @@ const createTableCell = (cell, firstColumn, numeric) => {
   }
 }
 
-const createTableRow = ({ text, type }, total) => {
+const createTableRow = ({ text, type }, total, index) => {
+  const formattedCheckbox = checkbox({
+    items: [{ label: `checkbox-${index}`, value: 'check' }],
+    useSmallerBoxes: true,
+    fieldId: `checkbox-${index}`,
+    hiddenLabel: true,
+  })
+
   const row = [
     { cell: 'Row Leader', firstColumn: true },
-    {
-      cell: checkbox({
-        items: [{ label: '', value: 'check' }],
-        useSmallerBoxes: true,
-      }),
-    },
+    { cell: formattedCheckbox },
     { cell: tick({ filled: true, checked: true }) },
     { cell: 'IrishTown' },
     { cell: tick({ value: 'tick', checked: true }) },
@@ -114,25 +120,25 @@ const createTableRow = ({ text, type }, total) => {
 }
 
 const createTableBody = () => {
+  const tableData = [
+    { tag: { text: 'Approved', type: 'green' }, total: '12345' },
+    { tag: { text: 'Approved', type: 'green' }, total: '12345' },
+    { tag: { text: 'Approved', type: 'green' }, total: '12345' },
+    { tag: { text: 'Approved', type: 'green' }, total: '12345' },
+    { tag: { text: 'Pending', type: 'blue' }, total: '12345' },
+    { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
+    { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
+    { tag: { text: 'Pending', type: 'blue' }, total: '74,070' },
+  ]
+
   const tbody = document.createElement('tbody')
   tbody.className = 'govie-table__body'
 
-  tbody.appendChild(
-    createTableRow({ text: 'Approved', type: 'green' }, '12345')
-  )
-  tbody.appendChild(
-    createTableRow({ text: 'Approved', type: 'green' }, '12345')
-  )
-  tbody.appendChild(
-    createTableRow({ text: 'Approved', type: 'green' }, '12345')
-  )
-  tbody.appendChild(
-    createTableRow({ text: 'Approved', type: 'green' }, '12345')
-  )
-  tbody.appendChild(createTableRow({ text: 'Pending', type: 'blue' }, '12345'))
-  tbody.appendChild(createTableRow({ text: 'Rejected', type: 'red' }, '12345'))
-  tbody.appendChild(createTableRow({ text: 'Rejected', type: 'red' }, '12345'))
-  tbody.appendChild(createTableRow({ text: 'Pending', type: 'blue' }, '74,070'))
+  tableData.forEach(({ tag, total }, index) => {
+    tbody.appendChild(
+      createTableRow({ text: tag.text, type: tag.type }, total, index)
+    )
+  })
 
   return tbody
 }

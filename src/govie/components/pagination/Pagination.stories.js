@@ -51,7 +51,6 @@ const createPreviousButton = (small, label) => {
   const link = document.createElement('a')
   link.className = 'govie-link govie-pagination__link'
   link.href = '#'
-  link.setAttribute('role', 'prev')
 
   link.innerHTML = `
     ${previousIcon}
@@ -77,7 +76,6 @@ const createNextButton = (small, label) => {
   const link = document.createElement('a')
   link.className = 'govie-link govie-pagination__link'
   link.href = '#'
-  link.setAttribute('role', 'next')
 
   link.innerHTML = nextIcon
 
@@ -101,11 +99,10 @@ const createNextButton = (small, label) => {
 
 const createList = (mode) => {
   const list = document.createElement('ul')
-  const listClasses = ['govie-pagination__list']
 
-  if (mode !== 'first selected') {
-    list.appendChild(createPreviousButton())
-  }
+  // if (mode !== 'first selected') {
+  //   list.appendChild(createPreviousButton())
+  // }
 
   ;[1, 6, 7, 8, 40].forEach((number, index) => {
     const item = document.createElement('li')
@@ -139,11 +136,7 @@ const createList = (mode) => {
     list.appendChild(item)
   })
 
-  if (mode !== 'last selected') {
-    list.appendChild(createNextButton())
-  }
-
-  list.className = listClasses.join(' ')
+  list.className = 'govie-pagination__list'
   return list
 }
 
@@ -152,11 +145,17 @@ const Template = (args) => {
 
   const navigationClasses = ['govie-pagination']
 
-  navigation.ariaLabel = 'results'
+  navigation.ariaLabel = 'navigation results'
   navigation.setAttribute('role', 'navigation')
 
   if (args.mode !== 'smaller number of pages') {
+    if (args.mode !== 'first selected') {
+      navigation.appendChild(createPreviousButton())
+    }
     navigation.appendChild(createList(args.mode))
+    if (args.mode !== 'last selected') {
+      navigation.appendChild(createNextButton())
+    }
   } else {
     navigationClasses.push('govie-pagination--block')
     navigation.appendChild(createPreviousButton(true, args.previousLabel))
@@ -164,8 +163,7 @@ const Template = (args) => {
   }
 
   navigation.className = navigationClasses.join(' ')
-  navigation.innerHTML = beautifyHtmlNode(navigation)
-  return navigation
+  return beautifyHtmlNode(navigation)
 }
 
 export const Default = Template.bind({})

@@ -282,13 +282,6 @@ WithHint.args = {
   fluid: true,
 }
 
-export const WithoutLabelOrHint = Template.bind({})
-WithoutLabelOrHint.args = {
-  fieldId: 'input-field',
-  fieldName: 'input-field',
-  fluid: true,
-}
-
 export const FluidWidth = Template.bind({})
 FluidWidth.args = {
   label: 'Full fluid with (default)',
@@ -321,6 +314,7 @@ WithBothAffix.args = {
   fieldName: 'input-field',
   prefix: '€',
   suffix: 'per item',
+  label: 'With both affix'
 }
 
 export const WithPrefix = Template.bind({})
@@ -328,6 +322,7 @@ WithPrefix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   prefix: '€',
+  label: 'With prefix'
 }
 
 export const WithSuffix = Template.bind({})
@@ -335,6 +330,7 @@ WithSuffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   suffix: 'kg',
+  label: 'With suffix'
 }
 
 export const WithErrorMessage = Template.bind({})

@@ -139,7 +139,9 @@ const Template = (args) => {
     <a 
       class="govie-footer__link govie-footer__copyright-logo"
       href="${args.logoLink}"
-    ></a>
+    >
+      <span class="govie-visually-hidden">Copyright logo</span>
+    </a>
   `
 
   const license = document.createElement('span')
@@ -154,10 +156,7 @@ const Template = (args) => {
       Open Government Licence v3.0
     </a>, except where otherwise stated
   `
-  metaItem.insertAdjacentHTML(
-    'beforeend',
-    openGovernmentImage
-  )
+  metaItem.insertAdjacentHTML('beforeend', openGovernmentImage)
 
   metaItem.insertAdjacentElement('beforeend', license)
 

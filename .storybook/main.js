@@ -15,6 +15,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
     '@etchteam/storybook-addon-css-variables-theme',
+    '@storybook/addon-a11y',
   ],
   framework: '@storybook/html',
   staticDirs: [

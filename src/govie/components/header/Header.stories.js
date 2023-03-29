@@ -56,6 +56,7 @@ const Template = (args) => {
   logoLink.innerHTML = `
     <span class="govie-header__logotype">
       ${logoImage}
+      <span class="govie-visually-hidden">gov.ie</span>
     </span>
   `
 
