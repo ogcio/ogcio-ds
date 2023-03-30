@@ -100,10 +100,6 @@ const createNextButton = (small, label) => {
 const createList = (mode) => {
   const list = document.createElement('ul')
 
-  // if (mode !== 'first selected') {
-  //   list.appendChild(createPreviousButton())
-  // }
-
   ;[1, 6, 7, 8, 40].forEach((number, index) => {
     const item = document.createElement('li')
     const classes = ['govie-pagination__item']
