@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "ogcio-ds",
-  "description": "Used only for the development of GOV.IE Frontend, see `package/package.json` for the published `package.json`",
+  "description": "Used only for the development of OGCIO-DS, see `package/package.json` for the published `package.json`",
   "engines": {
     "node": "^16.13.0",
     "npm": "^8.1.0"
@@ -35,6 +35,7 @@
     "@babel/preset-env": "^7.19.4",
     "@etchteam/storybook-addon-css-variables-theme": "^1.4.0",
     "@percy/cli": "^1.12.0",
+    "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.14",
     "@storybook/addon-docs": "^6.5.14",
     "@storybook/addon-essentials": "^6.5.14",

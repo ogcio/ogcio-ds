@@ -1,4 +1,5 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import { logoImage } from '../../storybook/svgImages'
 
 export default {
   title: 'Templates/Basic page',
@@ -41,8 +42,9 @@ const Template = () => {
         <div class="govie-header__logo">
           <a href="#" class="govie-header__link govie-header__link--homepage">
             <span class="govie-header__logotype">
-              <img id="logo-image" src="./@ogcio/assets/images/logo-full.png" class="govie-header__logotype-fallback-image">
+            ${logoImage}
             </span>
+            <span class="govie-visually-hidden">gov.ie</span>
           </a>
         </div>
       </div>
@@ -62,7 +64,9 @@ const Template = () => {
             <span class="govie-footer__licence-description"> All content is available under the <a class="govie-footer__link" href="#" rel="license"> Open Government Licence v3.0 </a>, except where otherwise stated </span>
           </div>
           <div class="govie-footer__meta-item">
-            <a class="govie-footer__link govie-footer__copyright-logo" href="#"></a>
+            <a class="govie-footer__link govie-footer__copyright-logo" href="#">
+              <span class="govie-visually-hidden">Copyright logo</span>
+            </a>
           </div>
         </div>
       </div>

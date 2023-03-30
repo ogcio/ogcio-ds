@@ -13,7 +13,6 @@ export default {
   },
   argTypes: {
     disabled: { control: 'boolean' },
-    withoutTooltip: { control: 'boolean' },
     tooltipLabel: {
       control: 'text',
       type: { name: 'string', required: true },
@@ -28,7 +27,6 @@ export default {
     },
   },
   args: {
-    withoutTooltip: false,
     disabled: false,
     tooltipLabel: 'Close',
     position: 'top',
@@ -39,13 +37,18 @@ const Template = (args) => {
   const btn = document.createElement('button')
   const classes = ['govie-icon-button']
 
-  btn.innerText = args.label
   btn.setAttribute('data-module', 'govie-icon-button')
 
-  btn.innerHTML =
+  const hiddenLabel = document.createElement('span')
+  hiddenLabel.className = 'govie-visually-hidden'
+  hiddenLabel.innerText = args.tooltipLabel
+
+  btn.innerHTML = 
     args.icon !== undefined
       ? args.icon
       : xIcon
+  
+  btn.appendChild(hiddenLabel)
 
   if (args.disabled) {
     btn.setAttribute('disabled', true)
@@ -54,10 +57,6 @@ const Template = (args) => {
   }
 
   btn.className = classes.join(' ')
-
-  if (args.withoutTooltip) {
-    return beautifyHtmlNode(btn)
-  }
 
   const container = document.createElement('span')
   container.setAttribute('data-module', 'govie-tooltip')

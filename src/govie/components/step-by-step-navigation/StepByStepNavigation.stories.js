@@ -220,7 +220,7 @@ const createStepLogic = (stepLogic) => {
   return stepLogicSpan
 }
 
-const createStepHeader = (id, title, stepNumber, stepLogic, dataPosition) => {
+const createStepHeader = (title, stepNumber, stepLogic, dataPosition) => {
   const stepHeader = document.createElement('div')
   stepHeader.className = 'govie-step-nav__header js-toggle-panel'
   stepHeader.setAttribute('data-position', dataPosition)
@@ -265,10 +265,10 @@ const createStep = (
 ) => {
   const stepListItem = document.createElement('li')
   stepListItem.className = 'govie-step-nav__step js-step'
-  stepListItem.id = 'check-you-re-allowed-to-drive'
+  stepListItem.id = `id-${id}`
 
   stepListItem.appendChild(
-    createStepHeader(id, title, stepNumber, stepLogic, dataPosition)
+    createStepHeader(title, stepNumber, stepLogic, dataPosition)
   )
   stepListItem.appendChild(createStepContent(id, contentNodes))
 

@@ -25,6 +25,7 @@ export default {
       type: { name: 'string', required: true },
     },
     disabled: { control: 'boolean' },
+    id: { control: 'string' },
   },
   args: {
     disabled: false,
@@ -37,6 +38,7 @@ const Template = (args) => {
   const btn = document.createElement('button')
 
   btn.innerText = args.label
+  btn.id = args.id || 'button'
   btn.setAttribute('data-module', 'govie-button')
 
   if (args.icon === 'left') {

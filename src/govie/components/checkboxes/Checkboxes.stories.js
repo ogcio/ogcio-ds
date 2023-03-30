@@ -15,38 +15,31 @@ export default {
       control: 'text',
       type: { name: 'text', required: true },
     },
-    legend: {
-      control: 'text',
-    },
+    legend: { control: 'text' },
     legendAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the `<legend>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        "If you're asking just one question per page as recommended, you can set the contents of the `<legend>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.",
     },
-    hint: {
-      control: 'text',
-    },
+    hint: { control: 'text' },
     haveNoneOption: {
       control: 'boolean',
       description:
-        'When ‘none’ would be a valid answer, give users the option to check a box to say none of the other options apply to them — without this option, users would have to leave all of the boxes unchecked. Giving users this option also makes sure they do not skip the question by accident.',
+        "When 'none' would be a valid answer, give users the option to check a box to say none of the other options apply to them — without this option, users would have to leave all of the boxes unchecked. Giving users this option also makes sure they do not skip the question by accident.",
     },
-    noneOptionLabel: {
-      control: 'text',
-    },
+    noneOptionLabel: { control: 'text' },
     useSmallerBoxes: {
       control: 'boolean',
       description:
-        'Use standard-sized checkboxes in most cases. However, smaller checkboxes work well on pages where it’s helpful to make them less visually prominent.\n' +
+        "Use standard-sized checkboxes in most cases. However, smaller checkboxes work well on pages where it's helpful to make them less visually prominent.\n" +
         'For example, on a page of search results, the main user need is to see the results. Using smaller checkboxes lets users see and change search filters without distracting them from the main content.',
     },
     items: {
       control: 'array',
       type: { name: 'array', required: true },
     },
-    errorMessage: {
-      control: 'text',
-    },
+    errorMessage: { control: 'text' },
+    hiddenLabel: { control: 'boolean' },
   },
   args: {
     fieldId: 'checkboxes-default',
@@ -54,6 +47,7 @@ export default {
     useSmallerBoxes: false,
     haveNoneOption: false,
     items: [],
+    hiddenLabel: false,
   },
 }
 
@@ -131,11 +125,15 @@ const createInputNode = (fieldId, index, itemData, isExclusive) => {
   return input
 }
 
-const createInputLabelNode = (fieldId, index, itemData) => {
+const createInputLabelNode = (fieldId, index, itemData, hiddenLabel) => {
   const label = document.createElement('label')
   label.className = 'govie-label govie-checkboxes__label'
   label.setAttribute('for', createInputId(fieldId, index))
-  label.innerText = itemData.label
+  if (hiddenLabel) {
+    label.innerHTML = `<span class="govie-visually-hidden">${itemData.label}</span>`
+  } else {
+    label.innerText = itemData.label
+  }
 
   return label
 }
@@ -149,14 +147,23 @@ const createInputHintNode = (fieldId, index, itemData) => {
   return hint
 }
 
-const createCheckboxItem = (fieldId, index, itemData, isExclusive = false) => {
+const createCheckboxItem = ({
+  fieldId,
+  index,
+  itemData,
+  isExclusive = false,
+  hiddenLabel = false,
+}) => {
   const checkboxItem = document.createElement('div')
   checkboxItem.className = 'govie-checkboxes__item'
+
   checkboxItem.appendChild(
     createInputNode(fieldId, index, itemData, isExclusive)
   )
 
-  checkboxItem.appendChild(createInputLabelNode(fieldId, index, itemData))
+  checkboxItem.appendChild(
+    createInputLabelNode(fieldId, index, itemData, hiddenLabel)
+  )
 
   if (itemData.hint) {
     checkboxItem.appendChild(createInputHintNode(fieldId, index, itemData))
@@ -218,7 +225,12 @@ const createCheckboxesNode = (args) => {
   args.items.forEach((checkboxItem, index) => {
     // Start indexes from 1 in the DOM
     checkboxes.appendChild(
-      createCheckboxItem(args.fieldId, index + 1, checkboxItem)
+      createCheckboxItem({
+        fieldId: args.fieldId,
+        index: index + 1,
+        itemData: checkboxItem,
+        hiddenLabel: args.hiddenLabel,
+      })
     )
 
     if (checkboxItem.conditionalInput) {
@@ -245,12 +257,13 @@ const createCheckboxesNode = (args) => {
     }
     // Start indexes from 1 in the DOM with skipping 1 index for the divider
     checkboxes.appendChild(
-      createCheckboxItem(
-        args.fieldId,
-        args.items.length + 2,
-        noneOptionItemData,
-        true
-      )
+      createCheckboxItem({
+        fieldId: args.fieldId,
+        index: args.items.length + 2,
+        itemData: noneOptionItemData,
+        isExclusive: true,
+        hiddenLabel: args.hiddenLabel,
+      })
     )
   }
 

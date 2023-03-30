@@ -21,7 +21,7 @@ import Tooltip from './components/tooltip/tooltip.mjs'
  * Initialise all components
  *
  * Use the `data-module` attributes to find, instantiate and init all of the
- * components provided as part of GOV.IE Frontend.
+ * components provided as part of OGCIO-DS.
  *
  * @param {object} [config] - Config
  * @param {HTMLElement} [config.scope=document] - Scope to query for components
@@ -34,7 +34,7 @@ import Tooltip from './components/tooltip/tooltip.mjs'
 function initAll(config) {
   config = typeof config !== 'undefined' ? config : {}
 
-  // Allow the user to initialise GOV.IE Frontend in only certain sections of the page
+  // Allow the user to initialise OGCIO-DS in only certain sections of the page
   // Defaults to the entire document if nothing is set.
   var $scope = typeof config.scope !== 'undefined' ? config.scope : document
 

@@ -2,7 +2,7 @@
 
 ## Structure
 
-GOV.IE Frontend is broken into a number of layers in order to help provide a
+OGCIO-DS is broken into a number of layers in order to help provide a
 logical structure, loosely following the conventions of [ITCSS].
 
 1. [Settings](#settings)
@@ -13,6 +13,7 @@ logical structure, loosely following the conventions of [ITCSS].
 6. [Components](#components)
 7. [Utilities](#utilities)
 8. [Overrides](#overrides)
+8. [Storybook](#storybook)
 
 Each folder has its own entry point (`_all.scss`).
 
@@ -71,5 +72,9 @@ Class names within this layer use an additional prefix `-!-`, for example
 `.govie-!-font-width-regular`.
 
 If a class only overrides when a condition is met, the condition will be at the end of the class name. For example `.govie-!-display-none-print` will only override with `display: none` in a print layout.
+
+## Storybook
+
+Utility styles and JS code for the Storybook.
 
 [ITCSS]: (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
