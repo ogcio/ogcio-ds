@@ -196,6 +196,207 @@
     }
   }
 
+
+  /////============MEDIUM====
+  .govie-checkboxes-medium__item {
+    @include govie-font($size: 16);
+
+    display: block;
+    position: relative;
+
+    min-height: $govie-medium-checkboxes-size;
+
+    margin-bottom: govie-spacing(2);
+    padding-left: $govie-medium-checkboxes-size;
+
+    clear: left;
+  }
+
+  .govie-checkboxes-medium__item:last-child,
+  .govie-checkboxes-medium__item:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .govie-checkboxes-medium__input {
+    $input-offset: (
+      $govie-touch-target-size - $govie-medium-checkboxes-size) / 2;
+
+    cursor: pointer;
+
+    // IE8 doesn’t support pseudo-elements, so we don’t want to hide native
+    // elements there.
+    @include govie-not-ie8 {
+      position: absolute;
+
+      z-index: 1;
+      // top: $input-offset * -1; // top is not required now
+      left: ($input-offset - 4) * -1;
+
+      width: $govie-medium-checkboxes-size;
+      height: $govie-medium-checkboxes-size;
+      margin: 0;
+
+      opacity: 0;
+    }
+
+    @include govie-if-ie8 {
+      margin-top: 10px;
+      margin-right: $govie-medium-checkboxes-size / -2;
+      margin-left: $govie-medium-checkboxes-size / -2;
+      float: left;
+
+      // add focus outline to input
+      &:focus {
+        outline: $govie-focus-width solid $govie-focus-colour;
+      }
+    }
+  }
+
+  .govie-checkboxes-medium__label {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 5px $govie-checkboxes-label-padding-left-right govie-spacing(1
+    );
+  cursor: pointer;
+  // remove 300ms pause on mobile
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  }
+
+  @include govie-not-ie8 {
+
+    // [ ] Check box
+    .govie-checkboxes-medium__label:before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $govie-medium-checkboxes-size;
+      height: $govie-medium-checkboxes-size;
+      border: $govie-border-width-form-element solid currentcolor;
+      background: transparent;
+    }
+
+    // ✔ Check mark
+    //
+    // The check mark is a box with a border on the left and bottom side (└──),
+    // rotated 45 degrees
+    .govie-checkboxes-medium__label:after {
+      content: "";
+      box-sizing: border-box;
+
+      position: absolute;
+      top: 7px;
+      left: 4px;
+      width: 23px;
+      height: 12px;
+
+      -webkit-transform: rotate(-45deg);
+
+      -ms-transform: rotate(-45deg);
+
+      transform: rotate(-45deg);
+      border: solid;
+      border-width: 0 0 5px 5px;
+      // Fix bug in IE11 caused by transform rotate (-45deg).
+      border-top-color: transparent;
+
+      opacity: 0;
+
+      background: transparent;
+    }
+  }
+
+  .govie-checkboxes-medium__hint {
+    display: block;
+    padding-right: $govie-checkboxes-label-padding-left-right;
+    padding-left: $govie-checkboxes-label-padding-left-right;
+  }
+
+  // Focused state
+  .govie-checkboxes-medium__input:focus+.govie-checkboxes__label:before {
+    border-width: 4px;
+
+    // When colours are overridden, the yellow box-shadow becomes invisible
+    // which means the focus state is less obvious. By adding a transparent
+    // outline, which becomes solid (text-coloured) in that context, we ensure
+    // the focus remains clearly visible.
+    outline: $govie-focus-width solid transparent;
+    outline-offset: 1px;
+
+    // When in an explicit forced-color mode, we can use the Highlight system
+    // color for the outline to better match focus states of native controls
+    @media screen and (forced-colors: active),
+    (-ms-high-contrast: active) {
+      outline-color: Highlight;
+    }
+
+    box-shadow: 0 0 0 $govie-focus-width $govie-focus-colour;
+  }
+
+  // Selected state
+  .govie-checkboxes-medium__input:checked+.govie-checkboxes-medium__label:after {
+    opacity: 1;
+  }
+
+  // Disabled state
+  .govie-checkboxes-medium__input:disabled,
+  .govie-checkboxes-medium__input:disabled+.govie-checkboxes-medium__label {
+    cursor: default;
+  }
+
+  .govie-checkboxes-medium__input:disabled+.govie-checkboxes-medium_label,
+  .govie-checkboxes-medium__input:disabled~.govie-hint {
+    opacity: .5;
+  }
+
+  // =========================================================
+  // Dividers ('or')
+  // =========================================================
+
+  .govie-checkboxes-medium__divider {
+    $govie-divider-medium-size: $govie-medium-checkboxes-size !default;
+    @include govie-font($size: 19);
+    @include govie-text-colour;
+    width: $govie-divider-medium-size;
+    margin-bottom: govie-spacing(2);
+    text-align: center;
+  }
+
+  // =========================================================
+  // Conditional reveals
+  // =========================================================
+
+  // The narrow border is used in the conditional reveals because the border has
+  // to be an even number in order to be centred under the 40px checkbox or radio.
+  $conditional-border-width-medium: $govie-border-width-narrow;
+  // Calculate the amount of padding needed to keep the border centered against the checkbox.
+  $conditional-border-padding-medium: (
+    $govie-medium-checkboxes-size / 2) - ($conditional-border-width-medium / 2
+  );
+  // Move the border centered with the checkbox
+  $conditional-margin-left-medium: $conditional-border-padding-medium;
+  // Move the contents of the conditional inline with the label
+  $conditional-padding-left-medium: $conditional-border-padding-medium + $govie-checkboxes-label-padding-left-right;
+
+  .govie-checkboxes-medium__conditional {
+    @include govie-responsive-margin(4, "bottom");
+    margin-left: $conditional-margin-left-medium;
+    padding-left: $conditional-padding-left-medium;
+    border-left: $conditional-border-width-medium solid $govie-border-colour;
+
+    .js-enabled &--hidden {
+      display: none;
+    }
+
+    &> :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  
+
   // =========================================================
   // Small checkboxes
   // =========================================================
