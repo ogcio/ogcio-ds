@@ -127,7 +127,7 @@ const createInputNode = (fieldId, index, itemData, isExclusive) => {
 
 const createInputLabelNode = (fieldId, index, itemData, hiddenLabel) => {
   const label = document.createElement('label')
-  label.className = 'govie-label govie-checkboxes__label'
+  label.className = 'govie-label--s govie-checkboxes__label'
   label.setAttribute('for', createInputId(fieldId, index))
   if (hiddenLabel) {
     label.innerHTML = `<span class="govie-visually-hidden">${itemData.label}</span>`

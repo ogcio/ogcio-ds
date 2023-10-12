@@ -89,7 +89,7 @@ const createErrorMessage = (args) => {
 
 const createInputItemLabel = (fieldId, itemType) => {
   const label = document.createElement('label')
-  label.className = 'govie-label govie-date-input__label'
+  label.className = 'govie-label--s govie-date-input__label'
   label.setAttribute('for', `${fieldId}-${itemType.toLowerCase()}`)
   label.innerText = itemType
 
