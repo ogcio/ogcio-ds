@@ -45,7 +45,7 @@ const Template = (args) => {
   const classnames = ['govie-form-group']
 
   const label = document.createElement('label')
-  label.className = 'govie-label'
+  label.className = 'govie-label--s'
   label.setAttribute('for', args.id)
   label.innerText = args.label
 

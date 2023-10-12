@@ -23,7 +23,7 @@ export default {
 
 const Template = (args) => {
   const label = document.createElement('label')
-  label.className = 'govie-label'
+  label.className = 'govie-label--s'
   label.innerHTML = args.text
 
   return beautifyHtmlNode(label)
