@@ -14,10 +14,6 @@ import { InternalLink } from '../components/InternalLink'
       </a>
       .
     </p>
-    <p>
-      If you have not already installed version 4.2.0 or later of Node.js,
-      install the latest Long Term Support (LTS) version.
-    </p>
   </li>
   <li>
     <p>
@@ -33,30 +29,19 @@ import { InternalLink } from '../components/InternalLink'
     </p>
     <CodeSnippet code="npm init" />
   </li>
+  <li>
+    <p>Install the OGCIO-DS package</p>
+    <CodeSnippet code="npm install @ogcio/ogcio-ds --save" />
+    <p>
+      When the installation finishes, the <code>@ogcio/ogcio-ds</code> package
+      will be in your <code>node_modules</code> folder.
+    </p>
+    <p>
+      You should now get started by{' '}
+      <InternalLink href="/?path=/docs/docs-get-started--page">
+        getting the CSS, assets and JavaScript working
+      </InternalLink>{' '}
+      with one gov.ie Frontend component.
+    </p>
+  </li>
 </ol>
-
-<h2>Install OGCIO-DS package</h2>
-
-<p>In order to be able to install the <code>@ogcio/ogcio-ds</code> dependency, you will need to add a <code>.npmrc</code> file to the root folder of the project with the following content:</p>
-
-<CodeSnippet code="@ogcio:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken={personal access token}
-" />
-
-<p>Currently it only works with a classic personal access token with `read:packages` permission.
-  For more details about how to authenticate to GitHub Packages you can navigate <a href="https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages" target="_blank" rel="noopener">here</a>
-</p>
-
-<p>Run:</p>
-<CodeSnippet code="npm install @ogcio/ogcio-ds --save" />
-<p>
-  When the installation finishes, the <code>@ogcio/ogcio-ds</code> package will be in
-  your <code>node_modules</code> folder.
-</p>
-<p>
-  You should now get started by{' '}
-  <InternalLink href="/?path=/docs/docs-get-started--page">
-    getting the CSS, assets and JavaScript working
-  </InternalLink>{' '}
-  with one gov.ie Frontend component.
-</p>

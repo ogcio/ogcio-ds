@@ -26,8 +26,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Build and test
         run: |
-          npm install
-          npm run test
+          npm ci
+          npm test
           npm run build:package
           npm run build:dist
       - uses: google-github-actions/release-please-action@v4
