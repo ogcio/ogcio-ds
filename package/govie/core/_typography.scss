@@ -188,34 +188,26 @@ h1,
 h2,
 h3 {
   display: block;
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
-  -webkit-margin-end: 0;
-          margin-inline-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   font-weight: bold !important;
   font-family: 'Lato', arial, sans-serif;
 }
 
 h1 {
   font-size: 2em !important;
-  -webkit-margin-before: 0.67em;
-          margin-block-start: 0.67em;
-  -webkit-margin-after: 0.67em;
-          margin-block-end: 0.67em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
 }
 
 h2 {
   font-size: 1.5em !important;
-  -webkit-margin-before: 0.83em;
-          margin-block-start: 0.83em;
-  -webkit-margin-after: 0.83em;
-          margin-block-end: 0.83em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
 }
 
 h3 {
   font-size: 1.17em !important;
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
