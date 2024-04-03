@@ -27,6 +27,7 @@ jobs:
       - name: Build and test
         run: |
           npm ci
+          npm run format:check
           npm test
           npm run build:package
           npm run build:dist
