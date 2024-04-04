@@ -321,7 +321,7 @@
   }
 
   // Focused state
-  .govie-checkboxes-medium__input:focus+.govie-checkboxes__label:before {
+  .govie-checkboxes-medium__input:focus + .govie-checkboxes-medium__label:before {
     border-width: 4px;
 
     // When colours are overridden, the yellow box-shadow becomes invisible

@@ -6,18 +6,18 @@ module.exports = function (api) {
     [
       '@babel/preset-env',
       {
-        browserslistEnv,
-      },
+        browserslistEnv
+      }
     ],
     [
       '@babel/preset-react',
       {
-        development: babelEnv === 'development',
-      },
-    ],
+        development: babelEnv === 'development'
+      }
+    ]
   ]
 
   return {
-    presets,
+    presets
   }
 }
