@@ -68,7 +68,7 @@ Storybook will be available in `localhost:6006`.
 ## OGCIO-DS package publishing
 
 - Use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and [squash commits](https://github.com/googleapis/release-please?tab=readme-ov-file#linear-git-commit-history-use-squash-merge) to `main`
-- Versioning and npm package publishing is handled by the [Release Please](https://github.com/google-github-actions/release-please-action) GitHub action
+- Versioning and npm package publishing is handled by the [Release Please GitHub action](https://github.com/google-github-actions/release-please-action)
 
 ---
 
