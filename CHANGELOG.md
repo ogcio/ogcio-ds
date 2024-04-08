@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/ogcio/ogcio-ds/compare/v0.1.0...v0.1.1) (2024-04-08)
+
+
+### Bug Fixes
+
+* update version ([#160](https://github.com/ogcio/ogcio-ds/issues/160)) ([bd9cf76](https://github.com/ogcio/ogcio-ds/commit/bd9cf766182cbe246d4f33afa21322a4013134ee))
+
 ## [0.1.0](https://github.com/ogcio/ogcio-ds/compare/v0.0.25...v0.1.0) (2024-04-08)
 
 
