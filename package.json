@@ -31,7 +31,7 @@
     "lint:scss": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"{app,src}/**/*.scss\"",
     "prepare": "husky install",
     "format": "prettier --write \"src/**/*.{js,json,css,scss,html,md}\"",
-    "format:check":"prettier --check \"src/**/*.{js,json,css,scss,html,md}\""
+    "format:check": "prettier --check \"src/**/*.{js,json,css,scss,html,md}\""
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
@@ -151,5 +151,6 @@
     "sassdoc-extras@^2": {
       "marked": "^0.8.2"
     }
-  }
+  },
+  "version": "0.1.0"
 }
