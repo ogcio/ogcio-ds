@@ -6,10 +6,10 @@ export default {
     docs: {
       description: {
         component:
-          'The step by step navigation component presents an end to end journey in logical steps, with links to content that helps users complete each step.',
-      },
-    },
-  },
+          'The step by step navigation component presents an end to end journey in logical steps, with links to content that helps users complete each step.'
+      }
+    }
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -69,9 +69,9 @@ const steps = [
       createStepNavList(1, [
         'Check what age you can drive',
         'Requirements for driving legally',
-        'Driving eyesight rules',
-      ]),
-    ],
+        'Driving eyesight rules'
+      ])
+    ]
   },
   {
     id: 'step-panel-get-a-provisional-licence-2',
@@ -80,9 +80,9 @@ const steps = [
     stepNumber: 2,
     contentNodes: [
       createStepNavList(2, [
-        'Apply for your first provisional driving licence <span class="govie-step-nav__context">€34 to €43</span>',
-      ]),
-    ],
+        'Apply for your first provisional driving licence <span class="govie-step-nav__context">€34 to €43</span>'
+      ])
+    ]
   },
   {
     id: 'step-panel-driving-lessons-and-practice-3',
@@ -97,9 +97,9 @@ const steps = [
         'The Highway Code',
         'Taking driving lessons',
         'Find driving schools, lessons and instructors',
-        'Practise vehicle safety questions',
-      ]),
-    ],
+        'Practise vehicle safety questions'
+      ])
+    ]
   },
   {
     id: 'step-panel-prepare-for-your-theory-test-4',
@@ -110,9 +110,9 @@ const steps = [
       createStepNavList(4, [
         'Theory test revision and practice',
         'Take a practice theory test',
-        'Theory and hazard perception test app',
-      ]),
-    ],
+        'Theory and hazard perception test app'
+      ])
+    ]
   },
   {
     id: 'step-panel-book-and-manage-your-theory-test-5',
@@ -128,9 +128,9 @@ const steps = [
         'What to take to your test',
         'Change your theory test appointment',
         'Check your theory test appointment details',
-        'Cancel your theory test',
-      ]),
-    ],
+        'Cancel your theory test'
+      ])
+    ]
   },
   {
     id: 'step-panel-book-and-manage-your-driving-test-6',
@@ -146,9 +146,9 @@ const steps = [
         'What to take to your test',
         'Change your driving test appointment',
         'Check your driving test appointment details',
-        'Cancel your driving test',
-      ]),
-    ],
+        'Cancel your driving test'
+      ])
+    ]
   },
   {
     id: 'step-panel-when-you-pass-7',
@@ -162,9 +162,9 @@ const steps = [
       createStepNavParagraph(
         'You must have an insurance policy that allows you to drive without supervision.'
       ),
-      createStepNavList(7, ['Find out about Pass Plus training courses']),
-    ],
-  },
+      createStepNavList(7, ['Find out about Pass Plus training courses'])
+    ]
+  }
 ]
 
 ///////////////////////////////////////////////////////////////////////////////

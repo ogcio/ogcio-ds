@@ -6,31 +6,31 @@ export default {
     docs: {
       description: {
         component:
-          'Help users select and upload a file. You should only ask users to upload something if it’s critical to the delivery of your service.',
-      },
-    },
+          'Help users select and upload a file. You should only ask users to upload something if it’s critical to the delivery of your service.'
+      }
+    }
   },
   argTypes: {
     fieldId: {
       type: { name: 'string', required: true },
-      control: 'text',
+      control: 'text'
     },
     label: {
-      control: 'text',
+      control: 'text'
     },
     hint: {
       control: 'text',
       description:
-        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.',
+        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.'
     },
     errorMessage: {
-      control: 'text',
-    },
+      control: 'text'
+    }
   },
   args: {
     fieldId: 'example-file-upload',
-    label: 'Upload a file',
-  },
+    label: 'Upload a file'
+  }
 }
 
 const createHint = (args) => {
@@ -117,10 +117,10 @@ Default.args = {}
 
 export const WithHint = Template.bind({})
 WithHint.args = {
-  hint: 'File formats accepted: pdf, doc, docx',
+  hint: 'File formats accepted: pdf, doc, docx'
 }
 
 export const InError = Template.bind({})
 InError.args = {
-  errorMessage: 'The file must be smaller than 2MB',
+  errorMessage: 'The file must be smaller than 2MB'
 }

@@ -16,20 +16,20 @@ export default {
       description: {
         component:
           'This template is currently experimental because more research is needed to validate it.\n\n' +
-          "Tell users about the cookies you're setting on their device and let them accept or reject different types of non-essential cookies.",
-      },
-    },
+          "Tell users about the cookies you're setting on their device and let them accept or reject different types of non-essential cookies."
+      }
+    }
   },
   argTypes: {
     mode: {
       options: ['one question', 'multiple questions', 'complex question'],
       control: { type: 'radio' },
-      type: { required: true },
-    },
+      type: { required: true }
+    }
   },
   args: {
-    mode: 'one question',
-  },
+    mode: 'one question'
+  }
 }
 
 const createOneQuestionNodes = () => {
@@ -39,9 +39,9 @@ const createOneQuestionNodes = () => {
         fieldId: 'date-of-birth',
         legend: 'What is your date of birth?',
         legendAsHeading: true,
-        hint: 'For example, 31 3 1980',
+        hint: 'For example, 31 3 1980'
       })
-    ),
+    )
   ]
 }
 
@@ -52,7 +52,7 @@ const createMultipleQuestionsNodes = () => {
     heading({
       text: 'Passport details',
       size: 'l',
-      captionSize: 'l',
+      captionSize: 'l'
     })
   )
   htmlNodes.push(questionsHeading)
@@ -62,7 +62,7 @@ const createMultipleQuestionsNodes = () => {
       fieldId: 'passport-number',
       label: 'Passport number',
       labelAsHeading: false,
-      hint: 'For example, 502135326',
+      hint: 'For example, 502135326'
     })
   )
   htmlNodes.push(passportNumberInput)
@@ -72,7 +72,7 @@ const createMultipleQuestionsNodes = () => {
       fieldId: 'expiry-date',
       legend: 'Expiry date',
       legendAsHeading: false,
-      hint: 'For example, 31 3 1980',
+      hint: 'For example, 31 3 1980'
     })
   )
   htmlNodes.push(expiryDateInput)
@@ -87,35 +87,35 @@ const createComplexQuestionNodes = () => {
     heading({
       text: 'Interview needs',
       size: 'l',
-      captionSize: 'l',
+      captionSize: 'l'
     })
   )
   htmlNodes.push(questionHeading)
 
   const needsFirstParagraph = parseHtmlString(
     paragraph({
-      text: 'Providers do not usually have much flexibility when setting a date and time for interview unless you need adjustments due to a <a href="#" class="govie-link">health condition or disability</a>.',
+      text: 'Providers do not usually have much flexibility when setting a date and time for interview unless you need adjustments due to a <a href="#" class="govie-link">health condition or disability</a>.'
     })
   )
   htmlNodes.push(needsFirstParagraph)
 
   const needsSecondParagraph = parseHtmlString(
     paragraph({
-      text: 'However, if you need flexibility for other reasons you can tell us about it here.',
+      text: 'However, if you need flexibility for other reasons you can tell us about it here.'
     })
   )
   htmlNodes.push(needsSecondParagraph)
 
   const needsThirdParagraph = parseHtmlString(
     paragraph({
-      text: 'For example, you have commitments like caring responsibilities or employment.',
+      text: 'For example, you have commitments like caring responsibilities or employment.'
     })
   )
   htmlNodes.push(needsThirdParagraph)
 
   const needsForthParagraph = parseHtmlString(
     paragraph({
-      text: "Contact your provider if you're concerned about the interview process.",
+      text: "Contact your provider if you're concerned about the interview process."
     })
   )
   htmlNodes.push(needsForthParagraph)
@@ -125,7 +125,7 @@ const createComplexQuestionNodes = () => {
       options: ['Yes', 'No'],
       label: 'Do you have any interview needs?',
       size: 'medium',
-      inline: false,
+      inline: false
     })
   )
   htmlNodes.push(needsRadioButtons)

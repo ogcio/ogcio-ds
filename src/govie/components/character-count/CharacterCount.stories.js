@@ -6,56 +6,56 @@ export default {
     docs: {
       description: {
         component:
-          'Help users know how much text they can enter when there is a limit on the number of characters.',
-      },
-    },
+          'Help users know how much text they can enter when there is a limit on the number of characters.'
+      }
+    }
   },
   argTypes: {
     fieldName: {
-      control: 'text',
+      control: 'text'
     },
     fieldId: {
       control: 'text',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     maxLength: {
-      control: 'number',
+      control: 'number'
     },
     maxWords: {
       control: 'number',
       description:
-        'In some cases it may be more helpful to show a word count. For example, if your question requires a longer answer.',
+        'In some cases it may be more helpful to show a word count. For example, if your question requires a longer answer.'
     },
     limitedByCharacter: {
-      control: 'boolean',
+      control: 'boolean'
     },
     threshold: {
       control: 'number',
       description:
         'If the limit is much higher than most users are likely to reach, you can choose to only display the message after a user has entered a certain amount.' +
-        '\nTo do this, set a threshold in the component markup. For example, `data-threshold="75"` will show the count message only when users have entered 75% of the limit.',
+        '\nTo do this, set a threshold in the component markup. For example, `data-threshold="75"` will show the count message only when users have entered 75% of the limit.'
     },
     label: {
-      control: 'text',
+      control: 'text'
     },
     labelAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.'
     },
     hint: {
       control: 'text',
       description:
-        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.',
+        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.'
     },
     rows: {
       control: 'number',
       description:
-        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.',
+        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.'
     },
     errorMessage: {
-      control: 'text',
-    },
+      control: 'text'
+    }
   },
   args: {
     rows: 5,
@@ -63,8 +63,8 @@ export default {
     maxLength: 200,
     fieldId: 'character-count',
     fieldName: 'character-count',
-    labelAsHeading: false,
-  },
+    labelAsHeading: false
+  }
 }
 
 const getTextareaDescribedBy = (args) => {
@@ -232,25 +232,25 @@ Default.args = {
   fieldName: 'with-hint',
   label: 'Can you provide more detail?',
   hint: 'Do not include personal or financial information like your National Insurance number or credit card details.',
-  labelAsHeading: true,
+  labelAsHeading: true
 }
 
 export const WithLabel = Template.bind({})
 WithLabel.args = {
-  label: 'Can you provide more detail?',
+  label: 'Can you provide more detail?'
 }
 
 export const WithLableAndHint = Template.bind({})
 WithLableAndHint.args = {
   label: 'Can you provide more detail?',
-  hint: 'Do not include personal or financial information, like your National Insurance number or credit card details.',
+  hint: 'Do not include personal or financial information, like your National Insurance number or credit card details.'
 }
 
 export const WithWordCountLimit = Template.bind({})
 WithWordCountLimit.args = {
   label: 'Can you provide more detail?',
   limitedByCharacter: false,
-  maxWords: 150,
+  maxWords: 150
 }
 
 export const WithErrorMessage = Template.bind({})
@@ -258,5 +258,5 @@ WithErrorMessage.args = {
   fieldId: 'exceeding-characters',
   label: 'Can you provide more detail?',
   errorMessage: 'Enter more detail',
-  labelAsHeading: true,
+  labelAsHeading: true
 }

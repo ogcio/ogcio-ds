@@ -6,19 +6,19 @@ export default {
     docs: {
       description: {
         component:
-          'Use the warning text component when you need to warn users about something important.',
-      },
-    },
+          'Use the warning text component when you need to warn users about something important.'
+      }
+    }
   },
   argTypes: {
     text: {
       control: 'text',
-      type: { name: 'text', required: true },
-    },
+      type: { name: 'text', required: true }
+    }
   },
   args: {
-    text: 'You can be fined up to €5,000 if you do not register.',
-  },
+    text: 'You can be fined up to €5,000 if you do not register.'
+  }
 }
 
 const Template = (args) => {

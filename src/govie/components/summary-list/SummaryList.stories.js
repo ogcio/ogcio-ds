@@ -6,26 +6,26 @@ export default {
     docs: {
       description: {
         component:
-          'Use the summary list to summarise information, for example, a user’s responses at the end of a form.',
-      },
-    },
+          'Use the summary list to summarise information, for example, a user’s responses at the end of a form.'
+      }
+    }
   },
   argTypes: {
     useBorders: {
       control: 'boolean',
       description:
         'The summary list includes some separating borders to help users read each row and its action. These can be turend off.\n' +
-        'To remove borders on a single row, use the `govie-summary-list__row--no-border` class.',
+        'To remove borders on a single row, use the `govie-summary-list__row--no-border` class.'
     },
     mixedActions: {
       control: 'boolean',
       description:
-        'If you have a mix of rows with and without actions, add the `govie-summary-list__row--no-actions` modifier class to the rows without actions.',
+        'If you have a mix of rows with and without actions, add the `govie-summary-list__row--no-actions` modifier class to the rows without actions.'
     },
     rows: {
       control: 'array',
-      type: { name: 'array', required: true },
-    },
+      type: { name: 'array', required: true }
+    }
   },
   args: {
     useBorders: true,
@@ -34,16 +34,16 @@ export default {
       {
         key: 'Name',
         value: 'John Smith',
-        actions: [{ label: 'Change', url: '#' }],
+        actions: [{ label: 'Change', url: '#' }]
       },
       {
         key: 'Name',
         value: 'John Smith',
         noBorder: true,
-        actions: [{ label: 'Change', url: '#' }],
-      },
-    ],
-  },
+        actions: [{ label: 'Change', url: '#' }]
+      }
+    ]
+  }
 }
 
 const createActionLink = (rowKey, actionData) => {
@@ -138,25 +138,25 @@ Default.args = {
     {
       key: 'Name',
       value: 'John Smith',
-      actions: [{ label: 'Change', url: '#' }],
+      actions: [{ label: 'Change', url: '#' }]
     },
     {
       key: 'Date of birth',
       value: '8 November 1982',
-      actions: [{ label: 'Change', url: '#' }],
+      actions: [{ label: 'Change', url: '#' }]
     },
 
     {
       key: 'Address',
       value: '72 Guild Street<br>London<br>SE23 6FH',
-      actions: [{ label: 'Change', url: '#' }],
+      actions: [{ label: 'Change', url: '#' }]
     },
     {
       key: 'Contact details',
       value: ['07700 864523', 'john.smith@example.com'],
-      actions: [{ label: 'Change', url: '#' }],
-    },
-  ],
+      actions: [{ label: 'Change', url: '#' }]
+    }
+  ]
 }
 
 export const WithMixedBorders = Template.bind({})
@@ -165,21 +165,21 @@ WithMixedBorders.args = {
     {
       key: 'Name',
       value: 'John Smith',
-      actions: [{ label: 'Change', url: '#' }],
+      actions: [{ label: 'Change', url: '#' }]
     },
     {
       key: 'Date of birth',
       value: '8 November 1982',
       actions: [{ label: 'Change', url: '#' }],
-      noBorder: true,
+      noBorder: true
     },
 
     {
       key: 'Address',
       value: '72 Guild Street<br>London<br>SE23 6FH',
-      actions: [{ label: 'Change', url: '#' }],
-    },
-  ],
+      actions: [{ label: 'Change', url: '#' }]
+    }
+  ]
 }
 
 export const WithMixedActions = Template.bind({})
@@ -188,20 +188,20 @@ WithMixedActions.args = {
   rows: [
     {
       key: 'Name',
-      value: 'John Smith',
+      value: 'John Smith'
     },
     {
       key: 'Date of birth',
       value: '8 November 1982',
-      actions: [{ label: 'Change', url: '#' }],
+      actions: [{ label: 'Change', url: '#' }]
     },
 
     {
       key: 'Address',
       value: '72 Guild Street<br>London<br>SE23 6FH',
-      actions: [{ label: 'Change', url: '#' }],
-    },
-  ],
+      actions: [{ label: 'Change', url: '#' }]
+    }
+  ]
 }
 
 export const WithoutBorders = Template.bind({})
@@ -210,16 +210,16 @@ WithoutBorders.args = {
   rows: [
     {
       key: 'Name',
-      value: 'John Smith',
+      value: 'John Smith'
     },
     {
       key: 'Date of birth',
-      value: '8 November 1982',
+      value: '8 November 1982'
     },
 
     {
       key: 'Address',
-      value: '72 Guild Street<br>London<br>SE23 6FH',
-    },
-  ],
+      value: '72 Guild Street<br>London<br>SE23 6FH'
+    }
+  ]
 }

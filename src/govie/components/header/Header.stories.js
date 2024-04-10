@@ -7,14 +7,14 @@ export default {
     docs: {
       description: {
         component:
-          'The OGCIO-DS header shows users that they are on gov.ie and which service they are using.',
-      },
-    },
+          'The OGCIO-DS header shows users that they are on gov.ie and which service they are using.'
+      }
+    }
   },
   argTypes: {
     serviceName: { control: 'text' },
-    navigationLinks: { control: 'text' },
-  },
+    navigationLinks: { control: 'text' }
+  }
 }
 
 const createNavigationList = (items) => {
@@ -108,16 +108,16 @@ Default.args = {}
 
 export const WithServiceName = Template.bind({})
 WithServiceName.args = {
-  serviceName: 'Service name',
+  serviceName: 'Service name'
 }
 
 export const WithNavigation = Template.bind({})
 WithNavigation.args = {
-  navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
+  navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3'
 }
 
 export const WithServiceNameAndNavigation = Template.bind({})
 WithServiceNameAndNavigation.args = {
   serviceName: 'Service name',
-  navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3',
+  navigationLinks: 'Navigation item 1, Navigation item 2, Navigation item 3'
 }

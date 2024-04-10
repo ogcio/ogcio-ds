@@ -6,51 +6,51 @@ export default {
     docs: {
       description: {
         component:
-          'Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation. Steppers may display a transient feedback message after a step is saved.',
-      },
-    },
+          'Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation. Steppers may display a transient feedback message after a step is saved.'
+      }
+    }
   },
   argTypes: {
     steps: {
       control: 'array',
-      type: { name: 'array', required: true },
-    },
+      type: { name: 'array', required: true }
+    }
   },
   args: {
     steps: [
       {
         iconText: '1',
         labelText: 'Step 1',
-        isCompleted: true,
+        isCompleted: true
       },
       {
         iconText: '2',
         labelText: 'Step 2',
-        isCompleted: true,
+        isCompleted: true
       },
       {
         iconText: '3',
         labelText: 'Step 3',
-        isActive: true,
+        isActive: true
       },
       {
         iconText: '4',
-        labelText: 'Step 4',
+        labelText: 'Step 4'
       },
       {
         iconText: '5',
-        labelText: 'Step 5',
+        labelText: 'Step 5'
       },
       {
         iconText: '6',
-        labelText: 'Step 6',
+        labelText: 'Step 6'
       },
       {
         iconText: '7',
-        labelText: 'Step 7',
-      },
-    ],
-  },
+        labelText: 'Step 7'
+      }
+    ]
+  }
 }
 
 const createStepLabelText = (stepData) => {

@@ -11,20 +11,20 @@ export default {
     docs: {
       description: {
         component:
-          'If a user enters information that’s valid but incomplete, accept it. For example, they might just enter their year of birth without the day or month. Error messages should be styled like this:',
-      },
-    },
+          'If a user enters information that’s valid but incomplete, accept it. For example, they might just enter their year of birth without the day or month. Error messages should be styled like this:'
+      }
+    }
   },
   argTypes: {
     type: {
       options: ['default', 'birthdate'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
-    errorMessage: { control: 'text' },
+    errorMessage: { control: 'text' }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createBirthForm = (errorMessage) => {
@@ -32,7 +32,7 @@ const createBirthForm = (errorMessage) => {
     legend: 'What is your date of birth?',
     hint: 'For example, 31 3 1980. If you prefer not to say, continue without entering any information.',
     legendAsHeading: true,
-    errorMessage,
+    errorMessage
   })
 
   return parseHtmlString(date)
@@ -48,11 +48,11 @@ const createEthnicForm = (errorMessage) => {
       'Mixed or multiple ethnic groups',
       'Asian or Asian British',
       'Black, African, Caribbean or Black British',
-      'Other ethnic group',
+      'Other ethnic group'
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-    errorMessage,
+    errorMessage
   })
 
   return parseHtmlString(radio)
@@ -76,11 +76,11 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  errorMessage: 'Select an ethnic group or ‘Prefer not to say’',
+  errorMessage: 'Select an ethnic group or ‘Prefer not to say’'
 }
 
 export const DateOfBirth = Template.bind({})
 DateOfBirth.args = {
   type: 'birthdate',
-  errorMessage: 'Enter your date of birth or leave blank',
+  errorMessage: 'Enter your date of birth or leave blank'
 }

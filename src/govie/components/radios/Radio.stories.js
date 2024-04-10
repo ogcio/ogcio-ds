@@ -6,27 +6,27 @@ export default {
     docs: {
       description: {
         component:
-          'Use the radios component when users can only select one option from a list.',
-      },
-    },
+          'Use the radios component when users can only select one option from a list.'
+      }
+    }
   },
   argTypes: {
     id: {
       type: { required: true },
-      control: 'text',
+      control: 'text'
     },
     label: {
       type: { required: true },
-      control: 'text',
+      control: 'text'
     },
     options: {
       type: { required: true },
-      control: 'array',
+      control: 'array'
     },
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
-      type: { required: true },
+      type: { required: true }
     },
     generalHint: { control: 'text' },
     optionsHint: { control: 'array' },
@@ -35,18 +35,18 @@ export default {
     extraOptionsHint: { control: 'array' },
     inline: { control: 'boolean' },
     errorMessage: { control: 'text' },
-    conditionals: { control: 'text' },
+    conditionals: { control: 'text' }
   },
   args: {
     inline: false,
-    size: 'large',
-  },
+    size: 'large'
+  }
 }
 
 const sizesMap = {
   small: 's',
   medium: 'm',
-  large: 'l',
+  large: 'l'
 }
 
 const createLegend = (label, size) => {
@@ -69,7 +69,7 @@ const createRadioItem = ({
   name,
   label,
   optionHint,
-  conditional,
+  conditional
 }) => {
   const items = []
   const item = document.createElement('div')
@@ -185,7 +185,7 @@ const Template = (args) => {
         value: label.toLowerCase(),
         label,
         optionHint: args.optionsHint ? args.optionsHint[index] : null,
-        conditional: conditionals ? conditionals[index] : null,
+        conditional: conditionals ? conditionals[index] : null
       })
     )
   })
@@ -207,7 +207,7 @@ const Template = (args) => {
           optionHint: args.extraOptionsHint
             ? args.extraOptionsHint[index]
             : null,
-          conditional: conditionals ? conditionals[index] : null,
+          conditional: conditionals ? conditionals[index] : null
         })
       )
     })
@@ -222,7 +222,7 @@ export const Default = Template.bind({})
 Default.args = {
   id: 'where-do-you-live',
   label: 'Where do you live?',
-  options: ['England', 'Scotland', 'Ireland'],
+  options: ['England', 'Scotland', 'Ireland']
 }
 
 export const Inline = Template.bind({})
@@ -230,7 +230,7 @@ Inline.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: ['Yes', 'No'],
-  inline: true,
+  inline: true
 }
 
 export const Small = Template.bind({})
@@ -238,7 +238,7 @@ Small.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: ['Yes', 'No'],
-  size: 'small',
+  size: 'small'
 }
 
 export const WithHints = Template.bind({})
@@ -247,7 +247,7 @@ WithHints.args = {
   label: 'Have you changed your name?',
   options: ['Yes', 'No'],
   generalHint:
-    'This includes changing your last name or spelling your name differently.',
+    'This includes changing your last name or spelling your name differently.'
 }
 
 export const WithOptionsHints = Template.bind({})
@@ -257,7 +257,7 @@ WithOptionsHints.args = {
   options: ['Yes', 'No'],
   generalHint:
     'This includes changing your last name or spelling your name differently.',
-  optionsHint: ['Yes, I have changed my name', "No, I didn't change my name"],
+  optionsHint: ['Yes, I have changed my name', "No, I didn't change my name"]
 }
 
 export const WithDivider = Template.bind({})
@@ -266,7 +266,7 @@ WithDivider.args = {
   label: 'Have you changed your name?',
   options: ['Yes', 'No'],
   extraOptionsDivider: 'or',
-  extraOptions: ['Not sure'],
+  extraOptions: ['Not sure']
 }
 
 export const WithError = Template.bind({})
@@ -274,7 +274,7 @@ WithError.args = {
   id: 'changed-name',
   label: 'Have you changed your name?',
   options: ['Yes', 'No'],
-  errorMessage: 'Select an option',
+  errorMessage: 'Select an option'
 }
 
 export const WithConditional = Template.bind({})
@@ -282,5 +282,5 @@ WithConditional.args = {
   id: 'contact',
   label: 'How would you prefer to be contacted?',
   options: ['Email', 'Phone'],
-  conditionals: 'Email address,Phone number',
+  conditionals: 'Email address,Phone number'
 }

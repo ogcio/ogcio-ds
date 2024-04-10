@@ -7,23 +7,23 @@ export default {
     docs: {
       description: {
         component:
-          'The footer provides copyright, licensing and other information about your service.',
-      },
-    },
+          'The footer provides copyright, licensing and other information about your service.'
+      }
+    }
   },
   argTypes: {
     inlineLinks: { control: 'text' },
     secondaryNavigationLinks: { control: 'array' },
     secondaryNavigationLinkHeadings: { control: 'array' },
     logoLink: { control: 'text' },
-    licenseLink: { control: 'text' },
+    licenseLink: { control: 'text' }
   },
   args: {
     logoLink: '#',
     licenseLink: '#',
     secondaryNavigationLinks: [],
-    secondaryNavigationLinkHeadings: ['Two column list', 'Single column list'],
-  },
+    secondaryNavigationLinkHeadings: ['Two column list', 'Single column list']
+  }
 }
 
 const createNavigationSection = (items, headingText, twoColumns) => {
@@ -174,7 +174,7 @@ Default.args = {}
 
 export const WithLinks = Template.bind({})
 WithLinks.args = {
-  inlineLinks: 'Item 1, Item 2, Item 3',
+  inlineLinks: 'Item 1, Item 2, Item 3'
 }
 
 export const WithSecondaryNavigation = Template.bind({})
@@ -186,10 +186,10 @@ WithSecondaryNavigation.args = {
       'Navigation item 3',
       'Navigation item 4',
       'Navigation item 5',
-      'Navigation item 6',
+      'Navigation item 6'
     ],
-    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3'],
-  ],
+    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3']
+  ]
 }
 
 export const WithSecondaryNavigationAndLinks = Template.bind({})
@@ -202,8 +202,8 @@ WithSecondaryNavigationAndLinks.args = {
       'Navigation item 3',
       'Navigation item 4',
       'Navigation item 5',
-      'Navigation item 6',
+      'Navigation item 6'
     ],
-    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3'],
-  ],
+    ['Navigation item 1', 'Navigation item 2', 'Navigation item 3']
+  ]
 }

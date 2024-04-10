@@ -10,21 +10,21 @@ export default {
   argTypes: {
     type: {
       options: ['icons', 'links'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     tooltipPosition: {
       options: ['top', 'bottom', 'left', 'right'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     links: { control: 'array' },
-    disabled: { control: 'boolean' },
+    disabled: { control: 'boolean' }
   },
   args: {
     type: 'icons',
     disabled: false,
     tooltipPosition: 'right',
-    links: ['Edit', 'View', 'Delete'],
-  },
+    links: ['Edit', 'View', 'Delete']
+  }
 }
 
 const createLinksCell = (links) => {
@@ -52,7 +52,7 @@ const createActionsCell = (position, disabled) => {
       ).outerHTML,
       tooltipLabel: 'Map',
       position,
-      disabled,
+      disabled
     }),
     iconButton({
       icon: createSvgIcon(
@@ -63,7 +63,7 @@ const createActionsCell = (position, disabled) => {
       ).outerHTML,
       tooltipLabel: 'Cut',
       position,
-      disabled,
+      disabled
     }),
     iconButton({
       icon: createSvgIcon(
@@ -73,8 +73,8 @@ const createActionsCell = (position, disabled) => {
       ).outerHTML,
       tooltipLabel: 'Delete',
       position,
-      disabled,
-    }),
+      disabled
+    })
   ]
 
   actions.forEach((action) => {
@@ -99,12 +99,12 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  type: 'icons',
+  type: 'icons'
 }
 
 export const Links = Template.bind({})
 Links.args = {
-  type: 'links',
+  type: 'links'
 }
 
 export const DifferentLinks = Template.bind({})
@@ -116,5 +116,5 @@ DifferentLinks.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true,
-  type: 'icons',
+  type: 'icons'
 }

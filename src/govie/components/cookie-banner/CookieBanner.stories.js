@@ -7,22 +7,22 @@ export default {
     docs: {
       description: {
         component:
-          'Allow users to accept or reject cookies which are not essential to making your service work..',
-      },
-    },
+          'Allow users to accept or reject cookies which are not essential to making your service work..'
+      }
+    }
   },
   argTypes: {
     confirmed: {
-      control: 'boolean',
+      control: 'boolean'
     },
     cookieOption: {
       options: ['accepted', 'rejected'],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    confirmed: false,
-  },
+    confirmed: false
+  }
 }
 
 const createContent = (title, confirmed, cookie) => {
@@ -144,11 +144,11 @@ Default.args = {}
 export const CookieAccepted = Template.bind({})
 CookieAccepted.args = {
   confirmed: true,
-  cookieOption: 'accepted',
+  cookieOption: 'accepted'
 }
 
 export const CookiesRejected = Template.bind({})
 CookiesRejected.args = {
   confirmed: true,
-  cookieOption: 'rejected',
+  cookieOption: 'rejected'
 }

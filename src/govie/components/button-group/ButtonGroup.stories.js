@@ -5,23 +5,22 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'Use the group button component to group related buttons.',
-      },
-    },
+        component: 'Use the group button component to group related buttons.'
+      }
+    }
   },
   argTypes: {
     size: {
       options: ['standard', 'small', 'medium'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     buttonLabels: { control: 'array', required: true },
-    disabled: { control: 'boolean' },
+    disabled: { control: 'boolean' }
   },
   args: {
     disabled: false,
-    size: 'standard',
-  },
+    size: 'standard'
+  }
 }
 
 const Template = (args) => {
@@ -31,7 +30,7 @@ const Template = (args) => {
   const classes = {
     standard: '',
     small: 'govie-button--small',
-    medium: 'govie-button--medium',
+    medium: 'govie-button--medium'
   }
 
   if (args.buttonLabels && args.buttonLabels.length > 0) {
@@ -50,7 +49,7 @@ const Template = (args) => {
       btn.className = [
         'govie-button',
         ...btn.classList,
-        classes[args.size],
+        classes[args.size]
       ].join(' ')
 
       group.appendChild(btn)
@@ -62,7 +61,7 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  buttonLabels: ['Button', 'Button', 'Button'],
+  buttonLabels: ['Button', 'Button', 'Button']
 }
 
 export const Disabled = Template.bind({})
@@ -71,15 +70,14 @@ Disabled.args = {
   disabled: true
 }
 
-
 export const Medium = Template.bind({})
 Medium.args = {
   buttonLabels: ['Medium button', 'Medium button', 'Medium button'],
-  size: 'medium',
+  size: 'medium'
 }
 
 export const Small = Template.bind({})
 Small.args = {
   buttonLabels: ['Small button', 'Small button', 'Small button'],
-  size: 'small',
+  size: 'small'
 }

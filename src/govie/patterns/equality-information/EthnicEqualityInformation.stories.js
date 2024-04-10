@@ -14,14 +14,14 @@ export default {
         'multiple ethnic groups',
         'asian or asian british',
         'black, african, caribbean or black british',
-        'other backgrounds',
+        'other backgrounds'
       ],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createEthnicForm = () => {
@@ -34,10 +34,10 @@ const createEthnicForm = () => {
       'Mixed or multiple ethnic groups',
       'Asian or Asian British',
       'Black, African, Caribbean or Black British',
-      'Other ethnic group',
+      'Other ethnic group'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -52,10 +52,10 @@ const createWhiteEthnicForm = () => {
       'English, Welsh, Scottish, Northern Irish or British',
       'Irish',
       'Gypsy or Irish Traveller',
-      'Any other White background',
+      'Any other White background'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -71,10 +71,10 @@ const createMultipleEthnicForm = () => {
       'White and Black Caribbean',
       'White and Black African',
       'White and Asian',
-      'Any other mixed or multiple ethnic background',
+      'Any other mixed or multiple ethnic background'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -91,10 +91,10 @@ const createAsianEthnicForm = () => {
       'Pakistani',
       'Bangladeshi',
       'Chinese',
-      'Any other Asian background',
+      'Any other Asian background'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -109,10 +109,10 @@ const createBlackEthnicForm = () => {
     options: [
       'African',
       'Caribbean',
-      'Any other Black, African or Caribbean background',
+      'Any other Black, African or Caribbean background'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -125,7 +125,7 @@ const createOtherEthnicForm = () => {
     label: 'Which of the following best describes your background?',
     options: ['Arab', 'Any other ethnic group'],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -165,29 +165,29 @@ Default.args = {}
 export const White = Template.bind({})
 White.storyName = 'White background'
 White.args = {
-  type: 'white background',
+  type: 'white background'
 }
 
 export const MixedEthnicGroups = Template.bind({})
 MixedEthnicGroups.storyName = 'Mixed or multiple ethnic groups background'
 MixedEthnicGroups.args = {
-  type: 'multiple ethnic groups',
+  type: 'multiple ethnic groups'
 }
 
 export const AsianOrAsianBritish = Template.bind({})
 AsianOrAsianBritish.storyName = 'Asian or Asian British background'
 AsianOrAsianBritish.args = {
-  type: 'asian or asian british',
+  type: 'asian or asian british'
 }
 
 export const Black = Template.bind({})
 Black.storyName = 'Black, African, Caribbean Or Black British background'
 Black.args = {
-  type: 'black, african, caribbean or black british',
+  type: 'black, african, caribbean or black british'
 }
 
 export const OtherEthnicGroups = Template.bind({})
 OtherEthnicGroups.storyName = 'Other backgrounds'
 OtherEthnicGroups.args = {
-  type: 'other backgrounds',
+  type: 'other backgrounds'
 }

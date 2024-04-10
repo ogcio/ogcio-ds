@@ -6,24 +6,24 @@ export default {
     docs: {
       description: {
         component:
-          'Make a page easier to scan by letting users reveal more detailed information only if they need it.',
-      },
-    },
+          'Make a page easier to scan by letting users reveal more detailed information only if they need it.'
+      }
+    }
   },
   argTypes: {
     summary: {
       control: 'text',
-      type: { name: 'text', required: true },
+      type: { name: 'text', required: true }
     },
     text: {
       control: 'text',
-      type: { name: 'text', required: true },
-    },
+      type: { name: 'text', required: true }
+    }
   },
   args: {
     summary: 'Help with nationality',
-    text: 'We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.',
-  },
+    text: 'We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.'
+  }
 }
 
 const Template = (args) => {

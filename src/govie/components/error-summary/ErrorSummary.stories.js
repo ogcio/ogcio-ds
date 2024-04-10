@@ -6,33 +6,33 @@ export default {
     docs: {
       description: {
         component:
-          'Use this component at the top of a page to summarise any errors a user has made.',
-      },
-    },
+          'Use this component at the top of a page to summarise any errors a user has made.'
+      }
+    }
   },
   argTypes: {
     summaryHeader: {
       control: 'text',
-      type: { name: 'text', required: true },
+      type: { name: 'text', required: true }
     },
     errors: {
       control: 'array',
-      type: { name: 'array', required: true },
-    },
+      type: { name: 'array', required: true }
+    }
   },
   args: {
     summaryHeader: 'There is a problem',
     errors: [
       {
         message: 'The date your passport was issued must be in the past',
-        url: '#passport-issued-day',
+        url: '#passport-issued-day'
       },
       {
         message: 'Enter a postcode, like AA1 1AA',
-        url: '#postcode-input',
-      },
-    ],
-  },
+        url: '#postcode-input'
+      }
+    ]
+  }
 }
 
 const createErrorListItem = (error) => {

@@ -6,22 +6,22 @@ export default {
     docs: {
       description: {
         component:
-          'Ticks toggle the state of a single setting active or inactive.',
-      },
-    },
+          'Ticks toggle the state of a single setting active or inactive.'
+      }
+    }
   },
   argTypes: {
     filled: { control: 'boolean' },
     checked: { control: 'boolean' },
     value: {
       control: 'text',
-      type: { name: 'text', required: true },
-    },
+      type: { name: 'text', required: true }
+    }
   },
   args: {
     filled: false,
-    checked: false,
-  },
+    checked: false
+  }
 }
 
 const Template = (args) => {
@@ -47,18 +47,18 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  value: 'checkbox',
+  value: 'checkbox'
 }
 
 export const Filled = Template.bind({})
 Filled.args = {
   value: 'checkbox',
-  filled: true,
+  filled: true
 }
 
 export const Checked = Template.bind({})
 Checked.args = {
   value: 'checkbox',
   filled: true,
-  checked: true,
+  checked: true
 }

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 import { CodeSnippet } from '../components/CodeSnippet'
 
 <Meta title="Docs/Sass API Reference" />
@@ -11,151 +11,186 @@ import { CodeSnippet } from '../components/CodeSnippet'
 
 <h4>$govie-assets-path</h4>
 <p>Path to the assets directory, with trailing slash.</p>
+
 <p>
   This is the directory where the images and fonts subdirectories live. You will
   need to make this directory available via your application - see the README
   for details.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-assets-path: "/assets/";`} />
 
 <h4>$govie-images-path</h4>
 <p>Path to the images folder, with trailing slash.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-images-path: "#{$govie-assets-path}images/";`} />
 
 <h4>$govie-fonts-path</h4>
 <p>Path to the fonts folder, with trailing slash.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-fonts-path: "#{$govie-assets-path}fonts/";`} />
 
 <h3>Colours</h3>
 <h4>$govie-brand-colour</h4>
 <p>Brand colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-brand-colour: govie-colour("blue");`} />
 
 <h4>$govie-text-colour</h4>
 <p>Text colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-text-colour: govie-colour("black");`} />
 
 <h4>$govie-body-background-colour</h4>
 <p>Body background colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-body-background-colour: govie-colour("white");`} />
 
 <h4>$govie-print-text-colour</h4>
 <p>Text colour for print media.</p>
 <p>Use 'true black' to avoid printers using colour ink to print body text.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-print-text-colour: #000000;`} />
 
 <h4>$govie-secondary-text-colour</h4>
 <p>Secondary text colour.</p>
 <p>Used in for example 'muted' text and help text.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-secondary-text-colour: govie-colour("dark-grey");`} />
 
 <h4>$govie-focus-colour</h4>
 <p>Focus colour.</p>
+
 <p>
   Used for outline (and background, where appropriate) when interactive elements
   (links, form controls) have keyboard focus.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-focus-colour: govie-colour("yellow");`} />
 
 <h4>$govie-focus-text-colour</h4>
 <p>Focused text colour.</p>
+
 <p>
   Ensure that the contrast between the text and background colour passes WCAG
   Level AA contrast requirements.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-focus-text-colour: govie-colour("black");`} />
 
 <h4>$govie-focus-text-colour</h4>
 <p>Focused text colour.</p>
+
 <p>
   Ensure that the contrast between the text and background colour passes WCAG
   Level AA contrast requirements.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-focus-text-colour: govie-colour("black");`} />
 
 <h4>$govie-error-colour</h4>
 <p>Error colour.</p>
 <p>Used to highlight error messages and form controls in an error state.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-error-colour: govie-colour("red");`} />
 
 <h4>$govie-success-colour</h4>
 <p>Success colour.</p>
 <p>Used to highlight success messages and banners.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-success-colour: govie-colour("green");`} />
 
 <h4>$govie-border-colour</h4>
 <p>Border colour.</p>
 <p>Used in for example borders, separators, rules and keylines.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-colour: govie-colour("mid-grey");`} />
 
 <h4>$govie-input-border-colour</h4>
 <p>Input border colour.</p>
 <p>Used for form inputs and controls.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-input-border-colour: govie-colour("black");`} />
 
 <h4>$govie-hover-colour</h4>
 <p>Input hover colour.</p>
 <p>Used for hover states on form controls.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-hover-colour: govie-colour("mid-grey");`} />
 
 <h4>$govie-link-colour</h4>
 <p>Link colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-link-colour: govie-colour("blue");`} />
 
 <h4>$govie-link-visited-colour</h4>
 <p>Visited link colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-link-visited-colour: govie-colour("purple");`} />
 
 <h4>$govie-link-hover-colour</h4>
 <p>Link hover colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-link-hover-colour: govie-colour("dark-blue");`} />
 
 <h4>$govie-header-surface-colour</h4>
 <p>Head surface colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-header-surface-colour: #004d44;`} />
 
 <h4>$govie-header-footer-border-colour</h4>
 <p>Header and footer border colour.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-header-footer-border-colour: #a39161;`} />
 
 <h4>$govie-footer-surface-colour</h4>
+
 <p>
   Used by the footer component and template to give the illusion of a long
   footer.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-footer-surface-colour: govie-tint(#a39161, 90);`} />
 
 <h3>Global styles</h3>
 
 <h4>$govie-global-styles</h4>
 <p>Include 'global' styles</p>
+
 <p>
-  Whether to style paragraphs (&gt;p&lt;) and links (&gt;a&lt;) without
+  Whether to style paragraphs (>p\<) and links (>a\<) without
   explicitly having to apply the govie-body and govie-link classes.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-global-styles: false;`} />
 
 <h3>Internet explorer 8</h3>
@@ -163,14 +198,18 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <h4>$govie-is-ie8</h4>
 <p>Whether the stylesheet being built is targeting Internet Explorer 8.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-is-ie8: false;`} />
 
 <h4>$govie-ie8-breakpoint</h4>
+
 <p>
   The name of the breakpoint to use as the target when rasterizing media
   queries.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`govie-ie8-breakpoint: desktop;`} />
 
 <h3>Measurements</h3>
@@ -178,11 +217,13 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <h4>$govie-page-width</h4>
 <p>Width of main container.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-page-width: 960px;`} />
 
 <h4>$govie-grid-widths</h4>
 <p>Map of grid column widths.</p>
 <h5>Default value</h5>
+
 <CodeSnippet
   code={`$govie-grid-widths: (
   one-quarter: 25%,
@@ -197,46 +238,55 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <h4>$govie-gutter</h4>
 <p>Width of gutter between grid columns.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-gutter: 30px;`} />
 
 <h4>$govie-gutter-half</h4>
 <p>Width of half the gutter between grid columns.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-gutter-half: $govie-gutter / 2;`} />
 
 <h4>$govie-border-width</h4>
 <p>Standard border width.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-width: 5px;`} />
 
 <h4>$govie-border-width-wide</h4>
 <p>Wide border width.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-width-wide: 10px;`} />
 
 <h4>$govie-border-width-narrow</h4>
 <p>Narrow border width.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-width-narrow: 4px;`} />
 
 <h4>$govie-border-width-form-element</h4>
 <p>Form control border width.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-width-form-element: 2px;`} />
 
 <h4>$govie-border-width-form-group-error</h4>
 <p>Form group border width when in error state.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-border-width-form-group-error: $govie-border-width;`} />
 
 <h4>$govie-focus-width</h4>
 <p>Border width of focus outline.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-focus-width: 3px;`} />
 
 <h4>$govie-hover-width</h4>
 <p>Hover width for form controls with a hover state.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-hover-width: 10px;`} />
 
 <h3>Media queries</h3>
@@ -244,6 +294,7 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <h4>$govie-breakpoints</h4>
 <p>Breakpoint definitions.</p>
 <h5>Default value</h5>
+
 <CodeSnippet
   code={`
 $govie-breakpoints: (
@@ -257,39 +308,50 @@ $govie-breakpoints: (
 <p>Show active breakpoint in top-right corner.</p>
 <p>Only use this during local development.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-show-breakpoints: false;`} />
 
 <h3>Typography</h3>
 
 <h4>$govie-font-family-lato</h4>
+
 <p>
   List of font families to use if using Lato (the default font 'stack for
   OGCIO-DS)
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-font-family-lato: 'Lato', arial, sans-serif;`} />
 
 <h4>$govie-font-family</h4>
 <p>Font families to use for all typography on screen media.</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-font-family: $govie-font-family-lato;`} />
 
 <h4>$govie-font-family-print</h4>
 <p>Font families to use for print media.</p>
+
 <p>
   We recommend that you use system fonts when printing. This will avoid issues
   with some printer drivers and operating systems.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-font-family-print: sans-serif;`} />
 
 <h4>$govie-include-default-font-face</h4>
 <p>Include the default @font-face declarations.</p>
+
 <p>
   If you have set <code>$govie-font-family</code> to something other than{' '}
   <code>$govie-font-family-lato</code> this option is disabled by default.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet
   code={`
 $govie-include-default-font-face: (
@@ -300,47 +362,59 @@ $govie-include-default-font-face: (
 <h4>$govie-font-weight-govie</h4>
 <p>Font weight for govie typography</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-font-weight-govie: 400;`} />
 
 <h4>$govie-font-weight-bold</h4>
 <p>Font weight for bold typography</p>
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-font-weight-bold: 700;`} />
 
 <h4>$govie-root-font-size</h4>
 <p>Root font size.</p>
+
 <p>
   This is used to calculate rem sizes for the typography, and should match the
   effective font-size of your root (or html) element.
 </p>
+
 <p>
   Ideally you should not be setting the font-size on the html or root element in
   order to allow it to scale with user-preference, in which case this should be
   set to 16px.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet code={`$govie-root-font-size: 16px;`} />
 
 <h4>$govie-typography-scale</h4>
 <p>Responsive typography font map.</p>
+
 <p>
   This is used to generate responsive typography that adapts according to the
   breakpoints.
 </p>
+
 <p>
   Font size and font weight can be defined for each breakpoint. You can define
   different behaviour on tablet and desktop. The 'null' breakpoint is for
   mobile.
 </p>
+
 <p>
   Line-heights will automatically be converted from pixel measurements into
   relative values. For example, with a font-size of 16px and a line-height of
   24px, the line-height will be converted to 1.5 before output.
 </p>
+
 <p>
   You can also specify a separate font size and line height for print media.
 </p>
+
 <h5>Default value</h5>
+
 <CodeSnippet
   code={`
 $govie-typography-scale: (
@@ -464,12 +538,15 @@ $govie-typography-scale: (
 
 <h4>$govie-exports</h4>
 <p>Export module.</p>
+
 <p>
   Ensure that the modules of CSS that we define throughout Frontend are only
   included in the generated CSS once, no matter how many times they are imported
   across the individual components.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -478,23 +555,29 @@ $govie-typography-scale: (
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$name</code>
       </th>
+
       <td>
         <p>Name of module - must be unique within the codebase</p>
       </td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet
   code={`
 @include govie-exports($name) {
@@ -505,12 +588,15 @@ $govie-typography-scale: (
 <h3>Internet Explorer 8</h3>
 <h4>$govie-if-ie8</h4>
 <p>Export module.</p>
+
 <p>
   Ensure that the modules of CSS that we define throughout Frontend are only
   included in the generated CSS once, no matter how many times they are imported
   across the individual components.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet
   code={`
 @include govie-if-ie8 {
@@ -519,6 +605,7 @@ $govie-typography-scale: (
 />
 
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 .foo {
@@ -533,13 +620,16 @@ $govie-typography-scale: (
 <h4>$govie-not-ie8</h4>
 <p>Conditionally exclude rules for IE8.</p>
 <h5>Usage</h5>
+
 <CodeSnippet
   code={`
 @include govie-not-ie8 {
   //..
 }`}
 />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 .foo {
@@ -557,6 +647,7 @@ $govie-typography-scale: (
 <h4>$govie-em</h4>
 <p>Convert pixels to em.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -565,42 +656,54 @@ $govie-typography-scale: (
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$value</code>
       </th>
+
       <td>Length in pixels</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$context-font-size</code>
       </th>
+
       <td>Font size of element</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h4>$govie-px-to-rem</h4>
 <p>Convert pixels to rem.</p>
+
 <p>
   The <code>$govie-root-font-size</code> (defined in{' '}
-  <code>settings/_typography-responsive.scss</code>) must be configured to match
+  <code>settings/\_typography-responsive.scss</code>) must be configured to match
   the font-size of your root (html) element
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -609,22 +712,27 @@ $govie-typography-scale: (
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$value</code>
       </th>
+
       <td>
         <p>Length in pixels</p>
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h2>Helpers</h2>
@@ -633,6 +741,7 @@ $govie-typography-scale: (
 <h4>$govie-device-pixel-ratio</h4>
 <p>Media query for retina images (device-pixel-ratio).</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -641,28 +750,36 @@ $govie-typography-scale: (
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$ratio</code>
       </th>
+
       <td>Device pixel ratio</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>2</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet
   code={`
 @include govie-device-pixel-ratio($raio: 2) {
   //..
 }`}
 />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 background-image: govie-image-url("my-image.png");\n
@@ -680,16 +797,20 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-focused-text</h4>
 <p>Focused text.</p>
+
 <p>
   Provides an outline to clearly indicate when the target element is focused.
   Used for interactive text-based elements.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-focused-text;`} />
 
 <h4>$govie-visually-hidden</h4>
 <p>Hide an element visually, but have it available for screen readers.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -698,37 +819,48 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark as <code>!important</code>
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>true</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-visually-hidden($important: true);`} />
 
 <h4>$govie-visually-hidden-focusable</h4>
+
 <p>
   Hide an element visually, but have it available for screen readers whilst
   allowing the element to be focused when navigated to via the keyboard (e.g.
   for the skip link).
 </p>
+
 <p>
   This is slightly less opinionated about borders and padding to make it easier
   to style the focussed element.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -737,23 +869,29 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark as <code>!important</code>
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>true</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-visually-hidden-focusable($important: true);`} />
 
 <h3>Colour</h3>
@@ -761,6 +899,7 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-colour</h4>
 <p>Get colour.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -769,35 +908,45 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$colour</code>
       </th>
+
       <td>
         Name of colour from the colour palette (<code>$govie-colours</code>)
       </td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$legacy</code>
       </th>
+
       <td>A colour literal</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 .foo {
@@ -808,6 +957,7 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-shade</h4>
 <p>Make a colour darker by mixing it with black.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -816,37 +966,47 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$colour</code>
       </th>
+
       <td>colour to shade</td>
+
       <td>
         <code>Colour</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$percentage</code>
       </th>
+
       <td>percentage of black to mix with $colour</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h4>$govie-tint</h4>
 <p>Make a colour darker by mixing it with white.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -855,32 +1015,41 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$colour</code>
       </th>
+
       <td>colour to tint</td>
+
       <td>
         <code>Colour</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$percentage</code>
       </th>
+
       <td>percentage of white to mix with $colour</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h3>Layout</h3>
@@ -888,11 +1057,13 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-clearfix</h4>
 <p>Clear floated content within a container using a pseudo element.</p>
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-clearfix;`} />
 
 <h4>$govie-grid-with</h4>
 <p>Grid width percentage.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -901,34 +1072,43 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$key</code>
       </th>
+
       <td>Name of grid width (e.g. two-thirds)</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h4>$govie-grid-column</h4>
 <p>Generate grid column styles.</p>
 <p>Creates a grid column with standard gutter between the columns.</p>
+
 <p>
   Grid widths are defined in the <code>$govie-grid-widths</code> map.
 </p>
+
 <p>
   By default the column width changes from 100% to specified width at the
   'tablet' breakpoint, but other breakpoints can be specified using the $at
   parameter.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -937,51 +1117,65 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$width</code>
       </th>
+
       <td>name of a grid width from $govie-grid-widths</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>full</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$float</code>
       </th>
+
       <td>left | right</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>left</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$at</code>
       </th>
+
       <td>mobile | tablet | desktop | any custom breakpoint</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>tablet</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <br />
 
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-grid-column($width: "full", $float: "left", $at: "tablet");`}
-/>
+
+<CodeSnippet code={`@include govie-grid-column($width: "full", $float: "left", $at: "tablet");`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 // default
@@ -1001,11 +1195,14 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-media-query</h4>
 <p>Media Query.</p>
 <p>Creates a grid column with standard gutter between the columns.</p>
+
 <p>
   This is a currently a wrapper for sass-mq - abstracted so that we can replace
   it in the future if we so choose.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1014,64 +1211,84 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$from</code>
       </th>
+
       <td>One of $govie-breakpoints</td>
+
       <td>
         <code>String</code> or <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$until</code>
       </th>
+
       <td>One of $govie-breakpoints</td>
+
       <td>
         <code>String</code> or <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$and</code>
       </th>
+
       <td>Additional media query parameters</td>
+
       <td>
         <code>String</code> or <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$media-type</code>
       </th>
+
       <td>Media type: screen, print…</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>all</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet
   code={`
 @include govie-media-query($from: false, $until: false, $and: false, $media-type: "all") {
   //..
 }`}
 />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`
 .element {
@@ -1102,39 +1319,51 @@ background-image: govie-image-url("my-image.png");\n
 <p>Common link styles.</p>
 <p>Provides the typography and focus state, regardless of link style.</p>
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-common;`} />
 
 <h4>$govie-link-decoration</h4>
 <p>Link decoration.</p>
+
 <p>
   Provides the text decoration for links, including thickness and underline
   offset. Use this mixin only if you cannot use the{' '}
   <code>govie-link-common</code> mixin.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-decoration;`} />
 
 <h4>$govie-link-hover-decoration</h4>
 <p>Link hover decoration.</p>
+
 <p>
   Provides the text decoration for links in their hover state, for you to use
   within a <code>:hover</code> pseudo-selector. Use this mixin only if you
   cannot use the <code>govie-link-common</code> mixin.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-hover-decoration;`} />
 
 <h4>$govie-link-style-default</h4>
 <p>Default link styles.</p>
 <p>Makes links use the default unvisited, visited, hover and active colours.</p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-default;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1144,18 +1373,24 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-error</h4>
 <p>Error link styles.</p>
+
 <p>
   Makes links use the error colour. The link will darken if it's active or a
   user hovers their cursor over it.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-error;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1165,18 +1400,24 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-success</h4>
 <p>Success link styles.</p>
+
 <p>
   Makes links use the success colour. The link will darken if it's active or a
   user hovers their cursor over it.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-success;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1186,18 +1427,24 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-muted</h4>
 <p>Muted link styles.</p>
+
 <p>
   Makes links use the secondary text colour. The link will darken if it's active
   or a user hovers their cursor over it.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-muted;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1207,18 +1454,24 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-text</h4>
 <p>Text link styles.</p>
+
 <p>
   Makes links use the primary text colour, in all states. Use this mixin for
   navigation components, such as breadcrumbs or the back link.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-text;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1228,17 +1481,23 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-inverse</h4>
 <p>Inverse link styles.</p>
+
 <p>
   Makes links white, in all states. Use this mixin if you're displaying links
   against a dark background.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the
   <code>govie-link-common</code> mixin to get the correct focus and hover states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-inverse;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1248,23 +1507,30 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-no-visited-state</h4>
 <p>Default link styles, without a visited state.</p>
+
 <p>
   Makes links use the default unvisited, hover and active colours, with no
   distinct visited state.
 </p>
+
 <p>
   Use this mixin when it's not helpful to distinguish between visited and
   non-visited links. For example, when you link to pages with
   frequently-changing content, such as the dashboard for an admin interface.
 </p>
+
 <p>
   If you use this mixin in a component, you must also include the{' '}
   <code>govie-link-common</code> mixin to get the correct focus and hover
   states.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-no-visited-state;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1274,14 +1540,19 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-style-no-underline</h4>
 <p>Remove underline from links.</p>
+
 <p>
   Remove underlines from links unless the link is active or a user hovers their
   cursor over it. This has no effect in Internet Explorer 8 (IE8), because IE8
   does not support <code>:not</code>.
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-style-no-underline;`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.govie-component__link {
     @include govie-link-common;
@@ -1291,11 +1562,14 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>$govie-link-print-friendly</h4>
 <p>Include link destination when printing the page.</p>
+
 <p>
   If the user prints the page, add the destination URL after the link text, if
   the URL starts with /, http:// or https://..
 </p>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-link-print-friendly;`} />
 
 <h3>Spacing</h3>
@@ -1304,6 +1578,7 @@ background-image: govie-image-url("my-image.png");\n
 <p>Single point spacing.</p>
 <p>Returns measurement corresponding to the spacing point requested.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1312,23 +1587,29 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$spacing-point</code>
       </th>
+
       <td>
-        Point on the spacing scale (set in <code>settings/_spacing.scss</code>)
+        Point on the spacing scale (set in <code>settings/\_spacing.scss</code>)
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.element {
   padding: govie-spacing(5);
@@ -1345,12 +1626,15 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>govie-responsive-margin</h4>
 <p>Responsive margin.</p>
+
 <p>
   Adds responsive margin by fetching a 'spacing map' from the responsive spacing
   scale, which defines different spacing values at different breakpoints.
-  Wrapper for the <code>_govie-responsive-spacing</code> mixin.
+  Wrapper for the <code>\_govie-responsive-spacing</code> mixin.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1359,69 +1643,87 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$responsive-spacing-point</code>
       </th>
+
       <td>
         Point on the responsive spacingscale, corresponds to a map of
         breakpoints and spacing values
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$direction</code>
       </th>
+
       <td>
         Direction to add spacing to (<code>top</code>, <code>right</code>,{' '}
         <code>bottom</code>, <code>left</code>, <code>all</code>)
       </td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>all</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark as <code>!important</code>
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$adjustment</code>
       </th>
+
       <td>Offset to adjust spacing by</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false);`}
-/>
+
+<CodeSnippet code={`@include govie-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false);`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.element {
   @include govie-responsive-margin(6, "left", $adjustment: 1px);
@@ -1430,12 +1732,15 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>govie-responsive-padding</h4>
 <p>Responsive padding.</p>
+
 <p>
   Adds responsive padding by fetching a 'spacing map' from the responsive
   spacing scale, which defines different spacing values at different
-  breakpoints. Wrapper for the <code>_govie-responsive-spacing</code> mixin.
+  breakpoints. Wrapper for the <code>\_govie-responsive-spacing</code> mixin.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1444,69 +1749,87 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$responsive-spacing-point</code>
       </th>
+
       <td>
         Point on the responsive spacing scale, corresponds to a map of
         breakpoints and spacing values
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$direction</code>
       </th>
+
       <td>
         Direction to add spacing to (<code>top</code>, <code>right</code>,{' '}
         <code>bottom</code>, <code>left</code>, <code>all</code>)
       </td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>all</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark as <code>!important</code>
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$adjustment</code>
       </th>
+
       <td>Offset to adjust spacing</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false);`}
-/>
+
+<CodeSnippet code={`@include govie-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false);`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`.element {
   @include govie-responsive-padding(6, "left", $adjustment: 1px);
@@ -1517,17 +1840,21 @@ background-image: govie-image-url("my-image.png");\n
 
 <h4>govie-shape-arrow</h4>
 <p>Arrow mixin</p>
+
 <p>
   Generate Arrows (triangles) by using a mix of transparent (1) and coloured
   borders. The coloured borders inherit the text colour of the element (2).
 </p>
+
 <p>
   Ensure the arrow is rendered correctly if browser colours are overridden by
   providing a clip path (3). Without this the transparent borders are overridden
   to become visible which results in a square.
 </p>
+
 <p>We need both because older browsers do not support clip-path.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1536,70 +1863,89 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$direction</code>
       </th>
+
       <td>Direction for arrow: up, right, down, left.</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$base</code>
       </th>
+
       <td>Length of the triangle ‘base’ side</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$height</code>
       </th>
+
       <td>Height of triangle. Omit for equilateral.</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>null</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$display</code>
       </th>
+
       <td>CSS display property of the arrow</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>block</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-shape-arrow($direction, $base, $height: null, $display: "block");`}
-/>
+
+<CodeSnippet code={`@include govie-shape-arrow($direction, $base, $height: null, $display: "block");`} />
 
 <h3>Typography</h3>
 
 <h4>govie-typography-common</h4>
 <p>'Common typography' helper.</p>
+
 <p>
   Sets the font family and associated properties, such as font smoothing. Also
   overrides the font for print.
 </p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1608,34 +1954,40 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$font-family</code>
       </th>
+
       <td>Font family to use</td>
+
       <td>
         <code>List</code>
       </td>
+
       <td>
         <code>$govie-font-family</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-typography-common($font-family: $govie-font-family);`}
-/>
+
+<CodeSnippet code={`@include govie-typography-common($font-family: $govie-font-family);`} />
 
 <h4>govie-text-colour</h4>
 <p>Text colour helper.</p>
 <p>Sets the text colour, including a suitable override for print.</p>
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-text-colour;`} />
 
 <h4>govie-typography-weight-regular</h4>
 <p>Regular font weight helper.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1644,29 +1996,36 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark declarations as <code>!important</code>. Generally Used
         to create override classes.
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-typography-weight-regular($important: false);`} />
 
 <h4>govie-typography-weight-bold</h4>
 <p>Bold font weight helper.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1675,49 +2034,62 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark declarations as <code>!important</code>. Generally Used
         to create override classes.
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-typography-weight-bold($important: false);`} />
 
 <h4>govie-typography-responsive</h4>
 <p>Responsive typography helper.</p>
+
 <p>
   Takes a point from the responsive 'font map' as an argument (the size as it
   would appear on tablet and above), and uses it to create font-size and
   line-height declarations for different breakpoints, and print.
 </p>
+
 <p>Example font map:</p>
-<p>{`19: (
-  null: (
-    font-size: 16px,
-    line-height: 20px
-  ),
-  tablet: (
-    font-size: 19px,
-    line-height: 25px
-  ),
-  print: (
-    font-size: 14pt,
-    line-height: 1.15
-  )
-);`}</p>
+
+<p>
+  {`19: (
+    null: (
+      font-size: 16px,
+      line-height: 20px
+    ),
+    tablet: (
+      font-size: 19px,
+      line-height: 25px
+    ),
+    print: (
+      font-size: 14pt,
+      line-height: 1.15
+    )
+  );`}
+</p>
+
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1726,60 +2098,73 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$size</code>
       </th>
+
       <td>
         Point from the spacing scale (the size as it would appear on tablet and
         above)
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$override-line-height</code>
       </th>
+
       <td>
         Non responsive custom line height. Omit to use the line height from the
         font map.
       </td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$important</code>
       </th>
+
       <td>
         Whether to mark declarations as <code>!important</code>.
       </td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-typography-responsive($size, $override-line-height: false, $important: false);`}
-/>
+
+<CodeSnippet code={`@include govie-typography-responsive($size, $override-line-height: false, $important: false);`} />
 
 <h4>govie-font</h4>
 <p>Font helper.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1788,65 +2173,81 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$size</code>
       </th>
+
       <td>
         Point from the spacing scale (the size as it would appear on tablet and
         above). Use <code>false</code> to avoid setting a size.
       </td>
+
       <td>
         <code>Number</code> or <code>Boolean</code>
       </td>
+
       <td>
         <span aria-hidden="true">—</span>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$weight</code>
       </th>
+
       <td>
         Weight: <code>bold</code> or <code>regular</code>
       </td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>regular</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$tabular</code>
       </th>
+
       <td>Whether to use tabular numbers or not</td>
+
       <td>
         <code>Boolean</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$line-height</code>
       </th>
+
       <td>Line-height, if overriding the default</td>
+
       <td>
         <code>Number</code>
       </td>
+
       <td>
         <code>false</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
-<CodeSnippet
-  code={`@include govie-font($size, $weight: "regular", $tabular: false, $line-height: false);`}
-/>
+
+<CodeSnippet code={`@include govie-font($size, $weight: "regular", $tabular: false, $line-height: false);`} />
 
 <h2>Components</h2>
 <h3>Primary button</h3>
@@ -1854,21 +2255,25 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-primary-button-background-colour</h4>
 <p>Primary button component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-primary-button-background-colour: #004d44;`} />
 
 <h4>$govie-primary-button-hover-background-colour</h4>
 <p>Primary button component hover background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-primary-button-hover-background-colour: #002e28;`} />
 
 <h4>$govie-primary-button-hover-background-colour: #002e28;</h4>
 <p>Primary button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-primary-button-text-colour: govie-colour('white');`} />
 
 <h4>$govie-primary-button-text-colour</h4>
 <p>Primary button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-primary-button-text-colour: govie-colour('white');`} />
 
 <h3>Secondary button</h3>
@@ -1876,18 +2281,19 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-secondary-button-background-colour</h4>
 <p>Secondary button component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-secondary-button-background-colour: transparent;`} />
 
 <h4>$govie-secondary-button-hover-background-colour</h4>
 <p>Secondary button component hover background colour.</p>
 <h5>Default</h5>
-<CodeSnippet
-  code={`$govie-secondary-button-hover-background-colour: govie-colour('light-grey');`}
-/>
+
+<CodeSnippet code={`$govie-secondary-button-hover-background-colour: govie-colour('light-grey');`} />
 
 <h4>$govie-secondary-button-text-colour</h4>
 <p>Secondary button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-secondary-button-text-colour: govie-colour('black');`} />
 
 <h3>Tertiary button</h3>
@@ -1895,18 +2301,19 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-tertiary-button-background-colour</h4>
 <p>Tertiary button component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-tertiary-button-background-colour: transparent;   `} />
 
 <h4>$govie-tertiary-button-hover-background-colour</h4>
 <p>Tertiary button component hover background colour.</p>
 <h5>Default</h5>
-<CodeSnippet
-  code={`$govie-tertiary-button-hover-background-colour: govie-colour('light-grey');`}
-/>
+
+<CodeSnippet code={`$govie-tertiary-button-hover-background-colour: govie-colour('light-grey');`} />
 
 <h4>$govie-tertiary-button-text-colour</h4>
 <p>Tertiary button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-tertiary-button-text-colour: govie-colour('black');`} />
 
 <h3>Outlined and flat button</h3>
@@ -1914,18 +2321,19 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-button-background-colour</h4>
 <p>Flat and outline button component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-button-background-colour: transparent;`} />
 
 <h4>$govie-button-hover-background-colour</h4>
 <p>Flat and outline button component hover background colour.</p>
 <h5>Default</h5>
-<CodeSnippet
-  code={`$govie-button-hover-background-colour: govie-colour('light-grey');`}
-/>
+
+<CodeSnippet code={`$govie-button-hover-background-colour: govie-colour('light-grey');`} />
 
 <h4>$govie-button-text-colour</h4>
 <p>Flat and outline button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-button-text-colour: govie-colour('black');`} />
 
 <h3>Button group</h3>
@@ -1933,33 +2341,34 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-button-group-button-background-colour</h4>
 <p>Button inside button group component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-button-group-button-background-colour: transparent;`} />
 
 <h4>$govie-button-group-button-hover-background-colour</h4>
 <p>Button inside button group component hover background colour.</p>
 <h5>Default</h5>
-<CodeSnippet
-  code={`$govie-button-group-button-hover-background-colour: govie-shade(#CCE2D8, 60);`}
-/>
+
+<CodeSnippet code={`$govie-button-group-button-hover-background-colour: govie-shade(#CCE2D8, 60);`} />
 
 <h3>Icon button</h3>
 
 <h4>$govie-icon-button-text-colour</h4>
 <p>Icon button component text colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-icon-button-text-colour: govie-black('black');`} />
 
 <h4>$govie-icon-button-background-colour</h4>
 <p>Icon button component background colour.</p>
 <h5>Default</h5>
+
 <CodeSnippet code={`$govie-icon-button-background-colour: transparent;`} />
 
 <h4>$govie-icon-button-hover-background-colour</h4>
 <p>Icon component hover background colour.</p>
 <h5>Default</h5>
-<CodeSnippet
-  code={`$govie-icon-button-hover-background-colour: govie-colour('light-grey');`}
-/>
+
+<CodeSnippet code={`$govie-icon-button-hover-background-colour: govie-colour('light-grey');`} />
 
 <h2>Objects</h2>
 
@@ -1969,6 +2378,7 @@ background-image: govie-image-url("my-image.png");\n
 <p>Width container mixin</p>
 <p>Used to create page width and custom width container classes.</p>
 <h5>Parameters</h5>
+
 <table>
   <tbody>
     <tr>
@@ -1977,23 +2387,31 @@ background-image: govie-image-url("my-image.png");\n
       <th>Type</th>
       <th>Default value</th>
     </tr>
+
     <tr>
       <th scope="row">
         <code>$width</code>
       </th>
+
       <td>Width in pixels</td>
+
       <td>
         <code>String</code>
       </td>
+
       <td>
         <code>$govie-page-width</code>
       </td>
     </tr>
   </tbody>
 </table>
+
 <h5>Usage</h5>
+
 <CodeSnippet code={`@include govie-width-container($width: '$govie-page-width');`} />
+
 <h5>Example</h5>
+
 <CodeSnippet
   code={`// Creating a 1200px wide container class
 .app-width-container--wide {

@@ -6,15 +6,15 @@ export default {
     docs: {
       description: {
         component:
-          'Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.',
-      },
-    },
+          'Use the text input component when you need to let users enter text that’s no longer than a single line, such as their name or phone number.'
+      }
+    }
   },
   argTypes: {
     fluid: {
       control: 'boolean',
       description:
-        'Use the fluid text inputs to scale the width in accordance to the column grid layout you are using. By default, the first variation is ‘Full’ where the input will fill the container.',
+        'Use the fluid text inputs to scale the width in accordance to the column grid layout you are using. By default, the first variation is ‘Full’ where the input will fill the container.'
     },
     fluidWidth: {
       control: { type: 'radio' },
@@ -24,52 +24,52 @@ export default {
         'two-thirds',
         'one-half',
         'one-third',
-        'one-quarter',
+        'one-quarter'
       ],
       description:
-        'Use the width override classes to reduce the width of an input in relation to its parent container, for example, to two-thirds.',
+        'Use the width override classes to reduce the width of an input in relation to its parent container, for example, to two-thirds.'
     },
     characterWidth: {
       control: 'number',
       description:
-        'Use fixed width inputs for content that has a specific, known length. For example, postcode inputs should be postcode-sized.',
+        'Use fixed width inputs for content that has a specific, known length. For example, postcode inputs should be postcode-sized.'
     },
     fieldName: {
-      control: 'text',
+      control: 'text'
     },
     fieldId: {
       type: { name: 'string', required: true },
-      control: 'text',
+      control: 'text'
     },
     label: {
-      control: 'text',
+      control: 'text'
     },
     labelAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.'
     },
     hint: {
       control: 'text',
       description:
-        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.',
+        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.'
     },
     prefix: {
       control: 'text',
       description:
-        'Use prefixes and suffixes to help users enter things like currencies and measurements.',
+        'Use prefixes and suffixes to help users enter things like currencies and measurements.'
     },
     suffix: {
       control: 'text',
       description:
-        'Use prefixes and suffixes to help users enter things like currencies and measurements.',
+        'Use prefixes and suffixes to help users enter things like currencies and measurements.'
     },
     errorMessage: { control: 'text' },
     inputExtraClasses: { control: 'text' },
     type: { control: 'text' },
     value: { control: 'text' },
-    autocomplete: { control: 'text' },
-  },
+    autocomplete: { control: 'text' }
+  }
 }
 
 const getTextInputDescribedBy = (args) => {
@@ -245,7 +245,7 @@ Default.args = {
   fieldName: 'default-input',
   fluid: true,
   label: 'What is the name of the page?',
-  labelAsHeading: true,
+  labelAsHeading: true
 }
 
 export const WithLabel = Template.bind({})
@@ -253,7 +253,7 @@ WithLabel.args = {
   label: 'Input with label',
   fieldId: 'input-field',
   fieldName: 'input-field',
-  fluid: true,
+  fluid: true
 }
 
 export const WithLabelAsHeading = Template.bind({})
@@ -262,7 +262,7 @@ WithLabelAsHeading.args = {
   labelAsHeading: true,
   fieldId: 'input-field',
   fieldName: 'input-field',
-  fluid: true,
+  fluid: true
 }
 
 export const WithLabelAndHint = Template.bind({})
@@ -271,7 +271,7 @@ WithLabelAndHint.args = {
   fieldName: 'input-field',
   label: 'Input with label',
   hint: 'And hint',
-  fluid: true,
+  fluid: true
 }
 
 export const WithHint = Template.bind({})
@@ -279,7 +279,7 @@ WithHint.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   hint: 'Input with hint',
-  fluid: true,
+  fluid: true
 }
 
 export const FluidWidth = Template.bind({})
@@ -287,7 +287,7 @@ FluidWidth.args = {
   label: 'Full fluid with (default)',
   fieldId: 'input-field',
   fieldName: 'input-field',
-  fluid: true,
+  fluid: true
 }
 
 export const HalfFluidWidth = Template.bind({})
@@ -296,7 +296,7 @@ HalfFluidWidth.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: true,
-  fluidWidth: 'one-half',
+  fluidWidth: 'one-half'
 }
 
 export const FixedWidth = Template.bind({})
@@ -305,7 +305,7 @@ FixedWidth.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: false,
-  characterWidth: 4,
+  characterWidth: 4
 }
 
 export const WithBothAffix = Template.bind({})
@@ -339,7 +339,7 @@ WithErrorMessage.args = {
   fieldName: 'input-field',
   label: 'What is the page name?',
   hint: 'Some hint',
-  errorMessage: 'Enter a page name',
+  errorMessage: 'Enter a page name'
 }
 
 export const WithErrorMessageAndAffix = Template.bind({})
@@ -350,5 +350,5 @@ WithErrorMessageAndAffix.args = {
   labelAsHeading: true,
   errorMessage: 'Enter a cost per item, in Euros',
   prefix: '€',
-  suffix: 'per item',
+  suffix: 'per item'
 }

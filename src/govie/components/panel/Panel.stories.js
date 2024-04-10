@@ -6,23 +6,23 @@ export default {
     docs: {
       description: {
         component:
-          'The panel component is a visible container used on confirmation or results pages to highlight important content.',
-      },
-    },
+          'The panel component is a visible container used on confirmation or results pages to highlight important content.'
+      }
+    }
   },
   argTypes: {
     headingText: {
       control: 'text',
       type: { name: 'string', required: true },
       description:
-        'It’s meant for a high-level explanation of what has happened.',
+        'It’s meant for a high-level explanation of what has happened.'
     },
     bodyHtml: {
       control: 'text',
       description:
-        'Use this component instead of the heading text if you need to give detailed information, or more context.',
-    },
-  },
+        'Use this component instead of the heading text if you need to give detailed information, or more context.'
+    }
+  }
 }
 
 const Template = (args) => {
@@ -47,11 +47,11 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  headingText: 'Application complete',
+  headingText: 'Application complete'
 }
 
 export const WithHeaderAndBody = Template.bind({})
 WithHeaderAndBody.args = {
   headingText: 'Application complete',
-  bodyHtml: 'Your reference number<br><strong>HDJ2123F</strong>',
+  bodyHtml: 'Your reference number<br><strong>HDJ2123F</strong>'
 }

@@ -6,40 +6,40 @@ export default {
     docs: {
       description: {
         component:
-          'Let users select one or more options by using the checkboxes component.',
-      },
-    },
+          'Let users select one or more options by using the checkboxes component.'
+      }
+    }
   },
   argTypes: {
     fieldId: {
       control: 'text',
-      type: { name: 'text', required: true },
+      type: { name: 'text', required: true }
     },
     legend: { control: 'text' },
     legendAsHeading: {
       control: 'boolean',
       description:
-        "If you're asking just one question per page as recommended, you can set the contents of the `<legend>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.",
+        "If you're asking just one question per page as recommended, you can set the contents of the `<legend>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once."
     },
     hint: { control: 'text' },
     haveNoneOption: {
       control: 'boolean',
       description:
-        "When 'none' would be a valid answer, give users the option to check a box to say none of the other options apply to them — without this option, users would have to leave all of the boxes unchecked. Giving users this option also makes sure they do not skip the question by accident.",
+        "When 'none' would be a valid answer, give users the option to check a box to say none of the other options apply to them — without this option, users would have to leave all of the boxes unchecked. Giving users this option also makes sure they do not skip the question by accident."
     },
     noneOptionLabel: { control: 'text' },
     useSmallerBoxes: {
       control: 'boolean',
       description:
         "Use standard-sized checkboxes in most cases. However, smaller checkboxes work well on pages where it's helpful to make them less visually prominent.\n" +
-        'For example, on a page of search results, the main user need is to see the results. Using smaller checkboxes lets users see and change search filters without distracting them from the main content.',
+        'For example, on a page of search results, the main user need is to see the results. Using smaller checkboxes lets users see and change search filters without distracting them from the main content.'
     },
     items: {
       control: 'array',
-      type: { name: 'array', required: true },
+      type: { name: 'array', required: true }
     },
     errorMessage: { control: 'text' },
-    hiddenLabel: { control: 'boolean' },
+    hiddenLabel: { control: 'boolean' }
   },
   args: {
     fieldId: 'checkboxes-default',
@@ -47,8 +47,8 @@ export default {
     useSmallerBoxes: false,
     haveNoneOption: false,
     items: [],
-    hiddenLabel: false,
-  },
+    hiddenLabel: false
+  }
 }
 
 const createLegendNode = (args) => {
@@ -152,7 +152,7 @@ const createCheckboxItem = ({
   index,
   itemData,
   isExclusive = false,
-  hiddenLabel = false,
+  hiddenLabel = false
 }) => {
   const checkboxItem = document.createElement('div')
   checkboxItem.className = 'govie-checkboxes__item'
@@ -229,7 +229,7 @@ const createCheckboxesNode = (args) => {
         fieldId: args.fieldId,
         index: index + 1,
         itemData: checkboxItem,
-        hiddenLabel: args.hiddenLabel,
+        hiddenLabel: args.hiddenLabel
       })
     )
 
@@ -253,7 +253,7 @@ const createCheckboxesNode = (args) => {
 
     const noneOptionItemData = {
       label: args.noneOptionLabel,
-      value: 'none',
+      value: 'none'
     }
     // Start indexes from 1 in the DOM with skipping 1 index for the divider
     checkboxes.appendChild(
@@ -262,7 +262,7 @@ const createCheckboxesNode = (args) => {
         index: args.items.length + 2,
         itemData: noneOptionItemData,
         isExclusive: true,
-        hiddenLabel: args.hiddenLabel,
+        hiddenLabel: args.hiddenLabel
       })
     )
   }
@@ -340,14 +340,14 @@ Default.args = {
   items: [
     {
       label: 'Employment Tribunal',
-      value: 'employment-tribunal',
+      value: 'employment-tribunal'
     },
     {
       label: 'Ministry of Defence',
-      value: 'MOD',
+      value: 'MOD'
     },
-    { label: 'Department for Transport', value: 'DfT' },
-  ],
+    { label: 'Department for Transport', value: 'DfT' }
+  ]
 }
 
 export const WithNormalLegend = Template.bind({})
@@ -357,14 +357,14 @@ WithNormalLegend.args = {
   items: [
     {
       label: 'Employment Tribunal',
-      value: 'employment-tribunal',
+      value: 'employment-tribunal'
     },
     {
       label: 'Ministry of Defence',
-      value: 'MOD',
+      value: 'MOD'
     },
-    { label: 'Department for Transport', value: 'DfT' },
-  ],
+    { label: 'Department for Transport', value: 'DfT' }
+  ]
 }
 
 export const WithSmallCheckbox = Template.bind({})
@@ -375,14 +375,14 @@ WithSmallCheckbox.args = {
   items: [
     {
       label: 'Employment Tribunal',
-      value: 'employment-tribunal',
+      value: 'employment-tribunal'
     },
     {
       label: 'Ministry of Defence',
-      value: 'MOD',
+      value: 'MOD'
     },
-    { label: 'Department for Transport', value: 'DfT' },
-  ],
+    { label: 'Department for Transport', value: 'DfT' }
+  ]
 }
 
 export const WithHints = Template.bind({})
@@ -393,18 +393,18 @@ WithHints.args = {
   items: [
     {
       label: 'Irish',
-      value: 'irish',
+      value: 'irish'
     },
     {
       label: 'British',
       value: 'british',
-      hint: 'including English, Scottish, Welsh and Northern Irish',
+      hint: 'including English, Scottish, Welsh and Northern Irish'
     },
     {
       label: 'Citizen of another country',
-      value: 'another-country',
-    },
-  ],
+      value: 'another-country'
+    }
+  ]
 }
 
 export const WithErrorMessage = Template.bind({})
@@ -417,18 +417,18 @@ WithErrorMessage.args = {
   items: [
     {
       label: 'Irish',
-      value: 'irish',
+      value: 'irish'
     },
     {
       label: 'British',
       value: 'british',
-      hint: 'including English, Scottish, Welsh and Northern Irish',
+      hint: 'including English, Scottish, Welsh and Northern Irish'
     },
     {
       label: 'Citizen of another country',
-      value: 'another-country',
-    },
-  ],
+      value: 'another-country'
+    }
+  ]
 }
 
 export const WithNoneOption = Template.bind({})
@@ -441,17 +441,17 @@ WithNoneOption.args = {
   items: [
     {
       label: 'France',
-      value: 'france',
+      value: 'france'
     },
     {
       label: 'Portugal',
-      value: 'portugal',
+      value: 'portugal'
     },
     {
       label: 'Spain',
-      value: 'spain',
-    },
-  ],
+      value: 'spain'
+    }
+  ]
 }
 
 export const WithConditionalInput = Template.bind({})
@@ -468,8 +468,8 @@ WithConditionalInput.args = {
         label: 'Email address',
         type: 'email',
         spellcheck: false,
-        autocomplete: 'email',
-      },
+        autocomplete: 'email'
+      }
     },
     {
       label: 'Phone',
@@ -478,8 +478,8 @@ WithConditionalInput.args = {
         id: 'contact-by-phone',
         label: 'Phone number',
         type: 'tel',
-        autocomplete: 'tel',
-      },
+        autocomplete: 'tel'
+      }
     },
     {
       label: 'Text message',
@@ -488,8 +488,8 @@ WithConditionalInput.args = {
         id: 'contact-by-text',
         label: 'Mobile phone number',
         type: 'tel',
-        autocomplete: 'tel',
-      },
-    },
-  ],
+        autocomplete: 'tel'
+      }
+    }
+  ]
 }

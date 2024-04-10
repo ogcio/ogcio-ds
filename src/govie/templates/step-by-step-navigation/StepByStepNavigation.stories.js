@@ -14,10 +14,10 @@ export default {
     docs: {
       description: {
         component:
-          'The step by step navigation template presents an end to end journey in logical steps, with links to content that helps users complete each step.',
-      },
-    },
-  },
+          'The step by step navigation template presents an end to end journey in logical steps, with links to content that helps users complete each step.'
+      }
+    }
+  }
 }
 
 const createHeaderRow = () => {
@@ -31,7 +31,7 @@ const createHeaderRow = () => {
     heading({
       text: 'Learn to drive a car: step by step',
       element: 'h1',
-      size: 'l',
+      size: 'l'
     })
   )
   const introParagraph = parseHtmlString(
@@ -65,8 +65,8 @@ const Template = (args) => {
       breadcrumbs: [
         'Home',
         'Driving and transport',
-        'Driving tests and learning to drive or ride',
-      ],
+        'Driving tests and learning to drive or ride'
+      ]
     })
   )
   const headerRow = createHeaderRow()
@@ -75,7 +75,7 @@ const Template = (args) => {
   const body = createBody({
     mainContent: [headerRow, stepByStepNavigationRow],
     preMainContents: [breadcrumbsNavigation],
-    additionalWrapperClasses: ['govie-main-wrapper--auto-spacing'],
+    additionalWrapperClasses: ['govie-main-wrapper--auto-spacing']
   })
 
   return beautifyHtmlNode(body)

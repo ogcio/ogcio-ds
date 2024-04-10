@@ -6,41 +6,41 @@ export default {
     docs: {
       description: {
         component:
-          'Use the date input component to help users enter a memorable date or one they can easily look up.',
-      },
-    },
+          'Use the date input component to help users enter a memorable date or one they can easily look up.'
+      }
+    }
   },
   argTypes: {
     fieldId: {
       type: { name: 'string', required: true },
-      control: 'text',
+      control: 'text'
     },
     legend: {
-      control: 'text',
+      control: 'text'
     },
     legendAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking more than one question on the page, do not set the contents of the `<legend>` as the page heading.',
+        'If you’re asking more than one question on the page, do not set the contents of the `<legend>` as the page heading.'
     },
     hint: {
       control: 'text',
       description:
-        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.',
+        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.'
     },
     errorMessage: {
-      control: 'text',
+      control: 'text'
     },
     errorItemType: {
       control: { type: 'radio' },
-      options: ['All', 'Day', 'Month', 'Year'],
-    },
+      options: ['All', 'Day', 'Month', 'Year']
+    }
   },
   args: {
     fieldId: 'example-date',
     errorItemType: 'All',
-    legendAsHeading: false,
-  },
+    legendAsHeading: false
+  }
 }
 
 const createLegend = (args) => {
@@ -100,7 +100,7 @@ const createInputItem = (fieldId, itemType, width, didError) => {
   const classNames = [
     'govie-input',
     'govie-date-input__input',
-    `govie-input--width-${width}`,
+    `govie-input--width-${width}`
   ]
   if (didError) {
     classNames.push('govie-input--error')
@@ -143,18 +143,18 @@ const createInputItems = (args) => {
     {
       name: 'Day',
       width: 2,
-      didError: didItemTypeError(args, 'Day'),
+      didError: didItemTypeError(args, 'Day')
     },
     {
       name: 'Month',
       width: 2,
-      didError: didItemTypeError(args, 'Month'),
+      didError: didItemTypeError(args, 'Month')
     },
     {
       name: 'Year',
       width: 4,
-      didError: didItemTypeError(args, 'Year'),
-    },
+      didError: didItemTypeError(args, 'Year')
+    }
   ]
 
   return itemTypes.map((itemType) => {
@@ -223,25 +223,25 @@ export const Default = Template.bind({})
 Default.args = {
   legend: 'When was your flight?',
   legendAsHeading: true,
-  hint: 'For example, 12 8 2006',
+  hint: 'For example, 12 8 2006'
 }
 
 export const WithNormalLegend = Template.bind({})
 WithNormalLegend.args = {
   legend: 'When was your flight?',
-  hint: 'For example, 12 8 2006',
+  hint: 'For example, 12 8 2006'
 }
 
 export const WithoutHint = Template.bind({})
 WithoutHint.args = {
-  legend: 'When was your flight?',
+  legend: 'When was your flight?'
 }
 
 export const WithAllFieldErrored = Template.bind({})
 WithAllFieldErrored.args = {
   legend: 'When was your flight?',
   hint: 'For example, 12 8 2006',
-  errorMessage: 'The date of your flight can not be in future',
+  errorMessage: 'The date of your flight can not be in future'
 }
 
 export const WithOneFieldErrored = Template.bind({})
@@ -249,5 +249,5 @@ WithOneFieldErrored.args = {
   legend: 'When was your flight?',
   hint: 'For example, 12 8 2006',
   errorMessage: 'The date of your flight must include a month',
-  errorItemType: 'Month',
+  errorItemType: 'Month'
 }

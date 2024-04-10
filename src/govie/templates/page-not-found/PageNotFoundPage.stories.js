@@ -12,10 +12,10 @@ export default {
       description: {
         component:
           'This template is currently experimental because more research is needed to validate it.\n\n' +
-          'A page not found tells someone we cannot find the page they were trying to view. They are also known as 404 pages.',
-      },
-    },
-  },
+          'A page not found tells someone we cannot find the page they were trying to view. They are also known as 404 pages.'
+      }
+    }
+  }
 }
 
 const createMainWrapper = () => {
@@ -33,7 +33,7 @@ const createMainWrapper = () => {
       text: 'Page not found',
       size: 'l',
       captionSize: 'l',
-      nestedCaption: false,
+      nestedCaption: false
     })
   )
   column.appendChild(pageNotFoundHeading)
@@ -45,7 +45,7 @@ const createMainWrapper = () => {
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
-      text: 'If you pasted the web address, check you copied the entire address.',
+      text: 'If you pasted the web address, check you copied the entire address.'
     })
   )
   column.appendChild(secondIntroParagraph)
@@ -54,7 +54,7 @@ const createMainWrapper = () => {
     '<a href="#" class="govie-link">contact the [service] Helpline</a>'
   const thirdIntroParagraph = parseHtmlString(
     paragraph({
-      text: `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`,
+      text: `If the web address is correct or you selected a link or button, ${link} if you need to speak to someone about your [service].`
     })
   )
   column.appendChild(thirdIntroParagraph)

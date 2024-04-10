@@ -1,24 +1,29 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 import { CodeSnippet } from '../components/CodeSnippet'
 import { InternalLink } from '../components/InternalLink'
 
 <Meta title="Docs/Localise OGCIO-DS" />
 
 <h1>Localise OGCIO-DS</h1>
+
 <p>
   OGCIO-DS uses English by default. You're responsible for providing any
   translations for any other language you need for your service.
 </p>
+
 <p>
   There are three types of text you might want to translate into another
   language.
 </p>
+
 <ol>
   <li>Text you pass to a component where there is no default text provided.</li>
+
   <li>
     Text in the HTML for a component where an English version is included by
     default. For example, the licence and copyright information in the footer.
   </li>
+
   <li>
     Text in the JavaScript for a component where parts of the user interface are
     built dynamically. For example, the text for the buttons in the Accordion
@@ -33,29 +38,40 @@ import { InternalLink } from '../components/InternalLink'
 <p>You can change the text used within the HTML.</p>
 
 <h2>Changing text in the JavaScript for a component</h2>
+
 <p>
   If you're using the Nunjucks macro, look at the Nunjucks macro options table
   in the Design System to find the option you need to change the text.
 </p>
+
 <p>
   If you're using the HTML directly, you can customise the text used in the
   JavaScript by passing configuration using data attributes.
 </p>
+
 <p>
   Alternatively, you can{' '}
+
   <InternalLink href="/?path=/docs/docs-configure-components-with-javascript--page">
     configure the component with JavaScript
-  </InternalLink>{' '}
+  </InternalLink>
+
+  {' '}
+
   at the point you initialise it or when using <code>initAll</code>.
 </p>
+
 <p>The naming conventions for:</p>
+
 <ul>
   <li>
     data attributes are{' '}
-    <code>data-i18n.&lt;kebab-cased-name&gt;(.&lt;pluralform&gt;)</code>
+    <code>data-i18n.\<kebab-cased-name>(.\<pluralform>)</code>
   </li>
 </ul>
+
 <p>JavaScript uses nested objects. For example:</p>
+
 <CodeSnippet
   code={`{
   i18n: {
@@ -63,55 +79,59 @@ import { InternalLink } from '../components/InternalLink'
   }
 }`}
 />
+
 <p>
   If your content contains{' '}
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Glossary/Entity#reserved_characters"
-    target="_blank"
-    rel="noopener"
-  >
+
+  <a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity#reserved_characters" target="_blank" rel="noopener">
     quotes or other reserved HTML characters
   </a>
+
   , you'll need to escape those characters.
 </p>
+
 <p>
   The component will output content as plain text, not HTML, to avoid{' '}
-  <a
-    href="https://owasp.org/www-community/attacks/xss/"
-    target="_blank"
-    rel="noopener"
-  >
+
+  <a href="https://owasp.org/www-community/attacks/xss/" target="_blank" rel="noopener">
     cross-site scripting attacks
   </a>
+
   .
 </p>
 
 <h3>Setting the locale for a component</h3>
+
 <p>
   For components that dynamically generate text, such as the character count,
   you should make sure that the locale for the component is set correctly.
 </p>
+
 <p>The locale used by a component determines:</p>
+
 <ul>
   <li>
     how numbers are formatted, for example which character will be used for the
     thousands separator
   </li>
+
   <li>the pluralisation rules used</li>
 </ul>
+
 <p>
   The component will determine its locale from the{' '}
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang"
-    target="_blank"
-    rel="noopener"
-  >
+
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang" target="_blank" rel="noopener">
     <code>lang</code> attribute
-  </a>{' '}
+  </a>
+
+  {' '}
+
   on the element or from the closest parent element with a <code>lang</code>{' '}
   attribute. If none of the component's parent elements have a <code>lang</code>{' '}
   attribute, the component will use a default locale of <code>en</code>.
 </p>
+
 <p>
   Setting the locale for the component does not automatically change the
   language of the text. You'll still need to pass the required text through one
@@ -120,81 +140,97 @@ import { InternalLink } from '../components/InternalLink'
 
 <h3 id="pluralisation-rules">Understanding pluralisation rules</h3>
 <p>Different languages have different rules for pluralisation.</p>
+
 <p>
   English only has 2 forms, singular and plural. Other languages often have more
   forms. For example, Welsh has 6 possible plural forms, the Romance languages
   (French, Spanish, Italian) have 3 and many East Asian languages (Chinese,
   Japanese, Malaysian) do not have any plural forms.
 </p>
+
 <p>
   We follow the{' '}
-  <a
-    href="https://cldr.unicode.org/index/cldr-spec/plural-rules"
-    target="_blank"
-    rel="noopener"
-  >
+
+  <a href="https://cldr.unicode.org/index/cldr-spec/plural-rules" target="_blank" rel="noopener">
     Unicode Common Locale Data Repository classification
-  </a>{' '}
+  </a>
+
+  {' '}
+
   and categorise these forms as: <code>zero</code>, <code>one</code>,{' '}
   <code>two</code>, <code>few</code>, <code>many</code> and <code>other</code>.
   The forms for each language will differ depending on its pluralisation. For
   example,
 </p>
+
 <ul>
   <li>
     all languages use the <code>other</code> form
   </li>
+
   <li>some languages will require you to pass additional forms</li>
+
   <li>
     languages with no plural form only need the form <code>other</code>
   </li>
 </ul>
+
 <p>
   You should use a professional translation service to make sure your
   translation is accurate and that you're using the correct pluralisation form.
   You can also check{' '}
-  <a
-    href="https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html"
-    target="_blank"
-    rel="noopener"
-  >
+
+  <a href="https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html" target="_blank" rel="noopener">
     the Unicode Common Locale Data Repository documentation
-  </a>{' '}
+  </a>
+
+  {' '}
+
   for guidance on which of these forms your locale requires and what{' '}
   <code>few</code> and <code>many</code> might represent for it .
 </p>
+
 <p>
   When providing text with plural forms, you'll need to pass an object
   associating each plural category with the text for that form. If you do not
   provide the required plural form for the locale, the component will fall back
   to the “other” form and warn you in the browser's console.
 </p>
+
 <p>
   If you're looking to keep English messages and override only one of the plural
   forms (<code>one</code> or <code>other</code>), you can only provide that
   specific form and it will be merged with our defaults.
 </p>
+
 <p>
   Our components will replace the <code>{'%{count}'}</code> placeholder with the
   number used for picking the plural category.
 </p>
+
 <p>
   The following example shows how to provide pluralisation options using the
   different ways you can{' '}
+
   <InternalLink href="/?path=/docs/docs-configure-components-with-javascript--page">
     configure components with JavaScript
   </InternalLink>
+
   :
 </p>
 
 <p>With data attributes</p>
-<CodeSnippet code={`<div data-module="character-count" 
+
+<CodeSnippet
+  code={`<div data-module="character-count" 
   data-i18n.characters-under-limit.other="%{count} characters to go"
   data-i18n.characters-under-limit.one="One character to go"
   data-i18n.characters-over-limit.one="One character too many">
-  <!-- The 'other' key for 'characters-over-limit' will be our default -->`} />
+  {/* The 'other' key for 'characters-over-limit' will be our default */}`}
+/>
 
 <p>With JavaScript</p>
+
 <CodeSnippet
   code={`new CharacterCount($element, {
   i18n: {

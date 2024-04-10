@@ -7,7 +7,7 @@ export const CodeWithDemo = ({ code, darkMode }) => (
     style={{
       border: '1px solid',
       marginBottom: '20px',
-      borderRadius: '4px',
+      borderRadius: '4px'
     }}
   >
     <div
@@ -15,7 +15,7 @@ export const CodeWithDemo = ({ code, darkMode }) => (
       style={{
         padding: '16px',
         borderBottom: '1px solid',
-        backgroundColor: darkMode ? '#1d70b8' : 'transparent',
+        backgroundColor: darkMode ? '#1d70b8' : 'transparent'
       }}
     />
     <CopyBlock

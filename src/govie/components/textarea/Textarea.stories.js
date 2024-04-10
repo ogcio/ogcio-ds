@@ -6,43 +6,43 @@ export default {
     docs: {
       description: {
         component:
-          'Use the textarea component when you need to let users enter an amount of text that’s longer than a single line.',
-      },
-    },
+          'Use the textarea component when you need to let users enter an amount of text that’s longer than a single line.'
+      }
+    }
   },
   argTypes: {
     fieldName: {
-      control: 'text',
+      control: 'text'
     },
     fieldId: {
       type: { name: 'string', required: true },
-      control: 'text',
+      control: 'text'
     },
     label: {
-      control: 'text',
+      control: 'text'
     },
     labelAsHeading: {
       control: 'boolean',
       description:
-        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.',
+        'If you’re asking just one question per page as recommended, you can set the contents of the `<label>` as the page heading. This is good practice as it means that users of screen readers will only hear the contents once.'
     },
     hint: {
       control: 'text',
       description:
-        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.',
+        'Use hint text for help that’s relevant to the majority of users, like how their information will be used, or where to find it.'
     },
     rows: {
       control: 'number',
       description:
-        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.',
+        'Make the height of a textarea proportional to the amount of text you expect users to enter. You can set the height of a textarea by by specifying the `rows` attribute.'
     },
     errorMessage: {
-      control: 'text',
+      control: 'text'
     },
     autocomplete: {
-      control: 'text',
-    },
-  },
+      control: 'text'
+    }
+  }
 }
 
 const getTextareaDescribedBy = (args) => {
@@ -174,7 +174,7 @@ Default.args = {
   fieldName: 'default-textarea',
   label: 'Can you provide more detail?',
   labelAsHeading: true,
-  rows: 5,
+  rows: 5
 }
 
 export const WithLabel = Template.bind({})
@@ -183,7 +183,7 @@ WithLabel.args = {
   fieldName: 'default-textarea',
   label: 'Can you provide more detail?',
   labelAsHeading: false,
-  rows: 5,
+  rows: 5
 }
 
 export const WithLableAndHint = Template.bind({})
@@ -193,7 +193,7 @@ WithLableAndHint.args = {
   label: 'Can you provide more detail?',
   labelAsHeading: false,
   hint: 'Do not include personal or financial information, like your National Insurance number or credit card details.',
-  rows: 5,
+  rows: 5
 }
 
 export const WithErrorMessage = Template.bind({})
@@ -204,5 +204,5 @@ WithErrorMessage.args = {
   labelAsHeading: false,
   hint: 'Do not include personal or financial information, like your National Insurance number or credit card details.',
   errorMessage: 'Enter more detail',
-  rows: 5,
+  rows: 5
 }

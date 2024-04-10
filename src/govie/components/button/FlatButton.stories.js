@@ -4,7 +4,7 @@ import primary, { Default as button } from './PrimaryButton.stories'
 
 export default {
   ...primary,
-  title: 'Form/Button/Flat button',
+  title: 'Form/Button/Flat button'
 }
 
 const Template = (args) => {
@@ -16,35 +16,35 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Flat button',
+  label: 'Flat button'
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
   label: 'Medium flat button',
-  size: 'medium',
+  size: 'medium'
 }
 
 export const Small = Template.bind({})
 Small.args = {
   label: 'Small flat button',
-  size: 'small',
+  size: 'small'
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
   label: 'Flat button with left icon',
-  icon: 'left',
+  icon: 'left'
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
   label: 'Flat button with right icon',
-  icon: 'right',
+  icon: 'right'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   label: 'Disabled flat button',
-  disabled: true,
+  disabled: true
 }

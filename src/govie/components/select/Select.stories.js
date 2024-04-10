@@ -6,26 +6,26 @@ export default {
     docs: {
       description: {
         component:
-          'The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.',
-      },
-    },
+          'The select component should only be used as a last resort in public-facing services because research shows that some users find selects very difficult to use.'
+      }
+    }
   },
   argTypes: {
     id: {
       type: { required: true },
-      control: 'text',
+      control: 'text'
     },
     label: {
       type: { required: true },
-      control: 'text',
+      control: 'text'
     },
     hint: {
       control: 'text',
       description:
-        'You can add hint text to help the user understand the options and choose one of them.',
+        'You can add hint text to help the user understand the options and choose one of them.'
     },
     errorMessage: { control: 'text' },
-    options: { control: 'object' },
+    options: { control: 'object' }
   },
   args: {
     id: 'default-select',
@@ -35,9 +35,9 @@ export default {
       northeast: 'Option 1',
       northwest: 'Option 2',
       southeast: 'Option 3',
-      southwest: 'Option 4',
-    },
-  },
+      southwest: 'Option 4'
+    }
+  }
 }
 
 const Template = (args) => {
@@ -94,10 +94,10 @@ Default.args = {}
 
 export const WithHint = Template.bind({})
 WithHint.args = {
-  hint: 'This can be different to where you went before',
+  hint: 'This can be different to where you went before'
 }
 
 export const WithError = Template.bind({})
 WithError.args = {
-  errorMessage: 'Error message',
+  errorMessage: 'Error message'
 }

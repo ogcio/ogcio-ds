@@ -6,25 +6,25 @@ export default {
     docs: {
       description: {
         component:
-          'Tooltips display informative text when users hover over an element.',
-      },
+          'Tooltips display informative text when users hover over an element.'
+      }
     },
-    layout: 'centered',
+    layout: 'centered'
   },
   argTypes: {
     label: {
       control: 'text',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     position: {
       options: ['top', 'bottom', 'left', 'right'],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
     label: 'Tooltip text',
-    position: 'top',
-  },
+    position: 'top'
+  }
 }
 
 const Template = (args) => {
@@ -44,23 +44,23 @@ const Template = (args) => {
 export const Top = Template.bind({})
 Top.args = {
   label: 'Top tooltip',
-  position: 'top',
+  position: 'top'
 }
 
 export const Bottom = Template.bind({})
 Bottom.args = {
   label: 'Bottom tooltip',
-  position: 'bottom',
+  position: 'bottom'
 }
 
 export const Left = Template.bind({})
 Left.args = {
   label: 'Left tooltip',
-  position: 'left',
+  position: 'left'
 }
 
 export const Right = Template.bind({})
 Right.args = {
   label: 'Right tooltip',
-  position: 'right',
+  position: 'right'
 }

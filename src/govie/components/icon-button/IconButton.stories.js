@@ -6,31 +6,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Icon buttons are commonly found in app bars and toolbars.',
-      },
+        component: 'Icon buttons are commonly found in app bars and toolbars.'
+      }
     },
-    layout: 'centered',
+    layout: 'centered'
   },
   argTypes: {
     disabled: { control: 'boolean' },
     tooltipLabel: {
       control: 'text',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     position: {
       options: ['top', 'bottom', 'left', 'right'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     icon: {
       control: 'text',
-      type: { name: 'string', required: true },
-    },
+      type: { name: 'string', required: true }
+    }
   },
   args: {
     disabled: false,
     tooltipLabel: 'Close',
-    position: 'top',
-  },
+    position: 'top'
+  }
 }
 
 const Template = (args) => {
@@ -43,11 +43,8 @@ const Template = (args) => {
   hiddenLabel.className = 'govie-visually-hidden'
   hiddenLabel.innerText = args.tooltipLabel
 
-  btn.innerHTML = 
-    args.icon !== undefined
-      ? args.icon
-      : xIcon
-  
+  btn.innerHTML = args.icon !== undefined ? args.icon : xIcon
+
   btn.appendChild(hiddenLabel)
 
   if (args.disabled) {
@@ -76,15 +73,15 @@ Default.args = {}
 
 export const WithDifferentTooltip = Template.bind({})
 WithDifferentTooltip.args = {
-  tooltipLabel: 'Other tooltip label',
+  tooltipLabel: 'Other tooltip label'
 }
 
 export const WithDifferentTooltipPosition = Template.bind({})
 WithDifferentTooltipPosition.args = {
-  position: 'bottom',
+  position: 'bottom'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  disabled: true,
+  disabled: true
 }

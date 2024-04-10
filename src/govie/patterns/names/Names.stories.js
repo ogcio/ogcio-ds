@@ -9,13 +9,13 @@ export default {
     docs: {
       description: {
         component:
-          'You should follow this pattern whenever you need to ask for a user’s name as part of your service. Only ask for people’s names if you need that information to deliver a service.',
-      },
-    },
+          'You should follow this pattern whenever you need to ask for a user’s name as part of your service. Only ask for people’s names if you need that information to deliver a service.'
+      }
+    }
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-  },
+    errorMessage: { control: 'text' }
+  }
 }
 
 const createNameInput = (args) => {
@@ -25,7 +25,7 @@ const createNameInput = (args) => {
       fieldName: 'full-name',
       label: 'Full name',
       errorMessage: args.errorMessage,
-      autocomplete: 'name',
+      autocomplete: 'name'
     })
   )
 

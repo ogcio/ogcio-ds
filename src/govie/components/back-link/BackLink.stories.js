@@ -6,19 +6,19 @@ export default {
     docs: {
       description: {
         component:
-          'Use the back link component to help users go back to the previous page in a multi-page transaction.',
-      },
-    },
+          'Use the back link component to help users go back to the previous page in a multi-page transaction.'
+      }
+    }
   },
   argTypes: {
     url: {
       control: 'text',
-      type: { name: 'string', required: true },
-    },
+      type: { name: 'string', required: true }
+    }
   },
   args: {
-    url: '#',
-  },
+    url: '#'
+  }
 }
 
 const Template = (args) => {

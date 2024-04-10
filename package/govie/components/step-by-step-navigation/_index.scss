@@ -173,8 +173,7 @@ $top-border: solid 1px govie-colour("mid-grey");
       bottom: govie-px-to-rem(5px);
       left: govie-px-to-rem(6px);
       width: govie-px-to-rem(6px);
-      height: govie-px-to-rem(6px);
-      -webkit-transform: rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      height: govie-px-to-rem(6px); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
       -ms-transform: rotate(-45deg); /* IE 9 */
       transform: rotate(-45deg);
       border-top: govie-px-to-rem(2px) solid;
@@ -183,8 +182,7 @@ $top-border: solid 1px govie-colour("mid-grey");
   }
 
   // Rotate icon to create "Down" version
-  .govie-step-nav__chevron--down {
-    -webkit-transform: rotate(180deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  .govie-step-nav__chevron--down { /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: rotate(180deg); /* IE 9 */
     transform: rotate(180deg);
   }

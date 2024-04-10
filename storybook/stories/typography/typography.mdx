@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <Meta title="Docs/Typography" />
@@ -6,31 +6,34 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 <h1>Typography</h1>
 
 <h2>Font</h2>
+
 <p>
   We use the{' '}
-  <a
-    href="https://fonts.google.com/specimen/Lato"
-    rel="noreferrer noopener"
-    target="_blank"
-  >
+
+  <a href="https://fonts.google.com/specimen/Lato" rel="noreferrer noopener" target="_blank">
     Lato
-  </a>{' '}
+  </a>
+
+  {' '}
+
   Google font.
 </p>
 
 <h2>Headings</h2>
 <p>Write all headings in sentence case.</p>
+
 <p>
-  Use heading tags, such as <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> and
+  Use heading tags, such as <code>\<h1></code>, <code>\<h2></code> and
   so on, to tag the headings on a page. Apply a heading class, such as{' '}
   <code>govie-heading-l</code>, to style them visually. Style headings
   consistently to create a clear content structure throughout your service.
 </p>
+
 <p>
   For a question page, or pages with long headings, start with{' '}
   <code>govie-heading-l</code>
-  for an <code>&lt;h1&gt;</code>, <code>govie-heading-m</code> for an <code>
-    &lt;h2&gt;
+  for an <code>\<h1></code>, <code>govie-heading-m</code> for an <code>
+  \<h2>
   </code> and so on. But change it if your pages feel unbalanced – the heading class
   you use does not always need to correspond to the heading level.
 </p>
@@ -44,11 +47,12 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <p>
   If your page has lots of long form content, start with{' '}
-  <code>govie-heading-xl</code> for an <code>&lt;h1&gt;</code>,{' '}
-  <code>govie-heading-l</code> for an <code>&lt;h2&gt;</code>, and so on.
+  <code>govie-heading-xl</code> for an <code>\<h1></code>,{' '}
+  <code>govie-heading-l</code> for an <code>\<h2></code>, and so on.
 </p>
 
 <h3>Heading with captions</h3>
+
 <p>
   Sometimes you may need to make it clear that a page is part of a larger
   section or group. To do this, you can use a heading with a caption above it.
@@ -66,7 +70,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <p>
   If the caption should be considered part of the page heading, you can also
-  nest the caption within the <code>&lt;h1&gt;</code>.
+  nest the caption within the <code>\<h1></code>.
 </p>
 
 <CodeWithDemo
@@ -79,6 +83,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <h2>Paragraphs</h2>
 <h3>Body</h3>
+
 <p>
   The default paragraph font size is 19px on large screens and 16px on small
   screens.
@@ -92,6 +97,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 </p>
 
 <h3>Lead paragraph</h3>
+
 <p>
   A lead paragraph is an introductory paragraph that you can use at the top of a
   page to summarise the content. Lead paragraphs use 24px type on desktop and
@@ -101,6 +107,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 <CodeWithDemo code={`<p class="govie-body-l">govie-body-l</p>`} />
 
 <h3>Body small</h3>
+
 <p>
   You can use the <code>govie-body-s</code> class sparingly to make your
   paragraph font size smaller: 16px on larger screens and 14px on smaller
@@ -114,6 +121,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 <CodeWithDemo code={`<p class="govie-body-s">govie-body-s</p>`} />
 
 <h2>Text alignment override classes</h2>
+
 <p>
   If you need to align text differently to how it usually displays on the page,
   you can use text alignment override classes. Use:
@@ -123,18 +131,22 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
   <li>
     <code>govie-!-text-align-left</code> to align text to the left
   </li>
+
   <li>
     <code>govie-!-text-align-right</code> to align text to the right
   </li>
+
   <li>
     <code>govie-!-text-align-centre</code> to align text to the centre
   </li>
 </ul>
+
 <p>
   You should usually left-align body copy that’s read left to right.
   Right-aligned body copy can be hard for users to find and read when they
   magnify their screen.
 </p>
+
 <p>
   Do not ‘justify’ blocks of body copy so that they’re aligned to both the left
   and right margins. Doing this creates wider spaces between words, which can
@@ -142,6 +154,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 </p>
 
 <h2>Font override classes</h2>
+
 <p>
   You might need to set the font size or font weight of an element outside of
   the predefined heading and paragraph classes. For this you can use the font
@@ -150,6 +163,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 </p>
 
 <h3>Font size</h3>
+
 <p>
   The full gov.ie typography scale goes from 14px up to 80px on large screens.
   You can add these font size override classes to any other typographic class or
@@ -169,6 +183,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h3>Font weight</h3>
+
 <p>
   As with the font size, you can add a font weight override class to any other
   typographic class or element to change the font weight to regular or bold
@@ -182,31 +197,33 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h4>Bold text</h4>
+
 <p>
   You can use bold to emphasise particular words in a transaction. Use it to
   highlight critical information that users need to refer to or you’ve seen them
   miss.
 </p>
+
 <p>
   For example, “Your reference number is <strong>ABC12345678</strong>. Use this
   to track your application. Updates will be sent to{' '}
   <strong>name@example.com</strong>“
 </p>
+
 <p>
   Use bold sparingly. Overuse will make it difficult for users to know which
   parts of your content they need to pay the most attention to.
 </p>
 
 <h2>Links</h2>
+
 <p>
   Links are blue and underlined by default. If your link is at the end of a
   sentence or paragraph, make sure that the linked text does not include the
   full stop.
 </p>
 
-<CodeWithDemo
-  code={`<p class="govie-body">Jump to <a href="#" class="govie-link">HTML example</a>.</p>`}
-/>
+<CodeWithDemo code={`<p class="govie-body">Jump to <a href="#" class="govie-link">HTML example</a>.</p>`} />
 
 <p>
   Use the <code>govie-link--no-visited-state</code> modifier class where it is
@@ -214,25 +231,28 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
   when linking to pages with frequently-changing content such as the dashboard
   for an admin interface.
 </p>
-<CodeWithDemo
-  code={`<a href="#" class="govie-link govie-link--no-visited-state">link text (with no visited state)</a>`}
-/>
+
+<CodeWithDemo code={`<a href="#" class="govie-link govie-link--no-visited-state">link text (with no visited state)</a>`} />
 
 <h3>External links</h3>
+
 <p>
   If it’s an external link to a non-government website, make that clear in the
-  link text. For example, ‘read advice on writing link text from [name of
+  link text. For example, ‘read advice on writing link text from \[name of
   organisation]’. There’s no need to say explicitly that you’re linking to an
   external site.
 </p>
 
 <h3>Opening links in a new tab</h3>
+
 <p>
   Avoid opening links in a new tab or window. It can be disorienting - and{' '}
+
   <a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html">
     can cause accessibility problems for people who cannot visually perceive
     that the new tab has opened
   </a>
+
   .
 </p>
 
@@ -245,16 +265,16 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 
 <p>
   Include <code>rel="noreferrer noopener"</code> along with{' '}
-  <code>target="_blank"</code> to reduce the risk of{' '}
+  <code>target="\_blank"</code> to reduce the risk of{' '}
+
   <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing">
     reverse tabnabbing
   </a>
+
   . The following example shows how to do this in HTML.
 </p>
 
-<CodeWithDemo
-  code={`<a href="#" class="govie-link" rel="noreferrer noopener" target="_blank">link text (opens in new tab)</a>`}
-/>
+<CodeWithDemo code={`<a href="#" class="govie-link" rel="noreferrer noopener" target="_blank">link text (opens in new tab)</a>`} />
 
 <p>
   If you’re displaying lots of links together and want to save space and avoid
@@ -266,41 +286,49 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
     adding a line of text before the links saying ‘The following links open in a
     new tab’
   </li>
+
   <li>
     including{' '}
+
     <code>
-      &lt;span class="govie-visually-hidden"&gt; (opens in new tab)
-      &lt;/span&gt;
-    </code>{' '}
+      \<span class="govie-visually-hidden"> (opens in new tab)
+      \</span>
+    </code>
+
+    {' '}
+
     as part of the link text, so that part of the link text is visually hidden
     but still accessible to screen readers
   </li>
 </ul>
 
 <h3>Links on dark backgrounds</h3>
+
 <p>
   Use the <code>govie-link--inverse</code> modifier class to show white links on
   dark backgrounds — for example, in headers, custom components, and patterns
   with darker backgrounds.
 </p>
+
 <p>
   Make sure all users can see the links — the white links and background colour{' '}
+
   <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">
     must have a contrast ratio of at least 4.5:1
   </a>
+
   .
 </p>
 
-<CodeWithDemo
-  code={`<a href="#" class="govie-link govie-link--inverse">link text (on dark background)</a>`}
-  darkMode
-/>
+<CodeWithDemo code={`<a href="#" class="govie-link govie-link--inverse">link text (on dark background)</a>`} darkMode />
 
 <h3>Links without underlines</h3>
+
 <p>
   Use the <code>govie-link--underline</code> modifier class to remove underlines
   from links.
 </p>
+
 <p>
   Only do this if the context tells the user that the text is a link, even
   without the underline.
@@ -312,11 +340,10 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
   same place, across different pages.
 </p>
 
-<CodeWithDemo
-  code={`<a href="#" class="govie-link govie-link--no-underline">link text (with no underline)</a>`}
-/>
+<CodeWithDemo code={`<a href="#" class="govie-link govie-link--no-underline">link text (with no underline)</a>`} />
 
 <h2>Lists</h2>
+
 <p>
   Use lists to make blocks of text easier to read, and to break information into
   manageable chunks.
@@ -341,6 +368,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h3>Bulleted lists</h3>
+
 <p>
   Introduce bulleted lists with a lead-in line ending in a colon. Start each
   item with a lowercase letter, and do not use a full stop at the end.
@@ -357,6 +385,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h3>Numbered lists</h3>
+
 <p>
   Use numbered lists instead of bulleted lists when the order of the items is
   relevant.
@@ -377,10 +406,12 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h3>Adding extra spacing between list items</h3>
+
 <p>
   If a list is hard to read because the items run across multiple lines you can
   add extra spacing.
 </p>
+
 <CodeWithDemo
   code={`
 <p class="govie-body">You will have to apply the reverse charge if you supply any of these services:</p>
@@ -411,9 +442,10 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
 />
 
 <h2>Section break</h2>
+
 <p>
   You can use the <code>govie-section-break</code> classes on an{' '}
-  <code>&lt;hr&gt;</code> element to create a thematic break between sections of
+  <code>\<hr></code> element to create a thematic break between sections of
   content.
   <code>govie-section-break</code> has class-based modifiers for different size margins.
 </p>
@@ -423,6 +455,7 @@ import { CodeWithDemo } from '../components/CodeWithDemo'
   can add the <code>govie-section-break--visible</code> class to make it visible
   with a separator line.
 </p>
+
 <CodeWithDemo
   code={`
 <hr class="govie-section-break govie-section-break--xl govie-section-break--visible">

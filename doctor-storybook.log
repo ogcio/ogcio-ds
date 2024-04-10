@@ -1,0 +1,21 @@
+🩺 The doctor is checking the health of your Storybook..
+╭ Incompatible packages found ───────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                    │
+│   The following packages are incompatible with Storybook 8.0.6 as they depend on different major versions of Storybook packages:   │
+│   - @etchteam/storybook-addon-css-variables-theme@1.6.0                                                                            │
+│    Repo: https://github.com/etchteam/storybook-addon-css-variables-theme#readme                                                    │
+│   - storybook-addon-themes@6.1.0                                                                                                   │
+│    Repo: https://github.com/tonai/storybook-addon-themes                                                                           │
+│                                                                                                                                    │
+│                                                                                                                                    │
+│   Please consider updating your packages or contacting the maintainers for compatibility details.                                  │
+│   For more on Storybook 8 compatibility, see the linked GitHub issue:                                                              │
+│   https://github.com/storybookjs/storybook/issues/26031                                                                            │
+│                                                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+You can always recheck the health of your project by running:
+npx storybook doctor
+
+Full logs are available in /Users/hamzakhan/Documents/dev/ogcio-ds/doctor-storybook.log
+

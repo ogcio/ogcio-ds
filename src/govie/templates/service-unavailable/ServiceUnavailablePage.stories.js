@@ -2,7 +2,7 @@ import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
 import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
 import {
   createPageHeader,
-  createPageFooter,
+  createPageFooter
 } from '../../../../.storybook/helpers/commonPageComponents'
 
 import { Default as heading } from '../../components/typography/Heading.stories'
@@ -16,10 +16,10 @@ export default {
         component:
           'This template is currently experimental because more research is needed to validate it.\n\n' +
           'This guidance is for government teams that build online services. <a href="https://www.gov.ie/">To find information and services for the public, go to gov.ie</a>.\n\n' +
-          'Tell the user a service is unavailable on purpose. These are also known as 503 and shutter pages.',
-      },
-    },
-  },
+          'Tell the user a service is unavailable on purpose. These are also known as 503 and shutter pages.'
+      }
+    }
+  }
 }
 
 const createMainWrapper = () => {
@@ -37,7 +37,7 @@ const createMainWrapper = () => {
       text: 'Sorry, the service is unavailable',
       size: 'l',
       captionSize: 'l',
-      nestedCaption: false,
+      nestedCaption: false
     })
   )
   column.appendChild(pageNotFoundHeading)
@@ -49,7 +49,7 @@ const createMainWrapper = () => {
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
-      text: 'We saved your answers. They will be available for 30 days.',
+      text: 'We saved your answers. They will be available for 30 days.'
     })
   )
   column.appendChild(secondIntroParagraph)
@@ -58,7 +58,7 @@ const createMainWrapper = () => {
     '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
   const thirdIntroParagraph = parseHtmlString(
     paragraph({
-      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
+      text: `${link} if you need to make changes to your claim or speak to someone about your [service].`
     })
   )
   column.appendChild(thirdIntroParagraph)

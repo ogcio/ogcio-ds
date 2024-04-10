@@ -12,10 +12,10 @@ export default {
     docs: {
       description: {
         component:
-          'Use the table component to make information easier to compare and scan for users.',
-      },
-    },
-  },
+          'Use the table component to make information easier to compare and scan for users.'
+      }
+    }
+  }
 }
 
 const createTableHeader = () => {
@@ -28,7 +28,7 @@ const createTableHeader = () => {
     'Status',
     'Actions',
     'Header',
-    'Total',
+    'Total'
   ]
 
   const thead = document.createElement('thead')
@@ -75,7 +75,7 @@ const createTableCell = (cell, firstColumn, numeric) => {
     const classes = [
       'govie-table__cell',
       'govie-table__cell--vertical-centralized',
-      'govie-body-s',
+      'govie-body-s'
     ]
 
     if (numeric) {
@@ -94,7 +94,7 @@ const createTableRow = ({ text, type }, total, index) => {
     items: [{ label: `checkbox-${index}`, value: 'check' }],
     useSmallerBoxes: true,
     fieldId: `checkbox-${index}`,
-    hiddenLabel: true,
+    hiddenLabel: true
   })
 
   const row = [
@@ -106,7 +106,7 @@ const createTableRow = ({ text, type }, total, index) => {
     { cell: tag({ text, type, extraClass: 'govie-body-s' }) },
     { cell: parseHtmlString(actions({ type: 'icons' })).outerHTML },
     { cell: parseHtmlString(actions({ type: 'links' })).outerHTML },
-    { cell: total, numeric: true },
+    { cell: total, numeric: true }
   ]
 
   const tr = document.createElement('tr')
@@ -128,7 +128,7 @@ const createTableBody = () => {
     { tag: { text: 'Pending', type: 'blue' }, total: '12345' },
     { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
     { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
-    { tag: { text: 'Pending', type: 'blue' }, total: '74,070' },
+    { tag: { text: 'Pending', type: 'blue' }, total: '74,070' }
   ]
 
   const tbody = document.createElement('tbody')

@@ -17,10 +17,10 @@ export default {
           <li>the order they should complete tasks in</li>
           <li>when they\'ve completed tasks</li>
           </ul>
-          `,
-      },
-    },
-  },
+          `
+      }
+    }
+  }
 }
 
 const createTaskList = () => {
@@ -30,48 +30,48 @@ const createTaskList = () => {
       taskList: [
         {
           action: { name: 'Check eligibility', link: true },
-          tag: { name: 'COMPLETED' },
+          tag: { name: 'COMPLETED' }
         },
         {
           action: { name: 'Read declaration', link: true },
-          tag: { name: 'COMPLETED' },
-        },
-      ],
+          tag: { name: 'COMPLETED' }
+        }
+      ]
     },
     {
       header: 'Prepare application',
       taskList: [
         {
           action: { name: 'Company information', link: true },
-          tag: { name: 'COMPLETED' },
+          tag: { name: 'COMPLETED' }
         },
         {
           action: { name: 'Your contact details', link: true },
-          tag: { name: 'IN PROGRESS', type: 'blue' },
+          tag: { name: 'IN PROGRESS', type: 'blue' }
         },
         {
           action: { name: 'List convictions', link: true },
-          tag: { name: 'NOT STARTED', type: 'grey' },
+          tag: { name: 'NOT STARTED', type: 'grey' }
         },
         {
           action: { name: 'Provide financial evidence' },
-          tag: { name: 'CANNOT START YET', type: 'grey' },
+          tag: { name: 'CANNOT START YET', type: 'grey' }
         },
         {
           action: { name: 'Give medical information' },
-          tag: { name: 'CANNOT START YET', type: 'grey' },
-        },
-      ],
+          tag: { name: 'CANNOT START YET', type: 'grey' }
+        }
+      ]
     },
     {
       header: 'Apply',
       taskList: [
         {
           action: { name: 'Submit and pay' },
-          tag: { name: 'CANNOT START YET', type: 'grey' },
-        },
-      ],
-    },
+          tag: { name: 'CANNOT START YET', type: 'grey' }
+        }
+      ]
+    }
   ]
 
   const list = parseHtmlString(taskList({ content }))
@@ -85,7 +85,7 @@ const createColumn = () => {
   const checkAnswersHeading = parseHtmlString(
     heading({
       text: 'Service name goes here',
-      size: 'xl',
+      size: 'xl'
     })
   )
   column.appendChild(checkAnswersHeading)
@@ -94,7 +94,7 @@ const createColumn = () => {
     heading({
       text: 'Application incomplete',
       size: 's',
-      element: 'h2',
+      element: 'h2'
     })
   )
   personalSubHeading.className += ' govie-!-margin-bottom-2'
@@ -126,7 +126,7 @@ const createMainContent = () => {
 const Template = (args) => {
   const body = createBody({
     mainContent: createMainContent(),
-    shortFooter: true,
+    shortFooter: true
   })
   return beautifyHtmlNode(body)
 }

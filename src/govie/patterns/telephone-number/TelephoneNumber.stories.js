@@ -9,13 +9,13 @@ export default {
     docs: {
       description: {
         component:
-          'Only collect telephone numbers from people if you genuinely need them. Not everyone has or can use a telephone, so make sure you give users a choice about how they can be contacted.',
-      },
-    },
+          'Only collect telephone numbers from people if you genuinely need them. Not everyone has or can use a telephone, so make sure you give users a choice about how they can be contacted.'
+      }
+    }
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-  },
+    errorMessage: { control: 'text' }
+  }
 }
 
 const createTelephoneInput = (args) => {
@@ -28,7 +28,7 @@ const createTelephoneInput = (args) => {
       autocomplete: 'tel',
       type: 'tel',
       hint: args.hint,
-      inputExtraClasses: 'govie-input--width-20',
+      inputExtraClasses: 'govie-input--width-20'
     })
   )
 
@@ -45,10 +45,10 @@ Default.args = {}
 
 export const WithHint = Template.bind({})
 WithHint.args = {
-  hint: 'For international numbers include the country code',
+  hint: 'For international numbers include the country code'
 }
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
-  errorMessage: 'Enter a telephone number',
+  errorMessage: 'Enter a telephone number'
 }

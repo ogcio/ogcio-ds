@@ -6,18 +6,18 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'The gov.ie superheader, for public facing website.',
-      },
-    },
+        component: 'The gov.ie superheader, for public facing website.'
+      }
+    }
   },
   argTypes: {
     withLanguageSelector: {
-      control: 'boolean',
-    },
+      control: 'boolean'
+    }
   },
   args: {
-    withLanguageSelector: false,
-  },
+    withLanguageSelector: false
+  }
 }
 
 const topicMenuList = [
@@ -36,7 +36,7 @@ const topicMenuList = [
   'Money and tax',
   'Passports, travel and living abroad',
   'Visas and immigration',
-  'Working, jobs and pensions',
+  'Working, jobs and pensions'
 ]
 
 const governmentActivitiesMenuList = [
@@ -47,7 +47,7 @@ const governmentActivitiesMenuList = [
   'Policy papers and consultations',
   'Transparency',
   'How government works',
-  'Get involved',
+  'Get involved'
 ]
 
 const searchMenuList = [
@@ -55,7 +55,7 @@ const searchMenuList = [
   'Find out about the Energy Bills Support Scheme',
   'Find a job',
   'Coronavirus (COVID-19)',
-  'Universal Credit account: sign in',
+  'Universal Credit account: sign in'
 ]
 
 const createLogo = () => {
@@ -209,10 +209,7 @@ const createSearchItem = () => {
   searchLinkInner.innerText = 'Search gov.ie'
 
   searchLink.appendChild(searchLinkInner)
-  searchLink.insertAdjacentHTML(
-    'beforeend',
-    searchIcon
-  )
+  searchLink.insertAdjacentHTML('beforeend', searchIcon)
 
   searchContainer.appendChild(openSearchMenuButton)
   searchContainer.appendChild(searchLink)
@@ -426,10 +423,7 @@ const createSearchContainer = () => {
   searchButton.type = 'submit'
   searchButton.innerText = 'Search'
 
-  searchButton.insertAdjacentHTML(
-    'beforeend',
-    searchIcon
-  )
+  searchButton.insertAdjacentHTML('beforeend', searchIcon)
 
   searchSubmitWrapper.appendChild(searchButton)
   searchItemWrapper.appendChild(input)
@@ -500,5 +494,5 @@ Default.args = {}
 
 export const withLanguageSelector = Template.bind({})
 withLanguageSelector.args = {
-  withLanguageSelector: true,
+  withLanguageSelector: true
 }

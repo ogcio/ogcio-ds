@@ -13,8 +13,8 @@
   "scripts": {
     "postinstall": "npm ls --depth=0",
     "storybook": " npm run build:storybook:dist && npm run storybook:ci",
-    "storybook:ci": "start-storybook -p 6006",
-    "storybook:build": "build-storybook --output-dir build",
+    "storybook:ci": "storybook dev -p 6006",
+    "storybook:build": "storybook build --output-dir build",
     "build:storybook:dist": "gulp build:storybook:dist --destination 'storybook/dist'",
     "build-release": "./bin/build-release.sh",
     "publish-release": "./bin/publish-release.sh",
@@ -43,13 +43,15 @@
     "@storybook/addon-essentials": "^8.0.6",
     "@storybook/addon-interactions": "^8.0.6",
     "@storybook/addon-links": "^8.0.6",
-    "@storybook/builder-webpack5": "^8.0.6",
+    "@storybook/addon-mdx-gfm": "^8.0.6",
+    "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
+    "@storybook/blocks": "^8.0.6",
+    "@storybook/cli": "^8.0.6",
     "@storybook/html": "^8.0.6",
-    "@storybook/manager-webpack5": "^6.5.14",
+    "@storybook/html-webpack5": "^8.0.6",
     "@storybook/preset-create-react-app": "^8.0.6",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^8.0.6",
-    "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^9.8.8",
     "babel-jest": "^29.4.2",
     "body-parser": "^1.18.3",
@@ -114,7 +116,9 @@
     "sassdoc": "^2.7.4",
     "shuffle-seed": "^1.1.6",
     "slash": "^5.0.0",
+    "source-map-loader": "^5.0.0",
     "standard": "^17.0.0",
+    "storybook": "^8.0.6",
     "storybook-addon-themes": "^6.1.0",
     "stylelint": "^14.14.0",
     "stylelint-config-gds": "^0.2.0",
@@ -150,5 +154,8 @@
     "sassdoc-extras@^2": {
       "marked": "^0.8.2"
     }
+  },
+  "dependencies": {
+    "@storybook/test": "^8.0.6"
   }
 }

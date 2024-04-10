@@ -6,12 +6,12 @@ export default {
     docs: {
       description: {
         component:
-          'Only use a task list page for longer transactions involving multiple tasks that users may need to complete over a number of sessions.',
-      },
-    },
+          'Only use a task list page for longer transactions involving multiple tasks that users may need to complete over a number of sessions.'
+      }
+    }
   },
   argTypes: {
-    content: { control: 'array', type: { required: true } },
+    content: { control: 'array', type: { required: true } }
   },
   args: {
     content: [
@@ -20,16 +20,16 @@ export default {
         taskList: [
           {
             action: { name: 'Check eligibility' },
-            tag: { name: 'COMPLETED' },
+            tag: { name: 'COMPLETED' }
           },
           {
             action: { name: 'Read declaration' },
-            tag: { name: 'COMPLETED' },
-          },
-        ],
-      },
-    ],
-  },
+            tag: { name: 'COMPLETED' }
+          }
+        ]
+      }
+    ]
+  }
 }
 
 const createHeader = (num, text) => {
@@ -104,7 +104,7 @@ const Template = (args) => {
       createListItem({
         num: index + 1,
         header: item.header,
-        taskList: item.taskList,
+        taskList: item.taskList
       })
     )
   })
@@ -123,15 +123,15 @@ WithLinks.args = {
       taskList: [
         {
           action: { name: 'Check eligibility', link: true },
-          tag: { name: 'COMPLETED' },
+          tag: { name: 'COMPLETED' }
         },
         {
           action: { name: 'Read declaration', link: true },
-          tag: { name: 'COMPLETED' },
-        },
-      ],
-    },
-  ],
+          tag: { name: 'COMPLETED' }
+        }
+      ]
+    }
+  ]
 }
 
 export const WithMultipleSections = Template.bind({})
@@ -142,22 +142,22 @@ WithMultipleSections.args = {
       taskList: [
         {
           action: { name: 'Check eligibility', link: true },
-          tag: { name: 'COMPLETED' },
+          tag: { name: 'COMPLETED' }
         },
         {
           action: { name: 'Read declaration', link: true },
-          tag: { name: 'COMPLETED' },
-        },
-      ],
+          tag: { name: 'COMPLETED' }
+        }
+      ]
     },
     {
       header: 'Apply',
       taskList: [
         {
           action: { name: 'Submit and pay' },
-          tag: { name: 'CANNOT START YET', type: 'grey' },
-        },
-      ],
-    },
-  ],
+          tag: { name: 'CANNOT START YET', type: 'grey' }
+        }
+      ]
+    }
+  ]
 }

@@ -6,46 +6,45 @@ export default {
     docs: {
       description: {
         component:
-          'Use the table component to make information easier to compare and scan for users.',
-      },
-    },
+          'Use the table component to make information easier to compare and scan for users.'
+      }
+    }
   },
   argTypes: {
     caption: {
       control: 'text',
       description:
-        'Describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables.',
+        'Describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables.'
     },
     captionSize: {
       options: ['s', 'm', 'l', 'xl'],
       control: { type: 'radio' },
-      description:
-        'Use to make the caption larger or smaller from the default.',
+      description: 'Use to make the caption larger or smaller from the default.'
     },
     headers: {
       control: 'array',
       type: { name: 'string', required: true },
       description:
-        'Use table headers to tell users what the rows and columns represent.',
+        'Use table headers to tell users what the rows and columns represent.'
     },
     rows: {
       control: 'array',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     numeric: {
       control: 'boolean',
       description:
-        'When comparing columns of numbers, align the numbers to the right in table cells.',
+        'When comparing columns of numbers, align the numbers to the right in table cells.'
     },
     boldFirstColumn: {
-      control: 'boolean',
-    },
+      control: 'boolean'
+    }
   },
   args: {
     captionSize: 'm',
     numeric: false,
-    boldFirstColumn: true,
-  },
+    boldFirstColumn: true
+  }
 }
 
 const createTableHeader = (headers, numeric) => {
@@ -143,8 +142,8 @@ Default.args = {
   rows: [
     ['First 6 weeks', '€109.80 per week'],
     ['Next 33 weeks', '€109.80 per week'],
-    ['Total estimated pay', '€4,282.20'],
-  ],
+    ['Total estimated pay', '€4,282.20']
+  ]
 }
 
 export const WithCaption = Template.bind({})
@@ -154,8 +153,8 @@ WithCaption.args = {
   rows: [
     ['First 6 weeks', '€109.80 per week'],
     ['Next 33 weeks', '€109.80 per week'],
-    ['Total estimated pay', '€4,282.20'],
-  ],
+    ['Total estimated pay', '€4,282.20']
+  ]
 }
 
 export const WithNumericValues = Template.bind({})
@@ -165,7 +164,7 @@ WithNumericValues.args = {
   rows: [
     ['January', '€85', '€5'],
     ['February', '€75', '€55'],
-    ['March', '€185', '€125'],
+    ['March', '€185', '€125']
   ],
-  numeric: true,
+  numeric: true
 }

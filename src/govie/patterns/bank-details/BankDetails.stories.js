@@ -12,9 +12,9 @@ export default {
     docs: {
       description: {
         component:
-          'Follow this pattern if you need users to provide their bank details so you can pay them.',
-      },
-    },
+          'Follow this pattern if you need users to provide their bank details so you can pay them.'
+      }
+    }
   },
   argTypes: {
     type: {
@@ -22,14 +22,14 @@ export default {
         'default',
         'branching question',
         'international bank account details',
-        'with error',
+        'with error'
       ],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createInput = ({
@@ -38,7 +38,7 @@ const createInput = ({
   autocomplete,
   inputExtraClasses,
   errorMessage,
-  hint,
+  hint
 }) => {
   const bankInput = input({
     fieldId: id,
@@ -48,7 +48,7 @@ const createInput = ({
     inputExtraClasses,
     autocomplete,
     errorMessage,
-    hint,
+    hint
   })
 
   return parseHtmlString(bankInput)
@@ -67,7 +67,7 @@ const createForm = () => {
   const name = createInput({
     id: 'name-on-the-account',
     label: 'Name on the account',
-    autocomplete: 'name',
+    autocomplete: 'name'
   })
   name.setAttribute('spellcheck', false)
   container.appendChild(name)
@@ -75,7 +75,7 @@ const createForm = () => {
   const sortCode = createInput({
     id: 'sort-code',
     label: 'Sort code',
-    inputExtraClasses: 'govie-input--width-5',
+    inputExtraClasses: 'govie-input--width-5'
   })
   sortCode.setAttribute('spellcheck', false)
   sortCode.setAttribute('inputmode', 'numeric')
@@ -85,7 +85,7 @@ const createForm = () => {
     id: 'account-number',
     label: 'Account number',
     hint: 'Must be between 6 and 8 digits long',
-    inputExtraClasses: 'govie-input--width-10',
+    inputExtraClasses: 'govie-input--width-10'
   })
   accountNumber.setAttribute('spellcheck', false)
   accountNumber.setAttribute('inputmode', 'numeric')
@@ -95,7 +95,7 @@ const createForm = () => {
     id: 'roll-number',
     label: 'Building society roll number (if you have one)',
     hint: 'You can find it on your card, statement or passbook',
-    inputExtraClasses: 'govie-input--width-10',
+    inputExtraClasses: 'govie-input--width-10'
   })
   societyRollNumber.setAttribute('spellcheck', false)
   container.appendChild(societyRollNumber)
@@ -112,7 +112,7 @@ const createFormWithError = () => {
     errorMessage: 'Enter a valid sort code like 309430',
     inputExtraClasses: 'govie-input--width-5',
     value: 12,
-    hint: 'Must be 6 digits long',
+    hint: 'Must be 6 digits long'
   })
 
   inputError.setAttribute('inputmode', 'numeric')
@@ -133,9 +133,9 @@ const createPaymentForm = () => {
       'UK bank or building society account',
       'Non-UK bank account',
       'Cheque',
-      'None of the above',
+      'None of the above'
     ],
-    optionsHint: [null, null, null, "We'll contact you to arrange payment"],
+    optionsHint: [null, null, null, "We'll contact you to arrange payment"]
   })
 
   container.appendChild(parseHtmlString(radio))
@@ -152,7 +152,7 @@ const createInternationalBankAccountForm = () => {
     id: 'bic-code',
     label: 'BIC or SWIFT code',
     inputExtraClasses: 'govie-input--width-10',
-    hint: 'Must be between 8 and 11 characters long. You can ask your bank or check your bank statement',
+    hint: 'Must be between 8 and 11 characters long. You can ask your bank or check your bank statement'
   })
   bicCode.setAttribute('spellcheck', false)
   container.appendChild(bicCode)
@@ -161,7 +161,7 @@ const createInternationalBankAccountForm = () => {
     id: 'iban',
     label: 'IBAN',
     inputExtraClasses: 'govie-input--width-10',
-    hint: 'You can ask your bank or check your bank statement',
+    hint: 'You can ask your bank or check your bank statement'
   })
   iban.setAttribute('spellcheck', false)
 
@@ -187,22 +187,22 @@ Default.args = {}
 
 export const PaymentForm = Template.bind({})
 PaymentForm.args = {
-  type: 'branching question',
+  type: 'branching question'
 }
 
 export const InternationalBankAccountDetails = Template.bind({})
 InternationalBankAccountDetails.args = {
-  type: 'international bank account details',
+  type: 'international bank account details'
 }
 
 export const WithError = Template.bind({})
 WithError.parameters = {
   docs: {
     description: {
-      story: 'Error messages should be styled like this:',
-    },
-  },
+      story: 'Error messages should be styled like this:'
+    }
+  }
 }
 WithError.args = {
-  type: 'with error',
+  type: 'with error'
 }

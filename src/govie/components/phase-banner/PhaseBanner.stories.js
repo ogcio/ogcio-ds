@@ -6,24 +6,24 @@ export default {
     docs: {
       description: {
         component:
-          'Use the phase banner component to show users your service is still being worked on.',
-      },
-    },
+          'Use the phase banner component to show users your service is still being worked on.'
+      }
+    }
   },
   argTypes: {
     tag: {
       control: 'text',
-      type: { required: true },
+      type: { required: true }
     },
     text: {
       control: 'text',
-      type: { required: true },
-    },
+      type: { required: true }
+    }
   },
   args: {
     tag: 'alpha',
-    text: 'This is a new service – your <a class="govie-link" href="#">feedback</a> will help us to improve it.',
-  },
+    text: 'This is a new service – your <a class="govie-link" href="#">feedback</a> will help us to improve it.'
+  }
 }
 
 const Template = (args) => {
@@ -51,10 +51,10 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  tag: 'alpha',
+  tag: 'alpha'
 }
 
 export const Beta = Template.bind({})
 Beta.args = {
-  tag: 'beta',
+  tag: 'beta'
 }

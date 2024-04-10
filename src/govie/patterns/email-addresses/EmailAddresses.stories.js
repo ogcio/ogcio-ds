@@ -9,13 +9,13 @@ export default {
     docs: {
       description: {
         component:
-          'Follow this pattern whenever you need to capture an email address.',
-      },
-    },
+          'Follow this pattern whenever you need to capture an email address.'
+      }
+    }
   },
   argTypes: {
-    errorMessage: { control: 'text' },
-  },
+    errorMessage: { control: 'text' }
+  }
 }
 
 const createEmailInput = (args) => {
@@ -46,5 +46,5 @@ Default.args = {}
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
   errorMessage:
-    'Enter an email address in the correct format, like name@example.com',
+    'Enter an email address in the correct format, like name@example.com'
 }

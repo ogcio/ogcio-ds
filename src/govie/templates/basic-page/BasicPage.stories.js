@@ -6,10 +6,10 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A template for a basic page.',
-      },
-    },
-  },
+        component: 'A template for a basic page.'
+      }
+    }
+  }
 }
 
 const Template = () => {

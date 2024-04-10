@@ -7,21 +7,21 @@ export default {
     docs: {
       description: {
         component:
-          'The tabs component lets users navigate between related sections of content, displaying one section at a time.',
-      },
-    },
+          'The tabs component lets users navigate between related sections of content, displaying one section at a time.'
+      }
+    }
   },
   argTypes: {
     tabs: {
       control: 'array',
-      type: { name: 'array', required: true },
+      type: { name: 'array', required: true }
     },
-    withTableContent: { control: 'boolean' },
+    withTableContent: { control: 'boolean' }
   },
   args: {
     tabs: ['Tab 1', 'Tab 2'],
-    withTableContent: false,
-  },
+    withTableContent: false
+  }
 }
 
 const Template = (args) => {
@@ -107,5 +107,5 @@ Default.args = {}
 
 export const WithTableContent = Template.bind({})
 WithTableContent.args = {
-  withTableContent: true,
+  withTableContent: true
 }

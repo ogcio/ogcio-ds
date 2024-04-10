@@ -6,30 +6,30 @@ export default {
     docs: {
       description: {
         component:
-          'Use a notification banner to tell the user about something they need to know about, but that’s not directly related to the page content.',
-      },
-    },
+          'Use a notification banner to tell the user about something they need to know about, but that’s not directly related to the page content.'
+      }
+    }
   },
   argTypes: {
     header: {
       control: 'text',
       type: { name: 'string', required: true },
-      description: 'The notification banner header text content',
+      description: 'The notification banner header text content'
     },
     content: {
       control: 'text',
       type: { name: 'string', required: true },
-      description: 'The notification banner text content',
+      description: 'The notification banner text content'
     },
     success: {
       control: 'boolean',
       description:
-        'Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.',
-    },
+        'Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.'
+    }
   },
   args: {
-    success: false,
-  },
+    success: false
+  }
 }
 
 const Template = (args) => {
@@ -70,14 +70,14 @@ export const Default = Template.bind({})
 Default.args = {
   header: 'Important',
   content:
-    'There may be a delay in processing your application because of the coronavirus outbreak.',
+    'There may be a delay in processing your application because of the coronavirus outbreak.'
 }
 
 export const Success = Template.bind({})
 Success.args = {
   header: 'Important',
   content: 'Training outcome recorded and trainee withdrawn.',
-  success: true,
+  success: true
 }
 
 export const WithLink = Template.bind({})
@@ -86,5 +86,5 @@ WithLink.args = {
   content: `
     You have 7 days left to send your application.
     <a class="govie-notification-banner__link" href="#">View application</a>.
-  `,
+  `
 }

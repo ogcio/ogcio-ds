@@ -9,19 +9,19 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Use this approach to ask about disability.',
-      },
-    },
+        component: 'Use this approach to ask about disability.'
+      }
+    }
   },
   argTypes: {
     type: {
       options: ['default', 'disability impact'],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createDisabilityForm = () => {
@@ -32,7 +32,7 @@ const createDisabilityForm = () => {
       'Do you have any physical or mental health conditions or illness lasting or expected to last 12 months or more?',
     options: ['Yes', 'No'],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -47,7 +47,7 @@ const createDisabilityImpactForm = () => {
       'Do any of your conditions or illnesses reduce your ability to carry out day to day activities?',
     options: ['Yes, a lot', 'Yes, a little', 'No at all'],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -74,13 +74,13 @@ Default.args = {}
 
 export const ImpactOfDisability = Template.bind({})
 ImpactOfDisability.args = {
-  type: 'disability impact',
+  type: 'disability impact'
 }
 ImpactOfDisability.parameters = {
   docs: {
     description: {
       story:
-        'If the user answers ‘yes’ for the disability, ask about the impact of their condition or illness.',
-    },
-  },
+        'If the user answers ‘yes’ for the disability, ask about the impact of their condition or illness.'
+    }
+  }
 }

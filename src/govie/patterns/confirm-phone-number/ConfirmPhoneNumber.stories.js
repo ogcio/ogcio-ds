@@ -15,19 +15,19 @@ export default {
     docs: {
       description: {
         component:
-          'Ask the user to enter a security code when they need to sign in or complete a higher-risk task, such as changing a password.',
-      },
-    },
+          'Ask the user to enter a security code when they need to sign in or complete a higher-risk task, such as changing a password.'
+      }
+    }
   },
   argTypes: {
     errorMessage: { control: 'boolean' },
     requestNewCode: { control: 'boolean' },
-    phoneAccess: { control: 'boolean' },
+    phoneAccess: { control: 'boolean' }
   },
   args: {
     requestNewCode: false,
-    phoneAccess: false,
-  },
+    phoneAccess: false
+  }
 }
 
 const createSecurityInput = (args) => {
@@ -38,7 +38,7 @@ const createSecurityInput = (args) => {
       label: 'Security code',
       inputExtraClasses: 'govie-input--width-4',
       errorMessage: args.errorMessage,
-      autocomplete: 'one-time-code',
+      autocomplete: 'one-time-code'
     })
   )
 
@@ -53,7 +53,7 @@ const createTelInput = () => {
     inputExtraClasses: 'govie-input--width-20',
     type: 'tel',
     value: '07700 900000',
-    autocomplete: 'tel',
+    autocomplete: 'tel'
   })
 
   return securityInput
@@ -74,15 +74,15 @@ const createContent = (args) => {
       args.phoneAccess
         ? details({
             summary: 'Change where the text message is sent',
-            text: createTelInput(),
+            text: createTelInput()
           })
         : details({
             summary: 'I do not have access to the phone',
             text: `If you cannot access the phone number for this account, ${link(
               {
-                label: 'contact the Tax Credits Helpline',
+                label: 'contact the Tax Credits Helpline'
               }
-            )} to get help signing in.`,
+            )} to get help signing in.`
           })
     )
 
@@ -107,7 +107,7 @@ const createPageContent = (args) => {
       text: args.requestNewCode
         ? 'Request a new security code'
         : 'Check your phone',
-      size: 'l',
+      size: 'l'
     })
   )
 
@@ -115,7 +115,7 @@ const createPageContent = (args) => {
     paragraph({
       text: args.requestNewCode
         ? 'Text messages sometimes take a few minutes to arrive. If you do not receive the text message, you can request a new one.'
-        : 'We’ve sent you a text message with a security code.',
+        : 'We’ve sent you a text message with a security code.'
     })
   )
 
@@ -156,21 +156,21 @@ Default.args = {}
 
 export const WithErrorMessage = Template.bind({})
 WithErrorMessage.args = {
-  errorMessage: 'Enter a correct security code',
+  errorMessage: 'Enter a correct security code'
 }
 
 export const WithExpiredCodeErrorMessage = Template.bind({})
 WithExpiredCodeErrorMessage.args = {
-  errorMessage: 'The security code has expired. New code sent.',
+  errorMessage: 'The security code has expired. New code sent.'
 }
 
 export const RequestNewCode = Template.bind({})
 RequestNewCode.args = {
-  requestNewCode: true,
+  requestNewCode: true
 }
 
 export const RequestNewCodeWithoutPhoneAccess = Template.bind({})
 RequestNewCodeWithoutPhoneAccess.args = {
   requestNewCode: true,
-  phoneAccess: true,
+  phoneAccess: true
 }

@@ -11,19 +11,19 @@ export default {
     docs: {
       description: {
         component:
-          'This guidance is for government teams that build online services.',
-      },
-    },
+          'This guidance is for government teams that build online services.'
+      }
+    }
   },
   argTypes: {
     type: {
       options: ['default', 'textarea', 'with error'],
-      control: { type: 'radio' },
-    },
+      control: { type: 'radio' }
+    }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createLegend = () => {
@@ -41,7 +41,7 @@ const createInput = ({
   label,
   autocomplete,
   inputExtraClasses,
-  errorMessage,
+  errorMessage
 }) => {
   const addressInput = input({
     fieldId: id,
@@ -50,7 +50,7 @@ const createInput = ({
     label,
     inputExtraClasses,
     autocomplete,
-    errorMessage,
+    errorMessage
   })
 
   return parseHtmlString(addressInput)
@@ -65,7 +65,7 @@ const createForm = () => {
     createInput({
       id: 'address-line-1',
       label: 'Address line 1',
-      autocomplete: 'address-line1',
+      autocomplete: 'address-line1'
     })
   )
 
@@ -73,7 +73,7 @@ const createForm = () => {
     createInput({
       id: 'address-line-2',
       label: 'Address line 2 (optional)',
-      autocomplete: 'address-line2',
+      autocomplete: 'address-line2'
     })
   )
 
@@ -81,7 +81,7 @@ const createForm = () => {
     createInput({
       id: 'address-town',
       label: 'Town or city',
-      inputExtraClasses: 'govie-!-width-two-thirds',
+      inputExtraClasses: 'govie-!-width-two-thirds'
     })
   )
 
@@ -89,7 +89,7 @@ const createForm = () => {
     createInput({
       id: 'address-country',
       label: 'Country (optional)',
-      inputExtraClasses: 'govie-!-width-two-thirds',
+      inputExtraClasses: 'govie-!-width-two-thirds'
     })
   )
 
@@ -98,7 +98,7 @@ const createForm = () => {
       id: 'address-postcode',
       label: 'Postcode',
       autocomplete: 'postal-code',
-      inputExtraClasses: 'govie-input--width-10',
+      inputExtraClasses: 'govie-input--width-10'
     })
   )
 
@@ -112,7 +112,7 @@ const createFormWithError = () => {
     errorMessage: 'Enter a real postcode',
     inputExtraClasses: 'govie-input--width-10',
     value: 'Not a postcode',
-    autocomplete: 'postal-code',
+    autocomplete: 'postal-code'
   })
 }
 
@@ -122,7 +122,7 @@ const createFormWithTextArea = () => {
     fieldName: 'address',
     label: 'What is your address?',
     rows: 5,
-    autocomplete: 'street-address',
+    autocomplete: 'street-address'
   })
 
   return parseHtmlString(textArea)
@@ -146,12 +146,12 @@ export const WithError = Template.bind({})
 WithError.parameters = {
   docs: {
     description: {
-      story: 'Error messages should be styled like this:',
-    },
-  },
+      story: 'Error messages should be styled like this:'
+    }
+  }
 }
 WithError.args = {
-  type: 'with error',
+  type: 'with error'
 }
 
 export const WithTextarea = Template.bind({})
@@ -159,11 +159,11 @@ WithTextarea.parameters = {
   docs: {
     description: {
       story:
-        'Use a textarea if you expect a broad range of address formats and you do not need to format the address for print or use specific sub-parts of the address (for example, street or postcode).',
-    },
-  },
+        'Use a textarea if you expect a broad range of address formats and you do not need to format the address for print or use specific sub-parts of the address (for example, street or postcode).'
+    }
+  }
 }
 
 WithTextarea.args = {
-  type: 'textarea',
+  type: 'textarea'
 }

@@ -6,21 +6,21 @@ export default {
     docs: {
       description: {
         component:
-          'You can use the Section Break to create a thematic break between sections of content.',
-      },
-    },
+          'You can use the Section Break to create a thematic break between sections of content.'
+      }
+    }
   },
   argTypes: {
     size: {
       options: ['default', 'xl', 'l', 'm', 's'],
       control: { type: 'radio' },
       description: 'Modifiers for different size margins.',
-      type: { required: true },
-    },
+      type: { required: true }
+    }
   },
   args: {
-    size: 'default',
-  },
+    size: 'default'
+  }
 }
 
 const Template = (args) => {
@@ -41,5 +41,5 @@ Default.args = {}
 
 export const WithDifferentSize = Template.bind({})
 WithDifferentSize.args = {
-  size: 'l',
+  size: 'l'
 }

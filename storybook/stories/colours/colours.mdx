@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 
 import { Swatch } from '../components/Swatch.jsx'
 
@@ -11,23 +11,23 @@ import { Swatch } from '../components/Swatch.jsx'
 <p>
   You must make sure that the contrast ratio of text and interactive elements in
   your service meets{' '}
-  <a
-    href="https://www.w3.org/TR/WCAG21/#contrast-minimum"
-    rel="noreferrer noopener"
-    target="_blank"
-  >
+
+  <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" rel="noreferrer noopener" target="_blank">
     level AA of the Web Content Accessibility Guidelines (WCAG 2.1)
   </a>
+
   .
 </p>
 
 <h2>Main colours</h2>
+
 <p>
   Use the Sass variables provided rather than copying the hexadecimal (hex)
   colour values. For example, use <code>$govie-brand-colour</code> rather than
   the hexadecimal. This means that your service will always use the most recent
   colour palette whenever you update.
 </p>
+
 <p>
   Only use the variables in the context theyre designed for. In all other cases,
   you should reference the colour palette directly. For example, if you wanted
@@ -89,11 +89,14 @@ import { Swatch } from '../components/Swatch.jsx'
 | $govie-body-background-colour      | <Swatch colour="var(--govie-body-background-colour)" />      | Body background colour.                                                   |
 
 <br />
+
 <h2>Colour palette</h2>
+
 <p>
   Use these colours for supporting materials like illustrations, or in custom
   components where appropriate.
 </p>
+
 <p>
   To reference colours from the palette directly you should use the{' '}
   <code>govie-colour</code> function. For example, color:{' '}
@@ -106,6 +109,7 @@ import { Swatch } from '../components/Swatch.jsx'
   component you should use the <code>$govie-error-colour</code> Sass variable
   rather than <code>govie-colour("red")</code>.
 </p>
+
 <p>If you need to use tints of this palette, use either 25% or 50%.</p>
 
 | Name            | Value                           | Swatch                      |

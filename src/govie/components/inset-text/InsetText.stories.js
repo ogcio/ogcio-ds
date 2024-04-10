@@ -6,19 +6,19 @@ export default {
     docs: {
       description: {
         component:
-          'Use the inset text component to differentiate a block of text from the content that surrounds it, for example: quotes, examples or additional information about the page.',
-      },
-    },
+          'Use the inset text component to differentiate a block of text from the content that surrounds it, for example: quotes, examples or additional information about the page.'
+      }
+    }
   },
   argTypes: {
     text: {
       control: 'text',
-      type: { name: 'text', required: true },
-    },
+      type: { name: 'text', required: true }
+    }
   },
   args: {
-    text: 'It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.',
-  },
+    text: 'It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.'
+  }
 }
 
 const Template = (args) => {

@@ -9,7 +9,7 @@ export const CodeSnippet = ({ code }) => (
         padding: '15px',
         overflow: 'auto',
         position: 'relative',
-        border: '1px solid #bfc1c3',
+        border: '1px solid #bfc1c3'
       }}
       className="govie-!-font-size-19"
       tabIndex="0"

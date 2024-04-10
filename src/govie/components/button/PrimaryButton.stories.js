@@ -7,31 +7,31 @@ export default {
     docs: {
       description: {
         component:
-          'Use the button component to help users carry out an action like starting an application or saving their information.',
-      },
-    },
+          'Use the button component to help users carry out an action like starting an application or saving their information.'
+      }
+    }
   },
   argTypes: {
     size: {
       options: ['standard', 'small', 'medium'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     icon: {
       options: ['standard', 'left', 'right'],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
     label: {
       control: 'text',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     disabled: { control: 'boolean' },
-    id: { control: 'string' },
+    id: { control: 'string' }
   },
   args: {
     disabled: false,
     size: 'standard',
-    icon: 'standard',
-  },
+    icon: 'standard'
+  }
 }
 
 const Template = (args) => {
@@ -62,20 +62,20 @@ const Template = (args) => {
   const classes = {
     standard: '',
     small: 'govie-button--small',
-    medium: 'govie-button--medium',
+    medium: 'govie-button--medium'
   }
 
   const iconClasses = {
     standard: '',
     left: 'govie-button--icon',
-    right: 'govie-button--icon',
+    right: 'govie-button--icon'
   }
 
   btn.className = [
     'govie-button',
     ...btn.classList,
     classes[args.size],
-    iconClasses[args.icon],
+    iconClasses[args.icon]
   ].join(' ')
 
   return beautifyHtmlNode(btn)
@@ -83,35 +83,35 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Primary button',
+  label: 'Primary button'
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
   label: 'Medium primary button',
-  size: 'medium',
+  size: 'medium'
 }
 
 export const Small = Template.bind({})
 Small.args = {
   label: 'Small primary button',
-  size: 'small',
+  size: 'small'
 }
 
 export const WithLeftIcon = Template.bind({})
 WithLeftIcon.args = {
   label: 'Primary button with left icon',
-  icon: 'left',
+  icon: 'left'
 }
 
 export const WithRightIcon = Template.bind({})
 WithRightIcon.args = {
   label: 'Primary button with right icon',
-  icon: 'right',
+  icon: 'right'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   label: 'Disabled primary button',
-  disabled: true,
+  disabled: true
 }

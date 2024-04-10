@@ -6,19 +6,19 @@ export default {
     docs: {
       description: {
         component:
-          'The accordion component lets users show and hide sections of related content on a page.',
-      },
-    },
+          'The accordion component lets users show and hide sections of related content on a page.'
+      }
+    }
   },
   argTypes: {
     accordionId: {
       control: 'text',
-      type: { name: 'text', required: true },
+      type: { name: 'text', required: true }
     },
     items: {
       control: 'array',
-      type: { name: 'array', required: true },
-    },
+      type: { name: 'array', required: true }
+    }
   },
   args: {
     accordionId: 'accordion-default',
@@ -26,10 +26,10 @@ export default {
       {
         heading: 'Writing well for the web',
         summary: 'Writing well for the web',
-        content: 'This is the content for Writing well for the web.',
-      },
-    ],
-  },
+        content: 'This is the content for Writing well for the web.'
+      }
+    ]
+  }
 }
 
 const createSectionHeader = (accordionId, sectionData, index) => {
@@ -104,24 +104,24 @@ Default.args = {
     {
       heading: 'Writing well for the web',
       content:
-        "<p class='govie-body'>This is the content for Writing well for the web.</p>",
+        "<p class='govie-body'>This is the content for Writing well for the web.</p>"
     },
     {
       heading: 'Writing well for specialists',
       content:
-        "<p class='govie-body'>This is the content for Writing well for specialists.</p>",
+        "<p class='govie-body'>This is the content for Writing well for specialists.</p>"
     },
     {
       heading: 'Know your audience',
       content:
-        "<p class='govie-body'>This is the content for Know your audience.</p>",
+        "<p class='govie-body'>This is the content for Know your audience.</p>"
     },
     {
       heading: 'How people read',
       content:
-        "<p class='govie-body'>This is the content for How people read.</p>",
-    },
-  ],
+        "<p class='govie-body'>This is the content for How people read.</p>"
+    }
+  ]
 }
 
 export const WithSummary = Template.bind({})
@@ -140,7 +140,7 @@ WithSummary.args = {
         <li>
           <a class="govie-link" href="#">Core principles of agile</a>
         </li>
-      </ul>`,
+      </ul>`
     },
     {
       heading: 'Working with agile methods',
@@ -167,7 +167,7 @@ WithSummary.args = {
         <li>
           <a class="govie-link" href="#">Developing a roadmap</a>
         </li>
-      </ul>`,
+      </ul>`
     },
     {
       heading: 'Governing agile services',
@@ -191,7 +191,7 @@ WithSummary.args = {
         <li>
           <a class="govie-link" href="#">Working across organisational boundaries</a>
         </li>
-      </ul>`,
-    },
-  ],
+      </ul>`
+    }
+  ]
 }

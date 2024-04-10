@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
-import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
@@ -13,160 +12,161 @@ let selectedTheme
 export const decorators = [cssVariablesTheme]
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  cssVariables: {
-    files: {
-      'HSE theme': hseTheme,
-      'AGS theme': agsTheme,
-      'OGCIO theme': defaultTheme,
+  parameters: {
+    cssVariables: {
+      files: {
+        'HSE theme': hseTheme,
+        'AGS theme': agsTheme,
+        'OGCIO theme': defaultTheme,
+      },
+      defaultTheme: 'OGCIO theme',
     },
-    defaultTheme: 'OGCIO theme',
-  },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+      sort: 'requiredFirst',
     },
-    sort: 'requiredFirst',
-  },
-  docs: {
-    source: { format: false },
-    container: ({ children, context }) => {
-      let newContext
-      cssVariablesTheme((c) => (newContext = c), context)
-
-      return (
-        <DocsContainer context={newContext}>
-          {context.name !== 'Page' && (
-            <div
-              className="govie-body"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                padding: '8px',
-                margin: 0,
-                background: '#fff4b0',
-                width: 'calc(100% - 18px)',
-                fontSize: '14px',
-                display: 'flex',
-                justifyContent: 'center',
-                textAlign: 'center',
-                zIndex: 20,
-              }}
-            >
-              JavaScript does not work in the 'Docs' tab and this can cause some
-              components to not behave as expected.
-            </div>
-          )}
-          {children}
-        </DocsContainer>
-      )
+    docs: {
+      source: { format: false },
+      container: ({ children, context }) => {
+        let newContext
+        cssVariablesTheme((c) => (newContext = c), context)
+  
+        return (
+          <DocsContainer context={newContext}>
+            {context.name !== 'Page' && (
+              <div
+                className="govie-body"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  padding: '8px',
+                  margin: 0,
+                  background: '#fff4b0',
+                  width: 'calc(100% - 18px)',
+                  fontSize: '14px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  zIndex: 20,
+                }}
+              >
+                JavaScript does not work in the 'Docs' tab and this can cause some
+                components to not behave as expected.
+              </div>
+            )}
+            {children}
+          </DocsContainer>
+        )
+      },
+      components: {
+        a: ({ children, ...args }) => (
+          <a className="govie-link" {...args}>
+            {children}
+          </a>
+        ),
+        p: ({ children, ...args }) => (
+          <p className="govie-body" {...args}>
+            {children}
+          </p>
+        ),
+        h1: ({ children, ...args }) => (
+          <h1 className="govie-heading-xl" {...args}>
+            {children}
+          </h1>
+        ),
+        h2: ({ children, ...args }) => (
+          <h2 className="govie-heading-l" {...args}>
+            {children}
+          </h2>
+        ),
+        h3: ({ children, ...args }) => (
+          <h3 className="govie-heading-m" {...args}>
+            {children}
+          </h3>
+        ),
+        h4: ({ children, ...args }) => (
+          <h4 className="govie-heading-s" {...args}>
+            {children}
+          </h4>
+        ),
+        ol: ({ children, ...args }) => (
+          <ol className="govie-list govie-list--number" {...args}>
+            {children}
+          </ol>
+        ),
+        ul: ({ children, ...args }) => (
+          <ul className="govie-list govie-list--bullet" {...args}>
+            {children}
+          </ul>
+        ),
+        li: ({ children, ...args }) => (
+          <li className="govie-body" {...args}>
+            {children}
+          </li>
+        ),
+        td: ({ children, ...args }) => (
+          <td className="govie-body" {...args}>
+            {children}
+          </td>
+        ),
+        th: ({ children, ...args }) => (
+          <th className="govie-body" {...args}>
+            {children}
+          </th>
+        ),
+        code: ({ children, ...args }) => (
+          <code
+            className="govie-!-font-size-19"
+            style={{
+              background: '#f9f9f8',
+              border: '1px solid #bfc1c3',
+            }}
+            {...args}
+          >
+            {children}
+          </code>
+        ),
+      },
     },
-    components: {
-      a: ({ children, ...args }) => (
-        <a className="govie-link" {...args}>
-          {children}
-        </a>
-      ),
-      p: ({ children, ...args }) => (
-        <p className="govie-body" {...args}>
-          {children}
-        </p>
-      ),
-      h1: ({ children, ...args }) => (
-        <h1 className="govie-heading-xl" {...args}>
-          {children}
-        </h1>
-      ),
-      h2: ({ children, ...args }) => (
-        <h2 className="govie-heading-l" {...args}>
-          {children}
-        </h2>
-      ),
-      h3: ({ children, ...args }) => (
-        <h3 className="govie-heading-m" {...args}>
-          {children}
-        </h3>
-      ),
-      h4: ({ children, ...args }) => (
-        <h4 className="govie-heading-s" {...args}>
-          {children}
-        </h4>
-      ),
-      ol: ({ children, ...args }) => (
-        <ol className="govie-list govie-list--number" {...args}>
-          {children}
-        </ol>
-      ),
-      ul: ({ children, ...args }) => (
-        <ul className="govie-list govie-list--bullet" {...args}>
-          {children}
-        </ul>
-      ),
-      li: ({ children, ...args }) => (
-        <li className="govie-body" {...args}>
-          {children}
-        </li>
-      ),
-      td: ({ children, ...args }) => (
-        <td className="govie-body" {...args}>
-          {children}
-        </td>
-      ),
-      th: ({ children, ...args }) => (
-        <th className="govie-body" {...args}>
-          {children}
-        </th>
-      ),
-      code: ({ children, ...args }) => (
-        <code
-          className="govie-!-font-size-19"
-          style={{
-            background: '#f9f9f8',
-            border: '1px solid #bfc1c3',
-          }}
-          {...args}
-        >
-          {children}
-        </code>
-      ),
-    },
-  },
-  options: {
-    controls: { expanded: true },
-    storySort: {
-      order: [
-        'Docs',
-        [
-          'Get started',
-          'Install with npm',
-          'Update with npm',
-          'Install using precompiled files',
-          'Import CSS, assets and JavaScript',
-          'Configure components with JavaScript',
-          'Localise OGCIO-DS',
-          'Support Internet Explorer 8',
-          'JavaScript API Reference',
-          'Sass API Reference',
-          'Colours',
+    options: {
+      controls: { expanded: true },
+      storySort: {
+        order: [
+          'Docs',
+          [
+            'Get started',
+            'Install with npm',
+            'Update with npm',
+            'Install using precompiled files',
+            'Import CSS, assets and JavaScript',
+            'Configure components with JavaScript',
+            'Localise OGCIO-DS',
+            'Support Internet Explorer 8',
+            'JavaScript API Reference',
+            'Sass API Reference',
+            'Colours',
+            'Typography',
+          ],
+          'Form',
+          [
+            'Button',
+            ['Primary button', 'Secondary button', 'Tertiary button', '*'],
+            '*',
+          ],
           'Typography',
+          'Navigation',
+          'Layout',
+          'Templates',
+          'Patterns',
+          'Application',
         ],
-        'Form',
-        [
-          'Button',
-          ['Primary button', 'Secondary button', 'Tertiary button', '*'],
-          '*',
-        ],
-        'Typography',
-        'Navigation',
-        'Layout',
-        'Templates',
-        'Patterns',
-        'Application',
-      ],
+      },
     },
-  },
+  }
 }
 
 ///

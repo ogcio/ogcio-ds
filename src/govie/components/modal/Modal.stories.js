@@ -16,12 +16,12 @@ export default {
       iframeHeight: '500px',
       description: {
         component:
-          'A panel that can be used to house a important information around actions that require user thought and interaction.',
-      },
-    },
+          'A panel that can be used to house a important information around actions that require user thought and interaction.'
+      }
+    }
   },
   argTypes: {},
-  args: {},
+  args: {}
 }
 
 const createModalOverlay = () => {
@@ -48,12 +48,20 @@ const createContentButtonsRow = () => {
   buttonsRow.className = 'govie-modal--buttons'
 
   const cancelButton = parseHtmlString(
-    outlinedButton({ label: 'Cancel Action', size: 'medium', id: 'cancel button' })
+    outlinedButton({
+      label: 'Cancel Action',
+      size: 'medium',
+      id: 'cancel button'
+    })
   )
   buttonsRow.appendChild(cancelButton)
 
   const confirmButton = parseHtmlString(
-    primaryButton({ label: 'Primary Action', size: 'medium', id: 'confirm button' })
+    primaryButton({
+      label: 'Primary Action',
+      size: 'medium',
+      id: 'confirm button'
+    })
   )
   buttonsRow.appendChild(confirmButton)
 
@@ -72,14 +80,14 @@ const createModalContent = () => {
 
   const firstParagraph = parseHtmlString(
     paragraph({
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     })
   )
   content.appendChild(firstParagraph)
 
   const secondParagraph = parseHtmlString(
     paragraph({
-      text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     })
   )
   content.appendChild(secondParagraph)

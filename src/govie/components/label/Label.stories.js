@@ -5,20 +5,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A simple label for displaying text.',
-      },
-    },
+        component: 'A simple label for displaying text.'
+      }
+    }
   },
   argTypes: {
     text: {
       control: 'text',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     for: {
       control: 'text',
-      type: { name: 'string' },
-    },
-  },
+      type: { name: 'string' }
+    }
+  }
 }
 
 const Template = (args) => {
@@ -31,5 +31,5 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {
-  text: 'We have sent you a confirmation email.',
+  text: 'We have sent you a confirmation email.'
 }

@@ -14,9 +14,9 @@ export default {
     docs: {
       description: {
         component:
-          'Collecting equality information in a consistent way across the public sector makes the data more useful. For example, an organisation can benchmark its own services against other public sector services or the population in general. And it can adjust its approach if it finds a particular group is under-represented.',
-      },
-    },
+          'Collecting equality information in a consistent way across the public sector makes the data more useful. For example, an organisation can benchmark its own services against other public sector services or the population in general. And it can adjust its approach if it finds a particular group is under-represented.'
+      }
+    }
   },
   argTypes: {
     type: {
@@ -26,15 +26,15 @@ export default {
         'marriage or civil partnership status',
         'religion',
         'sex and gender',
-        'sexual orientation',
+        'sexual orientation'
       ],
-      control: { type: 'radio' },
+      control: { type: 'radio' }
     },
-    errorMessage: { control: 'text' },
+    errorMessage: { control: 'text' }
   },
   args: {
-    type: 'default',
-  },
+    type: 'default'
+  }
 }
 
 const createEquityForm = () => {
@@ -47,7 +47,7 @@ const createEquityForm = () => {
   container.push(
     parseHtmlString(
       paragraph({
-        text: 'Before you finish using the service, we’d like to ask some equality questions.',
+        text: 'Before you finish using the service, we’d like to ask some equality questions.'
       })
     )
   )
@@ -60,13 +60,13 @@ const createEquityForm = () => {
         label: 'Do you want to answer the equality questions?',
         options: [
           'Yes, answer the equality questions (takes 2 minutes)',
-          'No, skip the equality questions',
+          'No, skip the equality questions'
         ],
         // TODO: use paragraph story
         generalHint: `
         <p class="govie-!-margin-top-0">These questions are optional. [Add a couple of sentences explaining why you’re asking the questions and what you’ll do with the information].</p>
         <p>Your answers will not affect your application.</p>
-      `,
+      `
       })
     )
   )
@@ -75,7 +75,7 @@ const createEquityForm = () => {
     parseHtmlString(
       details({
         summary: 'Why we ask equality questions',
-        text: '[Consider adding an optional longer explanation of what you’re asking the questions and what you’ll do with the information].',
+        text: '[Consider adding an optional longer explanation of what you’re asking the questions and what you’ll do with the information].'
       })
     )
   )
@@ -87,7 +87,7 @@ const createBirthForm = () => {
   const date = dateInput({
     legend: 'What is your date of birth?',
     hint: 'For example, 31 3 1980. If you prefer not to say, continue without entering any information.',
-    legendAsHeading: true,
+    legendAsHeading: true
   })
 
   return parseHtmlString(date)
@@ -107,10 +107,10 @@ const createMarriageForm = () => {
       'Divorced',
       'Formerly in a civil partnership which is now legally dissolved',
       'Widowed',
-      'Surviving partner from a registered civil partnership',
+      'Surviving partner from a registered civil partnership'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -129,14 +129,14 @@ const createReligionForm = () => {
       'Jewish',
       'Muslim',
       'Sikh',
-      'Any other religion',
+      'Any other religion'
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
     optionsHint: [
       null,
-      'Including Church of England, Catholic, Protestant and all other Christian denominations.',
-    ],
+      'Including Church of England, Catholic, Protestant and all other Christian denominations.'
+    ]
   })
 
   return parseHtmlString(radio)
@@ -151,7 +151,7 @@ const createSexAndGenderForm = () => {
     id: 'sex',
     size: 'medium',
     label: 'What is your sex?',
-    options: ['Female', 'Male', 'Prefer not to say'],
+    options: ['Female', 'Male', 'Prefer not to say']
   })
 
   components.push(parseHtmlString(sexRadio))
@@ -161,7 +161,7 @@ const createSexAndGenderForm = () => {
     size: 'medium',
     label:
       'Is the gender you identify with the same as your sex registered at birth?',
-    options: ['Yes', 'No', 'Prefer not to say'],
+    options: ['Yes', 'No', 'Prefer not to say']
   })
 
   components.push(parseHtmlString(identify))
@@ -177,10 +177,10 @@ const createSexualOrientationForm = () => {
       'Heterosexual or straight',
       'Gay or lesbian',
       'Bisexual',
-      'Other',
+      'Other'
     ],
     extraOptionsDivider: 'or',
-    extraOptions: ['Prefer not to say'],
+    extraOptions: ['Prefer not to say']
   })
 
   return parseHtmlString(radio)
@@ -219,40 +219,40 @@ Default.args = {}
 
 export const DateOfBirth = Template.bind({})
 DateOfBirth.args = {
-  type: 'birthdate',
+  type: 'birthdate'
 }
 DateOfBirth.parameters = {
   docs: {
     description: {
-      story: 'Use this approach to ask for the user’s date of birth.',
-    },
-  },
+      story: 'Use this approach to ask for the user’s date of birth.'
+    }
+  }
 }
 
 export const Marriage = Template.bind({})
 Marriage.args = {
-  type: 'marriage or civil partnership status',
+  type: 'marriage or civil partnership status'
 }
 Marriage.parameters = {
   docs: {
     description: {
       story:
-        'Use this approach to ask about marriage or civil partnership status.',
-    },
-  },
+        'Use this approach to ask about marriage or civil partnership status.'
+    }
+  }
 }
 
 export const Religion = Template.bind({})
 Religion.args = {
-  type: 'religion',
+  type: 'religion'
 }
 
 export const SexAndGender = Template.bind({})
 SexAndGender.args = {
-  type: 'sex and gender',
+  type: 'sex and gender'
 }
 
 export const SexualOrientation = Template.bind({})
 SexualOrientation.args = {
-  type: 'sexual orientation',
+  type: 'sexual orientation'
 }
