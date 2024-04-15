@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
 import { DocsContainer } from '@storybook/addon-docs'
-import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import cssVariablesTheme from '@storybook/addon-themes'
 
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
