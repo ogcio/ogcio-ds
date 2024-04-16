@@ -7,23 +7,14 @@ module.exports = {
     '../src/govie/templates/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/patterns/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-
-  // This addon is added to avoid build failures.
-  // Reference: <https://github.com/storybookjs/storybook/issues/26576>.
-  // getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
-  // getAbsolutePath("@storybook/addon-essentials"),
-  // getAbsolutePath("@storybook/addon-links"),
-  // getAbsolutePath("@storybook/addon-interactions"),
-  // getAbsolutePath("@storybook/addon-themes"),
-  // // getAbsolutePath("@storybook/addon-docs"),
-  // // getAbsolutePath("@storybook/addon-mdx-gfm"),
-  // // getAbsolutePath("@storybook/addon-a11y"),
   addons: [
-    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/addon-interactions'
+    '@storybook/addon-interactions',
+    '@storybook/addon-themes',
+    '@storybook/addon-docs'
+    // '@etchteam/storybook-addon-css-variables-theme'
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -39,7 +30,6 @@ module.exports = {
       to: '/themes'
     }
   ],
-
   docs: {
     autodocs: true
   }

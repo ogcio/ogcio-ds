@@ -2,8 +2,7 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs'
-// import cssVariablesTheme from '@storybook/addon-themes'
-
+import { withThemeByClassName } from '@storybook/addon-themes'
 // import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 // import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
 // import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css'
@@ -13,19 +12,18 @@ let selectedTheme
 // export const decorators = [cssVariablesTheme]
 
 export const decorators = [
-  (storyFn) => <div dangerouslySetInnerHTML={{ __html: storyFn() }} />
+  withThemeByClassName({
+    themes: {
+      ags: 'ags-theme',
+      hse: 'hse-theme'
+    },
+    defaultTheme: 'ags',
+    parentSelector: 'body'
+  })
 ]
 
 export const parameters = {
   parameters: {
-    cssVariables: {
-      files: {
-        // 'HSE theme': hseTheme,
-        // 'AGS theme': agsTheme,
-        // 'OGCIO theme': defaultTheme
-      },
-      defaultTheme: 'OGCIO theme'
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
