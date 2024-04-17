@@ -38,7 +38,7 @@ $mq-breakpoints: (
   mobile: 320px,
   tablet: 740px,
   desktop: 980px,
-  wide: 1300px
+  wide: 1300px,
 ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
@@ -291,7 +291,7 @@ $mq-media-type: all !default;
     $map-sorted: map-merge(
       $map-sorted,
       (
-        $key: $value
+        $key: $value,
       )
     );
 
@@ -315,7 +315,7 @@ $mq-media-type: all !default;
 ///  @include mq(tvscreen) {}
 @mixin mq-add-breakpoint($name, $width) {
   $new-breakpoint: (
-    $name: $width
+    $name: $width,
   );
   $mq-breakpoints: map-merge($mq-breakpoints, $new-breakpoint) !global;
   $mq-breakpoints: _mq-map-sort-by-value($mq-breakpoints) !global;
