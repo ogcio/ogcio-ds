@@ -1,12 +1,12 @@
-@include govie-exports("govie/component/inset-text") {
+@include govie-exports('govie/component/inset-text') {
   .govie-inset-text {
     @include govie-font($size: 19);
     @include govie-text-colour;
     padding: govie-spacing(3);
     // Margin top intended to collapse
     // This adds an additional 10px to the paragraph above
-    @include govie-responsive-margin(6, "top");
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'top');
+    @include govie-responsive-margin(6, 'bottom');
 
     clear: both;
 

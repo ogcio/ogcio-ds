@@ -1,7 +1,7 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as input } from '../../components/input/TextInput.stories'
+import { Default as input } from '../../components/input/TextInput.stories';
 
 export default {
   title: 'Patterns/Telephone numbers',
@@ -16,7 +16,7 @@ export default {
   argTypes: {
     errorMessage: { control: 'text' },
   },
-}
+};
 
 const createTelephoneInput = (args) => {
   const telephoneInput = parseHtmlString(
@@ -29,26 +29,26 @@ const createTelephoneInput = (args) => {
       type: 'tel',
       hint: args.hint,
       inputExtraClasses: 'govie-input--width-20',
-    })
-  )
+    }),
+  );
 
-  return telephoneInput
-}
+  return telephoneInput;
+};
 
 const Template = (args) => {
-  const body = createTelephoneInput(args)
-  return beautifyHtmlNode(body)
-}
+  const body = createTelephoneInput(args);
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithHint = Template.bind({})
+export const WithHint = Template.bind({});
 WithHint.args = {
   hint: 'For international numbers include the country code',
-}
+};
 
-export const WithErrorMessage = Template.bind({})
+export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
   errorMessage: 'Enter a telephone number',
-}
+};

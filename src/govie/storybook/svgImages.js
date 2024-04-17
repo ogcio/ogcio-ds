@@ -7,7 +7,7 @@ export const xIcon = `<svg
   xmlns="http://www.w3.org/2000/svg"
 >
   <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#505A5F"/>
-</svg>`
+</svg>`;
 
 // buttons stories
 export const plusIcon = `<svg 
@@ -19,7 +19,7 @@ export const plusIcon = `<svg
   xmlns="http://www.w3.org/2000/svg"
 >
   <path d="M14 8.5H8V14.5H6V8.5H0V6.5H6V0.5H8V6.5H14V8.5Z" fill="white"/>
-</svg>`
+</svg>`;
 
 export const arrowRightIcon = `<svg 
   class="govie-button__icon-right" 
@@ -30,7 +30,7 @@ export const arrowRightIcon = `<svg
   xmlns="http://www.w3.org/2000/svg"
 >
   <path d="M8 0.5L6.59 1.91L12.17 7.5H0V9.5H12.17L6.59 15.09L8 16.5L16 8.5L8 0.5Z" fill="white"/>
-</svg>`
+</svg>`;
 
 // pagination stories
 export const previousIcon = `<svg 
@@ -43,7 +43,7 @@ export const previousIcon = `<svg
   viewBox="0 0 15 13"
 >
   <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-</svg>`
+</svg>`;
 
 export const nextIcon = `<svg 
   class="govie-pagination__icon govie-pagination__icon--next" 
@@ -55,7 +55,7 @@ export const nextIcon = `<svg
   viewBox="0 0 15 13"
 >
   <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-</svg>`
+</svg>`;
 
 // footer stories
 export const openGovernmentImage = `<svg
@@ -68,7 +68,7 @@ export const openGovernmentImage = `<svg
   width="41"
 >
   <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
-</svg>`
+</svg>`;
 
 // superheader stories
 export const searchIcon = `<svg
@@ -96,7 +96,7 @@ export const searchIcon = `<svg
     stroke="currentColor"
     stroke-width="3">
   </line>
-</svg>`
+</svg>`;
 
 // header stories
 export const logoImage = `<svg 
@@ -124,4 +124,4 @@ export const logoImage = `<svg
       <rect width="20" height="31.2" fill="currentColor" transform="translate(0 4.8)"/>
     </clipPath>
   </defs>
-</svg>`
+</svg>`;

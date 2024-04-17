@@ -3,16 +3,16 @@
 $stroke-width: 1px;
 $number-circle-size: 30px;
 $number-circle-size-large: 35px;
-$top-border: solid 1px govie-colour("mid-grey");
+$top-border: solid 1px govie-colour('mid-grey');
 
 @mixin step-nav-vertical-line($line-style: solid) {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 2;
   width: 0;
   height: 100%;
-  border-left: $line-style $stroke-width govie-colour("mid-grey");
-  background: govie-colour("white");
+  border-left: $line-style $stroke-width govie-colour('mid-grey');
+  background: govie-colour('white');
 }
 
 @mixin step-nav-line-position {
@@ -22,13 +22,22 @@ $top-border: solid 1px govie-colour("mid-grey");
 
 @mixin step-nav-line-position-large {
   left: 0;
-  margin-left: govie-em(($number-circle-size-large / 2) - ($stroke-width / 2), 16);
+  margin-left: govie-em(
+    ($number-circle-size-large / 2) - ($stroke-width / 2),
+    16
+  );
 }
 
 // custom mixin as govie-font does undesirable things at different breakpoints
 // we want to ensure that both large and small step navs have the same size font on mobile
 // this will stop text resizing if compatibility mode is turned off
-@mixin step-nav-font($size, $tablet-size: $size, $weight: normal, $line-height: 1.3, $tablet-line-height: $line-height) {
+@mixin step-nav-font(
+  $size,
+  $tablet-size: $size,
+  $weight: normal,
+  $line-height: 1.3,
+  $tablet-line-height: $line-height
+) {
   @include govie-typography-common;
   font-size: $size + px;
   font-weight: $weight;
@@ -43,11 +52,11 @@ $top-border: solid 1px govie-colour("mid-grey");
 // Adds a focus state for the chevron icon so that it turns black on button focus
 @mixin step-nav-chevron-focus-state {
   .govie-step-nav__chevron-stroke {
-    stroke: govie-colour("black");
+    stroke: govie-colour('black');
   }
 }
 
-@include govie-exports("govie/component/step-by-step-navigation") {
+@include govie-exports('govie/component/step-by-step-navigation') {
   // Based on https://github.com/alphagov/govuk-prototype-kit-step-by-step/blob/main/sass/_step-by-step-navigation-header.scss
   // Note - this code for prototype purposes only. It is not production code.
   .govie-step-nav-header {
@@ -56,8 +65,8 @@ $top-border: solid 1px govie-colour("mid-grey");
 
     position: relative;
     padding: 10px;
-    background: govie-colour("light-grey");
-    border-bottom: solid 1px govie-colour("blue");
+    background: govie-colour('light-grey');
+    border-bottom: solid 1px govie-colour('blue');
     margin-top: govie-spacing(3);
 
     @include govie-media-query($from: tablet) {
@@ -74,7 +83,7 @@ $top-border: solid 1px govie-colour("mid-grey");
   // Note - this code for prototype purposes only. It is not production code.
   .govie-step-nav-related {
     @include govie-text-colour;
-    border-top: 2px solid govie-colour("blue");
+    border-top: 2px solid govie-colour('blue');
     margin-bottom: govie-spacing(6);
   }
 
@@ -166,7 +175,7 @@ $top-border: solid 1px govie-colour("mid-grey");
 
     // Create inner chevron arrow
     &:after {
-      content: "";
+      content: '';
       box-sizing: border-box;
       display: block;
       position: absolute;
@@ -174,7 +183,9 @@ $top-border: solid 1px govie-colour("mid-grey");
       left: govie-px-to-rem(6px);
       width: govie-px-to-rem(6px);
       height: govie-px-to-rem(6px);
-      -webkit-transform: rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -webkit-transform: rotate(
+        -45deg
+      ); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
       -ms-transform: rotate(-45deg); /* IE 9 */
       transform: rotate(-45deg);
       border-top: govie-px-to-rem(2px) solid;
@@ -184,7 +195,9 @@ $top-border: solid 1px govie-colour("mid-grey");
 
   // Rotate icon to create "Down" version
   .govie-step-nav__chevron--down {
-    -webkit-transform: rotate(180deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -webkit-transform: rotate(
+      180deg
+    ); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: rotate(180deg); /* IE 9 */
     transform: rotate(180deg);
   }
@@ -197,15 +210,15 @@ $top-border: solid 1px govie-colour("mid-grey");
     margin: 0;
 
     &:hover {
-      background: govie-colour("light-grey");
+      background: govie-colour('light-grey');
       // Chevron icon interaction states
       .govie-step-nav__chevron {
-        color: govie-colour("black");
-        background: govie-colour("black");
+        color: govie-colour('black');
+        background: govie-colour('black');
       }
 
       .govie-step-nav__chevron:after {
-        color: govie-colour("light-grey");
+        color: govie-colour('light-grey');
       }
 
       .govie-step-nav__button-text {
@@ -217,8 +230,8 @@ $top-border: solid 1px govie-colour("mid-grey");
       outline: 0;
       // Chevron icon interaction states
       .govie-step-nav__chevron {
-        color: govie-colour("black");
-        background: govie-colour("black");
+        color: govie-colour('black');
+        background: govie-colour('black');
       }
 
       .govie-step-nav__chevron:after {
@@ -247,7 +260,7 @@ $top-border: solid 1px govie-colour("mid-grey");
     display: inline-block;
     padding: govie-spacing(1) 0 0;
     text-align: left;
-    color: govie-colour("black");
+    color: govie-colour('black');
     width: 100%;
 
     .govie-step-nav--large & {
@@ -263,7 +276,7 @@ $top-border: solid 1px govie-colour("mid-grey");
     @include step-nav-font(15);
     position: relative;
     z-index: 1; // this and relative position stops focus outline underlap with border of accordion
-    margin: .5em 0 14px;
+    margin: 0.5em 0 14px;
     padding: govie-spacing(1) 0 govie-spacing(1);
 
     .govie-step-nav--large & {
@@ -320,7 +333,8 @@ $top-border: solid 1px govie-colour("mid-grey");
       @include govie-media-query($from: tablet) {
         padding-left: govie-em(govie-spacing(9), 16);
 
-        &:after { // stylelint-disable-line max-nesting-depth
+        &:after {
+          // stylelint-disable-line max-nesting-depth
           @include step-nav-line-position-large;
           top: govie-em(govie-spacing(6), 16);
         }
@@ -331,7 +345,7 @@ $top-border: solid 1px govie-colour("mid-grey");
   .govie-step-nav__step:last-child {
     // little dash at the bottom of the line
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: 6;
       bottom: 0;
@@ -339,7 +353,7 @@ $top-border: solid 1px govie-colour("mid-grey");
       margin-left: $number-circle-size / 4;
       width: $number-circle-size / 2;
       height: 0;
-      border-bottom: solid $stroke-width govie-colour("mid-grey");
+      border-bottom: solid $stroke-width govie-colour('mid-grey');
     }
 
     &:after {
@@ -370,7 +384,7 @@ $top-border: solid 1px govie-colour("mid-grey");
     .govie-step-nav__circle--number,
     &:after,
     .govie-step-nav__help:after {
-      border-color: govie-colour("black");
+      border-color: govie-colour('black');
     }
   }
 
@@ -382,8 +396,8 @@ $top-border: solid 1px govie-colour("mid-grey");
     left: 0;
     width: govie-em($number-circle-size, 16);
     height: govie-em($number-circle-size, 16);
-    color: govie-colour("black");
-    background: govie-colour("white");
+    color: govie-colour('black');
+    background: govie-colour('white');
     border-radius: 100px;
     text-align: center;
 
@@ -398,18 +412,24 @@ $top-border: solid 1px govie-colour("mid-grey");
 
   .govie-step-nav__circle--number {
     @include step-nav-font(16, $weight: bold, $line-height: 29px);
-    border: solid $stroke-width govie-colour("mid-grey");
+    border: solid $stroke-width govie-colour('mid-grey');
 
     .govie-step-nav--large & {
-      @include step-nav-font(16, $tablet-size: 19, $weight: bold, $line-height: 29px, $tablet-line-height: 34px);
+      @include step-nav-font(
+        16,
+        $tablet-size: 19,
+        $weight: bold,
+        $line-height: 29px,
+        $tablet-line-height: 34px
+      );
     }
 
     .govie-step-nav__step--active & {
-      background-color: govie-colour("black");
+      background-color: govie-colour('black');
 
       .govie-step-nav__circle-background {
         text-shadow: none;
-        color: govie-colour("white");
+        color: govie-colour('white');
       }
     }
   }
@@ -421,7 +441,13 @@ $top-border: solid 1px govie-colour("mid-grey");
     height: govie-em($number-circle-size, 19);
 
     .govie-step-nav--large & {
-      @include step-nav-font(19, $tablet-size: 24, $weight: bold, $line-height: 28px, $tablet-line-height: 34px);
+      @include step-nav-font(
+        19,
+        $tablet-size: 24,
+        $weight: bold,
+        $line-height: 28px,
+        $tablet-line-height: 34px
+      );
 
       @include govie-media-query($from: tablet) {
         width: govie-em($number-circle-size-large, 24);
@@ -437,11 +463,15 @@ $top-border: solid 1px govie-colour("mid-grey");
   }
 
   .govie-step-nav__circle-background {
-    $shadow-offset: .1em;
-    $shadow-colour: govie-colour("white");
+    $shadow-offset: 0.1em;
+    $shadow-colour: govie-colour('white');
 
     // to make numbers readable for users zooming text only in browsers such as Firefox
-    text-shadow: 0 -#{$shadow-offset} 0 $shadow-colour, $shadow-offset 0 0 $shadow-colour, 0 $shadow-offset 0 $shadow-colour, -#{$shadow-offset} 0 0 $shadow-colour;
+    text-shadow:
+      0 -#{$shadow-offset} 0 $shadow-colour,
+      $shadow-offset 0 0 $shadow-colour,
+      0 $shadow-offset 0 $shadow-colour,
+      -#{$shadow-offset} 0 0 $shadow-colour;
   }
 
   .govie-step-nav__circle-step-label,
@@ -472,7 +502,12 @@ $top-border: solid 1px govie-colour("mid-grey");
     margin: 0;
 
     .govie-step-nav--large & {
-      @include step-nav-font(19, $tablet-size: 24, $weight: bold, $line-height: 1.4);
+      @include step-nav-font(
+        19,
+        $tablet-size: 24,
+        $weight: bold,
+        $line-height: 1.4
+      );
     }
   }
 
@@ -575,16 +610,16 @@ $top-border: solid 1px govie-colour("mid-grey");
 
     &:before {
       box-sizing: border-box;
-      content: "";
+      content: '';
       position: absolute;
       z-index: 5;
-      top: .6em; // position the dot to align with the first row of text in the link
+      top: 0.6em; // position the dot to align with the first row of text in the link
       left: -(govie-spacing(6) + govie-spacing(3));
       margin-top: -($stroke-width / 2);
       margin-left: ($number-circle-size / 2);
       width: $number-circle-size / 2;
       height: $stroke-width;
-      background: govie-colour("black");
+      background: govie-colour('black');
     }
 
     .govie-step-nav--large & {
@@ -604,10 +639,10 @@ $top-border: solid 1px govie-colour("mid-grey");
   .govie-step-nav__context {
     display: inline-block;
     font-weight: normal;
-    color: govie-colour("dark-grey");
+    color: govie-colour('dark-grey');
 
     &:before {
-      content: " \2013\00a0"; // dash followed by &nbsp;
+      content: ' \2013\00a0'; // dash followed by &nbsp;
     }
   }
 }

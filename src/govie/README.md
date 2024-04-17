@@ -13,7 +13,7 @@ logical structure, loosely following the conventions of [ITCSS].
 6. [Components](#components)
 7. [Utilities](#utilities)
 8. [Overrides](#overrides)
-8. [Storybook](#storybook)
+9. [Storybook](#storybook)
 
 Each folder has its own entry point (`_all.scss`).
 

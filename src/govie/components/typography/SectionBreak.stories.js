@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Section Break',
@@ -21,25 +21,25 @@ export default {
   args: {
     size: 'default',
   },
-}
+};
 
 const Template = (args) => {
-  const text = document.createElement('hr')
-  const classes = ['govie-section-break', 'govie-section-break--visible']
+  const text = document.createElement('hr');
+  const classes = ['govie-section-break', 'govie-section-break--visible'];
 
   if (args.size !== 'default') {
-    classes.push(`govie-section-break--${args.size}`)
+    classes.push(`govie-section-break--${args.size}`);
   }
 
-  text.className = classes.join(' ')
+  text.className = classes.join(' ');
 
-  return beautifyHtmlNode(text)
-}
+  return beautifyHtmlNode(text);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithDifferentSize = Template.bind({})
+export const WithDifferentSize = Template.bind({});
 WithDifferentSize.args = {
   size: 'l',
-}
+};

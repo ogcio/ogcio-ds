@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Form/Date Input',
@@ -41,93 +41,93 @@ export default {
     errorItemType: 'All',
     legendAsHeading: false,
   },
-}
+};
 
 const createLegend = (args) => {
-  const classNames = ['govie-fieldset__legend']
-  const legend = document.createElement('legend')
+  const classNames = ['govie-fieldset__legend'];
+  const legend = document.createElement('legend');
 
   if (!args.legendAsHeading) {
-    legend.className = classNames[0]
-    legend.innerText = args.legend
+    legend.className = classNames[0];
+    legend.innerText = args.legend;
 
-    return legend
+    return legend;
   }
 
-  const legendHeading = document.createElement('h1')
-  legendHeading.className = 'govie-fieldset__heading'
-  legendHeading.innerText = args.legend
+  const legendHeading = document.createElement('h1');
+  legendHeading.className = 'govie-fieldset__heading';
+  legendHeading.innerText = args.legend;
 
-  classNames.push('govie-fieldset__legend--l')
-  legend.className = classNames.join(' ')
-  legend.appendChild(legendHeading)
+  classNames.push('govie-fieldset__legend--l');
+  legend.className = classNames.join(' ');
+  legend.appendChild(legendHeading);
 
-  return legend
-}
+  return legend;
+};
 
 const createHint = (args) => {
-  const hint = document.createElement('div')
-  hint.id = `${args.fieldId}-hint`
-  hint.className = 'govie-hint'
-  hint.innerText = args.hint
+  const hint = document.createElement('div');
+  hint.id = `${args.fieldId}-hint`;
+  hint.className = 'govie-hint';
+  hint.innerText = args.hint;
 
-  return hint
-}
+  return hint;
+};
 
 const createErrorMessage = (args) => {
-  const errorSpan = document.createElement('span')
-  errorSpan.className = 'govie-visually-hidden'
-  errorSpan.innerText = 'Error:'
+  const errorSpan = document.createElement('span');
+  errorSpan.className = 'govie-visually-hidden';
+  errorSpan.innerText = 'Error:';
 
-  const errorMessage = document.createElement('p')
-  errorMessage.id = `${args.fieldId}-error`
-  errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `${errorSpan.outerHTML} ${args.errorMessage}`
+  const errorMessage = document.createElement('p');
+  errorMessage.id = `${args.fieldId}-error`;
+  errorMessage.className = 'govie-error-message';
+  errorMessage.innerHTML = `${errorSpan.outerHTML} ${args.errorMessage}`;
 
-  return errorMessage
-}
+  return errorMessage;
+};
 
 const createInputItemLabel = (fieldId, itemType) => {
-  const label = document.createElement('label')
-  label.className = 'govie-label--s govie-date-input__label'
-  label.setAttribute('for', `${fieldId}-${itemType.toLowerCase()}`)
-  label.innerText = itemType
+  const label = document.createElement('label');
+  label.className = 'govie-label--s govie-date-input__label';
+  label.setAttribute('for', `${fieldId}-${itemType.toLowerCase()}`);
+  label.innerText = itemType;
 
-  return label
-}
+  return label;
+};
 
 const createInputItem = (fieldId, itemType, width, didError) => {
   const classNames = [
     'govie-input',
     'govie-date-input__input',
     `govie-input--width-${width}`,
-  ]
+  ];
   if (didError) {
-    classNames.push('govie-input--error')
+    classNames.push('govie-input--error');
   }
 
-  const input = document.createElement('input')
-  input.className = classNames.join(' ')
-  input.id = `${fieldId}-${itemType.toLowerCase()}`
-  input.name = `${fieldId}-${itemType.toLowerCase()}`
-  input.type = 'text'
-  input.setAttribute('inputmode', 'numeric')
+  const input = document.createElement('input');
+  input.className = classNames.join(' ');
+  input.id = `${fieldId}-${itemType.toLowerCase()}`;
+  input.name = `${fieldId}-${itemType.toLowerCase()}`;
+  input.type = 'text';
+  input.setAttribute('inputmode', 'numeric');
 
-  return input
-}
+  return input;
+};
 
 const wrapInputItem = (label, input) => {
-  const formGroup = document.createElement('div')
-  formGroup.className = 'govie-form-group'
-  formGroup.appendChild(label)
-  formGroup.appendChild(input)
+  const formGroup = document.createElement('div');
+  formGroup.className = 'govie-form-group';
+  formGroup.appendChild(label);
+  formGroup.appendChild(input);
 
-  const inputItemWrapper = document.createElement('div')
-  inputItemWrapper.className = 'govie-date-input__item'
-  inputItemWrapper.appendChild(formGroup)
+  const inputItemWrapper = document.createElement('div');
+  inputItemWrapper.className = 'govie-date-input__item';
+  inputItemWrapper.appendChild(formGroup);
 
-  return inputItemWrapper
-}
+  return inputItemWrapper;
+};
 
 const didItemTypeError = (args, itemType) => {
   return (
@@ -135,8 +135,8 @@ const didItemTypeError = (args, itemType) => {
     (!args.errorItemType ||
       args.errorItemType === 'All' ||
       args.errorItemType === itemType)
-  )
-}
+  );
+};
 
 const createInputItems = (args) => {
   const itemTypes = [
@@ -155,99 +155,99 @@ const createInputItems = (args) => {
       width: 4,
       didError: didItemTypeError(args, 'Year'),
     },
-  ]
+  ];
 
   return itemTypes.map((itemType) => {
-    const label = createInputItemLabel(args.fieldId, itemType.name)
+    const label = createInputItemLabel(args.fieldId, itemType.name);
     const input = createInputItem(
       args.fieldId,
       itemType.name,
       itemType.width,
-      itemType.didError
-    )
+      itemType.didError,
+    );
 
-    return wrapInputItem(label, input)
-  })
-}
+    return wrapInputItem(label, input);
+  });
+};
 
 const createInputItemsContainer = (args) => {
-  const inputItemsContainer = document.createElement('div')
-  inputItemsContainer.className = 'govie-date-input'
-  inputItemsContainer.id = args.fieldId
+  const inputItemsContainer = document.createElement('div');
+  inputItemsContainer.className = 'govie-date-input';
+  inputItemsContainer.id = args.fieldId;
 
-  const inputItems = createInputItems(args)
-  inputItems.forEach((item) => inputItemsContainer.appendChild(item))
+  const inputItems = createInputItems(args);
+  inputItems.forEach((item) => inputItemsContainer.appendChild(item));
 
-  return inputItemsContainer
-}
+  return inputItemsContainer;
+};
 
 const createFieldSet = (args) => {
-  const describedby = [`${args.fieldId}-hint`]
+  const describedby = [`${args.fieldId}-hint`];
 
-  const fieldset = document.createElement('fieldset')
-  fieldset.className = 'govie-fieldset'
-  fieldset.setAttribute('role', 'group')
+  const fieldset = document.createElement('fieldset');
+  fieldset.className = 'govie-fieldset';
+  fieldset.setAttribute('role', 'group');
 
-  fieldset.appendChild(createLegend(args))
+  fieldset.appendChild(createLegend(args));
 
   if (args.hint) {
-    fieldset.appendChild(createHint(args))
+    fieldset.appendChild(createHint(args));
   }
 
   if (args.errorMessage) {
-    describedby.push(`${args.fieldId}-error`)
-    fieldset.appendChild(createErrorMessage(args))
+    describedby.push(`${args.fieldId}-error`);
+    fieldset.appendChild(createErrorMessage(args));
   }
 
-  fieldset.appendChild(createInputItemsContainer(args))
+  fieldset.appendChild(createInputItemsContainer(args));
 
-  fieldset.setAttribute('aria-describedby', describedby.join(' '))
+  fieldset.setAttribute('aria-describedby', describedby.join(' '));
 
-  return fieldset
-}
+  return fieldset;
+};
 
 const Template = (args) => {
-  const classNames = ['govie-form-group']
+  const classNames = ['govie-form-group'];
   if (args.errorMessage) {
-    classNames.push('govie-form-group--error')
+    classNames.push('govie-form-group--error');
   }
 
-  const formGroup = document.createElement('div')
-  formGroup.className = classNames.join(' ')
-  formGroup.appendChild(createFieldSet(args))
+  const formGroup = document.createElement('div');
+  formGroup.className = classNames.join(' ');
+  formGroup.appendChild(createFieldSet(args));
 
-  return beautifyHtmlNode(formGroup)
-}
+  return beautifyHtmlNode(formGroup);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   legend: 'When was your flight?',
   legendAsHeading: true,
   hint: 'For example, 12 8 2006',
-}
+};
 
-export const WithNormalLegend = Template.bind({})
+export const WithNormalLegend = Template.bind({});
 WithNormalLegend.args = {
   legend: 'When was your flight?',
   hint: 'For example, 12 8 2006',
-}
+};
 
-export const WithoutHint = Template.bind({})
+export const WithoutHint = Template.bind({});
 WithoutHint.args = {
   legend: 'When was your flight?',
-}
+};
 
-export const WithAllFieldErrored = Template.bind({})
+export const WithAllFieldErrored = Template.bind({});
 WithAllFieldErrored.args = {
   legend: 'When was your flight?',
   hint: 'For example, 12 8 2006',
   errorMessage: 'The date of your flight can not be in future',
-}
+};
 
-export const WithOneFieldErrored = Template.bind({})
+export const WithOneFieldErrored = Template.bind({});
 WithOneFieldErrored.args = {
   legend: 'When was your flight?',
   hint: 'For example, 12 8 2006',
   errorMessage: 'The date of your flight must include a month',
   errorItemType: 'Month',
-}
+};

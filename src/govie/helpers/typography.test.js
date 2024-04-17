@@ -1,19 +1,17 @@
-
-const sass = require('node-sass')
-const outdent = require('outdent')
-const { renderSass } = require('../../../lib/jest-helpers')
+const sass = require('node-sass');
+const outdent = require('outdent');
+const { renderSass } = require('../../../lib/jest-helpers');
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.
-const mockWarnFunction = jest.fn()
-  .mockReturnValue(sass.NULL)
+const mockWarnFunction = jest.fn().mockReturnValue(sass.NULL);
 
 const sassConfig = {
   outputStyle: 'nested',
   functions: {
-    '@warn': mockWarnFunction
-  }
-}
+    '@warn': mockWarnFunction,
+  },
+};
 
 let sassBootstrap = `
   $govie-breakpoints: (
@@ -43,7 +41,7 @@ let sassBootstrap = `
     )
   );
 
-  @import "base";`
+  @import "base";`;
 
 describe('@mixin govie-typography-common', () => {
   it('should output a @font-face declaration by default', async () => {
@@ -55,15 +53,15 @@ describe('@mixin govie-typography-common', () => {
     :root {
       @include govie-typography-common;
     }
-    `
+    `;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
-    const resultsString = results.css.toString()
+    const results = await renderSass({ data: sass, ...sassConfig });
+    const resultsString = results.css.toString();
 
-    expect(resultsString).toContain('@font-face')
-    expect(resultsString).toContain('font-family: "Lato"')
-    expect(resultsString).toContain('font-family: "Lato"')
-  })
+    expect(resultsString).toContain('@font-face');
+    expect(resultsString).toContain('font-family: "Lato"');
+    expect(resultsString).toContain('font-family: "Lato"');
+  });
 
   it('should not output a @font-face declaration when the user has changed their font', async () => {
     const sass = `
@@ -74,14 +72,14 @@ describe('@mixin govie-typography-common', () => {
     :root {
       @include govie-typography-common;
     }
-    `
+    `;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
-    const resultsString = results.css.toString()
+    const results = await renderSass({ data: sass, ...sassConfig });
+    const resultsString = results.css.toString();
 
-    expect(resultsString).not.toContain('@font-face')
-    expect(resultsString).not.toContain('font-family: "Lato"')
-  })
+    expect(resultsString).not.toContain('@font-face');
+    expect(resultsString).not.toContain('font-family: "Lato"');
+  });
 
   it('should not output a @font-face declaration when the user has turned off this feature', async () => {
     const sass = `
@@ -92,15 +90,15 @@ describe('@mixin govie-typography-common', () => {
     :root {
       @include govie-typography-common;
     }
-    `
+    `;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
-    const resultsString = results.css.toString()
+    const results = await renderSass({ data: sass, ...sassConfig });
+    const resultsString = results.css.toString();
 
-    expect(resultsString).not.toContain('@font-face')
-    expect(resultsString).toContain('font-family: "Lato"')
-    expect(resultsString).toContain('font-family: "Lato"')
-  })
+    expect(resultsString).not.toContain('@font-face');
+    expect(resultsString).toContain('font-family: "Lato"');
+    expect(resultsString).toContain('font-family: "Lato"');
+  });
 
   it('should not output a @font-face declaration when the browser is IE8', async () => {
     const sass = `
@@ -113,15 +111,15 @@ describe('@mixin govie-typography-common', () => {
     :root {
       @include govie-typography-common;
     }
-    `
+    `;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
-    const resultsString = results.css.toString()
+    const results = await renderSass({ data: sass, ...sassConfig });
+    const resultsString = results.css.toString();
 
-    expect(resultsString).not.toContain('@font-face')
-    expect(resultsString).toContain('font-family: "Lato"')
-  })
-})
+    expect(resultsString).not.toContain('@font-face');
+    expect(resultsString).toContain('font-family: "Lato"');
+  });
+});
 
 describe('@function _govie-line-height', () => {
   it('preserves line-height if already unitless', async () => {
@@ -130,14 +128,14 @@ describe('@function _govie-line-height', () => {
 
       .foo {
         line-height: _govie-line-height($line-height: 3.141, $font-size: 20px);
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 3.141; }`)
-  })
+        line-height: 3.141; }`);
+  });
 
   it('preserves line-height if using different units', async () => {
     const sass = `
@@ -145,14 +143,14 @@ describe('@function _govie-line-height', () => {
 
       .foo {
         line-height: _govie-line-height($line-height: 2em, $font-size: 20px);
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 2em; }`)
-  })
+        line-height: 2em; }`);
+  });
 
   it('converts line-height to a relative number', async () => {
     const sass = `
@@ -160,15 +158,15 @@ describe('@function _govie-line-height', () => {
 
       .foo {
         line-height: _govie-line-height($line-height: 30px, $font-size: 20px);
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 1.5; }`)
-  })
-})
+        line-height: 1.5; }`);
+  });
+});
 
 describe('@mixin govie-typography-responsive', () => {
   it('outputs CSS with suitable media queries', async () => {
@@ -177,9 +175,9 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-typography-responsive($size: 14)
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -190,8 +188,8 @@ describe('@mixin govie-typography-responsive', () => {
           .foo {
             font-size: 14px;
             font-size: 0.875rem;
-            line-height: 1.42857; } }`)
-  })
+            line-height: 1.42857; } }`);
+  });
 
   it('outputs CSS with suitable media queries for print', async () => {
     const sass = `
@@ -199,9 +197,9 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-typography-responsive($size: 12)
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -211,8 +209,8 @@ describe('@mixin govie-typography-responsive', () => {
         @media print {
           .foo {
             font-size: 14pt;
-            line-height: 1.5; } }`)
-  })
+            line-height: 1.5; } }`);
+  });
 
   it('throws an exception when passed a size that is not in the scale', async () => {
     const sass = `
@@ -220,14 +218,12 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-typography-responsive(3.14159265359)
-      }`
+      }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig }))
-      .rejects
-      .toThrow(
-        'Unknown font size `3.14159` - expected a point from the typography scale.'
-      )
-  })
+    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      'Unknown font size `3.14159` - expected a point from the typography scale.',
+    );
+  });
 
   describe('when $important is set to true', () => {
     it('marks font size and line height as important', async () => {
@@ -236,9 +232,9 @@ describe('@mixin govie-typography-responsive', () => {
 
         .foo {
           @include govie-typography-responsive($size: 14, $important: true);
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -249,8 +245,8 @@ describe('@mixin govie-typography-responsive', () => {
             .foo {
               font-size: 14px !important;
               font-size: 0.875rem !important;
-              line-height: 1.42857 !important; } }`)
-    })
+              line-height: 1.42857 !important; } }`);
+    });
 
     it('marks font-size and line-height as important for print media', async () => {
       const sass = `
@@ -258,9 +254,9 @@ describe('@mixin govie-typography-responsive', () => {
 
         .foo {
           @include govie-typography-responsive($size: 12, $important: true);
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -270,9 +266,9 @@ describe('@mixin govie-typography-responsive', () => {
           @media print {
             .foo {
               font-size: 14pt !important;
-              line-height: 1.5 !important; } }`)
-    })
-  })
+              line-height: 1.5 !important; } }`);
+    });
+  });
 
   describe('when $override-line-height is set', () => {
     it('overrides the line height', async () => {
@@ -281,9 +277,9 @@ describe('@mixin govie-typography-responsive', () => {
 
         .foo {
           @include govie-typography-responsive($size: 14, $override-line-height: 21px);
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -294,17 +290,17 @@ describe('@mixin govie-typography-responsive', () => {
             .foo {
               font-size: 14px;
               font-size: 0.875rem;
-              line-height: 1.5; } }`)
-    })
-  })
+              line-height: 1.5; } }`);
+    });
+  });
 
   describe('when $govie-typography-use-rem is disabled', () => {
     beforeEach(() => {
       sassBootstrap = `
         @import "settings/warnings";
         ${sassBootstrap}
-      `
-    })
+      `;
+    });
 
     it('outputs CSS with suitable media queries', async () => {
       const sass = `
@@ -313,9 +309,9 @@ describe('@mixin govie-typography-responsive', () => {
 
         .foo {
           @include govie-typography-responsive($size: 14)
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -324,8 +320,8 @@ describe('@mixin govie-typography-responsive', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 14px;
-              line-height: 1.42857; } }`)
-    })
+              line-height: 1.42857; } }`);
+    });
 
     it('adjusts rem values based on root font size', async () => {
       const sass = `
@@ -335,9 +331,9 @@ describe('@mixin govie-typography-responsive', () => {
 
         .foo {
           @include govie-typography-responsive($size: 14)
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -346,8 +342,8 @@ describe('@mixin govie-typography-responsive', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 14px;
-              line-height: 1.42857; } }`)
-    })
+              line-height: 1.42857; } }`);
+    });
 
     describe('and $important is set to true', () => {
       it('marks font size and line height as important', async () => {
@@ -357,9 +353,9 @@ describe('@mixin govie-typography-responsive', () => {
 
           .foo {
             @include govie-typography-responsive($size: 14, $important: true);
-          }`
+          }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig })
+        const results = await renderSass({ data: sass, ...sassConfig });
 
         expect(results.css.toString().trim()).toBe(outdent`
           .foo {
@@ -368,28 +364,27 @@ describe('@mixin govie-typography-responsive', () => {
             @media (min-width: 30em) {
               .foo {
                 font-size: 14px !important;
-                line-height: 1.42857 !important; } }`)
-      })
-    })
+                line-height: 1.42857 !important; } }`);
+      });
+    });
 
     it('outputs a deprecation warning when set to false', async () => {
       const sass = `
         $govie-typography-use-rem: false;
-        ${sassBootstrap}`
+        ${sassBootstrap}`;
 
       await renderSass({ data: sass, ...sassConfig }).then(() => {
         // Get the argument of the last @warn call, which we expect to be the
         // deprecation notice
-        return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue())
-          .toEqual(
-            '$govie-typography-use-rem is deprecated. From version 5.0, ' +
+        return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue()).toEqual(
+          '$govie-typography-use-rem is deprecated. From version 5.0, ' +
             'GOV.IE Frontend will not support disabling rem font sizes. To ' +
             'silence this warning, update $govie-suppressed-warnings with ' +
-            'key: "allow-not-using-rem"'
-          )
-      })
-    })
-  })
+            'key: "allow-not-using-rem"',
+        );
+      });
+    });
+  });
 
   describe('@mixin govie-font', () => {
     it('outputs all required typographic CSS properties', async () => {
@@ -400,9 +395,9 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -420,8 +415,8 @@ describe('@mixin govie-typography-responsive', () => {
             .foo {
               font-size: 14px;
               font-size: 0.875rem;
-              line-height: 1.42857; } }`)
-    })
+              line-height: 1.42857; } }`);
+    });
 
     it('enables tabular numbers opentype feature flags if $tabular: true', async () => {
       const sass = `
@@ -429,19 +424,19 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14, $tabular: true)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
-      const css = results.css.toString()
+      const results = await renderSass({ data: sass, ...sassConfig });
+      const css = results.css.toString();
 
-      expect(css).toContain('font-feature-settings: "tnum" 1;')
+      expect(css).toContain('font-feature-settings: "tnum" 1;');
       expect(css).toContain(outdent`
       ${outdent}
         @supports (font-variant-numeric: tabular-nums) {
           .foo {
             font-feature-settings: normal;
-            font-variant-numeric: tabular-nums; } }`)
-    })
+            font-variant-numeric: tabular-nums; } }`);
+    });
 
     it('sets font-size based on $size', async () => {
       const sass = `
@@ -449,13 +444,13 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 12)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('font-size: 12px')
-      expect(results.css.toString()).not.toContain('font-size: 14px')
-    })
+      expect(results.css.toString()).toContain('font-size: 12px');
+      expect(results.css.toString()).not.toContain('font-size: 14px');
+    });
 
     it('does not output font-size if $size: false', async () => {
       const sass = `
@@ -463,12 +458,12 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: false)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('font-size')
-    })
+      expect(results.css.toString()).not.toContain('font-size');
+    });
 
     it('sets font-weight based on $weight', async () => {
       const sass = `
@@ -478,12 +473,12 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14, $weight: bold)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('font-weight: 700')
-    })
+      expect(results.css.toString()).toContain('font-weight: 700');
+    });
 
     it('does not output font-weight if $weight: false', async () => {
       const sass = `
@@ -493,12 +488,12 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14, $weight: false)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('font-weight')
-    })
+      expect(results.css.toString()).not.toContain('font-weight');
+    });
 
     it('ignores undefined font-weights', async () => {
       const sass = `
@@ -508,12 +503,12 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14, $weight: superdupermegabold)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('font-weight')
-    })
+      expect(results.css.toString()).not.toContain('font-weight');
+    });
 
     it('sets line-height based on $line-height', async () => {
       const sass = `
@@ -523,11 +518,11 @@ describe('@mixin govie-typography-responsive', () => {
 
       .foo {
         @include govie-font($size: 14, $line-height: 1.337)
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('line-height: 1.337;')
-    })
-  })
-})
+      expect(results.css.toString()).toContain('line-height: 1.337;');
+    });
+  });
+});

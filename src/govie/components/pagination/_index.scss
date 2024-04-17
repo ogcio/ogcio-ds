@@ -1,8 +1,8 @@
-@include govie-exports("govie/component/pagination") {
+@include govie-exports('govie/component/pagination') {
   // Flexbox enhancement for small screen visual design
   // Falls back to a float: left layout on non-flex browsers
   .govie-pagination {
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@
     float: left; // Float is ignored if flex is active for prev/next links
 
     &:hover {
-      background-color: govie-colour("light-grey");
+      background-color: govie-colour('light-grey');
     }
   }
 
@@ -109,7 +109,7 @@
     // Increase the touch area for the link to the parent element.
     @media screen {
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         right: 0;
@@ -148,7 +148,7 @@
   }
 
   .govie-pagination__link-label {
-    @include govie-font($size: 19, $weight: "regular");
+    @include govie-font($size: 19, $weight: 'regular');
     @include govie-link-decoration;
     display: inline-block;
     padding-left: govie-spacing(6);
@@ -211,7 +211,7 @@
     // We do this to get around an NVDA quirk where adjacent block level
     // elements are always read out separately
     .govie-pagination__link-title:after {
-      content: "";
+      content: '';
       display: block;
     }
 

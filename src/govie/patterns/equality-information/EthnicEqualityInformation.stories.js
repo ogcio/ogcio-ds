@@ -1,8 +1,8 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
+import { Default as radios } from '../../components/radios/Radio.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
 
 export default {
   title: 'Patterns/Equality information/Ethnic group',
@@ -22,7 +22,7 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createEthnicForm = () => {
   const radio = radios({
@@ -38,10 +38,10 @@ const createEthnicForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createWhiteEthnicForm = () => {
   const radio = radios({
@@ -56,10 +56,10 @@ const createWhiteEthnicForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createMultipleEthnicForm = () => {
   const radio = radios({
@@ -75,10 +75,10 @@ const createMultipleEthnicForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createAsianEthnicForm = () => {
   const radio = radios({
@@ -95,10 +95,10 @@ const createAsianEthnicForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createBlackEthnicForm = () => {
   const radio = radios({
@@ -113,10 +113,10 @@ const createBlackEthnicForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createOtherEthnicForm = () => {
   const radio = radios({
@@ -126,68 +126,68 @@ const createOtherEthnicForm = () => {
     options: ['Arab', 'Any other ethnic group'],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const Template = (args) => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   switch (args.type) {
     case 'white background':
-      container.appendChild(createWhiteEthnicForm())
-      break
+      container.appendChild(createWhiteEthnicForm());
+      break;
     case 'multiple ethnic groups':
-      container.appendChild(createMultipleEthnicForm())
-      break
+      container.appendChild(createMultipleEthnicForm());
+      break;
     case 'asian or asian british':
-      container.appendChild(createAsianEthnicForm())
-      break
+      container.appendChild(createAsianEthnicForm());
+      break;
     case 'black, african, caribbean or black british':
-      container.appendChild(createBlackEthnicForm())
-      break
+      container.appendChild(createBlackEthnicForm());
+      break;
     case 'other backgrounds':
-      container.appendChild(createOtherEthnicForm())
-      break
+      container.appendChild(createOtherEthnicForm());
+      break;
     default:
-      container.append(createEthnicForm())
+      container.append(createEthnicForm());
   }
 
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
-  return beautifyHtmlNode(container)
-}
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
+  return beautifyHtmlNode(container);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const White = Template.bind({})
-White.storyName = 'White background'
+export const White = Template.bind({});
+White.storyName = 'White background';
 White.args = {
   type: 'white background',
-}
+};
 
-export const MixedEthnicGroups = Template.bind({})
-MixedEthnicGroups.storyName = 'Mixed or multiple ethnic groups background'
+export const MixedEthnicGroups = Template.bind({});
+MixedEthnicGroups.storyName = 'Mixed or multiple ethnic groups background';
 MixedEthnicGroups.args = {
   type: 'multiple ethnic groups',
-}
+};
 
-export const AsianOrAsianBritish = Template.bind({})
-AsianOrAsianBritish.storyName = 'Asian or Asian British background'
+export const AsianOrAsianBritish = Template.bind({});
+AsianOrAsianBritish.storyName = 'Asian or Asian British background';
 AsianOrAsianBritish.args = {
   type: 'asian or asian british',
-}
+};
 
-export const Black = Template.bind({})
-Black.storyName = 'Black, African, Caribbean Or Black British background'
+export const Black = Template.bind({});
+Black.storyName = 'Black, African, Caribbean Or Black British background';
 Black.args = {
   type: 'black, african, caribbean or black british',
-}
+};
 
-export const OtherEthnicGroups = Template.bind({})
-OtherEthnicGroups.storyName = 'Other backgrounds'
+export const OtherEthnicGroups = Template.bind({});
+OtherEthnicGroups.storyName = 'Other backgrounds';
 OtherEthnicGroups.args = {
   type: 'other backgrounds',
-}
+};

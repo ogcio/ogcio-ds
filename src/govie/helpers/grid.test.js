@@ -1,10 +1,10 @@
-const outdent = require('outdent')
+const outdent = require('outdent');
 
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested'
-}
+  outputStyle: 'nested',
+};
 
 describe('grid system', () => {
   const sassImports = `
@@ -17,7 +17,7 @@ describe('grid system', () => {
     @import "helpers/media-queries";
 
     @import "tools/exports";
-  `
+  `;
   describe('govie-grid-width function', () => {
     it('outputs the specified key value from the map of widths', async () => {
       const sass = `
@@ -25,27 +25,27 @@ describe('grid system', () => {
 
         .foo {
           content: govie-grid-width(one-quarter);
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        content: 25%; }`)
-    })
+        content: 25%; }`);
+    });
 
     it('throws an error that the specified key does not exist in the map of widths', async () => {
       const sass = `
         ${sassImports}
 
         $value: govie-grid-width(seven-fifths);
-        `
+        `;
 
-      await expect(renderSass({ data: sass, ...sassConfig }))
-        .rejects
-        .toThrow('Unknown grid width `seven-fifths`')
-    })
-  })
+      await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+        'Unknown grid width `seven-fifths`',
+      );
+    });
+  });
 
   describe('@govie-grid-column mixin', () => {
     it('outputs the CSS required for a column in the grid', async () => {
@@ -55,14 +55,11 @@ describe('grid system', () => {
         .govie-grid-column-full {
           @include govie-grid-column();
         }
-        `
+        `;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css
-        .toString()
-        .trim())
-        .toBe(outdent`
+      expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-full {
           box-sizing: border-box;
           width: 100%;
@@ -70,8 +67,8 @@ describe('grid system', () => {
           @media (min-width: 40.0625em) {
             .govie-grid-column-full {
               width: 100%;
-              float: left; } }`)
-    })
+              float: left; } }`);
+    });
 
     it('allows different widths to be specified using $width', async () => {
       const sass = `
@@ -80,13 +77,10 @@ describe('grid system', () => {
         .govie-grid-column-two-thirds {
           @include govie-grid-column(two-thirds);
         }
-      `
-      const results = await renderSass({ data: sass, ...sassConfig })
+      `;
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css
-        .toString()
-        .trim())
-        .toBe(outdent`
+      expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-two-thirds {
           box-sizing: border-box;
           width: 100%;
@@ -95,8 +89,8 @@ describe('grid system', () => {
             .govie-grid-column-two-thirds {
               width: 66.6666%;
               float: left; } }
-        `)
-    })
+        `);
+    });
 
     it('allows predefined breakpoints to be specified using $at', async () => {
       const sass = `
@@ -105,13 +99,10 @@ describe('grid system', () => {
         .govie-grid-column-one-quarter-at-desktop {
           @include govie-grid-column(one-quarter, $at: desktop);
         }
-      `
-      const results = await renderSass({ data: sass, ...sassConfig })
+      `;
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css
-        .toString()
-        .trim())
-        .toBe(outdent`
+      expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-quarter-at-desktop {
           box-sizing: border-box;
           padding: 0 15px; }
@@ -119,8 +110,8 @@ describe('grid system', () => {
             .govie-grid-column-one-quarter-at-desktop {
               width: 25%;
               float: left; } }
-        `)
-    })
+        `);
+    });
     it('allows custom breakpoints to be specified using $at', async () => {
       const sass = `
         ${sassImports}
@@ -128,13 +119,10 @@ describe('grid system', () => {
         .govie-grid-column-one-quarter-at-500px {
           @include govie-grid-column(one-quarter, $at: 500px);
         }
-      `
-      const results = await renderSass({ data: sass, ...sassConfig })
+      `;
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css
-        .toString()
-        .trim())
-        .toBe(outdent`
+      expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-quarter-at-500px {
           box-sizing: border-box;
           width: 100%;
@@ -143,8 +131,8 @@ describe('grid system', () => {
             .govie-grid-column-one-quarter-at-500px {
               width: 25%;
               float: left; } }
-        `)
-    })
+        `);
+    });
 
     it('allows columns to float right using $float: right', async () => {
       const sass = `
@@ -153,13 +141,10 @@ describe('grid system', () => {
         .govie-grid-column-one-half-right {
           @include govie-grid-column(one-half, $float: right);
         }
-      `
-      const results = await renderSass({ data: sass, ...sassConfig })
+      `;
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css
-        .toString()
-        .trim())
-        .toBe(outdent`
+      expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-half-right {
           box-sizing: border-box;
           width: 100%;
@@ -168,7 +153,7 @@ describe('grid system', () => {
             .govie-grid-column-one-half-right {
               width: 50%;
               float: right; } }
-        `)
-    })
-  })
-})
+        `);
+    });
+  });
+});

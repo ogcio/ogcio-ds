@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Warning Text',
@@ -19,30 +19,30 @@ export default {
   args: {
     text: 'You can be fined up to €5,000 if you do not register.',
   },
-}
+};
 
 const Template = (args) => {
-  const icon = document.createElement('span')
-  icon.className = 'govie-warning-text__icon'
-  icon.setAttribute('aria-hidden', 'true')
-  icon.innerText = '!'
+  const icon = document.createElement('span');
+  icon.className = 'govie-warning-text__icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.innerText = '!';
 
-  const assistiveSpan = document.createElement('span')
-  assistiveSpan.className = 'govie-warning-text__assistive'
-  assistiveSpan.innerText = 'Warning'
+  const assistiveSpan = document.createElement('span');
+  assistiveSpan.className = 'govie-warning-text__assistive';
+  assistiveSpan.innerText = 'Warning';
 
-  const text = document.createElement('strong')
-  text.className = 'govie-warning-text__text'
-  text.appendChild(assistiveSpan)
-  text.append(args.text)
+  const text = document.createElement('strong');
+  text.className = 'govie-warning-text__text';
+  text.appendChild(assistiveSpan);
+  text.append(args.text);
 
-  const warningText = document.createElement('div')
-  warningText.className = 'govie-warning-text'
-  warningText.appendChild(icon)
-  warningText.appendChild(text)
+  const warningText = document.createElement('div');
+  warningText.className = 'govie-warning-text';
+  warningText.appendChild(icon);
+  warningText.appendChild(text);
 
-  return beautifyHtmlNode(warningText)
-}
+  return beautifyHtmlNode(warningText);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

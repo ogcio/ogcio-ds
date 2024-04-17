@@ -1,8 +1,8 @@
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed'
-}
+  outputStyle: 'compressed',
+};
 
 const sassBootstrap = `
   $govie-breakpoints: (
@@ -11,7 +11,7 @@ const sassBootstrap = `
     desktop: 980px,
     wide:    1300px
   );
-`
+`;
 
 describe('@mixin govie-media-query', () => {
   it('allows you to target min-width using a numeric value', async () => {
@@ -22,12 +22,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($from: 20em) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (min-width: 20em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (min-width: 20em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target min-width using a predefined breakpoint', async () => {
     const sass = `
@@ -38,12 +40,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($from: mobile) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (min-width: 20em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (min-width: 20em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target max-width using a numeric value', async () => {
     const sass = `
@@ -53,12 +57,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($until: 20em) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (max-width: 20em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (max-width: 20em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target max-width using a predefined breakpoint', async () => {
     const sass = `
@@ -69,12 +75,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($until: desktop) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (max-width: 61.24em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (max-width: 61.24em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target combined min-width and max-width using numeric values', async () => {
     const sass = `
@@ -84,12 +92,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($from: 20em, $until: 40em) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (min-width: 20em) and (max-width: 40em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (min-width: 20em) and (max-width: 40em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target combined min-width and max-width using predefined breakpoints', async () => {
     const sass = `
@@ -100,12 +110,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($from: mobile, $until: tablet) {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (min-width: 20em) and (max-width: 46.24em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (min-width: 20em) and (max-width: 46.24em){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target using custom directives', async () => {
     const sass = `
@@ -115,12 +127,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($until: 40em, $and: '(orientation: landscape)') {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media (max-width: 40em) and (orientation: landscape){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media (max-width: 40em) and (orientation: landscape){.foo{color:red}}',
+    );
+  });
 
   it('allows you to target particular media types', async () => {
     const sass = `
@@ -130,12 +144,14 @@ describe('@mixin govie-media-query', () => {
         @include govie-media-query($until: 40em, $media-type: 'aural') {
           color: red;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toBe('@media aural and (max-width: 40em){.foo{color:red}}')
-  })
+    expect(results.css.toString().trim()).toBe(
+      '@media aural and (max-width: 40em){.foo{color:red}}',
+    );
+  });
 
   describe('when compiling a rasterized stylesheet for IE8', () => {
     it('only outputs static breakpoint styles', async () => {
@@ -158,12 +174,12 @@ describe('@mixin govie-media-query', () => {
           @include govie-media-query($from: desktop) {
               color: forestgreen;
           }
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString().trim()).toBe('.foo{color:forestgreen}')
-    })
+      expect(results.css.toString().trim()).toBe('.foo{color:forestgreen}');
+    });
 
     it('does not rasterize print queries', async () => {
       const sass = `
@@ -177,11 +193,11 @@ describe('@mixin govie-media-query', () => {
           @include govie-media-query($media-type: 'print') {
             color: red;
           }
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString().trim()).toBe('.foo{color:blue}')
-    })
-  })
-})
+      expect(results.css.toString().trim()).toBe('.foo{color:blue}');
+    });
+  });
+});

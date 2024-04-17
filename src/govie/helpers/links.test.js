@@ -1,8 +1,8 @@
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compact'
-}
+  outputStyle: 'compact',
+};
 
 describe('@mixin govie-link-decoration', () => {
   describe('by default', () => {
@@ -12,12 +12,12 @@ describe('@mixin govie-link-decoration', () => {
 
         .foo {
           @include govie-link-decoration;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('text-decoration-thickness')
-    })
+      expect(results.css.toString()).not.toContain('text-decoration-thickness');
+    });
 
     it('does not set text-underline-offset', async () => {
       const sass = `
@@ -25,13 +25,13 @@ describe('@mixin govie-link-decoration', () => {
 
         .foo {
           @include govie-link-decoration;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('text-underline-offset')
-    })
-  })
+      expect(results.css.toString()).not.toContain('text-underline-offset');
+    });
+  });
 
   describe('when $govie-new-link-styles are enabled', () => {
     it('sets text-decoration-thickness', async () => {
@@ -42,12 +42,14 @@ describe('@mixin govie-link-decoration', () => {
 
         .foo {
           @include govie-link-decoration;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('text-decoration-thickness: 1px;')
-    })
+      expect(results.css.toString()).toContain(
+        'text-decoration-thickness: 1px;',
+      );
+    });
 
     it('sets text-underline-offset', async () => {
       const sass = `
@@ -57,12 +59,12 @@ describe('@mixin govie-link-decoration', () => {
 
         .foo {
           @include govie-link-decoration;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('text-underline-offset: 0.1em;')
-    })
+      expect(results.css.toString()).toContain('text-underline-offset: 0.1em;');
+    });
 
     describe('when $govie-link-underline-thickness is falsey', () => {
       it('does not set text-decoration-thickness', async () => {
@@ -73,13 +75,15 @@ describe('@mixin govie-link-decoration', () => {
 
           .foo {
             @include govie-link-decoration;
-          }`
+          }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig })
+        const results = await renderSass({ data: sass, ...sassConfig });
 
-        expect(results.css.toString()).not.toContain('text-decoration-thickness')
-      })
-    })
+        expect(results.css.toString()).not.toContain(
+          'text-decoration-thickness',
+        );
+      });
+    });
 
     describe('when $govie-link-underline-offset is falsey', () => {
       it('does not set text-decoration-offset ', async () => {
@@ -90,15 +94,15 @@ describe('@mixin govie-link-decoration', () => {
 
         .foo {
             @include govie-link-decoration;
-        }`
+        }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig })
+        const results = await renderSass({ data: sass, ...sassConfig });
 
-        expect(results.css.toString()).not.toContain('text-underline-offset')
-      })
-    })
-  })
-})
+        expect(results.css.toString()).not.toContain('text-underline-offset');
+      });
+    });
+  });
+});
 
 describe('@mixin govie-link-hover-decoration', () => {
   describe('by default', () => {
@@ -110,13 +114,13 @@ describe('@mixin govie-link-hover-decoration', () => {
       // is omitted from the CSS
       .foo:hover {
           @include govie-link-hover-decoration;
-      }`
+      }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('.foo:hover')
-    })
-  })
+      expect(results.css.toString()).not.toContain('.foo:hover');
+    });
+  });
 
   describe('when $govie-new-link-styles are enabled', () => {
     it('sets a hover state', async () => {
@@ -127,12 +131,12 @@ describe('@mixin govie-link-hover-decoration', () => {
 
         .foo:hover {
           @include govie-link-hover-decoration;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain('.foo:hover')
-    })
+      expect(results.css.toString()).toContain('.foo:hover');
+    });
 
     describe('when $govie-link-hover-underline-thickness is falsey', () => {
       it('does not set a hover state', async () => {
@@ -145,15 +149,15 @@ describe('@mixin govie-link-hover-decoration', () => {
         // is omitted from the CSS
         .foo:hover {
             @include govie-link-hover-decoration;
-        }`
+        }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig })
+        const results = await renderSass({ data: sass, ...sassConfig });
 
-        expect(results.css.toString()).not.toContain('.foo:hover')
-      })
-    })
-  })
-})
+        expect(results.css.toString()).not.toContain('.foo:hover');
+      });
+    });
+  });
+});
 
 describe('@mixin govie-link-style-text', () => {
   describe('when $govie-text-colour is a colour', () => {
@@ -164,15 +168,15 @@ describe('@mixin govie-link-style-text', () => {
 
         a {
             @include govie-link-style-text;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).toContain(':hover')
-      expect(results.css.toString()).toContain('color:')
-      expect(results.css.toString()).toContain('rgba(')
-    })
-  })
+      expect(results.css.toString()).toContain(':hover');
+      expect(results.css.toString()).toContain('color:');
+      expect(results.css.toString()).toContain('rgba(');
+    });
+  });
 
   describe('when $govie-text-colour is inherit', () => {
     it('does NOT apply the rgba function', async () => {
@@ -182,11 +186,11 @@ describe('@mixin govie-link-style-text', () => {
 
         a {
             @include govie-link-style-text;
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
-      expect(results.css.toString()).not.toContain('rgba(')
-    })
-  })
-})
+      expect(results.css.toString()).not.toContain('rgba(');
+    });
+  });
+});

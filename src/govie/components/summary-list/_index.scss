@@ -1,4 +1,4 @@
-@include govie-exports("govie/component/summary-list") {
+@include govie-exports('govie/component/summary-list') {
   .govie-summary-list {
     @include govie-font($size: 19);
     @include govie-text-colour;
@@ -9,7 +9,7 @@
       border-collapse: collapse;
     }
     margin: 0; // Reset default user agent styles
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
   }
 
   .govie-summary-list__row {
@@ -24,7 +24,8 @@
   }
 
   // Remove right padding from the last column in the row
-  .govie-summary-list__row:not(.govie-summary-list__row--no-actions) > :last-child {
+  .govie-summary-list__row:not(.govie-summary-list__row--no-actions)
+    > :last-child {
     padding-right: 0;
   }
 
@@ -33,7 +34,7 @@
   .govie-summary-list__row--no-actions {
     @include govie-media-query($from: tablet) {
       &:after {
-        content: "";
+        content: '';
         display: table-cell;
         width: 20%;
       }

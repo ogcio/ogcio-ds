@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Navigation/Breadcrumbs',
@@ -19,37 +19,37 @@ export default {
   args: {
     breadcrumbs: ['Home'],
   },
-}
+};
 
 const createBreadcrumbNode = (breadcrumb) => {
-  const anchor = document.createElement('a')
-  anchor.className = 'govie-breadcrumbs__link'
-  anchor.setAttribute('href', '#')
-  anchor.innerText = breadcrumb
+  const anchor = document.createElement('a');
+  anchor.className = 'govie-breadcrumbs__link';
+  anchor.setAttribute('href', '#');
+  anchor.innerText = breadcrumb;
 
-  const listItem = document.createElement('li')
-  listItem.className = 'govie-breadcrumbs__list-item'
-  listItem.appendChild(anchor)
+  const listItem = document.createElement('li');
+  listItem.className = 'govie-breadcrumbs__list-item';
+  listItem.appendChild(anchor);
 
-  return listItem
-}
+  return listItem;
+};
 
 const Template = (args) => {
-  const list = document.createElement('ol')
-  list.className = 'govie-breadcrumbs__list'
+  const list = document.createElement('ol');
+  list.className = 'govie-breadcrumbs__list';
 
   args.breadcrumbs.forEach((breadcrumb) => {
-    list.appendChild(createBreadcrumbNode(breadcrumb))
-  })
+    list.appendChild(createBreadcrumbNode(breadcrumb));
+  });
 
-  const breadcrumbsContainer = document.createElement('div')
-  breadcrumbsContainer.className = 'govie-breadcrumbs'
-  breadcrumbsContainer.appendChild(list)
+  const breadcrumbsContainer = document.createElement('div');
+  breadcrumbsContainer.className = 'govie-breadcrumbs';
+  breadcrumbsContainer.appendChild(list);
 
-  return beautifyHtmlNode(breadcrumbsContainer)
-}
+  return beautifyHtmlNode(breadcrumbsContainer);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   breadcrumbs: ['Home', 'Passports, travel and living abroad', 'Travel abroad'],
-}
+};

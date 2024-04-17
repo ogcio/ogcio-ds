@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Application/Tooltip',
@@ -25,42 +25,42 @@ export default {
     label: 'Tooltip text',
     position: 'top',
   },
-}
+};
 
 const Template = (args) => {
-  const container = document.createElement('span')
-  container.setAttribute('data-module', 'govie-tooltip')
-  container.innerHTML = 'Hover me'
+  const container = document.createElement('span');
+  container.setAttribute('data-module', 'govie-tooltip');
+  container.innerHTML = 'Hover me';
 
-  const tooltip = document.createElement('span')
-  tooltip.className = `govie-tooltip govie-tooltip--${args.position}`
-  tooltip.innerHTML = args.label
+  const tooltip = document.createElement('span');
+  tooltip.className = `govie-tooltip govie-tooltip--${args.position}`;
+  tooltip.innerHTML = args.label;
 
-  container.appendChild(tooltip)
+  container.appendChild(tooltip);
 
-  return beautifyHtmlNode(container)
-}
+  return beautifyHtmlNode(container);
+};
 
-export const Top = Template.bind({})
+export const Top = Template.bind({});
 Top.args = {
   label: 'Top tooltip',
   position: 'top',
-}
+};
 
-export const Bottom = Template.bind({})
+export const Bottom = Template.bind({});
 Bottom.args = {
   label: 'Bottom tooltip',
   position: 'bottom',
-}
+};
 
-export const Left = Template.bind({})
+export const Left = Template.bind({});
 Left.args = {
   label: 'Left tooltip',
   position: 'left',
-}
+};
 
-export const Right = Template.bind({})
+export const Right = Template.bind({});
 Right.args = {
   label: 'Right tooltip',
   position: 'right',
-}
+};

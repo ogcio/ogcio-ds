@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Error Sumamry',
@@ -33,53 +33,53 @@ export default {
       },
     ],
   },
-}
+};
 
 const createErrorListItem = (error) => {
-  const listItemLink = document.createElement('a')
-  listItemLink.href = error.url
-  listItemLink.innerText = error.message
+  const listItemLink = document.createElement('a');
+  listItemLink.href = error.url;
+  listItemLink.innerText = error.message;
 
-  const listItem = document.createElement('li')
-  listItem.appendChild(listItemLink)
+  const listItem = document.createElement('li');
+  listItem.appendChild(listItemLink);
 
-  return listItem
-}
+  return listItem;
+};
 
 const createErrorList = (args) => {
-  const errorList = document.createElement('ul')
-  errorList.className = 'govie-list govie-error-summary__list'
+  const errorList = document.createElement('ul');
+  errorList.className = 'govie-list govie-error-summary__list';
 
   if (Array.isArray(args.errors) && args.errors.length > 0) {
     args.errors.forEach((error) => {
-      errorList.appendChild(createErrorListItem(error))
-    })
+      errorList.appendChild(createErrorListItem(error));
+    });
   }
 
-  return errorList
-}
+  return errorList;
+};
 
 const Template = (args) => {
-  const alertBody = document.createElement('div')
-  alertBody.className = 'govie-error-summary__body'
-  alertBody.appendChild(createErrorList(args))
+  const alertBody = document.createElement('div');
+  alertBody.className = 'govie-error-summary__body';
+  alertBody.appendChild(createErrorList(args));
 
-  const alertHeader = document.createElement('h2')
-  alertHeader.className = 'govie-error-summary__title'
-  alertHeader.innerText = args.summaryHeader
+  const alertHeader = document.createElement('h2');
+  alertHeader.className = 'govie-error-summary__title';
+  alertHeader.innerText = args.summaryHeader;
 
-  const alert = document.createElement('div')
-  alert.setAttribute('role', 'alert')
-  alert.appendChild(alertHeader)
-  alert.appendChild(alertBody)
+  const alert = document.createElement('div');
+  alert.setAttribute('role', 'alert');
+  alert.appendChild(alertHeader);
+  alert.appendChild(alertBody);
 
-  const errorSummary = document.createElement('div')
-  errorSummary.className = 'govie-error-summary'
-  errorSummary.setAttribute('data-module', 'govie-error-summary')
-  errorSummary.appendChild(alert)
+  const errorSummary = document.createElement('div');
+  errorSummary.className = 'govie-error-summary';
+  errorSummary.setAttribute('data-module', 'govie-error-summary');
+  errorSummary.appendChild(alert);
 
-  return beautifyHtmlNode(errorSummary)
-}
+  return beautifyHtmlNode(errorSummary);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

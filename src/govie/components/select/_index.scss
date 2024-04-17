@@ -1,8 +1,8 @@
-@import "../error-message/index";
-@import "../hint/index";
-@import "../label/index";
+@import '../error-message/index';
+@import '../hint/index';
+@import '../label/index';
 
-@include govie-exports("govie/component/select") {
+@include govie-exports('govie/component/select') {
   .govie-select {
     @include govie-font($size: 19, $line-height: 1.25);
 
@@ -15,13 +15,15 @@
     min-width: 11.5em;
     max-width: 100%;
     height: 40px;
-    padding: govie-spacing(1); // was 5px 4px 4px - size of it should be adjusted to match other form elements
+    padding: govie-spacing(
+      1
+    ); // was 5px 4px 4px - size of it should be adjusted to match other form elements
     border: $govie-border-width-form-element solid $govie-input-border-colour;
 
     // Default user agent colours for selects can have low contrast,
     // and may look disabled (#2435)
     color: $govie-text-colour;
-    background-color: govie-colour("white");
+    background-color: govie-colour('white');
 
     &:focus {
       outline: $govie-focus-width solid $govie-focus-colour;
@@ -43,8 +45,8 @@
   .govie-select option:active,
   .govie-select option:checked,
   .govie-select:focus::-ms-value {
-    color: govie-colour("white");
-    background-color: govie-colour("blue");
+    color: govie-colour('white');
+    background-color: govie-colour('blue');
   }
 
   .govie-select--error {

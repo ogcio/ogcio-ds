@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Accordion',
@@ -30,75 +30,75 @@ export default {
       },
     ],
   },
-}
+};
 
 const createSectionHeader = (accordionId, sectionData, index) => {
-  const headingSpan = document.createElement('span')
-  headingSpan.className = 'govie-accordion__section-button'
-  headingSpan.id = `${accordionId}-heading-${index}`
-  headingSpan.innerText = sectionData.heading
+  const headingSpan = document.createElement('span');
+  headingSpan.className = 'govie-accordion__section-button';
+  headingSpan.id = `${accordionId}-heading-${index}`;
+  headingSpan.innerText = sectionData.heading;
 
-  const heading = document.createElement('h2')
-  heading.className = 'govie-accordion__section-heading'
-  heading.appendChild(headingSpan)
+  const heading = document.createElement('h2');
+  heading.className = 'govie-accordion__section-heading';
+  heading.appendChild(headingSpan);
 
-  const header = document.createElement('div')
-  header.className = 'govie-accordion__section-header'
-  header.appendChild(heading)
+  const header = document.createElement('div');
+  header.className = 'govie-accordion__section-header';
+  header.appendChild(heading);
 
   if (sectionData.summary) {
-    const summary = document.createElement('div')
-    summary.className = 'govie-accordion__section-summary govie-body'
-    summary.id = `${accordionId}-summary-${index}`
-    summary.innerText = sectionData.summary
+    const summary = document.createElement('div');
+    summary.className = 'govie-accordion__section-summary govie-body';
+    summary.id = `${accordionId}-summary-${index}`;
+    summary.innerText = sectionData.summary;
 
-    header.appendChild(summary)
+    header.appendChild(summary);
   }
 
-  return header
-}
+  return header;
+};
 
 const createContent = (accordionId, contentHtml, index) => {
-  const content = document.createElement('div')
-  content.id = `${accordionId}-content-${index}`
-  content.className = 'govie-accordion__section-content'
-  content.setAttribute('aria-labelledby', `${accordionId}-${index}`)
-  content.innerHTML = contentHtml
+  const content = document.createElement('div');
+  content.id = `${accordionId}-content-${index}`;
+  content.className = 'govie-accordion__section-content';
+  content.setAttribute('aria-labelledby', `${accordionId}-${index}`);
+  content.innerHTML = contentHtml;
 
-  return content
-}
+  return content;
+};
 
 const createSection = (accordionId, sectionData, index) => {
-  const header = createSectionHeader(accordionId, sectionData, index)
-  const content = createContent(accordionId, sectionData.content, index)
+  const header = createSectionHeader(accordionId, sectionData, index);
+  const content = createContent(accordionId, sectionData.content, index);
 
-  const section = document.createElement('div')
-  section.className = 'govie-accordion__section '
-  section.appendChild(header)
-  section.appendChild(content)
+  const section = document.createElement('div');
+  section.className = 'govie-accordion__section ';
+  section.appendChild(header);
+  section.appendChild(content);
 
-  return section
-}
+  return section;
+};
 
 const Template = (args) => {
-  const accordion = document.createElement('div')
-  accordion.className = 'govie-accordion'
-  accordion.setAttribute('data-module', 'govie-accordion')
-  accordion.id = args.accordionId
+  const accordion = document.createElement('div');
+  accordion.className = 'govie-accordion';
+  accordion.setAttribute('data-module', 'govie-accordion');
+  accordion.id = args.accordionId;
 
   if (Array.isArray(args.items) && args.items.length > 0) {
     args.items.forEach((sectionData, index) => {
       // In the DOM attributes start the indexing from 1.
       accordion.appendChild(
-        createSection(args.accordionId, sectionData, index + 1)
-      )
-    })
+        createSection(args.accordionId, sectionData, index + 1),
+      );
+    });
   }
 
-  return beautifyHtmlNode(accordion)
-}
+  return beautifyHtmlNode(accordion);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   items: [
     {
@@ -122,9 +122,9 @@ Default.args = {
         "<p class='govie-body'>This is the content for How people read.</p>",
     },
   ],
-}
+};
 
-export const WithSummary = Template.bind({})
+export const WithSummary = Template.bind({});
 WithSummary.args = {
   items: [
     {
@@ -194,4 +194,4 @@ WithSummary.args = {
       </ul>`,
     },
   ],
-}
+};

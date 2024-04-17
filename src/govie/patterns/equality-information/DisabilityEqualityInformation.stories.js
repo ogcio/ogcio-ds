@@ -1,8 +1,8 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
+import { Default as radios } from '../../components/radios/Radio.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
 
 export default {
   title: 'Patterns/Equality information/Disability',
@@ -22,7 +22,7 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createDisabilityForm = () => {
   const radio = radios({
@@ -33,10 +33,10 @@ const createDisabilityForm = () => {
     options: ['Yes', 'No'],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createDisabilityImpactForm = () => {
   const radio = radios({
@@ -48,34 +48,34 @@ const createDisabilityImpactForm = () => {
     options: ['Yes, a lot', 'Yes, a little', 'No at all'],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const Template = (args) => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   switch (args.type) {
     case 'disability impact':
-      container.appendChild(createDisabilityImpactForm())
-      break
+      container.appendChild(createDisabilityImpactForm());
+      break;
     default:
-      container.append(createDisabilityForm())
+      container.append(createDisabilityForm());
   }
 
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
-  return beautifyHtmlNode(container)
-}
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
+  return beautifyHtmlNode(container);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const ImpactOfDisability = Template.bind({})
+export const ImpactOfDisability = Template.bind({});
 ImpactOfDisability.args = {
   type: 'disability impact',
-}
+};
 ImpactOfDisability.parameters = {
   docs: {
     description: {
@@ -83,4 +83,4 @@ ImpactOfDisability.parameters = {
         'If the user answers ‘yes’ for the disability, ask about the impact of their condition or illness.',
     },
   },
-}
+};

@@ -1,7 +1,7 @@
-@include govie-exports("govie/component/warning-text") {
+@include govie-exports('govie/component/warning-text') {
   .govie-warning-text {
     position: relative;
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
     padding: govie-spacing(2) 0;
   }
 
@@ -29,11 +29,11 @@
 
     // When a user customises their colours the background colour will often be removed.
     // Adding a border to the component keeps it's shape as a circle.
-    border: 3px solid govie-colour("black");
+    border: 3px solid govie-colour('black');
     border-radius: 50%;
 
-    color: govie-colour("white");
-    background: govie-colour("black");
+    color: govie-colour('white');
+    background: govie-colour('black');
 
     font-size: 30px;
     line-height: 29px;

@@ -1,10 +1,10 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as checkbox } from '../../components/checkboxes/Checkboxes.stories'
-import { Default as tick } from '../../components/tick/Tick.stories'
-import { Default as tag } from '../../components/tag/Tag.stories'
-import { Default as actions } from '../../components/actions/Actions.stories'
+import { Default as checkbox } from '../../components/checkboxes/Checkboxes.stories';
+import { Default as tick } from '../../components/tick/Tick.stories';
+import { Default as tag } from '../../components/tag/Tag.stories';
+import { Default as actions } from '../../components/actions/Actions.stories';
 
 export default {
   title: 'Application/Table',
@@ -16,7 +16,7 @@ export default {
       },
     },
   },
-}
+};
 
 const createTableHeader = () => {
   const headers = [
@@ -29,65 +29,65 @@ const createTableHeader = () => {
     'Actions',
     'Header',
     'Total',
-  ]
+  ];
 
-  const thead = document.createElement('thead')
-  thead.className = 'govie-table__head'
+  const thead = document.createElement('thead');
+  thead.className = 'govie-table__head';
 
-  const trHead = document.createElement('tr')
-  trHead.className = 'govie-table__row'
+  const trHead = document.createElement('tr');
+  trHead.className = 'govie-table__row';
 
   headers.forEach((header, index) => {
-    const th = document.createElement('th')
-    th.setAttribute('scope', 'col')
+    const th = document.createElement('th');
+    th.setAttribute('scope', 'col');
 
-    const classes = ['govie-table__header']
+    const classes = ['govie-table__header'];
     if (index === headers.length - 1) {
-      classes.push('govie-table__header--numeric')
+      classes.push('govie-table__header--numeric');
     }
 
-    th.className = classes.join(' ')
-    th.innerText = header
+    th.className = classes.join(' ');
+    th.innerText = header;
 
     if (header === '') {
-      th.innerHTML = '<span class="govie-visually-hidden">Check column</span>'
+      th.innerHTML = '<span class="govie-visually-hidden">Check column</span>';
     }
 
-    trHead.appendChild(th)
-  })
+    trHead.appendChild(th);
+  });
 
-  thead.appendChild(trHead)
-  return thead
-}
+  thead.appendChild(trHead);
+  return thead;
+};
 
 const createTableCell = (cell, firstColumn, numeric) => {
   if (firstColumn) {
-    const th = document.createElement('th')
+    const th = document.createElement('th');
     th.className =
-      'govie-table__header govie-table__header--vertical-centralized govie-body-s'
-    th.setAttribute('scope', 'row')
-    th.innerHTML = cell
+      'govie-table__header govie-table__header--vertical-centralized govie-body-s';
+    th.setAttribute('scope', 'row');
+    th.innerHTML = cell;
 
-    return th
+    return th;
   } else {
-    const td = document.createElement('td')
+    const td = document.createElement('td');
 
     const classes = [
       'govie-table__cell',
       'govie-table__cell--vertical-centralized',
       'govie-body-s',
-    ]
+    ];
 
     if (numeric) {
-      classes.push('govie-table__cell--numeric')
+      classes.push('govie-table__cell--numeric');
     }
 
-    td.className = classes.join(' ')
-    td.innerHTML = cell
+    td.className = classes.join(' ');
+    td.innerHTML = cell;
 
-    return td
+    return td;
   }
-}
+};
 
 const createTableRow = ({ text, type }, total, index) => {
   const formattedCheckbox = checkbox({
@@ -95,7 +95,7 @@ const createTableRow = ({ text, type }, total, index) => {
     useSmallerBoxes: true,
     fieldId: `checkbox-${index}`,
     hiddenLabel: true,
-  })
+  });
 
   const row = [
     { cell: 'Row Leader', firstColumn: true },
@@ -107,17 +107,17 @@ const createTableRow = ({ text, type }, total, index) => {
     { cell: parseHtmlString(actions({ type: 'icons' })).outerHTML },
     { cell: parseHtmlString(actions({ type: 'links' })).outerHTML },
     { cell: total, numeric: true },
-  ]
+  ];
 
-  const tr = document.createElement('tr')
-  tr.className = 'govie-table__row'
+  const tr = document.createElement('tr');
+  tr.className = 'govie-table__row';
 
   row.forEach(({ cell, firstColumn, numeric }) => {
-    tr.appendChild(createTableCell(cell, firstColumn, numeric))
-  })
+    tr.appendChild(createTableCell(cell, firstColumn, numeric));
+  });
 
-  return tr
-}
+  return tr;
+};
 
 const createTableBody = () => {
   const tableData = [
@@ -129,29 +129,29 @@ const createTableBody = () => {
     { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
     { tag: { text: 'Rejected', type: 'red' }, total: '12345' },
     { tag: { text: 'Pending', type: 'blue' }, total: '74,070' },
-  ]
+  ];
 
-  const tbody = document.createElement('tbody')
-  tbody.className = 'govie-table__body'
+  const tbody = document.createElement('tbody');
+  tbody.className = 'govie-table__body';
 
   tableData.forEach(({ tag, total }, index) => {
     tbody.appendChild(
-      createTableRow({ text: tag.text, type: tag.type }, total, index)
-    )
-  })
+      createTableRow({ text: tag.text, type: tag.type }, total, index),
+    );
+  });
 
-  return tbody
-}
+  return tbody;
+};
 
 const Template = () => {
-  const table = document.createElement('table')
-  table.className = 'govie-table'
+  const table = document.createElement('table');
+  table.className = 'govie-table';
 
-  table.appendChild(createTableHeader())
-  table.appendChild(createTableBody())
+  table.appendChild(createTableHeader());
+  table.appendChild(createTableBody());
 
-  return beautifyHtmlNode(table)
-}
+  return beautifyHtmlNode(table);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

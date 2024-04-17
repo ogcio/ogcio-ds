@@ -1,11 +1,11 @@
-@import "../error-message/index";
-@import "../hint/index";
-@import "../label/index";
-@import "../textarea/index";
+@import '../error-message/index';
+@import '../hint/index';
+@import '../label/index';
+@import '../textarea/index';
 
-@include govie-exports("govie/component/character-count") {
+@include govie-exports('govie/component/character-count') {
   .govie-character-count {
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
 
     .govie-form-group,
     .govie-textarea {

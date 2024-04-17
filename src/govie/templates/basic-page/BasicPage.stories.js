@@ -1,5 +1,5 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import { logoImage } from '../../storybook/svgImages'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import { logoImage } from '../../storybook/svgImages';
 
 export default {
   title: 'Templates/Basic page',
@@ -10,10 +10,10 @@ export default {
       },
     },
   },
-}
+};
 
 const Template = () => {
-  const html = document.createElement('html')
+  const html = document.createElement('html');
   html.innerHTML = `<!DOCTYPE html>
   <html lang="en" class="govie-template ">
   
@@ -77,9 +77,9 @@ const Template = () => {
     </script>
   </body>
   
-  </html>`
-  return beautifyHtmlNode(html)
-}
+  </html>`;
+  return beautifyHtmlNode(html);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

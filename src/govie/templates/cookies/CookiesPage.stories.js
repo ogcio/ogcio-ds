@@ -1,13 +1,13 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
+import { createBody } from '../../../../.storybook/helpers/commonPageComponents';
 
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as lists } from '../../components/typography/Lists.stories'
-import { Default as table } from '../../components/table/Table.stories'
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as paragraph } from '../../components/typography/Paragraph.stories';
+import { Default as lists } from '../../components/typography/Lists.stories';
+import { Default as table } from '../../components/table/Table.stories';
+import { Default as radios } from '../../components/radios/Radio.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
 
 export default {
   title: 'Templates/Cookies',
@@ -20,50 +20,50 @@ export default {
       },
     },
   },
-}
+};
 
 const createColumn = () => {
-  const column = document.createElement('div')
-  column.className = 'govie-grid-column-two-thirds'
+  const column = document.createElement('div');
+  column.className = 'govie-grid-column-two-thirds';
 
   const cookiesHeading = parseHtmlString(
     heading({
       text: 'Cookies',
       size: 'l',
       captionSize: 'l',
-    })
-  )
-  column.appendChild(cookiesHeading)
+    }),
+  );
+  column.appendChild(cookiesHeading);
 
   const firstIntroParagraph = parseHtmlString(
     paragraph({
       text: 'Cookies are small files saved on your phone, tablet or computer when you visit a website.',
-    })
-  )
-  column.appendChild(firstIntroParagraph)
+    }),
+  );
+  column.appendChild(firstIntroParagraph);
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
       text: 'We use cookies to make GOV.UK Notify work and collect information about how you use our service.',
-    })
-  )
-  column.appendChild(secondIntroParagraph)
+    }),
+  );
+  column.appendChild(secondIntroParagraph);
 
   const essentialCookiesHeading = parseHtmlString(
     heading({
       text: 'Essential cookies',
       size: 'm',
       captionSize: 'm',
-    })
-  )
-  column.appendChild(essentialCookiesHeading)
+    }),
+  );
+  column.appendChild(essentialCookiesHeading);
 
   const essentialCookiesParagraph = parseHtmlString(
     paragraph({
       text: 'Essential cookies keep your information secure while you use Notify. We do not need to ask permission to use them.',
-    })
-  )
-  column.appendChild(essentialCookiesParagraph)
+    }),
+  );
+  column.appendChild(essentialCookiesParagraph);
 
   const essentialCookiesTable = parseHtmlString(
     table({
@@ -72,39 +72,39 @@ const createColumn = () => {
         ['notify_admin_session', 'Used to keep you signed in', '20 hours'],
         ['cookie_policy', 'Saves your cookie consent settings', '1 year'],
       ],
-    })
-  )
-  column.appendChild(essentialCookiesTable)
+    }),
+  );
+  column.appendChild(essentialCookiesTable);
 
   const analyticsCookiesHeading = parseHtmlString(
     heading({
       text: 'Analytics cookies (optional)',
       size: 'm',
       captionSize: 'm',
-    })
-  )
-  column.appendChild(analyticsCookiesHeading)
+    }),
+  );
+  column.appendChild(analyticsCookiesHeading);
 
   const firstAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
       text: 'With your permission, we use Google Analytics to collect data about how you use Notify. This information helps us to improve our service.',
-    })
-  )
-  column.appendChild(firstAnalyticsCookiesParagraph)
+    }),
+  );
+  column.appendChild(firstAnalyticsCookiesParagraph);
 
   const secondAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
       text: 'Google is not allowed to use or share our analytics data with anyone.',
-    })
-  )
-  column.appendChild(secondAnalyticsCookiesParagraph)
+    }),
+  );
+  column.appendChild(secondAnalyticsCookiesParagraph);
 
   const thirdAnalyticsCookiesParagraph = parseHtmlString(
     paragraph({
       text: 'Google Analytics stores anonymised information about:',
-    })
-  )
-  column.appendChild(thirdAnalyticsCookiesParagraph)
+    }),
+  );
+  column.appendChild(thirdAnalyticsCookiesParagraph);
 
   const googleAnalyticsInfoList = parseHtmlString(
     lists({
@@ -114,9 +114,9 @@ const createColumn = () => {
         'any errors you see while using [service]',
       ],
       type: 'bullet',
-    })
-  )
-  column.appendChild(googleAnalyticsInfoList)
+    }),
+  );
+  column.appendChild(googleAnalyticsInfoList);
 
   const analyticsCookiesTable = parseHtmlString(
     table({
@@ -133,11 +133,11 @@ const createColumn = () => {
           '24 hours',
         ],
       ],
-    })
-  )
-  column.appendChild(analyticsCookiesTable)
+    }),
+  );
+  column.appendChild(analyticsCookiesTable);
 
-  const form = document.createElement('form')
+  const form = document.createElement('form');
 
   const acceptRadioButtons = parseHtmlString(
     radios({
@@ -145,37 +145,37 @@ const createColumn = () => {
       label: 'Do you want to accept analytics cookies?',
       size: 'medium',
       inline: true,
-      id: 'accept-analytics'
-    })
-  )
-  form.appendChild(acceptRadioButtons)
+      id: 'accept-analytics',
+    }),
+  );
+  form.appendChild(acceptRadioButtons);
 
   const saveSettingsButton = parseHtmlString(
-    button({ label: 'Save cookie settings' })
-  )
-  form.appendChild(saveSettingsButton)
+    button({ label: 'Save cookie settings' }),
+  );
+  form.appendChild(saveSettingsButton);
 
-  column.appendChild(form)
+  column.appendChild(form);
 
-  return column
-}
+  return column;
+};
 
 const createMainWrapper = () => {
-  const row = document.createElement('div')
-  row.className = 'govie-grid-row'
-  row.appendChild(createColumn())
+  const row = document.createElement('div');
+  row.className = 'govie-grid-row';
+  row.appendChild(createColumn());
 
-  const mainWrapper = document.createElement('div')
-  mainWrapper.className = 'govie-main-wrapper govie-width-container'
-  mainWrapper.appendChild(row)
+  const mainWrapper = document.createElement('div');
+  mainWrapper.className = 'govie-main-wrapper govie-width-container';
+  mainWrapper.appendChild(row);
 
-  return mainWrapper
-}
+  return mainWrapper;
+};
 
 const Template = (args) => {
-  const body = createBody({ mainContent: createMainWrapper() })
-  return beautifyHtmlNode(body)
-}
+  const body = createBody({ mainContent: createMainWrapper() });
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

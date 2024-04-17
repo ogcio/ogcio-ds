@@ -1,12 +1,12 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as link } from '../../components/typography/Link.stories'
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as list } from '../../components/typography/Lists.stories'
-import { Default as insetText } from '../../components/inset-text/InsetText.stories'
-import { Default as details } from '../../components/details/Details.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories';
+import { Default as link } from '../../components/typography/Link.stories';
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as list } from '../../components/typography/Lists.stories';
+import { Default as insetText } from '../../components/inset-text/InsetText.stories';
+import { Default as details } from '../../components/details/Details.stories';
 
 export default {
   title: 'Patterns/Contact a department or service',
@@ -27,35 +27,35 @@ export default {
   args: {
     type: 'Full',
   },
-}
+};
 
 const createHeading = (text, size = 's', element = 'h3') =>
-  parseHtmlString(heading({ text, size, element }))
+  parseHtmlString(heading({ text, size, element }));
 
-const createParagraph = (text) => parseHtmlString(paragraph({ text }))
+const createParagraph = (text) => parseHtmlString(paragraph({ text }));
 
 const createParagraphLink = (text) => {
-  const noReceivedLink = link({ label: text })
-  const linkParagraph = paragraph({ text: noReceivedLink })
+  const noReceivedLink = link({ label: text });
+  const linkParagraph = paragraph({ text: noReceivedLink });
 
-  return linkParagraph
-}
+  return linkParagraph;
+};
 
 const createListContactList = ({ title, items }) => [
   createHeading(title),
   parseHtmlString(list({ items })),
-]
+];
 
 const createFullPage = (args) => {
-  const components = []
+  const components = [];
 
-  components.push(createHeading('Get help with your application', 'm', 'h2' ))
-  components.push(createHeading('Telephone'))
+  components.push(createHeading('Get help with your application', 'm', 'h2'));
+  components.push(createHeading('Telephone'));
   components.push(
     createParagraph(
-      'If you have a unique reference number, have it with you when you call.'
-    )
-  )
+      'If you have a unique reference number, have it with you when you call.',
+    ),
+  );
 
   const infoList = parseHtmlString(
     list({
@@ -65,12 +65,12 @@ const createFullPage = (args) => {
         'Monday to Friday, 8am to 6pm',
         'Saturday and Sunday, 10am to 4pm',
       ],
-    })
-  )
-  components.push(infoList)
+    }),
+  );
+  components.push(infoList);
   components.push(
-    parseHtmlString(createParagraphLink('Find out about call charges'))
-  )
+    parseHtmlString(createParagraphLink('Find out about call charges')),
+  );
 
   components.push(
     ...createListContactList({
@@ -79,8 +79,8 @@ const createFullPage = (args) => {
         link({ label: 'name@example.com' }),
         'We aim to respond within 2 working days',
       ],
-    })
-  )
+    }),
+  );
 
   components.push(
     ...createListContactList({
@@ -89,29 +89,29 @@ const createFullPage = (args) => {
         link({ label: 'Speak to an adviser now' }),
         'Current waiting time is 17 minutes',
       ],
-    })
-  )
+    }),
+  );
 
-  components.push(createHeading('Address'))
+  components.push(createHeading('Address'));
   components.push(
-    createParagraph('Address line 1<br>Address line 2<br>City<br>Eir code')
-  )
+    createParagraph('Address line 1<br>Address line 2<br>City<br>Eir code'),
+  );
 
-  components.push(createHeading('Social media'))
+  components.push(createHeading('Social media'));
   components.push(
     createParagraph(
-      'You can use Twitter to get general help. We cannot discuss specific cases or individual applications, so please do not give any personal details.'
-    )
-  )
-  components.push(createParagraph('Twitter: @govdotie'))
+      'You can use Twitter to get general help. We cannot discuss specific cases or individual applications, so please do not give any personal details.',
+    ),
+  );
+  components.push(createParagraph('Twitter: @govdotie'));
 
-  return components
-}
+  return components;
+};
 
 const createContactInformation = () => {
-  const components = []
+  const components = [];
 
-  components.push(createHeading('Talk to an advisor', 'm', 'h2'))
+  components.push(createHeading('Talk to an advisor', 'm', 'h2'));
 
   const contactList = parseHtmlString(
     list({
@@ -120,18 +120,18 @@ const createContactInformation = () => {
         'Textphone: 000 000000',
         'Monday to Friday, 9am to 5pm (except public holidays)',
       ],
-    })
-  )
-  components.push(contactList)
+    }),
+  );
+  components.push(contactList);
   components.push(
-    parseHtmlString(createParagraphLink('Find out about call charges'))
-  )
+    parseHtmlString(createParagraphLink('Find out about call charges')),
+  );
 
-  const container = parseHtmlString(insetText({ text: '' }))
-  components.forEach((item) => container.appendChild(item))
+  const container = parseHtmlString(insetText({ text: '' }));
+  components.forEach((item) => container.appendChild(item));
 
-  return container
-}
+  return container;
+};
 
 const createExpandingContactInformation = () => {
   const contactsList = list({
@@ -140,55 +140,55 @@ const createExpandingContactInformation = () => {
       'Monday to Friday, 8am to 6pm (except public holidays)',
       'Saturday and Sunday, 10am to 4pm',
     ],
-  })
+  });
 
-  const chargesText = createParagraphLink('Find out about call charges')
+  const chargesText = createParagraphLink('Find out about call charges');
 
   const emailList = list({
     items: [
       link({ label: 'name@example.com' }),
       'We aim to respond within 2 working days',
     ],
-  })
+  });
 
   return parseHtmlString(
     details({
       summary: 'If you need help completing this form',
       text: `${contactsList} ${chargesText} ${emailList}`,
-    })
-  )
-}
+    }),
+  );
+};
 
 const createMainWrapper = (args) => {
   if (args.type === 'Contact information') {
-    return createContactInformation()
+    return createContactInformation();
   } else if (args.type === 'Expading contact information') {
-    return createExpandingContactInformation()
+    return createExpandingContactInformation();
   }
 
-  const mainWrapper = document.createElement('div')
-  const content = createFullPage(args)
+  const mainWrapper = document.createElement('div');
+  const content = createFullPage(args);
   content.forEach((item) => {
-    mainWrapper.appendChild(item)
-  })
+    mainWrapper.appendChild(item);
+  });
 
-  return mainWrapper
-}
+  return mainWrapper;
+};
 
 const Template = (args) => {
-  const body = createMainWrapper(args)
-  return beautifyHtmlNode(body)
-}
+  const body = createMainWrapper(args);
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const ContactInformation = Template.bind({})
+export const ContactInformation = Template.bind({});
 ContactInformation.args = {
   type: 'Contact information',
-}
+};
 
-export const ExpandingContactInformation = Template.bind({})
+export const ExpandingContactInformation = Template.bind({});
 ExpandingContactInformation.args = {
   type: 'Expading contact information',
-}
+};

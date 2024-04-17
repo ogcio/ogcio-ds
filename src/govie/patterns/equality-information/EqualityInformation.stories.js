@@ -1,12 +1,12 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as details } from '../../components/details/Details.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
-import { Default as dateInput } from '../../components/date-input/DateInput.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories';
+import { Default as radios } from '../../components/radios/Radio.stories';
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as details } from '../../components/details/Details.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
+import { Default as dateInput } from '../../components/date-input/DateInput.stories';
 
 export default {
   title: 'Patterns/Equality information',
@@ -35,22 +35,22 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createEquityForm = () => {
-  const container = []
+  const container = [];
 
   container.push(
-    parseHtmlString(heading({ text: 'We have received your application' }))
-  )
+    parseHtmlString(heading({ text: 'We have received your application' })),
+  );
 
   container.push(
     parseHtmlString(
       paragraph({
         text: 'Before you finish using the service, we’d like to ask some equality questions.',
-      })
-    )
-  )
+      }),
+    ),
+  );
 
   container.push(
     parseHtmlString(
@@ -67,31 +67,31 @@ const createEquityForm = () => {
         <p class="govie-!-margin-top-0">These questions are optional. [Add a couple of sentences explaining why you’re asking the questions and what you’ll do with the information].</p>
         <p>Your answers will not affect your application.</p>
       `,
-      })
-    )
-  )
+      }),
+    ),
+  );
 
   container.push(
     parseHtmlString(
       details({
         summary: 'Why we ask equality questions',
         text: '[Consider adding an optional longer explanation of what you’re asking the questions and what you’ll do with the information].',
-      })
-    )
-  )
+      }),
+    ),
+  );
 
-  return container
-}
+  return container;
+};
 
 const createBirthForm = () => {
   const date = dateInput({
     legend: 'What is your date of birth?',
     hint: 'For example, 31 3 1980. If you prefer not to say, continue without entering any information.',
     legendAsHeading: true,
-  })
+  });
 
-  return parseHtmlString(date)
-}
+  return parseHtmlString(date);
+};
 
 const createMarriageForm = () => {
   const radio = radios({
@@ -111,10 +111,10 @@ const createMarriageForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createReligionForm = () => {
   const radio = radios({
@@ -137,24 +137,26 @@ const createReligionForm = () => {
       null,
       'Including Church of England, Catholic, Protestant and all other Christian denominations.',
     ],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const createSexAndGenderForm = () => {
-  const components = []
+  const components = [];
 
-  components.push(parseHtmlString(heading({ text: 'Sex and gender identity' })))
+  components.push(
+    parseHtmlString(heading({ text: 'Sex and gender identity' })),
+  );
 
   const sexRadio = radios({
     id: 'sex',
     size: 'medium',
     label: 'What is your sex?',
     options: ['Female', 'Male', 'Prefer not to say'],
-  })
+  });
 
-  components.push(parseHtmlString(sexRadio))
+  components.push(parseHtmlString(sexRadio));
 
   const identify = radios({
     id: 'gender-identity',
@@ -162,11 +164,11 @@ const createSexAndGenderForm = () => {
     label:
       'Is the gender you identify with the same as your sex registered at birth?',
     options: ['Yes', 'No', 'Prefer not to say'],
-  })
+  });
 
-  components.push(parseHtmlString(identify))
-  return components
-}
+  components.push(parseHtmlString(identify));
+  return components;
+};
 
 const createSexualOrientationForm = () => {
   const radio = radios({
@@ -181,58 +183,58 @@ const createSexualOrientationForm = () => {
     ],
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const Template = (args) => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   switch (args.type) {
     case 'birthdate':
-      container.appendChild(createBirthForm())
-      break
+      container.appendChild(createBirthForm());
+      break;
     case 'marriage or civil partnership status':
-      container.appendChild(createMarriageForm())
-      break
+      container.appendChild(createMarriageForm());
+      break;
     case 'religion':
-      container.appendChild(createReligionForm())
-      break
+      container.appendChild(createReligionForm());
+      break;
     case 'sex and gender':
-      container.append(...createSexAndGenderForm())
-      break
+      container.append(...createSexAndGenderForm());
+      break;
     case 'sexual orientation':
-      container.append(createSexualOrientationForm())
-      break
+      container.append(createSexualOrientationForm());
+      break;
     default:
-      container.append(...createEquityForm())
+      container.append(...createEquityForm());
   }
 
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
-  return beautifyHtmlNode(container)
-}
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
+  return beautifyHtmlNode(container);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const DateOfBirth = Template.bind({})
+export const DateOfBirth = Template.bind({});
 DateOfBirth.args = {
   type: 'birthdate',
-}
+};
 DateOfBirth.parameters = {
   docs: {
     description: {
       story: 'Use this approach to ask for the user’s date of birth.',
     },
   },
-}
+};
 
-export const Marriage = Template.bind({})
+export const Marriage = Template.bind({});
 Marriage.args = {
   type: 'marriage or civil partnership status',
-}
+};
 Marriage.parameters = {
   docs: {
     description: {
@@ -240,19 +242,19 @@ Marriage.parameters = {
         'Use this approach to ask about marriage or civil partnership status.',
     },
   },
-}
+};
 
-export const Religion = Template.bind({})
+export const Religion = Template.bind({});
 Religion.args = {
   type: 'religion',
-}
+};
 
-export const SexAndGender = Template.bind({})
+export const SexAndGender = Template.bind({});
 SexAndGender.args = {
   type: 'sex and gender',
-}
+};
 
-export const SexualOrientation = Template.bind({})
+export const SexualOrientation = Template.bind({});
 SexualOrientation.args = {
   type: 'sexual orientation',
-}
+};

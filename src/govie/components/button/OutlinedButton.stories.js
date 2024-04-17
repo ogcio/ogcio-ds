@@ -1,50 +1,50 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import primary, { Default as button } from './PrimaryButton.stories'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
+import primary, { Default as button } from './PrimaryButton.stories';
 
 export default {
   ...primary,
   title: 'Form/Button/Outlined button',
-}
+};
 
 const Template = (args) => {
-  const btn = parseHtmlString(button(args))
-  btn.className = [...btn.classList, 'govie-button--outlined'].join(' ')
+  const btn = parseHtmlString(button(args));
+  btn.className = [...btn.classList, 'govie-button--outlined'].join(' ');
 
-  return beautifyHtmlNode(btn)
-}
+  return beautifyHtmlNode(btn);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   label: 'Outlined button',
-}
+};
 
-export const Medium = Template.bind({})
+export const Medium = Template.bind({});
 Medium.args = {
   label: 'Medium outlined button',
   size: 'medium',
-}
+};
 
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
   label: 'Small outlined button',
   size: 'small',
-}
+};
 
-export const WithLeftIcon = Template.bind({})
+export const WithLeftIcon = Template.bind({});
 WithLeftIcon.args = {
   label: 'Outlined button with left icon',
   icon: 'left',
-}
+};
 
-export const WithRightIcon = Template.bind({})
+export const WithRightIcon = Template.bind({});
 WithRightIcon.args = {
   label: 'Outlined button with right icon',
   icon: 'right',
-}
+};
 
-export const Disabled = Template.bind({})
+export const Disabled = Template.bind({});
 Disabled.args = {
   label: 'Disabled outlined button',
   disabled: true,
-}
+};

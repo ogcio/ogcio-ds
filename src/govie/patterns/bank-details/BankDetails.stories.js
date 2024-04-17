@@ -1,10 +1,10 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as input } from '../../components/input/TextInput.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
-import { Default as radios } from '../../components/radios/Radio.stories'
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as input } from '../../components/input/TextInput.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
+import { Default as radios } from '../../components/radios/Radio.stories';
 
 export default {
   title: 'Patterns/Bank details',
@@ -30,7 +30,7 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createInput = ({
   id,
@@ -49,61 +49,61 @@ const createInput = ({
     autocomplete,
     errorMessage,
     hint,
-  })
+  });
 
-  return parseHtmlString(bankInput)
-}
+  return parseHtmlString(bankInput);
+};
 
 const createForm = () => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   container.appendChild(
     parseHtmlString(
-      heading({ text: 'Bank or building society account details' })
-    )
-  )
+      heading({ text: 'Bank or building society account details' }),
+    ),
+  );
 
   const name = createInput({
     id: 'name-on-the-account',
     label: 'Name on the account',
     autocomplete: 'name',
-  })
-  name.setAttribute('spellcheck', false)
-  container.appendChild(name)
+  });
+  name.setAttribute('spellcheck', false);
+  container.appendChild(name);
 
   const sortCode = createInput({
     id: 'sort-code',
     label: 'Sort code',
     inputExtraClasses: 'govie-input--width-5',
-  })
-  sortCode.setAttribute('spellcheck', false)
-  sortCode.setAttribute('inputmode', 'numeric')
-  container.appendChild(sortCode)
+  });
+  sortCode.setAttribute('spellcheck', false);
+  sortCode.setAttribute('inputmode', 'numeric');
+  container.appendChild(sortCode);
 
   const accountNumber = createInput({
     id: 'account-number',
     label: 'Account number',
     hint: 'Must be between 6 and 8 digits long',
     inputExtraClasses: 'govie-input--width-10',
-  })
-  accountNumber.setAttribute('spellcheck', false)
-  accountNumber.setAttribute('inputmode', 'numeric')
-  container.appendChild(accountNumber)
+  });
+  accountNumber.setAttribute('spellcheck', false);
+  accountNumber.setAttribute('inputmode', 'numeric');
+  container.appendChild(accountNumber);
 
   const societyRollNumber = createInput({
     id: 'roll-number',
     label: 'Building society roll number (if you have one)',
     hint: 'You can find it on your card, statement or passbook',
     inputExtraClasses: 'govie-input--width-10',
-  })
-  societyRollNumber.setAttribute('spellcheck', false)
-  container.appendChild(societyRollNumber)
+  });
+  societyRollNumber.setAttribute('spellcheck', false);
+  container.appendChild(societyRollNumber);
 
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
 
-  return container
-}
+  return container;
+};
 
 const createFormWithError = () => {
   const inputError = createInput({
@@ -113,17 +113,17 @@ const createFormWithError = () => {
     inputExtraClasses: 'govie-input--width-5',
     value: 12,
     hint: 'Must be 6 digits long',
-  })
+  });
 
-  inputError.setAttribute('inputmode', 'numeric')
-  inputError.setAttribute('spellcheck', false)
+  inputError.setAttribute('inputmode', 'numeric');
+  inputError.setAttribute('spellcheck', false);
 
-  return inputError
-}
+  return inputError;
+};
 
 const createPaymentForm = () => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   const radio = radios({
     id: 'method-of-payment',
@@ -136,73 +136,73 @@ const createPaymentForm = () => {
       'None of the above',
     ],
     optionsHint: [null, null, null, "We'll contact you to arrange payment"],
-  })
+  });
 
-  container.appendChild(parseHtmlString(radio))
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
+  container.appendChild(parseHtmlString(radio));
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
 
-  return container
-}
+  return container;
+};
 
 const createInternationalBankAccountForm = () => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   const bicCode = createInput({
     id: 'bic-code',
     label: 'BIC or SWIFT code',
     inputExtraClasses: 'govie-input--width-10',
     hint: 'Must be between 8 and 11 characters long. You can ask your bank or check your bank statement',
-  })
-  bicCode.setAttribute('spellcheck', false)
-  container.appendChild(bicCode)
+  });
+  bicCode.setAttribute('spellcheck', false);
+  container.appendChild(bicCode);
 
   const iban = createInput({
     id: 'iban',
     label: 'IBAN',
     inputExtraClasses: 'govie-input--width-10',
     hint: 'You can ask your bank or check your bank statement',
-  })
-  iban.setAttribute('spellcheck', false)
+  });
+  iban.setAttribute('spellcheck', false);
 
-  container.appendChild(iban)
-  return container
-}
+  container.appendChild(iban);
+  return container;
+};
 
 const Template = (args) => {
   switch (args.type) {
     case 'with error':
-      return beautifyHtmlNode(createFormWithError())
+      return beautifyHtmlNode(createFormWithError());
     case 'branching question':
-      return beautifyHtmlNode(createPaymentForm())
+      return beautifyHtmlNode(createPaymentForm());
     case 'international bank account details':
-      return beautifyHtmlNode(createInternationalBankAccountForm())
+      return beautifyHtmlNode(createInternationalBankAccountForm());
     default:
-      return beautifyHtmlNode(createForm())
+      return beautifyHtmlNode(createForm());
   }
-}
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const PaymentForm = Template.bind({})
+export const PaymentForm = Template.bind({});
 PaymentForm.args = {
   type: 'branching question',
-}
+};
 
-export const InternationalBankAccountDetails = Template.bind({})
+export const InternationalBankAccountDetails = Template.bind({});
 InternationalBankAccountDetails.args = {
   type: 'international bank account details',
-}
+};
 
-export const WithError = Template.bind({})
+export const WithError = Template.bind({});
 WithError.parameters = {
   docs: {
     description: {
       story: 'Error messages should be styled like this:',
     },
   },
-}
+};
 WithError.args = {
   type: 'with error',
-}
+};

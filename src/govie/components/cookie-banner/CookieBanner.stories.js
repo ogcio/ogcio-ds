@@ -1,5 +1,5 @@
-import { cookie } from 'express-validator'
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import { cookie } from 'express-validator';
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Cookie banner',
@@ -23,132 +23,133 @@ export default {
   args: {
     confirmed: false,
   },
-}
+};
 
 const createContent = (title, confirmed, cookie) => {
-  const row = document.createElement('div')
-  row.className = 'govie-grid-row'
+  const row = document.createElement('div');
+  row.className = 'govie-grid-row';
 
-  const rowContent = document.createElement('div')
-  rowContent.className = 'govie-grid-column-two-thirds'
+  const rowContent = document.createElement('div');
+  rowContent.className = 'govie-grid-column-two-thirds';
 
-  const cookieContent = document.createElement('div')
-  cookieContent.className = 'govie-cookie-banner__content'
+  const cookieContent = document.createElement('div');
+  cookieContent.className = 'govie-cookie-banner__content';
 
   if (confirmed) {
-    cookieContent.innerHTML = `<p class="govie-body">You’ve ${cookie} analytics cookies. You can <a class="govie-link" href="#">change your cookie settings</a> at any time.</p>`
+    cookieContent.innerHTML = `<p class="govie-body">You’ve ${cookie} analytics cookies. You can <a class="govie-link" href="#">change your cookie settings</a> at any time.</p>`;
   } else {
     cookieContent.innerHTML = `
     <p class="govie-body">We use some essential cookies to make this service work.</p>
-    <p class="govie-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>`
+    <p class="govie-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>`;
 
-    const cookieTitle = document.createElement('h2')
-    cookieTitle.className = 'govie-cookie-banner__heading govie-heading-m'
-    cookieTitle.innerText = title
+    const cookieTitle = document.createElement('h2');
+    cookieTitle.className = 'govie-cookie-banner__heading govie-heading-m';
+    cookieTitle.innerText = title;
 
-    rowContent.appendChild(cookieTitle)
+    rowContent.appendChild(cookieTitle);
   }
 
-  rowContent.appendChild(cookieContent)
+  rowContent.appendChild(cookieContent);
 
-  row.appendChild(rowContent)
-  return row
-}
+  row.appendChild(rowContent);
+  return row;
+};
 
 const createButton = (label, value) => {
-  const button = document.createElement('button')
-  button.setAttribute('data-module', 'govie-button')
+  const button = document.createElement('button');
+  button.setAttribute('data-module', 'govie-button');
 
-  button.className = 'govie-button'
-  button.innerText = label
+  button.className = 'govie-button';
+  button.innerText = label;
 
   if (value) {
-    button.value = value
-    button.setAttribute('type', 'button')
-    button.setAttribute('name', 'cookies')
+    button.value = value;
+    button.setAttribute('type', 'button');
+    button.setAttribute('name', 'cookies');
   }
 
-  return button
-}
+  return button;
+};
 
 const createActions = (confirmed) => {
-  const buttonGroup = document.createElement('div')
-  buttonGroup.className = 'govie-inline-button-group'
+  const buttonGroup = document.createElement('div');
+  buttonGroup.className = 'govie-inline-button-group';
 
   if (confirmed) {
-    const hideButton = createButton('Hide cookie message')
-    buttonGroup.appendChild(hideButton)
+    const hideButton = createButton('Hide cookie message');
+    buttonGroup.appendChild(hideButton);
   } else {
-    const acceptButton = createButton('Accept analytics cookies', 'accept')
-    const rejectButton = createButton('Reject analytics cookies', 'reject')
+    const acceptButton = createButton('Accept analytics cookies', 'accept');
+    const rejectButton = createButton('Reject analytics cookies', 'reject');
 
-    buttonGroup.appendChild(acceptButton)
-    buttonGroup.appendChild(rejectButton)
+    buttonGroup.appendChild(acceptButton);
+    buttonGroup.appendChild(rejectButton);
 
-    const link = document.createElement('a')
-    link.className = 'govie-link'
-    link.href = '#'
-    link.innerText = 'View Cookies'
+    const link = document.createElement('a');
+    link.className = 'govie-link';
+    link.href = '#';
+    link.innerText = 'View Cookies';
 
-    buttonGroup.appendChild(link)
+    buttonGroup.appendChild(link);
   }
 
-  return buttonGroup
-}
+  return buttonGroup;
+};
 
 const createCookieMessage = (
   title,
   confirmationMessage,
   showConfirmation,
-  cookieOption
+  cookieOption,
 ) => {
-  const cookieContent = document.createElement('div')
-  cookieContent.className = 'govie-cookie-banner__message govie-width-container'
-  cookieContent.hidden = showConfirmation
+  const cookieContent = document.createElement('div');
+  cookieContent.className =
+    'govie-cookie-banner__message govie-width-container';
+  cookieContent.hidden = showConfirmation;
 
   cookieContent.appendChild(
-    createContent(title, confirmationMessage, cookieOption)
-  )
-  cookieContent.appendChild(createActions(confirmationMessage))
+    createContent(title, confirmationMessage, cookieOption),
+  );
+  cookieContent.appendChild(createActions(confirmationMessage));
 
-  return cookieContent
-}
+  return cookieContent;
+};
 
 const Template = (args) => {
-  const title = 'Cookies on [name of service]'
+  const title = 'Cookies on [name of service]';
 
-  const cookieContainer = document.createElement('div')
-  cookieContainer.className = 'govie-cookie-banner'
+  const cookieContainer = document.createElement('div');
+  cookieContainer.className = 'govie-cookie-banner';
 
-  cookieContainer.setAttribute('role', 'region')
-  cookieContainer.setAttribute('aria-label', title)
-  cookieContainer.setAttribute('data-nosnippet', true)
+  cookieContainer.setAttribute('role', 'region');
+  cookieContainer.setAttribute('aria-label', title);
+  cookieContainer.setAttribute('data-nosnippet', true);
 
-  const cookieContent = createCookieMessage(title, false, args.confirmed)
+  const cookieContent = createCookieMessage(title, false, args.confirmed);
   const cookieAnswerContent = createCookieMessage(
     title,
     true,
     !args.confirmed,
-    args.cookieOption
-  )
+    args.cookieOption,
+  );
 
-  cookieContainer.appendChild(cookieContent)
-  cookieContainer.appendChild(cookieAnswerContent)
+  cookieContainer.appendChild(cookieContent);
+  cookieContainer.appendChild(cookieAnswerContent);
 
-  return beautifyHtmlNode(cookieContainer)
-}
+  return beautifyHtmlNode(cookieContainer);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const CookieAccepted = Template.bind({})
+export const CookieAccepted = Template.bind({});
 CookieAccepted.args = {
   confirmed: true,
   cookieOption: 'accepted',
-}
+};
 
-export const CookiesRejected = Template.bind({})
+export const CookiesRejected = Template.bind({});
 CookiesRejected.args = {
   confirmed: true,
   cookieOption: 'rejected',
-}
+};

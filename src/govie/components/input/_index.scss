@@ -1,8 +1,8 @@
-@import "../error-message/index";
-@import "../hint/index";
-@import "../label/index";
+@import '../error-message/index';
+@import '../hint/index';
+@import '../label/index';
 
-@include govie-exports("govie/component/input") {
+@include govie-exports('govie/component/input') {
   .govie-input {
     @include govie-font($size: 19);
 
@@ -44,7 +44,7 @@
     -webkit-appearance: none;
   }
 
-  .govie-input[type="number"] {
+  .govie-input[type='number'] {
     -moz-appearance: textfield;
   }
 
@@ -121,7 +121,7 @@
 
     padding: govie-spacing(1);
     border: $govie-border-width-form-element solid $govie-input-border-colour;
-    background-color: govie-colour("light-grey");
+    background-color: govie-colour('light-grey');
 
     text-align: center;
     @include govie-media-query($until: tablet) {

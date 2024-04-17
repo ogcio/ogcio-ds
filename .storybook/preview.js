@@ -7,7 +7,6 @@ import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
 import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
 import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css'
-
 let selectedTheme
 
 export const decorators = [cssVariablesTheme]

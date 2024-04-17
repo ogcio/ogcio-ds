@@ -1,9 +1,9 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as input } from '../../components/input/TextInput.stories'
-import { Default as textarea } from '../../components/textarea/Textarea.stories'
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as input } from '../../components/input/TextInput.stories';
+import { Default as textarea } from '../../components/textarea/Textarea.stories';
 
 export default {
   title: 'Patterns/Addresses',
@@ -24,17 +24,17 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createLegend = () => {
-  const legend = document.createElement('legend')
-  legend.className = 'govie-fieldset__legend govie-fieldset__legend--l'
+  const legend = document.createElement('legend');
+  legend.className = 'govie-fieldset__legend govie-fieldset__legend--l';
 
-  const header = parseHtmlString(heading({ text: 'What is your address?' }))
-  legend.appendChild(header)
+  const header = parseHtmlString(heading({ text: 'What is your address?' }));
+  legend.appendChild(header);
 
-  return legend
-}
+  return legend;
+};
 
 const createInput = ({
   id,
@@ -51,47 +51,47 @@ const createInput = ({
     inputExtraClasses,
     autocomplete,
     errorMessage,
-  })
+  });
 
-  return parseHtmlString(addressInput)
-}
+  return parseHtmlString(addressInput);
+};
 
 const createForm = () => {
-  const form = document.createElement('fieldset')
-  form.className = 'govie-fieldset'
-  form.appendChild(createLegend())
+  const form = document.createElement('fieldset');
+  form.className = 'govie-fieldset';
+  form.appendChild(createLegend());
 
   form.appendChild(
     createInput({
       id: 'address-line-1',
       label: 'Address line 1',
       autocomplete: 'address-line1',
-    })
-  )
+    }),
+  );
 
   form.appendChild(
     createInput({
       id: 'address-line-2',
       label: 'Address line 2 (optional)',
       autocomplete: 'address-line2',
-    })
-  )
+    }),
+  );
 
   form.appendChild(
     createInput({
       id: 'address-town',
       label: 'Town or city',
       inputExtraClasses: 'govie-!-width-two-thirds',
-    })
-  )
+    }),
+  );
 
   form.appendChild(
     createInput({
       id: 'address-country',
       label: 'Country (optional)',
       inputExtraClasses: 'govie-!-width-two-thirds',
-    })
-  )
+    }),
+  );
 
   form.appendChild(
     createInput({
@@ -99,11 +99,11 @@ const createForm = () => {
       label: 'Postcode',
       autocomplete: 'postal-code',
       inputExtraClasses: 'govie-input--width-10',
-    })
-  )
+    }),
+  );
 
-  return form
-}
+  return form;
+};
 
 const createFormWithError = () => {
   return createInput({
@@ -113,8 +113,8 @@ const createFormWithError = () => {
     inputExtraClasses: 'govie-input--width-10',
     value: 'Not a postcode',
     autocomplete: 'postal-code',
-  })
-}
+  });
+};
 
 const createFormWithTextArea = () => {
   const textArea = textarea({
@@ -123,38 +123,38 @@ const createFormWithTextArea = () => {
     label: 'What is your address?',
     rows: 5,
     autocomplete: 'street-address',
-  })
+  });
 
-  return parseHtmlString(textArea)
-}
+  return parseHtmlString(textArea);
+};
 
 const Template = (args) => {
   switch (args.type) {
     case 'with error':
-      return beautifyHtmlNode(createFormWithError())
+      return beautifyHtmlNode(createFormWithError());
     case 'textarea':
-      return beautifyHtmlNode(createFormWithTextArea())
+      return beautifyHtmlNode(createFormWithTextArea());
     default:
-      return beautifyHtmlNode(createForm())
+      return beautifyHtmlNode(createForm());
   }
-}
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithError = Template.bind({})
+export const WithError = Template.bind({});
 WithError.parameters = {
   docs: {
     description: {
       story: 'Error messages should be styled like this:',
     },
   },
-}
+};
 WithError.args = {
   type: 'with error',
-}
+};
 
-export const WithTextarea = Template.bind({})
+export const WithTextarea = Template.bind({});
 WithTextarea.parameters = {
   docs: {
     description: {
@@ -162,8 +162,8 @@ WithTextarea.parameters = {
         'Use a textarea if you expect a broad range of address formats and you do not need to format the address for print or use specific sub-parts of the address (for example, street or postcode).',
     },
   },
-}
+};
 
 WithTextarea.args = {
   type: 'textarea',
-}
+};

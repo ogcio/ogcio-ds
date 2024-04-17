@@ -1,5 +1,4 @@
-@include govie-exports("govie/component/breadcrumbs") {
-
+@include govie-exports('govie/component/breadcrumbs') {
   // Size of chevron (excluding border)
   $chevron-size: 7px;
 
@@ -32,7 +31,6 @@
   }
 
   .govie-breadcrumbs__list-item {
-
     display: inline-block;
     position: relative;
 
@@ -47,7 +45,7 @@
 
     // Create a chevron using a box with borders on two sides, rotated 45deg.
     &:before {
-      content: "";
+      content: '';
       display: block;
 
       position: absolute;
@@ -56,7 +54,10 @@
 
       // Offset by the difference between the width of the non-rotated square
       // and its width when rotated
-      left: (($chevron-altitude-calculated * -2) + $chevron-size + $chevron-border-width);
+      left: (
+        ($chevron-altitude-calculated * -2) + $chevron-size +
+          $chevron-border-width
+      );
 
       width: $chevron-size;
       height: $chevron-size;
@@ -71,7 +72,7 @@
 
       // Fall back to a greater than sign for IE8
       @include govie-if-ie8 {
-        content: "\003e"; // Greater than sign (>)
+        content: '\003e'; // Greater than sign (>)
         width: auto;
         height: auto;
         border: 0;
