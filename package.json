@@ -93,7 +93,7 @@
     "marked": "^4.1.1",
     "merge-stream": "^2.0.0",
     "minimatch": "^6.2.0",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "nodemon": "^2.0.20",
     "outdent": "^0.8.0",
     "plugin-error": "^2.0.1",
