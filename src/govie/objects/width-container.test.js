@@ -1,10 +1,10 @@
-const outdent = require('outdent')
+const outdent = require('outdent');
 
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested'
-}
+  outputStyle: 'nested',
+};
 
 describe('@mixin govie-width-container', () => {
   it('allows different widths to be specified using $width', async () => {
@@ -14,13 +14,10 @@ describe('@mixin govie-width-container', () => {
       .app-width-container--wide {
         @include govie-width-container(1200px);
       }
-    `
-    const results = await renderSass({ data: sass, ...sassConfig })
+    `;
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css
-      .toString()
-      .trim())
-      .toContain(outdent`
+    expect(results.css.toString().trim()).toContain(outdent`
       .app-width-container--wide {
         max-width: 1200px;
         margin-right: 15px;
@@ -45,6 +42,6 @@ describe('@mixin govie-width-container', () => {
               .app-width-container--wide {
                 margin-right: auto;
                 margin-left: auto; } } }
-      `)
-  })
-})
+      `);
+  });
+});

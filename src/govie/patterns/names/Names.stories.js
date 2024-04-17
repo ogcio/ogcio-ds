@@ -1,7 +1,7 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as input } from '../../components/input/TextInput.stories'
+import { Default as input } from '../../components/input/TextInput.stories';
 
 export default {
   title: 'Patterns/Names',
@@ -16,7 +16,7 @@ export default {
   argTypes: {
     errorMessage: { control: 'text' },
   },
-}
+};
 
 const createNameInput = (args) => {
   const nameInput = parseHtmlString(
@@ -26,21 +26,21 @@ const createNameInput = (args) => {
       label: 'Full name',
       errorMessage: args.errorMessage,
       autocomplete: 'name',
-    })
-  )
+    }),
+  );
 
-  return nameInput
-}
+  return nameInput;
+};
 
 const Template = (args) => {
-  const body = createNameInput(args)
-  return beautifyHtmlNode(body)
-}
+  const body = createNameInput(args);
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithErrorMessage = Template.bind({})
+export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
-  errorMessage: 'Enter your full name'
-}
+  errorMessage: 'Enter your full name',
+};

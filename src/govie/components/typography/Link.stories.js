@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Navigation/Link',
@@ -45,67 +45,67 @@ export default {
     dark: false,
     noUnderline: false,
   },
-}
+};
 
 const Template = (args) => {
-  const link = document.createElement('a')
+  const link = document.createElement('a');
 
-  const classes = ['govie-link']
+  const classes = ['govie-link'];
 
   if (args.noVisited) {
-    classes.push('govie-link--no-visited-state')
+    classes.push('govie-link--no-visited-state');
   }
   if (args.dark) {
-    classes.push('govie-link--inverse')
+    classes.push('govie-link--inverse');
   }
   if (args.noUnderline) {
-    classes.push('govie-link--no-underline')
+    classes.push('govie-link--no-underline');
   }
 
-  link.className = classes.join(' ')
-  link.href = args.href
-  link.innerText = args.label
+  link.className = classes.join(' ');
+  link.href = args.href;
+  link.innerText = args.label;
 
   if (args.external) {
-    link.rel = 'noreferrer noopener'
-    link.target = '_blank'
+    link.rel = 'noreferrer noopener';
+    link.target = '_blank';
   }
 
-  return beautifyHtmlNode(link)
-}
+  return beautifyHtmlNode(link);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   label: 'Link text',
-}
+};
 
-export const NoVisitedState = Template.bind({})
+export const NoVisitedState = Template.bind({});
 NoVisitedState.args = {
   label: 'Link text',
   noVisited: true,
-}
+};
 
-export const External = Template.bind({})
+export const External = Template.bind({});
 External.args = {
   label: 'Link text (opens in a new tab)',
   external: true,
-}
+};
 
-export const DarkBackground = Template.bind({})
+export const DarkBackground = Template.bind({});
 DarkBackground.parameters = {
   backgrounds: {
     default: 'dark',
     values: [{ name: 'dark', value: '#1d70b8' }],
   },
-}
+};
 
 DarkBackground.args = {
   label: 'Link text (on dark background)',
   dark: true,
-}
+};
 
-export const WithoutUnderline = Template.bind({})
+export const WithoutUnderline = Template.bind({});
 WithoutUnderline.args = {
   label: 'Link text (with no underline)',
   noUnderline: true,
-}
+};

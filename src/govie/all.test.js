@@ -1,29 +1,29 @@
-const sassdoc = require('sassdoc')
+const sassdoc = require('sassdoc');
 
-const configPaths = require('../../config/paths.js')
+const configPaths = require('../../config/paths.js');
 
-const { renderSass } = require('../../lib/jest-helpers')
+const { renderSass } = require('../../lib/jest-helpers');
 
 describe('GOV.IE Frontend', () => {
   describe('global styles', () => {
     it('are disabled by default', async () => {
       const sass = `
         @import "all";
-      `
-      const results = await renderSass({ data: sass })
-      expect(results.css.toString()).not.toContain(', a {')
-      expect(results.css.toString()).not.toContain(', p {')
-    })
+      `;
+      const results = await renderSass({ data: sass });
+      expect(results.css.toString()).not.toContain(', a {');
+      expect(results.css.toString()).not.toContain(', p {');
+    });
     it('are enabled if $global-styles variable is set to true', async () => {
       const sass = `
         $govie-global-styles: true;
         @import "all";
-      `
-      const results = await renderSass({ data: sass })
-      expect(results.css.toString()).toContain(', a {')
-      expect(results.css.toString()).toContain(', p {')
-    })
-  })
+      `;
+      const results = await renderSass({ data: sass });
+      expect(results.css.toString()).toContain(', a {');
+      expect(results.css.toString()).toContain(', p {');
+    });
+  });
 
   // Sass functions will be automatically evaluated at compile time and the
   // return value from the function will be used in the compiled CSS.
@@ -56,34 +56,35 @@ describe('GOV.IE Frontend', () => {
   // the compiled CSS - if it finds anything, it will result in the test
   // failing.
   it('does not contain any unexpected govie- function calls', async () => {
-    const sass = '@import "all"'
+    const sass = '@import "all"';
 
-    const results = await renderSass({ data: sass })
-    const css = results.css.toString()
+    const results = await renderSass({ data: sass });
+    const css = results.css.toString();
 
-    const functionCalls = css.match(/_?govie-[\w-]+\(.*?\)/g)
+    const functionCalls = css.match(/_?govie-[\w-]+\(.*?\)/g);
 
-    expect(functionCalls).toBeNull()
-  })
+    expect(functionCalls).toBeNull();
+  });
 
   describe('Sass documentation', () => {
     it('associates everything with a group', async () => {
-      return sassdoc.parse([
-        `${configPaths.src}/**/*.scss`,
-        `!${configPaths.src}/vendor/*.scss`
-      ])
-        .then(docs => docs.forEach(doc => {
-          return expect(doc).toMatchObject({
-            // Include doc.context.name in the expected result when this fails,
-            // giving you the context to be able to fix it
-            context: {
-              name: doc.context.name
-            },
-            group: [
-              expect.not.stringMatching('undefined')
-            ]
-          })
-        }))
-    })
-  })
-})
+      return sassdoc
+        .parse([
+          `${configPaths.src}/**/*.scss`,
+          `!${configPaths.src}/vendor/*.scss`,
+        ])
+        .then((docs) =>
+          docs.forEach((doc) => {
+            return expect(doc).toMatchObject({
+              // Include doc.context.name in the expected result when this fails,
+              // giving you the context to be able to fix it
+              context: {
+                name: doc.context.name,
+              },
+              group: [expect.not.stringMatching('undefined')],
+            });
+          }),
+        );
+    });
+  });
+});

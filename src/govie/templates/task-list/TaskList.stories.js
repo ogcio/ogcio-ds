@@ -1,10 +1,10 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
-import { createBody } from '../../../../.storybook/helpers/commonPageComponents'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
+import { createBody } from '../../../../.storybook/helpers/commonPageComponents';
 
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as taskList } from '../../components/task-list/TaskList.stories'
+import { Default as paragraph } from '../../components/typography/Paragraph.stories';
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as taskList } from '../../components/task-list/TaskList.stories';
 
 export default {
   title: 'Templates/Task list',
@@ -21,7 +21,7 @@ export default {
       },
     },
   },
-}
+};
 
 const createTaskList = () => {
   const content = [
@@ -72,64 +72,64 @@ const createTaskList = () => {
         },
       ],
     },
-  ]
+  ];
 
-  const list = parseHtmlString(taskList({ content }))
-  return list
-}
+  const list = parseHtmlString(taskList({ content }));
+  return list;
+};
 
 const createColumn = () => {
-  const column = document.createElement('div')
-  column.className = 'govie-grid-column-two-thirds'
+  const column = document.createElement('div');
+  column.className = 'govie-grid-column-two-thirds';
 
   const checkAnswersHeading = parseHtmlString(
     heading({
       text: 'Service name goes here',
       size: 'xl',
-    })
-  )
-  column.appendChild(checkAnswersHeading)
+    }),
+  );
+  column.appendChild(checkAnswersHeading);
 
   const personalSubHeading = parseHtmlString(
     heading({
       text: 'Application incomplete',
       size: 's',
       element: 'h2',
-    })
-  )
-  personalSubHeading.className += ' govie-!-margin-bottom-2'
-  column.appendChild(personalSubHeading)
+    }),
+  );
+  personalSubHeading.className += ' govie-!-margin-bottom-2';
+  column.appendChild(personalSubHeading);
 
   const completedSectionParagraph = parseHtmlString(
-    paragraph({ text: 'You have completed 3 of 8 sections.' })
-  )
-  completedSectionParagraph.className += ' govie-!-margin-bottom-7'
-  column.appendChild(completedSectionParagraph)
+    paragraph({ text: 'You have completed 3 of 8 sections.' }),
+  );
+  completedSectionParagraph.className += ' govie-!-margin-bottom-7';
+  column.appendChild(completedSectionParagraph);
 
-  column.appendChild(createTaskList())
+  column.appendChild(createTaskList());
 
-  return column
-}
+  return column;
+};
 
 const createMainContent = () => {
-  const row = document.createElement('div')
-  row.className = 'govie-grid-row'
-  row.appendChild(createColumn())
+  const row = document.createElement('div');
+  row.className = 'govie-grid-row';
+  row.appendChild(createColumn());
 
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
-  container.appendChild(row)
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
+  container.appendChild(row);
 
-  return container
-}
+  return container;
+};
 
 const Template = (args) => {
   const body = createBody({
     mainContent: createMainContent(),
     shortFooter: true,
-  })
-  return beautifyHtmlNode(body)
-}
+  });
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

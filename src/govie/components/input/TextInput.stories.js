@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Form/Text Input',
@@ -70,279 +70,279 @@ export default {
     value: { control: 'text' },
     autocomplete: { control: 'text' },
   },
-}
+};
 
 const getTextInputDescribedBy = (args) => {
-  const describedBy = []
+  const describedBy = [];
 
   if (args.hint) {
-    describedBy.push(`${args.fieldId}-hint`)
+    describedBy.push(`${args.fieldId}-hint`);
   }
 
   if (args.errorMessage) {
-    describedBy.push(`${args.fieldId}-error`)
+    describedBy.push(`${args.fieldId}-error`);
   }
 
-  return describedBy
-}
+  return describedBy;
+};
 
 const getTextInputClassNames = (args) => {
-  const inputClassNames = ['govie-input']
+  const inputClassNames = ['govie-input'];
 
   if (
     !args.fluid &&
     Boolean(args.characterWidth) &&
     !isNaN(args.characterWidth)
   ) {
-    inputClassNames.push(`govie-input--width-${args.characterWidth}`)
+    inputClassNames.push(`govie-input--width-${args.characterWidth}`);
   }
 
   if (args.fluid && args.fluidWidth) {
-    inputClassNames.push(`govie-!-width-${args.fluidWidth}`)
+    inputClassNames.push(`govie-!-width-${args.fluidWidth}`);
   }
 
   if (args.errorMessage) {
-    inputClassNames.push('govie-input--error')
+    inputClassNames.push('govie-input--error');
   }
 
   if (args.inputExtraClasses) {
-    inputClassNames.push(args.inputExtraClasses)
+    inputClassNames.push(args.inputExtraClasses);
   }
 
-  return inputClassNames
-}
+  return inputClassNames;
+};
 
 const getFormGroupClassNames = (args) => {
-  const formGroupClassNames = ['govie-form-group']
+  const formGroupClassNames = ['govie-form-group'];
 
   if (args.errorMessage) {
-    formGroupClassNames.push('govie-form-group--error')
+    formGroupClassNames.push('govie-form-group--error');
   }
 
-  return formGroupClassNames
-}
+  return formGroupClassNames;
+};
 
 const createHintElement = (args) => {
-  const hint = document.createElement('div')
-  hint.className = 'govie-hint'
-  hint.id = `${args.fieldId}-hint`
-  hint.innerText = args.hint
+  const hint = document.createElement('div');
+  hint.className = 'govie-hint';
+  hint.id = `${args.fieldId}-hint`;
+  hint.innerText = args.hint;
 
-  return hint
-}
+  return hint;
+};
 
 const createLabelElement = (args) => {
-  const labelClassNames = ['govie-label--s']
+  const labelClassNames = ['govie-label--s'];
 
   if (args.labelAsHeading) {
-    labelClassNames.push('govie-label--l')
+    labelClassNames.push('govie-label--l');
   }
 
-  const label = document.createElement('label')
-  label.setAttribute('for', args.fieldId)
-  label.innerText = args.label
-  label.className = labelClassNames.join(' ')
+  const label = document.createElement('label');
+  label.setAttribute('for', args.fieldId);
+  label.innerText = args.label;
+  label.className = labelClassNames.join(' ');
 
   if (args.labelAsHeading) {
-    const labelWrapper = document.createElement('h1')
-    labelWrapper.className = 'govie-label-wrapper'
-    labelWrapper.appendChild(label)
+    const labelWrapper = document.createElement('h1');
+    labelWrapper.className = 'govie-label-wrapper';
+    labelWrapper.appendChild(label);
 
-    return labelWrapper
+    return labelWrapper;
   }
 
-  return label
-}
+  return label;
+};
 
 const createAffixElement = (text, isPrefix) => {
-  const affix = document.createElement('div')
-  affix.setAttribute('aria-hidden', 'true')
-  affix.className = isPrefix ? 'govie-input__prefix' : 'govie-input__suffix'
-  affix.innerHTML = text
+  const affix = document.createElement('div');
+  affix.setAttribute('aria-hidden', 'true');
+  affix.className = isPrefix ? 'govie-input__prefix' : 'govie-input__suffix';
+  affix.innerHTML = text;
 
-  return affix
-}
+  return affix;
+};
 
 const createErrorMessageElement = (args) => {
-  const hiddenErrorSpan = document.createElement('span')
-  hiddenErrorSpan.className = 'govie-visually-hidden'
-  hiddenErrorSpan.innerText = 'Error:'
+  const hiddenErrorSpan = document.createElement('span');
+  hiddenErrorSpan.className = 'govie-visually-hidden';
+  hiddenErrorSpan.innerText = 'Error:';
 
-  const errorMessage = document.createElement('p')
-  errorMessage.id = `${args.fieldId}-error`
-  errorMessage.className = 'govie-error-message'
-  errorMessage.innerHTML = `${hiddenErrorSpan.outerHTML} ${args.errorMessage}`
+  const errorMessage = document.createElement('p');
+  errorMessage.id = `${args.fieldId}-error`;
+  errorMessage.className = 'govie-error-message';
+  errorMessage.innerHTML = `${hiddenErrorSpan.outerHTML} ${args.errorMessage}`;
 
-  return errorMessage
-}
+  return errorMessage;
+};
 
 const createTextInputElement = (args) => {
-  const textInputDescribedBy = getTextInputDescribedBy(args)
-  const textInput = document.createElement('input')
+  const textInputDescribedBy = getTextInputDescribedBy(args);
+  const textInput = document.createElement('input');
 
-  textInput.setAttribute('type', args.type ?? 'text')
-  textInput.id = args.fieldId
-  textInput.name = args.fieldName
-  textInput.className = getTextInputClassNames(args).join(' ')
+  textInput.setAttribute('type', args.type ?? 'text');
+  textInput.id = args.fieldId;
+  textInput.name = args.fieldName;
+  textInput.className = getTextInputClassNames(args).join(' ');
 
   if (args.value) {
-    textInput.setAttribute('value', args.value)
+    textInput.setAttribute('value', args.value);
   }
 
   if (args.autocomplete) {
-    textInput.setAttribute('autocomplete', args.autocomplete)
+    textInput.setAttribute('autocomplete', args.autocomplete);
   }
 
   if (textInputDescribedBy.length > 0) {
-    textInput.setAttribute('aria-describedby', textInputDescribedBy.join(' '))
+    textInput.setAttribute('aria-describedby', textInputDescribedBy.join(' '));
   }
 
   if (!args.prefix && !args.suffix) {
-    return textInput
+    return textInput;
   }
 
-  textInput.spellcheck = 'false'
-  const inputWrapper = document.createElement('div')
-  inputWrapper.className = 'govie-input__wrapper'
+  textInput.spellcheck = 'false';
+  const inputWrapper = document.createElement('div');
+  inputWrapper.className = 'govie-input__wrapper';
 
   if (args.prefix) {
-    inputWrapper.appendChild(createAffixElement(args.prefix, true))
+    inputWrapper.appendChild(createAffixElement(args.prefix, true));
   }
 
-  inputWrapper.appendChild(textInput)
+  inputWrapper.appendChild(textInput);
 
   if (args.suffix) {
-    inputWrapper.appendChild(createAffixElement(args.suffix, false))
+    inputWrapper.appendChild(createAffixElement(args.suffix, false));
   }
 
-  return inputWrapper
-}
+  return inputWrapper;
+};
 
 const Template = (args) => {
-  const formGroup = document.createElement('div')
-  formGroup.className = getFormGroupClassNames(args).join(' ')
+  const formGroup = document.createElement('div');
+  formGroup.className = getFormGroupClassNames(args).join(' ');
 
   if (args.label) {
-    formGroup.appendChild(createLabelElement(args))
+    formGroup.appendChild(createLabelElement(args));
   }
 
   if (args.hint) {
-    formGroup.appendChild(createHintElement(args))
+    formGroup.appendChild(createHintElement(args));
   }
 
   if (args.errorMessage) {
-    formGroup.appendChild(createErrorMessageElement(args))
+    formGroup.appendChild(createErrorMessageElement(args));
   }
 
-  formGroup.appendChild(createTextInputElement(args))
+  formGroup.appendChild(createTextInputElement(args));
 
-  return beautifyHtmlNode(formGroup)
-}
+  return beautifyHtmlNode(formGroup);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   fieldId: 'default-input',
   fieldName: 'default-input',
   fluid: true,
   label: 'What is the name of the page?',
   labelAsHeading: true,
-}
+};
 
-export const WithLabel = Template.bind({})
+export const WithLabel = Template.bind({});
 WithLabel.args = {
   label: 'Input with label',
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: true,
-}
+};
 
-export const WithLabelAsHeading = Template.bind({})
+export const WithLabelAsHeading = Template.bind({});
 WithLabelAsHeading.args = {
   label: 'Input with label',
   labelAsHeading: true,
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: true,
-}
+};
 
-export const WithLabelAndHint = Template.bind({})
+export const WithLabelAndHint = Template.bind({});
 WithLabelAndHint.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   label: 'Input with label',
   hint: 'And hint',
   fluid: true,
-}
+};
 
-export const WithHint = Template.bind({})
+export const WithHint = Template.bind({});
 WithHint.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   hint: 'Input with hint',
   fluid: true,
-}
+};
 
-export const FluidWidth = Template.bind({})
+export const FluidWidth = Template.bind({});
 FluidWidth.args = {
   label: 'Full fluid with (default)',
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: true,
-}
+};
 
-export const HalfFluidWidth = Template.bind({})
+export const HalfFluidWidth = Template.bind({});
 HalfFluidWidth.args = {
   label: 'Half fluid width',
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: true,
   fluidWidth: 'one-half',
-}
+};
 
-export const FixedWidth = Template.bind({})
+export const FixedWidth = Template.bind({});
 FixedWidth.args = {
   label: '4 character width',
   fieldId: 'input-field',
   fieldName: 'input-field',
   fluid: false,
   characterWidth: 4,
-}
+};
 
-export const WithBothAffix = Template.bind({})
+export const WithBothAffix = Template.bind({});
 WithBothAffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   prefix: '€',
   suffix: 'per item',
-  label: 'With both affix'
-}
+  label: 'With both affix',
+};
 
-export const WithPrefix = Template.bind({})
+export const WithPrefix = Template.bind({});
 WithPrefix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   prefix: '€',
-  label: 'With prefix'
-}
+  label: 'With prefix',
+};
 
-export const WithSuffix = Template.bind({})
+export const WithSuffix = Template.bind({});
 WithSuffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   suffix: 'kg',
-  label: 'With suffix'
-}
+  label: 'With suffix',
+};
 
-export const WithErrorMessage = Template.bind({})
+export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
   label: 'What is the page name?',
   hint: 'Some hint',
   errorMessage: 'Enter a page name',
-}
+};
 
-export const WithErrorMessageAndAffix = Template.bind({})
+export const WithErrorMessageAndAffix = Template.bind({});
 WithErrorMessageAndAffix.args = {
   fieldId: 'input-field',
   fieldName: 'input-field',
@@ -351,4 +351,4 @@ WithErrorMessageAndAffix.args = {
   errorMessage: 'Enter a cost per item, in Euros',
   prefix: '€',
   suffix: 'per item',
-}
+};

@@ -1,12 +1,12 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 import {
   createPageHeader,
   createPageFooter,
-} from '../../../../.storybook/helpers/commonPageComponents'
+} from '../../../../.storybook/helpers/commonPageComponents';
 
-import { Default as heading } from '../../components/typography/Heading.stories'
-import { Default as paragraph } from '../../components/typography/Paragraph.stories'
+import { Default as heading } from '../../components/typography/Heading.stories';
+import { Default as paragraph } from '../../components/typography/Paragraph.stories';
 
 export default {
   title: 'Templates/Service Unavailable',
@@ -20,17 +20,17 @@ export default {
       },
     },
   },
-}
+};
 
 const createMainWrapper = () => {
-  const mainWrapper = document.createElement('div')
-  mainWrapper.className = 'govie-main-wrapper govie-width-container'
+  const mainWrapper = document.createElement('div');
+  mainWrapper.className = 'govie-main-wrapper govie-width-container';
 
-  const row = document.createElement('div')
-  row.className = 'govie-grid-row'
+  const row = document.createElement('div');
+  row.className = 'govie-grid-row';
 
-  const column = document.createElement('div')
-  column.className = 'govie-grid-column-two-thirds'
+  const column = document.createElement('div');
+  column.className = 'govie-grid-column-two-thirds';
 
   const pageNotFoundHeading = parseHtmlString(
     heading({
@@ -38,45 +38,45 @@ const createMainWrapper = () => {
       size: 'l',
       captionSize: 'l',
       nestedCaption: false,
-    })
-  )
-  column.appendChild(pageNotFoundHeading)
+    }),
+  );
+  column.appendChild(pageNotFoundHeading);
 
   const firstIntroParagraph = parseHtmlString(
-    paragraph({ text: 'You will be able to use the service later.' })
-  )
-  column.appendChild(firstIntroParagraph)
+    paragraph({ text: 'You will be able to use the service later.' }),
+  );
+  column.appendChild(firstIntroParagraph);
 
   const secondIntroParagraph = parseHtmlString(
     paragraph({
       text: 'We saved your answers. They will be available for 30 days.',
-    })
-  )
-  column.appendChild(secondIntroParagraph)
+    }),
+  );
+  column.appendChild(secondIntroParagraph);
 
   const link =
-    '<a href="#" class="govie-link">Contact the [service] Helpline</a>'
+    '<a href="#" class="govie-link">Contact the [service] Helpline</a>';
   const thirdIntroParagraph = parseHtmlString(
     paragraph({
       text: `${link} if you need to make changes to your claim or speak to someone about your [service].`,
-    })
-  )
-  column.appendChild(thirdIntroParagraph)
+    }),
+  );
+  column.appendChild(thirdIntroParagraph);
 
-  row.appendChild(column)
-  mainWrapper.appendChild(row)
+  row.appendChild(column);
+  mainWrapper.appendChild(row);
 
-  return mainWrapper
-}
+  return mainWrapper;
+};
 
 const Template = (args) => {
-  const body = document.createElement('body')
-  body.appendChild(createPageHeader())
-  body.appendChild(createMainWrapper())
-  body.appendChild(createPageFooter())
+  const body = document.createElement('body');
+  body.appendChild(createPageHeader());
+  body.appendChild(createMainWrapper());
+  body.appendChild(createPageFooter());
 
-  return beautifyHtmlNode(body)
-}
+  return beautifyHtmlNode(body);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

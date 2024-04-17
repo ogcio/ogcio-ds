@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Application/Progress Stepper',
@@ -51,55 +51,55 @@ export default {
       },
     ],
   },
-}
+};
 
 const createStepLabelText = (stepData) => {
-  const stepLabelText = document.createElement('span')
-  stepLabelText.className = 'govie-progress-stepper__label-text'
-  stepLabelText.innerText = stepData.labelText
+  const stepLabelText = document.createElement('span');
+  stepLabelText.className = 'govie-progress-stepper__label-text';
+  stepLabelText.innerText = stepData.labelText;
 
-  return stepLabelText
-}
+  return stepLabelText;
+};
 
 const createStepLabel = (stepData) => {
-  const stepLabel = document.createElement('div')
-  stepLabel.className = 'govie-progress-stepper__step-label'
-  stepLabel.appendChild(createStepLabelText(stepData))
+  const stepLabel = document.createElement('div');
+  stepLabel.className = 'govie-progress-stepper__step-label';
+  stepLabel.appendChild(createStepLabelText(stepData));
 
-  return stepLabel
-}
+  return stepLabel;
+};
 
 const createStep = (stepData) => {
-  const classNames = ['govie-progress-stepper__step']
+  const classNames = ['govie-progress-stepper__step'];
 
   if (stepData.isCompleted) {
-    classNames.push('govie-progress-stepper__step--completed')
+    classNames.push('govie-progress-stepper__step--completed');
   }
 
   if (stepData.isActive) {
-    classNames.push('govie-progress-stepper__step--active')
+    classNames.push('govie-progress-stepper__step--active');
   }
 
-  const step = document.createElement('div')
-  step.className = classNames.join(' ')
-  step.setAttribute('data-icon-text', stepData.iconText)
+  const step = document.createElement('div');
+  step.className = classNames.join(' ');
+  step.setAttribute('data-icon-text', stepData.iconText);
 
-  step.appendChild(createStepLabel(stepData))
+  step.appendChild(createStepLabel(stepData));
 
-  return step
-}
+  return step;
+};
 
 const Template = (args) => {
-  const progressStepper = document.createElement('div')
-  progressStepper.className = 'govie-progress-stepper'
-  progressStepper.setAttribute('data-module', 'govie-progress-stepper')
+  const progressStepper = document.createElement('div');
+  progressStepper.className = 'govie-progress-stepper';
+  progressStepper.setAttribute('data-module', 'govie-progress-stepper');
 
   args.steps.forEach((step) => {
-    progressStepper.appendChild(createStep(step))
-  })
+    progressStepper.appendChild(createStep(step));
+  });
 
-  return beautifyHtmlNode(progressStepper)
-}
+  return beautifyHtmlNode(progressStepper);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

@@ -9,7 +9,8 @@
       }
     }
 
-    &:checked ~ svg, &[checked="true"] {
+    &:checked ~ svg,
+    &[checked='true'] {
       path {
         fill: govie-colour('green');
       }

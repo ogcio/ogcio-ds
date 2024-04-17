@@ -1,8 +1,8 @@
-@import "../error-message/index";
-@import "../hint/index";
-@import "../label/index";
+@import '../error-message/index';
+@import '../hint/index';
+@import '../label/index';
 
-@include govie-exports("govie/component/file-upload") {
+@include govie-exports('govie/component/file-upload') {
   $component-padding: govie-spacing(1);
 
   .govie-file-upload {

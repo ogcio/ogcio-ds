@@ -1,6 +1,6 @@
-@import "../tag/index";
+@import '../tag/index';
 
-@include govie-exports("govie/component/phase-banner") {
+@include govie-exports('govie/component/phase-banner') {
   .govie-phase-banner {
     padding-top: govie-spacing(2);
     padding-bottom: govie-spacing(2);

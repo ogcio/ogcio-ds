@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Lists',
@@ -40,46 +40,46 @@ export default {
     type: 'normal',
     spaced: false,
   },
-}
+};
 
 const createLink = (item) => {
-  const link = document.createElement('a')
-  link.className = 'govie-link'
-  link.href = '#'
-  link.innerText = item
+  const link = document.createElement('a');
+  link.className = 'govie-link';
+  link.href = '#';
+  link.innerText = item;
 
-  return link
-}
+  return link;
+};
 
 const Template = (args) => {
-  const list = document.createElement(args.numbered ? 'ol' : 'ul')
+  const list = document.createElement(args.numbered ? 'ol' : 'ul');
 
-  const classes = ['govie-list']
+  const classes = ['govie-list'];
   if (args.type !== 'normal') {
-    classes.push(`govie-list--${args.type}`)
+    classes.push(`govie-list--${args.type}`);
   }
   if (args.spaced) {
-    classes.push('govie-list--spaced')
+    classes.push('govie-list--spaced');
   }
 
-  list.className = classes.join(' ')
+  list.className = classes.join(' ');
 
   args.items.forEach((item) => {
-    const li = document.createElement('li')
+    const li = document.createElement('li');
 
     if (args.link) {
-      li.appendChild(createLink(item))
+      li.appendChild(createLink(item));
     } else {
-      li.innerHTML = item
+      li.innerHTML = item;
     }
 
-    list.appendChild(li)
-  })
+    list.appendChild(li);
+  });
 
-  return beautifyHtmlNode(list)
-}
+  return beautifyHtmlNode(list);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   items: [
     'Benefits calculators',
@@ -87,9 +87,9 @@ Default.args = {
     'Benefit fraud',
     'More',
   ],
-}
+};
 
-export const Link = Template.bind({})
+export const Link = Template.bind({});
 Link.args = {
   items: [
     'Benefits calculators',
@@ -98,22 +98,22 @@ Link.args = {
     'More',
   ],
   link: true,
-}
+};
 
-export const Bullet = Template.bind({})
+export const Bullet = Template.bind({});
 Bullet.args = {
   items: ['apple', 'orange', 'pears'],
   text: 'You can buy',
   type: 'bullet',
-}
+};
 
-export const Numbered = Template.bind({})
+export const Numbered = Template.bind({});
 Numbered.args = {
   items: ['Delivery address', 'Payment', 'Confirmation'],
   type: 'number',
-}
+};
 
-export const ExtraSpace = Template.bind({})
+export const ExtraSpace = Template.bind({});
 ExtraSpace.args = {
   items: [
     'constructing, altering, repairing, extending, demolishing or dismantling buildings or structures (whether permanent or not), including offshore installation services',
@@ -123,4 +123,4 @@ ExtraSpace.args = {
   text: 'You will have to apply the reverse charge if you supply any of these services:',
   spaced: true,
   type: 'bullet',
-}
+};

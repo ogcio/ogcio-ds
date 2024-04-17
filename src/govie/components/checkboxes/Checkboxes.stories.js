@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Form/Checkboxes',
@@ -49,103 +49,103 @@ export default {
     items: [],
     hiddenLabel: false,
   },
-}
+};
 
 const createLegendNode = (args) => {
-  const classNames = ['govie-fieldset__legend']
+  const classNames = ['govie-fieldset__legend'];
   if (args.useSmallerBoxes) {
-    classNames.push('govie-fieldset__legend--m')
+    classNames.push('govie-fieldset__legend--m');
   } else if (args.legendAsHeading) {
-    classNames.push('govie-fieldset__legend--l')
+    classNames.push('govie-fieldset__legend--l');
   }
 
-  const legend = document.createElement('legend')
-  legend.className = classNames.join(' ')
+  const legend = document.createElement('legend');
+  legend.className = classNames.join(' ');
 
   if (args.legendAsHeading) {
-    const heading = document.createElement('h1')
-    heading.className = 'govie-fieldset__heading'
-    heading.innerText = args.legend
-    legend.appendChild(heading)
+    const heading = document.createElement('h1');
+    heading.className = 'govie-fieldset__heading';
+    heading.innerText = args.legend;
+    legend.appendChild(heading);
   } else {
-    legend.innerText = args.legend
+    legend.innerText = args.legend;
   }
 
-  return legend
-}
+  return legend;
+};
 
 const createHintNode = (args) => {
-  const hint = document.createElement('div')
-  hint.id = `${args.fieldId}-hint`
-  hint.className = 'govie-hint'
-  hint.innerText = args.hint
+  const hint = document.createElement('div');
+  hint.id = `${args.fieldId}-hint`;
+  hint.className = 'govie-hint';
+  hint.innerText = args.hint;
 
-  return hint
-}
+  return hint;
+};
 
 const createInputId = (fieldId, index) => {
   if (index < 2) {
-    return fieldId
+    return fieldId;
   }
 
-  return `${fieldId}-${index}`
-}
+  return `${fieldId}-${index}`;
+};
 
 const createInputHintId = (fieldId, index) => {
   if (index < 2) {
-    return `${fieldId}-item-hint`
+    return `${fieldId}-item-hint`;
   }
 
-  return `${fieldId}-item-${index}-hint`
-}
+  return `${fieldId}-item-${index}-hint`;
+};
 
 const createInputNode = (fieldId, index, itemData, isExclusive) => {
-  const input = document.createElement('input')
-  input.className = 'govie-checkboxes__input'
-  input.id = createInputId(fieldId, index)
-  input.name = fieldId
-  input.type = 'checkbox'
-  input.value = itemData.value
+  const input = document.createElement('input');
+  input.className = 'govie-checkboxes__input';
+  input.id = createInputId(fieldId, index);
+  input.name = fieldId;
+  input.type = 'checkbox';
+  input.value = itemData.value;
 
   if (itemData.hint) {
-    input.setAttribute('aria-describedby', createInputHintId(fieldId, index))
+    input.setAttribute('aria-describedby', createInputHintId(fieldId, index));
   }
 
   if (isExclusive) {
-    input.setAttribute('data-behaviour', 'exclusive')
+    input.setAttribute('data-behaviour', 'exclusive');
   }
 
   if (itemData.conditionalInput) {
     input.setAttribute(
       'data-aria-controls',
-      `conditional-${createInputId(fieldId, index)}`
-    )
+      `conditional-${createInputId(fieldId, index)}`,
+    );
   }
 
-  return input
-}
+  return input;
+};
 
 const createInputLabelNode = (fieldId, index, itemData, hiddenLabel) => {
-  const label = document.createElement('label')
-  label.className = 'govie-label--s govie-checkboxes__label'
-  label.setAttribute('for', createInputId(fieldId, index))
+  const label = document.createElement('label');
+  label.className = 'govie-label--s govie-checkboxes__label';
+  label.setAttribute('for', createInputId(fieldId, index));
   if (hiddenLabel) {
-    label.innerHTML = `<span class="govie-visually-hidden">${itemData.label}</span>`
+    label.innerHTML = `<span class="govie-visually-hidden">${itemData.label}</span>`;
   } else {
-    label.innerText = itemData.label
+    label.innerText = itemData.label;
   }
 
-  return label
-}
+  return label;
+};
 
 const createInputHintNode = (fieldId, index, itemData) => {
-  const hint = document.createElement('div')
-  hint.id = createInputHintId(fieldId, index)
-  hint.className = 'govie-hint govie-checkboxes__hint'
-  hint.innerText = itemData.hint
+  const hint = document.createElement('div');
+  hint.id = createInputHintId(fieldId, index);
+  hint.className = 'govie-hint govie-checkboxes__hint';
+  hint.innerText = itemData.hint;
 
-  return hint
-}
+  return hint;
+};
 
 const createCheckboxItem = ({
   fieldId,
@@ -154,73 +154,73 @@ const createCheckboxItem = ({
   isExclusive = false,
   hiddenLabel = false,
 }) => {
-  const checkboxItem = document.createElement('div')
-  checkboxItem.className = 'govie-checkboxes__item'
+  const checkboxItem = document.createElement('div');
+  checkboxItem.className = 'govie-checkboxes__item';
 
   checkboxItem.appendChild(
-    createInputNode(fieldId, index, itemData, isExclusive)
-  )
+    createInputNode(fieldId, index, itemData, isExclusive),
+  );
 
   checkboxItem.appendChild(
-    createInputLabelNode(fieldId, index, itemData, hiddenLabel)
-  )
+    createInputLabelNode(fieldId, index, itemData, hiddenLabel),
+  );
 
   if (itemData.hint) {
-    checkboxItem.appendChild(createInputHintNode(fieldId, index, itemData))
+    checkboxItem.appendChild(createInputHintNode(fieldId, index, itemData));
   }
 
-  return checkboxItem
-}
+  return checkboxItem;
+};
 
 const createConditionalInputNode = (fieldId, index, inputData) => {
-  const inputLabel = document.createElement('label')
-  inputLabel.className = 'govie-label'
-  inputLabel.setAttribute('for', inputData.id)
-  inputLabel.innerText = inputData.label
+  const inputLabel = document.createElement('label');
+  inputLabel.className = 'govie-label';
+  inputLabel.setAttribute('for', inputData.id);
+  inputLabel.innerText = inputData.label;
 
-  const input = document.createElement('input')
-  input.className = 'govie-input govie-!-width-one-third'
-  input.id = inputData.id
-  input.name = inputData.id
+  const input = document.createElement('input');
+  input.className = 'govie-input govie-!-width-one-third';
+  input.id = inputData.id;
+  input.name = inputData.id;
 
   if (inputData.type) {
-    input.type = inputData.type
+    input.type = inputData.type;
   } else {
-    input.type = 'text'
+    input.type = 'text';
   }
 
   if (inputData.spellcheck) {
-    input.setAttribute('spellcheck', inputData.spellcheck)
+    input.setAttribute('spellcheck', inputData.spellcheck);
   }
 
   if (inputData.autocomplete) {
-    input.setAttribute('autocomplete', inputData.autocomplete)
+    input.setAttribute('autocomplete', inputData.autocomplete);
   }
 
-  const formGroup = document.createElement('div')
-  formGroup.className = 'govie-form-group'
-  formGroup.appendChild(inputLabel)
-  formGroup.appendChild(input)
+  const formGroup = document.createElement('div');
+  formGroup.className = 'govie-form-group';
+  formGroup.appendChild(inputLabel);
+  formGroup.appendChild(input);
 
-  const container = document.createElement('div')
+  const container = document.createElement('div');
   container.className =
-    'govie-checkboxes__conditional govie-checkboxes__conditional--hidden'
-  container.id = `conditional-${createInputId(fieldId, index)}`
-  container.appendChild(formGroup)
+    'govie-checkboxes__conditional govie-checkboxes__conditional--hidden';
+  container.id = `conditional-${createInputId(fieldId, index)}`;
+  container.appendChild(formGroup);
 
-  return container
-}
+  return container;
+};
 
 const createCheckboxesNode = (args) => {
-  const classNames = ['govie-checkboxes']
+  const classNames = ['govie-checkboxes'];
 
   if (args.useSmallerBoxes) {
-    classNames.push('govie-checkboxes--small')
+    classNames.push('govie-checkboxes--small');
   }
 
-  const checkboxes = document.createElement('div')
-  checkboxes.className = classNames.join(' ')
-  checkboxes.setAttribute('data-module', 'govie-checkboxes')
+  const checkboxes = document.createElement('div');
+  checkboxes.className = classNames.join(' ');
+  checkboxes.setAttribute('data-module', 'govie-checkboxes');
 
   args.items.forEach((checkboxItem, index) => {
     // Start indexes from 1 in the DOM
@@ -230,31 +230,31 @@ const createCheckboxesNode = (args) => {
         index: index + 1,
         itemData: checkboxItem,
         hiddenLabel: args.hiddenLabel,
-      })
-    )
+      }),
+    );
 
     if (checkboxItem.conditionalInput) {
       checkboxes.appendChild(
         createConditionalInputNode(
           args.fieldId,
           index + 1,
-          checkboxItem.conditionalInput
-        )
-      )
+          checkboxItem.conditionalInput,
+        ),
+      );
     }
-  })
+  });
 
   if (args.haveNoneOption) {
-    const divider = document.createElement('div')
-    divider.className = 'govie-checkboxes__divider'
-    divider.innerText = 'or'
+    const divider = document.createElement('div');
+    divider.className = 'govie-checkboxes__divider';
+    divider.innerText = 'or';
 
-    checkboxes.appendChild(divider)
+    checkboxes.appendChild(divider);
 
     const noneOptionItemData = {
       label: args.noneOptionLabel,
       value: 'none',
-    }
+    };
     // Start indexes from 1 in the DOM with skipping 1 index for the divider
     checkboxes.appendChild(
       createCheckboxItem({
@@ -263,78 +263,78 @@ const createCheckboxesNode = (args) => {
         itemData: noneOptionItemData,
         isExclusive: true,
         hiddenLabel: args.hiddenLabel,
-      })
-    )
+      }),
+    );
   }
 
-  return checkboxes
-}
+  return checkboxes;
+};
 
 const createErrorMessageNode = (args) => {
-  const errorMessageSpan = document.createElement('span')
-  errorMessageSpan.className = 'govie-visually-hidden'
-  errorMessageSpan.innerText = 'Error:'
+  const errorMessageSpan = document.createElement('span');
+  errorMessageSpan.className = 'govie-visually-hidden';
+  errorMessageSpan.innerText = 'Error:';
 
-  const errorMessage = document.createElement('p')
-  errorMessage.id = `${args.fieldId}-error`
-  errorMessage.className = 'govie-error-message'
+  const errorMessage = document.createElement('p');
+  errorMessage.id = `${args.fieldId}-error`;
+  errorMessage.className = 'govie-error-message';
 
-  errorMessage.appendChild(errorMessageSpan)
-  errorMessage.append(` ${args.errorMessage}`)
+  errorMessage.appendChild(errorMessageSpan);
+  errorMessage.append(` ${args.errorMessage}`);
 
-  return errorMessage
-}
+  return errorMessage;
+};
 
 const collectFieldSetDescribedby = (args) => {
-  const describedby = []
+  const describedby = [];
   if (args.hint) {
-    describedby.push(`${args.fieldId}-hint`)
+    describedby.push(`${args.fieldId}-hint`);
   }
 
   if (args.errorMessage) {
-    describedby.push(`${args.fieldId}-error`)
+    describedby.push(`${args.fieldId}-error`);
   }
 
-  return describedby
-}
+  return describedby;
+};
 
 const createFieldSetNode = (args) => {
-  const fieldSet = document.createElement('fieldset')
-  fieldSet.className = 'govie-fieldset'
-  fieldSet.setAttribute('aria-describedby', collectFieldSetDescribedby(args))
+  const fieldSet = document.createElement('fieldset');
+  fieldSet.className = 'govie-fieldset';
+  fieldSet.setAttribute('aria-describedby', collectFieldSetDescribedby(args));
 
   if (args.legend) {
-    fieldSet.appendChild(createLegendNode(args))
+    fieldSet.appendChild(createLegendNode(args));
   }
 
   if (args.hint) {
-    fieldSet.appendChild(createHintNode(args))
+    fieldSet.appendChild(createHintNode(args));
   }
 
   if (args.errorMessage) {
-    fieldSet.appendChild(createErrorMessageNode(args))
+    fieldSet.appendChild(createErrorMessageNode(args));
   }
 
-  fieldSet.appendChild(createCheckboxesNode(args))
+  fieldSet.appendChild(createCheckboxesNode(args));
 
-  return fieldSet
-}
+  return fieldSet;
+};
 
 const Template = (args) => {
-  const formGroupClassNames = ['govie-form-group']
+  const formGroupClassNames = ['govie-form-group'];
   if (args.errorMessage) {
-    formGroupClassNames.push('govie-form-group--error')
+    formGroupClassNames.push('govie-form-group--error');
   }
 
-  const formGroup = document.createElement('div')
-  formGroup.className = formGroupClassNames.join(' ')
+  const formGroup = document.createElement('div');
+  formGroup.className = formGroupClassNames.join(' ');
 
-  formGroup.appendChild(createFieldSetNode(args))
+  formGroup.appendChild(createFieldSetNode(args));
 
-  return beautifyHtmlNode(formGroup)
-}
+  return beautifyHtmlNode(formGroup);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   legend: 'Organisation',
   items: [
@@ -348,9 +348,9 @@ Default.args = {
     },
     { label: 'Department for Transport', value: 'DfT' },
   ],
-}
+};
 
-export const WithNormalLegend = Template.bind({})
+export const WithNormalLegend = Template.bind({});
 WithNormalLegend.args = {
   legend: 'Organisation',
   legendAsHeading: false,
@@ -365,9 +365,9 @@ WithNormalLegend.args = {
     },
     { label: 'Department for Transport', value: 'DfT' },
   ],
-}
+};
 
-export const WithSmallCheckbox = Template.bind({})
+export const WithSmallCheckbox = Template.bind({});
 WithSmallCheckbox.args = {
   fieldId: 'organisation',
   legend: 'Organisation',
@@ -383,9 +383,9 @@ WithSmallCheckbox.args = {
     },
     { label: 'Department for Transport', value: 'DfT' },
   ],
-}
+};
 
-export const WithHints = Template.bind({})
+export const WithHints = Template.bind({});
 WithHints.args = {
   fieldId: 'nationality',
   legend: 'What is your nationality?',
@@ -405,9 +405,9 @@ WithHints.args = {
       value: 'another-country',
     },
   ],
-}
+};
 
-export const WithErrorMessage = Template.bind({})
+export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
   fieldId: 'nationality',
   legend: 'What is your nationality?',
@@ -429,9 +429,9 @@ WithErrorMessage.args = {
       value: 'another-country',
     },
   ],
-}
+};
 
-export const WithNoneOption = Template.bind({})
+export const WithNoneOption = Template.bind({});
 WithNoneOption.args = {
   fieldId: 'travel',
   legend: 'Will you be travelling to any of these countries?',
@@ -452,9 +452,9 @@ WithNoneOption.args = {
       value: 'spain',
     },
   ],
-}
+};
 
-export const WithConditionalInput = Template.bind({})
+export const WithConditionalInput = Template.bind({});
 WithConditionalInput.args = {
   fieldId: 'contact',
   legend: 'How would you like to be contacted?',
@@ -492,4 +492,4 @@ WithConditionalInput.args = {
       },
     },
   ],
-}
+};

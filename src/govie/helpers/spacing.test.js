@@ -1,10 +1,10 @@
-const outdent = require('outdent')
+const outdent = require('outdent');
 
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested'
-}
+  outputStyle: 'nested',
+};
 
 const sassBootstrap = `
   @import "settings/media-queries";
@@ -32,7 +32,7 @@ const sassBootstrap = `
   );
 
   @import "helpers/media-queries";
-  @import "helpers/spacing";`
+  @import "helpers/spacing";`;
 
 describe('@function govie-spacing', () => {
   it('returns CSS for a property based on the given spacing point', async () => {
@@ -41,14 +41,14 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing($spacing-point)
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: 15px; }`)
-  })
+        top: 15px; }`);
+  });
 
   it('returns CSS for a property based on a negative spacing point', async () => {
     const sass = `
@@ -56,14 +56,14 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing(-2)
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: -15px; }`)
-  })
+        top: -15px; }`);
+  });
 
   it('throws an error when passed anything other than a number', async () => {
     const sass = `
@@ -71,14 +71,12 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing('margin')
-      }`
+      }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig }))
-      .rejects
-      .toThrow(
-        'Expected a number (integer), but got a string.'
-      )
-  })
+    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      'Expected a number (integer), but got a string.',
+    );
+  });
 
   it('throws an error when passed a non-existent point', async () => {
     const sass = `
@@ -86,14 +84,12 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing(999)
-      }`
+      }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig }))
-      .rejects
-      .toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
-      )
-  })
+    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.',
+    );
+  });
 
   it('throws an error when passed a non-existent negative point', async () => {
     const sass = `
@@ -101,14 +97,12 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing(-999)
-      }`
+      }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig }))
-      .rejects
-      .toThrow(
-        'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.'
-      )
-  })
+    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.',
+    );
+  });
 
   it('handles negative zero', async () => {
     const sass = `
@@ -116,15 +110,15 @@ describe('@function govie-spacing', () => {
 
       .foo {
         top: govie-spacing(-0)
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: 0; }`)
-  })
-})
+        top: 0; }`);
+  });
+});
 
 describe('@mixin _govie-responsive-spacing', () => {
   it('outputs CSS for a property based on the given spacing map', async () => {
@@ -133,17 +127,17 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       .foo {
         @include _govie-responsive-spacing($spacing-point, 'margin')
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         margin: 15px; }
         @media (min-width: 30em) {
           .foo {
-            margin: 25px; } }`)
-  })
+            margin: 25px; } }`);
+  });
 
   it('outputs CSS for a property and direction based on the spacing map', async () => {
     const sass = `
@@ -151,17 +145,17 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       .foo {
         @include _govie-responsive-spacing($spacing-point, 'padding', 'top');
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         padding-top: 15px; }
         @media (min-width: 30em) {
           .foo {
-            padding-top: 25px; } }`)
-  })
+            padding-top: 25px; } }`);
+  });
 
   it('throws an exception when passed a non-existent point', async () => {
     const sass = `
@@ -169,14 +163,12 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       .foo {
         @include _govie-responsive-spacing(14px, 'margin')
-      }`
+      }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig }))
-      .rejects
-      .toThrow(
-        'Unknown spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.'
-      )
-  })
+    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      'Unknown spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.',
+    );
+  });
 
   describe('when $important is set to true', () => {
     it('marks the rule as important for the property', async () => {
@@ -189,17 +181,17 @@ describe('@mixin _govie-responsive-spacing', () => {
             'margin',
             $important: true
           )
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin: 15px !important; }
           @media (min-width: 30em) {
             .foo {
-              margin: 25px !important; } }`)
-    })
+              margin: 25px !important; } }`);
+    });
 
     it('marks the rule as important for the property and direction', async () => {
       const sass = `
@@ -212,18 +204,18 @@ describe('@mixin _govie-responsive-spacing', () => {
             'top',
             $important: true
           )
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin-top: 15px !important; }
           @media (min-width: 30em) {
             .foo {
-              margin-top: 25px !important; } }`)
-    })
-  })
+              margin-top: 25px !important; } }`);
+    });
+  });
 
   describe('when an adjustment is provided', () => {
     it('adjusts the value for the property', async () => {
@@ -236,17 +228,17 @@ describe('@mixin _govie-responsive-spacing', () => {
             'margin',
             $adjustment: 2px
           )
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin: 17px; }
           @media (min-width: 30em) {
             .foo {
-              margin: 27px; } }`)
-    })
+              margin: 27px; } }`);
+    });
 
     it('adjusts the value for the property and direction', async () => {
       const sass = `
@@ -259,19 +251,19 @@ describe('@mixin _govie-responsive-spacing', () => {
             'top',
             $adjustment: 2px
           )
-        }`
+        }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig })
+      const results = await renderSass({ data: sass, ...sassConfig });
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin-top: 17px; }
           @media (min-width: 30em) {
             .foo {
-              margin-top: 27px; } }`)
-    })
-  })
-})
+              margin-top: 27px; } }`);
+    });
+  });
+});
 
 describe('@mixin govie-responsive-margin', () => {
   it('outputs simple responsive margins', async () => {
@@ -280,17 +272,17 @@ describe('@mixin govie-responsive-margin', () => {
 
         .foo {
           @include govie-responsive-margin($spacing-point)
-        }`
+        }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin: 15px; }
           @media (min-width: 30em) {
             .foo {
-              margin: 25px; } }`)
-  })
+              margin: 25px; } }`);
+  });
 
   it('outputs extreme responsive margins', async () => {
     const sass = `
@@ -303,18 +295,18 @@ describe('@mixin govie-responsive-margin', () => {
             $important: true,
             $adjustment: 2px
           )
-        }`
+        }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           margin-top: 17px !important; }
           @media (min-width: 30em) {
             .foo {
-              margin-top: 27px !important; } }`)
-  })
-})
+              margin-top: 27px !important; } }`);
+  });
+});
 
 describe('@mixin govie-responsive-padding', () => {
   it('outputs simple responsive padding', async () => {
@@ -323,17 +315,17 @@ describe('@mixin govie-responsive-padding', () => {
 
         .foo {
           @include govie-responsive-padding($spacing-point)
-        }`
+        }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           padding: 15px; }
           @media (min-width: 30em) {
             .foo {
-              padding: 25px; } }`)
-  })
+              padding: 25px; } }`);
+  });
 
   it('outputs extreme responsive padding', async () => {
     const sass = `
@@ -346,15 +338,15 @@ describe('@mixin govie-responsive-padding', () => {
             $important: true,
             $adjustment: 2px
           )
-        }`
+        }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           padding-top: 17px !important; }
           @media (min-width: 30em) {
             .foo {
-              padding-top: 27px !important; } }`)
-  })
-})
+              padding-top: 27px !important; } }`);
+  });
+});

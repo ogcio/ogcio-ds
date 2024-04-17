@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Task list',
@@ -30,74 +30,74 @@ export default {
       },
     ],
   },
-}
+};
 
 const createHeader = (num, text) => {
-  const header = document.createElement('h2')
-  header.className = 'govie-task-list__section'
+  const header = document.createElement('h2');
+  header.className = 'govie-task-list__section';
 
-  const sectionNumber = document.createElement('span')
-  sectionNumber.className = 'govie-task-list__section-number'
-  sectionNumber.innerHTML = num
+  const sectionNumber = document.createElement('span');
+  sectionNumber.className = 'govie-task-list__section-number';
+  sectionNumber.innerHTML = num;
 
-  header.innerHTML = `${sectionNumber.outerHTML} ${text}`
+  header.innerHTML = `${sectionNumber.outerHTML} ${text}`;
 
-  return header
-}
+  return header;
+};
 
 const createTag = ({ name, type }) => {
-  const tag = document.createElement('strong')
+  const tag = document.createElement('strong');
 
   tag.className = `govie-tag govie-task-list__tag ${
     type ? `govie-tag--${type}` : ''
-  }`
-  tag.innerText = name
+  }`;
+  tag.innerText = name;
 
-  return tag
-}
+  return tag;
+};
 
 const createUnorderedList = (taskList) => {
-  const list = document.createElement('ul')
-  list.className = 'govie-task-list__items'
+  const list = document.createElement('ul');
+  list.className = 'govie-task-list__items';
 
   taskList.forEach(({ action, tag }) => {
-    const item = document.createElement('li')
-    item.className = 'govie-task-list__item'
+    const item = document.createElement('li');
+    item.className = 'govie-task-list__item';
 
-    const taskName = document.createElement('span')
-    taskName.className = 'govie-task-list__task-name'
+    const taskName = document.createElement('span');
+    taskName.className = 'govie-task-list__task-name';
 
     if (action.link) {
-      const link = document.createElement('a')
-      link.href = '#'
-      link.setAttribute('aria-describedby', 'eligibility-status')
-      link.innerText = action.name
-      taskName.appendChild(link)
+      const link = document.createElement('a');
+      link.href = '#';
+      link.setAttribute('aria-describedby', 'eligibility-status');
+      link.innerText = action.name;
+      taskName.appendChild(link);
     } else {
-      taskName.innerText = action.name
+      taskName.innerText = action.name;
     }
 
-    item.appendChild(taskName)
+    item.appendChild(taskName);
 
-    item.appendChild(createTag(tag))
-    list.appendChild(item)
-  })
+    item.appendChild(createTag(tag));
+    list.appendChild(item);
+  });
 
-  return list
-}
+  return list;
+};
 
 const createListItem = ({ num, header, taskList }) => {
-  const list = document.createElement('li')
+  const list = document.createElement('li');
 
-  list.appendChild(createHeader(num, header))
-  list.appendChild(createUnorderedList(taskList))
+  list.appendChild(createHeader(num, header));
+  list.appendChild(createUnorderedList(taskList));
 
-  return list
-}
+  return list;
+};
 
 const Template = (args) => {
-  const orderedList = document.createElement('ol')
-  orderedList.className = 'govie-task-list'
+  const orderedList = document.createElement('ol');
+  orderedList.className = 'govie-task-list';
 
   args.content.forEach((item, index) => {
     orderedList.appendChild(
@@ -105,17 +105,17 @@ const Template = (args) => {
         num: index + 1,
         header: item.header,
         taskList: item.taskList,
-      })
-    )
-  })
+      }),
+    );
+  });
 
-  return beautifyHtmlNode(orderedList)
-}
+  return beautifyHtmlNode(orderedList);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithLinks = Template.bind({})
+export const WithLinks = Template.bind({});
 WithLinks.args = {
   content: [
     {
@@ -132,9 +132,9 @@ WithLinks.args = {
       ],
     },
   ],
-}
+};
 
-export const WithMultipleSections = Template.bind({})
+export const WithMultipleSections = Template.bind({});
 WithMultipleSections.args = {
   content: [
     {
@@ -160,4 +160,4 @@ WithMultipleSections.args = {
       ],
     },
   ],
-}
+};

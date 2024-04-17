@@ -1,4 +1,4 @@
-@include govie-exports("govie/component/skip-link") {
+@include govie-exports('govie/component/skip-link') {
   .govie-skip-link {
     @include govie-visually-hidden-focusable;
     @include govie-typography-common;
@@ -10,14 +10,22 @@
     padding: govie-spacing(2) govie-spacing(3);
 
     // Respect 'display cutout' safe area (avoids notches and rounded corners)
-    @supports (padding: unquote("max(calc(0px))")) {
-      $padding-safe-area-right: calc(#{govie-spacing(3)} + env(safe-area-inset-right));
-      $padding-safe-area-left: calc(#{govie-spacing(3)} + env(safe-area-inset-left));
+    @supports (padding: unquote('max(calc(0px))')) {
+      $padding-safe-area-right: calc(
+        #{govie-spacing(3)} + env(safe-area-inset-right)
+      );
+      $padding-safe-area-left: calc(
+        #{govie-spacing(3)} + env(safe-area-inset-left)
+      );
 
       // Use max() to pick largest padding, default or with safe area
       // Escaped due to Sass max() vs. CSS native max()
-      padding-right: unquote("max(#{govie-spacing(3)}, #{$padding-safe-area-right})");
-      padding-left: unquote("max(#{govie-spacing(3)}, #{$padding-safe-area-left})");
+      padding-right: unquote(
+        'max(#{govie-spacing(3)}, #{$padding-safe-area-right})'
+      );
+      padding-left: unquote(
+        'max(#{govie-spacing(3)}, #{$padding-safe-area-left})'
+      );
     }
 
     &:focus {

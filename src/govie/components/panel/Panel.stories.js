@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Layout/Panel',
@@ -23,35 +23,35 @@ export default {
         'Use this component instead of the heading text if you need to give detailed information, or more context.',
     },
   },
-}
+};
 
 const Template = (args) => {
-  const panel = document.createElement('div')
-  panel.className = 'govie-panel govie-panel--confirmation'
+  const panel = document.createElement('div');
+  panel.className = 'govie-panel govie-panel--confirmation';
 
-  const header = document.createElement('h1')
-  header.className = 'govie-panel__title'
-  header.innerText = args.headingText
+  const header = document.createElement('h1');
+  header.className = 'govie-panel__title';
+  header.innerText = args.headingText;
 
-  panel.appendChild(header)
+  panel.appendChild(header);
 
   if (args.bodyHtml) {
-    const body = document.createElement('div')
-    body.className = 'govie-panel__body'
-    body.innerHTML = args.bodyHtml
-    panel.appendChild(body)
+    const body = document.createElement('div');
+    body.className = 'govie-panel__body';
+    body.innerHTML = args.bodyHtml;
+    panel.appendChild(body);
   }
 
-  return beautifyHtmlNode(panel)
-}
+  return beautifyHtmlNode(panel);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   headingText: 'Application complete',
-}
+};
 
-export const WithHeaderAndBody = Template.bind({})
+export const WithHeaderAndBody = Template.bind({});
 WithHeaderAndBody.args = {
   headingText: 'Application complete',
   bodyHtml: 'Your reference number<br><strong>HDJ2123F</strong>',
-}
+};

@@ -1,8 +1,8 @@
-const { renderSass } = require('../../../lib/jest-helpers')
+const { renderSass } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed'
-}
+  outputStyle: 'compressed',
+};
 
 describe('@mixin govie-exports', () => {
   it('will only output a named section once', async () => {
@@ -19,12 +19,12 @@ describe('@mixin govie-exports', () => {
         .foo {
           color: blue;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim()).toEqual('.foo{color:red}')
-  })
+    expect(results.css.toString().trim()).toEqual('.foo{color:red}');
+  });
 
   it('will export differently named sections', async () => {
     const sass = `
@@ -40,11 +40,12 @@ describe('@mixin govie-exports', () => {
         .bar {
           color: blue;
         }
-      }`
+      }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig })
+    const results = await renderSass({ data: sass, ...sassConfig });
 
-    expect(results.css.toString().trim())
-      .toEqual('.foo{color:red}.bar{color:blue}')
-  })
-})
+    expect(results.css.toString().trim()).toEqual(
+      '.foo{color:red}.bar{color:blue}',
+    );
+  });
+});

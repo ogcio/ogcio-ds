@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Form/Select',
@@ -38,66 +38,66 @@ export default {
       southwest: 'Option 4',
     },
   },
-}
+};
 
 const Template = (args) => {
-  const group = document.createElement('div')
-  const classnames = ['govie-form-group']
+  const group = document.createElement('div');
+  const classnames = ['govie-form-group'];
 
-  const label = document.createElement('label')
-  label.className = 'govie-label--s'
-  label.setAttribute('for', args.id)
-  label.innerText = args.label
+  const label = document.createElement('label');
+  label.className = 'govie-label--s';
+  label.setAttribute('for', args.id);
+  label.innerText = args.label;
 
-  group.appendChild(label)
+  group.appendChild(label);
 
   if (args.hint) {
-    const hint = document.createElement('div')
-    hint.className = 'govie-hint'
-    hint.id = `${args.id}-hint`
-    hint.innerText = args.hint
-    group.appendChild(hint)
+    const hint = document.createElement('div');
+    hint.className = 'govie-hint';
+    hint.id = `${args.id}-hint`;
+    hint.innerText = args.hint;
+    group.appendChild(hint);
   }
 
-  const select = document.createElement('select')
-  select.className = 'govie-select'
-  select.id = args.id
-  select.name = args.id
+  const select = document.createElement('select');
+  select.className = 'govie-select';
+  select.id = args.id;
+  select.name = args.id;
 
   Object.entries(args.options).forEach(([value, label]) => {
-    const option = document.createElement('option')
-    option.innerText = label
-    option.value = value
+    const option = document.createElement('option');
+    option.innerText = label;
+    option.value = value;
 
-    select.appendChild(option)
-  })
+    select.appendChild(option);
+  });
 
   if (args.errorMessage) {
-    classnames.push('govie-form-group--error')
+    classnames.push('govie-form-group--error');
     group.insertAdjacentHTML(
       'beforeend',
       `<p id="default-select-error" class="govie-error-message">
         <span class="govie-visually-hidden">Error:</span> ${args.errorMessage}
       </p>
-    `
-    )
+    `,
+    );
   }
 
-  group.className = classnames.join(' ')
-  group.appendChild(select)
+  group.className = classnames.join(' ');
+  group.appendChild(select);
 
-  return beautifyHtmlNode(group)
-}
+  return beautifyHtmlNode(group);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithHint = Template.bind({})
+export const WithHint = Template.bind({});
 WithHint.args = {
   hint: 'This can be different to where you went before',
-}
+};
 
-export const WithError = Template.bind({})
+export const WithError = Template.bind({});
 WithError.args = {
   errorMessage: 'Error message',
-}
+};

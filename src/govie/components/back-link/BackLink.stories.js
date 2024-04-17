@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Navigation/Back link',
@@ -19,16 +19,16 @@ export default {
   args: {
     url: '#',
   },
-}
+};
 
 const Template = (args) => {
-  const backLink = document.createElement('a')
-  backLink.href = args.url
-  backLink.className = 'govie-back-link'
-  backLink.innerText = 'Back'
+  const backLink = document.createElement('a');
+  backLink.href = args.url;
+  backLink.className = 'govie-back-link';
+  backLink.innerText = 'Back';
 
-  return beautifyHtmlNode(backLink)
-}
+  return beautifyHtmlNode(backLink);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};

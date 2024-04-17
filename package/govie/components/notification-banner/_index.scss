@@ -1,7 +1,7 @@
-@include govie-exports("govie/component/notification-banner") {
+@include govie-exports('govie/component/notification-banner') {
   .govie-notification-banner {
     @include govie-font($size: 19);
-    @include govie-responsive-margin(8, "bottom");
+    @include govie-responsive-margin(8, 'bottom');
 
     border: $govie-border-width solid $govie-brand-colour;
 
@@ -30,7 +30,7 @@
 
     padding: 0;
 
-    color: govie-colour("white");
+    color: govie-colour('white');
   }
 
   .govie-notification-banner__content {

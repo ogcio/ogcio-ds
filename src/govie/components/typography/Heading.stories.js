@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Heading',
@@ -46,56 +46,56 @@ export default {
     nestedCaption: false,
     element: 'h1',
   },
-}
+};
 
 const Template = (args) => {
-  const container = document.createElement('div')
+  const container = document.createElement('div');
 
-  const component = document.createElement(args.element ?? 'h1')
-  component.className = `govie-heading-${args.size ?? 'l'}`
-  component.innerText = args.text
+  const component = document.createElement(args.element ?? 'h1');
+  component.className = `govie-heading-${args.size ?? 'l'}`;
+  component.innerText = args.text;
 
   if (args.caption) {
-    const caption = document.createElement('span')
-    caption.className = `govie-caption-${args.captionSize}`
-    caption.innerText = args.caption
+    const caption = document.createElement('span');
+    caption.className = `govie-caption-${args.captionSize}`;
+    caption.innerText = args.caption;
 
     if (args.nestedCaption) {
-      component.insertAdjacentHTML('afterbegin', caption.outerHTML)
-      return beautifyHtmlNode(component)
+      component.insertAdjacentHTML('afterbegin', caption.outerHTML);
+      return beautifyHtmlNode(component);
     } else {
-      container.appendChild(caption)
+      container.appendChild(caption);
     }
   } else {
-    return beautifyHtmlNode(component)
+    return beautifyHtmlNode(component);
   }
 
-  container.appendChild(component)
+  container.appendChild(component);
 
-  return beautifyHtmlNode(container)
-}
+  return beautifyHtmlNode(container);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   text: 'Heading',
-}
+};
 
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
   text: 'Small heading',
   size: 's',
   captionSize: 'm',
-}
+};
 
-export const WithCaption = Template.bind({})
+export const WithCaption = Template.bind({});
 WithCaption.args = {
   text: 'Heading',
   caption: 'Caption',
-}
+};
 
-export const WithNestedCaption = Template.bind({})
+export const WithNestedCaption = Template.bind({});
 WithNestedCaption.args = {
   text: 'Heading',
   caption: 'Nested caption',
   nestedCaption: true,
-}
+};

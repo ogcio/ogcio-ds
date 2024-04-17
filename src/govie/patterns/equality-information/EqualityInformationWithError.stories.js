@@ -1,9 +1,9 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import parseHtmlString from '../../../../.storybook/helpers/parseHtmlString';
 
-import { Default as radios } from '../../components/radios/Radio.stories'
-import { Default as button } from '../../components/button/PrimaryButton.stories'
-import { Default as dateInput } from '../../components/date-input/DateInput.stories'
+import { Default as radios } from '../../components/radios/Radio.stories';
+import { Default as button } from '../../components/button/PrimaryButton.stories';
+import { Default as dateInput } from '../../components/date-input/DateInput.stories';
 
 export default {
   title: 'Patterns/Equality information/With error',
@@ -25,7 +25,7 @@ export default {
   args: {
     type: 'default',
   },
-}
+};
 
 const createBirthForm = (errorMessage) => {
   const date = dateInput({
@@ -33,10 +33,10 @@ const createBirthForm = (errorMessage) => {
     hint: 'For example, 31 3 1980. If you prefer not to say, continue without entering any information.',
     legendAsHeading: true,
     errorMessage,
-  })
+  });
 
-  return parseHtmlString(date)
-}
+  return parseHtmlString(date);
+};
 
 const createEthnicForm = (errorMessage) => {
   const radio = radios({
@@ -53,34 +53,34 @@ const createEthnicForm = (errorMessage) => {
     extraOptionsDivider: 'or',
     extraOptions: ['Prefer not to say'],
     errorMessage,
-  })
+  });
 
-  return parseHtmlString(radio)
-}
+  return parseHtmlString(radio);
+};
 
 const Template = (args) => {
-  const container = document.createElement('div')
-  container.className = 'govie-width-container'
+  const container = document.createElement('div');
+  container.className = 'govie-width-container';
 
   switch (args.type) {
     case 'birthdate':
-      container.appendChild(createBirthForm(args.errorMessage))
-      break
+      container.appendChild(createBirthForm(args.errorMessage));
+      break;
     default:
-      container.append(createEthnicForm(args.errorMessage))
+      container.append(createEthnicForm(args.errorMessage));
   }
 
-  container.appendChild(parseHtmlString(button({ label: 'Continue' })))
-  return beautifyHtmlNode(container)
-}
+  container.appendChild(parseHtmlString(button({ label: 'Continue' })));
+  return beautifyHtmlNode(container);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   errorMessage: 'Select an ethnic group or ‘Prefer not to say’',
-}
+};
 
-export const DateOfBirth = Template.bind({})
+export const DateOfBirth = Template.bind({});
 DateOfBirth.args = {
   type: 'birthdate',
   errorMessage: 'Enter your date of birth or leave blank',
-}
+};

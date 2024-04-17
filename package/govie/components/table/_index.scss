@@ -1,9 +1,9 @@
-@include govie-exports("govie/component/table") {
+@include govie-exports('govie/component/table') {
   .govie-table {
     @include govie-font($size: 19);
     @include govie-text-colour;
     width: 100%;
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
 
     border-spacing: 0;
     border-collapse: collapse;

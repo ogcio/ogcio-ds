@@ -1,5 +1,4 @@
-@include govie-exports("govie/component/footer") {
-
+@include govie-exports('govie/component/footer') {
   $govie-footer-background: $govie-footer-surface-colour;
   $govie-footer-border: $govie-header-footer-border-colour;
   $govie-footer-text: $govie-text-colour;
@@ -12,8 +11,8 @@
 
   .govie-footer {
     @include govie-font($size: 16);
-    @include govie-responsive-padding(7, "top");
-    @include govie-responsive-padding(5, "bottom");
+    @include govie-responsive-padding(7, 'top');
+    @include govie-responsive-padding(5, 'bottom');
 
     border-top: 1px solid $govie-footer-border;
     color: $govie-footer-text;
@@ -27,7 +26,7 @@
 
   .govie-footer__section-break {
     margin: 0; // Reset `<hr>` default margins
-    @include govie-responsive-margin(8, "bottom");
+    @include govie-responsive-margin(8, 'bottom');
     border: 0; // Reset `<hr>` default borders
     border-bottom: 1px solid $govie-footer-border;
   }
@@ -54,7 +53,7 @@
   .govie-footer__meta-item--grow {
     -ms-flex: 1;
         flex: 1; // Support: Flexbox
-    @include govie-media-query ($until: tablet) {
+    @include govie-media-query($until: tablet) {
       -ms-flex-preferred-size: 320px;
           flex-basis: 320px; // Support: Flexbox
     }
@@ -63,7 +62,7 @@
   .govie-footer__licence-logo {
     display: inline-block;
     margin-right: govie-spacing(2);
-    @include govie-media-query ($until: desktop) {
+    @include govie-media-query($until: desktop) {
       margin-bottom: govie-spacing(3);
     }
     vertical-align: top;
@@ -80,15 +79,16 @@
     display: inline-block;
     min-width: $govie-footer-logo-image-width;
     padding-top: ($govie-footer-logo-image-height + govie-spacing(2));
-    background-image: govie-image-url("logotype.png");
+    background-image: govie-image-url('logotype.png');
     @include govie-device-pixel-ratio {
       // TODO: 2x image
       // background-image: govie-image-url("logotype-2x.png");
-      background-image: govie-image-url("logotype.png");
+      background-image: govie-image-url('logotype.png');
     }
     background-repeat: no-repeat;
     background-position: 50% 0%;
-    background-size: $govie-footer-logo-image-width $govie-footer-logo-image-height;
+    background-size: $govie-footer-logo-image-width
+      $govie-footer-logo-image-height;
     text-align: center;
     white-space: nowrap;
   }
@@ -113,7 +113,7 @@
     margin-bottom: govie-spacing(6);
     padding-bottom: govie-spacing(4);
 
-    @include govie-media-query ($until: tablet) {
+    @include govie-media-query($until: tablet) {
       padding-bottom: govie-spacing(2);
     }
     border-bottom: 1px solid $govie-footer-border;
@@ -146,7 +146,7 @@
     }
   }
 
-  @include govie-media-query ($from: desktop) {
+  @include govie-media-query($from: desktop) {
     .govie-footer__list--columns-2 {
       -webkit-column-count: 2;
               column-count: 2; // Support: Columns
@@ -159,7 +159,7 @@
   }
 
   .govie-footer__list-item {
-    @include govie-responsive-margin(4, "bottom");
+    @include govie-responsive-margin(4, 'bottom');
   }
 
   .govie-footer__list-item:last-child {

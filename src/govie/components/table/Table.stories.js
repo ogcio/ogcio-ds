@@ -1,4 +1,4 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Typography/Table',
@@ -46,98 +46,98 @@ export default {
     numeric: false,
     boldFirstColumn: true,
   },
-}
+};
 
 const createTableHeader = (headers, numeric) => {
-  const thead = document.createElement('thead')
-  thead.className = 'govie-table__head'
+  const thead = document.createElement('thead');
+  thead.className = 'govie-table__head';
 
-  const trHead = document.createElement('tr')
-  trHead.className = 'govie-table__row'
+  const trHead = document.createElement('tr');
+  trHead.className = 'govie-table__row';
 
   headers.forEach((header, index) => {
-    const th = document.createElement('th')
-    th.setAttribute('scope', 'col')
+    const th = document.createElement('th');
+    th.setAttribute('scope', 'col');
 
-    const classes = ['govie-table__header']
+    const classes = ['govie-table__header'];
     if (index !== 0 && numeric) {
-      classes.push('govie-table__header--numeric')
+      classes.push('govie-table__header--numeric');
     }
 
-    th.className = classes.join(' ')
-    th.innerText = header
+    th.className = classes.join(' ');
+    th.innerText = header;
 
-    trHead.appendChild(th)
-  })
+    trHead.appendChild(th);
+  });
 
-  thead.appendChild(trHead)
-  return thead
-}
+  thead.appendChild(trHead);
+  return thead;
+};
 
 const createTableBody = (rows, numeric, boldFirstColumn) => {
-  const tbody = document.createElement('tbody')
-  tbody.className = 'govie-table__body'
+  const tbody = document.createElement('tbody');
+  tbody.className = 'govie-table__body';
 
   rows.forEach((row) => {
-    const tr = document.createElement('tr')
-    tr.className = 'govie-table__row'
+    const tr = document.createElement('tr');
+    tr.className = 'govie-table__row';
 
     row.forEach((cell, index) => {
       if (index === 0 && boldFirstColumn) {
-        const th = document.createElement('th')
-        th.className = 'govie-table__header'
-        th.setAttribute('scope', 'row')
-        th.innerText = cell
+        const th = document.createElement('th');
+        th.className = 'govie-table__header';
+        th.setAttribute('scope', 'row');
+        th.innerText = cell;
 
-        tr.appendChild(th)
+        tr.appendChild(th);
       } else {
-        const td = document.createElement('td')
+        const td = document.createElement('td');
 
-        const classes = ['govie-table__cell']
+        const classes = ['govie-table__cell'];
 
         if (numeric) {
-          classes.push('govie-table__cell--numeric')
+          classes.push('govie-table__cell--numeric');
         }
 
-        td.className = classes.join(' ')
-        td.innerText = cell
+        td.className = classes.join(' ');
+        td.innerText = cell;
 
-        tr.appendChild(td)
+        tr.appendChild(td);
       }
-    })
+    });
 
-    tbody.appendChild(tr)
-  })
-  return tbody
-}
+    tbody.appendChild(tr);
+  });
+  return tbody;
+};
 
 const Template = (args) => {
-  const table = document.createElement('table')
-  table.className = 'govie-table'
+  const table = document.createElement('table');
+  table.className = 'govie-table';
 
   if (args.caption) {
-    const caption = document.createElement('caption')
+    const caption = document.createElement('caption');
 
-    const classes = ['govie-table__caption']
+    const classes = ['govie-table__caption'];
     if (args.captionSize) {
-      classes.push(`govie-table__caption--${args.captionSize}`)
+      classes.push(`govie-table__caption--${args.captionSize}`);
     }
 
-    caption.className = classes.join(' ')
-    caption.innerText = args.caption
+    caption.className = classes.join(' ');
+    caption.innerText = args.caption;
 
-    table.appendChild(caption)
+    table.appendChild(caption);
   }
 
-  table.appendChild(createTableHeader(args.headers, args.numeric))
+  table.appendChild(createTableHeader(args.headers, args.numeric));
   table.appendChild(
-    createTableBody(args.rows, args.numeric, args.boldFirstColumn)
-  )
+    createTableBody(args.rows, args.numeric, args.boldFirstColumn),
+  );
 
-  return beautifyHtmlNode(table)
-}
+  return beautifyHtmlNode(table);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   headers: ['Date', 'Amount'],
   rows: [
@@ -145,9 +145,9 @@ Default.args = {
     ['Next 33 weeks', '€109.80 per week'],
     ['Total estimated pay', '€4,282.20'],
   ],
-}
+};
 
-export const WithCaption = Template.bind({})
+export const WithCaption = Template.bind({});
 WithCaption.args = {
   caption: 'Dates and amounts',
   headers: ['Date', 'Amount'],
@@ -156,9 +156,9 @@ WithCaption.args = {
     ['Next 33 weeks', '€109.80 per week'],
     ['Total estimated pay', '€4,282.20'],
   ],
-}
+};
 
-export const WithNumericValues = Template.bind({})
+export const WithNumericValues = Template.bind({});
 WithNumericValues.args = {
   caption: 'Months and rates',
   headers: ['Month you apply', 'Rate for bicycles', 'Rate for vehicles'],
@@ -168,4 +168,4 @@ WithNumericValues.args = {
     ['March', '€185', '€125'],
   ],
   numeric: true,
-}
+};

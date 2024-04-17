@@ -1,5 +1,5 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
-import { slugify } from '../../../../.storybook/helpers/utils'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
+import { slugify } from '../../../../.storybook/helpers/utils';
 
 export default {
   title: 'Navigation/Tabs',
@@ -22,49 +22,49 @@ export default {
     tabs: ['Tab 1', 'Tab 2'],
     withTableContent: false,
   },
-}
+};
 
 const Template = (args) => {
-  const tabs = document.createElement('div')
-  tabs.className = 'govie-tabs'
-  tabs.setAttribute('data-module', 'govie-tabs')
+  const tabs = document.createElement('div');
+  tabs.className = 'govie-tabs';
+  tabs.setAttribute('data-module', 'govie-tabs');
 
-  const title = document.createElement('h2')
-  title.className = 'govie-tabs__title'
-  title.innerText = 'Contents'
+  const title = document.createElement('h2');
+  title.className = 'govie-tabs__title';
+  title.innerText = 'Contents';
 
-  tabs.appendChild(title)
+  tabs.appendChild(title);
 
-  const ul = document.createElement('ul')
-  ul.className = 'govie-tabs__list'
+  const ul = document.createElement('ul');
+  ul.className = 'govie-tabs__list';
 
-  const panels = []
+  const panels = [];
   args.tabs.forEach((tab, index) => {
-    const href = slugify(tab)
-    panels.push(href)
+    const href = slugify(tab);
+    panels.push(href);
 
-    const li = document.createElement('li')
+    const li = document.createElement('li');
     li.className = `govie-tabs__list-item ${
       index === 0 ? 'govie-tabs__list-item--selected' : ''
-    }`
+    }`;
 
-    const link = document.createElement('a')
-    link.className = 'govie-tabs__tab'
-    link.href = `#${href}`
-    link.innerText = tab
+    const link = document.createElement('a');
+    link.className = 'govie-tabs__tab';
+    link.href = `#${href}`;
+    link.innerText = tab;
 
-    li.appendChild(link)
-    ul.appendChild(li)
-  })
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
 
-  tabs.appendChild(ul)
+  tabs.appendChild(ul);
 
   panels.forEach((id, index) => {
-    const panel = document.createElement('div')
+    const panel = document.createElement('div');
     panel.className = `govie-tabs__panel ${
       index !== 0 ? 'govie-tabs__panel--hidden' : ''
-    }`
-    panel.setAttribute('id', id)
+    }`;
+    panel.setAttribute('id', id);
     if (args.withTableContent) {
       panel.innerHTML = `
         <table class="govie-table">
@@ -87,25 +87,25 @@ const Template = (args) => {
           </tr>
         </tbody>
       </table>
-        `
+        `;
     } else {
-      const h2 = document.createElement('h2')
-      h2.className = 'govie-heading-s'
-      h2.innerText = `${args.tabs[index]} content`
+      const h2 = document.createElement('h2');
+      h2.className = 'govie-heading-s';
+      h2.innerText = `${args.tabs[index]} content`;
 
-      panel.appendChild(h2)
+      panel.appendChild(h2);
     }
 
-    tabs.appendChild(panel)
-  })
+    tabs.appendChild(panel);
+  });
 
-  return beautifyHtmlNode(tabs)
-}
+  return beautifyHtmlNode(tabs);
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const WithTableContent = Template.bind({})
+export const WithTableContent = Template.bind({});
 WithTableContent.args = {
   withTableContent: true,
-}
+};

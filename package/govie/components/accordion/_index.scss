@@ -1,11 +1,11 @@
-@include govie-exports("govie/component/accordion") {
-  $govie-accordion-base-colour: govie-colour("black");
-  $govie-accordion-hover-colour: govie-colour("light-grey");
+@include govie-exports('govie/component/accordion') {
+  $govie-accordion-base-colour: govie-colour('black');
+  $govie-accordion-hover-colour: govie-colour('light-grey');
   $govie-accordion-icon-focus-colour: $govie-focus-colour;
   $govie-accordion-bottom-border-width: 1px;
 
   .govie-accordion {
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
   }
 
   .govie-accordion__section {
@@ -39,7 +39,8 @@
   .js-enabled {
     .govie-accordion {
       // Border at the bottom of the whole accordion
-      border-bottom: $govie-accordion-bottom-border-width solid $govie-border-colour;
+      border-bottom: $govie-accordion-bottom-border-width solid
+        $govie-border-colour;
     }
 
     .govie-accordion__section {
@@ -49,8 +50,8 @@
     // Hide the body of collapsed sections
     .govie-accordion__section-content {
       display: none;
-      @include govie-responsive-padding(8, "bottom");
-      @include govie-responsive-padding(3, "top");
+      @include govie-responsive-padding(8, 'bottom');
+      @include govie-responsive-padding(3, 'top');
     }
 
     // Show the body of expanded sections
@@ -74,7 +75,7 @@
       cursor: pointer;
       -webkit-appearance: none;
 
-      @include govie-media-query ($from: desktop) {
+      @include govie-media-query($from: desktop) {
         margin-bottom: 14px;
       }
 
@@ -90,7 +91,9 @@
         // The GOV.UK Design System focus state adds a box-shadow to the top and bottom of the
         // button. We add a grey box-shadow on hover too, to make the height of the hover state
         // match the height of the focus state.
-        box-shadow: 0 -2px $govie-accordion-hover-colour, 0 4px $govie-accordion-hover-colour;
+        box-shadow:
+          0 -2px $govie-accordion-hover-colour,
+          0 4px $govie-accordion-hover-colour;
 
         .govie-accordion__section-toggle-text {
           color: $govie-accordion-base-colour;
@@ -148,7 +151,7 @@
 
       // Create inner chevron arrow
       &:after {
-        content: "";
+        content: '';
         box-sizing: border-box;
         display: block;
 
@@ -170,7 +173,7 @@
 
         // IE8 fallback of icon with HTML symbol
         @include govie-if-ie8 {
-          content: "\25B2"; // "▲"
+          content: '\25B2'; // "▲"
           position: relative;
           border: 0;
         }
@@ -186,7 +189,7 @@
       // IE8 fallback of arrow icon
       @include govie-if-ie8 {
         &:after {
-          content: "\25BC"; // "▼"
+          content: '\25BC'; // "▼"
           -webkit-transform: none;
               -ms-transform: none;
                   transform: none;
@@ -201,7 +204,8 @@
 
       border: 0;
 
-      border-top: $govie-accordion-bottom-border-width solid $govie-border-colour;
+      border-top: $govie-accordion-bottom-border-width solid
+        $govie-border-colour;
 
       // Visually separate the section from the one underneath when user changes colours in their
       // browser. See https://github.com/alphagov/govie-frontend/issues/2321#issuecomment-924201488
@@ -215,7 +219,7 @@
       cursor: pointer;
       -webkit-appearance: none;
 
-      @include govie-media-query ($from: tablet) {
+      @include govie-media-query($from: tablet) {
         padding-bottom: govie-spacing(2);
       }
 
@@ -280,10 +284,11 @@
 
     // As Chevron icon is vertically aligned it overlaps with the focus state bottom border
     // Styling adds some spacing
-    .govie-accordion__section-button:focus .govie-accordion__section-toggle-focus {
+    .govie-accordion__section-button:focus
+      .govie-accordion__section-toggle-focus {
       padding-bottom: 3px;
 
-      @include govie-media-query ($from: desktop) {
+      @include govie-media-query($from: desktop) {
         padding-bottom: 2px;
       }
     }

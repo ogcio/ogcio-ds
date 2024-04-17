@@ -1,12 +1,11 @@
-import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode'
+import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
   title: 'Form/Button group',
   parameters: {
     docs: {
       description: {
-        component:
-          'Use the group button component to group related buttons.',
+        component: 'Use the group button component to group related buttons.',
       },
     },
   },
@@ -22,64 +21,63 @@ export default {
     disabled: false,
     size: 'standard',
   },
-}
+};
 
 const Template = (args) => {
-  const group = document.createElement('div')
-  group.className = 'govie-conjoined-button-group'
+  const group = document.createElement('div');
+  group.className = 'govie-conjoined-button-group';
 
   const classes = {
     standard: '',
     small: 'govie-button--small',
     medium: 'govie-button--medium',
-  }
+  };
 
   if (args.buttonLabels && args.buttonLabels.length > 0) {
     args.buttonLabels.forEach((label) => {
-      const btn = document.createElement('button')
+      const btn = document.createElement('button');
 
-      btn.innerText = label
-      btn.setAttribute('data-module', 'govie-button')
+      btn.innerText = label;
+      btn.setAttribute('data-module', 'govie-button');
 
       if (args.disabled) {
-        btn.setAttribute('disabled', true)
-        btn.setAttribute('aria-disabled', true)
-        btn.className = 'govie-button--disabled'
+        btn.setAttribute('disabled', true);
+        btn.setAttribute('aria-disabled', true);
+        btn.className = 'govie-button--disabled';
       }
 
       btn.className = [
         'govie-button',
         ...btn.classList,
         classes[args.size],
-      ].join(' ')
+      ].join(' ');
 
-      group.appendChild(btn)
-    })
+      group.appendChild(btn);
+    });
   }
 
-  return beautifyHtmlNode(group)
-}
+  return beautifyHtmlNode(group);
+};
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   buttonLabels: ['Button', 'Button', 'Button'],
-}
+};
 
-export const Disabled = Template.bind({})
+export const Disabled = Template.bind({});
 Disabled.args = {
   buttonLabels: ['Disabled', 'Disabled', 'Disabled'],
-  disabled: true
-}
+  disabled: true,
+};
 
-
-export const Medium = Template.bind({})
+export const Medium = Template.bind({});
 Medium.args = {
   buttonLabels: ['Medium button', 'Medium button', 'Medium button'],
   size: 'medium',
-}
+};
 
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
   buttonLabels: ['Small button', 'Small button', 'Small button'],
   size: 'small',
-}
+};
