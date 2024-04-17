@@ -1,4 +1,4 @@
-@include govie-exports("govie/component/panel") {
+@include govie-exports('govie/component/panel') {
   .govie-panel {
     @include govie-font($size: 19);
 
@@ -29,8 +29,8 @@
   }
 
   .govie-panel--confirmation {
-    color: govie-colour("white");
-    background: govie-colour("green");
+    color: govie-colour('white');
+    background: govie-colour('green');
 
     @include govie-media-query($media-type: print) {
       border-color: currentcolor;

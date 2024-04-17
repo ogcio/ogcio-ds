@@ -1,8 +1,8 @@
-@import "../error-message/index";
-@import "../hint/index";
-@import "../label/index";
+@import '../error-message/index';
+@import '../hint/index';
+@import '../label/index';
 
-@include govie-exports("govie/component/textarea") {
+@include govie-exports('govie/component/textarea') {
   .govie-textarea {
     @include govie-font($size: 19, $line-height: 1.25);
 
@@ -10,7 +10,7 @@
     display: block;
     width: 100%;
     min-height: 40px;
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
     padding: govie-spacing(1);
 
     resize: vertical;

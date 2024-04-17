@@ -1,4 +1,4 @@
-@include govie-exports("govie/component/label") {
+@include govie-exports('govie/component/label') {
   .govie-label {
     @include govie-font($size: 19);
     @include govie-text-colour;

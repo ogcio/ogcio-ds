@@ -1,4 +1,4 @@
-@include govie-exports("govie/component/error-message") {
+@include govie-exports('govie/component/error-message') {
   .govie-error-message {
     @include govie-font($size: 19, $weight: bold);
 

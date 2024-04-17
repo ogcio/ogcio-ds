@@ -1,8 +1,8 @@
-@include govie-exports("govie/component/details") {
+@include govie-exports('govie/component/details') {
   .govie-details {
     @include govie-font($size: 19);
     @include govie-text-colour;
-    @include govie-responsive-margin(6, "bottom");
+    @include govie-responsive-margin(6, 'bottom');
 
     display: block;
   }
@@ -54,7 +54,7 @@
 
   // Append our own open / closed marker using a pseudo-element
   .govie-details__summary:before {
-    content: "";
+    content: '';
     position: absolute;
 
     top: -1px;
