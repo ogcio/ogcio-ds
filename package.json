@@ -3,8 +3,8 @@
   "name": "ogcio-ds",
   "description": "Used only for the development of OGCIO-DS, see `package/package.json` for the published `package.json`",
   "engines": {
-    "node": "^16.13.0",
-    "npm": "^8.1.0"
+    "node": "^20.11.0",
+    "npm": "^10.2.4"
   },
   "license": "MIT",
   "workspaces": [
@@ -63,7 +63,6 @@
     "eslint": "^8.26.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.3.24",
     "eslint-plugin-n": "^15.3.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-storybook": "^0.6.8",
@@ -94,7 +93,7 @@
     "marked": "^4.1.1",
     "merge-stream": "^2.0.0",
     "minimatch": "^6.2.0",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "nodemon": "^2.0.20",
     "outdent": "^0.8.0",
     "plugin-error": "^2.0.1",
