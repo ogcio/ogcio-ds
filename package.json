@@ -29,7 +29,8 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --cache --cache-location .cache/eslint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"**/*.{cjs,js,mjs}\"",
     "lint:scss": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"{app,src}/**/*.scss\"",
-    "prepare": "husky install",
+    "husky:install": "husky install",
+    "husky:uninstall": "git config --unset core.hooksPath",
     "format": "prettier --write \"src/**/*.{js,json,css,scss,html,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,json,css,scss,html,md}\""
   },
