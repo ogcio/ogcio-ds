@@ -1,6 +1,6 @@
 const outdent = require('outdent');
 
-const { renderSass } = require('../../../lib/jest-helpers');
+import { compileSassString } from '../../../lib/jest-helpers'
 
 const sassConfig = {
   outputStyle: 'nested',
@@ -27,7 +27,7 @@ describe('grid system', () => {
           content: govie-grid-width(one-quarter);
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -41,7 +41,7 @@ describe('grid system', () => {
         $value: govie-grid-width(seven-fifths);
         `;
 
-      await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+      await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
         'Unknown grid width `seven-fifths`',
       );
     });
@@ -57,7 +57,7 @@ describe('grid system', () => {
         }
         `;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-full {
@@ -78,7 +78,7 @@ describe('grid system', () => {
           @include govie-grid-column(two-thirds);
         }
       `;
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-two-thirds {
@@ -100,7 +100,7 @@ describe('grid system', () => {
           @include govie-grid-column(one-quarter, $at: desktop);
         }
       `;
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-quarter-at-desktop {
@@ -120,7 +120,7 @@ describe('grid system', () => {
           @include govie-grid-column(one-quarter, $at: 500px);
         }
       `;
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-quarter-at-500px {
@@ -142,7 +142,7 @@ describe('grid system', () => {
           @include govie-grid-column(one-half, $float: right);
         }
       `;
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-half-right {

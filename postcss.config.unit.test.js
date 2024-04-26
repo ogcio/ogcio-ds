@@ -1,8 +1,8 @@
-const Vinyl = require('vinyl')
-const configFn = require('./postcss.config.js')
+import Vinyl from 'vinyl';
+import configFn from './postcss.config.js'
 
 describe('PostCSS config', () => {
-  let env
+  let env;
 
   function getPluginNames ({ plugins }) {
     return plugins.map(({ postcssPlugin }) => postcssPlugin)
@@ -33,7 +33,7 @@ describe('PostCSS config', () => {
         ]
       )('Uses default environment for $path', ({ path }) => {
         const input = new Vinyl({ path })
-        const config = configFn({ env, file: input })
+        const config = configFn({ env, file: input.basename })
 
         expect(config.plugins)
           .toEqual(expect.arrayContaining([
@@ -55,7 +55,7 @@ describe('PostCSS config', () => {
         ]
       )("Uses 'oldie' environment for $path", ({ path }) => {
         const input = new Vinyl({ path })
-        const config = configFn({ env, file: input })
+        const config = configFn({ env, file: input.basename })
 
         expect(config.plugins)
           .toEqual(expect.arrayContaining([
@@ -80,10 +80,10 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename })
 
           expect(getPluginNames(config))
-            .toEqual(['autoprefixer'])
+            .toEqual(['autoprefixer', 'cssnano'])
         }
       })
     })
@@ -99,14 +99,15 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename ? file.basename : file })
 
           expect(getPluginNames(config))
             .toEqual([
               'autoprefixer',
               'postcss-unmq',
               'postcss-unopacity',
-              'postcss-color-rgba-fallback'
+              'postcss-color-rgba-fallback',
+              'cssnano'
             ])
         }
       })
@@ -123,7 +124,7 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename ? file.basename : file })
 
           expect(getPluginNames(config))
             .toEqual([
@@ -145,15 +146,15 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename ? file.basename : file })
 
           expect(getPluginNames(config))
             .toEqual([
               'autoprefixer',
-              'cssnano',
               'postcss-unmq',
               'postcss-unopacity',
-              'postcss-color-rgba-fallback'
+              'postcss-color-rgba-fallback',
+              'cssnano'
             ])
         }
       })
@@ -170,12 +171,12 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename ? file.basename : file })
 
           expect(getPluginNames(config))
             .toEqual([
               'autoprefixer',
-              'postcss-pseudo-classes'
+              'cssnano'
             ])
         }
       })
@@ -192,15 +193,15 @@ describe('PostCSS config', () => {
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file })
+          const config = configFn({ env, file: file.basename ? file.basename : file })
 
           expect(getPluginNames(config))
             .toEqual([
               'autoprefixer',
-              'postcss-pseudo-classes',
               'postcss-unmq',
               'postcss-unopacity',
-              'postcss-color-rgba-fallback'
+              'postcss-color-rgba-fallback',
+              'cssnano'
             ])
         }
       })

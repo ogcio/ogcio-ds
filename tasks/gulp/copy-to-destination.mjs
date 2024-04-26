@@ -4,7 +4,7 @@ import gulp from 'gulp'
 import merge from 'merge-stream'
 import slash from 'slash'
 
-import configPaths from '../../config/paths.js'
+import { paths } from '../../config/paths.js'
 import { destination } from '../task-arguments.mjs'
 
 /**
@@ -15,7 +15,7 @@ import { destination } from '../task-arguments.mjs'
  */
 export function copyAssets() {
   return gulp
-    .src(`${slash(configPaths.assets)}/**/*`)
+    .src(`${slash(paths.assets)}/**/*`)
     .pipe(gulp.dest(slash(join(destination, '@ogcio/assets'))))
 }
 
@@ -35,8 +35,8 @@ export function copyFiles() {
      */
     gulp
       .src([
-        `${slash(configPaths.src)}/govie/**/*.mjs`,
-        `!${slash(configPaths.src)}/govie/**/*.test.*`,
+        `${slash(paths.src)}/govie/**/*.mjs`,
+        `!${slash(paths.src)}/govie/**/*.test.*`,
       ])
       .pipe(gulp.dest(slash(join(destination, 'govie-esm')))),
 
@@ -46,7 +46,7 @@ export function copyFiles() {
      */
     merge(
       gulp.src([
-        `${slash(configPaths.src)}/**/*`,
+        `${slash(paths.src)}/**/*`,
 
         // Exclude files we don't want to publish
         '!**/.DS_Store',
@@ -58,15 +58,15 @@ export function copyFiles() {
         '!**/*.stories.*',
 
         // Preserve destination README when copying to ./package
-        `!${slash(configPaths.src)}/govie/README.md`,
+        `!${slash(paths.src)}/govie/README.md`,
 
         // Exclude Sass files handled by Gulp 'compile:scss'
-        `!${slash(configPaths.src)}/**/*.scss`,
+        `!${slash(paths.src)}/**/*.scss`,
 
         // Exclude storybook templates, patterns and other files
-        `!${configPaths.src}/govie/{templates,templates/**}`,
-        `!${configPaths.src}/govie/{patterns,patterns/**}`,
-        `!${configPaths.src}/govie/{storybook,storybook/**}`,
+        `!${paths.src}/govie/{templates,templates/**}`,
+        `!${paths.src}/govie/{patterns,patterns/**}`,
+        `!${paths.src}/govie/{storybook,storybook/**}`,
       ])
     ).pipe(gulp.dest(slash(destination)))
   )

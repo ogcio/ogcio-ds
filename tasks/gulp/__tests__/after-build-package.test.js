@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises'
 import { join } from 'path'
 
-import configPaths from '../../../config/paths.js'
+import { paths } from '../../../config/paths.js'
 import { filterPath, getDirectories, getListing, mapPathTo } from '../../../lib/file-helper.js'
 import { componentNameToClassName, componentPathToModuleName } from '../../../lib/helper-functions.js'
 import { compileSassFile } from '../../../lib/jest-helpers.js'
@@ -17,15 +17,15 @@ describe('package/', () => {
   let componentNames
 
   beforeAll(async () => {
-    listingSource = await getListing(configPaths.src)
-    listingPackage = await getListing(configPaths.package)
+    listingSource = await getListing(paths.src)
+    listingPackage = await getListing(paths.package)
 
-    componentsFilesSource = await getListing(configPaths.components)
-    componentsFilesPackage = await getListing(join(configPaths.package, 'govie/components'))
-    componentsFilesPackageESM = await getListing(join(configPaths.package, 'govie-esm/components'))
+    componentsFilesSource = await getListing(paths.components)
+    componentsFilesPackage = await getListing(join(paths.package, 'govie/components'))
+    componentsFilesPackageESM = await getListing(join(paths.package, 'govie-esm/components'))
 
     // Components list
-    componentNames = await getDirectories(configPaths.components)
+    componentNames = await getDirectories(paths.components)
   })
 
   it('should contain the expected files', async () => {
@@ -80,7 +80,7 @@ describe('package/', () => {
 
   describe('README.md', () => {
     it('is not overwritten', async () => {
-      const contents = await readFile(join(configPaths.package, 'README.md'), 'utf8')
+      const contents = await readFile(join(paths.package, 'README.md'), 'utf8')
 
       // Look for H1 matching 'GOV.UK Frontend' from existing README
       expect(contents).toMatch(/^# GOV.UK Frontend/)
@@ -89,14 +89,14 @@ describe('package/', () => {
 
   describe('all.scss', () => {
     it('should compile without throwing an exception', async () => {
-      const file = join(configPaths.package, 'govie', 'all.scss')
+      const file = join(paths.package, 'govie', 'all.scss')
       await expect(compileSassFile(file)).resolves
     })
   })
 
   describe('all.js', () => {
     it('should have correct module name', async () => {
-      const contents = await readFile(join(configPaths.package, 'govie', 'all.js'), 'utf8')
+      const contents = await readFile(join(paths.package, 'govie', 'all.js'), 'utf8')
 
       // Look for AMD module definition for 'GOVIEFrontend'
       expect(contents).toContain("typeof define === 'function' && define.amd ? define('GOVIEFrontend', ['exports'], factory)")
@@ -138,9 +138,9 @@ describe('package/', () => {
         const [modulePathESM] = componentPackageESM
           .filter(filterPath([`**/${componentName}.mjs`]))
 
-        const moduleName = componentPathToModuleName(join(configPaths.components, modulePath))
-        const moduleText = await readFile(join(configPaths.package, 'govie/components', modulePath), 'utf8')
-        const moduleTextESM = await readFile(join(configPaths.package, 'govie-esm/components', modulePathESM), 'utf8')
+        const moduleName = componentPathToModuleName(join(paths.components, modulePath))
+        const moduleText = await readFile(join(paths.package, 'govie/components', modulePath), 'utf8')
+        const moduleTextESM = await readFile(join(paths.package, 'govie-esm/components', modulePathESM), 'utf8')
 
         expect(moduleText).toContain(`typeof define === 'function' && define.amd ? define('${moduleName}', factory)`)
         expect(moduleTextESM).toContain(`export default ${componentNameToClassName(componentName)}`)

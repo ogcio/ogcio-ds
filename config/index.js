@@ -1,13 +1,10 @@
-const pkg = require('../package/package.json')
+import pkg from '../package/package.json' assert { type: "json" };
 
-/**
- * Config
- */
-const paths = require('./paths')
-const ports = require('./ports')
+import { paths } from './paths.js';
+import { ports } from './ports.js';
 
-module.exports = {
+export {
   paths,
   pkg,
-  ports,
-}
+  ports
+};

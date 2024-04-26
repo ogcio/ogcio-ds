@@ -1,7 +1,7 @@
 import gulp from 'gulp'
 import slash from 'slash'
 
-import configPaths from '../../config/paths.js'
+import { paths } from '../../config/paths.js'
 
 /**
  * Watch task
@@ -16,15 +16,15 @@ export function watch() {
     gulp.watch(
       [
         'sassdoc.config.yaml',
-        `${slash(configPaths.app)}/**/*.scss`,
-        `${slash(configPaths.src)}/govie/**/*.scss`,
-        `!${slash(configPaths.src)}/govie/vendor/*`,
+        `${slash(paths.app)}/**/*.scss`,
+        `${slash(paths.src)}/govie/**/*.scss`,
+        `!${slash(paths.src)}/govie/vendor/*`,
       ],
       gulp.series('styles')
     ),
 
     gulp.watch(
-      ['jsdoc.config.js', `${slash(configPaths.src)}/govie/**/*.mjs`],
+      ['jsdoc.config.js', `${slash(paths.src)}/govie/**/*.mjs`],
       gulp.series('scripts')
     ),
   ])

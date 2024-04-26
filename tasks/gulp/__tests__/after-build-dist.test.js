@@ -1,20 +1,21 @@
-const { readFile } = require('fs/promises')
-const path = require('path')
-const recursive = require('recursive-readdir')
+import { readFile } from 'fs/promises';
+import path from 'path';
+import recursive from 'recursive-readdir';
+import { paths } from '../../../config/paths.js';
 
-const configPaths = require('../../../config/paths.js')
-
-describe('dist/', () => {
-  const version = require(path.join('../../../', configPaths.package, 'package.json')).version
-
+describe('dist/', async () => {
+  let packagePath = path.join(paths.package, 'package.json');
+  const { version } = await import(packagePath);
+  
   describe('assets/', () => {
     it('should include the same files as in src/assets', () => {
       // Build an array of the assets that are present in the src directory.
+
       const expectedDistAssets = () => {
         const filesToIgnore = [
           '.DS_Store'
         ]
-        return recursive(path.join(configPaths.src, 'assets'), filesToIgnore).then(
+        return recursive(path.join(paths.src, 'assets'), filesToIgnore).then(
           files => {
             return files
               // Remove /package prefix from filenames
@@ -29,7 +30,7 @@ describe('dist/', () => {
       }
 
       const actualDistAssets = () => {
-        return recursive(path.join(configPaths.dist, 'assets')).then(
+        return recursive(path.join(paths.dist, 'assets')).then(
           files => {
             return files
               // Remove /package prefix from filenames
@@ -58,7 +59,7 @@ describe('dist/', () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(paths.dist, `@ogcio/ogcio-ds-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -74,7 +75,7 @@ describe('dist/', () => {
     let stylesheet
 
     beforeAll(async () => {
-      stylesheet = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-ie8-${version}.min.css`), 'utf8')
+      stylesheet = await readFile(path.join(paths.dist, `@ogcio/ogcio-ds-ie8-${version}.min.css`), 'utf8')
     })
 
     it('should not contain current media query displayed on body element', () => {
@@ -86,7 +87,7 @@ describe('dist/', () => {
     let javascript
 
     beforeAll(async () => {
-      javascript = await readFile(path.join(configPaths.dist, `@ogcio/ogcio-ds-${version}.min.js`), 'utf8')
+      javascript = await readFile(path.join(paths.dist, `@ogcio/ogcio-ds-${version}.min.js`), 'utf8')
     })
 
     it('should have the correct version name', () => {

@@ -1,31 +1,31 @@
-const { dirname, join } = require('path')
+import { dirname, join } from 'path';
 
 // Repository root directory
-const rootPath = dirname(__dirname)
+const rootPath = dirname(new URL(import.meta.url).pathname);
+const parentDirectory = dirname(rootPath);
 
 /**
  * Config root paths
  */
 const configPaths = {
-  root: rootPath,
-  src: join(rootPath, 'src'),
-  config: join(rootPath, 'config'),
-  node_modules: join(rootPath, 'node_modules'),
+  root: parentDirectory,
+  src: join(parentDirectory, 'src'),
+  config: join(parentDirectory, 'config'),
+  node_modules: join(parentDirectory, 'node_modules'),
 
   // Build: Release distribution
-  dist: join(rootPath, 'dist'),
+  dist: join(parentDirectory, 'dist'),
 
   // Build: Package for npm publish
-  package: join(rootPath, 'package'),
+  package: join(parentDirectory, 'package'),
 
   // Review application
-  public: join(rootPath, 'public'),
-}
+  public: join(parentDirectory, 'public'),
+};
 
-module.exports = {
+export const paths = {
   ...configPaths,
-
   // Source paths
   assets: join(configPaths.src, 'govie/assets'),
   components: join(configPaths.src, 'govie/components'),
-}
+};

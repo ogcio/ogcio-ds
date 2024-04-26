@@ -3,7 +3,6 @@ import { join, parse } from 'path'
 import PluginError from 'plugin-error'
 import { rollup } from 'rollup'
 import { minify } from 'terser'
-
 import { paths, pkg } from '../config/index.js'
 import { getListing } from '../lib/file-helper.js'
 import { componentPathToModuleName } from '../lib/helper-functions.js'
@@ -13,7 +12,6 @@ import {
   destination,
   isDist,
   isPackage,
-  isPublic,
   isStorybook,
 } from './task-arguments.mjs'
 

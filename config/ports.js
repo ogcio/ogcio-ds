@@ -1,7 +1,7 @@
 /**
  * Review application ports
  */
-module.exports = {
+export const ports = {
   app: 3000,
   test: 8888,
 }

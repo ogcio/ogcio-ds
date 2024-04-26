@@ -3,10 +3,10 @@ const path = require('path');
 
 const sassdoc = require('sassdoc');
 
-const { renderSass } = require('../../../lib/jest-helpers');
-const configPaths = require('../../../config/paths.js');
+import { renderSass } from '../../../lib/jest-helpers'
+import { paths } from '../../../config/paths.js'
 
-const sassFiles = glob.sync(`${configPaths.src}/objects/**/*.scss`);
+const sassFiles = glob.sync(`${paths.src}/objects/**/*.scss`);
 
 describe('The objects layer', () => {
   it.each(sassFiles)('%s renders to CSS without errors', (file) => {
@@ -15,7 +15,7 @@ describe('The objects layer', () => {
   describe('Sass documentation', () => {
     it('associates everything with a "objects" group', async () => {
       return sassdoc
-        .parse(path.join(configPaths.src, 'objects', '*.scss'))
+        .parse(path.join(paths.src, 'objects', '*.scss'))
         .then((docs) =>
           docs.forEach((doc) => {
             return expect(doc).toMatchObject({

@@ -1,3 +1,5 @@
+let window;
+
 /**
  * Internal support for selecting messages to render, with placeholder
  * interpolation and locale-aware number formatting and pluralisation
@@ -13,7 +15,7 @@ export function I18n (translations, config) {
   this.translations = translations || {}
 
   // The locale to use for PluralRules and NumberFormat
-  this.locale = (config && config.locale) || document.documentElement.lang || 'en'
+  this.locale = (config && config.locale) || window?.document?.documentElement?.lang || 'en'
 }
 
 /**
@@ -123,7 +125,7 @@ I18n.prototype.replacePlaceholders = function (translationString, options) {
  * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
  */
 I18n.prototype.hasIntlPluralRulesSupport = function () {
-  return Boolean(window.Intl && ('PluralRules' in window.Intl && Intl.PluralRules.supportedLocalesOf(this.locale).length))
+  return Boolean(window?.Intl && ('PluralRules' in window?.Intl && Intl.PluralRules.supportedLocalesOf(this.locale).length))
 }
 
 /**
@@ -137,7 +139,7 @@ I18n.prototype.hasIntlPluralRulesSupport = function () {
  * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
  */
 I18n.prototype.hasIntlNumberFormatSupport = function () {
-  return Boolean(window.Intl && ('NumberFormat' in window.Intl && Intl.NumberFormat.supportedLocalesOf(this.locale).length))
+  return Boolean(window?.Intl && ('NumberFormat' in window?.Intl && Intl.NumberFormat.supportedLocalesOf(this.locale).length))
 }
 
 /**

@@ -1,29 +1,29 @@
-const glob = require('glob');
-const path = require('path');
+import glob from 'glob'
+import path from 'path'
 
-const sassdoc = require('sassdoc');
+import sassdoc from 'sassdoc'
 
-const { renderSass } = require('../../../lib/jest-helpers');
-const configPaths = require('../../../config/paths.js');
+import { compileSassFile } from '../../../lib/jest-helpers'
+import { paths } from '../../../config/paths.js'
 
-const sassFiles = glob.sync(`${configPaths.src}/tools/**/*.scss`);
+const sassFiles = glob.sync(`${paths.src}/tools/**/*.scss`);
 
 describe('The tools layer', () => {
   it('should not output any CSS', async () => {
-    const tools = path.join(configPaths.src, 'tools', '_all.scss');
+    const file = path.join(paths.src, 'govie/tools', '_all.scss');
 
-    const output = await renderSass({ file: tools });
+    const output = await compileSassFile(file);
     expect(output.css.toString()).toEqual('');
   });
 
   it.each(sassFiles)('%s renders to CSS without errors', (file) => {
-    return renderSass({ file });
+    return compileSassFile(file);
   });
 
   describe('Sass documentation', () => {
     it('associates everything with a "tools" group', async () => {
       return sassdoc
-        .parse(path.join(configPaths.src, 'tools', '*.scss'))
+        .parse(path.join(paths.src, 'tools', '*.scss'))
         .then((docs) =>
           docs.forEach((doc) => {
             return expect(doc).toMatchObject({

@@ -1,15 +1,14 @@
-const { parse } = require('path')
-
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
-const cssnanoPresetDefault = require('cssnano-preset-default')
-const { minimatch } = require('minimatch')
-const postcss = require('postcss')
-const pseudoclasses = require('postcss-pseudo-classes')
-const scss = require('postcss-scss')
-const unmq = require('postcss-unmq')
-const unopacity = require('postcss-unopacity')
-const unrgba = require('postcss-unrgba')
+import { parse } from 'path';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import cssnanoPresetDefault from 'cssnano-preset-default';
+import { minimatch } from 'minimatch';
+import postcss from 'postcss';
+import pseudoclasses from 'postcss-pseudo-classes';
+import scss from 'postcss-scss';
+import unmq from 'postcss-unmq';
+import unopacity from 'postcss-unopacity';
+import unrgba from 'postcss-unrgba';
 
 /**
  * PostCSS config
@@ -17,21 +16,21 @@ const unrgba = require('postcss-unrgba')
  * @param {import('postcss-load-config').ConfigContext} ctx - PostCSS context
  * @returns {import('postcss-load-config').Config} PostCSS config
  */
-module.exports = (ctx) => {
-  const plugins = []
-  const syntax = ctx.to?.endsWith('.scss') ? scss : postcss
+export default (ctx) => {
+  const plugins = [];
+  const syntax = ctx.to?.endsWith('.scss') ? scss : postcss;
 
   // PostCSS 'from' (or webpack 'file') source path
   // https://github.com/postcss/postcss-load-config#options
-  const { dir, name } = parse(ctx.from || ctx.file || '')
+  const { dir, name } = parse(ctx.from || ctx.file || '');
 
   // IE8 stylesheets
-  const isIE8 = name?.endsWith('-ie8') || name?.endsWith('-ie8.min')
+  const isIE8 = name?.endsWith('-ie8') || name?.endsWith('-ie8.min');
 
   // Add vendor prefixes
   plugins.push(autoprefixer({
     env: isIE8 ? 'oldie' : ctx.env
-  }))
+  }));
 
   // Add review app auto-generated 'companion' classes for each pseudo-class
   // For example ':hover' and ':focus' classes to simulate form label states
@@ -45,7 +44,7 @@ module.exports = (ctx) => {
         ':active',
         ':focus'
       ]
-    }))
+    }));
   }
 
   // Transpile CSS for Internet Explorer
@@ -54,7 +53,7 @@ module.exports = (ctx) => {
       unmq(),
       unopacity({ browsers: 'ie 8' }),
       unrgba({ filter: true })
-    )
+    );
   }
 
   // Always minify CSS
@@ -65,11 +64,11 @@ module.exports = (ctx) => {
         // https://cssnano.co/docs/optimisations/cssdeclarationsorter/
         cssDeclarationSorter: false
       }]
-    }))
+    }));
   }
 
   return {
     syntax,
     plugins
-  }
-}
+  };
+};

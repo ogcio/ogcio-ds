@@ -3,27 +3,27 @@ const path = require('path');
 
 const sassdoc = require('sassdoc');
 
-const { renderSass } = require('../../../lib/jest-helpers');
-const configPaths = require('../../../config/paths.js');
+import { compileSassFile } from '../../../lib/jest-helpers'
+import { paths } from '../../../config/paths.js'
 
-const sassFiles = glob.sync(`${configPaths.src}/settings/**/*.scss`);
+const sassFiles = glob.sync(`${paths.src}/settings/**/*.scss`);
 
 describe('The settings layer', () => {
   it('should not output any CSS', async () => {
-    const settings = path.join(configPaths.src, 'settings', '_all.scss');
+    const settings = path.join(paths.src, 'govie/settings', '_all.scss');
 
-    const output = await renderSass({ file: settings });
+    const output = await compileSassFile(settings);
     expect(output.css.toString()).toEqual('');
   });
-
+  
   it.each(sassFiles)('%s renders to CSS without errors', (file) => {
-    return renderSass({ file });
+    return compileSassFile(file);
   });
 
   describe('Sass documentation', () => {
     it('associates everything with a "settings" group', async () => {
       return sassdoc
-        .parse(path.join(configPaths.src, 'settings', '*.scss'))
+        .parse(path.join(paths.src, 'settings', '*.scss'))
         .then((docs) =>
           docs.forEach((doc) => {
             return expect(doc).toMatchObject({
