@@ -1,9 +1,10 @@
 const sass = require('node-sass');
+import { vi } from 'vitest'
 import { compileSassString } from '../../../lib/jest-helpers'
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.
-const mockWarnFunction = jest.fn().mockReturnValue(sass.NULL);
+const mockWarnFunction = vi.fn().mockReturnValue(sass.NULL);
 
 const sassConfig = {
   outputStyle: 'compact',
