@@ -91,7 +91,6 @@
     "js-yaml": "^4.1.0",
     "jsdoc": "^3.6.11",
     "jsdoc-tsimport-plugin": "^1.0.5",
-    "jsdom": "^24.0.0",
     "map-stream": "^0.0.7",
     "marked": "^4.1.1",
     "merge-stream": "^2.0.0",

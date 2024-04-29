@@ -8,7 +8,6 @@ build
 
 npm-debug.log
 
-dist/
 preview/
 tmp/
 axeReports/
