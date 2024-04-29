@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 import { I18n } from './i18n.mjs'
 
+let dom;
+
 describe('I18n', () => {
   describe('.t', () => {
     /** @type {Object<string, unknown>} */
