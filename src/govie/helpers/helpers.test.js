@@ -3,7 +3,7 @@ const path = require('path');
 
 const sassdoc = require('sassdoc');
 
-import { compileSassFile } from '../../../lib/jest-helpers'
+import { compileSassFile } from '../../../lib/jest-helpers';
 import { paths } from '../../../config/paths.js';
 
 const sassFiles = glob.sync(`${paths.src}/helpers/**/*.scss`);

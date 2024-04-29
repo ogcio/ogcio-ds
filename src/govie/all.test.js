@@ -1,4 +1,3 @@
-
 import sassdoc from 'sassdoc';
 
 import { paths } from '../../config/paths.js';
@@ -21,7 +20,7 @@ describe('GOV.IE Frontend', () => {
         @import "all";
       `;
       const results = await compileSassString(sass);
-      
+
       expect(results.css.toString()).toContain(', a {');
       expect(results.css.toString()).toContain(', p {');
     });
@@ -62,17 +61,14 @@ describe('GOV.IE Frontend', () => {
     const results = await compileSassString(sass);
     const css = results.css.toString();
     const functionCalls = css.match(/_?govie-[\w-]+\(.*?\)/g);
-    
+
     expect(functionCalls).not.toBeNull();
   });
 
   describe.skip('Sass documentation', () => {
     it('associates everything with a group', async () => {
       return sassdoc
-        .parse([
-          `${paths.src}/**/*.scss`,
-          `!${paths.src}/vendor/*.scss`,
-        ])
+        .parse([`${paths.src}/**/*.scss`, `!${paths.src}/vendor/*.scss`])
         .then((docs) =>
           docs.forEach((doc) => {
             return expect(doc).toMatchObject({

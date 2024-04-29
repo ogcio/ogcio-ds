@@ -1,6 +1,6 @@
 const outdent = require('outdent');
 
-import { compileSassString } from '../../../lib/jest-helpers'
+import { compileSassString } from '../../../lib/jest-helpers';
 
 const sassConfig = {
   outputStyle: 'nested',

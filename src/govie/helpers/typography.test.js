@@ -1,7 +1,7 @@
 const sass = require('node-sass');
 const outdent = require('outdent');
-import { vi } from 'vitest'
-import { compileSassString } from '../../../lib/jest-helpers'
+import { vi } from 'vitest';
+import { compileSassString } from '../../../lib/jest-helpers';
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.

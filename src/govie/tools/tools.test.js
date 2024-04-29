@@ -1,10 +1,10 @@
-import glob from 'glob'
-import path from 'path'
+import glob from 'glob';
+import path from 'path';
 
-import sassdoc from 'sassdoc'
+import sassdoc from 'sassdoc';
 
-import { compileSassFile } from '../../../lib/jest-helpers'
-import { paths } from '../../../config/paths.js'
+import { compileSassFile } from '../../../lib/jest-helpers';
+import { paths } from '../../../config/paths.js';
 
 const sassFiles = glob.sync(`${paths.src}/tools/**/*.scss`);
 

@@ -1,5 +1,5 @@
 import { getFilesByDirectory } from '../../../lib/file-helper';
-import { compileSassFile } from '../../../lib/jest-helpers'
+import { compileSassFile } from '../../../lib/jest-helpers';
 import { paths } from '../../../config/paths.js';
 
 describe('Components', () => {

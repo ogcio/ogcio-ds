@@ -3,8 +3,8 @@ const path = require('path');
 
 const sassdoc = require('sassdoc');
 
-import { compileSassFile } from '../../../lib/jest-helpers'
-import { paths } from '../../../config/paths.js'
+import { compileSassFile } from '../../../lib/jest-helpers';
+import { paths } from '../../../config/paths.js';
 
 const sassFiles = glob.sync(`${paths.src}/settings/**/*.scss`);
 
@@ -15,7 +15,7 @@ describe('The settings layer', () => {
     const output = await compileSassFile(settings);
     expect(output.css.toString()).toEqual('');
   });
-  
+
   it.each(sassFiles)('%s renders to CSS without errors', (file) => {
     return compileSassFile(file);
   });
