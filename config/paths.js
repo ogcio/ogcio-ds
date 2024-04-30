@@ -3,6 +3,8 @@ const { dirname, join } = require('path')
 // Repository root directory
 const rootPath = dirname(__dirname)
 
+const parentDirectory = dirname(rootPath);
+
 /**
  * Config root paths
  */

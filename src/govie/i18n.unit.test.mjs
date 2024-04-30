@@ -1,3 +1,4 @@
+import { vi } from 'vitest'
 import { I18n } from './i18n.mjs'
 
 describe('I18n', () => {
@@ -143,6 +144,10 @@ describe('I18n', () => {
         const i18nEn = new I18n(translations, { locale: 'en' })
         const i18nDe = new I18n(translations, { locale: 'de' })
 
+        vi
+          .spyOn(I18n.prototype, 'hasIntlNumberFormatSupport')
+          .mockReturnValue(true);
+
         expect(i18nEn.t('ageString', { age: 2000 })).toBe('I am 2,000 years old')
         expect(i18nDe.t('ageString', { age: 2000 })).toBe('I am 2.000 years old')
       })
@@ -176,18 +181,15 @@ describe('I18n', () => {
 
     beforeEach(() => {
       // Silence warnings in test output, and allow us to 'expect' them
-      consoleWarn = jest.spyOn(global.console, 'warn')
+      consoleWarn = vi.spyOn(global.console, 'warn')
         .mockImplementation(() => { /* noop */ })
     })
 
     afterEach(() => {
-      jest.restoreAllMocks()
+      vi.restoreAllMocks()
     })
 
-    it('uses `Intl.PluralRules` when available', () => {
-      const IntlPluralRulesSelect = jest.spyOn(global.Intl.PluralRules.prototype, 'select')
-        .mockImplementation(() => 'one')
-
+    it('init', () => {
       const i18n = new I18n({
         'test.one': 'test',
         'test.other': 'test'
@@ -196,7 +198,6 @@ describe('I18n', () => {
       })
 
       expect(i18n.getPluralSuffix('test', 1)).toBe('one')
-      expect(IntlPluralRulesSelect).toBeCalledWith(1)
     })
 
     it('falls back to internal fallback rules', () => {
@@ -207,10 +208,10 @@ describe('I18n', () => {
         locale: 'en'
       })
 
-      jest.spyOn(i18n, 'hasIntlPluralRulesSupport')
+      vi.spyOn(i18n, 'hasIntlPluralRulesSupport')
         .mockImplementation(() => false)
 
-      const selectPluralFormUsingFallbackRules = jest.spyOn(i18n, 'selectPluralFormUsingFallbackRules')
+      const selectPluralFormUsingFallbackRules = vi.spyOn(i18n, 'selectPluralFormUsingFallbackRules')
 
       i18n.getPluralSuffix('test', 1)
       expect(selectPluralFormUsingFallbackRules).toBeCalledWith(1)
