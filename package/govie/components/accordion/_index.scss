@@ -162,11 +162,9 @@
         width: govie-px-to-rem(6px);
         height: govie-px-to-rem(6px);
 
-        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
 
-            -ms-transform: rotate(-45deg);
-
-                transform: rotate(-45deg);
+            transform: rotate(-45deg);
 
         border-top: govie-px-to-rem(2px) solid;
         border-right: govie-px-to-rem(2px) solid;
@@ -182,17 +180,15 @@
 
     // Rotate icon to create "Down" version
     .govie-accordion-nav__chevron--down {
-      -webkit-transform: rotate(180deg);
-          -ms-transform: rotate(180deg);
-              transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 
       // IE8 fallback of arrow icon
       @include govie-if-ie8 {
         &:after {
           content: '\25BC'; // "▼"
-          -webkit-transform: none;
-              -ms-transform: none;
-                  transform: none;
+          -ms-transform: none;
+              transform: none;
         }
       }
     }

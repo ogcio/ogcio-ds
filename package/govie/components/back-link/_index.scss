@@ -40,11 +40,9 @@
 
     margin: auto 0;
 
-    -webkit-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
 
-        -ms-transform: rotate(225deg);
-
-            transform: rotate(225deg);
+        transform: rotate(225deg);
 
     border: solid;
     border-width: $chevron-border-width $chevron-border-width 0 0;
