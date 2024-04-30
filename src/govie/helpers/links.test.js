@@ -5,7 +5,7 @@ const sassConfig = {
 };
 
 describe('@mixin govie-link-decoration', () => {
-  describe.only('by default', () => {
+  describe('by default', () => {
     it('does not set text-decoration-thickness', async () => {
       const sass = `
         @import "base";
