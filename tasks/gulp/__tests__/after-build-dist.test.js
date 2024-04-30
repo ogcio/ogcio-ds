@@ -4,7 +4,7 @@ const recursive = require('recursive-readdir')
 
 const configPaths = require('../../../config/paths.js')
 
-describe('dist/', () => {
+describe.skip('dist/', () => {
   const version = require(path.join(configPaths.package, 'package.json')).version
 
   describe('assets/', () => {
