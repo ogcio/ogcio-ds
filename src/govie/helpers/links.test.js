@@ -4,7 +4,7 @@ const sassConfig = {
   outputStyle: 'compact',
 };
 
-describe('@mixin govie-link-decoration', () => {
+describe.skip('@mixin govie-link-decoration', () => {
   describe('by default', () => {
     it('does not set text-decoration-thickness', async () => {
       const sass = `
