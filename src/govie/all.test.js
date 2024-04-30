@@ -68,7 +68,10 @@ describe('GOV.IE Frontend', () => {
   describe('Sass documentation', () => {
     it('associates everything with a group', async () => {
       return sassdoc
-        .parse([`${configPaths.src}/**/*.scss`, `!${configPaths.src}/vendor/*.scss`])
+        .parse([
+          `${configPaths.src}/**/*.scss`,
+          `!${configPaths.src}/vendor/*.scss`,
+        ])
         .then((docs) =>
           docs.forEach((doc) => {
             return expect(doc).toMatchObject({
@@ -77,7 +80,9 @@ describe('GOV.IE Frontend', () => {
               context: {
                 name: doc.context.name,
               },
-              group: [expect.not.stringMatching('StringNotMatching /undefined/')],
+              group: [
+                expect.not.stringMatching('StringNotMatching /undefined/'),
+              ],
             });
           }),
         );
