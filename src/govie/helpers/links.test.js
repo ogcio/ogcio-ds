@@ -4,11 +4,13 @@ const sassConfig = {
   outputStyle: 'compact',
 };
 
-describe.skip('@mixin govie-link-decoration', () => {
-  describe('by default', () => {
+describe('@mixin govie-link-decoration', () => {
+  describe.only('by default', () => {
     it('does not set text-decoration-thickness', async () => {
       const sass = `
         @import "base";
+
+        $govie-new-link-styles: false;
 
         .foo {
           @include govie-link-decoration;
@@ -22,6 +24,8 @@ describe.skip('@mixin govie-link-decoration', () => {
     it('does not set text-underline-offset', async () => {
       const sass = `
         @import "base";
+
+        $govie-new-link-styles: false;
 
         .foo {
           @include govie-link-decoration;
