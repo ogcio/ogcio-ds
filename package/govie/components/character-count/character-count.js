@@ -571,6 +571,8 @@
     return out
   }
 
+  let window$1;
+
   /**
    * Internal support for selecting messages to render, with placeholder
    * interpolation and locale-aware number formatting and pluralisation
@@ -586,7 +588,13 @@
     this.translations = translations || {};
 
     // The locale to use for PluralRules and NumberFormat
-    this.locale = (config && config.locale) || document.documentElement.lang || 'en';
+    if (config && config.locale) {
+      this.locale = config.locale;
+    } else if (typeof window$1 !== 'undefined' && window$1.document && window$1.document.documentElement.lang) {
+      this.locale = window$1.document.documentElement.lang;
+    } else {
+      this.locale = 'en'; // Default to 'en' if no locale is provided or detected
+    }
   }
 
   /**
@@ -696,7 +704,14 @@
    * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
    */
   I18n.prototype.hasIntlPluralRulesSupport = function () {
-    return Boolean(window.Intl && ('PluralRules' in window.Intl && Intl.PluralRules.supportedLocalesOf(this.locale).length))
+    if (typeof window$1 !== 'undefined' && window$1.Intl && ('PluralRules' in window$1.Intl)) {
+      // Browser environment
+      return Boolean(Intl.PluralRules.supportedLocalesOf(this.locale).length);
+    } else {
+      // Non-browser environment or testing environment
+      // You might want to handle this differently based on your needs
+      return false;
+    }
   };
 
   /**
@@ -710,7 +725,14 @@
    * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
    */
   I18n.prototype.hasIntlNumberFormatSupport = function () {
-    return Boolean(window.Intl && ('NumberFormat' in window.Intl && Intl.NumberFormat.supportedLocalesOf(this.locale).length))
+    if (typeof window$1 !== 'undefined' && window$1.Intl && ('NumberFormat' in window$1.Intl)) {
+      // Browser environment
+      return Boolean(Intl.NumberFormat.supportedLocalesOf(this.locale).length);
+    } else {
+      // Non-browser environment or testing environment
+      // You might want to handle this differently based on your needs
+      return false;
+    }
   };
 
   /**

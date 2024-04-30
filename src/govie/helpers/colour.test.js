@@ -1,9 +1,10 @@
 const sass = require('node-sass');
-const { renderSass } = require('../../../lib/jest-helpers');
+import { vi } from 'vitest';
+const { compileSassString } = require('../../../lib/jest-helpers');
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.
-const mockWarnFunction = jest.fn().mockReturnValue(sass.NULL);
+const mockWarnFunction = vi.fn().mockReturnValue(sass.NULL);
 
 const sassConfig = {
   outputStyle: 'compact',
@@ -35,7 +36,7 @@ describe('@function govie-colour', () => {
         color: govie-colour('red');
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe('.foo { color: #ff0000; }');
   });
@@ -48,7 +49,7 @@ describe('@function govie-colour', () => {
         color: govie-colour(red);
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe('.foo { color: #ff0000; }');
   });
@@ -61,7 +62,7 @@ describe('@function govie-colour', () => {
         color: govie-colour('hooloovoo');
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Unknown colour `hooloovoo`',
     );
   });

@@ -1,6 +1,6 @@
 const outdent = require('outdent');
 
-const { renderSass } = require('../../../lib/jest-helpers');
+const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
   outputStyle: 'nested',
@@ -43,7 +43,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing($spacing-point)
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -58,7 +58,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing(-2)
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -73,7 +73,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing('margin')
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Expected a number (integer), but got a string.',
     );
   });
@@ -86,7 +86,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing(999)
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.',
     );
   });
@@ -99,7 +99,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing(-999)
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Unknown spacing variable `999`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.',
     );
   });
@@ -112,7 +112,7 @@ describe('@function govie-spacing', () => {
         top: govie-spacing(-0)
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -129,7 +129,7 @@ describe('@mixin _govie-responsive-spacing', () => {
         @include _govie-responsive-spacing($spacing-point, 'margin')
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -147,7 +147,7 @@ describe('@mixin _govie-responsive-spacing', () => {
         @include _govie-responsive-spacing($spacing-point, 'padding', 'top');
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -165,7 +165,7 @@ describe('@mixin _govie-responsive-spacing', () => {
         @include _govie-responsive-spacing(14px, 'margin')
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Unknown spacing point `14px`. Make sure you are using a point from the responsive spacing scale in `_settings/spacing.scss`.',
     );
   });
@@ -183,7 +183,7 @@ describe('@mixin _govie-responsive-spacing', () => {
           )
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -206,7 +206,7 @@ describe('@mixin _govie-responsive-spacing', () => {
           )
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -230,7 +230,7 @@ describe('@mixin _govie-responsive-spacing', () => {
           )
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -253,7 +253,7 @@ describe('@mixin _govie-responsive-spacing', () => {
           )
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -274,7 +274,7 @@ describe('@mixin govie-responsive-margin', () => {
           @include govie-responsive-margin($spacing-point)
         }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -297,7 +297,7 @@ describe('@mixin govie-responsive-margin', () => {
           )
         }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -317,7 +317,7 @@ describe('@mixin govie-responsive-padding', () => {
           @include govie-responsive-padding($spacing-point)
         }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -340,7 +340,7 @@ describe('@mixin govie-responsive-padding', () => {
           )
         }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {

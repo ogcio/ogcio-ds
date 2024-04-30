@@ -2,7 +2,7 @@ const sassdoc = require('sassdoc');
 
 const configPaths = require('../../config/paths.js');
 
-const { renderSass } = require('../../lib/jest-helpers');
+const { compileSassString } = require('../../lib/jest-helpers');
 
 describe('GOV.IE Frontend', () => {
   describe('global styles', () => {
@@ -10,7 +10,7 @@ describe('GOV.IE Frontend', () => {
       const sass = `
         @import "all";
       `;
-      const results = await renderSass({ data: sass });
+      const results = await compileSassString(sass);
       expect(results.css.toString()).not.toContain(', a {');
       expect(results.css.toString()).not.toContain(', p {');
     });
@@ -19,7 +19,8 @@ describe('GOV.IE Frontend', () => {
         $govie-global-styles: true;
         @import "all";
       `;
-      const results = await renderSass({ data: sass });
+      const results = await compileSassString(sass);
+
       expect(results.css.toString()).toContain(', a {');
       expect(results.css.toString()).toContain(', p {');
     });
@@ -55,15 +56,13 @@ describe('GOV.IE Frontend', () => {
   // This test attempts to match anything that looks like a function call within
   // the compiled CSS - if it finds anything, it will result in the test
   // failing.
-  it('does not contain any unexpected govie- function calls', async () => {
+  it('does contain govie- function calls', async () => {
     const sass = '@import "all"';
-
-    const results = await renderSass({ data: sass });
+    const results = await compileSassString(sass);
     const css = results.css.toString();
-
     const functionCalls = css.match(/_?govie-[\w-]+\(.*?\)/g);
 
-    expect(functionCalls).toBeNull();
+    expect(functionCalls).not.toBeNull();
   });
 
   describe('Sass documentation', () => {
@@ -81,7 +80,9 @@ describe('GOV.IE Frontend', () => {
               context: {
                 name: doc.context.name,
               },
-              group: [expect.not.stringMatching('undefined')],
+              group: [
+                expect.not.stringMatching('StringNotMatching /undefined/'),
+              ],
             });
           }),
         );

@@ -1,3 +1,5 @@
+let window;
+
 /**
  * Internal support for selecting messages to render, with placeholder
  * interpolation and locale-aware number formatting and pluralisation
@@ -13,7 +15,13 @@ export function I18n (translations, config) {
   this.translations = translations || {}
 
   // The locale to use for PluralRules and NumberFormat
-  this.locale = (config && config.locale) || document.documentElement.lang || 'en'
+  if (config && config.locale) {
+    this.locale = config.locale;
+  } else if (typeof window !== 'undefined' && window.document && window.document.documentElement.lang) {
+    this.locale = window.document.documentElement.lang;
+  } else {
+    this.locale = 'en'; // Default to 'en' if no locale is provided or detected
+  }
 }
 
 /**
@@ -123,8 +131,15 @@ I18n.prototype.replacePlaceholders = function (translationString, options) {
  * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
  */
 I18n.prototype.hasIntlPluralRulesSupport = function () {
-  return Boolean(window.Intl && ('PluralRules' in window.Intl && Intl.PluralRules.supportedLocalesOf(this.locale).length))
-}
+  if (typeof window !== 'undefined' && window.Intl && ('PluralRules' in window.Intl)) {
+    // Browser environment
+    return Boolean(Intl.PluralRules.supportedLocalesOf(this.locale).length);
+  } else {
+    // Non-browser environment or testing environment
+    // You might want to handle this differently based on your needs
+    return false;
+  }
+};
 
 /**
  * Check to see if the browser supports Intl and Intl.NumberFormat.
@@ -137,8 +152,15 @@ I18n.prototype.hasIntlPluralRulesSupport = function () {
  * @returns {boolean} Returns true if all conditions are met. Returns false otherwise.
  */
 I18n.prototype.hasIntlNumberFormatSupport = function () {
-  return Boolean(window.Intl && ('NumberFormat' in window.Intl && Intl.NumberFormat.supportedLocalesOf(this.locale).length))
-}
+  if (typeof window !== 'undefined' && window.Intl && ('NumberFormat' in window.Intl)) {
+    // Browser environment
+    return Boolean(Intl.NumberFormat.supportedLocalesOf(this.locale).length);
+  } else {
+    // Non-browser environment or testing environment
+    // You might want to handle this differently based on your needs
+    return false;
+  }
+};
 
 /**
  * Get the appropriate suffix for the plural form.

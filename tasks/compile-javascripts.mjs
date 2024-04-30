@@ -13,7 +13,6 @@ import {
   destination,
   isDist,
   isPackage,
-  isPublic,
   isStorybook,
 } from './task-arguments.mjs'
 

@@ -1,4 +1,4 @@
-const { renderSass } = require('../../../lib/jest-helpers');
+const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
   outputStyle: 'compact',
@@ -10,11 +10,13 @@ describe('@mixin govie-link-decoration', () => {
       const sass = `
         @import "base";
 
+        $govie-new-link-styles: false;
+
         .foo {
           @include govie-link-decoration;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('text-decoration-thickness');
     });
@@ -23,11 +25,13 @@ describe('@mixin govie-link-decoration', () => {
       const sass = `
         @import "base";
 
+        $govie-new-link-styles: false;
+
         .foo {
           @include govie-link-decoration;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('text-underline-offset');
     });
@@ -44,7 +48,7 @@ describe('@mixin govie-link-decoration', () => {
           @include govie-link-decoration;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain(
         'text-decoration-thickness: 1px;',
@@ -61,7 +65,7 @@ describe('@mixin govie-link-decoration', () => {
           @include govie-link-decoration;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain('text-underline-offset: 0.1em;');
     });
@@ -77,7 +81,7 @@ describe('@mixin govie-link-decoration', () => {
             @include govie-link-decoration;
           }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig });
+        const results = await compileSassString(sass, sassConfig);
 
         expect(results.css.toString()).not.toContain(
           'text-decoration-thickness',
@@ -96,7 +100,7 @@ describe('@mixin govie-link-decoration', () => {
             @include govie-link-decoration;
         }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig });
+        const results = await compileSassString(sass, sassConfig);
 
         expect(results.css.toString()).not.toContain('text-underline-offset');
       });
@@ -110,13 +114,13 @@ describe('@mixin govie-link-hover-decoration', () => {
       const sass = `
       @import "base";
 
-      // The mixin shouldn't return anything, so this selector ends up empty and
-      // is omitted from the CSS
+      $govie-new-link-styles: false;
+      
       .foo:hover {
           @include govie-link-hover-decoration;
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('.foo:hover');
     });
@@ -133,7 +137,7 @@ describe('@mixin govie-link-hover-decoration', () => {
           @include govie-link-hover-decoration;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain('.foo:hover');
     });
@@ -151,7 +155,7 @@ describe('@mixin govie-link-hover-decoration', () => {
             @include govie-link-hover-decoration;
         }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig });
+        const results = await compileSassString(sass, sassConfig);
 
         expect(results.css.toString()).not.toContain('.foo:hover');
       });
@@ -170,7 +174,7 @@ describe('@mixin govie-link-style-text', () => {
             @include govie-link-style-text;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain(':hover');
       expect(results.css.toString()).toContain('color:');
@@ -188,7 +192,7 @@ describe('@mixin govie-link-style-text', () => {
             @include govie-link-style-text;
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('rgba(');
     });

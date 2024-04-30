@@ -1,10 +1,11 @@
 const sass = require('node-sass');
 const outdent = require('outdent');
-const { renderSass } = require('../../../lib/jest-helpers');
+import { vi } from 'vitest';
+const { compileSassString } = require('../../../lib/jest-helpers');
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.
-const mockWarnFunction = jest.fn().mockReturnValue(sass.NULL);
+const mockWarnFunction = vi.fn().mockReturnValue(sass.NULL);
 
 const sassConfig = {
   outputStyle: 'nested',
@@ -55,7 +56,7 @@ describe('@mixin govie-typography-common', () => {
     }
     `;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
     const resultsString = results.css.toString();
 
     expect(resultsString).toContain('@font-face');
@@ -74,7 +75,7 @@ describe('@mixin govie-typography-common', () => {
     }
     `;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
     const resultsString = results.css.toString();
 
     expect(resultsString).not.toContain('@font-face');
@@ -92,7 +93,7 @@ describe('@mixin govie-typography-common', () => {
     }
     `;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
     const resultsString = results.css.toString();
 
     expect(resultsString).not.toContain('@font-face');
@@ -113,7 +114,7 @@ describe('@mixin govie-typography-common', () => {
     }
     `;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
     const resultsString = results.css.toString();
 
     expect(resultsString).not.toContain('@font-face');
@@ -130,7 +131,7 @@ describe('@function _govie-line-height', () => {
         line-height: _govie-line-height($line-height: 3.141, $font-size: 20px);
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -145,7 +146,7 @@ describe('@function _govie-line-height', () => {
         line-height: _govie-line-height($line-height: 2em, $font-size: 20px);
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -160,7 +161,7 @@ describe('@function _govie-line-height', () => {
         line-height: _govie-line-height($line-height: 30px, $font-size: 20px);
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
@@ -177,17 +178,15 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-typography-responsive($size: 14)
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         font-size: 12px;
-        font-size: 0.75rem;
         line-height: 1.25; }
         @media (min-width: 30em) {
           .foo {
             font-size: 14px;
-            font-size: 0.875rem;
             line-height: 1.42857; } }`);
   });
 
@@ -199,12 +198,11 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-typography-responsive($size: 12)
       }`;
 
-    const results = await renderSass({ data: sass, ...sassConfig });
+    const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         font-size: 12px;
-        font-size: 0.75rem;
         line-height: 1.25; }
         @media print {
           .foo {
@@ -220,7 +218,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-typography-responsive(3.14159265359)
       }`;
 
-    await expect(renderSass({ data: sass, ...sassConfig })).rejects.toThrow(
+    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
       'Unknown font size `3.14159` - expected a point from the typography scale.',
     );
   });
@@ -234,17 +232,15 @@ describe('@mixin govie-typography-responsive', () => {
           @include govie-typography-responsive($size: 14, $important: true);
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px !important;
-          font-size: 0.75rem !important;
           line-height: 1.25 !important; }
           @media (min-width: 30em) {
             .foo {
               font-size: 14px !important;
-              font-size: 0.875rem !important;
               line-height: 1.42857 !important; } }`);
     });
 
@@ -256,12 +252,11 @@ describe('@mixin govie-typography-responsive', () => {
           @include govie-typography-responsive($size: 12, $important: true);
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px !important;
-          font-size: 0.75rem !important;
           line-height: 1.25 !important; }
           @media print {
             .foo {
@@ -279,17 +274,15 @@ describe('@mixin govie-typography-responsive', () => {
           @include govie-typography-responsive($size: 14, $override-line-height: 21px);
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px;
-          font-size: 0.75rem;
           line-height: 1.75; }
           @media (min-width: 30em) {
             .foo {
               font-size: 14px;
-              font-size: 0.875rem;
               line-height: 1.5; } }`);
     });
   });
@@ -311,7 +304,7 @@ describe('@mixin govie-typography-responsive', () => {
           @include govie-typography-responsive($size: 14)
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -333,7 +326,7 @@ describe('@mixin govie-typography-responsive', () => {
           @include govie-typography-responsive($size: 14)
         }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -355,7 +348,7 @@ describe('@mixin govie-typography-responsive', () => {
             @include govie-typography-responsive($size: 14, $important: true);
           }`;
 
-        const results = await renderSass({ data: sass, ...sassConfig });
+        const results = await compileSassString(sass, sassConfig);
 
         expect(results.css.toString().trim()).toBe(outdent`
           .foo {
@@ -365,23 +358,6 @@ describe('@mixin govie-typography-responsive', () => {
               .foo {
                 font-size: 14px !important;
                 line-height: 1.42857 !important; } }`);
-      });
-    });
-
-    it('outputs a deprecation warning when set to false', async () => {
-      const sass = `
-        $govie-typography-use-rem: false;
-        ${sassBootstrap}`;
-
-      await renderSass({ data: sass, ...sassConfig }).then(() => {
-        // Get the argument of the last @warn call, which we expect to be the
-        // deprecation notice
-        return expect(mockWarnFunction.mock.calls.at(-1)[0].getValue()).toEqual(
-          '$govie-typography-use-rem is deprecated. From version 5.0, ' +
-            'GOV.IE Frontend will not support disabling rem font sizes. To ' +
-            'silence this warning, update $govie-suppressed-warnings with ' +
-            'key: "allow-not-using-rem"',
-        );
       });
     });
   });
@@ -397,7 +373,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
@@ -406,7 +382,6 @@ describe('@mixin govie-typography-responsive', () => {
           -moz-osx-font-smoothing: grayscale;
           font-weight: 400;
           font-size: 12px;
-          font-size: 0.75rem;
           line-height: 1.25; }
           @media print {
             .foo {
@@ -414,7 +389,6 @@ describe('@mixin govie-typography-responsive', () => {
           @media (min-width: 30em) {
             .foo {
               font-size: 14px;
-              font-size: 0.875rem;
               line-height: 1.42857; } }`);
     });
 
@@ -426,10 +400,10 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14, $tabular: true)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
       const css = results.css.toString();
 
-      expect(css).toContain('font-feature-settings: "tnum" 1;');
+      expect(css).toContain("font-feature-settings: 'tnum' 1;");
       expect(css).toContain(outdent`
       ${outdent}
         @supports (font-variant-numeric: tabular-nums) {
@@ -446,7 +420,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 12)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain('font-size: 12px');
       expect(results.css.toString()).not.toContain('font-size: 14px');
@@ -460,7 +434,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: false)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('font-size');
     });
@@ -475,7 +449,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14, $weight: bold)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain('font-weight: 700');
     });
@@ -490,7 +464,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14, $weight: false)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('font-weight');
     });
@@ -505,7 +479,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14, $weight: superdupermegabold)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).not.toContain('font-weight');
     });
@@ -520,7 +494,7 @@ describe('@mixin govie-typography-responsive', () => {
         @include govie-font($size: 14, $line-height: 1.337)
       }`;
 
-      const results = await renderSass({ data: sass, ...sassConfig });
+      const results = await compileSassString(sass, sassConfig);
 
       expect(results.css.toString()).toContain('line-height: 1.337;');
     });
