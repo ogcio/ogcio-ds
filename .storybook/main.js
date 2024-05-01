@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -14,8 +16,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
-    '@etchteam/storybook-addon-css-variables-theme',
-    '@storybook/addon-a11y'
+    // '@etchteam/storybook-addon-css-variables-theme',
+    '@storybook/addon-a11y',
   ],
   framework: '@storybook/html',
   staticDirs: [
@@ -31,4 +33,13 @@ module.exports = {
   docs: {
     docsPage: 'automatic',
   },
-}
+  webpackFinal(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      react: path.resolve(__dirname, '../node_modules/react'),
+      'react-dom': path.resolve(__dirname, '../node_modules/react-dom'),
+    };
+
+    return config;
+  },
+};

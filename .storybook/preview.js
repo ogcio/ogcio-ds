@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
-import React from 'react'
-import { DocsContainer } from '@storybook/addon-docs'
-import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import React from 'react';
+import { DocsContainer } from '@storybook/addon-docs';
+// import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
-import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css'
-import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css'
-import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css'
-let selectedTheme
+import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css';
+import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css';
+import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css';
+let selectedTheme;
 
-export const decorators = [cssVariablesTheme]
+// export const decorators = [cssVariablesTheme]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -31,8 +31,8 @@ export const parameters = {
   docs: {
     source: { format: false },
     container: ({ children, context }) => {
-      let newContext
-      cssVariablesTheme((c) => (newContext = c), context)
+      let newContext;
+      cssVariablesTheme((c) => (newContext = c), context);
 
       return (
         <DocsContainer context={newContext}>
@@ -60,7 +60,7 @@ export const parameters = {
           )}
           {children}
         </DocsContainer>
-      )
+      );
     },
     components: {
       a: ({ children, ...args }) => (
@@ -166,7 +166,7 @@ export const parameters = {
       ],
     },
   },
-}
+};
 
 ///
 /// Change logo according to the selected theme
@@ -174,31 +174,31 @@ export const parameters = {
 
 document.addEventListener('storybookcssvariables:theme:change', (event) => {
   // set theme selectedTheme variable to the current select theme
-  selectedTheme = event?.detail?.theme
-  loadLogo()
-})
+  selectedTheme = event?.detail?.theme;
+  loadLogo();
+});
 
 window.addEventListener('DOMContentLoaded', (event) => {
   // reload the logo when the DOM finish loading because
   // the pages have an iframe inside that took longer
   // to fully load
-  loadLogo()
-})
+  loadLogo();
+});
 
 const loadLogo = () => {
-  const logo = document.getElementById('logo-image')
+  const logo = document.getElementById('logo-image');
 
   if (logo) {
     // to avoid errors when the iframe has not completed loading yet
     if (selectedTheme === 'AGS theme') {
-      logo.src = './themes/ags.png'
-      logo.style = 'width: 166px;'
+      logo.src = './themes/ags.png';
+      logo.style = 'width: 166px;';
     } else if (selectedTheme === 'HSE theme') {
-      logo.src = './themes/hse.png'
-      logo.style = 'width: 52px;'
+      logo.src = './themes/hse.png';
+      logo.style = 'width: 52px;';
     } else {
-      logo.src = './@ogcio/assets/images/logo-full.png'
-      logo.style = 'width: 116px;'
+      logo.src = './@ogcio/assets/images/logo-full.png';
+      logo.style = 'width: 116px;';
     }
   }
-}
+};
