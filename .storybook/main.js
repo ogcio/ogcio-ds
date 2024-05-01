@@ -1,6 +1,6 @@
 module.exports = {
   stories: [
-    // '../storybook/**/*.stories.mdx',
+    '../storybook/**/*.mdx',
     // '../src/govie/components/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/templates/**/*.stories.@(js|jsx|ts|tsx)',
@@ -30,5 +30,8 @@ module.exports = {
   ],
   docs: {
     autodocs: true,
+  },
+  features: {
+    legacyMdx1: true, // TODO: remove
   },
 };

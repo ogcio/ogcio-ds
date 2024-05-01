@@ -11,6 +11,17 @@ import { DocsContainer } from '@storybook/addon-docs';
 
 // export const decorators = [cssVariablesTheme]
 
+export const decorators = [
+  (Story, context) => {
+    const storyResult = Story(context);
+    if (typeof storyResult === 'string') {
+      return <div dangerouslySetInnerHTML={{ __html: storyResult }} />;
+    }
+
+    return storyResult;
+  },
+];
+
 export const parameters = {
   // actions: { argTypesRegex: '^on[A-Z].*' },
   // cssVariables: {
@@ -39,7 +50,7 @@ export const parameters = {
         <DocsContainer context={context}>
           {context.name !== 'Page' && (
             <div
-              className="govie-body"
+              // className="govie-body"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -119,18 +130,18 @@ export const parameters = {
           {children}
         </th>
       ),
-      code: ({ children, ...args }) => (
-        <code
-          className="govie-!-font-size-19"
-          style={{
-            background: '#f9f9f8',
-            border: '1px solid #bfc1c3',
-          }}
-          {...args}
-        >
-          {children}
-        </code>
-      ),
+      // code: ({ children, ...args }) => (
+      //   <code
+      //     className="govie-!-font-size-19"
+      //     style={{
+      //       background: '#f9f9f8',
+      //       border: '1px solid #bfc1c3',
+      //     }}
+      //     {...args}
+      //   >
+      //     {children}
+      //   </code>
+      // ),
     },
   },
   options: {
