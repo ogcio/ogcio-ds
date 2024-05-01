@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/ogcio/ogcio-ds/compare/v0.2.3...v0.2.4) (2024-05-01)
+
+
+### Bug Fixes
+
+* remove sb decorator ([#177](https://github.com/ogcio/ogcio-ds/issues/177)) ([4925b92](https://github.com/ogcio/ogcio-ds/commit/4925b92693d365e3469966d59ab80362472857e6))
+
 ## [0.2.3](https://github.com/ogcio/ogcio-ds/compare/v0.2.2...v0.2.3) (2024-05-01)
 
 
