@@ -1,5 +1,4 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Install using precompiled files" />
 
@@ -9,71 +8,40 @@ import { CodeSnippet } from '../components/CodeSnippet';
   your project. If you install this way, you can try OGCIO-DS in your
   application without having to make many changes.
 </p>
-<div className="govie-warning-text">
-  <span className="govie-warning-text__icon" aria-hidden="true">
-    !
-  </span>
-  <strong className="govie-warning-text__text">
-    <span className="govie-warning-text__assistive">Warning</span>
-    In your live application, you should install with Node.js package manager (npm)
-    instead.
-  </strong>
-</div>
-<br />
-<br />
 
-<h2>What you cannot do after installing</h2>
-<p>You'll not be able to:</p>
-<ul>
-  <li>
-    change [Sass settings](/?path=/story/docs-sass-api-reference--page), for
-    example override colours or set your own font
-  </li>
-  <li>import an individual component's CSS or JavaScript</li>
-  <li>use OGCIO-DS colours or mixins in your custom code</li>
-</ul>
+> ! In your live application, you should install with Node.js package manager (npm) instead.
+
+## What you cannot do after installing
+
+You'll not be able to:
+
+- Change [Sass settings](/?path=/story/docs-sass-api-reference--page), for example override colours or set your own font
+- Import an individual component's CSS or JavaScript
+- Use OGCIO-DS colours or mixins in your custom code
 
 <h2>Copy the files</h2>
 <ol>
   <li>
     <p>
-      Access the{' '}
-      <a
-        href="https://github.com/ogcio/ogcio-ds/tree/main/dist/%40ogcio"
-        target="_blank"
-        rel="noopener"
-      >
-        official repository
-      </a>
-      .
+      Access the [official
+      repository](https://github.com/ogcio/ogcio-ds/tree/main/dist/%40ogcio).
     </p>
   </li>
   <li>
     <p>
-      Copy the <code>assets</code> folder to the root of your project's public
-      folder, so that for example{' '}
-      <code>&lt;YOUR-SITE-URL&gt;/assets/logotype.png</code> shows the{' '}
-      <code>logotype.png</code> image in your users' browsers.
+      Copy the `assets` folder to the root of your project's public
+      folder, so that for example `<YOUR-SITE-URL>/assets/logotype.png</code> shows the `logotype.png` image in your users' browsers.
     </p>
   </li>
   <li>
     <p>
-      Copy the two <code>.css</code> files to a stylesheets folder in the root
-      of your project's public folder, so that for example{' '}
-      <code>
-        &lt;YOUR-SITE-URL&gt;/stylesheets/ogcio-ds-&lt;VERSION-NUMBER&gt;.min.css
-      </code>{' '}
-      shows the CSS file in your users' browsers.
+      Copy the two `.css` files to a stylesheets folder in the root
+      of your project's public folder, so that for example `<YOUR-SITE-URL>/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css` shows the CSS file in your users' browsers.
     </p>
   </li>
   <li>
     <p>
-      Copy the <code>.js</code> file to a JavaScript folder in the root of your
-      project's public folder, so that for example{' '}
-      <code>
-        &lt;YOUR-SITE-URL&gt;/javascript/ogcio-ds-&lt;VERSION-NUMBER&gt;.min.js
-      </code>{' '}
-      shows the JavaScript file in your users' browsers.
+      Copy the `.js` file to a JavaScript folder in the root of your project's public folder, so that for example `<YOUR-SITE-URL>/javascript/ogcio-ds-<VERSION-NUMBER>.min.js` shows the JavaScript file in your users' browsers.
     </p>
   </li>
 </ol>
@@ -85,37 +53,47 @@ import { CodeSnippet } from '../components/CodeSnippet';
       Create a page in your project using the following HTML (in your live
       application, you should use the [Design System basic page template](/?path=/docs/templates-basic-page--default) instead):
     </p>
-    <CodeSnippet
-    code={`<!DOCTYPE html>
+
+```html
+<!doctype html>
 <html lang="en" className="govie-template ">
   <head>
     <title>Example - OGCIO Design System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    {/*[if !IE 8]><!*/}
-      <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css">
-    {/*<![endif]*/}
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    {/*[if !IE 8]>
+    <!*/}
+      <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>
+    .min.css"> {/*
+    <![endif]*/}
     <!--[if IE 8]>
-      <link rel="stylesheet" href="/stylesheets/ogcio-ds-ie8-<VERSION-NUMBER>.min.css">
+    <link
+      rel="stylesheet"
+      href="/stylesheets/ogcio-ds-ie8-<VERSION-NUMBER>.min.css"
+    />
     <![endif]-->
   </head>
   <body className="govie-template__body ">
     <script>
-      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+      document.body.className = document.body.className
+        ? document.body.className + ' js-enabled'
+        : 'js-enabled';
     </script>
     {/* component HTML */}
     <script src="/javascript/ogcio-ds-<VERSION-NUMBER>.min.js"></script>
     <script>
-      window.GOVIEFrontend.initAll()
+      window.GOVIEFrontend.initAll();
     </script>
   </body>
 </html>
-    `}
-     />
+```
+
   </li>
   <li>
     <p>
-      Replace <code>&lt;VERSION-NUMBER&gt;</code> so the 3 filenames match the
-      files you copied from OGCIO-DS GitHub repo.
+      Replace `<VERSION-NUMBER>` so the 3 filenames match the files you copied from OGCIO-DS GitHub repo.
     </p>
   </li>
   <li>
@@ -125,7 +103,7 @@ import { CodeSnippet } from '../components/CodeSnippet';
   </li>
   <li>
     <p>
-      Replace <code>&lt;!-- component HTML --&gt;</code> with the accordion HTML
+      Replace `<!-- component HTML -->` with the accordion HTML
       you copied.
     </p>
   </li>

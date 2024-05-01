@@ -1,5 +1,4 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Update with npm" />
 
@@ -10,37 +9,44 @@ import { CodeSnippet } from '../components/CodeSnippet';
 </p>
 
 <h2>Find out which version you're using</h2>
-<p>To find out which version of OGCIO-DS your project is using, you can run:</p>
-<CodeSnippet code="npm list @ogcio/ogcio-ds" />
+
+To find out which version of OGCIO-DS your project is using, you can run:
+
+```
+npm list @ogcio/ogcio-ds
+```
+
 <p>
   If you do not have command line access, you can see the version number in the{' '}
   <code>package.json</code> file in the root of your project directory. For
   example:
 </p>
 
-<CodeSnippet code={`"@ogcio/ogcio-ds": "0.0.8"`} />
+```json
+"@ogcio/ogcio-ds": "0.0.8"
+```
 
 <h2>Update OGCIO-DS using npm</h2>
-<p>
-  To find out the latest version of OGCIO-DS, check the{' '}
-  <a
-    href="https://github.com/ogcio/ogcio-ds/releases"
-    target="_blank"
-    rel="noopener"
-  >
-    release notes
-  </a>{' '}
-  in the OGCIO-DS GitHub repository.
-</p>
+
+To find out the latest version of OGCIO-DS, check the [release notes](https://github.com/ogcio/ogcio-ds/releases) in the OGCIO-DS GitHub repository.
+
 <p>
   You may need to make code changes to keep OGCIO-DS working in your project, if
   the major version number changes when you update. The major version number is
   the first digit in the version number.
 </p>
-<p>To update to the most recent version, run:</p>
-<CodeSnippet code="npm install @ogcio/ogcio-ds@latest" />
+
+To update to the most recent version, run:
+
+```
+npm install @ogcio/ogcio-ds@latest
+```
+
 <p>
   If you want to install an earlier version, replace <code>latest</code> with
   the version that you want to update to. For example:
 </p>
-<CodeSnippet code="npm install @ogcio/ogcio-ds@0.0.7" />
+
+```
+npm install @ogcio/ogcio-ds@0.0.7
+```
