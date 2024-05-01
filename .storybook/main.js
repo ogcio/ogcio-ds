@@ -1,23 +1,23 @@
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
   stories: [
-    '../storybook/**/*.stories.mdx',
-    '../src/govie/components/**/*.stories.mdx',
+    // '../storybook/**/*.stories.mdx',
+    // '../src/govie/components/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/templates/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/patterns/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    // '@etchteam/storybook-addon-css-variables-theme',
+    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-docs',
-    // '@etchteam/storybook-addon-css-variables-theme',
-    '@storybook/addon-a11y',
   ],
-  framework: '@storybook/html',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
   staticDirs: [
     {
       from: '../storybook/dist',
@@ -29,6 +29,6 @@ module.exports = {
     },
   ],
   docs: {
-    docsPage: 'automatic',
+    autodocs: true,
   },
 };
