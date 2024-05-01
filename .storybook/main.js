@@ -1,7 +1,6 @@
 module.exports = {
   stories: [
     '../storybook/**/*.mdx',
-    // '../src/govie/components/**/*.stories.mdx',
     '../src/govie/components/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/templates/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/govie/patterns/**/*.stories.@(js|jsx|ts|tsx)',
