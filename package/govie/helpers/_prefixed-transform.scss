@@ -1,4 +1,0 @@
-@mixin prefixed-transform($translateY: 0, $rotate: 0, $scale: 1) {
-  -ms-transform: translateY($translateY) rotate($rotate) scale($scale);
-  transform: translateY($translateY) rotate($rotate) scale($scale);
-}
