@@ -30,7 +30,4 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-  features: {
-    legacyMdx1: true, // TODO: remove
-  },
 };
