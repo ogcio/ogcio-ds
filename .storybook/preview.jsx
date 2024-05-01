@@ -50,7 +50,7 @@ export const parameters = {
         <DocsContainer context={context}>
           {context.name !== 'Page' && (
             <div
-              // className="govie-body"
+              className="govie-body"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -70,7 +70,7 @@ export const parameters = {
               components to not behave as expected.
             </div>
           )}
-          {children}
+          <div className="sb-unstyled">{children}</div>
         </DocsContainer>
       );
     },
