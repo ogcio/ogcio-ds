@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/ogcio/ogcio-ds/compare/v0.2.2...v0.2.3) (2024-05-01)
+
+
+### Bug Fixes
+
+* remove package folder ([#175](https://github.com/ogcio/ogcio-ds/issues/175)) ([438619a](https://github.com/ogcio/ogcio-ds/commit/438619a6e590a3ea950661a5c7ba0ba943e3e5f9))
+
 ## [0.2.2](https://github.com/ogcio/ogcio-ds/compare/v0.2.1...v0.2.2) (2024-05-01)
 
 
