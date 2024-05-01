@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/addon-docs'
-import { CodeSnippet } from '../components/CodeSnippet'
+import { Canvas, Meta } from '@storybook/blocks';
+import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Sass API Reference" />
 
@@ -55,7 +55,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <p>Secondary text colour.</p>
 <p>Used in for example 'muted' text and help text.</p>
 <h5>Default value</h5>
-<CodeSnippet code={`$govie-secondary-text-colour: govie-colour("dark-grey");`} />
+<CodeSnippet
+  code={`$govie-secondary-text-colour: govie-colour("dark-grey");`}
+/>
 
 <h4>$govie-focus-colour</h4>
 <p>Focus colour.</p>
@@ -227,7 +229,9 @@ import { CodeSnippet } from '../components/CodeSnippet'
 <h4>$govie-border-width-form-group-error</h4>
 <p>Form group border width when in error state.</p>
 <h5>Default value</h5>
-<CodeSnippet code={`$govie-border-width-form-group-error: $govie-border-width;`} />
+<CodeSnippet
+  code={`$govie-border-width-form-group-error: $govie-border-width;`}
+/>
 
 <h4>$govie-focus-width</h4>
 <p>Border width of focus outline.</p>
@@ -754,7 +758,9 @@ background-image: govie-image-url("my-image.png");\n
   </tbody>
 </table>
 <h5>Usage</h5>
-<CodeSnippet code={`@include govie-visually-hidden-focusable($important: true);`} />
+<CodeSnippet
+  code={`@include govie-visually-hidden-focusable($important: true);`}
+/>
 
 <h3>Colour</h3>
 
@@ -1662,7 +1668,9 @@ background-image: govie-image-url("my-image.png");\n
   </tbody>
 </table>
 <h5>Usage</h5>
-<CodeSnippet code={`@include govie-typography-weight-regular($important: false);`} />
+<CodeSnippet
+  code={`@include govie-typography-weight-regular($important: false);`}
+/>
 
 <h4>govie-typography-weight-bold</h4>
 <p>Bold font weight helper.</p>
@@ -1693,7 +1701,9 @@ background-image: govie-image-url("my-image.png");\n
   </tbody>
 </table>
 <h5>Usage</h5>
-<CodeSnippet code={`@include govie-typography-weight-bold($important: false);`} />
+<CodeSnippet
+  code={`@include govie-typography-weight-bold($important: false);`}
+/>
 
 <h4>govie-typography-responsive</h4>
 <p>Responsive typography helper.</p>
@@ -1864,12 +1874,16 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-primary-button-hover-background-colour: #002e28;</h4>
 <p>Primary button component text colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-primary-button-text-colour: govie-colour('white');`} />
+<CodeSnippet
+  code={`$govie-primary-button-text-colour: govie-colour('white');`}
+/>
 
 <h4>$govie-primary-button-text-colour</h4>
 <p>Primary button component text colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-primary-button-text-colour: govie-colour('white');`} />
+<CodeSnippet
+  code={`$govie-primary-button-text-colour: govie-colour('white');`}
+/>
 
 <h3>Secondary button</h3>
 
@@ -1888,14 +1902,18 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-secondary-button-text-colour</h4>
 <p>Secondary button component text colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-secondary-button-text-colour: govie-colour('black');`} />
+<CodeSnippet
+  code={`$govie-secondary-button-text-colour: govie-colour('black');`}
+/>
 
 <h3>Tertiary button</h3>
 
 <h4>$govie-tertiary-button-background-colour</h4>
 <p>Tertiary button component background colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-tertiary-button-background-colour: transparent;   `} />
+<CodeSnippet
+  code={`$govie-tertiary-button-background-colour: transparent;   `}
+/>
 
 <h4>$govie-tertiary-button-hover-background-colour</h4>
 <p>Tertiary button component hover background colour.</p>
@@ -1907,7 +1925,9 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-tertiary-button-text-colour</h4>
 <p>Tertiary button component text colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-tertiary-button-text-colour: govie-colour('black');`} />
+<CodeSnippet
+  code={`$govie-tertiary-button-text-colour: govie-colour('black');`}
+/>
 
 <h3>Outlined and flat button</h3>
 
@@ -1933,7 +1953,9 @@ background-image: govie-image-url("my-image.png");\n
 <h4>$govie-button-group-button-background-colour</h4>
 <p>Button inside button group component background colour.</p>
 <h5>Default</h5>
-<CodeSnippet code={`$govie-button-group-button-background-colour: transparent;`} />
+<CodeSnippet
+  code={`$govie-button-group-button-background-colour: transparent;`}
+/>
 
 <h4>$govie-button-group-button-hover-background-colour</h4>
 <p>Button inside button group component hover background colour.</p>
@@ -1992,7 +2014,9 @@ background-image: govie-image-url("my-image.png");\n
   </tbody>
 </table>
 <h5>Usage</h5>
-<CodeSnippet code={`@include govie-width-container($width: '$govie-page-width');`} />
+<CodeSnippet
+  code={`@include govie-width-container($width: '$govie-page-width');`}
+/>
 <h5>Example</h5>
 <CodeSnippet
   code={`// Creating a 1200px wide container class

@@ -1,6 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
-import { CodeSnippet } from '../components/CodeSnippet'
-import { InternalLink } from '../components/InternalLink'
+import { Canvas, Meta } from '@storybook/blocks';
 
 <Meta title="Docs/JavaScript API Reference" />
 
@@ -9,26 +7,20 @@ import { InternalLink } from '../components/InternalLink'
 <p>
   Some of our components can receive configuration options when you create an
   instance in JavaScript. This page lists the available options for these
-  components. You can find further information on how to{' '}
-  <InternalLink href="/?path=/docs/docs-configure-components-with-javascript--page">
-    configure these options in our guidance
-  </InternalLink>
-  .
+  components. You can find further information on how to [configure these
+  options in our
+  guidance](/?path=/docs/docs-configure-components-with-javascript--page).
 </p>
-<p>You can pass these options in an object either as:</p>
-<ul>
-  <li>a second argument of the component's constructor</li>
-  <li>
-    the value for the key of the component name in an object passed to{' '}
-    <code>initAll</code>
-  </li>
-</ul>
 
-<p>
-  For example, to set the <code>preventDoubleClick</code> option of a button:
-</p>
-<CodeSnippet
-  code={`// Creating a single instance
+You can pass these options in an object either as:
+
+- a second argument of the component's constructor
+- the value for the key of the component name in an object passed to <code>initAll</code>
+
+For example, to set the <code>preventDoubleClick</code> option of a button:
+
+```javascript
+// Creating a single instance
 var button = document.querySelector('[data-module="button"]')
 new GOVIEFrontend.Button(button, {preventDoubleClick: true})\n
 // Or when using initAll
@@ -36,8 +28,8 @@ GOVIEFrontend.initAll({
   button: {
     preventDoubleClick: true
   }
-})`}
-/>
+})
+```
 
 <br />
 <h2>Accordion</h2>
@@ -57,13 +49,19 @@ GOVIEFrontend.initAll({
   section is expanded.
 </p>
 <p>Default:</p>
-<CodeSnippet code="Hide all sections" />
+
+```
+Hide all sections
+```
 
 <h5>hideSection</h5>
 <p>Type: string</p>
 <p>The text content for the 'Hide' button, used when a section is expanded.</p>
 <p>Default:</p>
-<CodeSnippet code="Hide" />
+
+```
+Hide
+```
 
 <h5>hideSectionAriaLabel</h5>
 <p>Type: string</p>
@@ -72,7 +70,10 @@ GOVIEFrontend.initAll({
   section is expanded.
 </p>
 <p>Default:</p>
-<CodeSnippet code="Hide this section" />
+
+```
+Hide this section
+```
 
 <h4>i18n.showAllSections</h4>
 <p>Type: string</p>
@@ -81,13 +82,19 @@ GOVIEFrontend.initAll({
   are collapsed.
 </p>
 <p>Default:</p>
-<CodeSnippet code="Show all sections" />
+
+```
+Show all sections
+```
 
 <h5>showSection</h5>
 <p>Type: string</p>
 <p>The text content for the 'Show' button, used when a section is collapsed.</p>
 <p>Default:</p>
-<CodeSnippet code="Show" />
+
+```
+Show
+```
 
 <h5>showSectionAriaLabel</h5>
 <p>Type: string</p>
@@ -96,7 +103,11 @@ GOVIEFrontend.initAll({
   section is expanded.
 </p>
 <p>Default:</p>
-<CodeSnippet code="Show this section" />
+
+```
+Show this section
+```
+
 <br />
 <h2>Button</h2>
 <h3>preventDoubleClick</h3>
@@ -106,7 +117,10 @@ GOVIEFrontend.initAll({
   multiple times.
 </p>
 <p>Default:</p>
-<CodeSnippet code="false" />
+
+```
+false
+```
 
 <br />
 <h2>CharacterCount</h2>
@@ -133,7 +147,10 @@ GOVIEFrontend.initAll({
   default.
 </p>
 <p>Default:</p>
-<CodeSnippet code="0" />
+
+```
+0
+```
 
 <h3>i18n</h3>
 <p>Type: object</p>
@@ -152,19 +169,17 @@ GOVIEFrontend.initAll({
   maximum, <code>maxlength</code>. This message is displayed visually and
   through assistive technologies. The component will replace the{' '}
   <code>{'%{count}'}</code> placeholder with the number of remaining characters.
-  This is a{' '}
-  <InternalLink href="/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules">
-    pluralised list of messages
-  </InternalLink>
-  .
+  This is a [pluralised list of
+  messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
 </p>
 <p>Default:</p>
-<CodeSnippet
-  code={`{
+
+```
+{
   one: "You have %{count} character remaining",
   other: "You have %{count} characters remaining"
-}`}
-/>
+}
+```
 
 <h5>charactersAtLimit</h5>
 <p>Type: object</p>
@@ -174,7 +189,10 @@ GOVIEFrontend.initAll({
   through assistive technologies.
 </p>
 <p>Default:</p>
-<CodeSnippet code="You have 0 characters remaining" />
+
+```
+You have 0 characters remaining
+```
 
 <h5>charactersOverLimit</h5>
 <p>Type: object</p>
@@ -183,19 +201,17 @@ GOVIEFrontend.initAll({
   maximum, <code>maxlength</code>. This message is displayed visually and
   through assistive technologies. The component will replace the{' '}
   <code>{'%{count}'}</code> placeholder with the number of remaining characters.
-  This is a{' '}
-  <InternalLink href="/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules">
-    pluralised list of messages
-  </InternalLink>
-  .
+  This is a [pluralised list of
+  messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
 </p>
 <p>Default:</p>
-<CodeSnippet
-  code={`{
+
+```
+{
   one: "You have %{count} character too many",
   other: "You have %{count} characters too many"
-}`}
-/>
+}
+```
 
 <h5>wordsUnderLimit</h5>
 <p>Type: object</p>
@@ -203,17 +219,16 @@ GOVIEFrontend.initAll({
   Message displayed when the number of words is under the configured maximum,
   <code>maxwords</code>. This message is displayed visually and through assistive
   technologies. The component will replace the <code>{'%{count}'}</code> placeholder
-  with the number of remaining words. This is a <InternalLink href="/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules">
-    pluralised list of messages
-  </InternalLink>.
+  with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules)
 </p>
 <p>Default:</p>
-<CodeSnippet
-  code={`{
+
+```
+{
   one: "You have %{count} word remaining",
   other: "You have %{count} words remaining"
-}`}
-/>
+}
+```
 
 <h5>wordsAtLimit</h5>
 <p>Type: object</p>
@@ -223,7 +238,7 @@ GOVIEFrontend.initAll({
   technologies.
 </p>
 <p>Default:</p>
-<CodeSnippet code="You have 0 words remaining" />
+`You have 0 words remaining`
 
 <h5>wordsOverLimit</h5>
 <p>Type: object</p>
@@ -231,17 +246,16 @@ GOVIEFrontend.initAll({
   Message displayed when the number of words is over the configured maximum,
   <code>maxwords</code>. This message is displayed visually and through assistive
   technologies. The component will replace the <code>{'%{count}'}</code> placeholder
-  with the number of remaining words. This is a <InternalLink href="/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules">
-    pluralised list of messages
-  </InternalLink>.
+  with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
 </p>
 <p>Default:</p>
-<CodeSnippet
-  code={`{
+
+```
+{
   one: "You have %{count} word too many",
   other: "You have %{count} words too many"
-}`}
-/>
+}
+```
 
 <h5>textareaDescription</h5>
 <p>Type: object</p>
@@ -253,11 +267,12 @@ GOVIEFrontend.initAll({
   parameter.
 </p>
 <p>Default:</p>
-<CodeSnippet
-  code={`{
+
+```
+{
   other: ""
-}`}
-/>
+}
+```
 
 <br />
 <h2>ErrorSummary</h2>
@@ -268,7 +283,10 @@ GOVIEFrontend.initAll({
 </p>
 <p>Type: boolean</p>
 <p>Default</p>
-<CodeSnippet code="false" />
+
+```
+false
+```
 
 <br />
 <h2>NotificationBanner</h2>
@@ -281,4 +299,7 @@ GOVIEFrontend.initAll({
   load, regardless of this option.
 </p>
 <p>Default:</p>
-<CodeSnippet code="false" />
+
+```
+false
+```

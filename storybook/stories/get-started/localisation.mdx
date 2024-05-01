@@ -1,6 +1,5 @@
-import { Meta } from '@storybook/addon-docs'
-import { CodeSnippet } from '../components/CodeSnippet'
-import { InternalLink } from '../components/InternalLink'
+import { Canvas, Meta } from '@storybook/blocks';
+import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Localise OGCIO-DS" />
 
@@ -42,11 +41,9 @@ import { InternalLink } from '../components/InternalLink'
   JavaScript by passing configuration using data attributes.
 </p>
 <p>
-  Alternatively, you can{' '}
-  <InternalLink href="/?path=/docs/docs-configure-components-with-javascript--page">
-    configure the component with JavaScript
-  </InternalLink>{' '}
-  at the point you initialise it or when using <code>initAll</code>.
+  Alternatively, you can [configure the component with
+  JavaScript](/?path=/docs/docs-configure-components-with-javascript--page) at
+  the point you initialise it or when using <code>initAll</code>.
 </p>
 <p>The naming conventions for:</p>
 <ul>
@@ -180,19 +177,18 @@ import { InternalLink } from '../components/InternalLink'
 </p>
 <p>
   The following example shows how to provide pluralisation options using the
-  different ways you can{' '}
-  <InternalLink href="/?path=/docs/docs-configure-components-with-javascript--page">
-    configure components with JavaScript
-  </InternalLink>
-  :
+  different ways you can [configure components with
+  JavaScript](/?path=/docs/docs-configure-components-with-javascript--page):
 </p>
 
 <p>With data attributes</p>
-<CodeSnippet code={`<div data-module="character-count" 
+<CodeSnippet
+  code={`<div data-module="character-count" 
   data-i18n.characters-under-limit.other="%{count} characters to go"
   data-i18n.characters-under-limit.one="One character to go"
   data-i18n.characters-over-limit.one="One character too many">
-  {/* The 'other' key for 'characters-over-limit' will be our default */}`} />
+  {/* The 'other' key for 'characters-over-limit' will be our default */}`}
+/>
 
 <p>With JavaScript</p>
 <CodeSnippet

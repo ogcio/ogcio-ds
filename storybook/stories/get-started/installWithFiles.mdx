@@ -1,6 +1,5 @@
-import { Meta } from '@storybook/addon-docs'
-import { CodeSnippet } from '../components/CodeSnippet'
-import { InternalLink } from '../components/InternalLink'
+import { Canvas, Meta } from '@storybook/blocks';
+import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Install using precompiled files" />
 
@@ -27,15 +26,8 @@ import { InternalLink } from '../components/InternalLink'
 <p>You'll not be able to:</p>
 <ul>
   <li>
-    change{' '}
-    <InternalLink
-      href="/?path=/story/docs-sass-api-reference--page"
-      target="_blank"
-      rel="noopener"
-    >
-      Sass settings
-    </InternalLink>
-    , for example override colours or set your own font
+    change [Sass settings](/?path=/story/docs-sass-api-reference--page), for
+    example override colours or set your own font
   </li>
   <li>import an individual component's CSS or JavaScript</li>
   <li>use OGCIO-DS colours or mixins in your custom code</li>
@@ -91,11 +83,7 @@ import { InternalLink } from '../components/InternalLink'
   <li>
     <p>
       Create a page in your project using the following HTML (in your live
-      application, you should use the{' '}
-      <InternalLink href="/?path=/docs/templates-basic-page--default" target="_blank" rel="noopener">
-        Design System basic page template
-      </InternalLink>{' '}
-      instead):
+      application, you should use the [Design System basic page template](/?path=/docs/templates-basic-page--default) instead):
     </p>
     <CodeSnippet
     code={`<!DOCTYPE html>
@@ -132,11 +120,7 @@ import { InternalLink } from '../components/InternalLink'
   </li>
   <li>
     <p>
-      Go to the{' '}
-      <InternalLink href="/?path=/docs/typography-accordion--default">
-        example accordion component
-      </InternalLink>{' '}
-      on the Design System website and copy the HTML from the first example.
+      Go to the [example accordion component](/?path=/docs/typography-accordion--default) on the Design System website and copy the HTML from the first example.
     </p>
   </li>
   <li>
@@ -147,12 +131,7 @@ import { InternalLink } from '../components/InternalLink'
   </li>
   <li>
     <p>
-      Run your application - you can check it works the same way as the{' '}
-      <InternalLink href="/iframe.html?id=typography-accordion--default&viewMode=story" target="_blank" rel="noopener">
-        Design System accordion example
-      </InternalLink>{' '}
-      by selecting the buttons and checking the accordion 'shows' and 'hides'
-      sections.
+      Run your application - you can check it works the same way as the [ Design System accordion example](/iframe.html?id=typography-accordion--default&viewMode=story) by selecting the buttons and checking the accordion 'shows' and 'hides' sections.
     </p>
   </li>
 </ol>
