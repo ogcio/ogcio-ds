@@ -30,17 +30,18 @@ Paste the HTML into a page or template in your application.
 
 1. Add the following to the main Sass file in your project, so your Sass compiler adds all of OGCIO-DS styles to your CSS file.
 
-````sass
+```sass
 @import '@ogcio/ogcio-ds/govie/all';
+```
 
 2. Add your CSS file to your page layout if you need to. For example:
 
 ```html
 <head>
   ...
-  <link rel="stylesheet" href="<YOUR-CSS-FILE>.css">
+  <link rel="stylesheet" href="<YOUR-CSS-FILE>.css" />
 </head>
-````
+```
 
 Run your application and check that the accordion displays correctly.
 
@@ -54,16 +55,16 @@ Your component will not use the right font or images until you've added OGCIO-DS
 
 1. Copy the following 2 folders:
 
-- `/node_modules/@ogcio/ogcio-ds/govie/assets/images` folder to `&lt;YOUR-APP&gt;/assets/images`
-- `/node_modules/@ogcio/ogcio-ds/govie/assets/fonts` folder to `&lt;YOUR-APP&gt;/assets/fonts`
+- `/node_modules/@ogcio/ogcio-ds/govie/assets/images` folder to `<YOUR-APP>/assets/images`
+- `/node_modules/@ogcio/ogcio-ds/govie/assets/fonts` folder to `<YOUR-APP>/assets/fonts`
 
 Run your application, then use [the Fonts tab in Firefox Page Inspector](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Edit_fonts#The_Fonts_tab) to check the accordion is using the Lato font.
 
 In your live application, we recommend [using an automated task or your build pipeline](/?path=/docs/docs-import-css-assets-and-javascript--page#fonts-and-images-assets) instead of copying the files manually.
 
-## 5. Get the JavaScript working
+## 5. Get the JavaScript working
 
-1. Add the following to the top of the `&lt;body&gt;` section of your page template:
+1. Add the following to the top of the `<body>` section of your page template:
 
 ```javascript
 <script>
@@ -72,9 +73,9 @@ In your live application, we recommend [using an automated task or your build pi
 </script>
 ```
 
-Copy the `/node_modules/@ogcio/ogcio-ds/govie/all.js` file to `&lt;YOUR-JAVASCRIPT-FOLDER&gt;/ogcio-ds.js`.
+Copy the `/node_modules/@ogcio/ogcio-ds/govie/all.js` file to `<YOUR-JAVASCRIPT-FOLDER>/ogcio-ds.js`.
 
-Import the file before the closing `&lt;/body&gt;` tag of your page template, then run the <code>initAll</code> function to initialise all the components. For example:
+Import the file before the closing `</body>` tag of your page template, then run the <code>initAll</code> function to initialise all the components. For example:
 
 ```html
 <body>

@@ -1,6 +1,5 @@
-import { Meta } from '@storybook/addon-docs';
+import { Canvas, Meta } from '@storybook/blocks';
 import { CodeSnippet } from '../components/CodeSnippet';
-import { InternalLink } from '../components/InternalLink';
 
 <Meta title="Docs/Support Internet Explorer 8" />
 
@@ -16,28 +15,20 @@ import { InternalLink } from '../components/InternalLink';
   <li>Include the IE8 stylesheet in your project.</li>
 </ol>
 <p>
-  Once you have completed these steps, you will be able to{' '}
-  <InternalLink href="/?path=/story/docs-support-internet-explorer-8--page/#writing-styles-that-target-ie8">
-    write CSS that targets IE8 in your own application styles
-  </InternalLink>
-  .
+  Once you have completed these steps, you will be able to [write CSS that
+  targets IE8 in your own application
+  styles](/?path=/story/docs-support-internet-explorer-8--page/#writing-styles-that-target-ie8).
 </p>
 <p>
-  If you{' '}
-  <InternalLink href="/?path=/story/docs-install-using-precompiled-files--page">
-    installed using precompiled files
-  </InternalLink>
-  , you can include the IE8-specific stylesheet in your project, allowing you to
-  skip steps 2 and 3.
+  If you [installed using precompiled
+  files](/?path=/story/docs-install-using-precompiled-files--page), you can
+  include the IE8-specific stylesheet in your project, allowing you to skip
+  steps 2 and 3.
 </p>
 
 <h2>1. Include an HTML5 shiv</h2>
 <p>
-  You will need to to include an{' '}
-  <a href="https://github.com/aFarkas/html5shiv" target="_blank" rel="noopener">
-    HTML5 shiv
-  </a>{' '}
-  which allows the 'semantic' HTML elements introduced in HTML5 to be used in older
+  You will need to to include an [HTML5 shiv](https://github.com/aFarkas/html5shiv) which allows the 'semantic' HTML elements introduced in HTML5 to be used in older
   browsers which do not natively support them.
 </p>
 <p>
@@ -89,16 +80,7 @@ $govie-is-ie8: true;\n
 
 <h2>3. Transform the generated stylesheet using 'oldie'</h2>
 <p>
-  You should use the{' '}
-  <a
-    href="https://github.com/jonathantneal/oldie"
-    target="_blank"
-    rel="noopener"
-  >
-    oldie plugin
-  </a>{' '}
-  for
-  <a href="https://github.com/postcss/postcss" target="_blank" rel="noopener">postcss</a> to further transform the stylesheet:
+  You should use the [oldie plugin](https://github.com/jonathantneal/oldie) for [postcss](https://github.com/postcss/postcss) to further transform the stylesheet:
 </p>
 <ul>
   <li>replacing opacity properties with compatible filter properties</li>
@@ -121,14 +103,7 @@ $govie-is-ie8: true;\n
 </p>
 <h2>4. Include the IE8 stylesheet in your project</h2>
 <p>
-  Now that you have an IE8 compatible stylesheet you should include it using{' '}
-  <a
-    href="https://www.quirksmode.org/css/condcom.html"
-    target="_blank"
-    rel="noopener"
-  >
-    conditional comments
-  </a>:
+  Now that you have an IE8 compatible stylesheet you should include it using [conditional comments](https://www.quirksmode.org/css/condcom.html):
 </p>
 <CodeSnippet code={`{/*[if !IE 8]><!*/}
   <link rel="stylesheet" href="assets/application.css">
