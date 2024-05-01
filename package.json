@@ -21,7 +21,7 @@
     "package/**/*"
   ],
   "sideEffects": [
-    "govie-esm/vendor/**"
+    "./package/govie-esm/vendor/**"
   ],
   "sass": "./package/govie/all.scss",
   "author": {

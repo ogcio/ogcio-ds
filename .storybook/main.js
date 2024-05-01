@@ -14,8 +14,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-docs',
-    '@etchteam/storybook-addon-css-variables-theme',
-    '@storybook/addon-a11y'
+    // '@etchteam/storybook-addon-css-variables-theme',
+    '@storybook/addon-a11y',
   ],
   framework: '@storybook/html',
   staticDirs: [
@@ -31,4 +31,4 @@ module.exports = {
   docs: {
     docsPage: 'automatic',
   },
-}
+};
