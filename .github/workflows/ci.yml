@@ -35,10 +35,9 @@ jobs:
         id: release
         with:
           release-type: node
-          path: package
         if: github.ref == 'refs/heads/main'
       - name: Publish to npm
-        run: npm publish package/ --access=public
+        run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
