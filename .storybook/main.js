@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -32,14 +30,5 @@ module.exports = {
   ],
   docs: {
     docsPage: 'automatic',
-  },
-  webpackFinal(config) {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react: path.resolve(__dirname, '../node_modules/react'),
-      'react-dom': path.resolve(__dirname, '../node_modules/react-dom'),
-    };
-
-    return config;
   },
 };
