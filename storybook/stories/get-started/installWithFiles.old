@@ -103,9 +103,9 @@ import { InternalLink } from '../components/InternalLink'
   <head>
     <title>Example - OGCIO Design System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <!--[if !IE 8]><!-->
+    {/*[if !IE 8]><!*/}
       <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css">
-    <!--<![endif]-->
+    {/*<![endif]*/}
     <!--[if IE 8]>
       <link rel="stylesheet" href="/stylesheets/ogcio-ds-ie8-<VERSION-NUMBER>.min.css">
     <![endif]-->
@@ -114,7 +114,7 @@ import { InternalLink } from '../components/InternalLink'
     <script>
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
-    <!-- component HTML -->
+    {/* component HTML */}
     <script src="/javascript/ogcio-ds-<VERSION-NUMBER>.min.js"></script>
     <script>
       window.GOVIEFrontend.initAll()
