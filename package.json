@@ -6,21 +6,24 @@
     "node": "^20.11.0",
     "npm": "^10.2.4"
   },
-  "main": "govie/all.js",
-  "module": "govie-esm/all.mjs",
+  "main": "./package/govie/all.js",
+  "module": "./package/govie-esm/all.mjs",
   "exports": {
     ".": {
-      "sass": "./govie/all.scss",
-      "import": "./govie-esm/all.mjs",
-      "require": "./govie/all.js"
+      "sass": "./package/govie/all.scss",
+      "import": "./package/govie-esm/all.mjs",
+      "require": "./package/govie/all.js"
     },
-    "./govie/": "./govie/",
-    "./govie-esm/": "./govie-esm/"
+    "./govie/": "./package/govie/",
+    "./govie-esm/": "./package/govie-esm/"
   },
+  "files": [
+    "package/**/*"
+  ],
   "sideEffects": [
     "govie-esm/vendor/**"
   ],
-  "sass": "govie/all.scss",
+  "sass": "./package/govie/all.scss",
   "author": {
     "name": "OGCIO Design System Team (Office of the Government Chief Information Officer)"
   },
