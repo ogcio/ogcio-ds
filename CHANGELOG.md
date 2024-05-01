@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.5](https://github.com/ogcio/ogcio-ds/compare/v0.2.4...v0.2.5) (2024-05-01)
+
+
+### Bug Fixes
+
+* remove post install ([#179](https://github.com/ogcio/ogcio-ds/issues/179)) ([3aba613](https://github.com/ogcio/ogcio-ds/commit/3aba613608c3b0a3c682d3a87ff5c33f9a967a90))
+
 ## [0.2.4](https://github.com/ogcio/ogcio-ds/compare/v0.2.3...v0.2.4) (2024-05-01)
 
 
