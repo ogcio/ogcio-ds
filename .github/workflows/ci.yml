@@ -35,7 +35,6 @@ jobs:
         id: release
         with:
           release-type: node
-          path: package
         if: github.ref == 'refs/heads/main'
       - name: Publish to npm
         run: npm publish --access=public
