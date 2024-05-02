@@ -8,33 +8,33 @@ import { Canvas, Meta } from '@storybook/blocks';
 
 ### Assets
 
-#### $govie-assets-path
+##### $govie-assets-path
 
 Path to the assets directory, with trailing slash.
 
 This is the directory where the images and fonts subdirectories live. You will need to make this directory available via your application - see the README for details.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-assets-path: '/assets/';
 ```
 
-#### $govie-images-path
+##### $govie-images-path
 
 Path to the images folder, with trailing slash.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-images-path: '#{$govie - assets - path}images/';
 ```
 
-#### $govie-fonts-path
+##### $govie-fonts-path
 
 Path to the fonts folder, with trailing slash.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-fonts-path: '#{$govie - assets - path}fonts/';
@@ -42,206 +42,206 @@ $govie-fonts-path: '#{$govie - assets - path}fonts/';
 
 ### Colours
 
-#### $govie-brand-colour
+##### $govie-brand-colour
 
 Brand colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-brand-colour: govie-colour('blue');
 ```
 
-#### $govie-text-colour
+##### $govie-text-colour
 
 Text colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-text-colour: govie-colour('black');
 ```
 
-#### $govie-body-background-colour
+##### $govie-body-background-colour
 
 Body background colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-body-background-colour: govie-colour('white');
 ```
 
-#### $govie-print-text-colour
+##### $govie-print-text-colour
 
 Text colour for print media.
 Use 'true black' to avoid printers using colour ink to print body text.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-print-text-colour: #000000;
 ```
 
-#### $govie-secondary-text-colour
+##### $govie-secondary-text-colour
 
 Secondary text colour.
 
 Used in for example 'muted' text and help text.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-secondary-text-colour: govie-colour('dark-grey');
 ```
 
-#### $govie-focus-colour
+##### $govie-focus-colour
 
 Focus colour.
 
 Used for outline (and background, where appropriate) when interactive elements (links, form controls) have keyboard focus.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-focus-colour: govie-colour('yellow');
 ```
 
-#### $govie-focus-text-colour
+##### $govie-focus-text-colour
 
 Focused text colour.
 
 Ensure that the contrast between the text and background colour passes WCAG Level AA contrast requirements.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-focus-text-colour: govie-colour('black');
 ```
 
-#### $govie-focus-text-colour
+##### $govie-focus-text-colour
 
 Focused text colour.
 
 Ensure that the contrast between the text and background colour passes WCAG Level AA contrast requirements.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-focus-text-colour: govie-colour('black');
 ```
 
-#### $govie-error-colour
+##### $govie-error-colour
 
 Error colour.
 Used to highlight error messages and form controls in an error state.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-error-colour: govie-colour('red');
 ```
 
-#### $govie-success-colour
+##### $govie-success-colour
 
 Success colour.
 Used to highlight success messages and banners.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-success-colour: govie-colour('green');
 ```
 
-#### $govie-border-colour
+##### $govie-border-colour
 
 Border colour.
 Used in for example borders, separators, rules and keylines.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-colour: govie-colour('mid-grey');
 ```
 
-#### $govie-input-border-colour
+##### $govie-input-border-colour
 
 Input border colour.
 Used for form inputs and controls.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-input-border-colour: govie-colour('black');
 ```
 
-#### $govie-hover-colour
+##### $govie-hover-colour
 
 Input hover colour.
 Used for hover states on form controls.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-hover-colour: govie-colour('mid-grey');
 ```
 
-#### $govie-link-colour
+##### $govie-link-colour
 
 Link colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-link-colour: govie-colour('blue');
 ```
 
-#### $govie-link-visited-colour
+##### $govie-link-visited-colour
 
 Visited link colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-link-visited-colour: govie-colour('purple');
 ```
 
-#### $govie-link-hover-colour
+##### $govie-link-hover-colour
 
 Link hover colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-link-hover-colour: govie-colour('dark-blue');
 ```
 
-#### $govie-header-surface-colour
+##### $govie-header-surface-colour
 
 Head surface colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-header-surface-colour: #004d44;
 ```
 
-#### $govie-header-footer-border-colour
+##### $govie-header-footer-border-colour
 
 Header and footer border colour.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-header-footer-border-colour: #a39161;
 ```
 
-#### $govie-footer-surface-colour
+##### $govie-footer-surface-colour
 
 Used by the footer component and template to give the illusion of a long
 footer.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-footer-surface-colour: govie-tint(#a39161, 90);
@@ -249,13 +249,13 @@ $govie-footer-surface-colour: govie-tint(#a39161, 90);
 
 ### Global styles
 
-#### $govie-global-styles
+##### $govie-global-styles
 
 Include 'global' styles
 
 Whether to style paragraphs (&gt;p&lt;) and links (&gt;a&lt;) without explicitly having to apply the govie-body and govie-link classes.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-global-styles: false;
@@ -263,22 +263,22 @@ $govie-global-styles: false;
 
 ### Internet explorer 8
 
-#### $govie-is-ie8
+##### $govie-is-ie8
 
 Whether the stylesheet being built is targeting Internet Explorer 8.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-is-ie8: false;
 ```
 
-#### $govie-ie8-breakpoint
+##### $govie-ie8-breakpoint
 
 The name of the breakpoint to use as the target when rasterizing media
 queries.
 
-##### Default value
+#### Default value
 
 ```css
 govie-ie8-breakpoint: desktop;
@@ -286,21 +286,21 @@ govie-ie8-breakpoint: desktop;
 
 ### Measurements
 
-#### $govie-page-width
+##### $govie-page-width
 
 Width of main container.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-page-width: 960px;
 ```
 
-#### $govie-grid-widths
+##### $govie-grid-widths
 
 Map of grid column widths.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-grid-widths: (
@@ -313,91 +313,91 @@ $govie-grid-widths: (
 );
 ```
 
-#### $govie-gutter
+##### $govie-gutter
 
 Width of gutter between grid columns.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-gutter: 30px;
 ```
 
-#### $govie-gutter-half
+##### $govie-gutter-half
 
 Width of half the gutter between grid columns.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-gutter-half: $govie-gutter / 2;
 ```
 
-#### $govie-border-width
+##### $govie-border-width
 
 Standard border width.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-width: 5px;
 ```
 
-#### $govie-border-width-wide
+##### $govie-border-width-wide
 
 Wide border width.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-width-wide: 10px;
 ```
 
-#### $govie-border-width-narrow
+##### $govie-border-width-narrow
 
 Narrow border width.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-width-narrow: 4px;
 ```
 
-#### $govie-border-width-form-element
+##### $govie-border-width-form-element
 
 Form control border width.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-width-form-element: 2px;
 ```
 
-#### $govie-border-width-form-group-error
+##### $govie-border-width-form-group-error
 
 Form group border width when in error state.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-border-width-form-group-error: $govie-border-width;
 ```
 
-#### $govie-focus-width
+##### $govie-focus-width
 
 Border width of focus outline.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-focus-width: 3px;
 ```
 
-#### $govie-hover-width
+##### $govie-hover-width
 
 Hover width for form controls with a hover state.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-hover-width: 10px;
@@ -405,22 +405,22 @@ $govie-hover-width: 10px;
 
 ### Media queries
 
-#### $govie-breakpoints
+##### $govie-breakpoints
 
 Breakpoint definitions.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-breakpoints: (mobile: 320px, tablet: 641px, desktop: 769px);
 ```
 
-#### $govie-show-breakpoints
+##### $govie-show-breakpoints
 
 Show active breakpoint in top-right corner.
 Only use this during local development.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-show-breakpoints: false;
@@ -428,48 +428,48 @@ $govie-show-breakpoints: false;
 
 ### Typography
 
-#### $govie-font-family-lato
+##### $govie-font-family-lato
 
 List of font families to use if using Lato (the default font 'stack for
 OGCIO-DS)
 
-##### Default value
+#### Default value
 
 ```css
 $govie-font-family-lato: 'Lato', arial, sans-serif;
 ```
 
-#### $govie-font-family
+##### $govie-font-family
 
 Font families to use for all typography on screen media.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-font-family: $govie-font-family-lato;
 ```
 
-#### $govie-font-family-print
+##### $govie-font-family-print
 
 Font families to use for print media.
 
 We recommend that you use system fonts when printing. This will avoid issues
 with some printer drivers and operating systems.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-font-family-print: sans-serif;
 ```
 
-#### $govie-include-default-font-face
+##### $govie-include-default-font-face
 
 Include the default @font-face declarations.
 
 If you have set `$govie-font-family` to something other than{' '}
 `$govie-font-family-lato` this option is disabled by default.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-include-default-font-face: (
@@ -477,27 +477,27 @@ $govie-include-default-font-face: (
 );
 ```
 
-#### $govie-font-weight-govie
+##### $govie-font-weight-govie
 
 Font weight for govie typography
 
-##### Default value
+#### Default value
 
 ```css
 $govie-font-weight-govie: 400;
 ```
 
-#### $govie-font-weight-bold
+##### $govie-font-weight-bold
 
 Font weight for bold typography
 
-##### Default value
+#### Default value
 
 ```css
 $govie-font-weight-bold: 700;
 ```
 
-#### $govie-root-font-size
+##### $govie-root-font-size
 
 Root font size.
 
@@ -508,13 +508,13 @@ Ideally you should not be setting the font-size on the html or root element in
 order to allow it to scale with user-preference, in which case this should be
 set to 16px.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-root-font-size: 16px;
 ```
 
-#### $govie-typography-scale
+##### $govie-typography-scale
 
 Responsive typography font map.
 
@@ -531,7 +531,7 @@ relative values. For example, with a font-size of 16px and a line-height of
 
 You can also specify a separate font size and line height for print media.
 
-##### Default value
+#### Default value
 
 ```css
 $govie-typography-scale: (
@@ -582,7 +582,7 @@ $govie-typography-scale: (
 
 ### General tools
 
-#### $govie-exports
+##### $govie-exports
 
 Export module.
 
@@ -590,7 +590,7 @@ Ensure that the modules of CSS that we define throughout Frontend are only
 included in the generated CSS once, no matter how many times they are imported
 across the individual components.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -612,7 +612,7 @@ across the individual components.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-exports($name) {
@@ -622,13 +622,13 @@ across the individual components.
 
 ### Internet Explorer 8
 
-#### $govie-if-ie8 Export module.
+##### $govie-if-ie8 Export module.
 
 Ensure that the modules of CSS that we define throughout Frontend are only
 included in the generated CSS once, no matter how many times they are imported
 across the individual components.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-if-ie8 {
@@ -636,7 +636,7 @@ across the individual components.
 }
 ```
 
-##### Example
+#### Example
 
 ```css
 .foo {
@@ -648,11 +648,11 @@ across the individual components.
 }
 ```
 
-#### $govie-not-ie8
+##### $govie-not-ie8
 
 Conditionally exclude rules for IE8.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-not-ie8 {
@@ -660,7 +660,7 @@ Conditionally exclude rules for IE8.
 }
 ```
 
-##### Example
+#### Example
 
 ```css
 .foo {
@@ -679,11 +679,11 @@ Conditionally exclude rules for IE8.
 
 ### Unit conversion
 
-#### $govie-em
+##### $govie-em
 
 Convert pixels to em.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -713,13 +713,13 @@ Convert pixels to em.
 </table>
 <br />
 
-#### $govie-px-to-rem
+##### $govie-px-to-rem
 
 Convert pixels to rem.
 
 The `$govie-root-font-size` (defined in `settings/_typography-responsive.scss`) must be configured to match the font-size of your root (html) element.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -745,11 +745,11 @@ The `$govie-root-font-size` (defined in `settings/_typography-responsive.scss`) 
 
 ### General helpers
 
-#### $govie-device-pixel-ratio
+##### $govie-device-pixel-ratio
 
 Media query for retina images (device-pixel-ratio).
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -769,7 +769,7 @@ Media query for retina images (device-pixel-ratio).
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-device-pixel-ratio($raio: 2) {
@@ -777,7 +777,7 @@ Media query for retina images (device-pixel-ratio).
 }
 ```
 
-##### Example
+#### Example
 
 ```css
 background-image: govie-image-url('my-image.png');
@@ -793,24 +793,24 @@ background-image: govie-image-url('my-image.png');
 
 ### Accessibility
 
-#### $govie-focused-text
+##### $govie-focused-text
 
 Focused text.
 
 Provides an outline to clearly indicate when the target element is focused.
 Used for interactive text-based elements.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-focused-text;
 ```
 
-#### $govie-visually-hidden
+##### $govie-visually-hidden
 
 Hide an element visually, but have it available for screen readers.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -830,13 +830,13 @@ Hide an element visually, but have it available for screen readers.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-visually-hidden($important: true);
 ```
 
-#### $govie-visually-hidden-focusable
+##### $govie-visually-hidden-focusable
 
 Hide an element visually, but have it available for screen readers whilst
 allowing the element to be focused when navigated to via the keyboard (e.g.
@@ -845,7 +845,7 @@ for the skip link).
 This is slightly less opinionated about borders and padding to make it easier
 to style the focussed element.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -865,7 +865,7 @@ to style the focussed element.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-visually-hidden-focusable($important: true);
@@ -873,11 +873,11 @@ to style the focussed element.
 
 ### Colour
 
-#### $govie-colour
+##### $govie-colour
 
 Get colour.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -907,7 +907,7 @@ Get colour.
 </table>
 <br />
 
-##### Example
+#### Example
 
 ```css
 .foo {
@@ -915,11 +915,11 @@ Get colour.
 }
 ```
 
-#### $govie-shade
+##### $govie-shade
 
 Make a colour darker by mixing it with black.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -949,11 +949,11 @@ Make a colour darker by mixing it with black.
 </table>
 <br />
 
-#### $govie-tint
+##### $govie-tint
 
 Make a colour darker by mixing it with white.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -985,21 +985,21 @@ Make a colour darker by mixing it with white.
 
 ### Layout
 
-#### $govie-clearfix
+##### $govie-clearfix
 
 Clear floated content within a container using a pseudo element.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-clearfix;
 ```
 
-#### $govie-grid-with
+##### $govie-grid-with
 
 Grid width percentage.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1021,13 +1021,13 @@ Grid width percentage.
 </table>
 <br />
 
-#### $govie-grid-column
+##### $govie-grid-column
 
 Generate grid column styles. Creates a grid column with standard gutter between the columns. Grid widths are defined in the `$govie-grid-widths` map.
 
 By default the column width changes from 100% to specified width at the 'tablet' breakpoint, but other breakpoints can be specified using the $at parameter.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1059,13 +1059,13 @@ By default the column width changes from 100% to specified width at the 'tablet'
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-grid-column($width: 'full', $float: 'left', $at: 'tablet');
 ```
 
-##### Example
+#### Example
 
 ```css
 // default
@@ -1082,7 +1082,7 @@ By default the column width changes from 100% to specified width at the 'tablet'
 }
 ```
 
-#### $govie-media-query
+##### $govie-media-query
 
 Media Query.
 Creates a grid column with standard gutter between the columns.
@@ -1090,7 +1090,7 @@ Creates a grid column with standard gutter between the columns.
 This is a currently a wrapper for sass-mq - abstracted so that we can replace
 it in the future if we so choose.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1128,7 +1128,7 @@ it in the future if we so choose.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-media-query($from: false, $until: false, $and: false, $media-type: "all") {
@@ -1136,7 +1136,7 @@ it in the future if we so choose.
 }
 ```
 
-##### Example
+#### Example
 
 ```css
 .element {
@@ -1163,31 +1163,31 @@ it in the future if we so choose.
 
 ### Links
 
-#### $govie-link-common
+##### $govie-link-common
 
 Common link styles.
 Provides the typography and focus state, regardless of link style.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-common;
 ```
 
-#### $govie-link-decoration
+##### $govie-link-decoration
 
 Link decoration.
 
 Provides the text decoration for links, including thickness and underline
 offset. Use this mixin only if you cannot use the `govie-link-common` mixin.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-decoration;
 ```
 
-#### $govie-link-hover-decoration
+##### $govie-link-hover-decoration
 
 Link hover decoration.
 
@@ -1195,13 +1195,13 @@ Provides the text decoration for links in their hover state, for you to use
 within a `:hover` pseudo-selector. Use this mixin only if you cannot use the
 `govie-link-common` mixin.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-hover-decoration;
 ```
 
-#### $govie-link-style-default
+##### $govie-link-style-default
 
 Default link styles.
 Makes links use the default unvisited, visited, hover and active colours.
@@ -1209,13 +1209,13 @@ Makes links use the default unvisited, visited, hover and active colours.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-default;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1224,7 +1224,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-error
+##### $govie-link-style-error
 
 Error link styles.
 
@@ -1234,13 +1234,13 @@ user hovers their cursor over it.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-error;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1249,7 +1249,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-success
+##### $govie-link-style-success
 
 Success link styles.
 
@@ -1259,13 +1259,13 @@ user hovers their cursor over it.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-success;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1274,7 +1274,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-muted
+##### $govie-link-style-muted
 
 Muted link styles.
 
@@ -1284,13 +1284,13 @@ or a user hovers their cursor over it.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-muted;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1299,7 +1299,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-text
+##### $govie-link-style-text
 
 Text link styles.
 
@@ -1309,13 +1309,13 @@ navigation components, such as breadcrumbs or the back link.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-text;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1324,7 +1324,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-inverse
+##### $govie-link-style-inverse
 
 Inverse link styles.
 
@@ -1334,13 +1334,13 @@ against a dark background.
 If you use this mixin in a component, you must also include the
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-inverse;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1349,7 +1349,7 @@ If you use this mixin in a component, you must also include the
 }
 ```
 
-#### $govie-link-style-no-visited-state
+##### $govie-link-style-no-visited-state
 
 Default link styles, without a visited state.
 
@@ -1363,13 +1363,13 @@ frequently-changing content, such as the dashboard for an admin interface.
 If you use this mixin in a component, you must also include the{' '}
 `govie-link-common` mixin to get the correct focus and hover states.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-no-visited-state;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1378,7 +1378,7 @@ If you use this mixin in a component, you must also include the{' '}
 }
 ```
 
-#### $govie-link-style-no-underline
+##### $govie-link-style-no-underline
 
 Remove underline from links.
 
@@ -1386,13 +1386,13 @@ Remove underlines from links unless the link is active or a user hovers their
 cursor over it. This has no effect in Internet Explorer 8 (IE8), because IE8
 does not support `:not`.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-style-no-underline;
 ```
 
-##### Example
+#### Example
 
 ```css
 .govie-component__link {
@@ -1401,13 +1401,13 @@ does not support `:not`.
 }
 ```
 
-#### $govie-link-print-friendly
+##### $govie-link-print-friendly
 
 Include link destination when printing the page.
 
 If the user prints the page, add the destination URL after the link text, if the URL starts with /, http:// or https://..
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-link-print-friendly;
@@ -1420,7 +1420,7 @@ If the user prints the page, add the destination URL after the link text, if the
 Single point spacing.
 Returns measurement corresponding to the spacing point requested.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1442,7 +1442,7 @@ Returns measurement corresponding to the spacing point requested.
 </table>
 <br />
 
-##### Example
+#### Example
 
 ```css
 .element {
@@ -1466,7 +1466,7 @@ Adds responsive margin by fetching a 'spacing map' from the responsive spacing
 scale, which defines different spacing values at different breakpoints.
 Wrapper for the `_govie-responsive-spacing` mixin.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1511,7 +1511,7 @@ Wrapper for the `_govie-responsive-spacing` mixin.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-responsive-margin(
@@ -1522,7 +1522,7 @@ Wrapper for the `_govie-responsive-spacing` mixin.
 );
 ```
 
-##### Example
+#### Example
 
 ```css
 .element {
@@ -1538,7 +1538,7 @@ Adds responsive padding by fetching a 'spacing map' from the responsive
 spacing scale, which defines different spacing values at different
 breakpoints. Wrapper for the `_govie-responsive-spacing` mixin.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1583,7 +1583,7 @@ breakpoints. Wrapper for the `_govie-responsive-spacing` mixin.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-responsive-padding(
@@ -1594,7 +1594,7 @@ breakpoints. Wrapper for the `_govie-responsive-spacing` mixin.
 );
 ```
 
-##### Example
+#### Example
 
 ```css
 .element {
@@ -1614,7 +1614,7 @@ Ensure the arrow is rendered correctly if browser colours are overridden by prov
 
 We need both because older browsers do not support clip-path.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1656,7 +1656,7 @@ We need both because older browsers do not support clip-path.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-shape-arrow($direction, $base, $height: null, $display: 'block');
@@ -1670,7 +1670,7 @@ We need both because older browsers do not support clip-path.
 
 Sets the font family and associated properties, such as font smoothing. Also overrides the font for print.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1690,7 +1690,7 @@ Sets the font family and associated properties, such as font smoothing. Also ove
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-typography-common($font-family: $govie-font-family);
@@ -1700,7 +1700,7 @@ Sets the font family and associated properties, such as font smoothing. Also ove
 
 Text colour helper. Sets the text colour, including a suitable override for print.
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-text-colour;
@@ -1710,7 +1710,7 @@ Text colour helper. Sets the text colour, including a suitable override for prin
 
 Regular font weight helper.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1733,7 +1733,7 @@ Regular font weight helper.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-typography-weight-regular($important: false);
@@ -1743,7 +1743,7 @@ Regular font weight helper.
 
 Bold font weight helper.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1766,7 +1766,7 @@ Bold font weight helper.
 </table>
 <br />
 
-##### Usage `css @include govie-typography-weight-bold($important: false); `
+#### Usage `css @include govie-typography-weight-bold($important: false); `
 
 #### govie-typography-responsive
 
@@ -1784,7 +1784,7 @@ Example font map:
 );
 ```
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1824,7 +1824,7 @@ Example font map:
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-typography-responsive(
@@ -1838,7 +1838,7 @@ Example font map:
 
 Font helper.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -1881,7 +1881,7 @@ Font helper.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-font(
@@ -1896,41 +1896,41 @@ Font helper.
 
 ### Primary button
 
-#### $govie-primary-button-background-colour
+##### $govie-primary-button-background-colour
 
 Primary button component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-primary-button-background-colour: #004d44;
 ```
 
-#### $govie-primary-button-hover-background-colour
+##### $govie-primary-button-hover-background-colour
 
 Primary button component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-primary-button-hover-background-colour: #002e28;
 ```
 
-#### $govie-primary-button-hover-background-colour: #002e28;
+##### $govie-primary-button-hover-background-colour: #002e28;
 
 Primary button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-primary-button-text-colour: govie-colour('white');
 ```
 
-#### $govie-primary-button-text-colour
+##### $govie-primary-button-text-colour
 
 Primary button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-primary-button-text-colour: govie-colour('white');
@@ -1938,31 +1938,31 @@ $govie-primary-button-text-colour: govie-colour('white');
 
 ### Secondary button
 
-#### $govie-secondary-button-background-colour
+##### $govie-secondary-button-background-colour
 
 Secondary button component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-secondary-button-background-colour: transparent;
 ```
 
-#### $govie-secondary-button-hover-background-colour
+##### $govie-secondary-button-hover-background-colour
 
 Secondary button component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-secondary-button-hover-background-colour: govie-colour('light-grey');
 ```
 
-#### $govie-secondary-button-text-colour
+##### $govie-secondary-button-text-colour
 
 Secondary button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-secondary-button-text-colour: govie-colour('black');
@@ -1970,31 +1970,31 @@ $govie-secondary-button-text-colour: govie-colour('black');
 
 ### Tertiary button
 
-#### $govie-tertiary-button-background-colour
+##### $govie-tertiary-button-background-colour
 
 Tertiary button component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-tertiary-button-background-colour: transparent;
 ```
 
-#### $govie-tertiary-button-hover-background-colour
+##### $govie-tertiary-button-hover-background-colour
 
 Tertiary button component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-tertiary-button-hover-background-colour: govie-colour('light-grey');
 ```
 
-#### $govie-tertiary-button-text-colour
+##### $govie-tertiary-button-text-colour
 
 Tertiary button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-tertiary-button-text-colour: govie-colour('black');
@@ -2002,31 +2002,31 @@ $govie-tertiary-button-text-colour: govie-colour('black');
 
 ### Outlined and flat button
 
-#### $govie-button-background-colour
+##### $govie-button-background-colour
 
 Flat and outline button component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-button-background-colour: transparent;
 ```
 
-#### $govie-button-hover-background-colour
+##### $govie-button-hover-background-colour
 
 Flat and outline button component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-button-hover-background-colour: govie-colour('light-grey');
 ```
 
-#### $govie-button-text-colour
+##### $govie-button-text-colour
 
 Flat and outline button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-button-text-colour: govie-colour('black');
@@ -2034,21 +2034,21 @@ $govie-button-text-colour: govie-colour('black');
 
 ### Button group
 
-#### $govie-button-group-button-background-colour
+##### $govie-button-group-button-background-colour
 
 Button inside button group component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-button-group-button-background-colour: transparent;
 ```
 
-#### $govie-button-group-button-hover-background-colour
+##### $govie-button-group-button-hover-background-colour
 
 Button inside button group component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-button-group-button-hover-background-colour: govie-shade(#cce2d8, 60);
@@ -2056,31 +2056,31 @@ $govie-button-group-button-hover-background-colour: govie-shade(#cce2d8, 60);
 
 ### Icon button
 
-#### $govie-icon-button-text-colour
+##### $govie-icon-button-text-colour
 
 Icon button component text colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-icon-button-text-colour: govie-black('black');
 ```
 
-#### $govie-icon-button-background-colour
+##### $govie-icon-button-background-colour
 
 Icon button component background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-icon-button-background-colour: transparent;
 ```
 
-#### $govie-icon-button-hover-background-colour
+##### $govie-icon-button-hover-background-colour
 
 Icon component hover background colour.
 
-##### Default
+#### Default
 
 ```css
 $govie-icon-button-hover-background-colour: govie-colour('light-grey');
@@ -2095,7 +2095,7 @@ $govie-icon-button-hover-background-colour: govie-colour('light-grey');
 Width container mixin
 Used to create page width and custom width container classes.
 
-##### Parameters
+#### Parameters
 
 <table>
   <tbody>
@@ -2115,13 +2115,13 @@ Used to create page width and custom width container classes.
 </table>
 <br />
 
-##### Usage
+#### Usage
 
 ```css
 @include govie-width-container($width: '$govie-page-width');
 ```
 
-##### Example
+#### Example
 
 ```css
 // Creating a 1200px wide container class
