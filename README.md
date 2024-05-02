@@ -2,7 +2,7 @@
 
 OGCIO-DS contains the code you need to start building a user interface for government platforms and services.
 
-See live examples of OGCIO components, and guidance on when to use them in your service, in the [OGCIO Design System](https://storybook.design-system.ogcio.gov.ie/).
+See live examples of OGCIO components, and guidance on when to use them in your service, in the [OGCIO Design System](https://ogcio.github.io/ogcio-ds/).
 
 ## Contact the team
 
@@ -17,11 +17,11 @@ Once installed, you will be able to use the code from the examples in the OGCIO-
 ### 1. Install with npm (recommended)
 
 We recommend [installing OGCIO-DS using node package manager
-(npm)](https://storybook.design-system.ogcio.gov.ie/?path=/docs/docs-install-with-npm--page).
+(npm)](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-install-with-npm--docs).
 
 ### 2. Install using compiled files
 
-You can also install OGCIO-DS by [copying our CSS, JavaScript and asset files into your project](https://storybook.design-system.ogcio.gov.ie/?path=/docs/docs-install-using-precompiled-files--page).
+You can also install OGCIO-DS by [copying our CSS, JavaScript and asset files into your project](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-install-using-precompiled-files--docs).
 
 ## Accessibility
 
@@ -31,8 +31,8 @@ Using Frontend will help your service meet [level AA of WCAG 2.1](https://www.w3
 
 You should also use:
 
-- [the JavaScript from OGCIO-DS](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-import-css-assets-and-javascript--page/#import-javascript)
-- [a separate stylesheet](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-support-internet-explorer-8--page) if you support Internet Explorer 8
+- [the JavaScript from OGCIO-DS](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-import-css-assets-and-javascript--docs)
+- [a separate stylesheet](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-support-internet-explorer-8--docs) if you support Internet Explorer 8
 
 You can also read the [accessibility statement for OGCIO-DS](https://www.design-system.ogcio.gov.ie/accessibility/)
 
@@ -40,7 +40,7 @@ You can also read the [accessibility statement for OGCIO-DS](https://www.design-
 
 To be notified when there’s a new release, you can [watch the ogcio-ds Github repository](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)
 
-Find out how to [update with npm](https://storybook.design-system.ogcio.gov.ie/?path=/story/docs-update-with-npm--page/).
+Find out how to [update with npm](https://ogcio.github.io/ogcio-ds/?path=/story/docs-update-with-npm--page/).
 
 ## Licence
 
@@ -121,7 +121,7 @@ When changes are pushed to `main` branch on GitHub, [Github Actions][github-acti
 
 - Build and publish the package to npm
 - Deploy the [Storybook website on GH pages](https://ogcio.github.io/ogcio-ds/)
-- Deploy the [Storybook website](https://storybook.design-system.ogcio.gov.ie/)
+- Deploy the [Storybook website to AWS](https://storybook.design-system.ogcio.gov.ie/)
 
 [github-actions]: https://github.com/ogcio/ogcio-ds/tree/main/.github/workflows
 
