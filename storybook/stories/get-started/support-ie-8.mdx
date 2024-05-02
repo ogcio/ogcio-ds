@@ -33,7 +33,7 @@ Note that some libraries such as Modernizr may already include html5shiv.
 
 ## 2. Generate an IE8-specific stylesheet
 
-Setting the <code>$govie-is-ie8</code> variable to <code>true</code> when generating the stylesheet will create a version that targets IE8. For example, it will:
+Setting the `$govie-is-ie8` variable to `true` when generating the stylesheet will create a version that targets IE8. For example, it will:
 
 - flatten media queries to create a 'desktop only' version
 - include any conditional styles that target IE8
@@ -41,7 +41,7 @@ Setting the <code>$govie-is-ie8</code> variable to <code>true</code> when genera
 
 You must set the variable before importing OGCIO-DS.
 
-In most scenarios you should be able to create a separate stylesheet for IE8, set the <code>$govie-is-ie8</code> variable to true and then import your main application stylesheet without having to redefine anything else.
+In most scenarios you should be able to create a separate stylesheet for IE8, set the `$govie-is-ie8` variable to true and then import your main application stylesheet without having to redefine anything else.
 
 ```sass
 // application.scss
@@ -60,7 +60,7 @@ $govie-is-ie8: true;
 You should use the [oldie plugin](https://github.com/jonathantneal/oldie) for [postcss](https://github.com/postcss/postcss) to further transform the stylesheet:
 
 - replacing opacity properties with compatible filter properties
-- swapping <code>::</code> selectors with compatible <code>:</code> selectors for pseudo-elements
+- swapping `::` selectors with compatible `:` selectors for pseudo-elements
 - swapping rgba colours with compatible hex colours and filter properties
 
 The oldie plugin is also able to flatten media queries, but this will already have been done as part of the stylesheet compilation in step 1.
@@ -82,7 +82,7 @@ Now that you have an IE8 compatible stylesheet you should include it using [cond
 
 <h2 id="writing-styles-that-target-ie8">Writing styles that target IE8</h2>
 
-Wrapping rules with the <code>govie-if-ie8</code> mixin will ensure that they are only outputted when generating the IE8-specific stylesheet.
+Wrapping rules with the `govie-if-ie8` mixin will ensure that they are only outputted when generating the IE8-specific stylesheet.
 
 ```sass
 .foo {
