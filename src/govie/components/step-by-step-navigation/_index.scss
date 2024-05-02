@@ -17,13 +17,13 @@ $top-border: solid 1px govie-colour('mid-grey');
 
 @mixin step-nav-line-position {
   left: 0;
-  margin-left: govie-em(($number-circle-size / 2) - ($stroke-width / 2), 16);
+  margin-left: govie-em(calc($number-circle-size / 2) - calc($stroke-width / 2), 16);
 }
 
 @mixin step-nav-line-position-large {
   left: 0;
   margin-left: govie-em(
-    ($number-circle-size-large / 2) - ($stroke-width / 2),
+    calc($number-circle-size-large / 2) - calc($stroke-width / 2),
     16
   );
 }
@@ -113,7 +113,7 @@ $top-border: solid 1px govie-colour('mid-grey');
     }
 
     .govie-step-nav-related__pretitle {
-      margin-bottom: govie-spacing(6) / 4;
+      margin-bottom: calc(govie-spacing(6) / 4);
     }
   }
 
@@ -350,8 +350,8 @@ $top-border: solid 1px govie-colour('mid-grey');
       z-index: 6;
       bottom: 0;
       left: 0;
-      margin-left: $number-circle-size / 4;
-      width: $number-circle-size / 2;
+      margin-left: calc($number-circle-size / 4);
+      width: calc($number-circle-size / 2);
       height: 0;
       border-bottom: solid $stroke-width govie-colour('mid-grey');
     }
@@ -368,8 +368,8 @@ $top-border: solid 1px govie-colour('mid-grey');
     .govie-step-nav--large & {
       @include govie-media-query($from: tablet) {
         &:before {
-          margin-left: $number-circle-size-large / 4;
-          width: $number-circle-size-large / 2;
+          margin-left: calc($number-circle-size-large / 4);
+          width: calc($number-circle-size-large / 2);
         }
 
         &:after {
@@ -615,9 +615,9 @@ $top-border: solid 1px govie-colour('mid-grey');
       z-index: 5;
       top: 0.6em; // position the dot to align with the first row of text in the link
       left: -(govie-spacing(6) + govie-spacing(3));
-      margin-top: -($stroke-width / 2);
-      margin-left: ($number-circle-size / 2);
-      width: $number-circle-size / 2;
+      margin-top: -(calc($stroke-width / 2));
+      margin-left: calc($number-circle-size / 2);
+      width: calc($number-circle-size / 2);
       height: $stroke-width;
       background: govie-colour('black');
     }
@@ -626,7 +626,7 @@ $top-border: solid 1px govie-colour('mid-grey');
       @include govie-media-query($from: tablet) {
         &:before {
           left: -(govie-spacing(9));
-          margin-left: ($number-circle-size-large / 2);
+          margin-left: calc($number-circle-size-large / 2);
         }
       }
     }

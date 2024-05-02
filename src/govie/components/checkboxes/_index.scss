@@ -30,7 +30,7 @@
   }
 
   .govie-checkboxes__input {
-    $input-offset: ($govie-touch-target-size - $govie-checkboxes-size) / 2;
+    $input-offset: calc(($govie-touch-target-size - $govie-checkboxes-size) / 2);
 
     cursor: pointer;
 
@@ -175,8 +175,8 @@
   // to be an even number in order to be centred under the 40px checkbox or radio.
   $conditional-border-width: $govie-border-width-narrow;
   // Calculate the amount of padding needed to keep the border centered against the checkbox.
-  $conditional-border-padding: ($govie-checkboxes-size / 2) -
-    ($conditional-border-width / 2);
+  $conditional-border-padding: calc($govie-checkboxes-size / 2) -
+    calc($conditional-border-width / 2);
   // Move the border centered with the checkbox
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
@@ -219,8 +219,7 @@
   }
 
   .govie-checkboxes-medium__input {
-    $input-offset: ($govie-touch-target-size - $govie-medium-checkboxes-size) /
-      2;
+    $input-offset: calc(($govie-touch-target-size - $govie-medium-checkboxes-size)/2);
 
     cursor: pointer;
 
@@ -372,8 +371,8 @@
   // to be an even number in order to be centred under the 40px checkbox or radio.
   $conditional-border-width-medium: $govie-border-width-narrow;
   // Calculate the amount of padding needed to keep the border centered against the checkbox.
-  $conditional-border-padding-medium: ($govie-medium-checkboxes-size / 2) -
-    ($conditional-border-width-medium / 2);
+  $conditional-border-padding-medium: calc($govie-medium-checkboxes-size / 2) -
+    calc($conditional-border-width-medium / 2);
   // Move the border centered with the checkbox
   $conditional-margin-left-medium: $conditional-border-padding-medium;
   // Move the contents of the conditional inline with the label
@@ -400,7 +399,7 @@
   // =========================================================
 
   .govie-checkboxes--small {
-    $input-offset: ($govie-touch-target-size - $govie-small-checkboxes-size) / 2;
+    $input-offset: calc(($govie-touch-target-size - $govie-small-checkboxes-size) / 2);
     $label-offset: $govie-touch-target-size - $input-offset;
 
     .govie-checkboxes__item {
@@ -481,8 +480,8 @@
 
     // Align conditional reveals with small checkboxes
     .govie-checkboxes__conditional {
-      $margin-left: ($govie-small-checkboxes-size / 2) -
-        ($conditional-border-width / 2);
+      $margin-left: calc($govie-small-checkboxes-size / 2) -
+        calc($conditional-border-width / 2);
       margin-left: $margin-left;
       padding-left: $label-offset - ($margin-left + $conditional-border-width);
       clear: both;

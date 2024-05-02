@@ -861,7 +861,7 @@ $after-button-padding-left: govie-spacing(4);
 
 @mixin icon-positioning($container-size) {
   $icon-dimension: 20px;
-  $icon-position: ($container-size - $icon-dimension) / 2;
+  $icon-position: calc(($container-size - $icon-dimension) / 2);
 
   display: block;
   pointer-events: none;

@@ -33,7 +33,7 @@
   }
 
   .govie-radios__input {
-    $input-offset: ($govie-touch-target-size - $govie-radios-size) / 2;
+    $input-offset: calc(($govie-touch-target-size - $govie-radios-size) / 2);
 
     cursor: pointer;
 
@@ -190,8 +190,8 @@
   // to be an even number in order to be centred under the 40px checkbox or radio.
   $conditional-border-width: $govie-border-width-narrow;
   // Calculate the amount of padding needed to keep the border centered against the radios.
-  $conditional-border-padding: ($govie-radios-size / 2) -
-    ($conditional-border-width / 2);
+  $conditional-border-padding: calc($govie-radios-size / 2) -
+    calc($conditional-border-width / 2);
   // Move the border centered with the radios
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
@@ -429,7 +429,7 @@
   // =========================================================
 
   .govie-radios--small {
-    $input-offset: ($govie-touch-target-size - $govie-small-radios-size) / 2;
+    $input-offset: calc(($govie-touch-target-size - $govie-small-radios-size) / 2);
     $label-offset: $govie-touch-target-size - $input-offset;
 
     .govie-radios__item {
@@ -509,8 +509,8 @@
 
     // Align conditional reveals with small radios
     .govie-radios__conditional {
-      $margin-left: ($govie-small-radios-size / 2) -
-        ($conditional-border-width / 2);
+      $margin-left: calc($govie-small-radios-size / 2) -
+        calc($conditional-border-width / 2);
       margin-left: $margin-left;
       padding-left: $label-offset - ($margin-left + $conditional-border-width);
       clear: both;

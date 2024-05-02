@@ -39,7 +39,7 @@ $govie-gutter: 30px !default;
 /// @type Number
 /// @access public
 
-$govie-gutter-half: $govie-gutter / 2;
+$govie-gutter-half: calc($govie-gutter / 2);
 
 // =========================================================
 // Borders

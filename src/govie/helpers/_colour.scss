@@ -46,5 +46,5 @@
 /// @access public
 
 @function govie-tint($colour, $percentage) {
-  @return mix(govie-colour('white'), $colour, $percentage);
+  @return mix(govie-colour('white'), $colour, $percentage * 1%);
 }
