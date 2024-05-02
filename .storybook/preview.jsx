@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-webpack-loader-syntax */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
 // import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
@@ -13,7 +13,12 @@ import { DocsContainer } from '@storybook/addon-docs';
 
 export const decorators = [
   (Story, context) => {
+    useEffect(() => {
+      window.GOVIEFrontend.initAll();
+    }, []);
+
     const storyResult = Story(context);
+
     if (typeof storyResult === 'string') {
       return <div dangerouslySetInnerHTML={{ __html: storyResult }} />;
     }
@@ -42,34 +47,12 @@ export const parameters = {
   docs: {
     source: { format: false },
     container: ({ children, context }) => {
-      let newContext;
+      // let newContext;
       // cssVariablesTheme((c) => (newContext = c), context);
       //    <DocsContainer context={newContext}>
 
       return (
         <DocsContainer context={context}>
-          {context.name !== 'Page' && (
-            <div
-              className="govie-body"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                padding: '8px',
-                margin: 0,
-                background: '#fff4b0',
-                width: 'calc(100% - 18px)',
-                fontSize: '14px',
-                display: 'flex',
-                justifyContent: 'center',
-                textAlign: 'center',
-                zIndex: 20,
-              }}
-            >
-              JavaScript does not work in the 'Docs' tab and this can cause some
-              components to not behave as expected.
-            </div>
-          )}
           <div className="sb-unstyled">{children}</div>
         </DocsContainer>
       );
