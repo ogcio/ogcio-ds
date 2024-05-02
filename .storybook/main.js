@@ -6,7 +6,7 @@ module.exports = {
     '../src/govie/patterns/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    // '@etchteam/storybook-addon-css-variables-theme',
+    '@etchteam/storybook-addon-css-variables-theme',
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',

@@ -2,16 +2,15 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
-// import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme';
 
-// import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css';
-// import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css';
-// import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css';
-// let selectedTheme;
-
-// export const decorators = [cssVariablesTheme]
+import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css';
+import agsTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/ags.css';
+import defaultTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!../storybook/dist/@ogcio/ogcio-ds.min.css';
+let selectedTheme;
 
 export const decorators = [
+  cssVariablesTheme,
   (Story, context) => {
     const storyResult = Story(context);
     if (typeof storyResult === 'string') {
@@ -24,14 +23,14 @@ export const decorators = [
 
 export const parameters = {
   // actions: { argTypesRegex: '^on[A-Z].*' },
-  // cssVariables: {
-  //   files: {
-  //     'HSE theme': hseTheme,
-  //     'AGS theme': agsTheme,
-  //     'OGCIO theme': defaultTheme,
-  //   },
-  //   defaultTheme: 'OGCIO theme',
-  // },
+  cssVariables: {
+    files: {
+      'HSE theme': hseTheme,
+      'AGS theme': agsTheme,
+      'OGCIO theme': defaultTheme,
+    },
+    defaultTheme: 'OGCIO theme',
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -43,11 +42,10 @@ export const parameters = {
     source: { format: false },
     container: ({ children, context }) => {
       let newContext;
-      // cssVariablesTheme((c) => (newContext = c), context);
-      //    <DocsContainer context={newContext}>
+      cssVariablesTheme((c) => (newContext = c), context);
 
       return (
-        <DocsContainer context={context}>
+        <DocsContainer context={newContext}>
           {context.name !== 'Page' && (
             <div
               className="govie-body"
@@ -180,15 +178,12 @@ export const parameters = {
   },
 };
 
-///
-/// Change logo according to the selected theme
-///
-
-// document.addEventListener('storybookcssvariables:theme:change', (event) => {
-//   // set theme selectedTheme variable to the current select theme
-//   selectedTheme = event?.detail?.theme;
-//   loadLogo();
-// });
+// Change logo according to the selected theme
+document.addEventListener('storybookcssvariables:theme:change', (event) => {
+  // set theme selectedTheme variable to the current select theme
+  selectedTheme = event?.detail?.theme;
+  loadLogo();
+});
 
 window.addEventListener('DOMContentLoaded', (event) => {
   // reload the logo when the DOM finish loading because
@@ -202,15 +197,15 @@ const loadLogo = () => {
 
   if (logo) {
     // to avoid errors when the iframe has not completed loading yet
-    // if (selectedTheme === 'AGS theme') {
-    //   logo.src = './themes/ags.png';
-    //   logo.style = 'width: 166px;';
-    // } else if (selectedTheme === 'HSE theme') {
-    //   logo.src = './themes/hse.png';
-    //   logo.style = 'width: 52px;';
-    // } else {
-    //   logo.src = './@ogcio/assets/images/logo-full.png';
-    //   logo.style = 'width: 116px;';
-    // }
+    if (selectedTheme === 'AGS theme') {
+      logo.src = './themes/ags.png';
+      logo.style = 'width: 166px;';
+    } else if (selectedTheme === 'HSE theme') {
+      logo.src = './themes/hse.png';
+      logo.style = 'width: 52px;';
+    } else {
+      logo.src = './@ogcio/assets/images/logo-full.png';
+      logo.style = 'width: 116px;';
+    }
   }
 };
