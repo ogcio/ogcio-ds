@@ -2,42 +2,10 @@
   <script>
     document.body.className = document.body.className
       ? document.body.className + ' js-enabled'
-      : 'js-enabled'
+      : 'js-enabled';
   </script>
   <!-- component HTML -->
   <div id="custom-root"></div>
   <div id="docs-root"></div>
   <script src="./@ogcio/ogcio-ds.min.js"></script>
-  <script>
-    // Page loading and structure is different in stroybook
-    // when a story is viewed in an embeded Canvas versus a full page Canvas in new tab.
-    // Therefore there are 2 different listeners to cover both scenario.
-    var domContentLoadedCounter = 0
-    document.addEventListener('DOMContentLoaded', function () {
-      var previewIframe = window.parent.document.getElementById(
-        'storybook-preview-iframe'
-      )
-
-      // If there is a direct URL used for a component Canvas view
-      // the "DOMContentLoaded" event is fired twice,
-      // so the first occurance needs to be ignored.
-      // Otherwise JS generated content would appear twice,
-      // such as the handlers in the Accordion component.
-      if (previewIframe && domContentLoadedCounter > 0) {
-        window.GOVIEFrontend.initAll()
-      }
-
-      domContentLoadedCounter++
-    })
-
-    window.addEventListener('load', function () {
-      var previewIframe = window.parent.document.getElementById(
-        'storybook-preview-iframe'
-      )
-
-      if (!previewIframe) {
-        window.GOVIEFrontend.initAll()
-      }
-    })
-  </script>
 </body>
