@@ -18,12 +18,10 @@ import { CodeSnippet } from '../components/CodeSnippet';
   If you want to improve how quickly your service's pages load in browsers, you
   can import only the Sass rules you need.
 </p>
-<ol>
-  <li>
-    Import <code>@ogcio/ogcio-ds/govie/base</code> in your Sass file.
-  </li>
-  <li>Import the parts of the CSS you need.</li>
-</ol>
+
+- Import `@ogcio/ogcio-ds/govie/base` in your Sass file.
+- Import the parts of the CSS you need.
+
 <p>
   For example, add the following to your Sass file to import the CSS you need
   for a basic OGCIO-DS page.
@@ -73,16 +71,10 @@ import { CodeSnippet } from '../components/CodeSnippet';
 
 <h3>Serve the assets from the OGCIO-DS assets folder - recommended</h3>
 <p>
-  Set up your routing so that requests for files in{' '}
-  <code>&lt;YOUR-SITE-URL&gt;/assets</code> are served from{' '}
-  <code>/node_modules/@ogcio/ogcio-ds/govie/assets</code>.
+  Set up your routing so that requests for files in `<YOUR-SITE-URL>/assets` are served from `/node_modules/@ogcio/ogcio-ds/govie/assets`.
 </p>
 <p>
-  For example if you're using{' '}
-  <a href="https://expressjs.com/" target="_blank" rel="noopener">
-    express.js
-  </a>
-  , add the following to your <code>app.js</code> file:
+  For example if you're using [express.js](https://expressjs.com/), add the following to your <code>app.js</code> file:
 </p>
 <CodeSnippet
   code={`var path = require('path');
@@ -141,13 +133,10 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
 />
 <p>
   You can also use your own function to generate paths, for example if you're
-  using <code>asset-pipeline</code> in{' '}
-  <a href="https://github.com/rails/sass-rails" target="_blank" rel="noopener">
-    sass-rails
-  </a>
-  . Set the <code>$govie-image-url-function</code> and <code>
-    $govie-font-url-function
-  </code> variables to the name of your function.
+  using <code>asset-pipeline</code> in
+  [sass-rails](https://github.com/rails/sass-rails). Set the
+  `$govie-image-url-function` and `$govie-font-url-function` variables to the
+  name of your function.
 </p>
 
 <h2 id="import-javascript">JavaScript</h2>
@@ -155,10 +144,8 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
 <ul>
   <li>add OGCIO-DS's JavaScript file to your HTML</li>
   <li>
-    import the JavaScript using a bundler like{' '}
-    <a href="https://webpack.js.org/" target="_blank" rel="noopener">
-      Webpack
-    </a>
+    import the JavaScript using a bundler like
+    [Webpack](https://webpack.js.org/)
   </li>
 </ul>
 <h3>Add the JavaScript file to your HTML</h3>
@@ -166,17 +153,15 @@ $govie-fonts-path: "/<YOUR-FONTS-FOLDER>/";`}
 <ul>
   <li>
     set up your routing so that requests for the JavaScript file are served from{' '}
-    <code>node_modules/@ogcio/ogcio-ds/govie/all.js</code>
+    `node_modules/@ogcio/ogcio-ds/govie/all.js`
   </li>
   <li>
-    copy the <code>node_modules/@ogcio/ogcio-ds/govie/all.js</code> file into
-    your application
+    copy the `node_modules/@ogcio/ogcio-ds/govie/all.js` file into your
+    application
   </li>
 </ul>
 <p>
-  Then import the JavaScript file before the closing <code>&lt;/body&gt;</code>{' '}
-  tag of your HTML page or page template, and run the <code>initAll</code>{' '}
-  function to initialise all the components.
+  Then import the JavaScript file before the closing `</body>` tag of your HTML page or page template, and run the `initAll` function to initialise all the components.
 </p>
 <CodeSnippet
   code={`<body>
