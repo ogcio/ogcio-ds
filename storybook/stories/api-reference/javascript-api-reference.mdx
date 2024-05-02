@@ -2,22 +2,16 @@ import { Canvas, Meta } from '@storybook/blocks';
 
 <Meta title="Docs/JavaScript API Reference" />
 
-<h1>JavaScript API Reference</h1>
+# JavaScript API Reference
 
-<p>
-  Some of our components can receive configuration options when you create an
-  instance in JavaScript. This page lists the available options for these
-  components. You can find further information on how to [configure these
-  options in our
-  guidance](/?path=/docs/docs-configure-components-with-javascript--page).
-</p>
+Some of our components can receive configuration options when you create an instance in JavaScript. This page lists the available options for these components. You can find further information on how to [configure these options in our guidance](/?path=/docs/docs-configure-components-with-javascript--docs).
 
 You can pass these options in an object either as:
 
 - a second argument of the component's constructor
-- the value for the key of the component name in an object passed to <code>initAll</code>
+- the value for the key of the component name in an object passed to `initAll`
 
-For example, to set the <code>preventDoubleClick</code> option of a button:
+For example, to set the `preventDoubleClick` option of a button:
 
 ```javascript
 // Creating a single instance
@@ -31,148 +25,147 @@ GOVIEFrontend.initAll({
 })
 ```
 
-<br />
-<h2>Accordion</h2>
-<h3>i18n</h3>
-<p>Type: object</p>
-<p>
-  Messages used by the component for the labels of its buttons. This includes
-  the visible text shown on screen, and text to help assistive technology users
-  for the buttons toggling each section.
-</p>
-<p>Default: see properties</p>
-<h4>Properties</h4>
-<h5>hideAllSections</h5>
-<p>Type: string</p>
-<p>
-  The text content for the 'Hide all sections' button, used when at least one
-  section is expanded.
-</p>
-<p>Default:</p>
+## Accordion
+
+### i18n
+
+Type: object
+
+Messages used by the component for the labels of its buttons. This includes the visible text shown on screen, and text to help assistive technology users for the buttons toggling each section.
+
+Default: see properties
+
+#### Properties
+
+##### hideAllSections
+
+Type: string
+
+The text content for the 'Hide all sections' button, used when at least one section is expanded.
+
+Default:
 
 ```
 Hide all sections
 ```
 
-<h5>hideSection</h5>
-<p>Type: string</p>
-<p>The text content for the 'Hide' button, used when a section is expanded.</p>
-<p>Default:</p>
+##### hideSection
+
+Type: string
+
+The text content for the 'Hide' button, used when a section is expanded.
+
+Default:
 
 ```
 Hide
 ```
 
-<h5>hideSectionAriaLabel</h5>
-<p>Type: string</p>
-<p>
-  The text content appended to the 'Hide' button's accessible name when a
-  section is expanded.
-</p>
-<p>Default:</p>
+##### hideSectionAriaLabel
+
+Type: string
+
+The text content appended to the 'Hide' button's accessible name when a section is expanded.
+
+Default:
 
 ```
 Hide this section
 ```
 
-<h4>i18n.showAllSections</h4>
-<p>Type: string</p>
-<p>
-  The text content for the 'Show all sections' button, used when all sections
-  are collapsed.
-</p>
-<p>Default:</p>
+#### i18n.showAllSections
+
+Type: string
+
+The text content for the 'Show all sections' button, used when all sections are collapsed.
+
+Default:
 
 ```
 Show all sections
 ```
 
-<h5>showSection</h5>
-<p>Type: string</p>
-<p>The text content for the 'Show' button, used when a section is collapsed.</p>
-<p>Default:</p>
+##### showSection
+
+Type: string
+
+The text content for the 'Show' button, used when a section is collapsed.
+
+Default:
 
 ```
 Show
 ```
 
-<h5>showSectionAriaLabel</h5>
-<p>Type: string</p>
-<p>
-  The text content appended to the 'Show' button'Ïs accessible name when a
-  section is expanded.
-</p>
-<p>Default:</p>
+##### showSectionAriaLabel
+
+Type: string
+
+The text content appended to the 'Show' button'Ïs accessible name when a section is expanded.
+
+Default:
 
 ```
 Show this section
 ```
 
-<br />
-<h2>Button</h2>
-<h3>preventDoubleClick</h3>
-<p>Type: boolean</p>
-<p>
-  Prevent accidental double clicks on submit buttons from submitting forms
-  multiple times.
-</p>
-<p>Default:</p>
+## Button
+
+### preventDoubleClick
+
+Type: boolean
+
+Prevent accidental double clicks on submit buttons from submitting forms multiple times.
+
+Default:
 
 ```
 false
 ```
 
-<br />
-<h2>CharacterCount</h2>
+## CharacterCount
 
-<h3>maxlength</h3>
-<p>Type: number</p>
-<p>
-  The maximum number of characters. If <code>maxwords</code> is provided, the{' '}
-  <code>maxlength</code> option will be ignored.
-</p>
+### maxlength
 
-<h3>maxwords</h3>
-<p>Type: number</p>
-<p>
-  The maximum number of words. If <code>maxwords</code> is provided, the{' '}
-  <code>maxlength</code> option will be ignored.
-</p>
+Type: number
 
-<h3>threshold</h3>
-<p>Type: number</p>
-<p>
-  The percentage value of the limit at which point the count message is
-  displayed. If this attribute is set, the count message will be hidden by
-  default.
-</p>
-<p>Default:</p>
+The maximum number of characters. If `maxwords` is provided, the `maxlength` option will be ignored.
+
+### maxwords
+
+Type: number
+
+The maximum number of words. If `maxwords` is provided, the `maxlength` option will be ignored.
+
+### threshold
+
+Type: number
+
+The percentage value of the limit at which point the count message is displayed. If this attribute is set, the count message will be hidden by default.
+
+Default:
 
 ```
 0
 ```
 
-<h3>i18n</h3>
-<p>Type: object</p>
-<p>
-  Messages shown to users as they type. It provides feedback on how many words
-  or characters they have remaining or if they are over the limit. This also
-  includes a message used as an accessible description for the textarea.
-</p>
-<p>Default: see properties</p>
+### i18n
 
-<h4>Properties</h4>
-<h5>charactersUnderLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of characters is under the configured
-  maximum, <code>maxlength</code>. This message is displayed visually and
-  through assistive technologies. The component will replace the{' '}
-  <code>{'%{count}'}</code> placeholder with the number of remaining characters.
-  This is a [pluralised list of
-  messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
-</p>
-<p>Default:</p>
+Type: object
+
+Messages shown to users as they type. It provides feedback on how many words or characters they have remaining or if they are over the limit. This also includes a message used as an accessible description for the textarea.
+
+Default: see properties
+
+#### Properties
+
+##### charactersUnderLimit
+
+Type: object
+
+Message displayed when the number of characters is under the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `{'%{count}'}` placeholder with the number of remaining characters. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--docs#pluralisation-rules).
+
+Default:
 
 ```
 {
@@ -181,30 +174,25 @@ false
 }
 ```
 
-<h5>charactersAtLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of characters reaches the configured
-  maximum, <code>maxlength</code>. This message is displayed visually and
-  through assistive technologies.
-</p>
-<p>Default:</p>
+##### charactersAtLimit
+
+Type: object
+
+Message displayed when the number of characters reaches the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies.
+
+Default:
 
 ```
 You have 0 characters remaining
 ```
 
-<h5>charactersOverLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of characters is over the configured
-  maximum, <code>maxlength</code>. This message is displayed visually and
-  through assistive technologies. The component will replace the{' '}
-  <code>{'%{count}'}</code> placeholder with the number of remaining characters.
-  This is a [pluralised list of
-  messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
-</p>
-<p>Default:</p>
+##### charactersOverLimit
+
+Type: object
+
+Message displayed when the number of characters is over the configured maximum, `maxlength`. This message is displayed visually and through assistive technologies. The component will replace the `{'%{count}'}` placeholder with the number of remaining characters. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--docs#pluralisation-rules).
+
+Default:
 
 ```
 {
@@ -213,15 +201,14 @@ You have 0 characters remaining
 }
 ```
 
-<h5>wordsUnderLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of words is under the configured maximum,
-  <code>maxwords</code>. This message is displayed visually and through assistive
-  technologies. The component will replace the <code>{'%{count}'}</code> placeholder
-  with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules)
-</p>
-<p>Default:</p>
+##### wordsUnderLimit
+
+Type: object
+
+Message displayed when the number of words is under the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `{'%{count}'}` placeholder
+with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules)
+
+Default:
 
 ```
 {
@@ -230,25 +217,25 @@ You have 0 characters remaining
 }
 ```
 
-<h5>wordsAtLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of words reaches the configured maximum,
-  <code>maxwords</code>. This message is displayed visually and through assistive
-  technologies.
-</p>
-<p>Default:</p>
-`You have 0 words remaining`
+##### wordsAtLimit
 
-<h5>wordsOverLimit</h5>
-<p>Type: object</p>
-<p>
-  Message displayed when the number of words is over the configured maximum,
-  <code>maxwords</code>. This message is displayed visually and through assistive
-  technologies. The component will replace the <code>{'%{count}'}</code> placeholder
-  with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
-</p>
-<p>Default:</p>
+Type: object
+
+Message displayed when the number of words reaches the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies.
+
+Default:
+
+```
+You have 0 words remaining
+```
+
+##### wordsOverLimit
+
+Type: object
+
+Message displayed when the number of words is over the configured maximum, `maxwords`. This message is displayed visually and through assistive technologies. The component will replace the `{'%{count}'}` placeholder with the number of remaining words. This is a [pluralised list of messages](/?path=/story/docs-localise-ogcio-ds--page#pluralisation-rules).
+
+Default:
 
 ```
 {
@@ -257,16 +244,13 @@ You have 0 characters remaining
 }
 ```
 
-<h5>textareaDescription</h5>
-<p>Type: object</p>
-<p>
-  Message made available to assistive technologies, if none is already present
-  in the HTML, to describe that the component accepts only a limited amount of
-  content. The component will replace the <code>{'%{count}'}</code> placeholder
-  with the value of the <code>maxlength</code> or <code>maxwords</code>{' '}
-  parameter.
-</p>
-<p>Default:</p>
+##### textareaDescription
+
+Type: object
+
+Message made available to assistive technologies, if none is already present in the HTML, to describe that the component accepts only a limited amount of content. The component will replace the `{'%{count}'}` placeholder with the value of the `maxlength` or `maxwords` parameter.
+
+Default:
 
 ```
 {
@@ -274,31 +258,29 @@ You have 0 characters remaining
 }
 ```
 
-<br />
-<h2>ErrorSummary</h2>
-<h3>disableAutoFocus</h3>
-<p>
-  If set to <code>true</code> the error summary will not be focussed when the
-  page loads.
-</p>
-<p>Type: boolean</p>
-<p>Default</p>
+## ErrorSummary
+
+### disableAutoFocus
+
+If set to `true` the error summary will not be focussed when the page loads.
+
+Type: boolean
+
+Default
 
 ```
 false
 ```
 
-<br />
-<h2>NotificationBanner</h2>
-<h3>disableAutoFocus</h3>
-<p>Type: boolean</p>
-<p>
-  If set to <code>true</code> the notification banner will not be focussed when
-  the page loads. This only applies if the component has a <code>role</code> of{' '}
-  <code>alert</code> - in other cases the component will not be focused on page
-  load, regardless of this option.
-</p>
-<p>Default:</p>
+## NotificationBanner
+
+### disableAutoFocus
+
+Type: boolean
+
+If set to `true` the notification banner will not be focussed when the page loads. This only applies if the component has a `role` of `alert` - in other cases the component will not be focused on page load, regardless of this option.
+
+Default:
 
 ```
 false
