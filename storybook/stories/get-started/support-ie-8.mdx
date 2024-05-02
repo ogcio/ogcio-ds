@@ -1,144 +1,108 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { CodeSnippet } from '../components/CodeSnippet';
 
 <Meta title="Docs/Support Internet Explorer 8" />
 
-<h1>Support Internet Explorer 8</h1>
-<p>
-  Follow these extra steps if your service needs to support Internet Explorer 8
-  (IE8):
-</p>
-<ol>
-  <li>Include an HTML5 shiv.</li>
-  <li>Generate an IE8-specific stylesheet.</li>
-  <li>Transform the IE8 stylesheet using oldie.</li>
-  <li>Include the IE8 stylesheet in your project.</li>
-</ol>
-<p>
-  Once you have completed these steps, you will be able to [write CSS that
-  targets IE8 in your own application
-  styles](/?path=/story/docs-support-internet-explorer-8--page/#writing-styles-that-target-ie8).
-</p>
-<p>
-  If you [installed using precompiled
-  files](/?path=/story/docs-install-using-precompiled-files--page), you can
-  include the IE8-specific stylesheet in your project, allowing you to skip
-  steps 2 and 3.
-</p>
+# Support Internet Explorer 8
 
-<h2>1. Include an HTML5 shiv</h2>
-<p>
-  You will need to to include an [HTML5 shiv](https://github.com/aFarkas/html5shiv) which allows the 'semantic' HTML elements introduced in HTML5 to be used in older
-  browsers which do not natively support them.
-</p>
-<p>
-  These elements include <code>article</code>, <code>aside</code>,{' '}
-  <code>figcaption</code>, <code>figure</code>, <code>footer</code>,
-  <code>header</code>, <code>main</code>, <code>mark</code>, <code>nav</code>,{' '}
-  <code>section</code>, and <code>time</code>.
-</p>
-<p>
-  To improve performance for users of modern browsers, you can wrap the shiv
-  include with conditional comments that target only the browsers that need it:
-</p>
-<CodeSnippet code={`<!--[if lt IE 9]>
+Follow these extra steps if your service needs to support Internet Explorer 8 (IE8):
+
+1. Include an HTML5 shiv.
+2. Generate an IE8-specific stylesheet.
+3. Transform the IE8 stylesheet using oldie.
+4. Include the IE8 stylesheet in your project.
+
+Once you have completed these steps, you will be able to [write CSS that targets IE8 in your own application styles](/?path=/docs/docs-support-internet-explorer-8--docs/#writing-styles-that-target-ie8).
+
+If you [installed using precompiled files](/?path=/story/docs-install-using-precompiled-files--docs), you can include the IE8-specific stylesheet in your project, allowing you to skip steps 2 and 3.
+
+## 1. Include an HTML5 shiv
+
+You will need to to include an [HTML5 shiv](https://github.com/aFarkas/html5shiv) which allows the 'semantic' HTML elements introduced in HTML5 to be used in older browsers which do not natively support them.
+
+These elements include `article`, `aside`, `figcaption`, `figure`, `footer`, `header`, `main`, `mark`, `nav`, `section`, and `time`.
+
+To improve performance for users of modern browsers, you can wrap the shiv include with conditional comments that target only the browsers that need it:
+
+```html
+<!--[if lt IE 9]>
   <script src="/path/tohtml5shiv.js"></script>
 <![endif]-->
-`} />
-<p>Note that some libraries such as Modernizr may already include html5shiv.</p>
+```
 
-<h2>2. Generate an IE8-specific stylesheet</h2>
+Note that some libraries such as Modernizr may already include html5shiv.
 
-<p>
-  Setting the <code>$govie-is-ie8</code> variable to <code>true</code> when
-  generating the stylesheet will create a version that targets IE8. For example,
-  it will:
-</p>
-<ul>
-  <li>flatten media queries to create a 'desktop only' version</li>
-  <li>include any conditional styles that target IE8</li>
-  <li>exclude any conditional styles that target browsers other than IE8</li>
-</ul>
-<p>You must set the variable before importing OGCIO-DS.</p>
-<p>
-  In most scenarios you should be able to create a separate stylesheet for IE8,
-  set the <code>$govie-is-ie8</code> variable to true and then import your main
-  application stylesheet without having to redefine anything else.
-</p>
+## 2. Generate an IE8-specific stylesheet
 
-<CodeSnippet
-  code={`// application.scss\n
-@import "@ogcio/ogcio-ds/govie/all";\n
+Setting the <code>$govie-is-ie8</code> variable to <code>true</code> when generating the stylesheet will create a version that targets IE8. For example, it will:
+
+- flatten media queries to create a 'desktop only' version
+- include any conditional styles that target IE8
+- exclude any conditional styles that target browsers other than IE8
+
+You must set the variable before importing OGCIO-DS.
+
+In most scenarios you should be able to create a separate stylesheet for IE8, set the <code>$govie-is-ie8</code> variable to true and then import your main application stylesheet without having to redefine anything else.
+
+```sass
+// application.scss
+@import "@ogcio/ogcio-ds/govie/all";
 .example {
   // example application style
-}\n
-// application-ie8.scss\n
-$govie-is-ie8: true;\n
-@import "application";
-`}
-/>
+}
 
-<h2>3. Transform the generated stylesheet using 'oldie'</h2>
-<p>
-  You should use the [oldie plugin](https://github.com/jonathantneal/oldie) for [postcss](https://github.com/postcss/postcss) to further transform the stylesheet:
-</p>
-<ul>
-  <li>replacing opacity properties with compatible filter properties</li>
-  <li>
-    swapping <code>::</code> selectors with compatible <code>:</code> selectors
-    for pseudo-elements
-  </li>
-  <li>
-    swapping rgba colours with compatible hex colours and filter properties
-  </li>
-</ul>
-<p>
-  The oldie plugin is also able to flatten media queries, but this will already
-  have been done as part of the stylesheet compilation in step 1.
-</p>
-<p>
-  Doing this as a separate step allows us to keep the source of OGCIO-DS
-  simple, without having to wrap syntax that would need to be transformed in
-  mixins or functions.
-</p>
-<h2>4. Include the IE8 stylesheet in your project</h2>
-<p>
-  Now that you have an IE8 compatible stylesheet you should include it using [conditional comments](https://www.quirksmode.org/css/condcom.html):
-</p>
-<CodeSnippet code={`{/*[if !IE 8]><!*/}
+// application-ie8.scss
+$govie-is-ie8: true;
+@import "application";
+```
+
+## 3. Transform the generated stylesheet using 'oldie'
+
+You should use the [oldie plugin](https://github.com/jonathantneal/oldie) for [postcss](https://github.com/postcss/postcss) to further transform the stylesheet:
+
+- replacing opacity properties with compatible filter properties
+- swapping <code>::</code> selectors with compatible <code>:</code> selectors for pseudo-elements
+- swapping rgba colours with compatible hex colours and filter properties
+
+The oldie plugin is also able to flatten media queries, but this will already have been done as part of the stylesheet compilation in step 1.
+
+Doing this as a separate step allows us to keep the source of OGCIO-DS simple, without having to wrap syntax that would need to be transformed in mixins or functions.
+
+## 4. Include the IE8 stylesheet in your project
+
+Now that you have an IE8 compatible stylesheet you should include it using [conditional comments](https://www.quirksmode.org/css/condcom.html):
+
+```html
+{/*[if !IE 8]><!*/}
   <link rel="stylesheet" href="assets/application.css">
 {/*<![endif]*/}
 <!--[if IE 8]>
-  <link rel="stylesheet" href="assets/application-ie8.css">
+<link rel="stylesheet" href="assets/application-ie8.css" />
 <![endif]-->
-`} />
+```
 
 <h2 id="writing-styles-that-target-ie8">Writing styles that target IE8</h2>
-<p>
-  Wrapping rules with the <code>govie-if-ie8</code> mixin will ensure that they
-  are only outputted when generating the IE8-specific stylesheet.
-</p>
-<CodeSnippet
-  code={`.foo {
+
+Wrapping rules with the <code>govie-if-ie8</code> mixin will ensure that they are only outputted when generating the IE8-specific stylesheet.
+
+```sass
+.foo {
   min-width: 100px;\n
   // Specify width for IE8 only
   @include govie-if-ie8 {
     width: 100px;
   }
 }
-`}
-/>
-<p>
-  The <code>govie-not-ie8</code> mixin can be used to wrap rules that you want
-  to exclude when generating the IE8-specific stylesheet.
-</p>
-<CodeSnippet
-  code={`.foo {
+```
+
+The `govie-not-ie8` mixin can be used to wrap rules that you want to exclude when generating the IE8-specific stylesheet.
+
+```sass
+.foo {
   font-weight: bold;\n
   // Enhance foo only for modern browsers (not IE8)
   @include govie-not-ie8 {
     font-family: "Comic Sans MS", "Curlz MT" cursive, sans-serif;
     color: #FF69B4;
   }
-}`}
-/>
+}
+```
