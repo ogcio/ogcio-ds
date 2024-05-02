@@ -40,7 +40,7 @@ You can also read the [accessibility statement for OGCIO-DS](https://www.design-
 
 To be notified when there’s a new release, you can [watch the ogcio-ds Github repository](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)
 
-Find out how to [update with npm](https://ogcio.github.io/ogcio-ds/?path=/story/docs-update-with-npm--page/).
+Find out how to [update with npm](https://ogcio.github.io/ogcio-ds/?path=/story/docs-update-with-npm--docs/).
 
 ## Licence
 
