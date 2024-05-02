@@ -2,13 +2,11 @@ import { Canvas, Meta } from '@storybook/blocks';
 
 <Meta title="Docs/Update with npm" />
 
-<h1>Update using Node.js package manager (npm)</h1>
-<p>
-  You can update with Node.js package manager (npm) if you [originally installed
-  OGCIO-DS with npm](/?path=/docs/docs-install-with-npm--page).
-</p>
+Update using Node.js package manager (npm)
 
-<h2>Find out which version you're using</h2>
+You can update with Node.js package manager (npm) if you [originally installed OGCIO-DS with npm](/?path=/docs/docs-install-with-npm--page).
+
+Find out which version you're using
 
 To find out which version of OGCIO-DS your project is using, you can run:
 
@@ -16,25 +14,17 @@ To find out which version of OGCIO-DS your project is using, you can run:
 npm list @ogcio/ogcio-ds
 ```
 
-<p>
-  If you do not have command line access, you can see the version number in the{' '}
-  <code>package.json</code> file in the root of your project directory. For
-  example:
-</p>
+If you do not have command line access, you can see the version number in the `package.json` file in the root of your project directory. For example:
 
 ```json
 "@ogcio/ogcio-ds": "0.0.8"
 ```
 
-<h2>Update OGCIO-DS using npm</h2>
+Update OGCIO-DS using npm
 
 To find out the latest version of OGCIO-DS, check the [release notes](https://github.com/ogcio/ogcio-ds/releases) in the OGCIO-DS GitHub repository.
 
-<p>
-  You may need to make code changes to keep OGCIO-DS working in your project, if
-  the major version number changes when you update. The major version number is
-  the first digit in the version number.
-</p>
+You may need to make code changes to keep OGCIO-DS working in your project, if the major version number changes when you update. The major version number is the first digit in the version number.
 
 To update to the most recent version, run:
 
@@ -42,10 +32,7 @@ To update to the most recent version, run:
 npm install @ogcio/ogcio-ds@latest
 ```
 
-<p>
-  If you want to install an earlier version, replace <code>latest</code> with
-  the version that you want to update to. For example:
-</p>
+If you want to install an earlier version, replace `latest` with the version that you want to update to. For example:
 
 ```
 npm install @ogcio/ogcio-ds@0.0.7
