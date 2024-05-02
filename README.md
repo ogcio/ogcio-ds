@@ -108,6 +108,26 @@ npm run storybook
 
 Storybook will be available in `localhost:6006`.
 
+## Husky Install Script
+
+This repository contains a script to install and uninstall Husky hooks.
+
+### Installation
+
+To install Husky hooks, run the following command:
+
+```bash
+npm run husky:install
+```
+
+### Uninstall
+
+To uninstall Husky hooks, run the following command:
+
+```bash
+npm run husky:uninstall
+```
+
 ## OGCIO-DS package publishing
 
 - Use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and [squash commits](https://github.com/googleapis/release-please?tab=readme-ov-file#linear-git-commit-history-use-squash-merge) to `main`
