@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/ogcio/ogcio-ds/compare/v0.2.5...v0.3.0) (2024-05-02)
+
+
+### Features
+
+* update storybook ([#181](https://github.com/ogcio/ogcio-ds/issues/181)) ([98685ff](https://github.com/ogcio/ogcio-ds/commit/98685ff7c0c9a8ed892f43e8878f9ed0ff94c973))
+
+
+### Bug Fixes
+
+* update mdx ([#183](https://github.com/ogcio/ogcio-ds/issues/183)) ([d40c43a](https://github.com/ogcio/ogcio-ds/commit/d40c43a388170cecc8073750a42ab5686935d81e))
+* update mdx ([#184](https://github.com/ogcio/ogcio-ds/issues/184)) ([2815834](https://github.com/ogcio/ogcio-ds/commit/281583413be2b361ae63fbbb12cb1eba9c1513d9))
+
 ## [0.2.5](https://github.com/ogcio/ogcio-ds/compare/v0.2.4...v0.2.5) (2024-05-01)
 
 
