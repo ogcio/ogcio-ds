@@ -3,7 +3,7 @@ const outdent = require('outdent');
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested',
+  style: 'expanded',
 };
 
 describe('@mixin govie-width-container', () => {
@@ -21,27 +21,37 @@ describe('@mixin govie-width-container', () => {
       .app-width-container--wide {
         max-width: 1200px;
         margin-right: 15px;
-        margin-left: 15px; }
+        margin-left: 15px;
+      }
+      @supports (margin: max(calc(0px))) {
+        .app-width-container--wide {
+          margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+          margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+        }
+      }
+      @media (min-width: 40.0625em) {
+        .app-width-container--wide {
+          margin-right: 30px;
+          margin-left: 30px;
+        }
         @supports (margin: max(calc(0px))) {
           .app-width-container--wide {
-            margin-right: max(15px, calc( 15px + env(safe-area-inset-right)));
-            margin-left: max(15px, calc( 15px + env(safe-area-inset-left))); } }
-        @media (min-width: 40.0625em) {
-          .app-width-container--wide {
-            margin-right: 30px;
-            margin-left: 30px; }
-            @supports (margin: max(calc(0px))) {
-              .app-width-container--wide {
-                margin-right: max(30px, calc( 15px + env(safe-area-inset-right)));
-                margin-left: max(30px, calc( 15px + env(safe-area-inset-left))); } } }
-        @media (min-width: 1260px) {
+            margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+            margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
+          }
+        }
+      }
+      @media (min-width: 1260px) {
+        .app-width-container--wide {
+          margin-right: auto;
+          margin-left: auto;
+        }
+        @supports (margin: max(calc(0px))) {
           .app-width-container--wide {
             margin-right: auto;
-            margin-left: auto; }
-            @supports (margin: max(calc(0px))) {
-              .app-width-container--wide {
-                margin-right: auto;
-                margin-left: auto; } } }
-      `);
+            margin-left: auto;
+          }
+        }
+      }`);
   });
 });

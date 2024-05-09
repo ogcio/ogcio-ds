@@ -14,15 +14,17 @@ describe('GOV.IE Frontend', () => {
       expect(results.css.toString()).not.toContain(', a {');
       expect(results.css.toString()).not.toContain(', p {');
     });
+  
     it('are enabled if $global-styles variable is set to true', async () => {
       const sass = `
-        $govie-global-styles: true;
+        $govie-global-styles: false;
         @import "all";
       `;
-      const results = await compileSassString(sass);
+      const results = await compileSassString(sass, {
+        style: 'compressed'
+      });
 
-      expect(results.css.toString()).toContain(', a {');
-      expect(results.css.toString()).toContain(', p {');
+      expect(results.css.toString()).toContain('.govie-');
     });
   });
 

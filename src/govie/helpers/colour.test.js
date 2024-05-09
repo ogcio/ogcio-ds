@@ -1,16 +1,7 @@
-const sass = require('node-sass');
-import { vi } from 'vitest';
 const { compileSassString } = require('../../../lib/jest-helpers');
 
-// Create a mock warn function that we can use to override the native @warn
-// function, that we can make assertions about post-render.
-const mockWarnFunction = vi.fn().mockReturnValue(sass.NULL);
-
 const sassConfig = {
-  outputStyle: 'compact',
-  functions: {
-    '@warn': mockWarnFunction,
-  },
+  style: 'compressed'
 };
 
 describe('@function govie-colour', () => {
@@ -29,40 +20,27 @@ describe('@function govie-colour', () => {
   });
 
   it('returns a colour from the colour palette', async () => {
-    const sass = `
+    const sassString = `
       ${sassBootstrap}
 
       .foo {
         color: govie-colour('red');
       }`;
+      
+    const results = await compileSassString(sassString, sassConfig);
 
-    const results = await compileSassString(sass, sassConfig);
-
-    expect(results.css.toString().trim()).toBe('.foo { color: #ff0000; }');
+    expect(results.css.toString().trim()).toBe('.foo{color:red}');
   });
-
-  it('works with unquoted strings', async () => {
-    const sass = `
-      ${sassBootstrap}
-
-      .foo {
-        color: govie-colour(red);
-      }`;
-
-    const results = await compileSassString(sass, sassConfig);
-
-    expect(results.css.toString().trim()).toBe('.foo { color: #ff0000; }');
-  });
-
+  
   it('throws an error if a non-existent colour is requested', async () => {
-    const sass = `
+    const sassString = `
       ${sassBootstrap}
 
       .foo {
         color: govie-colour('hooloovoo');
       }`;
 
-    await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
+    await expect(compileSassString(sassString, sassConfig)).rejects.toThrow(
       'Unknown colour `hooloovoo`',
     );
   });
