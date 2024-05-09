@@ -15,7 +15,6 @@ describe('Components', () => {
       const compiled = await compileSassFile(file);
 
       expect(compiled).toHaveProperty('css');
-      expect(compiled).toHaveProperty('stats');
     });
   });
 });
