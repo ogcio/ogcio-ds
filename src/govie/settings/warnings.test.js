@@ -20,7 +20,7 @@ describe.skip('Warnings mixin', () => {
     vi.clearAllMocks();
   });
 
-  it.only('Fires a @warn with the message plus the key suffix text', async () => {
+  it('Fires a @warn with the message plus the key suffix text', async () => {
     const sassString = `
     ${sassBootstrap}
     @include _warning('test', 'This is a warning.');`;

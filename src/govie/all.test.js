@@ -15,7 +15,7 @@ describe('GOV.IE Frontend', () => {
       expect(results.css.toString()).not.toContain('p, .govie-body');
     });
 
-    it.only('are enabled if $global-styles variable is set to true', async () => {
+    it('are enabled if $global-styles variable is set to true', async () => {
       const sass = `
         $govie-global-styles: true;
         @import "all";

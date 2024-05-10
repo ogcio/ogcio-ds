@@ -23,7 +23,7 @@ describe('@function font-url', () => {
     );
   });
 
-  it.only('can be overridden to use a defined Sass function', async () => {
+  it('can be overridden to use a defined Sass function', async () => {
     const sass = `
       @import "tools/font-url";
 
