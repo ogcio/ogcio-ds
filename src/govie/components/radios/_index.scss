@@ -55,8 +55,8 @@
 
     @include govie-if-ie8 {
       margin-top: 10px;
-      margin-right: $govie-radios-size / -2;
-      margin-left: $govie-radios-size / -2;
+      margin-right: calc($govie-radios-size / -2);
+      margin-left: calc($govie-radios-size / -2);
       float: left;
 
       // add focus outline to input
