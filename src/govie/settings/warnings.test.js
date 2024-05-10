@@ -4,7 +4,7 @@ const { compileSassString } = require('../../../lib/jest-helpers');
 
 // Create a mock warn function that we can use to override the native @warn
 // function, that we can make assertions about post-render.
-const mockWarnFunction = vi.fn().mockReturnValue(null);
+const mockWarnFunction = vi.fn().mockReturnValue(sass.sassNull);
 
 const sassConfig = {
   style: 'compressed',
