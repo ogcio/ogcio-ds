@@ -17,7 +17,7 @@ describe('GOV.IE Frontend', () => {
   
     it('are enabled if $global-styles variable is set to true', async () => {
       const sass = `
-        $govie-global-styles: false;
+        $govie-global-styles: true;
         @import "all";
       `;
       const results = await compileSassString(sass, {
