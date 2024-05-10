@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  style: 'compressed'
+  style: 'compressed',
 };
 
 describe('@function govie-colour', () => {
@@ -26,12 +26,12 @@ describe('@function govie-colour', () => {
       .foo {
         color: govie-colour('red');
       }`;
-      
+
     const results = await compileSassString(sassString, sassConfig);
 
     expect(results.css.toString().trim()).toBe('.foo{color:red}');
   });
-  
+
   it('throws an error if a non-existent colour is requested', async () => {
     const sassString = `
       ${sassBootstrap}

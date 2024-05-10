@@ -120,7 +120,7 @@ describe('grid system', () => {
           }
         }`);
     });
-    
+
     it('allows custom breakpoints to be specified using $at', async () => {
       const sass = `
         ${sassImports}

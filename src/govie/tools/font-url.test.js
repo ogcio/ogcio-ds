@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  style: 'compressed'
+  style: 'compressed',
 };
 
 describe('@function font-url', () => {
