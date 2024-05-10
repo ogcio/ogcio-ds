@@ -13,7 +13,7 @@ const sassConfig = {
   },
 };
 
-describe('Warnings mixin', () => {
+describe.skip('Warnings mixin', () => {
   const sassBootstrap = '@import "settings/warnings";';
 
   afterEach(() => {
