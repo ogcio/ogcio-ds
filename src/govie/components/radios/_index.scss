@@ -216,206 +216,212 @@
   // =====MEDIUM=====
   // ================
 
-  .govie-radios-medium__item {
-    @include govie-font($size: 19);
-
-    display: block;
-    position: relative;
-
-    min-height: $govie-medium-radios-size;
-
-    margin-bottom: govie-spacing(2);
-    padding-left: $govie-medium-radios-size;
-
-    clear: left;
-  }
-
-  .govie-radios-medium__item:last-child,
-  .govie-radios-medium__item:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .govie-radios-medium__input {
+  .govie-radios--medium {
     $input-offset: ($govie-touch-target-size - $govie-medium-radios-size) / 2;
+    $label-offset: $govie-touch-target-size - $input-offset;
 
-    cursor: pointer;
-
-    // IE8 doesn’t support pseudo-elements, so we don’t want to hide native
-    // elements there.
-    @include govie-not-ie8 {
-      position: absolute;
-
-      z-index: 1;
-      // top: $input-offset * -1; // not required now
-      left: ($input-offset - 4) * -1;
-
-      width: $govie-medium-radios-size;
-      height: $govie-medium-radios-size;
-      margin: 0;
-
-      opacity: 0;
+    .govie-radios__item {
+      @include govie-font($size: 19);
+  
+      display: block;
+      position: relative;
+  
+      min-height: $govie-medium-radios-size;
+  
+      margin-bottom: govie-spacing(2);
+      padding-left: $govie-medium-radios-size;
+  
+      clear: left;
     }
-
-    @include govie-if-ie8 {
-      margin-top: 10px;
-      margin-right: $govie-medium-radios-size / -2;
-      margin-left: $govie-medium-radios-size / -2;
-      float: left;
-
-      // add focus outline to input
-      &:focus {
-        outline: $govie-focus-width solid $govie-focus-colour;
-      }
-    }
-  }
-
-  .govie-radios-medium__label {
-    display: inline-block;
-    margin-bottom: 0;
-    padding: 5px $govie-radios-label-padding-left-right govie-spacing(1);
-    cursor: pointer;
-    // remove 300ms pause on mobile
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-  }
-
-  // ( ) Radio ring
-  .govie-radios-medium__label:before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: $govie-medium-radios-size;
-    height: $govie-medium-radios-size;
-
-    border: $govie-border-width-form-element solid currentcolor;
-    border-radius: 50%;
-    background: transparent;
-  }
-
-  //  •  Radio button
-  //
-  // We create the 'button' entirely out of 'border' so that they remain
-  // 'filled' even when colours are overridden in the browser.
-  .govie-radios-medium__label:after {
-    content: '';
-
-    position: absolute;
-    top: govie-spacing(1);
-    left: govie-spacing(1);
-
-    width: 0;
-    height: 0;
-
-    border: govie-spacing(2) solid currentcolor;
-    border-radius: 50%;
-    opacity: 0;
-    background: currentcolor;
-  }
-
-  .govie-radios-medium__hint {
-    display: block;
-    padding-right: $govie-radios-label-padding-left-right;
-    padding-left: $govie-radios-label-padding-left-right;
-  }
-
-  // Focused state
-  .govie-radios-medium__input:focus + .govie-radios-medium__label:before {
-    border-width: 4px;
-
-    // When colours are overridden, the yellow box-shadow becomes invisible
-    // which means the focus state is less obvious. By adding a transparent
-    // outline, which becomes solid (text-coloured) in that context, we ensure
-    // the focus remains clearly visible.
-    outline: $govie-focus-width solid transparent;
-    outline-offset: 1px;
-
-    // When in an explicit forced-color mode, we can use the Highlight system
-    // color for the outline to better match focus states of native controls
-    @media screen and (forced-colors: active), (-ms-high-contrast: active) {
-      outline-color: Highlight;
-    }
-
-    box-shadow: 0 0 0 $govie-radios-focus-width $govie-focus-colour;
-  }
-
-  // Selected state
-  .govie-radios-medium__input:checked + .govie-radios-medium__label:after {
-    opacity: 1;
-  }
-
-  // Disabled state
-  .govie-radios-medium__input:disabled,
-  .govie-radios-medium__input:disabled + .govie-radios-medium__label {
-    cursor: default;
-  }
-
-  .govie-radios-medium__input:disabled + .govie-medium-radios__label,
-  .govie-radios-medium__input:disabled ~ .govie-hint-medium {
-    opacity: 0.5;
-  }
-
-  // =========================================================
-  // Inline radios
-  // =========================================================
-
-  .govie-radios--inline {
-    @include govie-media-query($from: tablet) {
-      @include govie-clearfix;
-
-      .govie-radios__item {
-        margin-right: govie-spacing(4);
-        float: left;
-        clear: none;
-      }
-    }
-  }
-
-  // =========================================================
-  // Dividers ('or')
-  // =========================================================
-
-  .govie-radios-medium__divider {
-    $govie-divider-medium-size: $govie-medium-radios-size !default;
-    @include govie-font($size: 19);
-    @include govie-text-colour;
-    width: $govie-divider-medium-size;
-    margin-bottom: govie-spacing(2);
-    text-align: center;
-  }
-
-  // =========================================================
-  // Conditional reveals
-  // =========================================================
-
-  // The narrow border is used in the conditional reveals because the border has
-  // to be an even number in order to be centred under the 40px checkbox or radio.
-  $conditional-border-width-medium: $govie-border-width-narrow;
-  // Calculate the amount of padding needed to keep the border centered against the radios.
-  $conditional-border-padding-medium: ($govie-medium-radios-size / 2) -
-    ($conditional-border-width-medium / 2);
-  // Move the border centered with the radios
-  $conditional-margin-left-medium: $conditional-border-padding-medium;
-  // Move the contents of the conditional inline with the label
-  $conditional-padding-left-medium: $conditional-border-padding-medium +
-    $govie-radios-label-padding-left-right;
-
-  .govie-radios-medium__conditional {
-    @include govie-responsive-margin(4, 'bottom');
-    margin-left: $conditional-margin-left-medium;
-    padding-left: $conditional-padding-left-medium;
-    border-left: $conditional-border-width-medium solid $govie-border-colour;
-
-    .js-enabled &--hidden {
-      display: none;
-    }
-
-    & > :last-child {
+  
+    .govie-radios__item:last-child,
+    .govie-radios__item:last-of-type {
       margin-bottom: 0;
     }
+  
+    .govie-radios__input {
+      $input-offset: ($govie-touch-target-size - $govie-medium-radios-size) / 2;
+  
+      cursor: pointer;
+  
+      // IE8 doesn’t support pseudo-elements, so we don’t want to hide native
+      // elements there.
+      @include govie-not-ie8 {
+        position: absolute;
+  
+        z-index: 1;
+        // top: $input-offset * -1; // not required now
+        left: ($input-offset - 4) * -1;
+  
+        width: $govie-medium-radios-size;
+        height: $govie-medium-radios-size;
+        margin: 0;
+  
+        opacity: 0;
+      }
+  
+      @include govie-if-ie8 {
+        margin-top: 10px;
+        margin-right: $govie-medium-radios-size / -2;
+        margin-left: $govie-medium-radios-size / -2;
+        float: left;
+  
+        // add focus outline to input
+        &:focus {
+          outline: $govie-focus-width solid $govie-focus-colour;
+        }
+      }
+    }
+  
+    .govie-radios__label {
+      display: inline-block;
+      margin-bottom: 0;
+      padding: 5px $govie-radios-label-padding-left-right govie-spacing(1);
+      cursor: pointer;
+      // remove 300ms pause on mobile
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    }
+  
+    // ( ) Radio ring
+    .govie-radios__label:before {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+      width: $govie-medium-radios-size;
+      height: $govie-medium-radios-size;
+  
+      border: $govie-border-width-form-element solid currentcolor;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    //  •  Radio button
+    //
+    // We create the 'button' entirely out of 'border' so that they remain
+    // 'filled' even when colours are overridden in the browser.
+    .govie-radios__label:after {
+      content: '';
+  
+      position: absolute;
+      top: 8px;
+      left: 8px;
+  
+      width: 0;
+      height: 0;
+  
+      border: 7px solid currentcolor;
+      border-radius: 50%;
+      opacity: 0;
+      background: currentcolor;
+    }
+  
+    .govie-radios__hint {
+      display: block;
+      padding-right: $govie-radios-label-padding-left-right;
+      padding-left: $govie-radios-label-padding-left-right;
+    }
+  
+    // Focused state
+    .govie-radios__input:focus + .govie-radios__label:before {
+      border-width: 4px;
+  
+      // When colours are overridden, the yellow box-shadow becomes invisible
+      // which means the focus state is less obvious. By adding a transparent
+      // outline, which becomes solid (text-coloured) in that context, we ensure
+      // the focus remains clearly visible.
+      outline: $govie-focus-width solid transparent;
+      outline-offset: 1px;
+  
+      // When in an explicit forced-color mode, we can use the Highlight system
+      // color for the outline to better match focus states of native controls
+      @media screen and (forced-colors: active), (-ms-high-contrast: active) {
+        outline-color: Highlight;
+      }
+  
+      box-shadow: 0 0 0 $govie-radios-focus-width $govie-focus-colour;
+    }
+  
+    // Selected state
+    .govie-radios__input:checked + .govie-radios__label:after {
+      opacity: 1;
+    }
+  
+    // Disabled state
+    .govie-radios__input:disabled,
+    .govie-radios__input:disabled + .govie-radios__label {
+      cursor: default;
+    }
+  
+    .govie-radios__input:disabled + .govie-radios__label,
+    .govie-radios__input:disabled ~ .govie-hint-medium {
+      opacity: 0.5;
+    }
+  
+    // =========================================================
+    // Inline radios
+    // =========================================================
+  
+    .govie-radios--inline {
+      @include govie-media-query($from: tablet) {
+        @include govie-clearfix;
+  
+        .govie-radios__item {
+          margin-right: govie-spacing(4);
+          float: left;
+          clear: none;
+        }
+      }
+    }
+  
+    // =========================================================
+    // Dividers ('or')
+    // =========================================================
+  
+    .govie-radios__divider {
+      $govie-divider-medium-size: $govie-medium-radios-size !default;
+      @include govie-font($size: 19);
+      @include govie-text-colour;
+      width: $govie-divider-medium-size;
+      margin-bottom: govie-spacing(2);
+      text-align: center;
+    }
+  
+    // =========================================================
+    // Conditional reveals
+    // =========================================================
+  
+    // The narrow border is used in the conditional reveals because the border has
+    // to be an even number in order to be centred under the 40px checkbox or radio.
+    $conditional-border-width-medium: $govie-border-width-narrow;
+    // Calculate the amount of padding needed to keep the border centered against the radios.
+    $conditional-border-padding-medium: ($govie-medium-radios-size / 2) -
+      ($conditional-border-width-medium / 2);
+    // Move the border centered with the radios
+    $conditional-margin-left-medium: $conditional-border-padding-medium;
+    // Move the contents of the conditional inline with the label
+    $conditional-padding-left-medium: $conditional-border-padding-medium +
+      $govie-radios-label-padding-left-right;
+  
+    .govie-radios__conditional {
+      @include govie-responsive-margin(4, 'bottom');
+      margin-left: $conditional-margin-left-medium;
+      padding-left: $conditional-padding-left-medium;
+      border-left: $conditional-border-width-medium solid $govie-border-colour;
+  
+      .js-enabled &--hidden {
+        display: none;
+      }
+  
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
   }
+  
 
   // ==========END MEDIUM====
 
