@@ -30,4 +30,10 @@ module.exports = {
   docs: {
     autodocs: true,
   },
+  viteFinal: async (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = "/ogcio-ds/";
+    }
+    return config
+  }
 };
