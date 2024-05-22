@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1](https://github.com/ogcio/ogcio-ds/compare/v0.3.0...v0.3.1) (2024-05-22)
+
+
+### Bug Fixes
+
+* refactor radio button styling & h1 changes ([#190](https://github.com/ogcio/ogcio-ds/issues/190)) ([5ac35f9](https://github.com/ogcio/ogcio-ds/commit/5ac35f92adade0f7dea0dfe796bdb2811109976c))
+* update base path in prod ([#192](https://github.com/ogcio/ogcio-ds/issues/192)) ([8212d08](https://github.com/ogcio/ogcio-ds/commit/8212d08c9116041da82decf28bc24a9de45306c0))
+
 ## [0.3.0](https://github.com/ogcio/ogcio-ds/compare/v0.2.5...v0.3.0) (2024-05-02)
 
 
