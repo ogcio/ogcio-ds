@@ -1,4 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
+import { Link } from '../components/Link.jsx';
 
 <Meta title="Docs/Configure components with JavaScript" />
 
@@ -40,7 +41,7 @@ If your configuration contains [quotes or other reserved HTML characters](https:
 
 Configuration is read from data attributes when the component is initialised. Changes to the data attributes made after the component has been initialised will have no effect on the behaviour of the component.
 
-Read the [JavaScript API Reference](/?path=/docs/docs-javascript-api-reference--docs) for the configuration accepted by each component. You'll need to convert the configuration names into kebab-case.
+Read the <Link textToDisplay='JavaScript API Reference' href='?path=/docs/docs-javascript-api-reference--docs' /> for the configuration accepted by each component. You'll need to convert the configuration names into kebab-case.
 
 ## Passing configuration to a new instance of a component in JavaScript
 
@@ -72,7 +73,7 @@ new CharacterCount($element, {
 }).init();
 ```
 
-Read the [JavaScript API Reference](/?path=/docs/docs-javascript-api-reference--docs) to see what configuration each component accepts.
+Read the <Link textToDisplay='JavaScript API Reference' href='?path=/docs/docs-javascript-api-reference--docs' /> to see what configuration each component accepts.
 
 ## Passing configuration using the initAll function
 
