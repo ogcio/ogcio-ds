@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 
-export const Link = ({textToDisplay, href}) => (
-	<a className='govie-link' href={`${import.meta.env.BASE_URL}${href}`}>{textToDisplay}</a>
+export const Link = ({ children, href }) => (
+	<a className='govie-link' href={`${import.meta.env.BASE_URL}${href}`}>{children}</a>
 );
