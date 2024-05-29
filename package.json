@@ -125,6 +125,7 @@
     "minimatch": "^6.2.0",
     "node-sass": "^9.0.0",
     "nodemon": "^2.0.20",
+    "nunjucks": "^3.2.4",
     "outdent": "^0.8.0",
     "plugin-error": "^2.0.1",
     "postcss": "^8.4.21",
