@@ -11,9 +11,10 @@ describe('GOV.IE Frontend', () => {
         @import "all";
       `;
       const results = await compileSassString(sass);
-      expect(results.css.toString()).not.toContain(', a {');
-      expect(results.css.toString()).not.toContain(', p {');
+      expect(results.css.toString()).not.toContain('a, .govie-link');
+      expect(results.css.toString()).not.toContain('p, .govie-body');
     });
+
     it('are enabled if $global-styles variable is set to true', async () => {
       const sass = `
         $govie-global-styles: true;
@@ -21,8 +22,8 @@ describe('GOV.IE Frontend', () => {
       `;
       const results = await compileSassString(sass);
 
-      expect(results.css.toString()).toContain(', a {');
-      expect(results.css.toString()).toContain(', p {');
+      expect(results.css.toString()).toContain('a, .govie-link');
+      expect(results.css.toString()).toContain('p, .govie-body');
     });
   });
 

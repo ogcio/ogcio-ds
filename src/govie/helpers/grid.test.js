@@ -3,7 +3,7 @@ const outdent = require('outdent');
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested',
+  style: 'expanded',
 };
 
 describe('grid system', () => {
@@ -31,7 +31,8 @@ describe('grid system', () => {
 
       expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        content: 25%; }`);
+        content: 25%;
+      }`);
     });
 
     it('throws an error that the specified key does not exist in the map of widths', async () => {
@@ -63,11 +64,14 @@ describe('grid system', () => {
         .govie-grid-column-full {
           box-sizing: border-box;
           width: 100%;
-          padding: 0 15px; }
-          @media (min-width: 40.0625em) {
-            .govie-grid-column-full {
-              width: 100%;
-              float: left; } }`);
+          padding: 0 15px;
+        }
+        @media (min-width: 40.0625em) {
+          .govie-grid-column-full {
+            width: 100%;
+            float: left;
+          }
+        }`);
     });
 
     it('allows different widths to be specified using $width', async () => {
@@ -84,12 +88,14 @@ describe('grid system', () => {
         .govie-grid-column-two-thirds {
           box-sizing: border-box;
           width: 100%;
-          padding: 0 15px; }
-          @media (min-width: 40.0625em) {
-            .govie-grid-column-two-thirds {
-              width: 66.6666%;
-              float: left; } }
-        `);
+          padding: 0 15px;
+        }
+        @media (min-width: 40.0625em) {
+          .govie-grid-column-two-thirds {
+            width: 66.6666%;
+            float: left;
+          }
+        }`);
     });
 
     it('allows predefined breakpoints to be specified using $at', async () => {
@@ -105,13 +111,16 @@ describe('grid system', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .govie-grid-column-one-quarter-at-desktop {
           box-sizing: border-box;
-          padding: 0 15px; }
-          @media (min-width: 48.0625em) {
-            .govie-grid-column-one-quarter-at-desktop {
-              width: 25%;
-              float: left; } }
-        `);
+          padding: 0 15px;
+        }
+        @media (min-width: 48.0625em) {
+          .govie-grid-column-one-quarter-at-desktop {
+            width: 25%;
+            float: left;
+          }
+        }`);
     });
+
     it('allows custom breakpoints to be specified using $at', async () => {
       const sass = `
         ${sassImports}
@@ -126,12 +135,14 @@ describe('grid system', () => {
         .govie-grid-column-one-quarter-at-500px {
           box-sizing: border-box;
           width: 100%;
-          padding: 0 15px; }
-          @media (min-width: 31.25em) {
-            .govie-grid-column-one-quarter-at-500px {
-              width: 25%;
-              float: left; } }
-        `);
+          padding: 0 15px;
+        }
+        @media (min-width: 31.25em) {
+          .govie-grid-column-one-quarter-at-500px {
+            width: 25%;
+            float: left;
+          }
+        }`);
     });
 
     it('allows columns to float right using $float: right', async () => {
@@ -148,12 +159,14 @@ describe('grid system', () => {
         .govie-grid-column-one-half-right {
           box-sizing: border-box;
           width: 100%;
-          padding: 0 15px; }
-          @media (min-width: 40.0625em) {
-            .govie-grid-column-one-half-right {
-              width: 50%;
-              float: right; } }
-        `);
+          padding: 0 15px;
+        }
+        @media (min-width: 40.0625em) {
+          .govie-grid-column-one-half-right {
+            width: 50%;
+            float: right;
+          }
+        }`);
     });
   });
 });

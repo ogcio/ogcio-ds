@@ -6,8 +6,8 @@
   $govie-footer-logo-image-width-2x: 380px;
   $govie-footer-logo-image-height-2x: 130px;
   // Half the 2x image so that it fits the regular 1x size.
-  $govie-footer-logo-image-width: ($govie-footer-logo-image-width-2x / 2);
-  $govie-footer-logo-image-height: ($govie-footer-logo-image-height-2x / 2);
+  $govie-footer-logo-image-width: calc($govie-footer-logo-image-width-2x / 2);
+  $govie-footer-logo-image-height: calc($govie-footer-logo-image-height-2x / 2);
 
   .govie-footer {
     @include govie-font($size: 16);

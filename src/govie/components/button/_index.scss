@@ -440,8 +440,9 @@ $govie-tertiary-button-text-colour: govie-colour('black') !default;
     @include govie-font($size: 16, $line-height: 20px);
     height: 36px;
     padding: (
-        govie-spacing(2) - $govie-border-width-form-element -
-          ($button-shadow-size / 2)
+        govie-spacing(2) - $govie-border-width-form-element - calc(
+            $button-shadow-size / 2
+          )
       )
       govie-spacing(2) + $govie-border-width-form-element;
   }

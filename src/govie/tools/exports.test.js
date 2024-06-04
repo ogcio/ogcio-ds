@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed',
+  style: 'compressed',
 };
 
 describe('@mixin govie-exports', () => {

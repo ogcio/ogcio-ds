@@ -52,7 +52,9 @@
       box-sizing: border-box;
 
       // Calculate the internal width of a two-thirds column...
-      $two-col-width: ($govie-page-width * 2 / 3) - ($govie-gutter * 1 / 3);
+      $two-col-width: calc($govie-page-width * 2 / 3) - calc(
+          $govie-gutter * 1 / 3
+        );
 
       // ...and then factor in the left border and padding
       $banner-exterior: ($padding-tablet + $govie-border-width);

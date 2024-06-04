@@ -43,5 +43,5 @@ export async function writeAsset (filePath, result) {
  * 2. Terser minified bundle
  * 3. Sass compiler result
  *
- * @typedef {import('rollup').OutputChunk | import('terser').MinifyOutput | import('node-sass').Result} AssetOutput
+ * @typedef {import('rollup').OutputChunk | import('terser').MinifyOutput | import('sass').Result} AssetOutput
  */

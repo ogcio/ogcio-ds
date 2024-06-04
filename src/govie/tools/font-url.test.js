@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed',
+  style: 'compressed',
 };
 
 describe('@function font-url', () => {
@@ -27,7 +27,8 @@ describe('@function font-url', () => {
     const sass = `
       @import "tools/font-url";
 
-      $govie-font-url-function: 'to_upper_case';
+      $govie-font-url-function: 'to-upper-case';
+      $govie-fonts-path: './assets/fonts/';
 
       @font-face {
         font-family: "whatever";

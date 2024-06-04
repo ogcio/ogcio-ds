@@ -3,7 +3,7 @@ const outdent = require('outdent');
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'nested',
+  style: 'expanded',
 };
 
 const sassBootstrap = `
@@ -47,7 +47,8 @@ describe('@function govie-spacing', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: 15px; }`);
+        top: 15px;
+      }`);
   });
 
   it('returns CSS for a property based on a negative spacing point', async () => {
@@ -62,7 +63,8 @@ describe('@function govie-spacing', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: -15px; }`);
+        top: -15px;
+      }`);
   });
 
   it('throws an error when passed anything other than a number', async () => {
@@ -116,7 +118,8 @@ describe('@function govie-spacing', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        top: 0; }`);
+        top: 0;
+      }`);
   });
 });
 
@@ -133,10 +136,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        margin: 15px; }
-        @media (min-width: 30em) {
-          .foo {
-            margin: 25px; } }`);
+        margin: 15px;
+      }
+      @media (min-width: 30em) {
+        .foo {
+          margin: 25px;
+        }
+      }`);
   });
 
   it('outputs CSS for a property and direction based on the spacing map', async () => {
@@ -151,10 +157,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        padding-top: 15px; }
-        @media (min-width: 30em) {
-          .foo {
-            padding-top: 25px; } }`);
+        padding-top: 15px;
+      }
+      @media (min-width: 30em) {
+        .foo {
+          padding-top: 25px;
+        }
+      }`);
   });
 
   it('throws an exception when passed a non-existent point', async () => {
@@ -187,10 +196,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin: 15px !important; }
-          @media (min-width: 30em) {
-            .foo {
-              margin: 25px !important; } }`);
+          margin: 15px !important;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin: 25px !important;
+          }
+        }`);
     });
 
     it('marks the rule as important for the property and direction', async () => {
@@ -210,10 +222,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin-top: 15px !important; }
-          @media (min-width: 30em) {
-            .foo {
-              margin-top: 25px !important; } }`);
+          margin-top: 15px !important;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin-top: 25px !important;
+          }
+        }`);
     });
   });
 
@@ -234,10 +249,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin: 17px; }
-          @media (min-width: 30em) {
-            .foo {
-              margin: 27px; } }`);
+          margin: 17px;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin: 27px;
+          }
+        }`);
     });
 
     it('adjusts the value for the property and direction', async () => {
@@ -257,10 +275,13 @@ describe('@mixin _govie-responsive-spacing', () => {
 
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin-top: 17px; }
-          @media (min-width: 30em) {
-            .foo {
-              margin-top: 27px; } }`);
+          margin-top: 17px;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin-top: 27px;
+          }
+        }`);
     });
   });
 });
@@ -278,10 +299,13 @@ describe('@mixin govie-responsive-margin', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin: 15px; }
-          @media (min-width: 30em) {
-            .foo {
-              margin: 25px; } }`);
+          margin: 15px;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin: 25px;
+          }
+        }`);
   });
 
   it('outputs extreme responsive margins', async () => {
@@ -301,10 +325,13 @@ describe('@mixin govie-responsive-margin', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          margin-top: 17px !important; }
-          @media (min-width: 30em) {
-            .foo {
-              margin-top: 27px !important; } }`);
+          margin-top: 17px !important;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            margin-top: 27px !important;
+          }
+        }`);
   });
 });
 
@@ -321,10 +348,13 @@ describe('@mixin govie-responsive-padding', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          padding: 15px; }
-          @media (min-width: 30em) {
-            .foo {
-              padding: 25px; } }`);
+          padding: 15px;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            padding: 25px;
+          }
+        }`);
   });
 
   it('outputs extreme responsive padding', async () => {
@@ -344,9 +374,12 @@ describe('@mixin govie-responsive-padding', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
         .foo {
-          padding-top: 17px !important; }
-          @media (min-width: 30em) {
-            .foo {
-              padding-top: 27px !important; } }`);
+          padding-top: 17px !important;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            padding-top: 27px !important;
+          }
+        }`);
   });
 });

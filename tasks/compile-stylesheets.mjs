@@ -2,7 +2,7 @@ import { readFile } from 'fs/promises'
 import { join, parse } from 'path'
 import { promisify } from 'util'
 
-import { render } from 'node-sass'
+import { render } from 'sass'
 import PluginError from 'plugin-error'
 import postcss from 'postcss'
 // eslint-disable-next-line import/default

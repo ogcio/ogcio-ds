@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compact',
+  style: 'expanded',
 };
 
 describe('@mixin govie-link-decoration', () => {

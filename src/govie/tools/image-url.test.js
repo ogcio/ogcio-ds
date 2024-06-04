@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed',
+  style: 'compressed',
 };
 
 describe('@function image-url', () => {
@@ -26,7 +26,7 @@ describe('@function image-url', () => {
     const sass = `
       @import "tools/image-url";
 
-      $govie-image-url-function: 'to_upper_case';
+      $govie-image-url-function: 'to-upper-case';
 
       .foo {
         background-image: govie-image-url("baz.png");

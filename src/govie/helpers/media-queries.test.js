@@ -1,7 +1,7 @@
 const { compileSassString } = require('../../../lib/jest-helpers');
 
 const sassConfig = {
-  outputStyle: 'compressed',
+  style: 'compressed',
 };
 
 const sassBootstrap = `
@@ -27,7 +27,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (min-width: 20em){.foo{color:red}}',
+      '@media(min-width: 20em){.foo{color:red}}',
     );
   });
 
@@ -45,7 +45,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (min-width: 20em){.foo{color:red}}',
+      '@media(min-width: 20em){.foo{color:red}}',
     );
   });
 
@@ -62,7 +62,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (max-width: 20em){.foo{color:red}}',
+      '@media(max-width: 20em){.foo{color:red}}',
     );
   });
 
@@ -80,7 +80,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (max-width: 61.24em){.foo{color:red}}',
+      '@media(max-width: 61.24em){.foo{color:red}}',
     );
   });
 
@@ -97,7 +97,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (min-width: 20em) and (max-width: 40em){.foo{color:red}}',
+      '@media(min-width: 20em)and (max-width: 40em){.foo{color:red}}',
     );
   });
 
@@ -115,7 +115,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (min-width: 20em) and (max-width: 46.24em){.foo{color:red}}',
+      '@media(min-width: 20em)and (max-width: 46.24em){.foo{color:red}}',
     );
   });
 
@@ -132,7 +132,7 @@ describe('@mixin govie-media-query', () => {
     const results = await compileSassString(sass, sassConfig);
 
     expect(results.css.toString().trim()).toBe(
-      '@media (max-width: 40em) and (orientation: landscape){.foo{color:red}}',
+      '@media(max-width: 40em)and (orientation: landscape){.foo{color:red}}',
     );
   });
 
@@ -169,10 +169,10 @@ describe('@mixin govie-media-query', () => {
 
         .foo {
           @include govie-media-query($until: tablet) {
-            color: lawngreen;
+            color: #{lawngreen};
           }
           @include govie-media-query($from: desktop) {
-              color: forestgreen;
+            color: #{forestgreen};
           }
         }`;
 

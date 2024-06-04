@@ -1,17 +1,8 @@
-const sass = require('node-sass');
 const outdent = require('outdent');
-import { vi } from 'vitest';
 const { compileSassString } = require('../../../lib/jest-helpers');
 
-// Create a mock warn function that we can use to override the native @warn
-// function, that we can make assertions about post-render.
-const mockWarnFunction = vi.fn().mockReturnValue(sass.NULL);
-
 const sassConfig = {
-  outputStyle: 'nested',
-  functions: {
-    '@warn': mockWarnFunction,
-  },
+  style: 'expanded',
 };
 
 let sassBootstrap = `
@@ -135,7 +126,8 @@ describe('@function _govie-line-height', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 3.141; }`);
+        line-height: 3.141;
+      }`);
   });
 
   it('preserves line-height if using different units', async () => {
@@ -150,7 +142,8 @@ describe('@function _govie-line-height', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 2em; }`);
+        line-height: 2em;
+      }`);
   });
 
   it('converts line-height to a relative number', async () => {
@@ -165,7 +158,8 @@ describe('@function _govie-line-height', () => {
 
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
-        line-height: 1.5; }`);
+        line-height: 1.5;
+      }`);
   });
 });
 
@@ -183,11 +177,14 @@ describe('@mixin govie-typography-responsive', () => {
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         font-size: 12px;
-        line-height: 1.25; }
-        @media (min-width: 30em) {
-          .foo {
-            font-size: 14px;
-            line-height: 1.42857; } }`);
+        line-height: 1.25;
+      }
+      @media (min-width: 30em) {
+        .foo {
+          font-size: 14px;
+          line-height: 1.4285714286;
+        }
+      }`);
   });
 
   it('outputs CSS with suitable media queries for print', async () => {
@@ -203,11 +200,14 @@ describe('@mixin govie-typography-responsive', () => {
     expect(results.css.toString().trim()).toBe(outdent`
       .foo {
         font-size: 12px;
-        line-height: 1.25; }
-        @media print {
-          .foo {
-            font-size: 14pt;
-            line-height: 1.5; } }`);
+        line-height: 1.25;
+      }
+      @media print {
+        .foo {
+          font-size: 14pt;
+          line-height: 1.5;
+        }
+      }`);
   });
 
   it('throws an exception when passed a size that is not in the scale', async () => {
@@ -215,7 +215,7 @@ describe('@mixin govie-typography-responsive', () => {
       ${sassBootstrap}
 
       .foo {
-        @include govie-typography-responsive(3.14159265359)
+        @include govie-typography-responsive(3.14159)
       }`;
 
     await expect(compileSassString(sass, sassConfig)).rejects.toThrow(
@@ -237,11 +237,14 @@ describe('@mixin govie-typography-responsive', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px !important;
-          line-height: 1.25 !important; }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px !important;
-              line-height: 1.42857 !important; } }`);
+          line-height: 1.25 !important;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            font-size: 14px !important;
+            line-height: 1.4285714286 !important;
+          }
+        }`);
     });
 
     it('marks font-size and line-height as important for print media', async () => {
@@ -257,11 +260,14 @@ describe('@mixin govie-typography-responsive', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px !important;
-          line-height: 1.25 !important; }
-          @media print {
-            .foo {
-              font-size: 14pt !important;
-              line-height: 1.5 !important; } }`);
+          line-height: 1.25 !important;
+        }
+        @media print {
+          .foo {
+            font-size: 14pt !important;
+            line-height: 1.5 !important;
+          }
+        }`);
     });
   });
 
@@ -279,11 +285,14 @@ describe('@mixin govie-typography-responsive', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px;
-          line-height: 1.75; }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px;
-              line-height: 1.5; } }`);
+          line-height: 1.75;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            font-size: 14px;
+            line-height: 1.5;
+          }
+        }`);
     });
   });
 
@@ -309,11 +318,14 @@ describe('@mixin govie-typography-responsive', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px;
-          line-height: 1.25; }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px;
-              line-height: 1.42857; } }`);
+          line-height: 1.25;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            font-size: 14px;
+            line-height: 1.4285714286;
+          }
+        }`);
     });
 
     it('adjusts rem values based on root font size', async () => {
@@ -331,11 +343,14 @@ describe('@mixin govie-typography-responsive', () => {
       expect(results.css.toString().trim()).toBe(outdent`
         .foo {
           font-size: 12px;
-          line-height: 1.25; }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px;
-              line-height: 1.42857; } }`);
+          line-height: 1.25;
+        }
+        @media (min-width: 30em) {
+          .foo {
+            font-size: 14px;
+            line-height: 1.4285714286;
+          }
+        }`);
     });
 
     describe('and $important is set to true', () => {
@@ -353,11 +368,14 @@ describe('@mixin govie-typography-responsive', () => {
         expect(results.css.toString().trim()).toBe(outdent`
           .foo {
             font-size: 12px !important;
-            line-height: 1.25 !important; }
-            @media (min-width: 30em) {
-              .foo {
-                font-size: 14px !important;
-                line-height: 1.42857 !important; } }`);
+            line-height: 1.25 !important;
+          }
+          @media (min-width: 30em) {
+            .foo {
+              font-size: 14px !important;
+              line-height: 1.4285714286 !important;
+            }
+          }`);
       });
     });
   });
@@ -382,14 +400,19 @@ describe('@mixin govie-typography-responsive', () => {
           -moz-osx-font-smoothing: grayscale;
           font-weight: 400;
           font-size: 12px;
-          line-height: 1.25; }
-          @media print {
-            .foo {
-              font-family: sans-serif; } }
-          @media (min-width: 30em) {
-            .foo {
-              font-size: 14px;
-              line-height: 1.42857; } }`);
+          line-height: 1.25;
+        }
+        @media print {
+          .foo {
+            font-family: sans-serif;
+          }
+        }
+        @media (min-width: 30em) {
+          .foo {
+            font-size: 14px;
+            line-height: 1.4285714286;
+          }
+        }`);
     });
 
     it('enables tabular numbers opentype feature flags if $tabular: true', async () => {
@@ -403,13 +426,15 @@ describe('@mixin govie-typography-responsive', () => {
       const results = await compileSassString(sass, sassConfig);
       const css = results.css.toString();
 
-      expect(css).toContain("font-feature-settings: 'tnum' 1;");
+      expect(css).toContain('font-feature-settings: "tnum" 1;');
       expect(css).toContain(outdent`
       ${outdent}
-        @supports (font-variant-numeric: tabular-nums) {
-          .foo {
-            font-feature-settings: normal;
-            font-variant-numeric: tabular-nums; } }`);
+      @supports (font-variant-numeric: tabular-nums) {
+        .foo {
+          font-feature-settings: normal;
+          font-variant-numeric: tabular-nums;
+        }
+      }`);
     });
 
     it('sets font-size based on $size', async () => {
