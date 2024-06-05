@@ -48,14 +48,6 @@ module.exports = {
         'jsdoc/check-line-alignment': ['warn', 'never'],
         'jsdoc/check-syntax': 'error',
 
-        // Add unknown @jest-environment tag name
-        'jsdoc/check-tag-names': [
-          'warn',
-          {
-            definedTags: ['jest-environment']
-          }
-        ],
-
         // Add missing .querySelectorAll() type
         'jsdoc/no-undefined-types': [
           'error',
@@ -90,10 +82,7 @@ module.exports = {
       }
     },
     {
-      files: ['**/*.test.{cjs,js,mjs}'],
-      env: {
-        jest: true
-      }
+      files: ['**/*.test.{cjs,js,mjs}']
     }
   ],
   root: true
