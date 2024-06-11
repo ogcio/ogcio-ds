@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/ogcio/ogcio-ds/compare/v0.3.1...v0.4.0) (2024-06-11)
+
+
+### Features
+
+* switch sass engine ([#189](https://github.com/ogcio/ogcio-ds/issues/189)) ([d6f5185](https://github.com/ogcio/ogcio-ds/commit/d6f51857f5d257cf86e21c4d63de6fa04187015b))
+
 ## [0.3.1](https://github.com/ogcio/ogcio-ds/compare/v0.3.0...v0.3.1) (2024-05-30)
 
 
