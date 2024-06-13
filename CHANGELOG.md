@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/ogcio/ogcio-ds/compare/v0.4.0...v0.4.1) (2024-06-13)
+
+
+### Bug Fixes
+
+* update medium size checkboxes and radios vertical alignment ([#201](https://github.com/ogcio/ogcio-ds/issues/201)) ([f41309c](https://github.com/ogcio/ogcio-ds/commit/f41309c1e3e090feb52dbf3f942b210608d89667))
+
 ## [0.4.0](https://github.com/ogcio/ogcio-ds/compare/v0.3.1...v0.4.0) (2024-06-11)
 
 
