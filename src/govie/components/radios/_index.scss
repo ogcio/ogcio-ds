@@ -286,6 +286,10 @@
       // remove 300ms pause on mobile
       -ms-touch-action: manipulation;
       touch-action: manipulation;
+      
+      @include govie-media-query($from: tablet) {
+        padding: 2px $govie-radios-label-padding-left-right govie-spacing(1);
+      }
     }
 
     // ( ) Radio ring
@@ -474,11 +478,11 @@
     // width of the parent element.
     .govie-radios__label {
       margin-top: -2px;
-      padding: 13px govie-spacing(3) 13px 1px;
+      padding: 12px govie-spacing(3) 13px 1px;
       float: left;
 
       @include govie-media-query($from: tablet) {
-        padding: 11px govie-spacing(3) 10px 1px;
+        padding: 9px govie-spacing(3) 10px 1px;
       }
     }
 
