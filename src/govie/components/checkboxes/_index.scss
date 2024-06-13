@@ -202,63 +202,63 @@
   }
 
   /////============MEDIUM====
-  
+
   .govie-checkboxes--medium {
     .govie-checkboxes__item {
       @include govie-font($size: 19);
-  
+
       display: block;
       position: relative;
-  
+
       min-height: $govie-medium-checkboxes-size;
-  
+
       margin-bottom: govie-spacing(2);
       padding-left: $govie-medium-checkboxes-size;
-  
+
       clear: left;
     }
-  
+
     .govie-checkboxes__item:last-child,
     .govie-checkboxes__item:last-of-type {
       margin-bottom: 0;
     }
-  
+
     .govie-checkboxes__input {
       $input-offset: calc(
         ($govie-touch-target-size - $govie-medium-checkboxes-size) / 2
       );
-  
+
       cursor: pointer;
-  
+
       // IE8 doesn’t support pseudo-elements, so we don’t want to hide native
       // elements there.
       @include govie-not-ie8 {
         position: absolute;
-  
+
         z-index: 1;
         // top: $input-offset * -1; // top is not required now
         left: ($input-offset - 4) * -1;
-  
+
         width: $govie-medium-checkboxes-size;
         height: $govie-medium-checkboxes-size;
         margin: 0;
-  
+
         opacity: 0;
       }
-  
+
       @include govie-if-ie8 {
         margin-top: 10px;
         margin-right: calc($govie-medium-checkboxes-size / -2);
         margin-left: calc($govie-medium-checkboxes-size / -2);
         float: left;
-  
+
         // add focus outline to input
         &:focus {
           outline: $govie-focus-width solid $govie-focus-colour;
         }
       }
     }
-  
+
     .govie-checkboxes__label {
       display: inline-block;
       margin-bottom: 0;
@@ -272,7 +272,7 @@
         padding: 2px $govie-checkboxes-label-padding-left-right govie-spacing(1);
       }
     }
-  
+
     @include govie-not-ie8 {
       // [ ] Check box
       .govie-checkboxes__label:before {
@@ -286,7 +286,7 @@
         border: $govie-border-width-form-element solid currentcolor;
         background: transparent;
       }
-  
+
       // ✔ Check mark
       //
       // The check mark is a box with a border on the left and bottom side (└──),
@@ -294,77 +294,75 @@
       .govie-checkboxes__label:after {
         content: '';
         box-sizing: border-box;
-  
+
         position: absolute;
         top: 8px;
         left: 6px;
         width: 18px;
         height: 9px;
-  
+
         -webkit-transform: rotate(-45deg);
-  
+
         -ms-transform: rotate(-45deg);
-  
+
         transform: rotate(-45deg);
         border: solid;
         border-width: 0 0 4px 4px;
         // Fix bug in IE11 caused by transform rotate (-45deg).
         border-top-color: transparent;
-  
+
         opacity: 0;
-  
+
         background: transparent;
       }
     }
-  
+
     .govie-checkboxes__hint {
       display: block;
       padding-right: $govie-checkboxes-label-padding-left-right;
       padding-left: $govie-checkboxes-label-padding-left-right;
     }
-  
+
     // Focused state
-    .govie-checkboxes__input:focus
-      + .govie-checkboxes__label:before {
+    .govie-checkboxes__input:focus + .govie-checkboxes__label:before {
       border-width: 4px;
-  
+
       // When colours are overridden, the yellow box-shadow becomes invisible
       // which means the focus state is less obvious. By adding a transparent
       // outline, which becomes solid (text-coloured) in that context, we ensure
       // the focus remains clearly visible.
       outline: $govie-focus-width solid transparent;
       outline-offset: 1px;
-  
+
       // When in an explicit forced-color mode, we can use the Highlight system
       // color for the outline to better match focus states of native controls
       @media screen and (forced-colors: active), (-ms-high-contrast: active) {
         outline-color: Highlight;
       }
-  
+
       box-shadow: 0 0 0 $govie-focus-width $govie-focus-colour;
     }
-  
+
     // Selected state
-    .govie-checkboxes__input:checked
-      + .govie-checkboxes__label:after {
+    .govie-checkboxes__input:checked + .govie-checkboxes__label:after {
       opacity: 1;
     }
-  
+
     // Disabled state
     .govie-checkboxes__input:disabled,
     .govie-checkboxes__input:disabled + .govie-checkboxes__label {
       cursor: default;
     }
-  
+
     .govie-checkboxes__input:disabled + .govie-checkboxes_label,
     .govie-checkboxes__input:disabled ~ .govie-hint {
       opacity: 0.5;
     }
-  
+
     // =========================================================
     // Dividers ('or')
     // =========================================================
-  
+
     .govie-checkboxes__divider {
       $govie-divider-medium-size: $govie-medium-checkboxes-size !default;
       @include govie-font($size: 19);
@@ -373,11 +371,11 @@
       margin-bottom: govie-spacing(2);
       text-align: center;
     }
-  
+
     // =========================================================
     // Conditional reveals
     // =========================================================
-  
+
     // The narrow border is used in the conditional reveals because the border has
     // to be an even number in order to be centred under the 40px checkbox or radio.
     $conditional-border-width-medium: $govie-border-width-narrow;
@@ -390,17 +388,17 @@
     // Move the contents of the conditional inline with the label
     $conditional-padding-left-medium: $conditional-border-padding-medium +
       $govie-checkboxes-label-padding-left-right;
-  
+
     .govie-checkboxes__conditional {
       @include govie-responsive-margin(4, 'bottom');
       margin-left: $conditional-margin-left-medium;
       padding-left: $conditional-padding-left-medium;
       border-left: $conditional-border-width-medium solid $govie-border-colour;
-  
+
       .js-enabled &--hidden {
         display: none;
       }
-  
+
       & > :last-child {
         margin-bottom: 0;
       }

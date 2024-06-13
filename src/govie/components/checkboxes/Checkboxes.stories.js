@@ -31,7 +31,7 @@ export default {
     useMediumBoxes: {
       control: 'boolean',
       description:
-        "Medium-sized checkboxes offer a balanced visual presence, making them ideal for forms and settings where clarity and ease of interaction are important. They are larger than small checkboxes, providing a more noticeable target area for users to click, but not as large as standard checkboxes, which makes them perfect for situations where moderate prominence is needed.\n" +
+        'Medium-sized checkboxes offer a balanced visual presence, making them ideal for forms and settings where clarity and ease of interaction are important. They are larger than small checkboxes, providing a more noticeable target area for users to click, but not as large as standard checkboxes, which makes them perfect for situations where moderate prominence is needed.\n' +
         'For example, in a settings menu or preference panel, medium checkboxes can help users easily identify and select options without overwhelming the interface. They strike the right balance between visibility and subtlety, ensuring a user-friendly experience without dominating the layout.',
     },
     useSmallerBoxes: {
@@ -230,7 +230,7 @@ const createCheckboxesNode = (args) => {
   if (args.useSmallerBoxes) {
     classNames.push('govie-checkboxes--small');
   }
-  
+
   if (args.useMediumBoxes) {
     classNames.push('govie-checkboxes--medium');
   }
