@@ -28,6 +28,12 @@ export default {
         "When 'none' would be a valid answer, give users the option to check a box to say none of the other options apply to them — without this option, users would have to leave all of the boxes unchecked. Giving users this option also makes sure they do not skip the question by accident.",
     },
     noneOptionLabel: { control: 'text' },
+    useMediumBoxes: {
+      control: 'boolean',
+      description:
+        "Medium-sized checkboxes offer a balanced visual presence, making them ideal for forms and settings where clarity and ease of interaction are important. They are larger than small checkboxes, providing a more noticeable target area for users to click, but not as large as standard checkboxes, which makes them perfect for situations where moderate prominence is needed.\n" +
+        'For example, in a settings menu or preference panel, medium checkboxes can help users easily identify and select options without overwhelming the interface. They strike the right balance between visibility and subtlety, ensuring a user-friendly experience without dominating the layout.',
+    },
     useSmallerBoxes: {
       control: 'boolean',
       description:
@@ -44,6 +50,7 @@ export default {
   args: {
     fieldId: 'checkboxes-default',
     legendAsHeading: true,
+    useMediumBoxes: false,
     useSmallerBoxes: false,
     haveNoneOption: false,
     items: [],
@@ -54,6 +61,12 @@ export default {
 const createLegendNode = (args) => {
   const classNames = ['govie-fieldset__legend'];
   if (args.useSmallerBoxes) {
+    classNames.push('govie-fieldset__legend--m');
+  } else if (args.legendAsHeading) {
+    classNames.push('govie-fieldset__legend--l');
+  }
+
+  if (args.useMediumBoxes) {
     classNames.push('govie-fieldset__legend--m');
   } else if (args.legendAsHeading) {
     classNames.push('govie-fieldset__legend--l');
@@ -127,7 +140,7 @@ const createInputNode = (fieldId, index, itemData, isExclusive) => {
 
 const createInputLabelNode = (fieldId, index, itemData, hiddenLabel) => {
   const label = document.createElement('label');
-  label.className = 'govie-label--s govie-checkboxes__label';
+  label.className = 'govie-label govie-checkboxes__label';
   label.setAttribute('for', createInputId(fieldId, index));
   if (hiddenLabel) {
     label.innerHTML = `<span class="govie-visually-hidden">${itemData.label}</span>`;
@@ -216,6 +229,10 @@ const createCheckboxesNode = (args) => {
 
   if (args.useSmallerBoxes) {
     classNames.push('govie-checkboxes--small');
+  }
+  
+  if (args.useMediumBoxes) {
+    classNames.push('govie-checkboxes--medium');
   }
 
   const checkboxes = document.createElement('div');
@@ -354,6 +371,24 @@ export const WithNormalLegend = Template.bind({});
 WithNormalLegend.args = {
   legend: 'Organisation',
   legendAsHeading: false,
+  items: [
+    {
+      label: 'Employment Tribunal',
+      value: 'employment-tribunal',
+    },
+    {
+      label: 'Ministry of Defence',
+      value: 'MOD',
+    },
+    { label: 'Department for Transport', value: 'DfT' },
+  ],
+};
+
+export const WithMediumCheckbox = Template.bind({});
+WithMediumCheckbox.args = {
+  fieldId: 'organisation',
+  legend: 'Organisation',
+  useMediumBoxes: true,
   items: [
     {
       label: 'Employment Tribunal',
