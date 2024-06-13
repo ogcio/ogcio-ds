@@ -84,7 +84,7 @@ const createRadioItem = ({
   conditional && input.setAttribute('data-aria-controls', `conditional-${id}`);
 
   const labelComponent = document.createElement('label');
-  labelComponent.className = 'govie-label--s govie-radios__label';
+  labelComponent.className = 'govie-label govie-radios__label';
   labelComponent.setAttribute('for', id);
   labelComponent.innerText = label;
 
