@@ -111,7 +111,8 @@ $govie-icon-button-hover-background-colour: govie-colour('mid-grey') !default;
 
     &:focus:not(:active):not(:hover) {
       border-color: $govie-input-border-colour;
-      box-shadow: inset 0 0 0 $govie-border-width-form-element $govie-focus-colour;
+      box-shadow: inset 0 0 0 $govie-border-width-form-element
+        $govie-focus-colour;
       outline: unset;
     }
 

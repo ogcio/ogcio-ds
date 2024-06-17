@@ -52,7 +52,8 @@ $govie-button-group-button-hover-background-colour: govie-tint(
         border-color: $govie-input-border-colour;
         background-color: transparent;
         color: $govie-primary-button-background-colour;
-        box-shadow: inset 0 0 0 $govie-border-width-form-element $govie-focus-colour;
+        box-shadow: inset 0 0 0 $govie-border-width-form-element
+          $govie-focus-colour;
         outline: unset;
       }
 
