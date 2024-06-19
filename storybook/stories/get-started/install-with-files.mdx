@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Link } from '../components/Link.jsx';
+import { Link, ReleaseLink } from '../components/Link.jsx';
 
 <Meta title="Docs/Install using precompiled files" />
 
@@ -19,12 +19,12 @@ You'll not be able to:
 
 ## Copy the files
 
-1. Access the [official repository](https://github.com/ogcio/ogcio-ds/tree/main/dist/%40ogcio).
+1. Downaload and extract the <ReleaseLink>official repository</ReleaseLink>.
 2. Copy the `assets` folder to the root of your project's public folder, so that for example `<YOUR-SITE-URL>/assets/logotype.png` shows the `logotype.png` image in your users' browsers.
 3. Copy the two `.css` files to a stylesheets folder in the root of your project's public folder, so that for example `<YOUR-SITE-URL>/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css` shows the CSS file in your users' browsers.
 4. Copy the `.js` file to a JavaScript folder in the root of your project's public folder, so that for example `<YOUR-SITE-URL>/javascript/ogcio-ds-<VERSION-NUMBER>.min.js` shows the JavaScript file in your users' browsers.
 
-<h2 id="basic-example-page">Check an example page</h2>
+## Check an example page
 
 1. Create a page in your project using the following HTML (in your live application, you should use the <Link href='?path=/docs/templates-basic-page--default'>Design System basic page template</Link> instead):
 
@@ -37,17 +37,7 @@ You'll not be able to:
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    {/*[if !IE 8]>
-    <!*/}
-      <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>
-    .min.css"> {/*
-    <![endif]*/}
-    <!--[if IE 8]>
-    <link
-      rel="stylesheet"
-      href="/stylesheets/ogcio-ds-ie8-<VERSION-NUMBER>.min.css"
-    />
-    <![endif]-->
+    <link rel="stylesheet" href="/stylesheets/ogcio-ds-<VERSION-NUMBER>.min.css" />
   </head>
   <body className="govie-template__body ">
     <script>
