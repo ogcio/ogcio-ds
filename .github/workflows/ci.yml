@@ -35,7 +35,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p artifact
-          zip -r artifact/ogcio-ds.zip dist/@ogcio/*
+          zip -r artifact/ogcio-ds.zip dist/*
       - uses: googleapis/release-please-action@v4
         id: release
         with:
