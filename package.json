@@ -63,8 +63,8 @@
     "lint:scss": "stylelint --cache --cache-location .cache/stylelint --cache-strategy content --color --ignore-path .gitignore --max-warnings 0 \"{app,src}/**/*.scss\"",
     "husky:install": "husky install",
     "husky:uninstall": "git config --unset core.hooksPath",
-    "format": "prettier --write \"src/**/*.{js,json,css,scss,html,md}\"",
-    "format:check": "prettier --check \"src/**/*.{js,json,css,scss,html,md}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,html,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,scss,html,md}\""
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
