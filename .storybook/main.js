@@ -13,7 +13,7 @@ export default {
     '@storybook/addon-links',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    "@storybook/addon-essentials",
+    '@storybook/addon-essentials',
     // reference: <https://storybook.js.org/docs/writing-docs/mdx#markdown-tables-arent-rendering-correctly>
     {
       name: '@storybook/addon-docs',
@@ -24,7 +24,7 @@ export default {
           },
         },
       },
-    }
+    },
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -44,9 +44,9 @@ export default {
     autodocs: true,
   },
   viteFinal: async (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      config.base = "/ogcio-ds/";
+    if (configType === 'PRODUCTION' && process.env.DS_ENV === 'github-pages') {
+      config.base = '/ogcio-ds/';
     }
     return config;
-  }
+  },
 };
