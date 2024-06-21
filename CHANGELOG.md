@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/ogcio/ogcio-ds/compare/v0.4.1...v0.4.2) (2024-06-21)
+
+
+### Bug Fixes
+
+* update storybook aws deployment ([#206](https://github.com/ogcio/ogcio-ds/issues/206)) ([0df5a9f](https://github.com/ogcio/ogcio-ds/commit/0df5a9f00e9f6060d3d9375aa830950916865440))
+
 ## [0.4.1](https://github.com/ogcio/ogcio-ds/compare/v0.4.0...v0.4.1) (2024-06-13)
 
 
