@@ -54,6 +54,7 @@
     "build:dist": "gulp build:dist --destination \"dist\"",
     "build:package": "gulp build:package --destination \"package\"",
     "test": "vitest run",
+    "test:axe": "storybook build && axe-storybook",
     "test:watch": "vitest",
     "test:tofix": "jest --color --ignoreProjects \"Gulp tasks\" --maxWorkers=50%",
     "test:build:package": "npx jest --selectProjects \"Gulp tasks\" --testMatch \"**/*build-package*\"",
@@ -69,6 +70,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
+    "@chanzuckerberg/axe-storybook-testing": "^8.0.2",
     "@chromatic-com/storybook": "^1.3.3",
     "@etchteam/storybook-addon-css-variables-theme": "^3.0.0",
     "@percy/cli": "^1.12.0",
