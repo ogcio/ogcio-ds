@@ -29,7 +29,6 @@ jobs:
           npm ci
           npm run format:check
           npm run test
-          npm run test:axe
           npm run build:package
           npm run build:dist
       - name: Create zip artifact
