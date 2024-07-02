@@ -202,6 +202,7 @@ $govie-tertiary-button-text-colour: govie-colour('black') !default;
 
     &:focus:not(:active):not(:hover) {
       border-color: $govie-focus-colour;
+      outline: $govie-focus-width solid $govie-input-border-colour;
       box-shadow: 0 2px 0 transparent;
     }
 
