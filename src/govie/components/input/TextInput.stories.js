@@ -193,6 +193,11 @@ const createTextInputElement = (args) => {
     textInput.setAttribute('autocomplete', args.autocomplete);
   }
 
+  // Use the hint value when only a hint is available.
+  if (args.hint && !args.label) {
+    textInput.setAttribute('aria-label', args.hint);
+  }
+
   if (textInputDescribedBy.length > 0) {
     textInput.setAttribute('aria-describedby', textInputDescribedBy.join(' '));
   }

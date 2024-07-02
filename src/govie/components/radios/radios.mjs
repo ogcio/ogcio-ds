@@ -1,8 +1,8 @@
-import '../../vendor/polyfills/Function/prototype/bind.mjs'
+import '../../vendor/polyfills/Function/prototype/bind.mjs';
 // addEventListener, event.target normalization and DOMContentLoaded
-import '../../vendor/polyfills/Event.mjs'
-import '../../vendor/polyfills/Element/prototype/classList.mjs'
-import { nodeListForEach } from '../../common.mjs'
+import '../../vendor/polyfills/Event.mjs';
+import '../../vendor/polyfills/Element/prototype/classList.mjs';
+import { nodeListForEach } from '../../common.mjs';
 
 /**
  * Radios component
@@ -10,9 +10,9 @@ import { nodeListForEach } from '../../common.mjs'
  * @class
  * @param {HTMLElement} $module - HTML element to use for radios
  */
-function Radios ($module) {
-  this.$module = $module
-  this.$inputs = $module.querySelectorAll('input[type="radio"]')
+function Radios($module) {
+  this.$module = $module;
+  this.$inputs = $module.querySelectorAll('input[type="radio"]');
 }
 
 /**
@@ -30,49 +30,58 @@ function Radios ($module) {
  * the reveal in sync with the radio state.
  */
 Radios.prototype.init = function () {
-  var $module = this.$module
-  var $inputs = this.$inputs
+  var $module = this.$module;
+  var $inputs = this.$inputs;
 
   nodeListForEach($inputs, function ($input) {
-    var target = $input.getAttribute('data-aria-controls')
+    var target = $input.getAttribute('data-aria-controls');
 
     // Skip radios without data-aria-controls attributes, or where the
     // target element does not exist.
     if (!target || !document.getElementById(target)) {
-      return
+      return;
     }
 
     // Promote the data-aria-controls attribute to a aria-controls attribute
     // so that the relationship is exposed in the AOM
-    $input.setAttribute('aria-controls', target)
-    $input.removeAttribute('data-aria-controls')
-  })
+    $input.setAttribute('aria-controls', target);
+    $input.removeAttribute('data-aria-controls');
+  });
 
   // When the page is restored after navigating 'back' in some browsers the
   // state of form controls is not restored until *after* the DOMContentLoaded
   // event is fired, so we need to sync after the pageshow event in browsers
   // that support it.
   if ('onpageshow' in window) {
-    window.addEventListener('pageshow', this.syncAllConditionalReveals.bind(this))
+    window.addEventListener(
+      'pageshow',
+      this.syncAllConditionalReveals.bind(this),
+    );
   } else {
-    window.addEventListener('DOMContentLoaded', this.syncAllConditionalReveals.bind(this))
+    window.addEventListener(
+      'DOMContentLoaded',
+      this.syncAllConditionalReveals.bind(this),
+    );
   }
 
   // Although we've set up handlers to sync state on the pageshow or
   // DOMContentLoaded event, init could be called after those events have fired,
   // for example if they are added to the page dynamically, so sync now too.
-  this.syncAllConditionalReveals()
+  this.syncAllConditionalReveals();
 
   // Handle events
-  $module.addEventListener('click', this.handleClick.bind(this))
-}
+  $module.addEventListener('click', this.handleClick.bind(this));
+};
 
 /**
  * Sync the conditional reveal states for all inputs in this $module.
  */
 Radios.prototype.syncAllConditionalReveals = function () {
-  nodeListForEach(this.$inputs, this.syncConditionalRevealWithInputState.bind(this))
-}
+  nodeListForEach(
+    this.$inputs,
+    this.syncConditionalRevealWithInputState.bind(this),
+  );
+};
 
 /**
  * Sync conditional reveal with the input state
@@ -83,15 +92,17 @@ Radios.prototype.syncAllConditionalReveals = function () {
  * @param {HTMLInputElement} $input - Radio input
  */
 Radios.prototype.syncConditionalRevealWithInputState = function ($input) {
-  var $target = document.getElementById($input.getAttribute('aria-controls'))
+  var $target = document.getElementById($input.getAttribute('aria-controls'));
 
   if ($target && $target.classList.contains('govie-radios__conditional')) {
-    var inputIsChecked = $input.checked
+    var inputIsChecked = $input.checked;
 
-    $input.setAttribute('aria-expanded', inputIsChecked)
-    $target.classList.toggle('govie-radios__conditional--hidden', !inputIsChecked)
+    $target.classList.toggle(
+      'govie-radios__conditional--hidden',
+      !inputIsChecked,
+    );
   }
-}
+};
 
 /**
  * Click event handler
@@ -104,25 +115,30 @@ Radios.prototype.syncConditionalRevealWithInputState = function ($input) {
  * @param {MouseEvent} event - Click event
  */
 Radios.prototype.handleClick = function (event) {
-  var $clickedInput = event.target
+  var $clickedInput = event.target;
 
   // Ignore clicks on things that aren't radio buttons
   if ($clickedInput.type !== 'radio') {
-    return
+    return;
   }
 
   // We only need to consider radios with conditional reveals, which will have
   // aria-controls attributes.
-  var $allInputs = document.querySelectorAll('input[type="radio"][aria-controls]')
+  var $allInputs = document.querySelectorAll(
+    'input[type="radio"][aria-controls]',
+  );
 
-  nodeListForEach($allInputs, function ($input) {
-    var hasSameFormOwner = ($input.form === $clickedInput.form)
-    var hasSameName = ($input.name === $clickedInput.name)
+  nodeListForEach(
+    $allInputs,
+    function ($input) {
+      var hasSameFormOwner = $input.form === $clickedInput.form;
+      var hasSameName = $input.name === $clickedInput.name;
 
-    if (hasSameName && hasSameFormOwner) {
-      this.syncConditionalRevealWithInputState($input)
-    }
-  }.bind(this))
-}
+      if (hasSameName && hasSameFormOwner) {
+        this.syncConditionalRevealWithInputState($input);
+      }
+    }.bind(this),
+  );
+};
 
-export default Radios
+export default Radios;
