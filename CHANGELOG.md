@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.3](https://github.com/ogcio/ogcio-ds/compare/v0.4.2...v0.4.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* add radio and text input accessibility ([#208](https://github.com/ogcio/ogcio-ds/issues/208)) ([8ecafb6](https://github.com/ogcio/ogcio-ds/commit/8ecafb657610f5f2692c6defd8c0db2d8bd00deb))
+* focus styles adjustment for buttons, button-group and icon-button ([#203](https://github.com/ogcio/ogcio-ds/issues/203)) ([7385c0b](https://github.com/ogcio/ogcio-ds/commit/7385c0ba89461eaca2349423bf250d5781eaab72))
+
 ## [0.4.2](https://github.com/ogcio/ogcio-ds/compare/v0.4.1...v0.4.2) (2024-06-21)
 
 
