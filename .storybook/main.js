@@ -14,6 +14,7 @@ export default {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
     '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
     // reference: <https://storybook.js.org/docs/writing-docs/mdx#markdown-tables-arent-rendering-correctly>
     {
       name: '@storybook/addon-docs',
