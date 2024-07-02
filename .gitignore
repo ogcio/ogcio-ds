@@ -20,6 +20,7 @@ examples/**/package-lock.json
 *.zip
 jsdoc/
 sassdoc/
+storybook-static/
 
 .idea
 .parcel-cache
