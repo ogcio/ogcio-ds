@@ -3,8 +3,9 @@ import { Link } from '../components/Link.jsx';
 
 <Meta title="Docs/Install with npm" />
 
-<h1>Install with Node.js package manager (npm)</h1>
-<h2>Requirements</h2>
+## Install with Node.js package manager (npm)
+
+### Requirements
 
 1. [Install Node.js](https://nodejs.org/en/)
 2. `cd` to the root of your project and check if you have a `package.json` file. If you do not have the file, create it by running:
@@ -22,3 +23,39 @@ npm install @ogcio/ogcio-ds --save
 When the installation finishes, the `@ogcio/ogcio-ds` package will be in your `node_modules` folder.
 
 You should now get started by <Link href='?path=/docs/docs-get-started--docs'>getting the CSS, assets and JavaScript working</Link> with one gov.ie Frontend component.
+
+## Update using Node.js package manager (npm)
+
+You can update with Node.js package manager (npm) if you originally installed OGCIO-DS with npm (mentioned above).
+
+### Find out which version you're using
+
+To find out which version of OGCIO-DS your project is using, you can run:
+
+```
+npm list @ogcio/ogcio-ds
+```
+
+If you do not have command line access, you can see the version number in the `package.json` file in the root of your project directory. For example:
+
+```json
+"@ogcio/ogcio-ds": "0.0.8"
+```
+
+## Update OGCIO-DS using npm
+
+To find out the latest version of OGCIO-DS, check the [release notes](https://github.com/ogcio/ogcio-ds/releases) in the OGCIO-DS GitHub repository.
+
+You may need to make code changes to keep OGCIO-DS working in your project, if the major version number changes when you update. The major version number is the first digit in the version number.
+
+To update to the most recent version, run:
+
+```
+npm install @ogcio/ogcio-ds@latest
+```
+
+If you want to install an earlier version, replace `latest` with the version that you want to update to. For example:
+
+```
+npm install @ogcio/ogcio-ds@0.0.7
+```
