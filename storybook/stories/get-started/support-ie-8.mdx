@@ -40,7 +40,7 @@ Setting the `$govie-is-ie8` variable to `true` when generating the stylesheet wi
 - include any conditional styles that target IE8
 - exclude any conditional styles that target browsers other than IE8
 
-You must set the variable before importing OGCIO-DS.
+You must set the variable before importing Gov IE DS.
 
 In most scenarios you should be able to create a separate stylesheet for IE8, set the `$govie-is-ie8` variable to true and then import your main application stylesheet without having to redefine anything else.
 
@@ -66,7 +66,7 @@ You should use the [oldie plugin](https://github.com/jonathantneal/oldie) for [p
 
 The oldie plugin is also able to flatten media queries, but this will already have been done as part of the stylesheet compilation in step 1.
 
-Doing this as a separate step allows us to keep the source of OGCIO-DS simple, without having to wrap syntax that would need to be transformed in mixins or functions.
+Doing this as a separate step allows us to keep the source of Gov IE DS simple, without having to wrap syntax that would need to be transformed in mixins or functions.
 
 ## 4. Include the IE8 stylesheet in your project
 

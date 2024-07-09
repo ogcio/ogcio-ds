@@ -139,7 +139,7 @@ export const parameters = {
           'Install using precompiled files',
           'Import CSS, assets and JavaScript',
           'Configure components with JavaScript',
-          'Localise OGCIO-DS',
+          'Localise Gov IE DS',
           'Support Internet Explorer 8',
           'JavaScript API Reference',
           'Sass API Reference',
