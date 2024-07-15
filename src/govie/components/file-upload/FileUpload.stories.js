@@ -57,7 +57,7 @@ const createErrorMessage = (args) => {
 
 const createLabel = (args) => {
   const label = document.createElement('label');
-  label.className = 'govie-label--s';
+  label.className = 'govie-label govie-label--s';
   label.setAttribute('for', `${args.fieldId}`);
   label.innerText = args.label;
 

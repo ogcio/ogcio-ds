@@ -132,7 +132,7 @@ const createHintElement = (args) => {
 };
 
 const createLabelElement = (args) => {
-  const labelClassNames = ['govie-label--s'];
+  const labelClassNames = ['govie-label govie-label--s'];
 
   if (args.labelAsHeading) {
     labelClassNames.push('govie-label--l');
