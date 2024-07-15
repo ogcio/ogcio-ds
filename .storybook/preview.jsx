@@ -11,6 +11,14 @@ import { DocsContainer } from '@storybook/addon-docs';
 
 // export const decorators = [cssVariablesTheme]
 
+function cleanHtmlString(htmlString) {
+  // Remove the leading and trailing backticks and braces
+  if (htmlString.startsWith('{`') && htmlString.endsWith('`}')) {
+    htmlString = htmlString.slice(2, -2);
+  }
+  return htmlString;
+}
+
 export const decorators = [
   (Story, context) => {
     useEffect(() => {
@@ -28,15 +36,6 @@ export const decorators = [
 ];
 
 export const parameters = {
-  // actions: { argTypesRegex: '^on[A-Z].*' },
-  // cssVariables: {
-  //   files: {
-  //     'HSE theme': hseTheme,
-  //     'AGS theme': agsTheme,
-  //     'OGCIO theme': defaultTheme,
-  //   },
-  //   defaultTheme: 'OGCIO theme',
-  // },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -45,12 +44,13 @@ export const parameters = {
     sort: 'requiredFirst',
   },
   docs: {
-    source: { format: false },
+    source: {
+      transform: (code) => {
+        // Work around solution to remove extra parenthesis like ` and {}
+        return cleanHtmlString(code);
+      },
+    },
     container: ({ children, context }) => {
-      // let newContext;
-      // cssVariablesTheme((c) => (newContext = c), context);
-      //    <DocsContainer context={newContext}>
-
       return (
         <DocsContainer context={context}>
           <div className="sb-unstyled">{children}</div>
