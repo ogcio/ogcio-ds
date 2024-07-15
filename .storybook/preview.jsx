@@ -134,8 +134,7 @@ export const parameters = {
         'Docs',
         [
           'Get started',
-          'Install with npm',
-          'Update with npm',
+          'Install and update with npm',
           'Install using precompiled files',
           'Import CSS, assets and JavaScript',
           'Configure components with JavaScript',
