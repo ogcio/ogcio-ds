@@ -2,7 +2,7 @@
 
 ## Structure
 
-OGCIO-DS is broken into a number of layers in order to help provide a
+Gov IE DS is broken into a number of layers in order to help provide a
 logical structure, loosely following the conventions of [ITCSS].
 
 1. [Settings](#settings)
