@@ -240,8 +240,8 @@ WithLabel.args = {
   label: 'Can you provide more detail?',
 };
 
-export const WithLableAndHint = Template.bind({});
-WithLableAndHint.args = {
+export const WithLabelAndHint = Template.bind({});
+WithLabelAndHint.args = {
   label: 'Can you provide more detail?',
   hint: 'Do not include personal or financial information, like your National Insurance number or credit card details.',
 };

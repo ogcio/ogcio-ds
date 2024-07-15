@@ -1,7 +1,7 @@
 import beautifyHtmlNode from '../../../../.storybook/helpers/beautifyHtmlNode';
 
 export default {
-  title: 'Typography/Error Sumamry',
+  title: 'Typography/Error Summary',
   parameters: {
     docs: {
       description: {
