@@ -186,8 +186,8 @@ WithLabel.args = {
   rows: 5,
 };
 
-export const WithLableAndHint = Template.bind({});
-WithLableAndHint.args = {
+export const WithLabelAndHint = Template.bind({});
+WithLabelAndHint.args = {
   fieldId: 'default-textarea',
   fieldName: 'default-textarea',
   label: 'Can you provide more detail?',

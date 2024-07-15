@@ -51,11 +51,7 @@ export const parameters = {
       },
     },
     container: ({ children, context }) => {
-      return (
-        <DocsContainer context={context}>
-          <div className="sb-unstyled">{children}</div>
-        </DocsContainer>
-      );
+      return <DocsContainer context={context}>{children}</DocsContainer>;
     },
     components: {
       a: ({ children, ...args }) => (
