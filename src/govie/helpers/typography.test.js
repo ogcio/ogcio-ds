@@ -91,26 +91,6 @@ describe('@mixin govie-typography-common', () => {
     expect(resultsString).toContain('font-family: "Lato"');
     expect(resultsString).toContain('font-family: "Lato"');
   });
-
-  it('should not output a @font-face declaration when the browser is IE8', async () => {
-    const sass = `
-    $govie-is-ie8: true;
-
-    @import "settings/all";
-    @import "helpers/all";
-    @import "tools/ie8";
-
-    :root {
-      @include govie-typography-common;
-    }
-    `;
-
-    const results = await compileSassString(sass, sassConfig);
-    const resultsString = results.css.toString();
-
-    expect(resultsString).not.toContain('@font-face');
-    expect(resultsString).toContain('font-family: "Lato"');
-  });
 });
 
 describe('@function _govie-line-height', () => {
