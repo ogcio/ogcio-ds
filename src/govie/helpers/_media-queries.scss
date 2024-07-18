@@ -24,9 +24,6 @@ $mq-show-breakpoints: ();
 // 'rasterize' any media queries.
 
 $mq-responsive: true;
-@if variable-exists(govie-is-ie8) and $govie-is-ie8 {
-  $mq-responsive: false;
-}
 
 // This is a horrible, horrible hack to prevent the 'dev mode' CSS to display
 // the current breakpoint from being included multiple times.

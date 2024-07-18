@@ -1,210 +1,104 @@
-const Vinyl = require('vinyl')
-const configFn = require('./postcss.config.js')
+const Vinyl = require('vinyl');
+const configFn = require('./postcss.config.js');
 
 describe('PostCSS config', () => {
   let env;
 
-  function getPluginNames ({ plugins }) {
-    return plugins.map(({ postcssPlugin }) => postcssPlugin)
+  function getPluginNames({ plugins }) {
+    return plugins.map(({ postcssPlugin }) => postcssPlugin);
   }
 
   beforeAll(() => {
-    env = 'production'
-  })
+    env = 'production';
+  });
 
   describe('Browserslist', () => {
     describe('Default environment', () => {
       it('Uses default environment', () => {
-        const config = configFn({ env })
+        const config = configFn({ env });
 
-        expect(config.plugins)
-          .toEqual(expect.arrayContaining([
+        expect(config.plugins).toEqual(
+          expect.arrayContaining([
             expect.objectContaining({
               postcssPlugin: 'autoprefixer',
-              options: { env }
-            })
-          ]))
-      })
+              options: { env },
+            }),
+          ]),
+        );
+      });
 
-      it.each(
-        [
-          { path: 'example.css' },
-          { path: 'example.scss' }
-        ]
-      )('Uses default environment for $path', ({ path }) => {
-        const input = new Vinyl({ path })
-        const config = configFn({ env, file: input.basename })
+      it.each([{ path: 'example.css' }, { path: 'example.scss' }])(
+        'Uses default environment for $path',
+        ({ path }) => {
+          const input = new Vinyl({ path });
+          const config = configFn({ env, file: input.basename });
 
-        expect(config.plugins)
-          .toEqual(expect.arrayContaining([
-            expect.objectContaining({
-              postcssPlugin: 'autoprefixer',
-              options: { env }
-            })
-          ]))
-      })
-    })
-
-    describe('IE8 only environment', () => {
-      it.each(
-        [
-          { path: 'example-ie8.css' },
-          { path: 'example-ie8.scss' },
-          { path: 'example-ie8.min.css' },
-          { path: 'example-ie8.min.scss' }
-        ]
-      )("Uses 'oldie' environment for $path", ({ path }) => {
-        const input = new Vinyl({ path })
-        const config = configFn({ env, file: input.basename })
-
-        expect(config.plugins)
-          .toEqual(expect.arrayContaining([
-            expect.objectContaining({
-              postcssPlugin: 'autoprefixer',
-              options: { env: 'oldie' }
-            })
-          ]))
-      })
-    })
-  })
+          expect(config.plugins).toEqual(
+            expect.arrayContaining([
+              expect.objectContaining({
+                postcssPlugin: 'autoprefixer',
+                options: { env },
+              }),
+            ]),
+          );
+        },
+      );
+    });
+  });
 
   describe('Plugins', () => {
     describe('Default', () => {
-      it.each(
-        [
-          { path: 'example.css' },
-          { path: 'example.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
+      it.each([{ path: 'example.css' }, { path: 'example.scss' }])(
+        'Adds plugins for $path',
+        ({ path }) => {
+          const input = new Vinyl({ path });
 
-        // Confirm plugins for both file object and path
-        for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename })
+          // Confirm plugins for both file object and path
+          for (const file of [input, input.path]) {
+            const config = configFn({ env, file: file.basename });
 
-          expect(getPluginNames(config))
-            .toEqual(['autoprefixer', 'cssnano'])
-        }
-      })
-    })
-
-    describe('Default + IE8', () => {
-      it.each(
-        [
-          { path: 'example-ie8.css' },
-          { path: 'example-ie8.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
-
-        // Confirm plugins for both file object and path
-        for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename ? file.basename : file })
-
-          expect(getPluginNames(config))
-            .toEqual([
-              'autoprefixer',
-              'postcss-unmq',
-              'postcss-unopacity',
-              'postcss-color-rgba-fallback',
-              'cssnano'
-            ])
-        }
-      })
-    })
+            expect(getPluginNames(config)).toEqual(['autoprefixer', 'cssnano']);
+          }
+        },
+      );
+    });
 
     describe('Default + Minification', () => {
-      it.each(
-        [
-          { path: 'example.min.css' },
-          { path: 'example.min.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
+      it.each([{ path: 'example.min.css' }, { path: 'example.min.scss' }])(
+        'Adds plugins for $path',
+        ({ path }) => {
+          const input = new Vinyl({ path });
 
-        // Confirm plugins for both file object and path
-        for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename ? file.basename : file })
+          // Confirm plugins for both file object and path
+          for (const file of [input, input.path]) {
+            const config = configFn({
+              env,
+              file: file.basename ? file.basename : file,
+            });
 
-          expect(getPluginNames(config))
-            .toEqual([
-              'autoprefixer',
-              'cssnano'
-            ])
-        }
-      })
-    })
-
-    describe('Default + Minification + IE8', () => {
-      it.each(
-        [
-          { path: 'example-ie8.min.css' },
-          { path: 'example-ie8.min.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
-
-        // Confirm plugins for both file object and path
-        for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename ? file.basename : file })
-
-          expect(getPluginNames(config))
-            .toEqual([
-              'autoprefixer',
-              'postcss-unmq',
-              'postcss-unopacity',
-              'postcss-color-rgba-fallback',
-              'cssnano'
-            ])
-        }
-      })
-    })
+            expect(getPluginNames(config)).toEqual(['autoprefixer', 'cssnano']);
+          }
+        },
+      );
+    });
 
     describe('Review app only', () => {
-      it.each(
-        [
-          { path: 'app/assets/scss/app.scss' },
-          { path: 'app/assets/scss/app-legacy.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
+      it.each([
+        { path: 'app/assets/scss/app.scss' },
+        { path: 'app/assets/scss/app-legacy.scss' },
+      ])('Adds plugins for $path', ({ path }) => {
+        const input = new Vinyl({ path });
 
         // Confirm plugins for both file object and path
         for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename ? file.basename : file })
+          const config = configFn({
+            env,
+            file: file.basename ? file.basename : file,
+          });
 
-          expect(getPluginNames(config))
-            .toEqual([
-              'autoprefixer',
-              'cssnano'
-            ])
+          expect(getPluginNames(config)).toEqual(['autoprefixer', 'cssnano']);
         }
-      })
-    })
-
-    describe('Review app only + IE8', () => {
-      it.each(
-        [
-          { path: 'app/assets/scss/app-ie8.scss' },
-          { path: 'app/assets/scss/app-legacy-ie8.scss' }
-        ]
-      )('Adds plugins for $path', ({ path }) => {
-        const input = new Vinyl({ path })
-
-        // Confirm plugins for both file object and path
-        for (const file of [input, input.path]) {
-          const config = configFn({ env, file: file.basename ? file.basename : file })
-
-          expect(getPluginNames(config))
-            .toEqual([
-              'autoprefixer',
-              'postcss-unmq',
-              'postcss-unopacity',
-              'postcss-color-rgba-fallback',
-              'cssnano'
-            ])
-        }
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

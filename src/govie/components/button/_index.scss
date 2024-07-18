@@ -192,11 +192,6 @@ $govie-tertiary-button-text-colour: govie-colour('black') !default;
       @include govie-not-ie8 {
         outline: $govie-focus-width solid transparent;
       }
-      // Since Internet Explorer does not support `:not()` we set a clearer focus style to match user-agent outlines.
-      @include govie-if-ie8 {
-        border-color: $govie-focus-colour;
-        background-color: $govie-focus-colour;
-      }
       box-shadow: inset 0 0 0 1px transparent;
     }
 

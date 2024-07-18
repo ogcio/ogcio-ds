@@ -32,7 +32,6 @@ Using Frontend will help your service meet [level AA of WCAG 2.1](https://www.w3
 You should also use:
 
 - [the JavaScript from Gov IE DS](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-import-css-assets-and-javascript--docs)
-- [a separate stylesheet](https://ogcio.github.io/ogcio-ds/?path=/docs/docs-support-internet-explorer-8--docs) if you support Internet Explorer 8
 
 You can also read the [accessibility statement for Gov IE DS](https://www.design-system.ogcio.gov.ie/accessibility/)
 
