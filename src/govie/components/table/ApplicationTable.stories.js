@@ -10,6 +10,9 @@ export default {
   title: 'Application/Table',
   parameters: {
     docs: {
+      source: {
+        type: 'dynamic',
+      },
       description: {
         component:
           'Use the table component to make information easier to compare and scan for users.',
