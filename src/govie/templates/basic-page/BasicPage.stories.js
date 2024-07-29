@@ -19,7 +19,7 @@ const Template = () => {
   
   <head>
     <meta charset="utf-8">
-    <title>Gov IE DS</title>
+    <title>Gov IE Frontend</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          'The Gov IE DS header shows users that they are on gov.ie and which service they are using.',
+          'The Gov IE Frontend header shows users that they are on gov.ie and which service they are using.',
       },
     },
   },
