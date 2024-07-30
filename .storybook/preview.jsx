@@ -134,7 +134,7 @@ export const parameters = {
           'Install using precompiled files',
           'Import CSS, assets and JavaScript',
           'Configure components with JavaScript',
-          'Localise Gov IE DS',
+          'Localise Gov IE Frontend',
           'JavaScript API Reference',
           'Sass API Reference',
           'Colours',

@@ -8,7 +8,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 
 ### Import all the CSS
 
-To import all the Sass rules from Gov IE DS, add the following to your Sass file:
+To import all the Sass rules from Gov IE Frontend, add the following to your Sass file:
 
 ```sass
 @import "@ogcio/ogcio-ds/govie/all";
@@ -21,7 +21,7 @@ If you want to improve how quickly your service's pages load in browsers, you ca
 - Import `@ogcio/ogcio-ds/govie/base` in your Sass file.
 - Import the parts of the CSS you need.
 
-For example, add the following to your Sass file to import the CSS you need for a basic Gov IE DS page.
+For example, add the following to your Sass file to import the CSS you need for a basic Gov IE Frontend page.
 
 ```sass
 @import "@ogcio/ogcio-ds/govie/base";\n
@@ -48,16 +48,16 @@ To import the button component for example, add the following to your Sass file:
 
 ### Override with your own CSS
 
-If you want to override Gov IE DS styles with your own styles, `@import` Gov IE DS styles before your own Sass rules.
+If you want to override Gov IE Frontend styles with your own styles, `@import` Gov IE Frontend styles before your own Sass rules.
 
 <h2 id="fonts-and-images-assets">Font and image assets</h2>
 
-To use the font and image assets from Gov IE DS, you can either:
+To use the font and image assets from Gov IE Frontend, you can either:
 
-- serve the assets from the Gov IE DS assets folder - recommended
+- serve the assets from the Gov IE Frontend assets folder - recommended
 - copy the font and image files into your application
 
-### Serve the assets from the Gov IE DS assets folder - recommended
+### Serve the assets from the Gov IE Frontend assets folder - recommended
 
 Set up your routing so that requests for files in `<YOUR-SITE-URL>/assets` are served from `/node_modules/@ogcio/ogcio-ds/govie/assets`.
 
@@ -78,7 +78,7 @@ If you decide to copy the assets instead, copy the:
 - `/node_modules/@ogcio/ogcio-ds/govie/assets/images` folder to `<YOUR-APP>/assets/images`
 - `/node_modules/@ogcio/ogcio-ds/govie/assets/fonts` folder to `<YOUR-APP>/assets/fonts`
 
-You should use an automated task or your build pipeline to copy the files, so your project folder stays up to date when we update Gov IE DS.
+You should use an automated task or your build pipeline to copy the files, so your project folder stays up to date when we update Gov IE Frontend.
 
 #### If you have your own folder structure
 
@@ -106,9 +106,9 @@ You can also use your own function to generate paths, for example if you're usin
 
 <h2 id="import-javascript">JavaScript</h2>
 
-To import the JavaScript from Gov IE DS, you can either:
+To import the JavaScript from Gov IE Frontend, you can either:
 
-- add Gov IE DS's JavaScript file to your HTML
+- add Gov IE Frontend's JavaScript file to your HTML
 - import JavaScript using a bundle
 
   r
@@ -164,7 +164,7 @@ if ($radios) {
 }
 ```
 
-If you need to import all of Gov IE DS components, then run the `initAll` function to initialise them:
+If you need to import all of Gov IE Frontend components, then run the `initAll` function to initialise them:
 
 ```javascript
 import { initAll } from '@ogcio/ogcio-ds';
