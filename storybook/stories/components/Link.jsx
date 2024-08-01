@@ -2,7 +2,7 @@ import packageJson from '../../../package.json';
 import React from 'react';
 
 export const Link = ({ children, href }) => {
-  let url = href.startsWith('https://')
+  const url = href.startsWith('https://')
     ? href
     : `${import.meta.env.BASE_URL}${href}`;
 
