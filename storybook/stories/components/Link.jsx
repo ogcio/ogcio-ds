@@ -1,11 +1,17 @@
 import packageJson from '../../../package.json';
 import React from 'react';
 
-export const Link = ({ children, href }) => (
-  <a className="govie-link" href={`${import.meta.env.BASE_URL}${href}`}>
-    {children}
-  </a>
-);
+export const Link = ({ children, href }) => {
+  const url = href.startsWith('https://')
+    ? href
+    : `${import.meta.env.BASE_URL}${href}`;
+
+  return (
+    <a className="govie-link" href={url}>
+      {children}
+    </a>
+  );
+};
 
 export const ReleaseLink = ({ children }) => {
   const version = packageJson.version;

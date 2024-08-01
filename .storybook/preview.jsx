@@ -2,6 +2,7 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 import React, { useEffect } from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
+import { Link } from '../storybook/stories/components/Link';
 // import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
 // import hseTheme from '!!style-loader?injectType=lazyStyleTag!css-loader!./assets/themes/hse.css';
@@ -54,11 +55,7 @@ export const parameters = {
       return <DocsContainer context={context}>{children}</DocsContainer>;
     },
     components: {
-      a: ({ children, ...args }) => (
-        <a className="govie-link" {...args}>
-          {children}
-        </a>
-      ),
+      a: ({ children, ...args }) => <Link {...args}>{children}</Link>,
       p: ({ children, ...args }) => (
         <p className="govie-body" {...args}>
           {children}
