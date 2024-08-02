@@ -54,7 +54,7 @@
     "build:dist": "gulp build:dist --destination \"dist\"",
     "build:package": "gulp build:package --destination \"package\"",
     "test": "vitest run",
-    "test-storybook:axe": "test-storybook",
+    "test:axe": "test-storybook",
     "test:watch": "vitest",
     "test:tofix": "jest --color --ignoreProjects \"Gulp tasks\" --maxWorkers=50%",
     "test:build:package": "npx jest --selectProjects \"Gulp tasks\" --testMatch \"**/*build-package*\"",
