@@ -24,8 +24,6 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - name: Install Playwright
-        run: npx playwright install --with-deps
       - name: Build and test
         run: |
           npm ci
@@ -33,11 +31,11 @@ jobs:
           npm run test
           npm run build:package
           npm run build:dist
-          npm run storybook:build --quiet
+          npm run build:storybook:dist
       - name: Serve Storybook and run accessibility tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server npm run storybook --port 6006 --silent" \
+            "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && npm run test:axe"
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
