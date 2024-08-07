@@ -33,10 +33,10 @@ jobs:
           npm run test
           npm run build:package
           npm run build:dist
-          npm run storybook:build-static
+          npm run storybook:build
       - name: Serve Storybook and run accessibility tests
         run: |
-          npm run test:storybook-concurrently
+          npm run test:storybook
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
         run: |
