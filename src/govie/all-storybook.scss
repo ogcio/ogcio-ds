@@ -2,6 +2,11 @@
 // targets Storybook – e.g. conditionally including or excluding styles.
 $govie-is-storybook: true;
 
+// Workaround solution for <https://github.com/storybookjs/storybook/issues/13612>
+.govie-template__body.sb-show-main {
+  transition: none !important; /* !important needed to counter inline style */
+}
+
 // Override SASS variables using CSS variables
 // The CSS are used just in the storybook, in order to allow
 // theme changes on the Storybook
