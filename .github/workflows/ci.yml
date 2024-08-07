@@ -31,6 +31,7 @@ jobs:
           npm run test
           npm run build:package
           npm run build:dist
+          npm run storybook:build --quiet
       - name: Serve Storybook and run accessibility tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
