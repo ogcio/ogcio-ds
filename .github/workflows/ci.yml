@@ -31,12 +31,10 @@ jobs:
           npm run test
           npm run build:package
           npm run build:dist
-          npm run storybook:build
+          npm run storybook:build-static
       - name: Serve Storybook and run accessibility tests
         run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && npm run test:axe --url http://127.0.0.1:6006/"
+          concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"npx wait-on http://127.0.0.1:6006 && test-storybook\"
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
         run: |
