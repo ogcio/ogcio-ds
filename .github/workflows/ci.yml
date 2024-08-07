@@ -35,7 +35,7 @@ jobs:
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && npm test:axe"
+            "npx wait-on tcp:6006 && npm run test:axe"
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
         run: |
