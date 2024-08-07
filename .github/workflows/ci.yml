@@ -29,9 +29,13 @@ jobs:
           npm ci
           npm run format:check
           npm run test
-          npm run test:axe
           npm run build:package
           npm run build:dist
+      - name: Serve Storybook and run accessibility tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:6006 && npm test:axe"
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
         run: |
