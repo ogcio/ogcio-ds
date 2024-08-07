@@ -45,7 +45,8 @@
   "scripts": {
     "storybook": " npm run build:storybook:dist && npm run storybook:ci",
     "storybook:ci": "storybook dev -p 6006",
-    "storybook:build": "storybook build -o storybook-static",
+    "storybook:build": "storybook build --output-dir build",
+    "storybook:build-static": "storybook build -o storybook-static",
     "storybook:serve": "http-server storybook-static --port 6006",
     "build:storybook:dist": "gulp build:storybook:dist --destination 'storybook/dist'",
     "build-release": "./bin/build-release.sh",
