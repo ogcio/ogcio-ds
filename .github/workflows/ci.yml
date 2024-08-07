@@ -34,7 +34,7 @@ jobs:
           npm run storybook:build-static
       - name: Serve Storybook and run accessibility tests
         run: |
-          concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"npx wait-on http://127.0.0.1:6006 && test-storybook\"
+          npm run test:storybook-concurrently
       - name: Create zip artifact
         if: github.ref == 'refs/heads/main'
         run: |
