@@ -164,7 +164,7 @@
       .govie-radios__item {
         margin-right: govie-spacing(4);
         float: left;
-        clear: none;
+        clear: none !important;
       }
     }
   }
@@ -450,6 +450,7 @@
       margin-bottom: 0;
       padding-left: $label-offset;
       float: left;
+      clear: left;
     }
 
     // Shift the touch target into the left margin so that the visible edge of
