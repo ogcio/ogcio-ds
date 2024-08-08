@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.4](https://github.com/ogcio/ogcio-ds/compare/v0.4.3...v0.4.4) (2024-08-08)
+
+
+### Bug Fixes
+
+* inline radio item style specification ([#225](https://github.com/ogcio/ogcio-ds/issues/225)) ([4d234a3](https://github.com/ogcio/ogcio-ds/commit/4d234a33e2424bc995340a322b4b152f9855cc0d))
+* remove ie support where necessary ([#217](https://github.com/ogcio/ogcio-ds/issues/217)) ([67e0ebb](https://github.com/ogcio/ogcio-ds/commit/67e0ebb73ea358d26d540c94274a10c8850f3692))
+
 ## [0.4.3](https://github.com/ogcio/ogcio-ds/compare/v0.4.2...v0.4.3) (2024-07-02)
 
 
