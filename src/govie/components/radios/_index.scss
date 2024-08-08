@@ -164,7 +164,7 @@
       .govie-radios__item {
         margin-right: govie-spacing(4);
         float: left;
-        clear: none !important;
+        clear: none;
       }
     }
   }
@@ -374,7 +374,7 @@
     // Inline radios
     // =========================================================
 
-    .govie-radios--inline {
+    &.govie-radios--inline {
       @include govie-media-query($from: tablet) {
         @include govie-clearfix;
 
@@ -451,6 +451,18 @@
       padding-left: $label-offset;
       float: left;
       clear: left;
+    }
+
+    &.govie-radios--inline {
+      @include govie-media-query($from: tablet) {
+        @include govie-clearfix;
+
+        .govie-radios__item {
+          margin-right: govie-spacing(4);
+          float: left;
+          clear: none;
+        }
+      }
     }
 
     // Shift the touch target into the left margin so that the visible edge of
