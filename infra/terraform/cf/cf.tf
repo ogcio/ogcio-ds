@@ -51,8 +51,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   aliases = var.cf_aliases
 
   viewer_certificate {
-    acm_certificate_arn = var.cf_viewer_certificate_arn
-    ssl_support_method  = var.cf_viewer_certificate_ssl_support_method
+    acm_certificate_arn      = var.cf_viewer_certificate_arn
+    ssl_support_method       = var.cf_viewer_certificate_ssl_support_method
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   restrictions {
