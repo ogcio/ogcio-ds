@@ -12,7 +12,7 @@ inputs = {
 
   acm_cert_domain_name = "storybook-html.design-system.blocks.gov.ie"
 
-  cf_aliases = []
+  cf_aliases = ["storybook-html.design-system.blocks.gov.ie"]
 
   cf_viewer_certificate_arn                = "arn:aws:acm:us-east-1:782102975611:certificate/e97877f7-2bf7-493c-b349-25dca165c2a5"
   cf_viewer_certificate_ssl_support_method = "sni-only"
