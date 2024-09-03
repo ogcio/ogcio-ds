@@ -16,7 +16,7 @@ import { destination } from '../task-arguments.mjs'
 export function copyAssets() {
   return gulp
     .src(`${slash(configPaths.assets)}/**/*`)
-    .pipe(gulp.dest(slash(join(destination, '@ogcio/assets'))))
+    .pipe(gulp.dest(slash(join(destination, '/assets'))))
 }
 
 copyAssets.displayName = 'copy:assets'

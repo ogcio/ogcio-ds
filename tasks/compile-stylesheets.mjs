@@ -130,7 +130,7 @@ export function getPathByDestination(filePath) {
 
   // Adjust file path by destination
   name = isDist
-    ? `${name.replace(/^all/, pkg.name)}-${pkg.version}`
+    ? `${name.replace(/^all/, 'ogcio-ds')}-${pkg.version}`
     : isStorybook
     ? `${name.replace(/^all-storybook/, pkg.name)}`
     : name
